@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="X_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\X_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAYJJREFUSEudlVtOwzAQRQ2loC6v8AubQuIp8RKvCgosCfEBi0CIcm7qMY7bOHZG
+        uprk+s6cVmoaZ/Xr3BTdL5zb8tagYn6DPYfowFvL8oBvAgv0NBTkAUfaQ/8JoARgqgaRF+A42mGgfUFm
+        8UGkYhC5FYAJf67AmIuX9NCrF8S5ACfRTBD+G31swUEgfAFOo2wQ/it9CbCSUQPiPgfQnjbASgclIPom
+        ubPoLCgLsFKgB7TN+XniN8Kf0/MAKwW7QPjvHX45wEoDXaBU5J7pdQArDRaAen/mvQVkB30kixvhf6KJ
+        jw4rFulXdJEuTzT8mzAowGW0LKd6EAOdAPyvdT4qBxEU4CoaDsJ/RBOUe47yIAJZAL1ZQC/6Z1gpDjbR
+        tQ+2xMIHemuQ+zoQxoiBmygU5AEjH20VfhmIixxA7/y1ACvO+0EE1j4H+Hf0LMCKXCdIH1SQXdR6x9cA
+        rMivgLQXTZsAF3sy/MEtvQpgxVwAaR9aAqwwBNIDOAhg5UGzf4Bzf6FxYsv+kBFuAAAAAElFTkSuQmCC
+</value>
   </data>
 </root>
