@@ -42,11 +42,6 @@ namespace Vista
 
         }
 
-        private void lblUserPoints_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void mskUser_Click(object sender, EventArgs e)
         {
             

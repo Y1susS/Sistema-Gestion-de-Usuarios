@@ -61,12 +61,12 @@ namespace Vista.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Resources.ResXFileRef.
         /// </summary>
-        internal static System.Drawing.Bitmap X_Icon {
+        internal static System.Resources.ResXFileRef X_Icon {
             get {
                 object obj = ResourceManager.GetObject("X_Icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Resources.ResXFileRef)(obj));
             }
         }
     }

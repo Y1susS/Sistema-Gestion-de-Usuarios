@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Loguin\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logica\Logica.csproj">
@@ -96,9 +97,6 @@
       <Project>{7b0111b2-31ee-445a-a190-2ba08defb3b1}</Project>
       <Name>Sesion</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\X_Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
