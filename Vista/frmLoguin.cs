@@ -22,11 +22,6 @@ namespace Vista
 
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void frmLoguin_Load(object sender, EventArgs e)
         {
 
