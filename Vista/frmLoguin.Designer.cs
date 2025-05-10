@@ -36,6 +36,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
@@ -47,10 +48,10 @@
             this.mskPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.mskPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mskPassword.ForeColor = System.Drawing.Color.Black;
-            this.mskPassword.Location = new System.Drawing.Point(193, 331);
+            this.mskPassword.Location = new System.Drawing.Point(211, 151);
             this.mskPassword.Margin = new System.Windows.Forms.Padding(4);
             this.mskPassword.Name = "mskPassword";
-            this.mskPassword.Size = new System.Drawing.Size(147, 15);
+            this.mskPassword.Size = new System.Drawing.Size(147, 13);
             this.mskPassword.TabIndex = 1;
             this.mskPassword.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskPassword_MaskInputRejected);
             // 
@@ -63,7 +64,7 @@
             this.mskUser.Location = new System.Drawing.Point(193, 278);
             this.mskUser.Margin = new System.Windows.Forms.Padding(4);
             this.mskUser.Name = "mskUser";
-            this.mskUser.Size = new System.Drawing.Size(147, 20);
+            this.mskUser.Size = new System.Drawing.Size(147, 16);
             this.mskUser.TabIndex = 2;
             this.mskUser.Text = "...........";
             this.mskUser.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskUser_MaskInputRejected);
@@ -124,6 +125,14 @@
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(193, 206);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // frmLoguin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -131,6 +140,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(603, 464);
             this.ControlBox = false;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pctClose);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox2);
@@ -164,6 +174,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
