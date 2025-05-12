@@ -10,41 +10,51 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frmLoguin : Form
+    public partial class FrmLoguin : Form
     {
-        public frmLoguin()
+        public FrmLoguin()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void frmLoguin_Load(object sender, EventArgs e)
+        private void FrmLoguin_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void mskUser_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void MskUser_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
 
-        private void mskPassword_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void MskPassword_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
 
-        private void mskUser_Click(object sender, EventArgs e)
+        private void MskUser_Click(object sender, EventArgs e)
         {
             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void PctClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void PctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

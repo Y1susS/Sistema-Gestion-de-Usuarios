@@ -61,12 +61,42 @@ namespace Vista.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Resources.ResXFileRef.
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Resources.ResXFileRef X_Icon {
+        internal static System.Drawing.Bitmap CircleX {
+            get {
+                object obj = ResourceManager.GetObject("CircleX", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteMinimize {
+            get {
+                object obj = ResourceManager.GetObject("WhiteMinimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WoodenPlank {
+            get {
+                object obj = ResourceManager.GetObject("WoodenPlank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_Icon {
             get {
                 object obj = ResourceManager.GetObject("X_Icon", resourceCulture);
-                return ((System.Resources.ResXFileRef)(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
