@@ -27,26 +27,6 @@ namespace Vista
 
         }
 
-        private void MskUser_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void MskPassword_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void MskUser_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void PctClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -55,6 +35,26 @@ namespace Vista
         private void PctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void lnkRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }
