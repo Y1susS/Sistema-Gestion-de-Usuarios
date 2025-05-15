@@ -24,7 +24,7 @@ namespace Vista
 
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-
+            PlaceHolderPass.Leave("Ingrese Contraseña", txtPassword);
         }
 
         private void PctClose_Click(object sender, EventArgs e)
@@ -69,6 +69,26 @@ namespace Vista
             mouse = 1;
             mousex = e.X;
             mousey = e.Y;
+        }
+
+        private void txtUsuario_Enter(object sender, EventArgs e)
+        {
+            PlaceHolder.Enter("Ingrese Usuario", txtUsuario);
+        }
+
+        private void txtUsuario_Leave(object sender, EventArgs e)
+        {
+            PlaceHolder.Leave("Ingrese Usuario", txtUsuario);
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            PlaceHolderPass.Enter("Ingrese Contraseña", txtPassword);
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            PlaceHolderPass.Leave("Ingrese Contraseña", txtPassword);
         }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
