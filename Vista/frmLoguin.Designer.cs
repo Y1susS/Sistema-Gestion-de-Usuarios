@@ -34,9 +34,9 @@
             this.pctBorde = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.lnkRecuperar = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtContrasenia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -106,24 +106,10 @@
             this.txtUsuario.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(139, 186);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(176, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(176, 27);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.Text = "Ingrese Usuario";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BackColor = System.Drawing.Color.White;
-            this.txtPassword.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(139, 243);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(176, 23);
-            this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "Ingrese Contraseña";
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
-            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
-            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // lnkRecuperar
             // 
@@ -133,7 +119,7 @@
             this.lnkRecuperar.LinkColor = System.Drawing.Color.White;
             this.lnkRecuperar.Location = new System.Drawing.Point(138, 292);
             this.lnkRecuperar.Name = "lnkRecuperar";
-            this.lnkRecuperar.Size = new System.Drawing.Size(177, 16);
+            this.lnkRecuperar.Size = new System.Drawing.Size(232, 21);
             this.lnkRecuperar.TabIndex = 3;
             this.lnkRecuperar.TabStop = true;
             this.lnkRecuperar.Text = "Olvidé mi usuario/contraseña";
@@ -150,6 +136,17 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // txtContrasenia
+            // 
+            this.txtContrasenia.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenia.Location = new System.Drawing.Point(139, 219);
+            this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.Size = new System.Drawing.Size(176, 28);
+            this.txtContrasenia.TabIndex = 2;
+            this.txtContrasenia.UseSystemPasswordChar = true;
+            this.txtContrasenia.Enter += new System.EventHandler(this.txtContrasenia_Enter);
+            this.txtContrasenia.Leave += new System.EventHandler(this.txtContrasenia_Leave);
+            // 
             // FrmLoguin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -157,9 +154,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(441, 376);
             this.ControlBox = false;
+            this.Controls.Add(this.txtContrasenia);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lnkRecuperar);
-            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.pctMinimize);
             this.Controls.Add(this.pctClose);
@@ -188,9 +185,9 @@
         private System.Windows.Forms.PictureBox pctBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.LinkLabel lnkRecuperar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtContrasenia;
     }
 }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
@@ -24,7 +25,8 @@ namespace Vista
 
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-            PlaceHolderPass.Leave("Ingrese Contraseña", txtPassword);
+            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
+            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void PctClose_Click(object sender, EventArgs e)
@@ -35,21 +37,6 @@ namespace Vista
         private void PctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
 
         private void lnkRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -71,24 +58,27 @@ namespace Vista
             mousey = e.Y;
         }
 
+        private const string USER_PLACEHOLDER = "Usuario";
+        private const string PLACEHOLDER_PASS = "Contraseña";
+
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
-            PlaceHolder.Enter("Ingrese Usuario", txtUsuario);
+            ClsPlaceHolder.Enter(USER_PLACEHOLDER, txtUsuario);
         }
 
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
-            PlaceHolder.Leave("Ingrese Usuario", txtUsuario);
+            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
         }
 
-        private void txtPassword_Enter(object sender, EventArgs e)
+        private void txtContrasenia_Enter(object sender, EventArgs e)
         {
-            PlaceHolderPass.Enter("Ingrese Contraseña", txtPassword);
+            ClsPlaceHolder.Enter(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
-        private void txtPassword_Leave(object sender, EventArgs e)
+        private void txtContrasenia_Leave(object sender, EventArgs e)
         {
-            PlaceHolderPass.Leave("Ingrese Contraseña", txtPassword);
+            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
