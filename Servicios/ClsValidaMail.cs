@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Servicios
 {
-    internal class ClsValidaMail
+    public static class ClsValidaMail
     {
         public static bool Valid(string Correo)
         {

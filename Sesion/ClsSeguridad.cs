@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sesion
 {
-    class ClsSeguridad
+    public static class ClsSeguridad
     {
         public static string SHA256(string str)
         {
