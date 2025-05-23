@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Servicios
 {
-    internal class ClsUtilidadesForms
+    public static class ClsUtilidadesForms
     {
         public static void BloquearControles(Control control)
         {

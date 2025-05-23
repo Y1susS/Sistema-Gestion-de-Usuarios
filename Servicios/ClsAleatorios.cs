@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Servicios
 {
-    class ClsAleatorios
+    public static class ClsAleatorios
     {
         public static string Armar(bool EsCaracteres, int Cant, int CantCaractEspeciales = 0)
         {

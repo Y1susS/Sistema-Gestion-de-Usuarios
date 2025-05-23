@@ -7,10 +7,9 @@ using System.Windows.Forms;
 
 namespace Servicios
 {
-    internal class ClsSoloNumeros
+    public static class ClsSoloNumeros
     {
-        public static class SoloNumeros
-        {
+
             ////Metodo para ingresar solo numeros en un textbox
             ////Se lo llama desde el evento KeyPress del objeto
             public static bool ValidarNro(KeyPressEventArgs e)
@@ -25,7 +24,7 @@ namespace Servicios
                 }
                 return e.Handled;
             }
-        }
+        
     }
 
 }
