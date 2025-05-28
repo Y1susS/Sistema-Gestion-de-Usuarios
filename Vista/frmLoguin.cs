@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica;
+using Sesion;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -25,9 +27,9 @@ namespace Vista
 
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-            txtContrasenia.UseSystemPasswordChar = false;
-            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
-            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
+            //txtContrasenia.UseSystemPasswordChar = false;
+            //ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
+            //ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void PctClose_Click(object sender, EventArgs e)
@@ -57,41 +59,61 @@ namespace Vista
             mousey = e.Y;
         }
 
-        private const string USER_PLACEHOLDER = "Usuario";
-        private const string PLACEHOLDER_PASS = "Contraseña";
+        //private const string USER_PLACEHOLDER = "Usuario";
+        //private const string PLACEHOLDER_PASS = "Contraseña";
 
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
-            ClsPlaceHolder.Enter(USER_PLACEHOLDER, txtUsuario);
+            //ClsPlaceHolder.Enter(USER_PLACEHOLDER, txtUsuario);
         }
 
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
-            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
+            //ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
         }
 
         private void txtContrasenia_Enter(object sender, EventArgs e)
         {
-            ClsPlaceHolder.Enter(PLACEHOLDER_PASS, txtContrasenia, true);
+            //ClsPlaceHolder.Enter(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void txtContrasenia_Leave(object sender, EventArgs e)
         {
-            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
+            //ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            bool ambosVacios = string.IsNullOrWhiteSpace(txtUsuario.Text) && string.IsNullOrWhiteSpace(txtContrasenia.Text);
+            string usuario = txtUsuario.Text;
+            string password = txtContrasenia.Text;
 
-            if (ambosVacios == true)
+            CL_Loguin login = new CL_Loguin();
+            bool loginCorrecto = login.LoginUser(usuario, password);
+            if (loginCorrecto)
             {
-                MessageBox.Show("Hay campos vacios!");
+                MessageBox.Show("Bienvenido " + CS_userAtributos.User + " :)");
+
+                frmAdminUserABM frm = new frmAdminUserABM();
+                frm.Show();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Inició sesión correctamente");
+                MessageBox.Show("Usuario y/o contraseña incorrectas");
             }
+
+            //bool ambosVacios = string.IsNullOrWhiteSpace(txtUsuario.Text) && string.IsNullOrWhiteSpace(txtContrasenia.Text);
+
+            //if (ambosVacios == true)
+            //{
+            //    MessageBox.Show("Hay campos vacios!");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Bienvenido!");
+
+
+            //}
         }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)

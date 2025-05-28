@@ -10,7 +10,7 @@ namespace Sesion
     public static class CS_userAtributos
     {
         public static int Id_user {  get; set; }
-        public static int User {  get; set; }
+        public static string User {  get; set; }
         public static string Password { get; set; }
         public static bool Activo { get; set; }
         public static DateTime FechaBloqueo { get; set; }
