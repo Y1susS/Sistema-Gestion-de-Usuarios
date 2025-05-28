@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sesion;
 
 namespace Datos
 {
-    internal class CD_Usuarios
+    public class CD_Usuarios
     {
-        public CD_Conexion conexion = new CD_Conexion();
-        SqlCommand comando = new SqlCommand();
+        CD_Conexion conexion = new CD_Conexion();
+        
         public bool AgregarUsuario(string id, string usuario, string email, string password, string rol)
         {
+            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "altaUsuario";
             comando.CommandType = CommandType.StoredProcedure;
@@ -32,6 +34,7 @@ namespace Datos
 
         public bool ModificarUsuario(int id, string usuario, string email, string password, bool activo, int rol)
         {
+            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "modificarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
@@ -51,25 +54,50 @@ namespace Datos
 
         public bool ValidarUsuario(string usuario, string password)
         {
+            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "validarUsuario";
             comando.CommandType = CommandType.StoredProcedure;
-
+            //comando.CommandText = "SELECT * FROM Usuario WHERE User = @User";
+            //comando.CommandType = CommandType.Text;
+            
             comando.Parameters.AddWithValue("@User", usuario);
             comando.Parameters.AddWithValue("@Password", password);
 
-            object resultado = (int)comando.ExecuteScalar();
+            SqlDataReader reader = comando.ExecuteReader();
+            //if (reader.HasRows)  return true;
+            //else return false;
+            if (reader.Read())
+            {
+                //CS_userAtributos.Id_user = reader.GetInt32(0);
+                CS_userAtributos.User = reader.GetString(1);
+                CS_userAtributos.Password = reader.GetString(2);
+                //CS_userAtributos.Activo = reader.GetBoolean(3);
+                //CS_userAtributos.Id_Rol = reader.GetInt32(4);
+
+                reader.Close();
+                conexion.CerrarConexion();
+                return true;
+            }
+
+            reader.Close();
             conexion.CerrarConexion();
+            return false;
 
-            if (resultado != null && int.TryParse(resultado.ToString(), out int valor))
-            {
-                return valor == 1;
-            }
-            else
-            {
-                return false;
+            
 
-            }
+            //object resultado = (int)comando.ExecuteScalar();
+            //conexion.CerrarConexion();
+
+            //if (resultado != null && int.TryParse(resultado.ToString(), out int valor))
+            //{
+            //    return valor == 1;
+            //}
+            //else
+            //{
+            //    return false;
+
+            //}
         }
     }
 }
