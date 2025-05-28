@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    internal class CD_Conexion
+    public class CD_Conexion
     {
-        private string cadena = "Data Source=.;Initial Catalog = SistemaGestionUsuario; Integrated Security = True;";
+        private string cadena = "Data Source=.;Initial Catalog=Gestion de usuarios Remuebla;Integrated Security=True;";
         private SqlConnection oConn;
 
         public CD_Conexion()
