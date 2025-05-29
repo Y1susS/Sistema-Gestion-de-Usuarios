@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Sesion;
+using Servicios;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -86,9 +87,24 @@ namespace Vista
         {
             string usuario = txtUsuario.Text;
             string password = txtContrasenia.Text;
+            
+            //encriptacion de contraseña//
+            
+            string passencrip = ClsSeguridad.SHA256(password);
+            Console.WriteLine(passencrip);
+
+            //fin encriptacion//
+
+            //prueba numero aleatorio//
+
+            //string ale = ClsAleatorios.Armar(false,3);
+            //Console.WriteLine(ale);
+
+            //fin encriptacion
+
 
             CL_Loguin login = new CL_Loguin();
-            bool loginCorrecto = login.LoginUser(usuario, password);
+            bool loginCorrecto = login.LoginUser(usuario, passencrip);
             if (loginCorrecto)
             {
                 MessageBox.Show("Bienvenido " + CS_userAtributos.User + " :)");
