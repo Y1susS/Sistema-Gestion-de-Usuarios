@@ -13,6 +13,11 @@ namespace Vista
 {
     public partial class frmRecupero : Form
     {
+        private string dni = "";
+        private string preguntaseleccionada = "";
+        private string respuesta = "";
+
+          
         public frmRecupero()
         {
             InitializeComponent();
@@ -24,7 +29,7 @@ namespace Vista
         private void pctClose_Click(object sender, EventArgs e)
         {
          
-            bool ambosVacios = string.IsNullOrWhiteSpace(txtContrasenia1.Text) && string.IsNullOrWhiteSpace(txtContrasenia2.Text);
+            bool ambosVacios = string.IsNullOrWhiteSpace(txtdni.Text) && string.IsNullOrWhiteSpace(txtContrasenia2.Text);
 
             if (ambosVacios == true)
             {
@@ -64,14 +69,36 @@ namespace Vista
         private void frmRecupero_Load(object sender, EventArgs e)
         {
             txtContrasenia2.UseSystemPasswordChar = false;
-            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtContrasenia1);
+            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtdni);
             ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia2, true);
         }
 
-        private void txtContrasenia1_TextChanged(object sender, EventArgs e)
+        private void txtdni_TextChanged(object sender, EventArgs e)
+        {
+            string dni = txtrespuesta.Text.Trim();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
+        private void cmbpreguntasseg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbpreguntasseg.Items.Add("¿Cuál es el nombre de tu primera mascota?");
+            cmbpreguntasseg.Items.Add("¿Cuál es tu comida favorita?");
+            cmbpreguntasseg.Items.Add("¿Cuál es el segundo nombre de tu madre?");
+
+            string preguntaSeleccionada = cmbpreguntasseg.SelectedItem.ToString();
+
+
+        }
+
+        private void txtrespuesta_TextChanged(object sender, EventArgs e)
+        {
+            string respuestaIngresada = txtrespuesta.Text.Trim();
+        }
+
+        
 
         private void pctBorde_MouseMove(object sender, MouseEventArgs e)
         {

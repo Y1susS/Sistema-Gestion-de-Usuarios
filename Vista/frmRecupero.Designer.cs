@@ -1,4 +1,6 @@
-﻿namespace Vista
+﻿using System;
+
+namespace Vista
 {
     partial class frmRecupero
     {
@@ -30,20 +32,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecupero));
             this.pctBordeInferior = new System.Windows.Forms.PictureBox();
-            this.txtContrasenia2 = new System.Windows.Forms.TextBox();
             this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.txtContrasenia1 = new System.Windows.Forms.TextBox();
+            this.txtdni = new System.Windows.Forms.TextBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pctFondo = new System.Windows.Forms.PictureBox();
             this.pctBorde = new System.Windows.Forms.PictureBox();
+            this.lblrecuperocontraseña = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtrespuesta = new System.Windows.Forms.TextBox();
+            this.cmbpreguntasseg = new System.Windows.Forms.ComboBox();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // pctBordeInferior
@@ -55,38 +64,28 @@
             this.pctBordeInferior.TabIndex = 22;
             this.pctBordeInferior.TabStop = false;
             // 
-            // txtContrasenia2
-            // 
-            this.txtContrasenia2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia2.Location = new System.Drawing.Point(110, 222);
-            this.txtContrasenia2.MaxLength = 25;
-            this.txtContrasenia2.Name = "txtContrasenia2";
-            this.txtContrasenia2.Size = new System.Drawing.Size(186, 25);
-            this.txtContrasenia2.TabIndex = 16;
-            // 
             // pctLogo
             // 
             this.pctLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(129, 63);
+            this.pctLogo.Location = new System.Drawing.Point(134, 50);
             this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(150, 95);
+            this.pctLogo.Size = new System.Drawing.Size(118, 72);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctLogo.TabIndex = 21;
             this.pctLogo.TabStop = false;
             // 
-            // txtContrasenia1
+            // txtdni
             // 
-            this.txtContrasenia1.BackColor = System.Drawing.Color.White;
-            this.txtContrasenia1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia1.Location = new System.Drawing.Point(110, 177);
-            this.txtContrasenia1.MaxLength = 25;
-            this.txtContrasenia1.Name = "txtContrasenia1";
-            this.txtContrasenia1.Size = new System.Drawing.Size(186, 25);
-            this.txtContrasenia1.TabIndex = 15;
-            this.txtContrasenia1.TextChanged += new System.EventHandler(this.txtContrasenia1_TextChanged);
+            this.txtdni.BackColor = System.Drawing.Color.White;
+            this.txtdni.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdni.Location = new System.Drawing.Point(168, 134);
+            this.txtdni.MaxLength = 25;
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(163, 25);
+            this.txtdni.TabIndex = 15;
             // 
             // pctMinimize
             // 
@@ -123,7 +122,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(110, 303);
+            this.btnLogin.Location = new System.Drawing.Point(111, 313);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(186, 28);
@@ -134,9 +133,9 @@
             // pctFondo
             // 
             this.pctFondo.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.pctFondo.Location = new System.Drawing.Point(-2, -1);
+            this.pctFondo.Location = new System.Drawing.Point(-2, 9);
             this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(405, 373);
+            this.pctFondo.Size = new System.Drawing.Size(402, 361);
             this.pctFondo.TabIndex = 23;
             this.pctFondo.TabStop = false;
             // 
@@ -152,19 +151,94 @@
             this.pctBorde.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseMove);
             this.pctBorde.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseUp);
             // 
+            // lblrecuperocontraseña
+            // 
+            this.lblrecuperocontraseña.AutoSize = true;
+            this.lblrecuperocontraseña.BackColor = System.Drawing.Color.Transparent;
+            this.lblrecuperocontraseña.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblrecuperocontraseña.Location = new System.Drawing.Point(82, 9);
+            this.lblrecuperocontraseña.Name = "lblrecuperocontraseña";
+            this.lblrecuperocontraseña.Size = new System.Drawing.Size(229, 17);
+            this.lblrecuperocontraseña.TabIndex = 25;
+            this.lblrecuperocontraseña.Text = "Recupero de usuario o contraseña";
+            this.lblrecuperocontraseña.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label1.Location = new System.Drawing.Point(35, 138);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 17);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Ingrese su D.N.I";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label2.Location = new System.Drawing.Point(35, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(204, 17);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Elija su pregunta de seguridad";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label3.Location = new System.Drawing.Point(35, 247);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 17);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Ingrese la respuesta";
+            // 
+            // txtrespuesta
+            // 
+            this.txtrespuesta.BackColor = System.Drawing.Color.White;
+            this.txtrespuesta.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrespuesta.Location = new System.Drawing.Point(38, 278);
+            this.txtrespuesta.MaxLength = 25;
+            this.txtrespuesta.Name = "txtrespuesta";
+            this.txtrespuesta.Size = new System.Drawing.Size(293, 25);
+            this.txtrespuesta.TabIndex = 30;
+            this.txtrespuesta.TextChanged += new System.EventHandler(this.txtrespuesta_TextChanged);
+            // 
+            // cmbpreguntasseg
+            // 
+            this.cmbpreguntasseg.FormattingEnabled = true;
+            this.cmbpreguntasseg.Location = new System.Drawing.Point(42, 208);
+            this.cmbpreguntasseg.Name = "cmbpreguntasseg";
+            this.cmbpreguntasseg.Size = new System.Drawing.Size(289, 25);
+            this.cmbpreguntasseg.TabIndex = 31;
+            this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // frmRecupero
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 370);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbpreguntasseg);
+            this.Controls.Add(this.txtrespuesta);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblrecuperocontraseña);
             this.Controls.Add(this.pctMinimize);
             this.Controls.Add(this.pctClose);
             this.Controls.Add(this.pctBorde);
             this.Controls.Add(this.pctBordeInferior);
-            this.Controls.Add(this.txtContrasenia2);
             this.Controls.Add(this.pctLogo);
-            this.Controls.Add(this.txtContrasenia1);
+            this.Controls.Add(this.txtdni);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pctFondo);
             this.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,21 +255,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbpreguntasseg.Items.Add("¿Cuál es el nombre de tu primera mascota?");
+            cmbpreguntasseg.Items.Add("¿Cuál es tu comida favorita?");
+            cmbpreguntasseg.Items.Add("¿Cuál es el segundo nombre de tu madre?");
+        }
+
         #endregion
 
         private System.Windows.Forms.PictureBox pctBordeInferior;
-        private System.Windows.Forms.TextBox txtContrasenia2;
         private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.TextBox txtContrasenia1;
+        private System.Windows.Forms.TextBox txtdni;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.PictureBox pctBorde;
+        private System.Windows.Forms.Label lblrecuperocontraseña;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtrespuesta;
+        private System.Windows.Forms.ComboBox cmbpreguntasseg;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
