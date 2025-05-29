@@ -47,6 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsAbrirForms.cs" />
+    <Compile Include="frmpreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmpreguntas.Designer.cs">
+      <DependentUpon>frmpreguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm1eringreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm1eringreso.Designer.cs">
+      <DependentUpon>frm1eringreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +86,17 @@
     <Compile Include="ClsPlaceHolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm1eringreso.resx">
+      <DependentUpon>frm1eringreso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoguin.resx">
       <DependentUpon>frmLoguin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmpreguntas.resx">
+      <DependentUpon>frmpreguntas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecupero.resx">
       <DependentUpon>frmRecupero.cs</DependentUpon>
