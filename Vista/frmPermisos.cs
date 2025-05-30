@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frm1eringreso : Form
+    public partial class frmPermisos : Form
     {
-        public frm1eringreso()
+        public frmPermisos()
         {
             InitializeComponent();
-        }
-
-        private void btn_Click(object sender, EventArgs e)
-        {
-            frmPreguntas frmpreguntas = new frmPreguntas();
-            frmpreguntas.Show();
-            this.Hide(); //se oculta el formulario
-
         }
     }
 }

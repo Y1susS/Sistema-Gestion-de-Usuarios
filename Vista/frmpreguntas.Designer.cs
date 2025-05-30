@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class frmpreguntas
+    partial class frmPreguntas
     {
         /// <summary>
         /// Required designer variable.

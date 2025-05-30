@@ -26,28 +26,28 @@ namespace Vista
             pctLogo.BackColor = Color.Transparent;
         }
 
-        private void pctClose_Click(object sender, EventArgs e)
-        {
+        //private void pctClose_Click(object sender, EventArgs e)
+        //{
          
-            bool ambosVacios = string.IsNullOrWhiteSpace(txtdni.Text) && string.IsNullOrWhiteSpace(txtContrasenia2.Text);
+        //    bool ambosVacios = string.IsNullOrWhiteSpace(txtdni.Text) && string.IsNullOrWhiteSpace(txtContrasenia2.Text);
 
-            if (ambosVacios == true)
-            {
-                this.Close();
-                FrmLoguin FrmLoguin = new FrmLoguin();
-                FrmLoguin.Show();
-            }
-            else
-            {
-                DialogResult opcion = MessageBox.Show("Hay datos ingresados, si cierra esta ventana se perderán \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (opcion == DialogResult.Yes)
-                {
-                    this.Close();
-                    FrmLoguin FrmLoguin = new FrmLoguin();
-                    FrmLoguin.Show();
-                }
-            }
-        }
+        //    if (ambosVacios == true)
+        //    {
+        //        this.Close();
+        //        FrmLoguin FrmLoguin = new FrmLoguin();
+        //        FrmLoguin.Show();
+        //    }
+        //    else
+        //    {
+        //        DialogResult opcion = MessageBox.Show("Hay datos ingresados, si cierra esta ventana se perderán \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+        //        if (opcion == DialogResult.Yes)
+        //        {
+        //            this.Close();
+        //            FrmLoguin FrmLoguin = new FrmLoguin();
+        //            FrmLoguin.Show();
+        //        }
+        //    }
+        //}
 
         private void pctMinimize_Click(object sender, EventArgs e)
         {
@@ -66,12 +66,12 @@ namespace Vista
         private const string PLACEHOLDER_3RDquestion = "3ra pregunta";
 
 
-        private void frmRecupero_Load(object sender, EventArgs e)
-        {
-            txtContrasenia2.UseSystemPasswordChar = false;
-            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtdni);
-            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia2, true);
-        }
+        //private void frmRecupero_Load(object sender, EventArgs e)
+        //{
+        //    txtContrasenia2.UseSystemPasswordChar = false;
+        //    ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtdni);
+        //    ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia2, true);
+        //}
 
         private void txtdni_TextChanged(object sender, EventArgs e)
         {
