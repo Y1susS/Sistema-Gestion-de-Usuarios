@@ -47,11 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsAbrirForms.cs" />
-    <Compile Include="frmpreguntas.cs">
+    <Compile Include="frmPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmpreguntas.Designer.cs">
-      <DependentUpon>frmpreguntas.cs</DependentUpon>
+    <Compile Include="frmPermisos.Designer.cs">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreguntas.Designer.cs">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
     </Compile>
     <Compile Include="frm1eringreso.cs">
       <SubType>Form</SubType>
@@ -59,11 +71,11 @@
     <Compile Include="frm1eringreso.Designer.cs">
       <DependentUpon>frm1eringreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAdministrador.cs">
+    <Compile Include="frmAltausuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdministrador.Designer.cs">
-      <DependentUpon>frmAdministrador.cs</DependentUpon>
+    <Compile Include="frmAltausuario.Designer.cs">
+      <DependentUpon>frmAltausuario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoguin.cs">
       <SubType>Form</SubType>
@@ -89,14 +101,20 @@
     <EmbeddedResource Include="frm1eringreso.resx">
       <DependentUpon>frm1eringreso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdministrador.resx">
-      <DependentUpon>frmAdministrador.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAltausuario.resx">
+      <DependentUpon>frmAltausuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoguin.resx">
       <DependentUpon>frmLoguin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmpreguntas.resx">
-      <DependentUpon>frmpreguntas.cs</DependentUpon>
+    <EmbeddedResource Include="frmPermisos.resx">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreguntas.resx">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecupero.resx">
       <DependentUpon>frmRecupero.cs</DependentUpon>

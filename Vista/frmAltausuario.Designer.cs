@@ -32,6 +32,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -43,8 +45,9 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.lblrol = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +81,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.lblrol);
             this.groupBox1.Controls.Add(this.textBox12);
             this.groupBox1.Controls.Add(this.textBox11);
             this.groupBox1.Controls.Add(this.textBox9);
@@ -92,16 +98,32 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(642, 164);
+            this.groupBox1.Size = new System.Drawing.Size(642, 193);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modificación";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(579, 105);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(57, 20);
+            this.textBox12.TabIndex = 17;
+            this.textBox12.Text = "Depart";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(482, 105);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(57, 20);
+            this.textBox11.TabIndex = 16;
+            this.textBox11.Text = "Piso";
             // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(385, 133);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(251, 22);
+            this.textBox9.Size = new System.Drawing.Size(251, 20);
             this.textBox9.TabIndex = 15;
             this.textBox9.Text = "Localidad";
             // 
@@ -109,7 +131,7 @@
             // 
             this.textBox10.Location = new System.Drawing.Point(6, 133);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(251, 22);
+            this.textBox10.Size = new System.Drawing.Size(251, 20);
             this.textBox10.TabIndex = 14;
             this.textBox10.Text = "Provincia";
             // 
@@ -117,7 +139,7 @@
             // 
             this.textBox7.Location = new System.Drawing.Point(385, 105);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(57, 22);
+            this.textBox7.Size = new System.Drawing.Size(57, 20);
             this.textBox7.TabIndex = 13;
             this.textBox7.Text = "Nro";
             // 
@@ -125,7 +147,7 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(385, 77);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(251, 22);
+            this.textBox8.Size = new System.Drawing.Size(251, 20);
             this.textBox8.TabIndex = 12;
             this.textBox8.Text = "Correo";
             // 
@@ -133,7 +155,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(385, 49);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(251, 22);
+            this.textBox5.Size = new System.Drawing.Size(251, 20);
             this.textBox5.TabIndex = 11;
             this.textBox5.Text = "NroDoc";
             // 
@@ -141,7 +163,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(385, 21);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(251, 22);
+            this.textBox6.Size = new System.Drawing.Size(251, 20);
             this.textBox6.TabIndex = 10;
             this.textBox6.Text = "Nombres";
             // 
@@ -149,7 +171,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(6, 105);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(251, 22);
+            this.textBox3.Size = new System.Drawing.Size(251, 20);
             this.textBox3.TabIndex = 9;
             this.textBox3.Text = "Calle";
             // 
@@ -157,7 +179,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(6, 77);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 22);
+            this.textBox4.Size = new System.Drawing.Size(251, 20);
             this.textBox4.TabIndex = 8;
             this.textBox4.Text = "Telefono";
             // 
@@ -165,7 +187,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(6, 49);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 22);
+            this.textBox2.Size = new System.Drawing.Size(251, 20);
             this.textBox2.TabIndex = 7;
             this.textBox2.Text = "Tipo Documento";
             // 
@@ -173,35 +195,48 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(6, 21);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 22);
+            this.textBox1.Size = new System.Drawing.Size(251, 20);
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = "Apellidos";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 182);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 227);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 256);
+            this.dataGridView1.Size = new System.Drawing.Size(642, 211);
             this.dataGridView1.TabIndex = 6;
             // 
-            // textBox11
+            // lblrol
             // 
-            this.textBox11.Location = new System.Drawing.Point(482, 105);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(57, 22);
-            this.textBox11.TabIndex = 16;
-            this.textBox11.Text = "Piso";
+            this.lblrol.AutoSize = true;
+            this.lblrol.Location = new System.Drawing.Point(6, 164);
+            this.lblrol.Name = "lblrol";
+            this.lblrol.Size = new System.Drawing.Size(133, 13);
+            this.lblrol.TabIndex = 18;
+            this.lblrol.Text = "Rol asignado en el sistema";
             // 
-            // textBox12
+            // checkBox1
             // 
-            this.textBox12.Location = new System.Drawing.Point(579, 105);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(57, 22);
-            this.textBox12.TabIndex = 17;
-            this.textBox12.Text = "Depart";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(156, 164);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(89, 17);
+            this.checkBox1.TabIndex = 19;
+            this.checkBox1.Text = "Administrador";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(267, 163);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(119, 17);
+            this.checkBox2.TabIndex = 20;
+            this.checkBox2.Text = "Vendedor / Usuario";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // frmAdminUserABM
             // 
@@ -243,5 +278,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label lblrol;
     }
 }

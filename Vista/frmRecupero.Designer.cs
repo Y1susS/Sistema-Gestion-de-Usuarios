@@ -111,7 +111,6 @@ namespace Vista
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctClose.TabIndex = 19;
             this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
             // 
             // btnLogin
             // 
