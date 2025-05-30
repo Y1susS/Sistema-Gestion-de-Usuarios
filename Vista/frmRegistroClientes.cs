@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frmAdmin : Form
+    public partial class frmRegistroClientes : Form
     {
-        public frmAdmin()
+        public frmRegistroClientes()
         {
             InitializeComponent();
-        }
-
-        private void frmadmin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

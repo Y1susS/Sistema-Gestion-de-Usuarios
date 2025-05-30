@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class frmAdmin
+    partial class frmSegContraseña
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.btnvolver = new System.Windows.Forms.Button();
             this.btnguardarcambios = new System.Windows.Forms.Button();
             this.nupcaracteres = new System.Windows.Forms.NumericUpDown();
+            this.btnVolveradmin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nupcaracteres)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,11 +166,22 @@
             this.nupcaracteres.Size = new System.Drawing.Size(62, 20);
             this.nupcaracteres.TabIndex = 20;
             // 
-            // frmAdmin
+            // btnVolveradmin
+            // 
+            this.btnVolveradmin.Location = new System.Drawing.Point(529, 300);
+            this.btnVolveradmin.Name = "btnVolveradmin";
+            this.btnVolveradmin.Size = new System.Drawing.Size(105, 29);
+            this.btnVolveradmin.TabIndex = 21;
+            this.btnVolveradmin.Text = "Volver";
+            this.btnVolveradmin.UseVisualStyleBackColor = true;
+            this.btnVolveradmin.Click += new System.EventHandler(this.btnVolveradmin_Click);
+            // 
+            // frmSegContraseña
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolveradmin);
             this.Controls.Add(this.nupcaracteres);
             this.Controls.Add(this.btnguardarcambios);
             this.Controls.Add(this.btnvolver);
@@ -183,7 +195,7 @@
             this.Controls.Add(this.chkmaymin);
             this.Controls.Add(this.chkcantpreg);
             this.Controls.Add(this.chkmincarac);
-            this.Name = "frmAdmin";
+            this.Name = "frmSegContraseña";
             this.Text = "Administrador";
             this.Load += new System.EventHandler(this.frmadmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupcaracteres)).EndInit();
@@ -207,5 +219,6 @@
         private System.Windows.Forms.Button btnvolver;
         private System.Windows.Forms.Button btnguardarcambios;
         private System.Windows.Forms.NumericUpDown nupcaracteres;
+        private System.Windows.Forms.Button btnVolveradmin;
     }
 }

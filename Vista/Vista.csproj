@@ -47,17 +47,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsAbrirForms.cs" />
+    <Compile Include="frmRegistroClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroClientes.Designer.cs">
+      <DependentUpon>frmRegistroClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministrador.Designer.cs">
+      <DependentUpon>frmAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPermisos.Designer.cs">
       <DependentUpon>frmPermisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAdmin.cs">
+    <Compile Include="frmSegContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdmin.Designer.cs">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
+    <Compile Include="frmSegContraseña.Designer.cs">
+      <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPreguntas.cs">
       <SubType>Form</SubType>
@@ -98,11 +116,20 @@
     <Compile Include="ClsPlaceHolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmRegistroClientes.resx">
+      <DependentUpon>frmRegistroClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm1eringreso.resx">
       <DependentUpon>frm1eringreso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdmin.resx">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdministrador.resx">
+      <DependentUpon>frmAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSegContraseña.resx">
+      <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltausuario.resx">
       <DependentUpon>frmAltausuario.cs</DependentUpon>

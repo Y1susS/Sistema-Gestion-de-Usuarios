@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class frmPermisos
+    partial class frmRegistroClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblpermisos = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblpermisos
+            // label1
             // 
-            this.lblpermisos.AutoSize = true;
-            this.lblpermisos.Location = new System.Drawing.Point(278, 36);
-            this.lblpermisos.Name = "lblpermisos";
-            this.lblpermisos.Size = new System.Drawing.Size(102, 13);
-            this.lblpermisos.TabIndex = 0;
-            this.lblpermisos.Text = "Gestion de permisos";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(241, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Alta y Modificacion de Clientes";
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(557, 312);
+            this.btnVolver.Location = new System.Drawing.Point(521, 323);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(92, 29);
+            this.btnVolver.Size = new System.Drawing.Size(121, 36);
             this.btnVolver.TabIndex = 1;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             // 
-            // frmPermisos
+            // frmAltaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.lblpermisos);
-            this.Name = "frmPermisos";
+            this.Controls.Add(this.label1);
+            this.Name = "frmAltaClientes";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -66,7 +66,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblpermisos;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnVolver;
     }
 }

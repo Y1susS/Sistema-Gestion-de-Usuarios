@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frm1eringreso : Form
+    public partial class frmUsuarios : Form
     {
-        public frm1eringreso()
+        public frmUsuarios()
         {
             InitializeComponent();
         }
 
-        private void btn_Click(object sender, EventArgs e)
+        private void btnRegistroClientes_Click(object sender, EventArgs e)
         {
-            frmPreguntas frmpreguntas = new frmPreguntas();
-            frmpreguntas.Show();
-            this.Hide(); //se oculta el formulario
-
+            frmRegistroClientes frmRegistro = new frmRegistroClientes();
+            frmRegistro.Show();
+            this.Hide();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
         }
     }
 }

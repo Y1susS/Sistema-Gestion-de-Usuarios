@@ -98,7 +98,24 @@ namespace Vista
             string respuestaIngresada = txtrespuesta.Text.Trim();
         }
 
-        
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            FrmLoguin frmloggin = new FrmLoguin();
+            frmloggin.Show();
+            this.Hide();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmLoguin frmLoguin = new FrmLoguin();
+            frmLoguin.Show();
+            this.Hide();
+        }
 
         private void pctBorde_MouseMove(object sender, MouseEventArgs e)
         {
