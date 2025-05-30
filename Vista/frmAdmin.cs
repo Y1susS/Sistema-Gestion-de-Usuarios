@@ -10,23 +10,15 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frmPreguntas : Form
+    public partial class frmAdmin : Form
     {
-        public frmPreguntas()
+        public frmAdmin()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void frmadmin_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnsiguiente_Click(object sender, EventArgs e)
-        {
-            FrmLoguin loggin = new FrmLoguin();
-            loggin.Show();
-            this.Hide();
 
         }
     }
