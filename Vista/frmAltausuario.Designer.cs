@@ -32,6 +32,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lblrol = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -45,9 +48,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblrol = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +103,35 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modificación";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(267, 163);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(119, 17);
+            this.checkBox2.TabIndex = 20;
+            this.checkBox2.Text = "Vendedor / Usuario";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(156, 164);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(89, 17);
+            this.checkBox1.TabIndex = 19;
+            this.checkBox1.Text = "Administrador";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // lblrol
+            // 
+            this.lblrol.AutoSize = true;
+            this.lblrol.Location = new System.Drawing.Point(6, 164);
+            this.lblrol.Name = "lblrol";
+            this.lblrol.Size = new System.Drawing.Size(133, 13);
+            this.lblrol.TabIndex = 18;
+            this.lblrol.Text = "Rol asignado en el sistema";
             // 
             // textBox12
             // 
@@ -209,39 +239,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(642, 211);
             this.dataGridView1.TabIndex = 6;
             // 
-            // lblrol
+            // btnVolver
             // 
-            this.lblrol.AutoSize = true;
-            this.lblrol.Location = new System.Drawing.Point(6, 164);
-            this.lblrol.Name = "lblrol";
-            this.lblrol.Size = new System.Drawing.Size(133, 13);
-            this.lblrol.TabIndex = 18;
-            this.lblrol.Text = "Rol asignado en el sistema";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(156, 164);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(89, 17);
-            this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "Administrador";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(267, 163);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(119, 17);
-            this.checkBox2.TabIndex = 20;
-            this.checkBox2.Text = "Vendedor / Usuario";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.btnVolver.Location = new System.Drawing.Point(692, 145);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 24);
+            this.btnVolver.TabIndex = 7;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
             // 
             // frmAdminUserABM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
@@ -281,5 +292,6 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label lblrol;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

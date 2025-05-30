@@ -132,6 +132,11 @@ namespace Vista
             //}
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
         {
             mouse = 0;
