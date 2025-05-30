@@ -46,6 +46,8 @@ namespace Vista
             this.txtrespuesta = new System.Windows.Forms.TextBox();
             this.cmbpreguntasseg = new System.Windows.Forms.ComboBox();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -121,13 +123,14 @@ namespace Vista
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(111, 313);
+            this.btnLogin.Location = new System.Drawing.Point(2, 313);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(186, 28);
             this.btnLogin.TabIndex = 18;
             this.btnLogin.Text = "Siguiente";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // pctFondo
             // 
@@ -220,12 +223,34 @@ namespace Vista
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(209, 316);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(71, 23);
+            this.btnVolver.TabIndex = 32;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(296, 320);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(67, 21);
+            this.btnSalir.TabIndex = 33;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmRecupero
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 370);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.cmbpreguntasseg);
             this.Controls.Add(this.txtrespuesta);
             this.Controls.Add(this.label3);
@@ -284,5 +309,7 @@ namespace Vista
         private System.Windows.Forms.TextBox txtrespuesta;
         private System.Windows.Forms.ComboBox cmbpreguntasseg;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
