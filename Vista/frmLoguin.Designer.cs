@@ -39,7 +39,6 @@
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctBorde = new System.Windows.Forms.PictureBox();
             this.pctFondo = new System.Windows.Forms.PictureBox();
-            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -173,24 +172,6 @@
             this.pctFondo.TabIndex = 14;
             this.pctFondo.TabStop = false;
             // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.White;
-            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(304, 303);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(93, 28);
-            this.btnSalir.TabIndex = 15;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // FrmLoguin
             // 
             this.AcceptButton = this.btnLogin;
@@ -199,7 +180,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(400, 370);
             this.ControlBox = false;
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pctBordeInferior);
             this.Controls.Add(this.txtContrasenia);
             this.Controls.Add(this.pctLogo);
@@ -242,7 +222,6 @@
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.PictureBox pctBordeInferior;
         private System.Windows.Forms.PictureBox pctFondo;
-        private System.Windows.Forms.Button btnSalir;
     }
 }
 

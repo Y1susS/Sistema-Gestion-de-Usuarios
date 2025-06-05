@@ -38,7 +38,7 @@
             // 
             // btnGestionUsuarios
             // 
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(242, 115);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(237, 86);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(150, 36);
             this.btnGestionUsuarios.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // btnGestionPermisos
             // 
-            this.btnGestionPermisos.Location = new System.Drawing.Point(242, 171);
+            this.btnGestionPermisos.Location = new System.Drawing.Point(237, 142);
             this.btnGestionPermisos.Name = "btnGestionPermisos";
             this.btnGestionPermisos.Size = new System.Drawing.Size(150, 36);
             this.btnGestionPermisos.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // btnGestionContraseñas
             // 
-            this.btnGestionContraseñas.Location = new System.Drawing.Point(242, 230);
+            this.btnGestionContraseñas.Location = new System.Drawing.Point(237, 201);
             this.btnGestionContraseñas.Name = "btnGestionContraseñas";
             this.btnGestionContraseñas.Size = new System.Drawing.Size(150, 36);
             this.btnGestionContraseñas.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             // btnRegistroClientes
             // 
-            this.btnRegistroClientes.Location = new System.Drawing.Point(242, 287);
+            this.btnRegistroClientes.Location = new System.Drawing.Point(237, 262);
             this.btnRegistroClientes.Name = "btnRegistroClientes";
             this.btnRegistroClientes.Size = new System.Drawing.Size(150, 36);
             this.btnRegistroClientes.TabIndex = 4;
