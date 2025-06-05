@@ -105,9 +105,9 @@ namespace Vista
 
             CL_Loguin login = new CL_Loguin();
             bool loginCorrecto = login.LoginUser(usuario, passencrip);
-            
-            
-            
+
+
+
             if (loginCorrecto)
             {
                 string usuarioLogueado = login.ObtenerUsuarioActual();
