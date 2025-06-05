@@ -30,7 +30,6 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -49,6 +48,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btneliminar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -64,21 +64,12 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(692, 115);
+            this.button2.Location = new System.Drawing.Point(692, 89);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(692, 86);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -102,7 +93,7 @@
             this.groupBox1.Size = new System.Drawing.Size(642, 193);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Modificación";
+            this.groupBox1.Text = "Alta y modificación de usuarios";
             // 
             // checkBox2
             // 
@@ -179,7 +170,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(251, 20);
             this.textBox8.TabIndex = 12;
-            this.textBox8.Text = "Correo";
+            this.textBox8.Text = "E-mail";
             // 
             // textBox5
             // 
@@ -241,21 +232,30 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(692, 145);
+            this.btnVolver.Location = new System.Drawing.Point(692, 148);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 24);
             this.btnVolver.TabIndex = 7;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             // 
+            // btneliminar
+            // 
+            this.btneliminar.Location = new System.Drawing.Point(692, 118);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(75, 24);
+            this.btneliminar.TabIndex = 8;
+            this.btneliminar.Text = "Eliminar";
+            this.btneliminar.UseVisualStyleBackColor = true;
+            // 
             // frmAdminUserABM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -274,7 +274,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
@@ -293,5 +292,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label lblrol;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btneliminar;
     }
 }

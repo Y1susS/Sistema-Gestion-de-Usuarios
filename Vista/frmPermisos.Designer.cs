@@ -30,6 +30,8 @@
         {
             this.lblpermisos = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.cmbRoles = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblpermisos
@@ -50,11 +52,31 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             // 
+            // cmbRoles
+            // 
+            this.cmbRoles.FormattingEnabled = true;
+            this.cmbRoles.Location = new System.Drawing.Point(45, 89);
+            this.cmbRoles.Name = "cmbRoles";
+            this.cmbRoles.Size = new System.Drawing.Size(154, 21);
+            this.cmbRoles.TabIndex = 2;
+            this.cmbRoles.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(47, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Seleccione un rol";
+            // 
             // frmPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblpermisos);
             this.Name = "frmPermisos";
@@ -68,5 +90,7 @@
 
         private System.Windows.Forms.Label lblpermisos;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.ComboBox cmbRoles;
+        private System.Windows.Forms.Label label1;
     }
 }

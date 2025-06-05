@@ -103,12 +103,13 @@ namespace Vista
             FrmLoguin frmloggin = new FrmLoguin();
             frmloggin.Show();
             this.Hide();
+
+            //enviar E-Mail
+
+
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {

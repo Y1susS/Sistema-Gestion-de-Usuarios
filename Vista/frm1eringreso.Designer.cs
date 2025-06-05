@@ -34,7 +34,7 @@
             this.txt1ercontraseña = new System.Windows.Forms.TextBox();
             this.txtnuevacontraseña2 = new System.Windows.Forms.TextBox();
             this.txtnuevacontraseña1 = new System.Windows.Forms.TextBox();
-            this.btn = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -86,15 +86,15 @@
             this.txtnuevacontraseña1.Size = new System.Drawing.Size(191, 20);
             this.txtnuevacontraseña1.TabIndex = 5;
             // 
-            // btn
+            // btnSiguiente
             // 
-            this.btn.Location = new System.Drawing.Point(244, 176);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(190, 28);
-            this.btn.TabIndex = 6;
-            this.btn.Text = "Ingresar";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
+            this.btnSiguiente.Location = new System.Drawing.Point(244, 176);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(190, 28);
+            this.btnSiguiente.TabIndex = 6;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btn_Click);
             // 
             // btnSalir
             // 
@@ -112,7 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.txtnuevacontraseña1);
             this.Controls.Add(this.txtnuevacontraseña2);
             this.Controls.Add(this.txt1ercontraseña);
@@ -134,7 +134,7 @@
         private System.Windows.Forms.TextBox txt1ercontraseña;
         private System.Windows.Forms.TextBox txtnuevacontraseña2;
         private System.Windows.Forms.TextBox txtnuevacontraseña1;
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnSalir;
     }
 }
