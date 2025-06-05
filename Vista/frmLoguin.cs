@@ -105,9 +105,11 @@ namespace Vista
 
             CL_Loguin login = new CL_Loguin();
             bool loginCorrecto = login.LoginUser(usuario, passencrip);
+            
             if (loginCorrecto)
             {
-                MessageBox.Show("Bienvenido " + CS_userAtributos.User + " :)");
+                string usuarioLogueado = login.ObtenerUsuarioActual();
+                MessageBox.Show("Bienvenido " + usuarioLogueado + " :)");
 
                 frmAdminUserABM frm = new frmAdminUserABM();
                 frm.Show();
