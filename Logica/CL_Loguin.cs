@@ -16,5 +16,9 @@ namespace Logica
         {
             return usuario.ValidarUsuario(user, password);
         }
+        public string ObtenerUsuarioActual()
+        {
+            return CD_UsuarioAtributos.User;
+        }
     }
 }
