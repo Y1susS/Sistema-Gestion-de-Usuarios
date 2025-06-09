@@ -96,11 +96,30 @@ namespace Vista
             //fin encriptacion//
 
 
+
             CL_Loguin login = new CL_Loguin();
             bool loginCorrecto = login.LoginUser(usuario, passencrip);
             if (loginCorrecto)
             {
                 MessageBox.Show("Bienvenido " + CS_userAtributos.User + " :)");
+
+
+                //prueba numero Primera vez//
+
+
+                if (CS_userAtributos.PrimeraPass)
+                {
+                    Console.WriteLine("Es tu primera vez!");
+                    frm1eringreso frm1er = new frm1eringreso();
+                    frm1er.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    Console.WriteLine("No es tu primera vez!");
+                }
+
 
                 frmAdminUserABM frm = new frmAdminUserABM();
                 frm.Show();
@@ -111,17 +130,7 @@ namespace Vista
                 MessageBox.Show("Usuario y/o contraseña incorrectas");
             }
 
-            //prueba numero aleatorio//
-
-
-            if (CS_userAtributos.PrimeraPass)
-            {
-                Console.WriteLine("Es tu primera vez!");
-            }
-            else
-            {
-                Console.WriteLine("No es tu primera vez!");
-            }
+         
 
 
 
