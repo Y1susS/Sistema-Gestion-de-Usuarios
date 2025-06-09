@@ -95,13 +95,6 @@ namespace Vista
 
             //fin encriptacion//
 
-            //prueba numero aleatorio//
-
-            //string ale = ClsAleatorios.Armar(false,3);
-            //Console.WriteLine(ale);
-
-            //fin encriptacion
-
 
             CL_Loguin login = new CL_Loguin();
             bool loginCorrecto = login.LoginUser(usuario, passencrip);
@@ -118,18 +111,38 @@ namespace Vista
                 MessageBox.Show("Usuario y/o contraseña incorrectas");
             }
 
-            //bool ambosVacios = string.IsNullOrWhiteSpace(txtUsuario.Text) && string.IsNullOrWhiteSpace(txtContrasenia.Text);
-
-            //if (ambosVacios == true)
-            //{
-            //    MessageBox.Show("Hay campos vacios!");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Bienvenido!");
+            //prueba numero aleatorio//
 
 
-            //}
+            if (CS_userAtributos.PrimeraPass)
+            {
+                Console.WriteLine("Es tu primera vez!");
+            }
+            else
+            {
+                Console.WriteLine("No es tu primera vez!");
+            }
+
+
+
+            //string ale = ClsAleatorios.Armar(false,3);
+            //Console.WriteLine(ale);
+
+
+
+
+                //bool ambosVacios = string.IsNullOrWhiteSpace(txtUsuario.Text) && string.IsNullOrWhiteSpace(txtContrasenia.Text);
+
+                //if (ambosVacios == true)
+                //{
+                //    MessageBox.Show("Hay campos vacios!");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Bienvenido!");
+
+
+                //}
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
