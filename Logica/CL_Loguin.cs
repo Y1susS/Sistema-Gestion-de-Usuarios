@@ -20,5 +20,11 @@ namespace Logica
         {
             return CD_UsuarioAtributos.User;
         }
+
+        public bool EsPrimeraPass()
+        {
+            return CD_UsuarioAtributos.PrimeraPass;
+        }
+
     }
 }

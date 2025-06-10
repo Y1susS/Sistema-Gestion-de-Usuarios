@@ -72,6 +72,7 @@ namespace Datos
                 //CS_userAtributos.Id_user = reader.GetInt32(0);
                 CD_UsuarioAtributos.User = reader.GetString(1);
                 CD_UsuarioAtributos.Password = reader.GetString(2);
+                CD_UsuarioAtributos.PrimeraPass = reader.GetBoolean(5);
                 //CS_userAtributos.Activo = reader.GetBoolean(3);
                 //CS_userAtributos.Id_Rol = reader.GetInt32(4);
 

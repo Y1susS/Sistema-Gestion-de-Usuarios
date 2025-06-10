@@ -106,10 +106,24 @@ namespace Vista
             CL_Loguin login = new CL_Loguin();
             bool loginCorrecto = login.LoginUser(usuario, passencrip);
             
+            
+            
             if (loginCorrecto)
             {
                 string usuarioLogueado = login.ObtenerUsuarioActual();
                 MessageBox.Show("Bienvenido " + usuarioLogueado + " :)");
+
+                bool PrimeraPass = login.EsPrimeraPass();
+                Console.WriteLine(PrimeraPass);
+
+                if (PrimeraPass)
+                {
+                    Console.WriteLine("Primera vez");
+                }
+                else
+                {
+                    Console.WriteLine("No es tu primera vez");
+                }
 
                 frmAdminUserABM frm = new frmAdminUserABM();
                 frm.Show();
