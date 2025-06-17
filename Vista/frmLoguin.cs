@@ -134,7 +134,15 @@ namespace Vista
             //}
         }
 
-       
+        private void pctFondo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
         {
