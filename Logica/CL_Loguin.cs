@@ -10,20 +10,21 @@ namespace Logica
 {
     public class CL_Loguin
     {
-        CD_Usuarios usuario = new CD_Usuarios();
+        CD_Usuario usuario = new CD_Usuario();
+        CD_AccionUsuarios acciones = new CD_AccionUsuarios();
 
         public bool LoginUser(string user, string password)
         {
-            return usuario.ValidarUsuario(user, password);
+            return acciones.ValidarUsuario(user, password);
         }
         public string ObtenerUsuarioActual()
         {
-            return CD_UsuarioAtributos.User;
+            return usuario.User;
         }
 
         public bool EsPrimeraPass()
         {
-            return CD_UsuarioAtributos.PrimeraPass;
+            return usuario.PrimeraPass;
         }
 
     }

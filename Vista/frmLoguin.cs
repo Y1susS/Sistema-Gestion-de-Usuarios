@@ -105,9 +105,9 @@ namespace Vista
 
             CL_Loguin login = new CL_Loguin();
             bool loginCorrecto = login.LoginUser(usuario, passencrip);
-            
-            
-            
+
+
+
             if (loginCorrecto)
             {
                 string usuarioLogueado = login.ObtenerUsuarioActual();
@@ -148,7 +148,15 @@ namespace Vista
             //}
         }
 
-       
+        private void pctFondo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
         {
