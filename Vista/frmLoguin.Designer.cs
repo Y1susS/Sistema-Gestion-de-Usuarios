@@ -72,8 +72,9 @@
             this.txtUsuario.Location = new System.Drawing.Point(110, 177);
             this.txtUsuario.MaxLength = 25;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(186, 25);
+            this.txtUsuario.Size = new System.Drawing.Size(186, 30);
             this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
@@ -85,7 +86,7 @@
             this.lnkRecuperar.LinkColor = System.Drawing.Color.White;
             this.lnkRecuperar.Location = new System.Drawing.Point(98, 265);
             this.lnkRecuperar.Name = "lnkRecuperar";
-            this.lnkRecuperar.Size = new System.Drawing.Size(211, 18);
+            this.lnkRecuperar.Size = new System.Drawing.Size(270, 23);
             this.lnkRecuperar.TabIndex = 3;
             this.lnkRecuperar.TabStop = true;
             this.lnkRecuperar.Text = "Recuperar usuario/contraseña";
@@ -98,7 +99,7 @@
             this.txtContrasenia.Location = new System.Drawing.Point(110, 222);
             this.txtContrasenia.MaxLength = 25;
             this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(186, 25);
+            this.txtContrasenia.Size = new System.Drawing.Size(186, 30);
             this.txtContrasenia.TabIndex = 2;
             this.txtContrasenia.Enter += new System.EventHandler(this.txtContrasenia_Enter);
             this.txtContrasenia.Leave += new System.EventHandler(this.txtContrasenia_Leave);
@@ -171,6 +172,7 @@
             this.pctFondo.Size = new System.Drawing.Size(405, 373);
             this.pctFondo.TabIndex = 14;
             this.pctFondo.TabStop = false;
+            this.pctFondo.Click += new System.EventHandler(this.pctFondo_Click);
             // 
             // FrmLoguin
             // 

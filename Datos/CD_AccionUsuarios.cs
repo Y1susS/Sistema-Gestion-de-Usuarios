@@ -9,7 +9,7 @@ using Sesion;
 
 namespace Datos
 {
-    public class CD_Usuarios
+    public class CD_AccionUsuarios
     {
         CD_Conexion conexion = new CD_Conexion();
         
@@ -53,7 +53,7 @@ namespace Datos
         }
 
         public bool ValidarUsuario(string usuario, string password)
-        {
+        {   CD_Usuario usuarioAValidar = new CD_Usuario();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "validarUsuario";
@@ -70,9 +70,10 @@ namespace Datos
             if (reader.Read())
             {
                 //CS_userAtributos.Id_user = reader.GetInt32(0);
-                CD_UsuarioAtributos.User = reader.GetString(1);
-                CD_UsuarioAtributos.Password = reader.GetString(2);
-                CD_UsuarioAtributos.PrimeraPass = reader.GetBoolean(5);
+
+
+                usuarioAValidar.User = reader.GetString(1);
+                usuarioAValidar.Password = reader.GetString(2);
                 //CS_userAtributos.Activo = reader.GetBoolean(3);
                 //CS_userAtributos.Id_Rol = reader.GetInt32(4);
 
@@ -100,5 +101,6 @@ namespace Datos
 
             //}
         }
+        
     }
 }
