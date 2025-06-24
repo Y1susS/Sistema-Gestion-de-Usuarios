@@ -16,5 +16,12 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void btnVolverRegCliente_Click(object sender, EventArgs e)
+        {
+            frmAdministrador frm = new frmAdministrador();
+            frm.Show();
+            this.Close();
+        }
     }
 }

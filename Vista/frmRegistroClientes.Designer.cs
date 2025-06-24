@@ -41,7 +41,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVolverRegCliente = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -166,14 +166,15 @@
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = "Apellidos";
             // 
-            // button1
+            // btnVolverRegCliente
             // 
-            this.button1.Location = new System.Drawing.Point(701, 116);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 24);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Volver";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVolverRegCliente.Location = new System.Drawing.Point(701, 116);
+            this.btnVolverRegCliente.Name = "btnVolverRegCliente";
+            this.btnVolverRegCliente.Size = new System.Drawing.Size(75, 24);
+            this.btnVolverRegCliente.TabIndex = 11;
+            this.btnVolverRegCliente.Text = "Volver";
+            this.btnVolverRegCliente.UseVisualStyleBackColor = true;
+            this.btnVolverRegCliente.Click += new System.EventHandler(this.btnVolverRegCliente_Click);
             // 
             // button2
             // 
@@ -209,7 +210,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVolverRegCliente);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
@@ -236,7 +237,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVolverRegCliente;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;

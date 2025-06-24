@@ -47,7 +47,15 @@ namespace Vista
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            FrmLoguin frm = new FrmLoguin();
+            frm.Show();
+            this.Close();
+        }
+
+        private void frmRegistroClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FrmLoguin frm = new FrmLoguin();
+            frm.Show();
         }
     }
 }
