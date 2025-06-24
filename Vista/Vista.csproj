@@ -89,11 +89,11 @@
     <Compile Include="frm1eringreso.Designer.cs">
       <DependentUpon>frm1eringreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAltausuario.cs">
+    <Compile Include="frmAdminUserABM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAltausuario.Designer.cs">
-      <DependentUpon>frmAltausuario.cs</DependentUpon>
+    <Compile Include="frmAdminUserABM.Designer.cs">
+      <DependentUpon>frmAdminUserABM.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoguin.cs">
       <SubType>Form</SubType>
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="frmSegContraseña.resx">
       <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAltausuario.resx">
-      <DependentUpon>frmAltausuario.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdminUserABM.resx">
+      <DependentUpon>frmAdminUserABM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoguin.resx">
       <DependentUpon>frmLoguin.cs</DependentUpon>

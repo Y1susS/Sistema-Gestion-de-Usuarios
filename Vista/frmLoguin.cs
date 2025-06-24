@@ -125,7 +125,7 @@ namespace Vista
                     Console.WriteLine("No es tu primera vez");
                 }
 
-                frmAdminUserABM frm = new frmAdminUserABM();
+                frmAdministrador frm = new frmAdministrador();
                 frm.Show();
                 this.Hide();
             }

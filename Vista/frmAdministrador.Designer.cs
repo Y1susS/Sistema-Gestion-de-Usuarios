@@ -108,6 +108,7 @@
             this.Controls.Add(this.btnGestionUsuarios);
             this.Name = "frmAdministrador";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegistroClientes_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
