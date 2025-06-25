@@ -154,7 +154,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(251, 20);
             this.textBox10.TabIndex = 14;
-            this.textBox10.Text = "Provincia";
+            this.textBox10.Text = "Partido";
             // 
             // textBox7
             // 

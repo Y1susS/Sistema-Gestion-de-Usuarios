@@ -11,7 +11,7 @@ namespace Logica
     public class CL_Loguin
     {
         CD_Usuario usuario = new CD_Usuario();
-        CD_AccionUsuarios acciones = new CD_AccionUsuarios();
+        CD_DaoUsuarios acciones = new CD_DaoUsuarios();
 
         public bool LoginUser(string user, string password)
         {

@@ -9,10 +9,24 @@ using Sesion;
 
 namespace Datos
 {
-    public class CD_AccionUsuarios
+    public class CD_DaoUsuarios
     {
-        CD_Conexion conexion = new CD_Conexion();
-        
+        private CD_Conexion conexion = new CD_Conexion();
+        SqlDataReader leer;
+        DataTable tabla = new DataTable();
+        SqlCommand comando = new SqlCommand();
+
+        public DataTable Mostrar()
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "sp_ListarUsuariosDatos";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
         public bool AgregarUsuario(string id, string usuario, string email, string password, string rol)
         {
             SqlCommand comando = new SqlCommand();
