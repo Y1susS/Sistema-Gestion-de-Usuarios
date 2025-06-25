@@ -14,6 +14,7 @@ namespace Vista
     public partial class frmAdminUserABM : Form
     {
         CL_Usuarios objCL = new CL_Usuarios();
+        CL_Partido objPartido = new CL_Partido();
 
         public frmAdminUserABM()
         {
@@ -23,6 +24,7 @@ namespace Vista
         private void frmAdministrador_Load(object sender, EventArgs e)
         {
             MostrarUsuarios();
+            CargarCombos();
         }
 
         private void MostrarUsuarios()
@@ -30,6 +32,15 @@ namespace Vista
             CL_Usuarios usuario = new CL_Usuarios();
             dataGridView1.DataSource = usuario.MostrarUsuarios();
         }
+
+        private void CargarCombos()
+        {
+            cmbPartido.DataSource = objPartido.MostrarPartidos();
+            cmbPartido.DisplayMember = "Partido";
+            cmbPartido.ValueMember = "Id_Partido";
+            cmbPartido.SelectedIndex = -1;
+        }
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
