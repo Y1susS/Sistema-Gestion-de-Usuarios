@@ -45,7 +45,7 @@
     <Compile Include="CD_Loggin.cs" />
     <Compile Include="CD_Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CD_AccionUsuarios.cs" />
+    <Compile Include="CD_DaoUsuarios.cs" />
     <Compile Include="CD_Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

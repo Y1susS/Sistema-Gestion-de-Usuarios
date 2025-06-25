@@ -12,6 +12,7 @@ namespace Vista
 {
     public partial class frmAdministrador : Form
     {
+
         public frmAdministrador()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace Vista
         {
             frmAdminUserABM frmalta = new frmAdminUserABM();
             frmalta.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnGestionPermisos_Click(object sender, EventArgs e)
@@ -54,8 +55,8 @@ namespace Vista
 
         private void frmRegistroClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FrmLoguin frm = new FrmLoguin();
-            frm.Show();
+            //FrmLoguin frm = new FrmLoguin();
+            //frm.Show();
         }
     }
 }

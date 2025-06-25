@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CL_CambioPassword.cs" />
     <Compile Include="CL_Loguin.cs" />
+    <Compile Include="CL_Usuarios.cs" />
     <Compile Include="CL_VerificaIngreso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
