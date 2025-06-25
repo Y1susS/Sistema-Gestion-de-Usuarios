@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CD_Conexion.cs" />
+    <Compile Include="CD_DaoPartido.cs" />
+    <Compile Include="CD_DaoRol.cs" />
+    <Compile Include="CD_DaoTipoDocumento.cs" />
+    <Compile Include="CD_Localidad.cs" />
     <Compile Include="CD_Loggin.cs" />
     <Compile Include="CD_Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
