@@ -45,9 +45,10 @@
     <Compile Include="CD_DaoPartido.cs" />
     <Compile Include="CD_DaoRol.cs" />
     <Compile Include="CD_DaoTipoDocumento.cs" />
-    <Compile Include="CD_Localidad.cs" />
+    <Compile Include="CD_DaoLocalidad.cs" />
     <Compile Include="CD_Loggin.cs" />
     <Compile Include="CD_Persona.cs" />
+    <Compile Include="CD_DaoTipoDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CD_DaoUsuarios.cs" />
     <Compile Include="CD_Usuario.cs" />

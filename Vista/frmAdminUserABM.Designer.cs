@@ -31,6 +31,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
+            this.cmbPartido = new System.Windows.Forms.ComboBox();
+            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
+            this.cmbRol = new System.Windows.Forms.ComboBox();
             this.lblLocalidad = new System.Windows.Forms.Label();
             this.lblPartido = new System.Windows.Forms.Label();
             this.lblDepart = new System.Windows.Forms.Label();
@@ -58,10 +62,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
-            this.cmbRol = new System.Windows.Forms.ComboBox();
-            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
-            this.cmbPartido = new System.Windows.Forms.ComboBox();
-            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +120,39 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Alta y modificación de usuarios";
+            // 
+            // cmbLocalidad
+            // 
+            this.cmbLocalidad.FormattingEnabled = true;
+            this.cmbLocalidad.Location = new System.Drawing.Point(388, 160);
+            this.cmbLocalidad.Name = "cmbLocalidad";
+            this.cmbLocalidad.Size = new System.Drawing.Size(223, 21);
+            this.cmbLocalidad.TabIndex = 19;
+            // 
+            // cmbPartido
+            // 
+            this.cmbPartido.FormattingEnabled = true;
+            this.cmbPartido.Location = new System.Drawing.Point(74, 160);
+            this.cmbPartido.Name = "cmbPartido";
+            this.cmbPartido.Size = new System.Drawing.Size(224, 21);
+            this.cmbPartido.TabIndex = 18;
+            this.cmbPartido.SelectedIndexChanged += new System.EventHandler(this.cmbPartido_SelectedIndexChanged);
+            // 
+            // cmbTipoDoc
+            // 
+            this.cmbTipoDoc.FormattingEnabled = true;
+            this.cmbTipoDoc.Location = new System.Drawing.Point(74, 76);
+            this.cmbTipoDoc.Name = "cmbTipoDoc";
+            this.cmbTipoDoc.Size = new System.Drawing.Size(224, 21);
+            this.cmbTipoDoc.TabIndex = 10;
+            // 
+            // cmbRol
+            // 
+            this.cmbRol.FormattingEnabled = true;
+            this.cmbRol.Location = new System.Drawing.Point(388, 46);
+            this.cmbRol.Name = "cmbRol";
+            this.cmbRol.Size = new System.Drawing.Size(223, 21);
+            this.cmbRol.TabIndex = 9;
             // 
             // lblLocalidad
             // 
@@ -345,38 +378,6 @@
             this.btneliminar.TabIndex = 8;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
-            // 
-            // cmbRol
-            // 
-            this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(388, 46);
-            this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(223, 21);
-            this.cmbRol.TabIndex = 9;
-            // 
-            // cmbTipoDoc
-            // 
-            this.cmbTipoDoc.FormattingEnabled = true;
-            this.cmbTipoDoc.Location = new System.Drawing.Point(74, 76);
-            this.cmbTipoDoc.Name = "cmbTipoDoc";
-            this.cmbTipoDoc.Size = new System.Drawing.Size(224, 21);
-            this.cmbTipoDoc.TabIndex = 10;
-            // 
-            // cmbPartido
-            // 
-            this.cmbPartido.FormattingEnabled = true;
-            this.cmbPartido.Location = new System.Drawing.Point(74, 160);
-            this.cmbPartido.Name = "cmbPartido";
-            this.cmbPartido.Size = new System.Drawing.Size(224, 21);
-            this.cmbPartido.TabIndex = 18;
-            // 
-            // cmbLocalidad
-            // 
-            this.cmbLocalidad.FormattingEnabled = true;
-            this.cmbLocalidad.Location = new System.Drawing.Point(388, 160);
-            this.cmbLocalidad.Name = "cmbLocalidad";
-            this.cmbLocalidad.Size = new System.Drawing.Size(223, 21);
-            this.cmbLocalidad.TabIndex = 19;
             // 
             // frmAdminUserABM
             // 

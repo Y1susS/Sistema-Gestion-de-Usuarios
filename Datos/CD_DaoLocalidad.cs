@@ -8,17 +8,20 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class CD_DaoRol
+    public class CD_DaoLocalidad
     {
         CD_Conexion conexion = new CD_Conexion();
         SqlCommand comando = new SqlCommand();
         SqlDataReader leer;
-        DataTable tabla = new DataTable();
-        public DataTable MostrarRoles()
+        
+        public DataTable MostrarLocalidadesxPartido(int idPartido)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_ListarRol";
+            comando.Parameters.Clear();
+            comando.CommandText = "sp_FiltrarLocalidadxPartido";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@filtroPartido", idPartido);
+            DataTable tabla = new DataTable();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();

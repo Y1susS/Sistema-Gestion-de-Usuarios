@@ -38,7 +38,6 @@
             this.chkcaresp = new System.Windows.Forms.CheckBox();
             this.lblseguridad = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnvolver = new System.Windows.Forms.Button();
             this.btnguardarcambios = new System.Windows.Forms.Button();
             this.nupcaracteres = new System.Windows.Forms.NumericUpDown();
             this.btnVolveradmin = new System.Windows.Forms.Button();
@@ -141,15 +140,6 @@
             this.textBox1.Size = new System.Drawing.Size(24, 20);
             this.textBox1.TabIndex = 17;
             // 
-            // btnvolver
-            // 
-            this.btnvolver.Location = new System.Drawing.Point(400, 385);
-            this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(162, 31);
-            this.btnvolver.TabIndex = 18;
-            this.btnvolver.Text = "Volver";
-            this.btnvolver.UseVisualStyleBackColor = true;
-            // 
             // btnguardarcambios
             // 
             this.btnguardarcambios.Location = new System.Drawing.Point(167, 385);
@@ -168,9 +158,9 @@
             // 
             // btnVolveradmin
             // 
-            this.btnVolveradmin.Location = new System.Drawing.Point(529, 300);
+            this.btnVolveradmin.Location = new System.Drawing.Point(365, 385);
             this.btnVolveradmin.Name = "btnVolveradmin";
-            this.btnVolveradmin.Size = new System.Drawing.Size(105, 29);
+            this.btnVolveradmin.Size = new System.Drawing.Size(162, 31);
             this.btnVolveradmin.TabIndex = 21;
             this.btnVolveradmin.Text = "Volver";
             this.btnVolveradmin.UseVisualStyleBackColor = true;
@@ -184,7 +174,6 @@
             this.Controls.Add(this.btnVolveradmin);
             this.Controls.Add(this.nupcaracteres);
             this.Controls.Add(this.btnguardarcambios);
-            this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblseguridad);
             this.Controls.Add(this.chkdatper);
@@ -216,7 +205,6 @@
         private System.Windows.Forms.CheckBox chkcaresp;
         private System.Windows.Forms.Label lblseguridad;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnvolver;
         private System.Windows.Forms.Button btnguardarcambios;
         private System.Windows.Forms.NumericUpDown nupcaracteres;
         private System.Windows.Forms.Button btnVolveradmin;
