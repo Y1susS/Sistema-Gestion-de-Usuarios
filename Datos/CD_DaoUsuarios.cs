@@ -11,6 +11,9 @@ namespace Datos
 {
     public class CD_DaoUsuarios
     {
+
+        private CD_Usuario usuarioAValidar = new CD_Usuario();
+
         private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader leer;
         DataTable tabla = new DataTable();
@@ -67,7 +70,7 @@ namespace Datos
         }
 
         public bool ValidarUsuario(string usuario, string password)
-        {   CD_Usuario usuarioAValidar = new CD_Usuario();
+        {   //CD_Usuario usuarioAValidar = new CD_Usuario();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "validarUsuario";
@@ -88,6 +91,7 @@ namespace Datos
 
                 usuarioAValidar.User = reader.GetString(1);
                 usuarioAValidar.Password = reader.GetString(2);
+                usuarioAValidar.PrimeraPass = reader.GetBoolean(5);
                 //CS_userAtributos.Activo = reader.GetBoolean(3);
                 //CS_userAtributos.Id_Rol = reader.GetInt32(4);
 
@@ -115,6 +119,11 @@ namespace Datos
 
             //}
         }
-        
+
+        public CD_Usuario UsuarioValidado
+        {
+            get { return usuarioAValidar; }
+        }
+
     }
 }
