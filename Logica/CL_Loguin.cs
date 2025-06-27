@@ -24,7 +24,7 @@ namespace Logica
 
         public bool EsPrimeraPass()
         {
-            return usuario.PrimeraPass;
+            return acciones.UsuarioValidado.PrimeraPass;
         }
 
     }
