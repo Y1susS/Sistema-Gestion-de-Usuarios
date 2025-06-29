@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Sesion;
 
 namespace Datos
@@ -125,5 +126,32 @@ namespace Datos
             get { return usuarioAValidar; }
         }
 
+        public bool VerificarParametrosRecupero(string NroDocumento, int Id_Pregunta, string Respuesta)
+        {
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "XXXXcontrastarrespuesta hasheadaXXX";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@NroDocumento", NroDocumento);
+            comando.Parameters.AddWithValue("@IdPregunta", Id_Pregunta);
+            comando.Parameters.AddWithValue("@Respuesta", Respuesta);
+
+            int resultado = Convert.ToInt32(comando.ExecuteScalar());
+
+            conexion.CerrarConexion();
+
+            if (resultado > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
     }
 }
