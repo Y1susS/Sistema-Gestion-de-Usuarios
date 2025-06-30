@@ -36,7 +36,7 @@ namespace Vista
             this.txtdni = new System.Windows.Forms.TextBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.pctFondo = new System.Windows.Forms.PictureBox();
             this.pctBorde = new System.Windows.Forms.PictureBox();
             this.lblrecuperocontraseña = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@ namespace Vista
             this.txtdni.Location = new System.Drawing.Point(168, 134);
             this.txtdni.MaxLength = 25;
             this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(163, 25);
+            this.txtdni.Size = new System.Drawing.Size(163, 30);
             this.txtdni.TabIndex = 15;
             // 
             // pctMinimize
@@ -112,29 +112,30 @@ namespace Vista
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctClose.TabIndex = 19;
             this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.PctClose_Click);
             // 
-            // btnLogin
+            // btnSiguiente
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(16, 313);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(186, 28);
-            this.btnLogin.TabIndex = 18;
-            this.btnLogin.Text = "Siguiente";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnSiguiente.BackColor = System.Drawing.Color.White;
+            this.btnSiguiente.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnSiguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnSiguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.Color.Black;
+            this.btnSiguiente.Location = new System.Drawing.Point(16, 313);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(186, 28);
+            this.btnSiguiente.TabIndex = 18;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // pctFondo
             // 
             this.pctFondo.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.pctFondo.Location = new System.Drawing.Point(2, 9);
+            this.pctFondo.Location = new System.Drawing.Point(-2, 2);
             this.pctFondo.Name = "pctFondo";
             this.pctFondo.Size = new System.Drawing.Size(402, 361);
             this.pctFondo.TabIndex = 23;
@@ -159,7 +160,7 @@ namespace Vista
             this.lblrecuperocontraseña.ForeColor = System.Drawing.SystemColors.Control;
             this.lblrecuperocontraseña.Location = new System.Drawing.Point(82, 9);
             this.lblrecuperocontraseña.Name = "lblrecuperocontraseña";
-            this.lblrecuperocontraseña.Size = new System.Drawing.Size(229, 17);
+            this.lblrecuperocontraseña.Size = new System.Drawing.Size(268, 21);
             this.lblrecuperocontraseña.TabIndex = 25;
             this.lblrecuperocontraseña.Text = "Recupero de usuario o contraseña";
             this.lblrecuperocontraseña.Click += new System.EventHandler(this.label1_Click);
@@ -171,7 +172,7 @@ namespace Vista
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.label1.Location = new System.Drawing.Point(35, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 17);
+            this.label1.Size = new System.Drawing.Size(131, 21);
             this.label1.TabIndex = 26;
             this.label1.Text = "Ingrese su D.N.I";
             // 
@@ -182,7 +183,7 @@ namespace Vista
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.label2.Location = new System.Drawing.Point(35, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 17);
+            this.label2.Size = new System.Drawing.Size(240, 21);
             this.label2.TabIndex = 27;
             this.label2.Text = "Elija su pregunta de seguridad";
             // 
@@ -193,7 +194,7 @@ namespace Vista
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.label3.Location = new System.Drawing.Point(35, 247);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 17);
+            this.label3.Size = new System.Drawing.Size(167, 21);
             this.label3.TabIndex = 29;
             this.label3.Text = "Ingrese la respuesta";
             // 
@@ -204,7 +205,7 @@ namespace Vista
             this.txtrespuesta.Location = new System.Drawing.Point(38, 278);
             this.txtrespuesta.MaxLength = 25;
             this.txtrespuesta.Name = "txtrespuesta";
-            this.txtrespuesta.Size = new System.Drawing.Size(293, 25);
+            this.txtrespuesta.Size = new System.Drawing.Size(293, 30);
             this.txtrespuesta.TabIndex = 30;
             this.txtrespuesta.TextChanged += new System.EventHandler(this.txtrespuesta_TextChanged);
             // 
@@ -213,7 +214,7 @@ namespace Vista
             this.cmbpreguntasseg.FormattingEnabled = true;
             this.cmbpreguntasseg.Location = new System.Drawing.Point(42, 208);
             this.cmbpreguntasseg.Name = "cmbpreguntasseg";
-            this.cmbpreguntasseg.Size = new System.Drawing.Size(289, 25);
+            this.cmbpreguntasseg.Size = new System.Drawing.Size(289, 29);
             this.cmbpreguntasseg.TabIndex = 31;
             this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
             // 
@@ -251,7 +252,7 @@ namespace Vista
             this.Controls.Add(this.pctBordeInferior);
             this.Controls.Add(this.pctLogo);
             this.Controls.Add(this.txtdni);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.pctFondo);
             this.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -261,6 +262,7 @@ namespace Vista
             this.Name = "frmRecupero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRecupero";
+            this.Load += new System.EventHandler(this.frmRecupero_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
@@ -287,7 +289,7 @@ namespace Vista
         private System.Windows.Forms.TextBox txtdni;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.PictureBox pctBorde;
         private System.Windows.Forms.Label lblrecuperocontraseña;

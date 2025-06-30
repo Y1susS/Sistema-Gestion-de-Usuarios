@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Logica;
+using Sesion;
 
 namespace Vista
 {
@@ -25,10 +27,25 @@ namespace Vista
             pctFondo.Controls.Add(pctLogo);
             pctLogo.BackColor = Color.Transparent;
         }
+        private void PctClose_Click(object sender, EventArgs e)
+        {
+            {
+                
+                DialogResult resultado = MessageBox.Show("¿Desea cerrar la aplicación?", "Confirmación de Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                
+                if (resultado == DialogResult.Yes)
+                {
+                    Application.Exit(); 
+                }
+                
+            }
+
+        }
+        //EVENTO CLIC VIEJO DAMI
 
         //private void pctClose_Click(object sender, EventArgs e)
         //{
-         
+
         //    bool ambosVacios = string.IsNullOrWhiteSpace(txtdni.Text) && string.IsNullOrWhiteSpace(txtContrasenia2.Text);
 
         //    if (ambosVacios == true)
@@ -84,22 +101,62 @@ namespace Vista
         }
         private void cmbpreguntasseg_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbpreguntasseg.Items.Add("¿Cuál es el nombre de tu primera mascota?");
-            cmbpreguntasseg.Items.Add("¿Cuál es tu comida favorita?");
-            cmbpreguntasseg.Items.Add("¿Cuál es el segundo nombre de tu madre?");
+          
 
-            string preguntaSeleccionada = cmbpreguntasseg.SelectedItem.ToString();
+            //string preguntaSeleccionada = cmbpreguntasseg.SelectedItem.ToString();
+
 
 
         }
+
 
         private void txtrespuesta_TextChanged(object sender, EventArgs e)
         {
             string respuestaIngresada = txtrespuesta.Text.Trim();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        CL_VerificarRecupero objUsuario = new CL_VerificarRecupero();
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
         {
+            {
+                string documento = txtdni.Text.Trim();
+                if (string.IsNullOrEmpty(documento))
+                {
+                    MessageBox.Show("Ingrese su documento.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (cmbpreguntasseg.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione una pregunta de seguridad.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtrespuesta.Text))
+                {
+                    MessageBox.Show("Ingrese la respuesta.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int idPregunta = Convert.ToInt32(cmbpreguntasseg.SelectedValue);
+                string respuesta = txtrespuesta.Text.Trim();
+                string respuestaHasheada = ClsSeguridad.SHA256(respuesta);
+
+                bool valido = objUsuario.VerificarRecupero(documento, idPregunta, respuestaHasheada);
+
+                if (valido)
+                {
+                    MessageBox.Show("Respuesta correcta. Se enviará la nueva contraseña.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Aquí seguir con el flujo (ej: envío de mail)
+                }
+                else
+                {
+                    MessageBox.Show("Respuesta incorrecta. Intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
             FrmLoguin frmloggin = new FrmLoguin();
             frmloggin.Show();
             this.Hide();
@@ -148,5 +205,32 @@ namespace Vista
             mousex = e.X;
             mousey = e.Y;
         }
+
+        //COMBO PREGUNTAS//
+
+        CL_Pregunta objPreguntas = new CL_Pregunta();
+
+        //private void MostrarPregutas()
+        //{
+        //    cmbpreguntasseg.DataSource = objPreguntas.MostrarPreguntas();
+
+        //}
+
+
+        private void LlenarCombo()
+        {
+            cmbpreguntasseg.DataSource = objPreguntas.MostrarPreguntas();
+            cmbpreguntasseg.DisplayMember = "Pregunta";
+            cmbpreguntasseg.ValueMember = "Id_Pregunta";
+            cmbpreguntasseg.SelectedIndex = -1;
+        }
+
+        private void frmRecupero_Load(object sender, EventArgs e)
+        {
+
+            LlenarCombo();
+
+        }
+
     }
 }
