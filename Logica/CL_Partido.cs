@@ -1,21 +1,16 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
 using Datos;
+using Sesion.Entidades;
 
 namespace Logica
 {
     public class CL_Partido
     {
-        CD_DaoPartido objCD = new CD_DaoPartido();
-        public DataTable MostrarPartidos()
+        private readonly CD_DaoPartido daoPartido = new CD_DaoPartido();
+
+        public List<DtoPartido> MostrarPartidos()
         {
-            DataTable tabla = new DataTable();
-            tabla = objCD.MostrarPartidos(); 
-            return tabla;
-        }   
+            return daoPartido.ListarPartidos();
+        }
     }
 }

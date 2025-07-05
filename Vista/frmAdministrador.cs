@@ -27,23 +27,23 @@ namespace Vista
 
         private void btnGestionPermisos_Click(object sender, EventArgs e)
         {
-            frmPermisos frmPermisos = new frmPermisos();
-            frmPermisos.Show();
-            this.Hide();
+            //frmPermisos frmPermisos = new frmPermisos();
+            //frmPermisos.Show();
+            //this.Hide();
         }
 
         private void btnGestionContraseñas_Click(object sender, EventArgs e)
         {
-            frmSegContraseña frmSegContraseña = new frmSegContraseña();
-            frmSegContraseña.Show();
-            this.Hide();
+            //frmSegContraseña frmSegContraseña = new frmSegContraseña();
+            //frmSegContraseña.Show();
+            //this.Hide();
         }
 
         private void btnRegistroClientes_Click(object sender, EventArgs e)
         {
-            frmRegistroClientes frmRegistro = new frmRegistroClientes();
-            frmRegistro.Show();
-            this.Hide();
+            //frmRegistroClientes frmRegistro = new frmRegistroClientes();
+            //frmRegistro.Show();
+            //this.Hide();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

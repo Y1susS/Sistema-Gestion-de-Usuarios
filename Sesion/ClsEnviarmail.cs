@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sesion
 {
-    internal class ClsEnviarmail
+    public static class ClsEnviarMail
     {
         public static void sendMail(string to, string asunto, string body)
         {

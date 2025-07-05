@@ -1,29 +1,42 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-
+using Sesion.Entidades;
 
 namespace Datos
 {
     public class CD_DaoTipoDoc
     {
-        CD_Conexion conexion = new CD_Conexion();
-        SqlCommand comando = new SqlCommand();
-        SqlDataReader leer;
-        DataTable tabla = new DataTable();
-        public DataTable MostrarTipoDoc()
+        public List<DtoTipoDoc> ListarTiposDocumento()
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "sp_ListarTipoDocumento";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
-            return tabla;
+            var lista = new List<DtoTipoDoc>();
+            var conexion = new CD_Conexion();
+            using (var conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("sp_ListarTipoDocumento", conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new DtoTipoDoc
+                            {
+                                Id_TipoDocumento = dr.GetString(0),
+                                DescDocumento = dr.GetString(1)
+                            });
+                        }
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return lista;
         }
     }
 }
