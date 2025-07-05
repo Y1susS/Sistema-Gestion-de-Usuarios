@@ -1,23 +1,16 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
 using Datos;
+using Sesion.Entidades;
 
 namespace Logica
 {
     public class CL_Localidad
     {
-        CD_DaoLocalidad objCD = new CD_DaoLocalidad();
-        public DataTable MostrarLocalidades(int idPartido)
-        {
-            DataTable tabla = new DataTable();
-            tabla = objCD.MostrarLocalidadesxPartido(idPartido);
-            return tabla;
-        }
+        private readonly CD_DaoLocalidad daoLocalidad = new CD_DaoLocalidad();
 
+        public List<DtoLocalidad> MostrarLocalidades(int idPartido)
+        {
+            return daoLocalidad.ListarLocalidadesPorPartido(idPartido);
+        }
     }
 }

@@ -28,126 +28,146 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblpreguntasseg = new System.Windows.Forms.Label();
-            this.lblcomida = new System.Windows.Forms.Label();
-            this.lblnombremadre = new System.Windows.Forms.Label();
-            this.lblprimeramascota = new System.Windows.Forms.Label();
-            this.txtmadre = new System.Windows.Forms.TextBox();
-            this.txtcomida = new System.Windows.Forms.TextBox();
-            this.txtmascota = new System.Windows.Forms.TextBox();
-            this.btnsiguiente = new System.Windows.Forms.Button();
+            this.lblInstrucciones = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtRespuesta1 = new System.Windows.Forms.TextBox();
+            this.txtRespuesta2 = new System.Windows.Forms.TextBox();
+            this.txtRespuesta3 = new System.Windows.Forms.TextBox();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.txtrespuestas = new System.Windows.Forms.Label();
+            this.cmbPregunta1 = new System.Windows.Forms.ComboBox();
+            this.cmbPregunta2 = new System.Windows.Forms.ComboBox();
+            this.cmbPregunta3 = new System.Windows.Forms.ComboBox();
+            this.lblPreguntas = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblpreguntasseg
+            // lblInstrucciones
             // 
-            this.lblpreguntasseg.AutoSize = true;
-            this.lblpreguntasseg.Location = new System.Drawing.Point(221, 29);
-            this.lblpreguntasseg.Name = "lblpreguntasseg";
-            this.lblpreguntasseg.Size = new System.Drawing.Size(186, 13);
-            this.lblpreguntasseg.TabIndex = 0;
-            this.lblpreguntasseg.Text = "Responda las preguntas de seguridad";
+            this.lblInstrucciones.AutoSize = true;
+            this.lblInstrucciones.Location = new System.Drawing.Point(12, 96);
+            this.lblInstrucciones.Name = "lblInstrucciones";
+            this.lblInstrucciones.Size = new System.Drawing.Size(70, 13);
+            this.lblInstrucciones.TabIndex = 1;
+            this.lblInstrucciones.Text = "Instrucciones";
             // 
-            // lblcomida
+            // lblUsuario
             // 
-            this.lblcomida.AutoSize = true;
-            this.lblcomida.Location = new System.Drawing.Point(104, 144);
-            this.lblcomida.Name = "lblcomida";
-            this.lblcomida.Size = new System.Drawing.Size(141, 13);
-            this.lblcomida.TabIndex = 1;
-            this.lblcomida.Text = "¿Cual es tu comida favorita?";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(198, 34);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.TabIndex = 2;
+            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblnombremadre
+            // txtRespuesta1
             // 
-            this.lblnombremadre.AutoSize = true;
-            this.lblnombremadre.Location = new System.Drawing.Point(104, 97);
-            this.lblnombremadre.Name = "lblnombremadre";
-            this.lblnombremadre.Size = new System.Drawing.Size(206, 13);
-            this.lblnombremadre.TabIndex = 2;
-            this.lblnombremadre.Text = "¿Cual es el segundo nombre de tu madre?";
-            this.lblnombremadre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblnombremadre.Click += new System.EventHandler(this.label2_Click);
+            this.txtRespuesta1.Location = new System.Drawing.Point(399, 192);
+            this.txtRespuesta1.Name = "txtRespuesta1";
+            this.txtRespuesta1.Size = new System.Drawing.Size(173, 20);
+            this.txtRespuesta1.TabIndex = 4;
             // 
-            // lblprimeramascota
+            // txtRespuesta2
             // 
-            this.lblprimeramascota.AutoSize = true;
-            this.lblprimeramascota.Location = new System.Drawing.Point(104, 189);
-            this.lblprimeramascota.Name = "lblprimeramascota";
-            this.lblprimeramascota.Size = new System.Drawing.Size(210, 13);
-            this.lblprimeramascota.TabIndex = 3;
-            this.lblprimeramascota.Text = "¿Cual es el nombre de tu primera mascota?";
+            this.txtRespuesta2.Location = new System.Drawing.Point(399, 231);
+            this.txtRespuesta2.Name = "txtRespuesta2";
+            this.txtRespuesta2.Size = new System.Drawing.Size(173, 20);
+            this.txtRespuesta2.TabIndex = 5;
             // 
-            // txtmadre
+            // txtRespuesta3
             // 
-            this.txtmadre.Location = new System.Drawing.Point(358, 97);
-            this.txtmadre.Name = "txtmadre";
-            this.txtmadre.Size = new System.Drawing.Size(173, 20);
-            this.txtmadre.TabIndex = 4;
+            this.txtRespuesta3.Location = new System.Drawing.Point(399, 271);
+            this.txtRespuesta3.Name = "txtRespuesta3";
+            this.txtRespuesta3.Size = new System.Drawing.Size(173, 20);
+            this.txtRespuesta3.TabIndex = 6;
             // 
-            // txtcomida
+            // btnSiguiente
             // 
-            this.txtcomida.Location = new System.Drawing.Point(358, 141);
-            this.txtcomida.Name = "txtcomida";
-            this.txtcomida.Size = new System.Drawing.Size(173, 20);
-            this.txtcomida.TabIndex = 5;
-            // 
-            // txtmascota
-            // 
-            this.txtmascota.Location = new System.Drawing.Point(358, 189);
-            this.txtmascota.Name = "txtmascota";
-            this.txtmascota.Size = new System.Drawing.Size(173, 20);
-            this.txtmascota.TabIndex = 6;
-            // 
-            // btnsiguiente
-            // 
-            this.btnsiguiente.Location = new System.Drawing.Point(251, 226);
-            this.btnsiguiente.Name = "btnsiguiente";
-            this.btnsiguiente.Size = new System.Drawing.Size(156, 22);
-            this.btnsiguiente.TabIndex = 7;
-            this.btnsiguiente.Text = "Siguiente";
-            this.btnsiguiente.UseVisualStyleBackColor = true;
-            this.btnsiguiente.Click += new System.EventHandler(this.btnsiguiente_Click);
+            this.btnSiguiente.Location = new System.Drawing.Point(277, 387);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(156, 22);
+            this.btnSiguiente.TabIndex = 7;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnsiguiente_Click);
             // 
             // txtrespuestas
             // 
             this.txtrespuestas.AutoSize = true;
-            this.txtrespuestas.Location = new System.Drawing.Point(412, 69);
+            this.txtrespuestas.Location = new System.Drawing.Point(446, 156);
             this.txtrespuestas.Name = "txtrespuestas";
             this.txtrespuestas.Size = new System.Drawing.Size(63, 13);
             this.txtrespuestas.TabIndex = 8;
             this.txtrespuestas.Text = "Respuestas";
             // 
-            // frmpreguntas
+            // cmbPregunta1
+            // 
+            this.cmbPregunta1.FormattingEnabled = true;
+            this.cmbPregunta1.Location = new System.Drawing.Point(48, 192);
+            this.cmbPregunta1.Name = "cmbPregunta1";
+            this.cmbPregunta1.Size = new System.Drawing.Size(235, 21);
+            this.cmbPregunta1.TabIndex = 9;
+            // 
+            // cmbPregunta2
+            // 
+            this.cmbPregunta2.FormattingEnabled = true;
+            this.cmbPregunta2.Location = new System.Drawing.Point(48, 231);
+            this.cmbPregunta2.Name = "cmbPregunta2";
+            this.cmbPregunta2.Size = new System.Drawing.Size(235, 21);
+            this.cmbPregunta2.TabIndex = 10;
+            // 
+            // cmbPregunta3
+            // 
+            this.cmbPregunta3.FormattingEnabled = true;
+            this.cmbPregunta3.Location = new System.Drawing.Point(48, 271);
+            this.cmbPregunta3.Name = "cmbPregunta3";
+            this.cmbPregunta3.Size = new System.Drawing.Size(235, 21);
+            this.cmbPregunta3.TabIndex = 11;
+            // 
+            // lblPreguntas
+            // 
+            this.lblPreguntas.AutoSize = true;
+            this.lblPreguntas.Location = new System.Drawing.Point(127, 156);
+            this.lblPreguntas.Name = "lblPreguntas";
+            this.lblPreguntas.Size = new System.Drawing.Size(55, 13);
+            this.lblPreguntas.TabIndex = 12;
+            this.lblPreguntas.Text = "Preguntas";
+            // 
+            // frmPreguntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblPreguntas);
+            this.Controls.Add(this.cmbPregunta3);
+            this.Controls.Add(this.cmbPregunta2);
+            this.Controls.Add(this.cmbPregunta1);
             this.Controls.Add(this.txtrespuestas);
-            this.Controls.Add(this.btnsiguiente);
-            this.Controls.Add(this.txtmascota);
-            this.Controls.Add(this.txtcomida);
-            this.Controls.Add(this.txtmadre);
-            this.Controls.Add(this.lblprimeramascota);
-            this.Controls.Add(this.lblnombremadre);
-            this.Controls.Add(this.lblcomida);
-            this.Controls.Add(this.lblpreguntasseg);
-            this.Name = "frmpreguntas";
+            this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.txtRespuesta3);
+            this.Controls.Add(this.txtRespuesta2);
+            this.Controls.Add(this.txtRespuesta1);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblInstrucciones);
+            this.Name = "frmPreguntas";
             this.Text = "Preguntas de seguridad";
+            this.Load += new System.EventHandler(this.frmPreguntas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblpreguntasseg;
-        private System.Windows.Forms.Label lblcomida;
-        private System.Windows.Forms.Label lblnombremadre;
-        private System.Windows.Forms.Label lblprimeramascota;
-        private System.Windows.Forms.TextBox txtmadre;
-        private System.Windows.Forms.TextBox txtcomida;
-        private System.Windows.Forms.TextBox txtmascota;
-        private System.Windows.Forms.Button btnsiguiente;
+        private System.Windows.Forms.Label lblInstrucciones;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox txtRespuesta1;
+        private System.Windows.Forms.TextBox txtRespuesta2;
+        private System.Windows.Forms.TextBox txtRespuesta3;
+        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label txtrespuestas;
+        private System.Windows.Forms.ComboBox cmbPregunta1;
+        private System.Windows.Forms.ComboBox cmbPregunta2;
+        private System.Windows.Forms.ComboBox cmbPregunta3;
+        private System.Windows.Forms.Label lblPreguntas;
     }
 }

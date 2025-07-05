@@ -101,11 +101,8 @@ namespace Vista
         }
         private void cmbpreguntasseg_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-
+         
             //string preguntaSeleccionada = cmbpreguntasseg.SelectedItem.ToString();
-
-
 
         }
 
@@ -141,10 +138,9 @@ namespace Vista
                 }
 
                 int idPregunta = Convert.ToInt32(cmbpreguntasseg.SelectedValue);
-                string respuesta = txtrespuesta.Text.Trim();
-                string respuestaHasheada = ClsSeguridad.SHA256(respuesta);
+                string respuesta = txtrespuesta.Text.Trim().ToLower();
 
-                bool valido = objUsuario.VerificarRecupero(documento, idPregunta, respuestaHasheada);
+                bool valido = objUsuario.VerificarRecupero(documento, idPregunta, respuesta);
 
                 if (valido)
                 {
@@ -208,15 +204,9 @@ namespace Vista
 
         //COMBO PREGUNTAS//
 
-        CL_Pregunta objPreguntas = new CL_Pregunta();
+        CL_Preguntas objPreguntas = new CL_Preguntas();
 
-        //private void MostrarPregutas()
-        //{
-        //    cmbpreguntasseg.DataSource = objPreguntas.MostrarPreguntas();
-
-        //}
-
-
+      
         private void LlenarCombo()
         {
             cmbpreguntasseg.DataSource = objPreguntas.MostrarPreguntas();
@@ -229,7 +219,34 @@ namespace Vista
         {
 
             LlenarCombo();
+            txtdni.KeyPress += txtdni_KeyPress;
+            cmbpreguntasseg.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtrespuesta.KeyPress += txtrespuesta_KeyPress;
 
+
+
+        }
+        private void txtdni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Solo se permiten números 
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+            // solo permite 8 digitos max
+            if (char.IsDigit(e.KeyChar) && txtdni.Text.Length >= 8 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtrespuesta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Solo letras, espacios y teclas de control (backspace, etc.)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
     }

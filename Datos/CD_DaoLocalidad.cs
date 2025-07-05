@@ -1,31 +1,43 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Sesion.Entidades;
 
 namespace Datos
 {
     public class CD_DaoLocalidad
     {
-        CD_Conexion conexion = new CD_Conexion();
-        SqlCommand comando = new SqlCommand();
-        SqlDataReader leer;
-        
-        public DataTable MostrarLocalidadesxPartido(int idPartido)
+        public List<DtoLocalidad> ListarLocalidadesPorPartido(int idPartido)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.Parameters.Clear();
-            comando.CommandText = "sp_FiltrarLocalidadxPartido";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@filtroPartido", idPartido);
-            DataTable tabla = new DataTable();
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
-            return tabla;
+            var lista = new List<DtoLocalidad>();
+            var conexion = new CD_Conexion();
+            using (var conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    var cmd = new SqlCommand("sp_FiltrarLocalidadxPartido", conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.AddWithValue("@filtroPartido", idPartido);
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new DtoLocalidad
+                            {
+                                Id_Localidad = dr.GetInt32(0),
+                                Localidad = dr.GetString(1)
+                            });
+                        }
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return lista;
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using Sesion.Entidades;
 
 namespace Datos
 {
@@ -13,6 +11,39 @@ namespace Datos
         CD_Conexion conexion = new CD_Conexion();
         SqlCommand comando = new SqlCommand();
         SqlDataReader leer;
+        public List<DtoPregunta> ObtenerPreguntas()
+        {
+            List<DtoPregunta> preguntas = new List<DtoPregunta>();
+            CD_Conexion conexion = new CD_Conexion();
+            
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ListarPregunta", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            preguntas.Add(new DtoPregunta
+                            {
+                                Id_Pregunta = dr.GetInt32(0),
+                                Pregunta = dr.GetString(1)
+                            });
+                        }
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            
+            return preguntas;
+        }
+
         public DataTable MostrarPreguntas()
         {
             DataTable tabla = new DataTable();
@@ -24,6 +55,5 @@ namespace Datos
             conexion.CerrarConexion();
             return tabla;
         }
-
     }
 }
