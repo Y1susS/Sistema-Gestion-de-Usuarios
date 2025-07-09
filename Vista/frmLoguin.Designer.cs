@@ -136,7 +136,7 @@
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(129, 63);
+            this.pctLogo.Location = new System.Drawing.Point(129, 78);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -157,7 +157,7 @@
             // pctBordeInferior
             // 
             this.pctBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 348);
+            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 378);
             this.pctBordeInferior.Name = "pctBordeInferior";
             this.pctBordeInferior.Size = new System.Drawing.Size(402, 22);
             this.pctBordeInferior.TabIndex = 13;
@@ -166,9 +166,9 @@
             // pctFondo
             // 
             this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
-            this.pctFondo.Location = new System.Drawing.Point(-2, -3);
+            this.pctFondo.Location = new System.Drawing.Point(0, 0);
             this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(405, 373);
+            this.pctFondo.Size = new System.Drawing.Size(400, 400);
             this.pctFondo.TabIndex = 14;
             this.pctFondo.TabStop = false;
             // 
@@ -178,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(400, 370);
+            this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
             this.Controls.Add(this.pctBordeInferior);
             this.Controls.Add(this.txtContrasenia);
