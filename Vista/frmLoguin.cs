@@ -24,6 +24,10 @@ namespace Vista
             lnkRecuperar.BackColor = Color.Transparent;
             pctFondo.Controls.Add(pctLogo);
             pctLogo.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(lblUsuario);
+            pctLogo.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(lblContrasenia);
+            pctLogo.BackColor = Color.Transparent;
         }
 
         private void FrmLoguin_Load(object sender, EventArgs e)
@@ -134,7 +138,38 @@ namespace Vista
             //}
         }
 
-       
+        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContrasenia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada es un espacio
+            if (e.KeyChar == ' ')
+            {
+                e.Handled = true; // Cancela la entrada del espacio
+            }
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica si la tecla presionada es un espacio
+            if (e.KeyChar == ' ')
+            {
+                e.Handled = true; // Cancela la entrada del espacio
+            }
+        }
+
+        private void pctFondo_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
         {

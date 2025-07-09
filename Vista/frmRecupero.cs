@@ -22,8 +22,6 @@ namespace Vista
         {
             InitializeComponent();
             DoubleBuffered = true;
-            pctFondo.Controls.Add(pctLogo);
-            pctLogo.BackColor = Color.Transparent;
         }
 
         //private void pctClose_Click(object sender, EventArgs e)
@@ -113,9 +111,24 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtdni_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
             FrmLoguin frmLoguin = new FrmLoguin();
             frmLoguin.Show();
             this.Hide();
+        }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void pctBorde_MouseMove(object sender, MouseEventArgs e)
