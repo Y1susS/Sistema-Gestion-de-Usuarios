@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datos;
+using Servicios;
 using Sesion;
 using Sesion.Entidades;
 
@@ -14,31 +15,31 @@ namespace Logica
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
         private readonly CD_DaoPassUsada daoPassUsada = new CD_DaoPassUsada();
 
-        public bool CambiarPrimeraContraseña(string usuario, string nuevaContraseña, out string mensaje)
+        public bool CambiarPrimeraContraseña(string nombreUsuarioStr, string nuevaContraseña, out string mensaje) // Renombrado 'usuario' a 'nombreUsuarioStr' por claridad
         {
-            // Validar políticas de seguridad para la nueva contraseña
-            if (!ValidarPoliticasSeguridad(nuevaContraseña, usuario, out mensaje))
+            DtoDatosPersonalesPw usuarioCompleto = daoUsuario.ObtenerUsuarioDetallePorNombre(nombreUsuarioStr);
+
+            if (usuarioCompleto == null)
+            {
+                mensaje = "No se pudieron obtener los datos personales del usuario para validar las políticas de seguridad.";
+                return false;
+            }
+            if (!ValidarNuevaContrasenaSegunPoliticas(nuevaContraseña, usuarioCompleto, out mensaje))
             {
                 return false;
             }
+            string hashNuevo = ClsSeguridad.SHA256(nombreUsuarioStr + nuevaContraseña); 
 
-            // Generar el hash de la nueva contraseña
-            string hashNuevo = ClsSeguridad.SHA256(usuario + nuevaContraseña);
-
-            // Cambiar la contraseña en la base de datos
-            if (daoUsuario.CambiarContraseña(usuario, hashNuevo))
+            if (daoUsuario.CambiarContraseña(nombreUsuarioStr, hashNuevo))
             {
-                // Actualizar el estado de PrimeraPass en la base de datos
-                daoUsuario.ActualizarPrimeraClave(usuario, false);
-                
-                // Guardar en historial de contraseñas usadas
+                daoUsuario.ActualizarPrimeraClave(nombreUsuarioStr, false); 
+
                 if (ClsSesionActual.EstaLogueado())
                 {
-                    daoPassUsada.AgregarPassUsada(ClsSesionActual.Usuario.Id_user, hashNuevo);
+                    daoPassUsada.AgregarPassUsada(usuarioCompleto.Id_user, hashNuevo);
                 }
-                
-                // Si el usuario está en sesión, actualizar su estado
-                if (ClsSesionActual.EstaLogueado() && ClsSesionActual.Usuario.User == usuario)
+
+                if (ClsSesionActual.EstaLogueado() && ClsSesionActual.Usuario.User == nombreUsuarioStr)
                 {
                     ClsSesionActual.Usuario.PrimeraPass = false;
                 }
@@ -51,26 +52,27 @@ namespace Logica
             return false;
         }
 
+
         public bool CambiarContraseña(string usuario, string contraseñaActual, string nuevaContraseña, out string mensaje)
         {
             // 1. Verificar si la contraseña actual es correcta
             string hashActual = ClsSeguridad.SHA256(usuario + contraseñaActual);
-            
+
             if (!daoUsuario.VerificarContraseñaActual(usuario, hashActual))
             {
                 mensaje = "La contraseña actual es incorrecta";
                 return false;
             }
-            
+
             // 2. Validar que la nueva contraseña cumpla con políticas
             if (!ValidarPoliticasSeguridad(nuevaContraseña, usuario, out mensaje))
             {
                 return false;
             }
-            
+
             // 3. Generar hash de la nueva contraseña
             string hashNueva = ClsSeguridad.SHA256(usuario + nuevaContraseña);
-            
+
             // 4. Verificar que no esté usando una contraseña reciente (si está logueado)
             if (ClsSesionActual.EstaLogueado())
             {
@@ -79,19 +81,19 @@ namespace Logica
                     mensaje = "No puedes reutilizar una contraseña reciente";
                     return false;
                 }
-                
+
                 // 5. Actualizar la contraseña en la BD
                 if (daoUsuario.CambiarContraseña(usuario, hashNueva))
                 {
                     // 6. Guardar en historial
                     daoPassUsada.AgregarPassUsada(ClsSesionActual.Usuario.Id_user, hashNueva);
-                    
+
                     // 7. Si es primera contraseña, actualizar estado en sesión
                     if (ClsSesionActual.Usuario.PrimeraPass)
                     {
                         ClsSesionActual.Usuario.PrimeraPass = false;
                     }
-                    
+
                     mensaje = "Contraseña cambiada exitosamente";
                     return true;
                 }
@@ -105,7 +107,7 @@ namespace Logica
                     return true;
                 }
             }
-            
+
             mensaje = "Error al cambiar la contraseña";
             return false;
         }
@@ -117,42 +119,42 @@ namespace Logica
             bool requireUppercase = true;
             bool requireNumbers = true;
             bool requireSpecialChar = true;
-            
+
             // Validar longitud mínima
             if (contraseña.Length < minLength)
             {
                 mensaje = $"La contraseña debe tener al menos {minLength} caracteres";
                 return false;
             }
-            
+
             // Validar mayúsculas
             if (requireUppercase && !contraseña.Any(char.IsUpper))
             {
                 mensaje = "La contraseña debe contener al menos una letra mayúscula";
                 return false;
             }
-            
+
             // Validar números
             if (requireNumbers && !contraseña.Any(char.IsDigit))
             {
                 mensaje = "La contraseña debe contener al menos un número";
                 return false;
             }
-            
+
             // Validar caracteres especiales
             if (requireSpecialChar && contraseña.All(c => char.IsLetterOrDigit(c)))
             {
                 mensaje = "La contraseña debe contener al menos un carácter especial";
                 return false;
             }
-            
+
             // Validar que no contenga datos del usuario
             if (contraseña.ToLower().Contains(usuario.ToLower()))
             {
                 mensaje = "La contraseña no puede contener tu nombre de usuario";
                 return false;
             }
-            
+
             mensaje = "Contraseña válida";
             return true;
         }
@@ -276,5 +278,119 @@ namespace Logica
                 return null;
             }
         }
+        //SEGURDAD PW
+        private CD_DaoUsuario objDaoUsuario = new CD_DaoUsuario();
+        private CL_ConfiguracionContraseña objConfigContra = new CL_ConfiguracionContraseña();
+
+        public bool ValidarNuevaContrasenaSegunPoliticas(string password, DtoDatosPersonalesPw usuario, out string mensaje)
+        {
+            mensaje = "";
+            DtoConfiguracionContraseña config = objConfigContra.ObtenerConfiguracion();
+
+            if (config == null)
+            {
+                mensaje = "No se pudo cargar la configuración de seguridad de la contraseña.";
+                return false;
+            }
+
+            // Validaciones(MinimoCaracteres, MayusMinus, NumLetra, Especial)
+            if (config.MinimoCaracteres > 0 && password.Length < config.MinimoCaracteres)
+            {
+                mensaje = $"La contraseña debe tener al menos {config.MinimoCaracteres} caracteres.";
+                return false;
+            }
+            if (config.RequiereMayusMinus && !(password.Any(char.IsUpper) && password.Any(char.IsLower)))
+            {
+                mensaje = "La contraseña debe contener mayúsculas y minúsculas.";
+                return false;
+            }
+            if (config.RequiereNumLetra && !(password.Any(char.IsDigit) && password.Any(char.IsLetter)))
+            {
+                mensaje = "La contraseña debe contener letras y números.";
+                return false;
+            }
+            if (config.RequiereEspecial && !password.Any(ch => "!@#$%^&*()-_+=[]{}|;:,.<>?".Contains(ch)))
+            {
+                mensaje = "La contraseña debe contener al menos un carácter especial.";
+                return false;
+            }
+
+
+            // Validaciones que requieren datos del usuario o historial
+            if (config.EvitarRepetidas)
+            {
+                List<DtoHistorialContraseña> historial = objDaoUsuario.ObtenerPasswordsUsadas(usuario.Id_user);
+
+                foreach (var item in historial)
+                {
+                    if (ClsSeguridad.VerificarHash(password, item.Password))
+                    {
+                        mensaje = "La contraseña ya ha sido utilizada anteriormente. Por favor, elija una nueva.";
+                        return false;
+                    }
+                }
+            }
+
+            if (config.EvitarDatosPersonales)
+            {
+                
+                string nombreLimpio = usuario.Nombre?.ToLowerInvariant().Replace(" ", "");
+                string apellidoLimpio = usuario.Apellido?.ToLowerInvariant().Replace(" ", "");
+                string documentoLimpio = usuario.NroDocumento?.ToLowerInvariant().Replace(" ", "");
+                string emailLimpio = usuario.Email?.Split('@')[0].ToLowerInvariant().Replace(" ", ""); // Solo la parte antes del @
+
+                string passwordLower = password.ToLowerInvariant();
+
+                
+                if (!string.IsNullOrEmpty(nombreLimpio) && passwordLower.Contains(nombreLimpio))
+                {
+                    mensaje = "La contraseña no puede contener partes de su nombre.";
+                    return false;
+                }
+                if (!string.IsNullOrEmpty(apellidoLimpio) && passwordLower.Contains(apellidoLimpio))
+                {
+                    mensaje = "La contraseña no puede contener partes de su apellido.";
+                    return false;
+                }
+                if (!string.IsNullOrEmpty(documentoLimpio) && passwordLower.Contains(documentoLimpio))
+                {
+                    mensaje = "La contraseña no puede contener partes de su documento.";
+                    return false;
+                }
+                if (!string.IsNullOrEmpty(emailLimpio) && passwordLower.Contains(emailLimpio))
+                {
+                    mensaje = "La contraseña no puede contener partes de su email.";
+                    return false;
+                }
+            }
+
+            mensaje = "Contraseña válida.";
+            return true;
+        }
+
+        public bool ActualizarContrasenaUsuario(string usuario, string nuevaContrasenaPlano)
+        {
+            string nuevaContrasenaHash = ClsSeguridad.SHA256(nuevaContrasenaPlano);
+            bool exito = objDaoUsuario.CambiarContraseña(usuario, nuevaContrasenaHash);
+
+            if (exito)
+            {
+                objDaoUsuario.CambiarContraseña(usuario, nuevaContrasenaHash);
+            }
+            return exito;
+        }
+        public DtoDatosPersonalesPw ObtenerDatosPersonalesPwPorNombreUsuario(string nombreUsuario)
+        {
+            try
+            {
+                return objDaoUsuario.ObtenerUsuarioDetallePorNombre(nombreUsuario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en CL_Usuarios.ObtenerDatosPersonalesPwPorNombreUsuario: {ex.Message}");
+                throw;
+            }
+        }
     }
 }
+    

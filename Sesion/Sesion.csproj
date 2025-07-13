@@ -45,6 +45,9 @@
     <Compile Include="ClsEnviarMail.cs" />
     <Compile Include="ClsSeguridad.cs" />
     <Compile Include="ClsSesionActual.cs" />
+    <Compile Include="Entidades\DtoConfiguracionContraseña.cs" />
+    <Compile Include="Entidades\DtoDatosPersonalesPw.cs" />
+    <Compile Include="Entidades\DtoHistorialContraseña.cs" />
     <Compile Include="Entidades\DtoLocalidad.cs" />
     <Compile Include="Entidades\DtoPartido.cs" />
     <Compile Include="Entidades\DtoPersona.cs" />
