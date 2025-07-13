@@ -12,8 +12,8 @@ namespace Sesion
     {
         public static void sendMail(string to, string asunto, string body)
         {
-            string from = "eduardo.d.ferrando@Gmail.com"; //correo de la empresa
-            string displayName = "Recuperacion de Cuenta"; //Lo que se ve al recibir el mail
+            string from = "arnld.adrl.vall@gmail.com"; //correo de la empresa
+            string displayName = "Sistema ReMuebla"; //Lo que se ve al recibir el mail
             try
             {
                 MailMessage mail = new MailMessage
@@ -28,7 +28,7 @@ namespace Sesion
 
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587)//Aquí debes sustituir tu servidor SMTP y el puerto
                 {
-                    Credentials = new NetworkCredential(from, "kfadfuppuwhxngjm"), //correo , contraseña de la cuenta de la empresa
+                    Credentials = new NetworkCredential(from, "rcgqmykynwoxkocz"), //correo , contraseña de la cuenta de la empresa
                     EnableSsl = true//En caso de que tu servidor de correo no utilice cifrado SSL,poner en false
                 };
                 client.Send(mail);

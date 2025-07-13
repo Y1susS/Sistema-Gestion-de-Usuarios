@@ -19,7 +19,7 @@ namespace Vista
 
         private void btnVolverRegCliente_Click(object sender, EventArgs e)
         {
-            frmAdministrador frm = new frmAdministrador();
+            frmPanelUsuarios frm = new frmPanelUsuarios();
             frm.Show();
             this.Close();
         }

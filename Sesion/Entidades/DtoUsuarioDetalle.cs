@@ -21,5 +21,6 @@ namespace Sesion.Entidades
         public string Rol { get; set; }
         public bool Activo { get; set; }
         public string Telefono { get; set; }
+        public int Id_Persona { get; set; }
     }
 }

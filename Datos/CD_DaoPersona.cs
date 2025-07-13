@@ -29,7 +29,8 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@Piso", string.IsNullOrEmpty(persona.Piso) ? DBNull.Value : (object)persona.Piso);
                     cmd.Parameters.AddWithValue("@Depto", string.IsNullOrEmpty(persona.Depto) ? DBNull.Value : (object)persona.Depto);
                     cmd.Parameters.AddWithValue("@Id_Localidad", persona.Id_Localidad);
-                    
+                    cmd.Parameters.AddWithValue("@Telefono", persona.Telefono ?? (object)DBNull.Value);
+
                     // Modificar el SP para que devuelva el ID generado
                     object result = cmd.ExecuteScalar();
                     if (result != null && result != DBNull.Value)
@@ -48,40 +49,45 @@ namespace Datos
 
         public bool ActualizarPersona(DtoPersona persona)
         {
-            CD_Conexion Conexion = new CD_Conexion();
             bool resultado = false;
-            try
+            CD_Conexion conexion = new CD_Conexion();
+            
+            using (SqlConnection conn = conexion.AbrirConexion())
             {
-                using (SqlConnection conexion = Conexion.AbrirConexion())
+                try
                 {
-                    conexion.Open();
-                    using (SqlCommand cmd = new SqlCommand("sp_ActualizarPersona", conexion))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
+                    // NO LLAMAR conexion.Open() aquí porque AbrirConexion() ya lo hace
+                    SqlCommand cmd = new SqlCommand("sp_ModificarPersona", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Parámetros para el procedimiento almacenado
-                        cmd.Parameters.AddWithValue("@Id_Persona", persona.Id_Persona);
-                        cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
-                        cmd.Parameters.AddWithValue("@Apellido", persona.Apellido);
-                        cmd.Parameters.AddWithValue("@Id_TipoDocumento", persona.Id_TipoDocumento);
-                        cmd.Parameters.AddWithValue("@NroDocumento", persona.NroDocumento);
-                        cmd.Parameters.AddWithValue("@Email", persona.Email);
-                        cmd.Parameters.AddWithValue("@Calle", persona.Calle);
-                        cmd.Parameters.AddWithValue("@Nro", persona.Nro);
-                        cmd.Parameters.AddWithValue("@Piso", persona.Piso ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@Depto", persona.Depto ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@Id_Localidad", persona.Id_Localidad);
+                    // Parámetros para el procedimiento almacenado
+                    cmd.Parameters.AddWithValue("@Id_Persona", persona.Id_Persona);
+                    cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
+                    cmd.Parameters.AddWithValue("@Apellido", persona.Apellido);
+                    cmd.Parameters.AddWithValue("@Id_TipoDocumento", persona.Id_TipoDocumento);
+                    cmd.Parameters.AddWithValue("@NroDocumento", persona.NroDocumento);
+                    cmd.Parameters.AddWithValue("@Email", persona.Email);
+                    cmd.Parameters.AddWithValue("@Calle", persona.Calle);
+                    cmd.Parameters.AddWithValue("@Nro", persona.Nro);
+                    cmd.Parameters.AddWithValue("@Piso", persona.Piso ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Depto", persona.Depto ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Id_Localidad", persona.Id_Localidad);
+                    cmd.Parameters.AddWithValue("@Telefono", persona.Telefono ?? (object)DBNull.Value);
 
-                        int filasAfectadas = cmd.ExecuteNonQuery();
-                        resultado = filasAfectadas > 0;
-                    }
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    resultado = filasAfectadas > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al actualizar persona: " + ex.Message);
+                    resultado = false;
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al actualizar persona: " + ex.Message);
-                resultado = false;
-            }
+            
             return resultado;
         }
     }

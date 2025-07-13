@@ -31,14 +31,8 @@ namespace Vista
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecupero));
-            this.pctBordeInferior = new System.Windows.Forms.PictureBox();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.txtdni = new System.Windows.Forms.TextBox();
-            this.pctMinimize = new System.Windows.Forms.PictureBox();
-            this.pctClose = new System.Windows.Forms.PictureBox();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.pctFondo = new System.Windows.Forms.PictureBox();
-            this.pctBorde = new System.Windows.Forms.PictureBox();
             this.lblrecuperocontraseña = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,36 +41,20 @@ namespace Vista
             this.cmbpreguntasseg = new System.Windows.Forms.ComboBox();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.btnVolver = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pctBorde = new System.Windows.Forms.PictureBox();
+            this.pctBordeInferior = new System.Windows.Forms.PictureBox();
+            this.pctLogo = new System.Windows.Forms.PictureBox();
+            this.pctFondo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pctBordeInferior
-            // 
-            this.pctBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 348);
-            this.pctBordeInferior.Name = "pctBordeInferior";
-            this.pctBordeInferior.Size = new System.Drawing.Size(402, 22);
-            this.pctBordeInferior.TabIndex = 22;
-            this.pctBordeInferior.TabStop = false;
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pctLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(134, 50);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(118, 72);
-            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctLogo.TabIndex = 21;
-            this.pctLogo.TabStop = false;
             // 
             // txtdni
             // 
@@ -85,8 +63,106 @@ namespace Vista
             this.txtdni.Location = new System.Drawing.Point(168, 134);
             this.txtdni.MaxLength = 25;
             this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(163, 30);
+            this.txtdni.Size = new System.Drawing.Size(163, 25);
             this.txtdni.TabIndex = 15;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.BackColor = System.Drawing.Color.White;
+            this.btnSiguiente.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnSiguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnSiguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.Color.Black;
+            this.btnSiguiente.Location = new System.Drawing.Point(16, 313);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(186, 28);
+            this.btnSiguiente.TabIndex = 18;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // lblrecuperocontraseña
+            // 
+            this.lblrecuperocontraseña.AutoSize = true;
+            this.lblrecuperocontraseña.BackColor = System.Drawing.Color.Transparent;
+            this.lblrecuperocontraseña.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblrecuperocontraseña.Location = new System.Drawing.Point(82, 9);
+            this.lblrecuperocontraseña.Name = "lblrecuperocontraseña";
+            this.lblrecuperocontraseña.Size = new System.Drawing.Size(229, 17);
+            this.lblrecuperocontraseña.TabIndex = 25;
+            this.lblrecuperocontraseña.Text = "Recupero de usuario o contraseña";
+            this.lblrecuperocontraseña.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(39, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 17);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Ingrese su D.N.I";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(35, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(204, 17);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Elija su pregunta de seguridad";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(35, 247);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 17);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Ingrese la respuesta";
+            // 
+            // txtrespuesta
+            // 
+            this.txtrespuesta.BackColor = System.Drawing.Color.White;
+            this.txtrespuesta.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrespuesta.Location = new System.Drawing.Point(38, 278);
+            this.txtrespuesta.MaxLength = 25;
+            this.txtrespuesta.Name = "txtrespuesta";
+            this.txtrespuesta.Size = new System.Drawing.Size(293, 25);
+            this.txtrespuesta.TabIndex = 30;
+            this.txtrespuesta.TextChanged += new System.EventHandler(this.txtrespuesta_TextChanged);
+            // 
+            // cmbpreguntasseg
+            // 
+            this.cmbpreguntasseg.FormattingEnabled = true;
+            this.cmbpreguntasseg.Location = new System.Drawing.Point(42, 208);
+            this.cmbpreguntasseg.Name = "cmbpreguntasseg";
+            this.cmbpreguntasseg.Size = new System.Drawing.Size(289, 25);
+            this.cmbpreguntasseg.TabIndex = 31;
+            this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(209, 313);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(71, 28);
+            this.btnVolver.TabIndex = 32;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.button1_Click);
             // 
             // pctMinimize
             // 
@@ -114,33 +190,6 @@ namespace Vista
             this.pctClose.TabStop = false;
             this.pctClose.Click += new System.EventHandler(this.PctClose_Click);
             // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.BackColor = System.Drawing.Color.White;
-            this.btnSiguiente.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnSiguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSiguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSiguiente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.ForeColor = System.Drawing.Color.Black;
-            this.btnSiguiente.Location = new System.Drawing.Point(16, 313);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(186, 28);
-            this.btnSiguiente.TabIndex = 18;
-            this.btnSiguiente.Text = "Siguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = false;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
-            // 
-            // pctFondo
-            // 
-            this.pctFondo.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.pctFondo.Location = new System.Drawing.Point(-2, 2);
-            this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(402, 361);
-            this.pctFondo.TabIndex = 23;
-            this.pctFondo.TabStop = false;
-            // 
             // pctBorde
             // 
             this.pctBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -153,85 +202,36 @@ namespace Vista
             this.pctBorde.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseMove);
             this.pctBorde.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseUp);
             // 
-            // lblrecuperocontraseña
+            // pctBordeInferior
             // 
-            this.lblrecuperocontraseña.AutoSize = true;
-            this.lblrecuperocontraseña.BackColor = System.Drawing.Color.Transparent;
-            this.lblrecuperocontraseña.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblrecuperocontraseña.Location = new System.Drawing.Point(82, 9);
-            this.lblrecuperocontraseña.Name = "lblrecuperocontraseña";
-            this.lblrecuperocontraseña.Size = new System.Drawing.Size(268, 21);
-            this.lblrecuperocontraseña.TabIndex = 25;
-            this.lblrecuperocontraseña.Text = "Recupero de usuario o contraseña";
-            this.lblrecuperocontraseña.Click += new System.EventHandler(this.label1_Click);
+            this.pctBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 348);
+            this.pctBordeInferior.Name = "pctBordeInferior";
+            this.pctBordeInferior.Size = new System.Drawing.Size(402, 22);
+            this.pctBordeInferior.TabIndex = 22;
+            this.pctBordeInferior.TabStop = false;
             // 
-            // label1
+            // pctLogo
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(35, 138);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 21);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Ingrese su D.N.I";
+            this.pctLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pctLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
+            this.pctLogo.Location = new System.Drawing.Point(134, 50);
+            this.pctLogo.Name = "pctLogo";
+            this.pctLogo.Size = new System.Drawing.Size(118, 72);
+            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctLogo.TabIndex = 21;
+            this.pctLogo.TabStop = false;
             // 
-            // label2
+            // pctFondo
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label2.Location = new System.Drawing.Point(35, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 21);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Elija su pregunta de seguridad";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label3.Location = new System.Drawing.Point(35, 247);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 21);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Ingrese la respuesta";
-            // 
-            // txtrespuesta
-            // 
-            this.txtrespuesta.BackColor = System.Drawing.Color.White;
-            this.txtrespuesta.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrespuesta.Location = new System.Drawing.Point(38, 278);
-            this.txtrespuesta.MaxLength = 25;
-            this.txtrespuesta.Name = "txtrespuesta";
-            this.txtrespuesta.Size = new System.Drawing.Size(293, 30);
-            this.txtrespuesta.TabIndex = 30;
-            this.txtrespuesta.TextChanged += new System.EventHandler(this.txtrespuesta_TextChanged);
-            // 
-            // cmbpreguntasseg
-            // 
-            this.cmbpreguntasseg.FormattingEnabled = true;
-            this.cmbpreguntasseg.Location = new System.Drawing.Point(42, 208);
-            this.cmbpreguntasseg.Name = "cmbpreguntasseg";
-            this.cmbpreguntasseg.Size = new System.Drawing.Size(289, 29);
-            this.cmbpreguntasseg.TabIndex = 31;
-            this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
-            // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(209, 313);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(71, 28);
-            this.btnVolver.TabIndex = 32;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.button1_Click);
+            this.pctFondo.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
+            this.pctFondo.Location = new System.Drawing.Point(-2, 2);
+            this.pctFondo.Name = "pctFondo";
+            this.pctFondo.Size = new System.Drawing.Size(402, 361);
+            this.pctFondo.TabIndex = 23;
+            this.pctFondo.TabStop = false;
             // 
             // frmRecupero
             // 
@@ -263,13 +263,13 @@ namespace Vista
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRecupero";
             this.Load += new System.EventHandler(this.frmRecupero_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
