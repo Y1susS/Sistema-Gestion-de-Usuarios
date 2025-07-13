@@ -32,7 +32,7 @@ namespace Vista
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            frmAdministrador frm = new frmAdministrador();
+            frmPanelUsuarios frm = new frmPanelUsuarios();
             frm.Show();
             this.Close();
         }

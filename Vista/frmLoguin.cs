@@ -18,7 +18,6 @@ namespace Vista
         private readonly CL_Loguin objCL = new CL_Loguin();
         public FrmLoguin()
         {
-            Console.WriteLine(ClsSeguridad.SHA256("EduFerrandoasd123"));
             InitializeComponent();
             DoubleBuffered = true;
             pctFondo.Controls.Add(lnkRecuperar);
@@ -114,7 +113,7 @@ namespace Vista
                     else
                     {
                         MessageBox.Show(msg);
-                        new frmAdministrador().Show();
+                        new frmPanelUsuarios().Show();
                         this.Hide();
                     }
                 }

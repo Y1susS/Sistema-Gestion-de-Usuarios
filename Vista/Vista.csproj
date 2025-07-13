@@ -47,11 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsAbrirForms.cs" />
-    <Compile Include="frmAdministrador.cs">
+    <Compile Include="frmCambioPass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdministrador.Designer.cs">
-      <DependentUpon>frmAdministrador.cs</DependentUpon>
+    <Compile Include="frmCambioPass.Designer.cs">
+      <DependentUpon>frmCambioPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPanelUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPanelUsuarios.Designer.cs">
+      <DependentUpon>frmPanelUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdminUserABM.cs">
       <SubType>Form</SubType>
@@ -116,8 +122,11 @@
     <Compile Include="ClsPlaceHolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAdministrador.resx">
-      <DependentUpon>frmAdministrador.cs</DependentUpon>
+    <EmbeddedResource Include="frmCambioPass.resx">
+      <DependentUpon>frmCambioPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPanelUsuarios.resx">
+      <DependentUpon>frmPanelUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminUserABM.resx">
       <DependentUpon>frmAdminUserABM.cs</DependentUpon>

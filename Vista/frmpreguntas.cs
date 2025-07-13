@@ -67,7 +67,7 @@ namespace Vista
                     MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                     // Redirigir al formulario principal
-                    frmAdministrador frmAdmin = new frmAdministrador();
+                    frmPanelUsuarios frmAdmin = new frmPanelUsuarios();
                     frmAdmin.Show();
                     this.Close();
                 }

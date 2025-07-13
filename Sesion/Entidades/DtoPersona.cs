@@ -13,5 +13,6 @@ namespace Sesion.Entidades
         public string Piso { get; set; }
         public string Depto { get; set; }
         public int Id_Localidad { get; set; }
+        public string Telefono { get; set; } 
     }
 }
