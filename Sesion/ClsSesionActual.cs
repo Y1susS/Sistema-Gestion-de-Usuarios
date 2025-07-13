@@ -25,5 +25,18 @@ namespace Sesion
         {
             return Usuario != null;
         }
+
+        //settea para todo el sistema la confid de pw
+        public static DtoConfiguracionContraseña ConfiguracionContraseña { get; private set; }
+
+        public static void SetConfiguracionContrasena(DtoConfiguracionContraseña dto)
+        {
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), "El DTO de configuración no puede ser nulo.");
+            }
+            ConfiguracionContraseña = dto;
+        }
+               
     }
 }

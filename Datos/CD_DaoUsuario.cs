@@ -393,6 +393,49 @@ namespace Datos
 
             return usuario;
         }
+        public DtoDatosPersonalesPw ObtenerUsuarioDetallePorNombre(string nombreUsuario)
+        {
+            DtoDatosPersonalesPw usuario = null;
+            CD_Conexion conexion = new CD_Conexion();
+
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioDetallePorNombre", conn); 
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read()) 
+                        {
+                            usuario = new DtoDatosPersonalesPw
+                            {
+                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")), 
+                                User = dr.GetString(dr.GetOrdinal("User")),
+                                Apellido = dr.GetString(dr.GetOrdinal("Apellido")),
+                                Nombre = dr.GetString(dr.GetOrdinal("Nombre")),
+                                NroDocumento = dr.GetString(dr.GetOrdinal("NroDocumento")),
+                                Email = dr.GetString(dr.GetOrdinal("Email")),
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error en CD_DaoUsuarios.ObtenerUsuarioDetallePorNombre: {ex.Message}");
+                    throw; 
+                }
+                finally
+                {
+                    conexion.CerrarConexion(); 
+                }
+            }
+            return usuario; 
+        }
+
 
         public bool VerificarParametrosRecupero(string NroDocumento, int Id_Pregunta, string Respuesta)
         {
@@ -419,6 +462,40 @@ namespace Datos
             {
                 return false;
             }
+        }
+         CD_Conexion conexion = new CD_Conexion();
+
+        public List<DtoHistorialContraseña> ObtenerPasswordsUsadas(int idUsuario)
+        {
+            List<DtoHistorialContraseña> lista = new List<DtoHistorialContraseña>();
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerPasswordsUsadas", conn); 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_User", idUsuario);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new DtoHistorialContraseña 
+                            {
+                                Password = dr["Password"].ToString(), 
+                                FechaCambio = Convert.ToDateTime(dr["FechaCambio"]) 
+                            });
+                        }
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+
+            return lista;
         }
 
     }

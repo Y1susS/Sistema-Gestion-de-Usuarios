@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Sesion;
+using Sesion.Entidades;
 
 namespace Vista
 {
@@ -63,28 +64,59 @@ namespace Vista
         {
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
         }
-        private void btnCambiar_Click_1(object sender, EventArgs e)
+        private void btnCambiar_Click(object sender, EventArgs e) 
         {
             try
             {
-                if (ValidarCampos())
+                if (!ValidarCampos()) 
                 {
-                    string usuario = ClsSesionActual.Usuario.User;
-                    string nuevaContraseña = txtNuevaPass.Text;
+                    return;
+                }
 
-                    if (objUsuarios.CambiarPrimeraContraseña(usuario, nuevaContraseña, out string mensaje))
-                    {
-                        MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string nuevaContraseña = txtNuevaPass.Text;
 
-                        // Redirigir al formulario de preguntas de seguridad
-                        frmPreguntas frmPreguntas = new frmPreguntas();
-                        frmPreguntas.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                if (ClsSesionActual.Usuario == null || string.IsNullOrEmpty(ClsSesionActual.Usuario.User))
+                {
+                    MessageBox.Show("No se encontró información del usuario en sesión. Por favor, inicie sesión nuevamente.", "Error de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string nombreUsuarioActual = ClsSesionActual.Usuario.User;
+
+                DtoDatosPersonalesPw usuarioParaPoliticas = objUsuarios.ObtenerDatosPersonalesPwPorNombreUsuario(nombreUsuarioActual);
+
+                if (usuarioParaPoliticas == null)
+                {
+                    MessageBox.Show("No se pudieron cargar los datos personales del usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();
+                DtoConfiguracionContraseña config = logicaConfig.ObtenerConfiguracion();
+
+                if (config == null)
+                {
+                    MessageBox.Show("No se pudo cargar la configuración de seguridad de la contraseña. No se puede validar la contraseña.", "Error de Configuración", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!objUsuarios.ValidarNuevaContrasenaSegunPoliticas(nuevaContraseña, usuarioParaPoliticas, out string mensajeValidacionPoliticas))
+                {
+                    MessageBox.Show(mensajeValidacionPoliticas, "Contraseña no Válida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (objUsuarios.CambiarPrimeraContraseña(nombreUsuarioActual, nuevaContraseña, out string mensajeCambioPass))
+                {
+                    MessageBox.Show(mensajeCambioPass, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    frmPreguntas frmPreguntas = new frmPreguntas();
+                    frmPreguntas.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(mensajeCambioPass, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -93,7 +125,6 @@ namespace Vista
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private bool ValidarCampos()
         {
             // Validar que los campos no estén vacíos

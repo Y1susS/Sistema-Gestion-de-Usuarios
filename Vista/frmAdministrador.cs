@@ -34,9 +34,9 @@ namespace Vista
 
         private void btnGestionContraseñas_Click(object sender, EventArgs e)
         {
-            //frmSegContraseña frmSegContraseña = new frmSegContraseña();
-            //frmSegContraseña.Show();
-            //this.Hide();
+            frmSegContraseña frmSegContraseña = new frmSegContraseña();
+            frmSegContraseña.Show();
+            this.Hide();
         }
 
         private void btnRegistroClientes_Click(object sender, EventArgs e)
