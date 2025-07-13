@@ -53,111 +53,111 @@ namespace Logica
         }
 
 
-        //public bool CambiarContraseña(string usuario, string contraseñaActual, string nuevaContraseña, out string mensaje)
-        //{
-        //    // 1. Verificar si la contraseña actual es correcta
-        //    string hashActual = ClsSeguridad.SHA256(usuario + contraseñaActual);
-            
-        //    if (!daoUsuario.VerificarContraseñaActual(usuario, hashActual))
-        //    {
-        //        mensaje = "La contraseña actual es incorrecta";
-        //        return false;
-        //    }
-            
-        //    // 2. Validar que la nueva contraseña cumpla con políticas
-        //    if (!ValidarPoliticasSeguridad(nuevaContraseña, usuario, out mensaje))
-        //    {
-        //        return false;
-        //    }
-            
-        //    // 3. Generar hash de la nueva contraseña
-        //    string hashNueva = ClsSeguridad.SHA256(usuario + nuevaContraseña);
-            
-        //    // 4. Verificar que no esté usando una contraseña reciente (si está logueado)
-        //    if (ClsSesionActual.EstaLogueado())
-        //    {
-        //        if (daoPassUsada.VerificarPassUsada(ClsSesionActual.Usuario.Id_user, hashNueva))
-        //        {
-        //            mensaje = "No puedes reutilizar una contraseña reciente";
-        //            return false;
-        //        }
-                
-        //        // 5. Actualizar la contraseña en la BD
-        //        if (daoUsuario.CambiarContraseña(usuario, hashNueva))
-        //        {
-        //            // 6. Guardar en historial
-        //            daoPassUsada.AgregarPassUsada(ClsSesionActual.Usuario.Id_user, hashNueva);
-                    
-        //            // 7. Si es primera contraseña, actualizar estado en sesión
-        //            if (ClsSesionActual.Usuario.PrimeraPass)
-        //            {
-        //                ClsSesionActual.Usuario.PrimeraPass = false;
-        //            }
-                    
-        //            mensaje = "Contraseña cambiada exitosamente";
-        //            return true;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // Si no está logueado (caso recuperación contraseña)
-        //        if (daoUsuario.CambiarContraseña(usuario, hashNueva))
-        //        {
-        //            mensaje = "Contraseña cambiada exitosamente";
-        //            return true;
-        //        }
-        //    }
-            
-        //    mensaje = "Error al cambiar la contraseña";
-        //    return false;
-        //}
+        public bool CambiarContraseña(string usuario, string contraseñaActual, string nuevaContraseña, out string mensaje)
+        {
+            // 1. Verificar si la contraseña actual es correcta
+            string hashActual = ClsSeguridad.SHA256(usuario + contraseñaActual);
 
-        //private bool ValidarPoliticasSeguridad(string contraseña, string usuario, out string mensaje)
-        //{
-        //    // Estas validaciones podrían venir de tabla Restriccion en BD
-        //    int minLength = 8;
-        //    bool requireUppercase = true;
-        //    bool requireNumbers = true;
-        //    bool requireSpecialChar = true;
-            
-        //    // Validar longitud mínima
-        //    if (contraseña.Length < minLength)
-        //    {
-        //        mensaje = $"La contraseña debe tener al menos {minLength} caracteres";
-        //        return false;
-        //    }
-            
-        //    // Validar mayúsculas
-        //    if (requireUppercase && !contraseña.Any(char.IsUpper))
-        //    {
-        //        mensaje = "La contraseña debe contener al menos una letra mayúscula";
-        //        return false;
-        //    }
-            
-        //    // Validar números
-        //    if (requireNumbers && !contraseña.Any(char.IsDigit))
-        //    {
-        //        mensaje = "La contraseña debe contener al menos un número";
-        //        return false;
-        //    }
-            
-        //    // Validar caracteres especiales
-        //    if (requireSpecialChar && contraseña.All(c => char.IsLetterOrDigit(c)))
-        //    {
-        //        mensaje = "La contraseña debe contener al menos un carácter especial";
-        //        return false;
-        //    }
-            
-        //    // Validar que no contenga datos del usuario
-        //    if (contraseña.ToLower().Contains(usuario.ToLower()))
-        //    {
-        //        mensaje = "La contraseña no puede contener tu nombre de usuario";
-        //        return false;
-        //    }
-            
-        //    mensaje = "Contraseña válida";
-        //    return true;
-        //}
+            if (!daoUsuario.VerificarContraseñaActual(usuario, hashActual))
+            {
+                mensaje = "La contraseña actual es incorrecta";
+                return false;
+            }
+
+            // 2. Validar que la nueva contraseña cumpla con políticas
+            if (!ValidarPoliticasSeguridad(nuevaContraseña, usuario, out mensaje))
+            {
+                return false;
+            }
+
+            // 3. Generar hash de la nueva contraseña
+            string hashNueva = ClsSeguridad.SHA256(usuario + nuevaContraseña);
+
+            // 4. Verificar que no esté usando una contraseña reciente (si está logueado)
+            if (ClsSesionActual.EstaLogueado())
+            {
+                if (daoPassUsada.VerificarPassUsada(ClsSesionActual.Usuario.Id_user, hashNueva))
+                {
+                    mensaje = "No puedes reutilizar una contraseña reciente";
+                    return false;
+                }
+
+                // 5. Actualizar la contraseña en la BD
+                if (daoUsuario.CambiarContraseña(usuario, hashNueva))
+                {
+                    // 6. Guardar en historial
+                    daoPassUsada.AgregarPassUsada(ClsSesionActual.Usuario.Id_user, hashNueva);
+
+                    // 7. Si es primera contraseña, actualizar estado en sesión
+                    if (ClsSesionActual.Usuario.PrimeraPass)
+                    {
+                        ClsSesionActual.Usuario.PrimeraPass = false;
+                    }
+
+                    mensaje = "Contraseña cambiada exitosamente";
+                    return true;
+                }
+            }
+            else
+            {
+                // Si no está logueado (caso recuperación contraseña)
+                if (daoUsuario.CambiarContraseña(usuario, hashNueva))
+                {
+                    mensaje = "Contraseña cambiada exitosamente";
+                    return true;
+                }
+            }
+
+            mensaje = "Error al cambiar la contraseña";
+            return false;
+        }
+
+        private bool ValidarPoliticasSeguridad(string contraseña, string usuario, out string mensaje)
+        {
+            // Estas validaciones podrían venir de tabla Restriccion en BD
+            int minLength = 8;
+            bool requireUppercase = true;
+            bool requireNumbers = true;
+            bool requireSpecialChar = true;
+
+            // Validar longitud mínima
+            if (contraseña.Length < minLength)
+            {
+                mensaje = $"La contraseña debe tener al menos {minLength} caracteres";
+                return false;
+            }
+
+            // Validar mayúsculas
+            if (requireUppercase && !contraseña.Any(char.IsUpper))
+            {
+                mensaje = "La contraseña debe contener al menos una letra mayúscula";
+                return false;
+            }
+
+            // Validar números
+            if (requireNumbers && !contraseña.Any(char.IsDigit))
+            {
+                mensaje = "La contraseña debe contener al menos un número";
+                return false;
+            }
+
+            // Validar caracteres especiales
+            if (requireSpecialChar && contraseña.All(c => char.IsLetterOrDigit(c)))
+            {
+                mensaje = "La contraseña debe contener al menos un carácter especial";
+                return false;
+            }
+
+            // Validar que no contenga datos del usuario
+            if (contraseña.ToLower().Contains(usuario.ToLower()))
+            {
+                mensaje = "La contraseña no puede contener tu nombre de usuario";
+                return false;
+            }
+
+            mensaje = "Contraseña válida";
+            return true;
+        }
 
         public bool RegistrarUsuario(DtoPersona persona, DtoUsuario usuario, string contrasenaPlana, out string mensaje)
         {
