@@ -97,6 +97,7 @@ namespace Vista
             {
                 string user = txtUsuario.Text.Trim();
                 string pass = txtContrasenia.Text;
+                string hashCalculadoParaLogin = ClsSeguridad.SHA256(user + pass);
 
                 if (objCL.Autenticar(user, pass, out string msg))
                 { 

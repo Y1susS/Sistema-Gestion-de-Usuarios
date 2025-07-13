@@ -128,7 +128,7 @@
             this.btnCambiar.TabIndex = 17;
             this.btnCambiar.Text = "Cambiar";
             this.btnCambiar.UseVisualStyleBackColor = false;
-            this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click_1);
+            this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
             // 
             // pctBorde
             // 
