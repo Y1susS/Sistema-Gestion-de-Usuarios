@@ -26,45 +26,42 @@ namespace Vista
             DoubleBuffered = true;
             pctFondo.Controls.Add(pctLogo);
             pctLogo.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(lblPregunta);
+            lblPregunta.BackColor = Color.Transparent;
         }
         private void PctClose_Click(object sender, EventArgs e)
         {
             {
-                
-                DialogResult resultado = MessageBox.Show("¿Desea cerrar la aplicación?", "Confirmación de Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                
-                if (resultado == DialogResult.Yes)
+                bool dniVacio = string.IsNullOrWhiteSpace(txtdni.Text) || txtdni.Text == DNI_PLACEHOLDER;
+                bool respuestaVacia = string.IsNullOrWhiteSpace(txtrespuesta.Text) || txtrespuesta.Text == RESPUESTA_PLACEHOLDER;
+
+                if (respuestaVacia && dniVacio == true)
                 {
-                    Application.Exit(); 
+                    this.Close();
+                    FrmLoguin FrmLoguin = new FrmLoguin();
+                    FrmLoguin.Show();
                 }
-                
+                else
+                {
+                    DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    if (opcion == DialogResult.Yes)
+                    {
+                        this.Close();
+                        FrmLoguin FrmLoguin = new FrmLoguin();
+                        FrmLoguin.Show();
+                    }
+                }
+
+                //BOTON SALIR VIEJO
+                //DialogResult resultado = MessageBox.Show("¿Desea cerrar la aplicación?", "Confirmación de Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                //if (resultado == DialogResult.Yes)
+                //{
+                //    Application.Exit(); 
+                //}
             }
 
         }
-        //EVENTO CLIC VIEJO DAMI
-
-        //private void pctClose_Click(object sender, EventArgs e)
-        //{
-
-        //    bool ambosVacios = string.IsNullOrWhiteSpace(txtdni.Text) && string.IsNullOrWhiteSpace(txtContrasenia2.Text);
-
-        //    if (ambosVacios == true)
-        //    {
-        //        this.Close();
-        //        FrmLoguin FrmLoguin = new FrmLoguin();
-        //        FrmLoguin.Show();
-        //    }
-        //    else
-        //    {
-        //        DialogResult opcion = MessageBox.Show("Hay datos ingresados, si cierra esta ventana se perderán \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-        //        if (opcion == DialogResult.Yes)
-        //        {
-        //            this.Close();
-        //            FrmLoguin FrmLoguin = new FrmLoguin();
-        //            FrmLoguin.Show();
-        //        }
-        //    }
-        //}
 
         private void pctMinimize_Click(object sender, EventArgs e)
         {
@@ -78,51 +75,37 @@ namespace Vista
             mouse = 0;
         }
 
-        private const string USER_PLACEHOLDER = "1ra pregunta";
-        private const string PLACEHOLDER_PASS = "2ra pregunta";
-        private const string PLACEHOLDER_3RDquestion = "3ra pregunta";
+        private const string DNI_PLACEHOLDER = "Ingrese DNI";
+        private const string RESPUESTA_PLACEHOLDER = "Ingrese su respuesta";
 
-
-        //private void frmRecupero_Load(object sender, EventArgs e)
-        //{
-        //    txtContrasenia2.UseSystemPasswordChar = false;
-        //    ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtdni);
-        //    ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia2, true);
-        //}
-
-        private void txtdni_TextChanged(object sender, EventArgs e)
+        private void txtdni_TextChanged_1(object sender, EventArgs e)
         {
             string dni = txtrespuesta.Text.Trim();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void cmbpreguntasseg_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
             //string preguntaSeleccionada = cmbpreguntasseg.SelectedItem.ToString();
-
         }
-
 
         private void txtrespuesta_TextChanged(object sender, EventArgs e)
         {
             string respuestaIngresada = txtrespuesta.Text.Trim();
         }
 
-
         CL_VerificarRecupero objUsuario = new CL_VerificarRecupero();
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             {
+                bool dniVacio = string.IsNullOrWhiteSpace(txtdni.Text) || txtdni.Text == DNI_PLACEHOLDER;
+                bool respuestaVacia = string.IsNullOrWhiteSpace(txtrespuesta.Text) || txtrespuesta.Text == RESPUESTA_PLACEHOLDER;
                 string documento = txtdni.Text.Trim();
-                if (string.IsNullOrEmpty(documento))
+
+                if (dniVacio)
                 {
-                    MessageBox.Show("Ingrese su documento.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                  MessageBox.Show("Ingrese su documento.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                  return;
                 }
 
                 if (cmbpreguntasseg.SelectedIndex == -1)
@@ -131,7 +114,7 @@ namespace Vista
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(txtrespuesta.Text))
+                if (respuestaVacia)
                 {
                     MessageBox.Show("Ingrese la respuesta.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -160,15 +143,6 @@ namespace Vista
             //enviar E-Mail
 
 
-        }
-
-       
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmLoguin frmLoguin = new FrmLoguin();
-            frmLoguin.Show();
-            this.Hide();
         }
 
         private void pctBorde_MouseMove(object sender, MouseEventArgs e)
@@ -222,10 +196,41 @@ namespace Vista
             txtdni.KeyPress += txtdni_KeyPress;
             cmbpreguntasseg.DropDownStyle = ComboBoxStyle.DropDownList;
             txtrespuesta.KeyPress += txtrespuesta_KeyPress;
-
-
+            ClsPlaceHolder.Leave(DNI_PLACEHOLDER, txtdni);
+            ClsPlaceHolder.Leave(RESPUESTA_PLACEHOLDER, txtrespuesta);
 
         }
+
+        private void txtdni_Enter(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Enter(DNI_PLACEHOLDER, txtdni);
+        }
+
+        private void txtdni_Leave(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Leave(DNI_PLACEHOLDER, txtdni);
+        }
+
+        private void txtrespuesta_Enter(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Enter(RESPUESTA_PLACEHOLDER, txtrespuesta);
+        }
+
+        private void txtrespuesta_Leave(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Leave(RESPUESTA_PLACEHOLDER, txtrespuesta);
+        }
+
+        private void cmbpreguntasseg_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbpreguntasseg_Leave(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtdni_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Solo se permiten números 

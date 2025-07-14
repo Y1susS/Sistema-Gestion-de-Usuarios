@@ -36,7 +36,21 @@ namespace Vista
 
         private void PctClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            bool UsarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
+            bool ContraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
+
+            if (UsarioVacio && ContraseniaVacia == true)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (opcion == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
         }
 
         private void PctMinimize_Click(object sender, EventArgs e)
@@ -91,7 +105,8 @@ namespace Vista
 
             if (usuarioVacio || contraseniaVacia)
             {
-                MessageBox.Show("Hay campos vacíos!");
+                MessageBox.Show("Hay campos vacíos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
@@ -125,6 +140,11 @@ namespace Vista
                     txtContrasenia.Focus();
                 }
             }
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
