@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Sesion;
-using Servicios;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
     public partial class FrmLoguin : Form
     {
+        private readonly CL_Loguin objCL = new CL_Loguin();
         public FrmLoguin()
         {
             InitializeComponent();
@@ -28,9 +28,10 @@ namespace Vista
 
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-            //txtContrasenia.UseSystemPasswordChar = false;
-            //ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
-            //ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
+            
+            txtContrasenia.UseSystemPasswordChar = false;
+            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
+            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void PctClose_Click(object sender, EventArgs e)
@@ -60,81 +61,70 @@ namespace Vista
             mousey = e.Y;
         }
 
-        //private const string USER_PLACEHOLDER = "Usuario";
-        //private const string PLACEHOLDER_PASS = "Contraseña";
+        private const string USER_PLACEHOLDER = "Usuario";
+        private const string PLACEHOLDER_PASS = "Contraseña";
 
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
-            //ClsPlaceHolder.Enter(USER_PLACEHOLDER, txtUsuario);
+            ClsPlaceHolder.Enter(USER_PLACEHOLDER, txtUsuario);
         }
 
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
-            //ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
+            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
         }
 
         private void txtContrasenia_Enter(object sender, EventArgs e)
         {
-            //ClsPlaceHolder.Enter(PLACEHOLDER_PASS, txtContrasenia, true);
+            ClsPlaceHolder.Enter(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void txtContrasenia_Leave(object sender, EventArgs e)
         {
-            //ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
+            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string usuario = txtUsuario.Text;
-            string password = txtContrasenia.Text;
-            
-            //encriptacion de contraseña//
-            
-            string passencrip = ClsSeguridad.SHA256(password);
-            Console.WriteLine(passencrip);
+            bool usuarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
+            bool contraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
 
-            //fin encriptacion//
-
-            //prueba numero aleatorio//
-
-            //string ale = ClsAleatorios.Armar(false,3);
-            //Console.WriteLine(ale);
-
-            //fin encriptacion
-
-
-            CL_Loguin login = new CL_Loguin();
-            bool loginCorrecto = login.LoginUser(usuario, passencrip);
-            if (loginCorrecto)
+            if (usuarioVacio || contraseniaVacia)
             {
-                MessageBox.Show("Bienvenido " + CS_userAtributos.User + " :)");
-
-                frmAdminUserABM frm = new frmAdminUserABM();
-                frm.Show();
-                this.Hide();
+                MessageBox.Show("Hay campos vacíos!");
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectas");
+                string user = txtUsuario.Text.Trim();
+                string pass = txtContrasenia.Text;
+                string hashCalculadoParaLogin = ClsSeguridad.SHA256(user + pass);
+
+                if (objCL.Autenticar(user, pass, out string msg))
+                { 
+                    // Verificar si es primera contraseña
+                    if (ClsSesionActual.Usuario.PrimeraPass)
+                    {
+                        MessageBox.Show("Debe cambiar su contraseña por primera vez", 
+                            "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        frmPrimerIngreso frmPrimer = new frmPrimerIngreso();
+                        frmPrimer.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show(msg);
+                        new frmPanelUsuarios().Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtContrasenia.Clear();
+                    txtContrasenia.Focus();
+                }
             }
-
-            //bool ambosVacios = string.IsNullOrWhiteSpace(txtUsuario.Text) && string.IsNullOrWhiteSpace(txtContrasenia.Text);
-
-            //if (ambosVacios == true)
-            //{
-            //    MessageBox.Show("Hay campos vacios!");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Bienvenido!");
-
-
-            //}
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)

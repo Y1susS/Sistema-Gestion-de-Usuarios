@@ -47,6 +47,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsAbrirForms.cs" />
+    <Compile Include="frmCambioPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambioPass.Designer.cs">
+      <DependentUpon>frmCambioPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPanelUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPanelUsuarios.Designer.cs">
+      <DependentUpon>frmPanelUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminUserABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminUserABM.Designer.cs">
+      <DependentUpon>frmAdminUserABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoguin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoguin.Designer.cs">
+      <DependentUpon>frmLoguin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreguntas.Designer.cs">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrimerIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrimerIngreso.Designer.cs">
+      <DependentUpon>frmPrimerIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecupero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecupero.Designer.cs">
+      <DependentUpon>frmRecupero.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistroClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,12 +100,6 @@
     </Compile>
     <Compile Include="frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAdministrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdministrador.Designer.cs">
-      <DependentUpon>frmAdministrador.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPermisos.cs">
       <SubType>Form</SubType>
@@ -77,45 +113,36 @@
     <Compile Include="frmSegContraseña.Designer.cs">
       <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPreguntas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPreguntas.Designer.cs">
-      <DependentUpon>frmPreguntas.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm1eringreso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm1eringreso.Designer.cs">
       <DependentUpon>frm1eringreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAltausuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAltausuario.Designer.cs">
-      <DependentUpon>frmAltausuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLoguin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLoguin.Designer.cs">
-      <DependentUpon>frmLoguin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmRecupero.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRecupero.Designer.cs">
-      <DependentUpon>frmRecupero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmRegistro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRegistro.Designer.cs">
-      <DependentUpon>frmRegistro.cs</DependentUpon>
-    </Compile>
     <Compile Include="ClsPlaceHolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCambioPass.resx">
+      <DependentUpon>frmCambioPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPanelUsuarios.resx">
+      <DependentUpon>frmPanelUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminUserABM.resx">
+      <DependentUpon>frmAdminUserABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoguin.resx">
+      <DependentUpon>frmLoguin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreguntas.resx">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrimerIngreso.resx">
+      <DependentUpon>frmPrimerIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecupero.resx">
+      <DependentUpon>frmRecupero.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroClientes.resx">
       <DependentUpon>frmRegistroClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,29 +152,11 @@
     <EmbeddedResource Include="frm1eringreso.resx">
       <DependentUpon>frm1eringreso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdministrador.resx">
-      <DependentUpon>frmAdministrador.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSegContraseña.resx">
       <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAltausuario.resx">
-      <DependentUpon>frmAltausuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLoguin.resx">
-      <DependentUpon>frmLoguin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmPermisos.resx">
       <DependentUpon>frmPermisos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPreguntas.resx">
-      <DependentUpon>frmPreguntas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRecupero.resx">
-      <DependentUpon>frmRecupero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistro.resx">
-      <DependentUpon>frmRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

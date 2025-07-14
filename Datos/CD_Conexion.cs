@@ -19,26 +19,15 @@ namespace Datos
         }
         public SqlConnection AbrirConexion()
         {
-            if (oConn.State == ConnectionState.Open)
-            {
-                oConn.Close();
-            }
-            else
-            {
-                oConn.Open();
-            }
+            if (oConn.State == ConnectionState.Closed) oConn.Open();
+
             return oConn;
         }
         public SqlConnection CerrarConexion()
         {
-            if (oConn.State == ConnectionState.Open)
-            {
-                oConn.Close();
-            }
-            else
-            {
-                oConn.Close();
-            }
+            if (oConn.State == ConnectionState.Open) oConn.Close();
+             
+            
             return oConn;
         }
 

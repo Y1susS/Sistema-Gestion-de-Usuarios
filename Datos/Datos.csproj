@@ -42,8 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CD_Conexion.cs" />
+    <Compile Include="CD_DaoConfiguracionContraseña.cs" />
+    <Compile Include="CD_DaoLocalidad.cs" />
+    <Compile Include="CD_DaoPartido.cs" />
+    <Compile Include="CD_DaoPassUsada.cs" />
+    <Compile Include="CD_DaoPersona.cs" />
+    <Compile Include="CD_DaoPregunta.cs" />
+    <Compile Include="CD_DaoRespuesta.cs" />
+    <Compile Include="CD_DaoRol.cs" />
+    <Compile Include="CD_DaoTipoDoc.cs" />
+    <Compile Include="CD_DaoUsuario.cs" />
+    <Compile Include="CD_Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CD_Usuarios.cs" />
+    <Compile Include="CD_Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Loguin\" />

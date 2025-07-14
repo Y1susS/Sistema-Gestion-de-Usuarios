@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class frmAdministrador
+    partial class frmPanelUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -34,11 +34,13 @@
             this.lblAdministrador = new System.Windows.Forms.Label();
             this.btnRegistroClientes = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnPreguntas = new System.Windows.Forms.Button();
+            this.btnCambiarContrasena = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGestionUsuarios
             // 
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(242, 115);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(214, 110);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(150, 36);
             this.btnGestionUsuarios.TabIndex = 0;
@@ -48,7 +50,7 @@
             // 
             // btnGestionPermisos
             // 
-            this.btnGestionPermisos.Location = new System.Drawing.Point(242, 171);
+            this.btnGestionPermisos.Location = new System.Drawing.Point(214, 166);
             this.btnGestionPermisos.Name = "btnGestionPermisos";
             this.btnGestionPermisos.Size = new System.Drawing.Size(150, 36);
             this.btnGestionPermisos.TabIndex = 1;
@@ -58,7 +60,7 @@
             // 
             // btnGestionContraseñas
             // 
-            this.btnGestionContraseñas.Location = new System.Drawing.Point(242, 230);
+            this.btnGestionContraseñas.Location = new System.Drawing.Point(214, 225);
             this.btnGestionContraseñas.Name = "btnGestionContraseñas";
             this.btnGestionContraseñas.Size = new System.Drawing.Size(150, 36);
             this.btnGestionContraseñas.TabIndex = 2;
@@ -69,7 +71,7 @@
             // lblAdministrador
             // 
             this.lblAdministrador.AutoSize = true;
-            this.lblAdministrador.Location = new System.Drawing.Point(266, 57);
+            this.lblAdministrador.Location = new System.Drawing.Point(243, 81);
             this.lblAdministrador.Name = "lblAdministrador";
             this.lblAdministrador.Size = new System.Drawing.Size(100, 13);
             this.lblAdministrador.TabIndex = 3;
@@ -77,7 +79,7 @@
             // 
             // btnRegistroClientes
             // 
-            this.btnRegistroClientes.Location = new System.Drawing.Point(242, 287);
+            this.btnRegistroClientes.Location = new System.Drawing.Point(423, 110);
             this.btnRegistroClientes.Name = "btnRegistroClientes";
             this.btnRegistroClientes.Size = new System.Drawing.Size(150, 36);
             this.btnRegistroClientes.TabIndex = 4;
@@ -87,7 +89,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(480, 332);
+            this.btnSalir.Location = new System.Drawing.Point(423, 320);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(150, 36);
             this.btnSalir.TabIndex = 5;
@@ -95,19 +97,42 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // frmAdministrador
+            // btnPreguntas
+            // 
+            this.btnPreguntas.Location = new System.Drawing.Point(423, 225);
+            this.btnPreguntas.Name = "btnPreguntas";
+            this.btnPreguntas.Size = new System.Drawing.Size(150, 36);
+            this.btnPreguntas.TabIndex = 6;
+            this.btnPreguntas.Text = "Preguntas de Seguridad";
+            this.btnPreguntas.UseVisualStyleBackColor = true;
+            this.btnPreguntas.Click += new System.EventHandler(this.btnPreguntas_Click);
+            // 
+            // btnCambiarContrasena
+            // 
+            this.btnCambiarContrasena.Location = new System.Drawing.Point(423, 166);
+            this.btnCambiarContrasena.Name = "btnCambiarContrasena";
+            this.btnCambiarContrasena.Size = new System.Drawing.Size(150, 36);
+            this.btnCambiarContrasena.TabIndex = 7;
+            this.btnCambiarContrasena.Text = "Cambiar Contraseña";
+            this.btnCambiarContrasena.UseVisualStyleBackColor = true;
+            this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);
+            // 
+            // frmPanelUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCambiarContrasena);
+            this.Controls.Add(this.btnPreguntas);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnRegistroClientes);
             this.Controls.Add(this.lblAdministrador);
             this.Controls.Add(this.btnGestionContraseñas);
             this.Controls.Add(this.btnGestionPermisos);
             this.Controls.Add(this.btnGestionUsuarios);
-            this.Name = "frmAdministrador";
+            this.Name = "frmPanelUsuarios";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmPanelUsuarios_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +146,7 @@
         private System.Windows.Forms.Label lblAdministrador;
         private System.Windows.Forms.Button btnRegistroClientes;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnPreguntas;
+        private System.Windows.Forms.Button btnCambiarContrasena;
     }
 }
