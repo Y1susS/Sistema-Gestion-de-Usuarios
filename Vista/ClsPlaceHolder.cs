@@ -35,10 +35,5 @@ namespace Vista
                     txt.UseSystemPasswordChar = true;
             }
         }
-
-        //public static bool IsPlaceholder(string placeholder, TextBox txt)
-        //{
-        //    return txt.Text == placeholder && txt.ForeColor == Color.Gray;
-        //}
     }
 }
