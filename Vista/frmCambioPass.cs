@@ -17,11 +17,12 @@ namespace Vista
         private readonly CL_Usuarios objUsuarios = new CL_Usuarios();
         private readonly string usuario;
         private readonly bool requiereContraseñaActual;
+        private Form _formularioAnterior;
         private const string PASS_ACTUAL_PLACEHOLDER = "Contraseña actual";
         private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
         private const string CONFIRMA_PASS_PLACEHOLDER = "Confirmar contraseña";
 
-        public frmCambioPass(string usuario, bool requiereContraseñaActual = true)
+        public frmCambioPass(string usuario, Form formularioAnterior, bool requiereContraseñaActual = true)
         {
             InitializeComponent();
             DoubleBuffered = true;
@@ -29,7 +30,9 @@ namespace Vista
             pctLogo.BackColor = Color.Transparent;
             this.usuario = usuario;
             this.requiereContraseñaActual = requiereContraseñaActual;
-
+            this.usuario = usuario;
+            this.requiereContraseñaActual = requiereContraseñaActual;
+            this._formularioAnterior = formularioAnterior;
             // Mostrar/ocultar campo de contraseña actual según corresponda
             txtPassActual.Visible = requiereContraseñaActual;
        
@@ -198,6 +201,11 @@ namespace Vista
             return true;
         }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            _formularioAnterior.Show();
+            this.Close();
+        }
 
         private void pctBorde_MouseMove(object sender, MouseEventArgs e)
         {

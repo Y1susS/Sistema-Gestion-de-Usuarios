@@ -45,6 +45,7 @@
     <Compile Include="CL_Localidad.cs" />
     <Compile Include="CL_Loguin.cs" />
     <Compile Include="CL_Partido.cs" />
+    <Compile Include="CL_Permisos.cs" />
     <Compile Include="CL_Preguntas.cs" />
     <Compile Include="CL_Rol.cs" />
     <Compile Include="CL_TipoDoc.cs" />
@@ -57,17 +58,12 @@
       <Project>{d733215d-d17f-4ec5-93ae-313fc0a23471}</Project>
       <Name>Datos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Servicios\Servicios.csproj">
-      <Project>{f6f5e86f-9ab2-4b9f-bb8e-d15094ff5093}</Project>
-      <Name>Servicios</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sesion\Sesion.csproj">
-      <Project>{7b0111b2-31ee-445a-a190-2ba08defb3b1}</Project>
-      <Name>Sesion</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Loguin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

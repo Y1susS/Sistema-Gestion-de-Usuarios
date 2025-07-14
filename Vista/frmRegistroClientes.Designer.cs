@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtderpatamento = new System.Windows.Forms.TextBox();
+            this.txtpiso = new System.Windows.Forms.TextBox();
+            this.txtlocalidad = new System.Windows.Forms.TextBox();
+            this.txtpartido = new System.Windows.Forms.TextBox();
+            this.txtnumerocalle = new System.Windows.Forms.TextBox();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.txtnumerodocumento = new System.Windows.Forms.TextBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtcalle = new System.Windows.Forms.TextBox();
+            this.txttelefono = new System.Windows.Forms.TextBox();
+            this.txttipodocumento = new System.Windows.Forms.TextBox();
+            this.txtapellido = new System.Windows.Forms.TextBox();
             this.btnVolverRegCliente = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -51,18 +51,18 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox12);
-            this.groupBox1.Controls.Add(this.textBox11);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox10);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtderpatamento);
+            this.groupBox1.Controls.Add(this.txtpiso);
+            this.groupBox1.Controls.Add(this.txtlocalidad);
+            this.groupBox1.Controls.Add(this.txtpartido);
+            this.groupBox1.Controls.Add(this.txtnumerocalle);
+            this.groupBox1.Controls.Add(this.txtemail);
+            this.groupBox1.Controls.Add(this.txtnumerodocumento);
+            this.groupBox1.Controls.Add(this.txtnombre);
+            this.groupBox1.Controls.Add(this.txtcalle);
+            this.groupBox1.Controls.Add(this.txttelefono);
+            this.groupBox1.Controls.Add(this.txttipodocumento);
+            this.groupBox1.Controls.Add(this.txtapellido);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(655, 173);
@@ -70,108 +70,120 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro y Modificación de clientes";
             // 
-            // textBox12
+            // txtderpatamento
             // 
-            this.textBox12.Location = new System.Drawing.Point(579, 105);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(57, 20);
-            this.textBox12.TabIndex = 17;
-            this.textBox12.Text = "Depart";
+            this.txtderpatamento.Location = new System.Drawing.Point(579, 105);
+            this.txtderpatamento.Name = "txtderpatamento";
+            this.txtderpatamento.Size = new System.Drawing.Size(57, 20);
+            this.txtderpatamento.TabIndex = 10;
+            this.txtderpatamento.Enter += new System.EventHandler(this.txtdepartamento_Enter);
+            this.txtderpatamento.Leave += new System.EventHandler(this.txtdepartamento_Leave);
             // 
-            // textBox11
+            // txtpiso
             // 
-            this.textBox11.Location = new System.Drawing.Point(482, 105);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(57, 20);
-            this.textBox11.TabIndex = 16;
-            this.textBox11.Text = "Piso";
+            this.txtpiso.Location = new System.Drawing.Point(482, 105);
+            this.txtpiso.Name = "txtpiso";
+            this.txtpiso.Size = new System.Drawing.Size(57, 20);
+            this.txtpiso.TabIndex = 9;
+            this.txtpiso.Enter += new System.EventHandler(this.txtpiso_Enter);
+            this.txtpiso.Leave += new System.EventHandler(this.txtpiso_Leave);
             // 
-            // textBox9
+            // txtlocalidad
             // 
-            this.textBox9.Location = new System.Drawing.Point(385, 133);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(251, 20);
-            this.textBox9.TabIndex = 15;
-            this.textBox9.Text = "Localidad";
+            this.txtlocalidad.Location = new System.Drawing.Point(385, 133);
+            this.txtlocalidad.Name = "txtlocalidad";
+            this.txtlocalidad.Size = new System.Drawing.Size(251, 20);
+            this.txtlocalidad.TabIndex = 12;
+            this.txtlocalidad.Enter += new System.EventHandler(this.txtlocalidad_Enter);
+            this.txtlocalidad.Leave += new System.EventHandler(this.txtlocalidad_Leave);
             // 
-            // textBox10
+            // txtpartido
             // 
-            this.textBox10.Location = new System.Drawing.Point(6, 133);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(251, 20);
-            this.textBox10.TabIndex = 14;
-            this.textBox10.Text = "Partido";
+            this.txtpartido.Location = new System.Drawing.Point(6, 133);
+            this.txtpartido.Name = "txtpartido";
+            this.txtpartido.Size = new System.Drawing.Size(251, 20);
+            this.txtpartido.TabIndex = 11;
+            this.txtpartido.Enter += new System.EventHandler(this.txtpartido_Enter);
+            this.txtpartido.Leave += new System.EventHandler(this.txtpartido_Leave);
             // 
-            // textBox7
+            // txtnumerocalle
             // 
-            this.textBox7.Location = new System.Drawing.Point(385, 105);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(57, 20);
-            this.textBox7.TabIndex = 13;
-            this.textBox7.Text = "Nro";
+            this.txtnumerocalle.Location = new System.Drawing.Point(385, 105);
+            this.txtnumerocalle.Name = "txtnumerocalle";
+            this.txtnumerocalle.Size = new System.Drawing.Size(57, 20);
+            this.txtnumerocalle.TabIndex = 8;
+            this.txtnumerocalle.Enter += new System.EventHandler(this.txtnumerocalle_Enter);
+            this.txtnumerocalle.Leave += new System.EventHandler(this.txtnumerocalle_Leave);
             // 
-            // textBox8
+            // txtemail
             // 
-            this.textBox8.Location = new System.Drawing.Point(385, 77);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(251, 20);
-            this.textBox8.TabIndex = 12;
-            this.textBox8.Text = "E-mail";
+            this.txtemail.Location = new System.Drawing.Point(385, 77);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(251, 20);
+            this.txtemail.TabIndex = 6;
+            this.txtemail.Enter += new System.EventHandler(this.txtemail_Enter);
+            this.txtemail.Leave += new System.EventHandler(this.txtemail_Leave);
             // 
-            // textBox5
+            // txtnumerodocumento
             // 
-            this.textBox5.Location = new System.Drawing.Point(385, 49);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(251, 20);
-            this.textBox5.TabIndex = 11;
-            this.textBox5.Text = "NroDoc";
+            this.txtnumerodocumento.Location = new System.Drawing.Point(385, 49);
+            this.txtnumerodocumento.Name = "txtnumerodocumento";
+            this.txtnumerodocumento.Size = new System.Drawing.Size(251, 20);
+            this.txtnumerodocumento.TabIndex = 4;
+            this.txtnumerodocumento.Enter += new System.EventHandler(this.txttipodocumento_Enter);
+            this.txtnumerodocumento.Leave += new System.EventHandler(this.txtnumerodocumento_Leave);
             // 
-            // textBox6
+            // txtnombre
             // 
-            this.textBox6.Location = new System.Drawing.Point(385, 21);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(251, 20);
-            this.textBox6.TabIndex = 10;
-            this.textBox6.Text = "Nombres";
+            this.txtnombre.Location = new System.Drawing.Point(385, 21);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(251, 20);
+            this.txtnombre.TabIndex = 2;
+            this.txtnombre.Enter += new System.EventHandler(this.txtnombre_Enter);
+            this.txtnombre.Leave += new System.EventHandler(this.txtnombre_Leave);
             // 
-            // textBox3
+            // txtcalle
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 105);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(251, 20);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.Text = "Calle";
+            this.txtcalle.Location = new System.Drawing.Point(6, 105);
+            this.txtcalle.Name = "txtcalle";
+            this.txtcalle.Size = new System.Drawing.Size(251, 20);
+            this.txtcalle.TabIndex = 7;
+            this.txtcalle.Enter += new System.EventHandler(this.txtcalle_Enter);
+            this.txtcalle.Leave += new System.EventHandler(this.txtcalle_Leave);
             // 
-            // textBox4
+            // txttelefono
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 77);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 20);
-            this.textBox4.TabIndex = 8;
-            this.textBox4.Text = "Telefono";
+            this.txttelefono.Location = new System.Drawing.Point(6, 77);
+            this.txttelefono.Name = "txttelefono";
+            this.txttelefono.Size = new System.Drawing.Size(251, 20);
+            this.txttelefono.TabIndex = 5;
+            this.txttelefono.Enter += new System.EventHandler(this.txttelefono_Enter);
+            this.txttelefono.Leave += new System.EventHandler(this.txttelefono_Leave);
             // 
-            // textBox2
+            // txttipodocumento
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 20);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.Text = "Tipo Documento";
+            this.txttipodocumento.Location = new System.Drawing.Point(6, 49);
+            this.txttipodocumento.Name = "txttipodocumento";
+            this.txttipodocumento.Size = new System.Drawing.Size(251, 20);
+            this.txttipodocumento.TabIndex = 3;
+            this.txttipodocumento.Enter += new System.EventHandler(this.txttipodocumento_Enter);
+            this.txttipodocumento.Leave += new System.EventHandler(this.txttipodocumento_Enter);
             // 
-            // textBox1
+            // txtapellido
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "Apellidos";
+            this.txtapellido.Location = new System.Drawing.Point(6, 21);
+            this.txtapellido.Name = "txtapellido";
+            this.txtapellido.Size = new System.Drawing.Size(251, 20);
+            this.txtapellido.TabIndex = 1;
+            this.txtapellido.Enter += new System.EventHandler(this.txtapellido_Enter);
+            this.txtapellido.Leave += new System.EventHandler(this.txtapellido_Leave);
             // 
             // btnVolverRegCliente
             // 
             this.btnVolverRegCliente.Location = new System.Drawing.Point(701, 116);
             this.btnVolverRegCliente.Name = "btnVolverRegCliente";
             this.btnVolverRegCliente.Size = new System.Drawing.Size(75, 24);
-            this.btnVolverRegCliente.TabIndex = 11;
+            this.btnVolverRegCliente.TabIndex = 15;
             this.btnVolverRegCliente.Text = "Volver";
             this.btnVolverRegCliente.UseVisualStyleBackColor = true;
             this.btnVolverRegCliente.Click += new System.EventHandler(this.btnVolverRegCliente_Click);
@@ -181,7 +193,7 @@
             this.button2.Location = new System.Drawing.Point(701, 86);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
+            this.button2.TabIndex = 14;
             this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -190,7 +202,7 @@
             this.button4.Location = new System.Drawing.Point(701, 55);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 8;
+            this.button4.TabIndex = 13;
             this.button4.Text = "Agregar";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -216,6 +228,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmRegistroClientes";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmRegistroClientes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -225,18 +238,18 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtderpatamento;
+        private System.Windows.Forms.TextBox txtpiso;
+        private System.Windows.Forms.TextBox txtlocalidad;
+        private System.Windows.Forms.TextBox txtpartido;
+        private System.Windows.Forms.TextBox txtnumerocalle;
+        private System.Windows.Forms.TextBox txtemail;
+        private System.Windows.Forms.TextBox txtnumerodocumento;
+        private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.TextBox txtcalle;
+        private System.Windows.Forms.TextBox txttelefono;
+        private System.Windows.Forms.TextBox txttipodocumento;
+        private System.Windows.Forms.TextBox txtapellido;
         private System.Windows.Forms.Button btnVolverRegCliente;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;

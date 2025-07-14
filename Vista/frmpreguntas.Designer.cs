@@ -39,6 +39,7 @@
             this.cmbPregunta2 = new System.Windows.Forms.ComboBox();
             this.cmbPregunta3 = new System.Windows.Forms.ComboBox();
             this.lblPreguntas = new System.Windows.Forms.Label();
+            this.btnvolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblInstrucciones
@@ -65,14 +66,14 @@
             this.txtRespuesta1.Location = new System.Drawing.Point(399, 192);
             this.txtRespuesta1.Name = "txtRespuesta1";
             this.txtRespuesta1.Size = new System.Drawing.Size(173, 20);
-            this.txtRespuesta1.TabIndex = 4;
+            this.txtRespuesta1.TabIndex = 2;
             // 
             // txtRespuesta2
             // 
             this.txtRespuesta2.Location = new System.Drawing.Point(399, 231);
             this.txtRespuesta2.Name = "txtRespuesta2";
             this.txtRespuesta2.Size = new System.Drawing.Size(173, 20);
-            this.txtRespuesta2.TabIndex = 5;
+            this.txtRespuesta2.TabIndex = 4;
             // 
             // txtRespuesta3
             // 
@@ -83,7 +84,7 @@
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(277, 387);
+            this.btnSiguiente.Location = new System.Drawing.Point(265, 348);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(156, 22);
             this.btnSiguiente.TabIndex = 7;
@@ -106,7 +107,7 @@
             this.cmbPregunta1.Location = new System.Drawing.Point(48, 192);
             this.cmbPregunta1.Name = "cmbPregunta1";
             this.cmbPregunta1.Size = new System.Drawing.Size(235, 21);
-            this.cmbPregunta1.TabIndex = 9;
+            this.cmbPregunta1.TabIndex = 1;
             // 
             // cmbPregunta2
             // 
@@ -114,7 +115,7 @@
             this.cmbPregunta2.Location = new System.Drawing.Point(48, 231);
             this.cmbPregunta2.Name = "cmbPregunta2";
             this.cmbPregunta2.Size = new System.Drawing.Size(235, 21);
-            this.cmbPregunta2.TabIndex = 10;
+            this.cmbPregunta2.TabIndex = 3;
             // 
             // cmbPregunta3
             // 
@@ -122,7 +123,7 @@
             this.cmbPregunta3.Location = new System.Drawing.Point(48, 271);
             this.cmbPregunta3.Name = "cmbPregunta3";
             this.cmbPregunta3.Size = new System.Drawing.Size(235, 21);
-            this.cmbPregunta3.TabIndex = 11;
+            this.cmbPregunta3.TabIndex = 5;
             // 
             // lblPreguntas
             // 
@@ -133,11 +134,22 @@
             this.lblPreguntas.TabIndex = 12;
             this.lblPreguntas.Text = "Preguntas";
             // 
+            // btnvolver
+            // 
+            this.btnvolver.Location = new System.Drawing.Point(265, 377);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(156, 22);
+            this.btnvolver.TabIndex = 8;
+            this.btnvolver.Text = "Volver";
+            this.btnvolver.UseVisualStyleBackColor = true;
+            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
+            // 
             // frmPreguntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.lblPreguntas);
             this.Controls.Add(this.cmbPregunta3);
             this.Controls.Add(this.cmbPregunta2);
@@ -169,5 +181,6 @@
         private System.Windows.Forms.ComboBox cmbPregunta2;
         private System.Windows.Forms.ComboBox cmbPregunta3;
         private System.Windows.Forms.Label lblPreguntas;
+        private System.Windows.Forms.Button btnvolver;
     }
 }

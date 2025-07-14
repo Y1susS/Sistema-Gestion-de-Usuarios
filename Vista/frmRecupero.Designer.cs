@@ -60,12 +60,14 @@ namespace Vista
             this.txtdni.Location = new System.Drawing.Point(110, 173);
             this.txtdni.MaxLength = 25;
             this.txtdni.Name = "txtdni";
+
             this.txtdni.Size = new System.Drawing.Size(185, 25);
             this.txtdni.TabIndex = 15;
             this.txtdni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtdni.TextChanged += new System.EventHandler(this.txtdni_TextChanged_1);
             this.txtdni.Enter += new System.EventHandler(this.txtdni_Enter);
             this.txtdni.Leave += new System.EventHandler(this.txtdni_Leave);
+
             // 
             // btnSiguiente
             // 
@@ -79,8 +81,10 @@ namespace Vista
             this.btnSiguiente.Location = new System.Drawing.Point(110, 335);
             this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiguiente.Name = "btnSiguiente";
+
             this.btnSiguiente.Size = new System.Drawing.Size(185, 30);
             this.btnSiguiente.TabIndex = 18;
+
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
@@ -92,9 +96,11 @@ namespace Vista
             this.txtrespuesta.Location = new System.Drawing.Point(110, 290);
             this.txtrespuesta.MaxLength = 25;
             this.txtrespuesta.Name = "txtrespuesta";
+
             this.txtrespuesta.Size = new System.Drawing.Size(185, 25);
             this.txtrespuesta.TabIndex = 30;
             this.txtrespuesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+
             this.txtrespuesta.TextChanged += new System.EventHandler(this.txtrespuesta_TextChanged);
             this.txtrespuesta.Enter += new System.EventHandler(this.txtrespuesta_Enter);
             this.txtrespuesta.Leave += new System.EventHandler(this.txtrespuesta_Leave);
@@ -105,8 +111,10 @@ namespace Vista
             this.cmbpreguntasseg.FormattingEnabled = true;
             this.cmbpreguntasseg.Location = new System.Drawing.Point(42, 231);
             this.cmbpreguntasseg.Name = "cmbpreguntasseg";
+
             this.cmbpreguntasseg.Size = new System.Drawing.Size(315, 26);
             this.cmbpreguntasseg.TabIndex = 31;
+
             this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
             this.cmbpreguntasseg.Enter += new System.EventHandler(this.cmbpreguntasseg_Enter);
             this.cmbpreguntasseg.Leave += new System.EventHandler(this.cmbpreguntasseg_Leave);
@@ -116,6 +124,8 @@ namespace Vista
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+
+
             // pctMinimize
             // 
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));

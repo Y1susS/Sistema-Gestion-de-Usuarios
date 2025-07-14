@@ -43,7 +43,7 @@
             this.btnGestionUsuarios.Location = new System.Drawing.Point(214, 110);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
             this.btnGestionUsuarios.Size = new System.Drawing.Size(150, 36);
-            this.btnGestionUsuarios.TabIndex = 0;
+            this.btnGestionUsuarios.TabIndex = 1;
             this.btnGestionUsuarios.Text = "Gestionar usuarios";
             this.btnGestionUsuarios.UseVisualStyleBackColor = true;
             this.btnGestionUsuarios.Click += new System.EventHandler(this.btnGestionUsuarios_Click);
@@ -53,7 +53,7 @@
             this.btnGestionPermisos.Location = new System.Drawing.Point(214, 166);
             this.btnGestionPermisos.Name = "btnGestionPermisos";
             this.btnGestionPermisos.Size = new System.Drawing.Size(150, 36);
-            this.btnGestionPermisos.TabIndex = 1;
+            this.btnGestionPermisos.TabIndex = 2;
             this.btnGestionPermisos.Text = "Gestionar permisos";
             this.btnGestionPermisos.UseVisualStyleBackColor = true;
             this.btnGestionPermisos.Click += new System.EventHandler(this.btnGestionPermisos_Click);
@@ -63,7 +63,7 @@
             this.btnGestionContraseñas.Location = new System.Drawing.Point(214, 225);
             this.btnGestionContraseñas.Name = "btnGestionContraseñas";
             this.btnGestionContraseñas.Size = new System.Drawing.Size(150, 36);
-            this.btnGestionContraseñas.TabIndex = 2;
+            this.btnGestionContraseñas.TabIndex = 3;
             this.btnGestionContraseñas.Text = "Gestion Contraseñas";
             this.btnGestionContraseñas.UseVisualStyleBackColor = true;
             this.btnGestionContraseñas.Click += new System.EventHandler(this.btnGestionContraseñas_Click);
@@ -92,7 +92,7 @@
             this.btnSalir.Location = new System.Drawing.Point(423, 320);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(150, 36);
-            this.btnSalir.TabIndex = 5;
+            this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -112,7 +112,7 @@
             this.btnCambiarContrasena.Location = new System.Drawing.Point(423, 166);
             this.btnCambiarContrasena.Name = "btnCambiarContrasena";
             this.btnCambiarContrasena.Size = new System.Drawing.Size(150, 36);
-            this.btnCambiarContrasena.TabIndex = 7;
+            this.btnCambiarContrasena.TabIndex = 5;
             this.btnCambiarContrasena.Text = "Cambiar Contraseña";
             this.btnCambiarContrasena.UseVisualStyleBackColor = true;
             this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);

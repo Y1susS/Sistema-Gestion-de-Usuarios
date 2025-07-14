@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using Logica;
+﻿using Logica;
 using Sesion;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Vista
 {
@@ -84,7 +85,7 @@ namespace Vista
 
         private void btnPreguntas_Click(object sender, EventArgs e)
         {
-            frmPreguntas frmPreg = new frmPreguntas();
+            frmPreguntas frmPreg = new frmPreguntas(this);
             frmPreg.Show();
             this.Hide();
         }
@@ -92,9 +93,9 @@ namespace Vista
         private void btnCambiarContrasena_Click(object sender, EventArgs e)
         {
             string usuario = ClsSesionActual.Usuario.User;
-            frmCambioPass frmCambio = new frmCambioPass(usuario, true);
+            frmCambioPass frmCambio = new frmCambioPass(usuario, this, true);
             frmCambio.Show();
-            this.Hide();
+            this.Hide(); // Oculta el panel mientras se cambia la contraseña
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

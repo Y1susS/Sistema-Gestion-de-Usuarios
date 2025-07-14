@@ -13,12 +13,14 @@ namespace Vista
         private readonly CL_Preguntas objPreguntas = new CL_Preguntas();
         private List<ComboBox> combosPreguntas;
         private List<TextBox> txtRespuestas;
-        
-        public frmPreguntas()
+        private Form _formularioAnterior;
+
+
+        public frmPreguntas(Form formularioAnterior)
         {
             InitializeComponent();
-            
-            // Inicializar las listas para combos y textboxes
+            _formularioAnterior = formularioAnterior;
+
             combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
             txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
         }
@@ -114,6 +116,12 @@ namespace Vista
             }
             
             return true;
+        }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            _formularioAnterior.Show();  // Muestra el formulario anterior (frmPanelUsuarios)
+            this.Close();
         }
     }
 }
