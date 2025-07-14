@@ -110,7 +110,7 @@ namespace Vista
                 {
                     MessageBox.Show(mensajeCambioPass, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    frmPreguntas frmPreguntas = new frmPreguntas();
+                    frmPreguntas frmPreguntas = new frmPreguntas(this);
                     frmPreguntas.Show();
                     this.Close();
                 }

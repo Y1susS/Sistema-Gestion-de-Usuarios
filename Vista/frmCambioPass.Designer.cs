@@ -40,6 +40,7 @@
             this.pctBorde = new System.Windows.Forms.PictureBox();
             this.txtConfirmaPass = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -64,7 +65,7 @@
             this.txtNuevaPass.MaxLength = 25;
             this.txtNuevaPass.Name = "txtNuevaPass";
             this.txtNuevaPass.Size = new System.Drawing.Size(186, 25);
-            this.txtNuevaPass.TabIndex = 16;
+            this.txtNuevaPass.TabIndex = 2;
             this.txtNuevaPass.Enter += new System.EventHandler(this.txtNuevaPass_Enter);
             this.txtNuevaPass.Leave += new System.EventHandler(this.txtNuevaPass_Leave);
             // 
@@ -89,7 +90,7 @@
             this.txtPassActual.MaxLength = 25;
             this.txtPassActual.Name = "txtPassActual";
             this.txtPassActual.Size = new System.Drawing.Size(186, 25);
-            this.txtPassActual.TabIndex = 15;
+            this.txtPassActual.TabIndex = 1;
             this.txtPassActual.Enter += new System.EventHandler(this.txtPassActual_Enter);
             this.txtPassActual.Leave += new System.EventHandler(this.txtPassActual_Leave);
             // 
@@ -128,11 +129,11 @@
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiar.ForeColor = System.Drawing.Color.Black;
-            this.btnCambiar.Location = new System.Drawing.Point(110, 303);
+            this.btnCambiar.Location = new System.Drawing.Point(110, 281);
             this.btnCambiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(186, 28);
-            this.btnCambiar.TabIndex = 18;
+            this.btnCambiar.TabIndex = 4;
             this.btnCambiar.Text = "Cambiar";
             this.btnCambiar.UseVisualStyleBackColor = false;
             this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
@@ -165,7 +166,7 @@
             this.txtConfirmaPass.MaxLength = 25;
             this.txtConfirmaPass.Name = "txtConfirmaPass";
             this.txtConfirmaPass.Size = new System.Drawing.Size(186, 25);
-            this.txtConfirmaPass.TabIndex = 25;
+            this.txtConfirmaPass.TabIndex = 3;
             this.txtConfirmaPass.Enter += new System.EventHandler(this.txtConfirmaPass_Enter);
             this.txtConfirmaPass.Leave += new System.EventHandler(this.txtConfirmaPass_Leave);
             // 
@@ -180,12 +181,31 @@
             this.lblUsuario.TabIndex = 26;
             this.lblUsuario.Text = "label1";
             // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.White;
+            this.btnVolver.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnVolver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnVolver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolver.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.Black;
+            this.btnVolver.Location = new System.Drawing.Point(110, 313);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(186, 28);
+            this.btnVolver.TabIndex = 5;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // frmCambioPass
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 370);
             this.ControlBox = false;
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtConfirmaPass);
             this.Controls.Add(this.pctMinimize);
@@ -230,5 +250,6 @@
         private System.Windows.Forms.PictureBox pctBorde;
         private System.Windows.Forms.TextBox txtConfirmaPass;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

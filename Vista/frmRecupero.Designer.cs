@@ -64,7 +64,7 @@ namespace Vista
             this.txtdni.MaxLength = 25;
             this.txtdni.Name = "txtdni";
             this.txtdni.Size = new System.Drawing.Size(163, 25);
-            this.txtdni.TabIndex = 15;
+            this.txtdni.TabIndex = 1;
             // 
             // btnSiguiente
             // 
@@ -79,7 +79,7 @@ namespace Vista
             this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(186, 28);
-            this.btnSiguiente.TabIndex = 18;
+            this.btnSiguiente.TabIndex = 4;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
@@ -137,7 +137,7 @@ namespace Vista
             this.txtrespuesta.MaxLength = 25;
             this.txtrespuesta.Name = "txtrespuesta";
             this.txtrespuesta.Size = new System.Drawing.Size(293, 25);
-            this.txtrespuesta.TabIndex = 30;
+            this.txtrespuesta.TabIndex = 3;
             this.txtrespuesta.TextChanged += new System.EventHandler(this.txtrespuesta_TextChanged);
             // 
             // cmbpreguntasseg
@@ -146,7 +146,7 @@ namespace Vista
             this.cmbpreguntasseg.Location = new System.Drawing.Point(42, 208);
             this.cmbpreguntasseg.Name = "cmbpreguntasseg";
             this.cmbpreguntasseg.Size = new System.Drawing.Size(289, 25);
-            this.cmbpreguntasseg.TabIndex = 31;
+            this.cmbpreguntasseg.TabIndex = 2;
             this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
             // 
             // fileSystemWatcher1
@@ -159,7 +159,7 @@ namespace Vista
             this.btnVolver.Location = new System.Drawing.Point(209, 313);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(71, 28);
-            this.btnVolver.TabIndex = 32;
+            this.btnVolver.TabIndex = 5;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.button1_Click);

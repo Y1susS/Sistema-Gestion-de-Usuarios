@@ -64,7 +64,7 @@
             this.txtConfirmaPass.MaxLength = 25;
             this.txtConfirmaPass.Name = "txtConfirmaPass";
             this.txtConfirmaPass.Size = new System.Drawing.Size(186, 25);
-            this.txtConfirmaPass.TabIndex = 15;
+            this.txtConfirmaPass.TabIndex = 2;
             // 
             // pctLogo
             // 
@@ -86,7 +86,7 @@
             this.txtNuevaPass.MaxLength = 25;
             this.txtNuevaPass.Name = "txtNuevaPass";
             this.txtNuevaPass.Size = new System.Drawing.Size(186, 25);
-            this.txtNuevaPass.TabIndex = 14;
+            this.txtNuevaPass.TabIndex = 1;
             // 
             // pctMinimize
             // 
@@ -125,7 +125,7 @@
             this.btnCambiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(186, 28);
-            this.btnCambiar.TabIndex = 17;
+            this.btnCambiar.TabIndex = 3;
             this.btnCambiar.Text = "Cambiar";
             this.btnCambiar.UseVisualStyleBackColor = false;
             this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);

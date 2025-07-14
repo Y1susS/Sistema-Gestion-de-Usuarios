@@ -21,7 +21,7 @@ namespace Vista
 
         private void btn_Click(object sender, EventArgs e)
         {
-            frmPreguntas frmpreguntas = new frmPreguntas();
+            frmPreguntas frmpreguntas = new frmPreguntas(this);
             frmpreguntas.Show();
             this.Hide();
         }

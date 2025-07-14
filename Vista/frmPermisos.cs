@@ -20,9 +20,9 @@ namespace Vista
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            cmbRoles.Items.Add("Vendedor");
-            cmbRoles.Items.Add("Administrador");
-            cmbRoles.SelectedIndex = 1; //por defecto el primer rol para asignar siempre es vendedor
+            cmbusuarios.Items.Add("Vendedor");
+            cmbusuarios.Items.Add("Administrador");
+            cmbusuarios.SelectedIndex = 1; //por defecto el primer rol para asignar siempre es vendedor
 
             //si tenemos una lista de roles en base de datos, se pueden traer esos roles con la funcion
             
