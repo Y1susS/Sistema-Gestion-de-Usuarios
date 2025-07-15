@@ -10,7 +10,7 @@ namespace Datos
 {
     public class CD_Conexion
     {
-        private string cadena = "Data Source=DESKTOP-JAKJ9H5\\SQLEXPRESS;Initial Catalog=Gestion de usuarios Remuebla;Integrated Security=True;";
+        private string cadena = "Data Source=.;Initial Catalog = Gestion de Usuarios Remuebla; Integrated Security = True;";
         private SqlConnection oConn;
 
         public CD_Conexion()

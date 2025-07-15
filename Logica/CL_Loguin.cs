@@ -38,13 +38,18 @@ namespace Logica
             DateTime fechaUltimoCambio = daoUsuario.ObtenerFechaUltimoCambio(dto.Id_user);
             int cambiaCada = daoUsuario.ObtenerCambiaCada(dto.Id_user);
             
-            if (cambiaCada > 0)
+            if (fechaUltimoCambio != DateTime.MinValue && cambiaCada > 0)
             {
                 TimeSpan diferencia = DateTime.Now - fechaUltimoCambio;
                 if (diferencia.TotalDays > cambiaCada)
                 {
                     mensaje = "Su contraseña ha expirado. Debe cambiarla.";
                     return true; // Devuelve true pero debe dirigir a frmCambioContraseña
+                }
+                else if (fechaUltimoCambio == DateTime.MinValue) // Si la fecha es el valor por defecto, hubo un problema
+                {
+                    mensaje = "Error al verificar la caducidad de la contraseña. Contacte al administrador.";
+                    return false;
                 }
             }
 
