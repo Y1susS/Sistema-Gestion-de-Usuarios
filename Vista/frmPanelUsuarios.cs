@@ -9,7 +9,7 @@ namespace Vista
     public partial class frmPanelUsuarios : Form
     {
         private bool esAdministrador = false;
-
+        private CL_Usuarios logicaUsuario = new CL_Usuarios();
         public frmPanelUsuarios()
         {
             InitializeComponent();
@@ -25,6 +25,23 @@ namespace Vista
         {
             // Configurar la interfaz según el rol del usuario
             ConfigurarInterfazSegunRol();
+            int diasRestantes = logicaUsuario.ObtenerDiasRestantesCambioContrasena(ClsSesionActual.Usuario.Id_user);
+
+            if (diasRestantes > 0)
+            {
+                lblDiasRestantesContrasena.Text = $"Faltan {diasRestantes} días para cambiar su contraseña.";
+
+            }
+            else if (diasRestantes <= 0) 
+            {
+                lblDiasRestantesContrasena.Text = "Su contraseña ha expirado o debe cambiarla. ¡ACTUALICE AHORA!";
+
+            }
+            else 
+            {
+                lblDiasRestantesContrasena.Text = "No se pudo verificar el estado de la contraseña.";
+  
+            }
         }
 
         private void ConfigurarInterfazSegunRol()
@@ -104,5 +121,6 @@ namespace Vista
             frm.Show();
             this.Close();
         }
+
     }
 }

@@ -391,6 +391,29 @@ namespace Logica
                 throw;
             }
         }
+
+        public int ObtenerDiasRestantesCambioContrasena(int idUsuario)
+        {
+            // Obtener la fecha del último cambio 
+            DateTime fechaUltimoCambio = daoUsuario.ObtenerFechaUltimoCambio(idUsuario);
+
+            // Obtener la frecuencia de cambio 
+            int cambiaCada = daoUsuario.ObtenerCambiaCada(idUsuario);
+
+            // Si la fecha es inválida o la frecuencia no está configurada, no podemos calcular.
+            if (fechaUltimoCambio == DateTime.MinValue || cambiaCada <= 0)
+            {
+                return 0; // O = "no aplicable/error"
+            }
+
+            // Calcular la diferencia de días transcurridos desde el último cambio
+            TimeSpan diferencia = DateTime.Now - fechaUltimoCambio;
+
+            // Calcular los días restantes
+            int diasRestantes = cambiaCada - (int)diferencia.TotalDays;
+
+            return diasRestantes;
+        }
     }
 }
     

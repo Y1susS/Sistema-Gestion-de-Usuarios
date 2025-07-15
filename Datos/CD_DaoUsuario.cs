@@ -128,16 +128,22 @@ namespace Datos
 
             using (SqlConnection conn = conexion.AbrirConexion())
             {
+                SqlCommand cmd = new SqlCommand("sp_ObtenerFechaUltimoCambio", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_user", idUsuario);
+
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT FechaUltimoCambio FROM Usuario WHERE Id_user = @Id_user", conn);
-                    cmd.Parameters.AddWithValue("@Id_user", idUsuario);
 
                     object result = cmd.ExecuteScalar();
                     if (result != null && result != DBNull.Value)
                     {
                         fechaUltimoCambio = Convert.ToDateTime(result);
                     }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al obtener la fecha del último cambio de contraseña " + ex.Message);
                 }
                 finally
                 {
@@ -155,17 +161,24 @@ namespace Datos
 
             using (SqlConnection conn = conexion.AbrirConexion())
             {
+                SqlCommand cmd = new SqlCommand("sp_ObtenerCambiaCada", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_user", idUsuario);
+
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT CambiaCada FROM Usuario WHERE Id_user = @Id_user", conn);
-                    cmd.Parameters.AddWithValue("@Id_user", idUsuario);
-
                     object result = cmd.ExecuteScalar();
                     if (result != null && result != DBNull.Value)
                     {
                         diasCambiaCada = Convert.ToInt32(result);
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al obtener 'CambiaCada' desde SP: " + ex.Message);
+                 
+                }
+
                 finally
                 {
                     conexion.CerrarConexion();
