@@ -450,6 +450,39 @@ namespace Datos
             return usuario; 
         }
 
+        public DtoUsuario ObtenerUsuarioPorNombre(string usuario)
+        {
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioPorNombre", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@User", usuario);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        return new DtoUsuario
+                        {
+                            Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
+                            User = dr.GetString(dr.GetOrdinal("User")),
+                            Password = dr.GetString(dr.GetOrdinal("Password")),
+                            Activo = dr.GetBoolean(dr.GetOrdinal("Activo")),
+                            Id_Rol = dr.GetInt32(dr.GetOrdinal("Id_Rol")),
+                            PrimeraPass = dr.GetBoolean(dr.GetOrdinal("PrimeraPass")),
+                            FechaBaja = dr.IsDBNull(dr.GetOrdinal("FechaBaja")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaBaja"))
+                        };
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return null;
+        }
 
         public bool VerificarParametrosRecupero(string NroDocumento, int Id_Pregunta, string Respuesta)
         {
@@ -477,7 +510,6 @@ namespace Datos
                 return false;
             }
         }
-         CD_Conexion conexion = new CD_Conexion();
 
         public List<DtoHistorialContraseña> ObtenerPasswordsUsadas(int idUsuario)
         {
@@ -511,6 +543,5 @@ namespace Datos
 
             return lista;
         }
-
     }
 }

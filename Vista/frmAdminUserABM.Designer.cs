@@ -380,6 +380,7 @@
             this.btneliminar.TabIndex = 17;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // frmAdminUserABM
             // 

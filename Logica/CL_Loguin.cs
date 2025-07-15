@@ -15,16 +15,30 @@ namespace Logica
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
         public bool Autenticar(string usuario, string passwordPlano, out string mensaje)
         {
-            string hash = ClsSeguridad.SHA256(usuario + passwordPlano);   
-            DtoUsuario dto = daoUsuario.ValidarUsuario(usuario, hash);
+            // 1. Buscar al usuario por su nombre
+            DtoUsuario dto = daoUsuario.ObtenerUsuarioPorNombre(usuario);
 
-            if (dto == null)
+            // Si el usuario no existe, o si la contraseña no coincide
+            if (dto == null || dto.Password != ClsSeguridad.SHA256(usuario + passwordPlano))
             {
-                mensaje = "Usuario o contraseña incorrectos";
+                mensaje = "Usuario o contraseña incorrectos.";
                 return false;
             }
 
-            // Iniciar la sesión para tener acceso al usuario
+            // 2. Si el usuario existe y la contraseña es correcta, verificar su estado
+            if (dto.FechaBaja != null)
+            {
+                mensaje = "Este usuario ha sido dado de baja. Contacte al administrador.";
+                return false;
+            }
+
+            if (!dto.Activo)
+            {
+                mensaje = "Este usuario se encuentra inactivo. Contacte al administrador.";
+                return false;
+            }
+
+            // 3. Si todo está en orden, proceder con el login
             ClsSesionActual.Iniciar(dto);
             
             // Verificar si es primera contraseña
@@ -45,11 +59,6 @@ namespace Logica
                 {
                     mensaje = "Su contraseña ha expirado. Debe cambiarla.";
                     return true; // Devuelve true pero debe dirigir a frmCambioContraseña
-                }
-                else if (fechaUltimoCambio == DateTime.MinValue) // Si la fecha es el valor por defecto, hubo un problema
-                {
-                    mensaje = "Error al verificar la caducidad de la contraseña. Contacte al administrador.";
-                    return false;
                 }
             }
 

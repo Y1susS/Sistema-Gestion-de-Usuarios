@@ -196,14 +196,14 @@ namespace Vista
                 }
                 else // MODO NUEVO USUARIO
                 {
-                    string contrasenaPlana = ClsAleatorios.Armar(true, 10, 1);
+                    string passGenerada = ClsAleatorios.Armar(true, 10, 1);
 
-                    if (objCL.RegistrarUsuario(persona, usuario, contrasenaPlana, out string mensaje))
+                    if (objCL.RegistrarUsuario(persona, usuario, passGenerada, out string mensaje))
                     {
-                        MessageBox.Show($"{mensaje}\n\nContraseña generada: {contrasenaPlana}\n\nSe ha enviado un correo al usuario con sus credenciales.",
+                        MessageBox.Show($"{mensaje}\n\nContraseña generada exitosamente! \n\nSe ha enviado un correo al usuario con sus credenciales.",
                             "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        EnviarCorreoNuevoUsuario(persona.Email, usuario.User, contrasenaPlana);
+                        EnviarCorreoNuevoUsuario(persona.Email, usuario.User, passGenerada);
 
                         MostrarUsuarios();
                         LimpiarFormulario();
@@ -237,7 +237,7 @@ namespace Vista
             }
 
             DialogResult result = MessageBox.Show(
-                $"¿Está seguro que desea eliminar el usuario '{txtUsuario.Text}'?\n\nEsta acción realizará una baja lógica del usuario y no se puede deshacer.",
+                $"¿Está seguro que desea dar de baja al usuario '{txtUsuario.Text}'?",
                 "Confirmación de eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question,

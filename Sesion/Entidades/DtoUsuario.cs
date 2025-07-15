@@ -17,6 +17,7 @@ namespace Sesion.Entidades
         public int Id_Persona { get; set; }
         public DateTime FechaUltimoCambio { get; set; }
         public int CambiaCada { get; set; }
+        public DateTime? FechaBaja { get; set; } // <-- Agregar esta propiedad
         public bool RequiereCambioContraseña => CambiaCada > 0 && 
             (DateTime.Now - FechaUltimoCambio).TotalDays > CambiaCada;
     }
