@@ -105,7 +105,8 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE Usuario SET PrimeraPass = @PrimeraPass WHERE [User] = @User", conn);
+                    SqlCommand cmd = new SqlCommand("sp_ActualizarPrimeraClave", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@User", usuario);
                     cmd.Parameters.AddWithValue("@PrimeraPass", primeraPass);
 
@@ -268,7 +269,9 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Usuario WHERE [User] = @User", conn);
+                    SqlCommand cmd = new SqlCommand("sp_ExisteUsuario", conn);
+                    cmd.CommandType= CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@User", usuario);
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
@@ -292,7 +295,8 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Activo = 0, FechaBaja = GETDATE() WHERE Id_user = @Id_user", conn);
+                    SqlCommand cmd = new SqlCommand("sp_BajaUsuario", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id_user", idUsuario);
 
                     int filas = cmd.ExecuteNonQuery();
