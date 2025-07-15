@@ -105,7 +105,8 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE Usuario SET PrimeraPass = @PrimeraPass WHERE [User] = @User", conn);
+                    SqlCommand cmd = new SqlCommand("sp_ActualizarPrimeraClave", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@User", usuario);
                     cmd.Parameters.AddWithValue("@PrimeraPass", primeraPass);
 
@@ -268,7 +269,9 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Usuario WHERE [User] = @User", conn);
+                    SqlCommand cmd = new SqlCommand("sp_ExisteUsuario", conn);
+                    cmd.CommandType= CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@User", usuario);
 
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
@@ -292,7 +295,8 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Activo = 0, FechaBaja = GETDATE() WHERE Id_user = @Id_user", conn);
+                    SqlCommand cmd = new SqlCommand("sp_BajaUsuario", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id_user", idUsuario);
 
                     int filas = cmd.ExecuteNonQuery();
@@ -450,6 +454,39 @@ namespace Datos
             return usuario; 
         }
 
+        public DtoUsuario ObtenerUsuarioPorNombre(string usuario)
+        {
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioPorNombre", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@User", usuario);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        return new DtoUsuario
+                        {
+                            Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
+                            User = dr.GetString(dr.GetOrdinal("User")),
+                            Password = dr.GetString(dr.GetOrdinal("Password")),
+                            Activo = dr.GetBoolean(dr.GetOrdinal("Activo")),
+                            Id_Rol = dr.GetInt32(dr.GetOrdinal("Id_Rol")),
+                            PrimeraPass = dr.GetBoolean(dr.GetOrdinal("PrimeraPass")),
+                            FechaBaja = dr.IsDBNull(dr.GetOrdinal("FechaBaja")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaBaja"))
+                        };
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return null;
+        }
 
         public bool VerificarParametrosRecupero(string NroDocumento, int Id_Pregunta, string Respuesta)
         {
@@ -477,7 +514,6 @@ namespace Datos
                 return false;
             }
         }
-         CD_Conexion conexion = new CD_Conexion();
 
         public List<DtoHistorialContraseña> ObtenerPasswordsUsadas(int idUsuario)
         {
@@ -511,6 +547,5 @@ namespace Datos
 
             return lista;
         }
-
     }
 }

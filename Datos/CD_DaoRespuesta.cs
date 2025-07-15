@@ -83,11 +83,8 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand(
-                        "SELECT r.Id_User, r.Id_Pregunta, p.Pregunta, r.Respuesta " +
-                        "FROM Respuesta r " +
-                        "INNER JOIN Pregunta p ON r.Id_Pregunta = p.Id_Pregunta " +
-                        "WHERE r.Id_User = @Id_User", conn);
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerRespuestasPorUsuario", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id_User", idUsuario);
                     
                     using (SqlDataReader dr = cmd.ExecuteReader())
