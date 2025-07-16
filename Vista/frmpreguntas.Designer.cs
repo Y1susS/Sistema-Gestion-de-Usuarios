@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreguntas));
             this.lblInstrucciones = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtRespuesta1 = new System.Windows.Forms.TextBox();
@@ -40,6 +41,10 @@
             this.cmbPregunta3 = new System.Windows.Forms.ComboBox();
             this.lblPreguntas = new System.Windows.Forms.Label();
             this.btnvolver = new System.Windows.Forms.Button();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInstrucciones
@@ -144,11 +149,39 @@
             this.btnvolver.UseVisualStyleBackColor = true;
             this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
             // 
+            // pctClose
+            // 
+            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
+            this.pctClose.Location = new System.Drawing.Point(748, 7);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctClose.TabIndex = 19;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pctMinimize
+            // 
+            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
+            this.pctMinimize.Location = new System.Drawing.Point(12, 7);
+            this.pctMinimize.Name = "pctMinimize";
+            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctMinimize.TabIndex = 21;
+            this.pctMinimize.TabStop = false;
+            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
             // frmPreguntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pctMinimize);
+            this.Controls.Add(this.pctClose);
             this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.lblPreguntas);
             this.Controls.Add(this.cmbPregunta3);
@@ -161,9 +194,12 @@
             this.Controls.Add(this.txtRespuesta1);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblInstrucciones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPreguntas";
             this.Text = "Preguntas de seguridad";
             this.Load += new System.EventHandler(this.frmPreguntas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +218,7 @@
         private System.Windows.Forms.ComboBox cmbPregunta3;
         private System.Windows.Forms.Label lblPreguntas;
         private System.Windows.Forms.Button btnvolver;
+        private System.Windows.Forms.PictureBox pctClose;
+        private System.Windows.Forms.PictureBox pctMinimize;
     }
 }

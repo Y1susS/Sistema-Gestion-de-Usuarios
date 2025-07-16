@@ -108,6 +108,18 @@ namespace Vista
                 MessageBox.Show($"Ocurrió un error inesperado al guardar la configuración: {ex.Message}\nPor favor, contacte a soporte.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
 

@@ -126,5 +126,16 @@ namespace Vista
             this.Close();
         }
 
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLoguin FrmLoguin = new FrmLoguin();
+            FrmLoguin.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

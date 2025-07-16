@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPermisos));
             this.lblpermisos = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.cmbusuarios = new System.Windows.Forms.ComboBox();
@@ -35,7 +36,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dgvusuarios = new System.Windows.Forms.DataGridView();
             this.btnguardar = new System.Windows.Forms.Button();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvusuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // lblpermisos
@@ -100,11 +105,38 @@
             this.btnguardar.Text = "Guardar";
             this.btnguardar.UseVisualStyleBackColor = true;
             // 
+            // pctClose
+            // 
+            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
+            this.pctClose.Location = new System.Drawing.Point(757, 3);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctClose.TabIndex = 21;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pctMinimize
+            // 
+            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
+            this.pctMinimize.Location = new System.Drawing.Point(3, 3);
+            this.pctMinimize.Name = "pctMinimize";
+            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctMinimize.TabIndex = 23;
+            this.pctMinimize.TabStop = false;
+            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
             // frmPermisos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pctMinimize);
+            this.Controls.Add(this.pctClose);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.dgvusuarios);
             this.Controls.Add(this.comboBox1);
@@ -112,9 +144,12 @@
             this.Controls.Add(this.cmbusuarios);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblpermisos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPermisos";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvusuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +164,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dgvusuarios;
         private System.Windows.Forms.Button btnguardar;
+        private System.Windows.Forms.PictureBox pctClose;
+        private System.Windows.Forms.PictureBox pctMinimize;
     }
 }

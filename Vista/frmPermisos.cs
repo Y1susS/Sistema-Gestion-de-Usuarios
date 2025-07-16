@@ -36,5 +36,17 @@ namespace Vista
             frm.Show();
             this.Close();
         }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroClientes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtderpatamento = new System.Windows.Forms.TextBox();
             this.txtpiso = new System.Windows.Forms.TextBox();
@@ -45,8 +46,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -63,7 +68,7 @@
             this.groupBox1.Controls.Add(this.txttelefono);
             this.groupBox1.Controls.Add(this.txttipodocumento);
             this.groupBox1.Controls.Add(this.txtapellido);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(27, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(655, 173);
             this.groupBox1.TabIndex = 4;
@@ -180,7 +185,7 @@
             // 
             // btnVolverRegCliente
             // 
-            this.btnVolverRegCliente.Location = new System.Drawing.Point(701, 116);
+            this.btnVolverRegCliente.Location = new System.Drawing.Point(716, 149);
             this.btnVolverRegCliente.Name = "btnVolverRegCliente";
             this.btnVolverRegCliente.Size = new System.Drawing.Size(75, 24);
             this.btnVolverRegCliente.TabIndex = 15;
@@ -190,7 +195,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(701, 86);
+            this.button2.Location = new System.Drawing.Point(716, 119);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
@@ -199,7 +204,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(701, 55);
+            this.button4.Location = new System.Drawing.Point(716, 88);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 13;
@@ -209,30 +214,61 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 203);
+            this.dataGridView1.Location = new System.Drawing.Point(27, 236);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(655, 211);
             this.dataGridView1.TabIndex = 12;
             // 
+            // pctClose
+            // 
+            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
+            this.pctClose.Location = new System.Drawing.Point(757, 2);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctClose.TabIndex = 22;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pctMinimize
+            // 
+            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
+            this.pctMinimize.Location = new System.Drawing.Point(2, 2);
+            this.pctMinimize.Name = "pctMinimize";
+            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctMinimize.TabIndex = 24;
+            this.pctMinimize.TabStop = false;
+            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
             // frmRegistroClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pctMinimize);
+            this.Controls.Add(this.pctClose);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnVolverRegCliente);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRegistroClientes";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmRegistroClientes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -254,5 +290,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pctClose;
+        private System.Windows.Forms.PictureBox pctMinimize;
     }
 }
