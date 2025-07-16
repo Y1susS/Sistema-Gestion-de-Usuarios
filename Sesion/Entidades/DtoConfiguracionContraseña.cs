@@ -15,5 +15,6 @@ namespace Sesion.Entidades
         public bool RequiereEspecial { get; set; }
         public bool EvitarRepetidas { get; set; }
         public bool EvitarDatosPersonales { get; set; }
+        public int DiasCambioPassword { get; set; }
     }
 }

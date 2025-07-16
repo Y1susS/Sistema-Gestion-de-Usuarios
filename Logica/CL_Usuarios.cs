@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,24 +15,31 @@ namespace Logica
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
         private readonly CD_DaoPassUsada daoPassUsada = new CD_DaoPassUsada();
 
-        public bool CambiarPrimeraContraseÒa(string nombreUsuarioStr, string nuevaContraseÒa, out string mensaje) // Renombrado 'usuario' a 'nombreUsuarioStr' por claridad
+        public bool CambiarPrimeraContrase√±a(string nombreUsuarioStr, string nuevaContrase√±a, out string mensaje) // Renombrado 'usuario' a 'nombreUsuarioStr' por claridad
         {
             DtoDatosPersonalesPw usuarioCompleto = daoUsuario.ObtenerUsuarioDetallePorNombre(nombreUsuarioStr);
 
             if (usuarioCompleto == null)
             {
-                mensaje = "No se pudieron obtener los datos personales del usuario para validar las polÌticas de seguridad.";
+                mensaje = "No se pudieron obtener los datos personales del usuario para validar las pol√≠ticas de seguridad.";
                 return false;
             }
-            if (!ValidarNuevaContrasenaSegunPoliticas(nuevaContraseÒa, usuarioCompleto, out mensaje))
+            if (!ValidarNuevaContrasenaSegunPoliticas(nuevaContrase√±a, usuarioCompleto, out mensaje))
             {
                 return false;
             }
-            string hashNuevo = ClsSeguridad.SHA256(nombreUsuarioStr + nuevaContraseÒa); 
+            string hashNuevo = ClsSeguridad.SHA256(nombreUsuarioStr + nuevaContrase√±a); 
 
-            if (daoUsuario.CambiarContraseÒa(nombreUsuarioStr, hashNuevo))
+            if (daoUsuario.CambiarContrase√±a(nombreUsuarioStr, hashNuevo))
             {
-                daoUsuario.ActualizarPrimeraClave(nombreUsuarioStr, false); 
+                daoUsuario.ActualizarPrimeraClave(nombreUsuarioStr, false);
+
+                CL_ConfiguracionContrase√±a logicaConfig = new CL_ConfiguracionContrase√±a();
+                DtoConfiguracionContrase√±a config = logicaConfig.ObtenerConfiguracion();
+                if (config != null)
+                {
+                    daoUsuario.ActualizarCambiaCada(nombreUsuarioStr, config.DiasCambioPassword);
+                }
 
                 if (ClsSesionActual.EstaLogueado())
                 {
@@ -44,118 +51,133 @@ namespace Logica
                     ClsSesionActual.Usuario.PrimeraPass = false;
                 }
 
-                mensaje = "ContraseÒa cambiada exitosamente";
+                mensaje = "Contrase√±a cambiada exitosamente";
                 return true;
             }
 
-            mensaje = "Error al cambiar la contraseÒa";
+            mensaje = "Error al cambiar la contrase√±a";
             return false;
         }
 
 
-        public bool CambiarContraseÒa(string usuario, string contraseÒaActual, string nuevaContraseÒa, out string mensaje)
+        public bool CambiarContrase√±a(string usuario, string contrase√±aActual, string nuevaContrase√±a, out string mensaje)
         {
-            // 1. Verificar si la contraseÒa actual es correcta
-            string hashActual = ClsSeguridad.SHA256(usuario + contraseÒaActual);
+            // 1. Verificar si la contrase√±a actual es correcta
+            string hashActual = ClsSeguridad.SHA256(usuario + contrase√±aActual);
 
-            if (!daoUsuario.VerificarContraseÒaActual(usuario, hashActual))
+            if (!daoUsuario.VerificarContrase√±aActual(usuario, hashActual))
             {
-                mensaje = "La contraseÒa actual es incorrecta";
+                mensaje = "La contrase√±a actual es incorrecta";
                 return false;
             }
 
-            // 2. Validar que la nueva contraseÒa cumpla con polÌticas
-            if (!ValidarPoliticasSeguridad(nuevaContraseÒa, usuario, out mensaje))
+            // 2. Validar que la nueva contrase√±a cumpla con pol√≠ticas
+            if (!ValidarPoliticasSeguridad(nuevaContrase√±a, usuario, out mensaje))
             {
                 return false;
             }
 
-            // 3. Generar hash de la nueva contraseÒa
-            string hashNueva = ClsSeguridad.SHA256(usuario + nuevaContraseÒa);
+            // 3. Generar hash de la nueva contrase√±a
+            string hashNueva = ClsSeguridad.SHA256(usuario + nuevaContrase√±a);
 
-            // 4. Verificar que no estÈ usando una contraseÒa reciente (si est· logueado)
+            // 4. Verificar que no est√© usando una contrase√±a reciente (si est√° logueado)
             if (ClsSesionActual.EstaLogueado())
             {
                 if (daoPassUsada.VerificarPassUsada(ClsSesionActual.Usuario.Id_user, hashNueva))
                 {
-                    mensaje = "No puedes reutilizar una contraseÒa reciente";
+                    mensaje = "No puedes reutilizar una contrase√±a reciente";
                     return false;
                 }
 
-                // 5. Actualizar la contraseÒa en la BD
-                if (daoUsuario.CambiarContraseÒa(usuario, hashNueva))
+                // 5. Actualizar la contrase√±a en la BD
+                if (daoUsuario.CambiarContrase√±a(usuario, hashNueva))
                 {
                     // 6. Guardar en historial
                     daoPassUsada.AgregarPassUsada(ClsSesionActual.Usuario.Id_user, hashNueva);
 
-                    // 7. Si es primera contraseÒa, actualizar estado en sesiÛn
+                    // 7. Actualizar valor CambiaCada seg√∫n configuraci√≥n actual
+                    CL_ConfiguracionContrase√±a logicaConfig = new CL_ConfiguracionContrase√±a();
+                    DtoConfiguracionContrase√±a config = logicaConfig.ObtenerConfiguracion();
+                    if (config != null)
+                    {
+                        daoUsuario.ActualizarCambiaCada(usuario, config.DiasCambioPassword);
+                    }
+
+                    // 8. Si es primera contrase√±a, actualizar estado en sesi√≥n
                     if (ClsSesionActual.Usuario.PrimeraPass)
                     {
                         ClsSesionActual.Usuario.PrimeraPass = false;
                     }
 
-                    mensaje = "ContraseÒa cambiada exitosamente";
+                    mensaje = "Contrase√±a cambiada exitosamente";
                     return true;
                 }
             }
             else
             {
-                // Si no est· logueado (caso recuperaciÛn contraseÒa)
-                if (daoUsuario.CambiarContraseÒa(usuario, hashNueva))
+                // Si no est√° logueado (caso recuperaci√≥n contrase√±a)
+                if (daoUsuario.CambiarContrase√±a(usuario, hashNueva))
                 {
-                    mensaje = "ContraseÒa cambiada exitosamente";
+                    CL_ConfiguracionContrase√±a logicaConfig = new CL_ConfiguracionContrase√±a();
+                    DtoConfiguracionContrase√±a config = logicaConfig.ObtenerConfiguracion();
+                    if (config != null)
+                    {
+                        daoUsuario.ActualizarCambiaCada(usuario, config.DiasCambioPassword);
+                    }
+
+                    mensaje = "Contrase√±a cambiada exitosamente";
                     return true;
                 }
             }
 
-            mensaje = "Error al cambiar la contraseÒa";
+            mensaje = "Error al cambiar la contrase√±a";
             return false;
         }
 
-        private bool ValidarPoliticasSeguridad(string contraseÒa, string usuario, out string mensaje)
+        private bool ValidarPoliticasSeguridad(string contrase√±a, string usuario, out string mensaje)
         {
-            // Estas validaciones podrÌan venir de tabla Restriccion en BD
+            // Estas validaciones podr√≠an venir de tabla Restriccion en BD
             int minLength = 8;
             bool requireUppercase = true;
             bool requireNumbers = true;
             bool requireSpecialChar = true;
 
-            // Validar longitud mÌnima
-            if (contraseÒa.Length < minLength)
+            // Validar longitud m√≠nima
+            if (contrase√±a.Length < minLength)
             {
-                mensaje = $"La contraseÒa debe tener al menos {minLength} caracteres";
+                mensaje = $"La contrase√±a debe tener al menos {minLength} caracteres";
                 return false;
             }
 
-            // Validar may˙sculas
-            if (requireUppercase && !contraseÒa.Any(char.IsUpper))
+            // Validar may√∫sculas
+            if (requireUppercase && !contrase√±a.Any(char.IsUpper))
             {
-                mensaje = "La contraseÒa debe contener al menos una letra may˙scula";
+                mensaje = "La contrase√±a debe contener al menos una letra may√∫scula";
                 return false;
             }
 
-            // Validar n˙meros
-            if (requireNumbers && !contraseÒa.Any(char.IsDigit))
+            // Validar n√∫meros
+            if (requireNumbers && !contrase√±a.Any(char.IsDigit))
             {
-                mensaje = "La contraseÒa debe contener al menos un n˙mero";
+                mensaje = "La contrase√±a debe contener al menos un n√∫mero";
                 return false;
             }
 
             // Validar caracteres especiales
-            if (requireSpecialChar && contraseÒa.All(c => char.IsLetterOrDigit(c)))
+            if (requireSpecialChar && contrase√±a.All(c => char.IsLetterOrDigit(c)))
             {
-                mensaje = "La contraseÒa debe contener al menos un car·cter especial";
+                mensaje = "La contrase√±a debe contener al menos un car√°cter especial";
                 return false;
             }
 
             // Validar que no contenga datos del usuario
-            if (contraseÒa.ToLower().Contains(usuario.ToLower()))
+            if (contrase√±a.ToLower().Contains(usuario.ToLower()))
             {
-                mensaje = "La contraseÒa no puede contener tu nombre de usuario";
+                mensaje = "La contrase√±a no puede contener tu nombre de usuario";
                 return false;
             }
 
-            mensaje = "ContraseÒa v·lida";
+            mensaje = "Contrase√±a v√°lida";
             return true;
         }
 
@@ -166,7 +188,7 @@ namespace Logica
                 // 1. Validar que no exista un usuario con el mismo nombre
                 if (daoUsuario.ExisteUsuario(usuario.User))
                 {
-                    mensaje = "El nombre de usuario ya est· en uso";
+                    mensaje = "El nombre de usuario ya est√° en uso";
                     return false;
                 }
                 
@@ -182,7 +204,7 @@ namespace Logica
                 
                 // 3. Asignar valores al usuario
                 usuario.Id_Persona = idPersona;
-                usuario.Password = ClsSeguridad.SHA256(usuario.User + contrasenaPlana); // Concatenar usuario y contraseÒa, luego encriptar
+                usuario.Password = ClsSeguridad.SHA256(usuario.User + contrasenaPlana); // Concatenar usuario y contrase√±a, luego encriptar
                 usuario.Activo = true;
                 usuario.PrimeraPass = true; // Forzar cambio en primer ingreso
                 
@@ -233,7 +255,7 @@ namespace Logica
             }
             catch (Exception ex)
             {
-                mensaje = "Error en la actualizaciÛn: " + ex.Message;
+                mensaje = "Error en la actualizaci√≥n: " + ex.Message;
                 return false;
             }
         }
@@ -242,7 +264,7 @@ namespace Logica
         {
             try
             {
-                // Aplicamos una baja lÛgica, no fÌsica
+                // Aplicamos una baja l√≥gica, no f√≠sica
                 bool resultado = daoUsuario.BajaUsuario(idUsuario);
                 
                 mensaje = resultado ? "Usuario eliminado correctamente" : "Error al eliminar el usuario";
@@ -280,38 +302,38 @@ namespace Logica
         }
         //SEGURDAD PW
         private CD_DaoUsuario objDaoUsuario = new CD_DaoUsuario();
-        private CL_ConfiguracionContraseÒa objConfigContra = new CL_ConfiguracionContraseÒa();
+        private CL_ConfiguracionContrase√±a objConfigContra = new CL_ConfiguracionContrase√±a();
 
         public bool ValidarNuevaContrasenaSegunPoliticas(string password, DtoDatosPersonalesPw usuario, out string mensaje)
         {
             mensaje = "";
-            DtoConfiguracionContraseÒa config = objConfigContra.ObtenerConfiguracion();
+            DtoConfiguracionContrase√±a config = objConfigContra.ObtenerConfiguracion();
 
             if (config == null)
             {
-                mensaje = "No se pudo cargar la configuraciÛn de seguridad de la contraseÒa.";
+                mensaje = "No se pudo cargar la configuraci√≥n de seguridad de la contrase√±a.";
                 return false;
             }
 
             // Validaciones(MinimoCaracteres, MayusMinus, NumLetra, Especial)
             if (config.MinimoCaracteres > 0 && password.Length < config.MinimoCaracteres)
             {
-                mensaje = $"La contraseÒa debe tener al menos {config.MinimoCaracteres} caracteres.";
+                mensaje = $"La contrase√±a debe tener al menos {config.MinimoCaracteres} caracteres.";
                 return false;
             }
             if (config.RequiereMayusMinus && !(password.Any(char.IsUpper) && password.Any(char.IsLower)))
             {
-                mensaje = "La contraseÒa debe contener may˙sculas y min˙sculas.";
+                mensaje = "La contrase√±a debe contener may√∫sculas y min√∫sculas.";
                 return false;
             }
             if (config.RequiereNumLetra && !(password.Any(char.IsDigit) && password.Any(char.IsLetter)))
             {
-                mensaje = "La contraseÒa debe contener letras y n˙meros.";
+                mensaje = "La contrase√±a debe contener letras y n√∫meros.";
                 return false;
             }
             if (config.RequiereEspecial && !password.Any(ch => "!@#$%^&*()-_+=[]{}|;:,.<>?".Contains(ch)))
             {
-                mensaje = "La contraseÒa debe contener al menos un car·cter especial.";
+                mensaje = "La contrase√±a debe contener al menos un car√°cter especial.";
                 return false;
             }
 
@@ -319,13 +341,13 @@ namespace Logica
             // Validaciones que requieren datos del usuario o historial
             if (config.EvitarRepetidas)
             {
-                List<DtoHistorialContraseÒa> historial = objDaoUsuario.ObtenerPasswordsUsadas(usuario.Id_user);
+                List<DtoHistorialContrase√±a> historial = objDaoUsuario.ObtenerPasswordsUsadas(usuario.Id_user);
 
                 foreach (var item in historial)
                 {
                     if (ClsSeguridad.VerificarHash(password, item.Password))
                     {
-                        mensaje = "La contraseÒa ya ha sido utilizada anteriormente. Por favor, elija una nueva.";
+                        mensaje = "La contrase√±a ya ha sido utilizada anteriormente. Por favor, elija una nueva.";
                         return false;
                     }
                 }
@@ -344,38 +366,38 @@ namespace Logica
                 
                 if (!string.IsNullOrEmpty(nombreLimpio) && passwordLower.Contains(nombreLimpio))
                 {
-                    mensaje = "La contraseÒa no puede contener partes de su nombre.";
+                    mensaje = "La contrase√±a no puede contener partes de su nombre.";
                     return false;
                 }
                 if (!string.IsNullOrEmpty(apellidoLimpio) && passwordLower.Contains(apellidoLimpio))
                 {
-                    mensaje = "La contraseÒa no puede contener partes de su apellido.";
+                    mensaje = "La contrase√±a no puede contener partes de su apellido.";
                     return false;
                 }
                 if (!string.IsNullOrEmpty(documentoLimpio) && passwordLower.Contains(documentoLimpio))
                 {
-                    mensaje = "La contraseÒa no puede contener partes de su documento.";
+                    mensaje = "La contrase√±a no puede contener partes de su documento.";
                     return false;
                 }
                 if (!string.IsNullOrEmpty(emailLimpio) && passwordLower.Contains(emailLimpio))
                 {
-                    mensaje = "La contraseÒa no puede contener partes de su email.";
+                    mensaje = "La contrase√±a no puede contener partes de su email.";
                     return false;
                 }
             }
 
-            mensaje = "ContraseÒa v·lida.";
+            mensaje = "Contrase√±a v√°lida.";
             return true;
         }
 
         public bool ActualizarContrasenaUsuario(string usuario, string nuevaContrasenaPlano)
         {
             string nuevaContrasenaHash = ClsSeguridad.SHA256(nuevaContrasenaPlano);
-            bool exito = objDaoUsuario.CambiarContraseÒa(usuario, nuevaContrasenaHash);
+            bool exito = objDaoUsuario.CambiarContrase√±a(usuario, nuevaContrasenaHash);
 
             if (exito)
             {
-                objDaoUsuario.CambiarContraseÒa(usuario, nuevaContrasenaHash);
+                objDaoUsuario.CambiarContrase√±a(usuario, nuevaContrasenaHash);
             }
             return exito;
         }
@@ -394,22 +416,26 @@ namespace Logica
 
         public int ObtenerDiasRestantesCambioContrasena(int idUsuario)
         {
-            // Obtener la fecha del ˙ltimo cambio 
+            // Obtener la fecha del √∫ltimo cambio 
             DateTime fechaUltimoCambio = daoUsuario.ObtenerFechaUltimoCambio(idUsuario);
 
             // Obtener la frecuencia de cambio 
             int cambiaCada = daoUsuario.ObtenerCambiaCada(idUsuario);
 
-            // Si la fecha es inv·lida o la frecuencia no est· configurada, no podemos calcular.
-            if (fechaUltimoCambio == DateTime.MinValue || cambiaCada <= 0)
+            if (cambiaCada <= 0)
             {
-                return 0; // O = "no aplicable/error"
+                return -1; //  No aplica vencimiento
             }
 
-            // Calcular la diferencia de dÌas transcurridos desde el ˙ltimo cambio
+            if (fechaUltimoCambio == DateTime.MinValue)
+            {
+                return 0; //  No tiene fecha registrada ‚Üí forzar vencimiento
+            }
+
+            // Calcular la diferencia de d√≠as transcurridos desde el √∫ltimo cambio
             TimeSpan diferencia = DateTime.Now - fechaUltimoCambio;
 
-            // Calcular los dÌas restantes
+            // Calcular los d√≠as restantes
             int diasRestantes = cambiaCada - (int)diferencia.TotalDays;
 
             return diasRestantes;

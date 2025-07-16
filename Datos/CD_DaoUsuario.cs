@@ -547,5 +547,20 @@ namespace Datos
 
             return lista;
         }
+
+        public void ActualizarCambiaCada(string nombreUsuario, int dias)
+        {
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_ActualizarCambiaCada", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Usuario", nombreUsuario);
+                    cmd.Parameters.AddWithValue("@Dias", dias);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

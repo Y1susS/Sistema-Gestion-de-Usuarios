@@ -36,6 +36,7 @@ namespace Datos
                                 config.RequiereEspecial = Convert.ToBoolean(dr["RequiereEspecial"]);
                                 config.EvitarRepetidas = Convert.ToBoolean(dr["EvitarRepetidas"]);
                                 config.EvitarDatosPersonales = Convert.ToBoolean(dr["EvitarDatosPersonales"]);
+                                config.DiasCambioPassword = dr["DiasCambioPassword"] != DBNull.Value ? Convert.ToInt32(dr["DiasCambioPassword"]) : 0;
 
                                 listaConfiguraciones.Add(config);
                             }
@@ -68,6 +69,7 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@RequiereEspecial", dto.RequiereEspecial);
                     cmd.Parameters.AddWithValue("@EvitarRepetidas", dto.EvitarRepetidas);
                     cmd.Parameters.AddWithValue("@EvitarDatosPersonales", dto.EvitarDatosPersonales);
+                    cmd.Parameters.AddWithValue("@DiasCambioPassword", dto.DiasCambioPassword);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
