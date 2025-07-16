@@ -40,12 +40,16 @@
             this.pctBordeInferior = new System.Windows.Forms.PictureBox();
             this.pctFondo = new System.Windows.Forms.PictureBox();
             this.lblLogin = new System.Windows.Forms.Label();
+            this.pctMostrar = new System.Windows.Forms.PictureBox();
+            this.pctOcultar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMostrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctOcultar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -58,7 +62,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(110, 330);
+            this.btnLogin.Location = new System.Drawing.Point(109, 330);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(185, 30);
@@ -109,7 +113,7 @@
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.White;
             this.txtUsuario.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(110, 185);
+            this.txtUsuario.Location = new System.Drawing.Point(109, 185);
             this.txtUsuario.MaxLength = 25;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(185, 25);
@@ -139,7 +143,7 @@
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(130, 65);
+            this.pctLogo.Location = new System.Drawing.Point(128, 65);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -149,7 +153,7 @@
             // txtContrasenia
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(110, 235);
+            this.txtContrasenia.Location = new System.Drawing.Point(109, 235);
             this.txtContrasenia.MaxLength = 25;
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(185, 25);
@@ -181,11 +185,40 @@
             this.lblLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.lblLogin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(175, 9);
+            this.lblLogin.Location = new System.Drawing.Point(173, 9);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(59, 24);
             this.lblLogin.TabIndex = 15;
             this.lblLogin.Text = "Login";
+            this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pctMostrar
+            // 
+            this.pctMostrar.BackColor = System.Drawing.Color.Transparent;
+            this.pctMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pctMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMostrar.Image = ((System.Drawing.Image)(resources.GetObject("pctMostrar.Image")));
+            this.pctMostrar.Location = new System.Drawing.Point(301, 229);
+            this.pctMostrar.Name = "pctMostrar";
+            this.pctMostrar.Size = new System.Drawing.Size(35, 35);
+            this.pctMostrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctMostrar.TabIndex = 16;
+            this.pctMostrar.TabStop = false;
+            this.pctMostrar.Click += new System.EventHandler(this.pctMostrar_Click);
+            // 
+            // pctOcultar
+            // 
+            this.pctOcultar.BackColor = System.Drawing.Color.Transparent;
+            this.pctOcultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pctOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctOcultar.Image = ((System.Drawing.Image)(resources.GetObject("pctOcultar.Image")));
+            this.pctOcultar.Location = new System.Drawing.Point(301, 229);
+            this.pctOcultar.Name = "pctOcultar";
+            this.pctOcultar.Size = new System.Drawing.Size(35, 35);
+            this.pctOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctOcultar.TabIndex = 17;
+            this.pctOcultar.TabStop = false;
+            this.pctOcultar.Click += new System.EventHandler(this.pctOcultar_Click);
             // 
             // FrmLoguin
             // 
@@ -195,6 +228,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
+            this.Controls.Add(this.pctOcultar);
+            this.Controls.Add(this.pctMostrar);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.pctBordeInferior);
             this.Controls.Add(this.txtContrasenia);
@@ -222,6 +257,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMostrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctOcultar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +276,8 @@
         private System.Windows.Forms.PictureBox pctBordeInferior;
         private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.PictureBox pctMostrar;
+        private System.Windows.Forms.PictureBox pctOcultar;
     }
 }
 

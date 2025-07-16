@@ -51,14 +51,6 @@ namespace Vista
                         FrmLoguin.Show();
                     }
                 }
-
-                //BOTON SALIR VIEJO
-                //DialogResult resultado = MessageBox.Show("¿Desea cerrar la aplicación?", "Confirmación de Cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                //if (resultado == DialogResult.Yes)
-                //{
-                //    Application.Exit(); 
-                //}
             }
 
         }
@@ -129,6 +121,9 @@ namespace Vista
                 {
                     MessageBox.Show("Respuesta correcta. Se enviará la nueva contraseña.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Aquí seguir con el flujo (ej: envío de mail)
+                    FrmLoguin frmloggin = new FrmLoguin();
+                    frmloggin.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -136,9 +131,7 @@ namespace Vista
                 }
             }
 
-            FrmLoguin frmloggin = new FrmLoguin();
-            frmloggin.Show();
-            this.Hide();
+            
 
             //enviar E-Mail
 
@@ -198,7 +191,7 @@ namespace Vista
             txtrespuesta.KeyPress += txtrespuesta_KeyPress;
             ClsPlaceHolder.Leave(DNI_PLACEHOLDER, txtdni);
             ClsPlaceHolder.Leave(RESPUESTA_PLACEHOLDER, txtrespuesta);
-
+            this.BeginInvoke(new Action(() => this.ActiveControl = null)); // Evita que un TextBox tenga el foco inicial
         }
 
         private void txtdni_Enter(object sender, EventArgs e)
