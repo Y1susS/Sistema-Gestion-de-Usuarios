@@ -57,17 +57,15 @@ namespace Vista
             // 
             this.txtdni.BackColor = System.Drawing.Color.White;
             this.txtdni.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdni.Location = new System.Drawing.Point(110, 173);
+            this.txtdni.Location = new System.Drawing.Point(109, 173);
             this.txtdni.MaxLength = 25;
             this.txtdni.Name = "txtdni";
-
             this.txtdni.Size = new System.Drawing.Size(185, 25);
             this.txtdni.TabIndex = 15;
             this.txtdni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtdni.TextChanged += new System.EventHandler(this.txtdni_TextChanged_1);
             this.txtdni.Enter += new System.EventHandler(this.txtdni_Enter);
             this.txtdni.Leave += new System.EventHandler(this.txtdni_Leave);
-
             // 
             // btnSiguiente
             // 
@@ -78,13 +76,11 @@ namespace Vista
             this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSiguiente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSiguiente.ForeColor = System.Drawing.Color.Black;
-            this.btnSiguiente.Location = new System.Drawing.Point(110, 335);
+            this.btnSiguiente.Location = new System.Drawing.Point(109, 335);
             this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiguiente.Name = "btnSiguiente";
-
             this.btnSiguiente.Size = new System.Drawing.Size(185, 30);
             this.btnSiguiente.TabIndex = 18;
-
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
@@ -93,14 +89,12 @@ namespace Vista
             // 
             this.txtrespuesta.BackColor = System.Drawing.Color.White;
             this.txtrespuesta.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrespuesta.Location = new System.Drawing.Point(110, 290);
+            this.txtrespuesta.Location = new System.Drawing.Point(109, 290);
             this.txtrespuesta.MaxLength = 25;
             this.txtrespuesta.Name = "txtrespuesta";
-
             this.txtrespuesta.Size = new System.Drawing.Size(185, 25);
             this.txtrespuesta.TabIndex = 30;
             this.txtrespuesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-
             this.txtrespuesta.TextChanged += new System.EventHandler(this.txtrespuesta_TextChanged);
             this.txtrespuesta.Enter += new System.EventHandler(this.txtrespuesta_Enter);
             this.txtrespuesta.Leave += new System.EventHandler(this.txtrespuesta_Leave);
@@ -109,12 +103,10 @@ namespace Vista
             // 
             this.cmbpreguntasseg.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbpreguntasseg.FormattingEnabled = true;
-            this.cmbpreguntasseg.Location = new System.Drawing.Point(42, 231);
+            this.cmbpreguntasseg.Location = new System.Drawing.Point(41, 231);
             this.cmbpreguntasseg.Name = "cmbpreguntasseg";
-
             this.cmbpreguntasseg.Size = new System.Drawing.Size(315, 26);
             this.cmbpreguntasseg.TabIndex = 31;
-
             this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
             this.cmbpreguntasseg.Enter += new System.EventHandler(this.cmbpreguntasseg_Enter);
             this.cmbpreguntasseg.Leave += new System.EventHandler(this.cmbpreguntasseg_Leave);
@@ -124,8 +116,6 @@ namespace Vista
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-
-
             // pctMinimize
             // 
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -179,7 +169,7 @@ namespace Vista
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(130, 60);
+            this.pctLogo.Location = new System.Drawing.Point(128, 60);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -201,11 +191,12 @@ namespace Vista
             this.lblLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.lblLogin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(139, 9);
+            this.lblLogin.Location = new System.Drawing.Point(137, 9);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(134, 24);
             this.lblLogin.TabIndex = 32;
             this.lblLogin.Text = "Recuperación";
+            this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPregunta
             // 
@@ -213,7 +204,7 @@ namespace Vista
             this.lblPregunta.BackColor = System.Drawing.Color.Transparent;
             this.lblPregunta.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPregunta.ForeColor = System.Drawing.Color.White;
-            this.lblPregunta.Location = new System.Drawing.Point(120, 210);
+            this.lblPregunta.Location = new System.Drawing.Point(119, 210);
             this.lblPregunta.Name = "lblPregunta";
             this.lblPregunta.Size = new System.Drawing.Size(165, 19);
             this.lblPregunta.TabIndex = 33;

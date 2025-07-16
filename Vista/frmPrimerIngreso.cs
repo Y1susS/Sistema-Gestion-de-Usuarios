@@ -1,69 +1,56 @@
-﻿using System;
+﻿using Logica;
+using Sesion;
+using Sesion.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Sesion;
-using Sesion.Entidades;
 
 namespace Vista
 {
     public partial class frmPrimerIngreso : Form
     {
         private readonly CL_Usuarios objUsuarios = new CL_Usuarios();
-        private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
-        private const string CONFIRMA_PASS_PLACEHOLDER = "Confirmar contraseña";
 
         public frmPrimerIngreso()
         {
             InitializeComponent();
             DoubleBuffered = true;
-
-            // Asociar manualmente el evento Click al botón
-           // btnCambiar.Click += new EventHandler(btnCambiar_Click);
-
-            // Aplicar estilo similar a los otros formularios
-            //if (pctFondo != null && pctLogo != null)
-            //{
-            //    pctFondo.Controls.Add(pctLogo);
-            //    pctLogo.BackColor = Color.Transparent;
-            //}
+            pctFondo.Controls.Add(pctLogo);
+            pctLogo.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(lblMensaje);
+            lblMensaje.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(lblUsuario);
+            lblUsuario.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(pctMostrar);
+            pctMostrar.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(pctOcultar);
+            pctOcultar.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(pctMostrar2);
+            pctMostrar.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(pctOcultar2);
+            pctOcultar.BackColor = Color.Transparent;
         }
+
+        private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
+        private const string CONFIRMA_PASS_PLACEHOLDER = "Confirmar contraseña";
 
         private void frmPrimerIngreso_Load(object sender, EventArgs e)
         {
-            // Configurar placeholder para contraseñas
-            ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass);
-            ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass);
-
-            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
-            lblMensaje.Text = "Por seguridad, debe cambiar su contraseña en su primer ingreso";
-        }
-
-        private void txtNuevaPass_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
-        }
-
-        private void txtNuevaPass_Leave(object sender, EventArgs e)
-        {
+            txtNuevaPass.UseSystemPasswordChar = false;
+            txtConfirmaPass.UseSystemPasswordChar = false;
             ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
-        }
-
-        private void txtConfirmaPass_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
-        }
-
-        private void txtConfirmaPass_Leave(object sender, EventArgs e)
-        {
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
+            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
+            lblMensaje.Text = "Debido a su primer ingreso, escriba una nueva contraseña y repítala para confirmar el cambio";
         }
+
         private void btnCambiar_Click(object sender, EventArgs e) 
         {
             try
@@ -155,18 +142,140 @@ namespace Vista
             return true;
         }
 
-        private void pctClose_Click(object sender, EventArgs e)
+        private void pctClose_Click_1(object sender, EventArgs e)
         {
-            // No permitir salir sin cambiar la contraseña
-            MessageBox.Show("Debe cambiar su contraseña para continuar",
-                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            bool NuevaPass = string.IsNullOrWhiteSpace(txtNuevaPass.Text) || txtNuevaPass.Text == NUEVA_PASS_PLACEHOLDER;
+            bool ConfirmaPass = string.IsNullOrWhiteSpace(txtConfirmaPass.Text) || txtConfirmaPass.Text == CONFIRMA_PASS_PLACEHOLDER;
+
+            if (NuevaPass && ConfirmaPass == true)
+            {
+                this.Close();
+                FrmLoguin FrmLoguin = new FrmLoguin();
+                FrmLoguin.Show();
+            }
+            else
+            {
+                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (opcion == DialogResult.Yes)
+                {
+                    this.Close();
+                    FrmLoguin FrmLoguin = new FrmLoguin();
+                    FrmLoguin.Show();
+                }
+            }
         }
 
-        private void pctMinimize_Click(object sender, EventArgs e)
+        private void txtNuevaPass_Leave(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
+            if (txtNuevaPass.Text == "Nueva contraseña" && txtNuevaPass.ForeColor == Color.Gray)
+            {
+                pctMostrar.BringToFront();
+            }
+        }
+
+        private void txtConfirmaPass_Enter(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Enter(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
+
+        }
+
+        private void txtConfirmaPass_Leave(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
+            if (txtConfirmaPass.Text == "Confirmar contraseña" && txtConfirmaPass.ForeColor == Color.Gray)
+            {
+                pctMostrar2.BringToFront();
+            }
+        }
+
+        private void pctMinimize_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        
+        int mouse, mousex, mousey;
+
+        private void pctBorde_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouse == 1)
+            {
+                int newX = MousePosition.X - mousex;
+                int newY = MousePosition.Y - mousey;
+
+                // Obtener el área de trabajo de la pantalla (sin la barra de tareas)
+                Rectangle screenBounds = Screen.FromControl(this).WorkingArea;
+
+                // Limitar la nueva posición del formulario dentro de la pantalla
+                if (newX < screenBounds.Left)
+                    newX = screenBounds.Left;
+                if (newY < screenBounds.Top)
+                    newY = screenBounds.Top;
+                if (newX + this.Width > screenBounds.Right)
+                    newX = screenBounds.Right - this.Width;
+                if (newY + this.Height > screenBounds.Bottom)
+                    newY = screenBounds.Bottom - this.Height;
+
+                this.SetDesktopLocation(newX, newY);
+            }
+        }
+
+        private void pctMostrar_Click(object sender, EventArgs e)
+        {
+            if (txtNuevaPass.ForeColor == Color.Gray)
+                return;
+
+            pctOcultar.BringToFront();
+            txtNuevaPass.UseSystemPasswordChar = false;
+        }
+
+        private void pctOcultar_Click(object sender, EventArgs e)
+        {
+            if (txtNuevaPass.ForeColor == Color.Gray)
+                return;
+
+            pctMostrar.BringToFront();
+            txtNuevaPass.UseSystemPasswordChar = true;
+        }
+
+        private void pctMostrar2_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmaPass.ForeColor == Color.Gray)
+                return;
+
+            pctOcultar2.BringToFront();
+            txtConfirmaPass.UseSystemPasswordChar = false;
+        }
+
+        private void pctOcultar2_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmaPass.ForeColor == Color.Gray)
+                return;
+
+            pctMostrar2.BringToFront();
+            txtConfirmaPass.UseSystemPasswordChar = true;
+        }
+
+        private void txtNuevaPass_Enter(object sender, EventArgs e)
+        {
+            ClsPlaceHolder.Enter(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
+        }
+
+        private void frmPrimerIngreso_Shown(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pctBorde_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouse = 0;
+        }
+
+        private void pctBorde_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouse = 1;
+            mousex = e.X;
+            mousey = e.Y;
+        }
     }
 }

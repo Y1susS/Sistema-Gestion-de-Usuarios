@@ -24,11 +24,15 @@ namespace Vista
             lnkRecuperar.BackColor = Color.Transparent;
             pctFondo.Controls.Add(pctLogo);
             pctLogo.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(pctMostrar);
+            pctMostrar.BackColor = Color.Transparent;
+            pctFondo.Controls.Add(pctOcultar);
+            pctOcultar.BackColor = Color.Transparent;
         }
 
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-            
+            this.BeginInvoke(new Action(() => this.ActiveControl = null)); // Evita que un TextBox tenga el foco inicial
             txtContrasenia.UseSystemPasswordChar = false;
             ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
             ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
@@ -96,6 +100,12 @@ namespace Vista
         private void txtContrasenia_Leave(object sender, EventArgs e)
         {
             ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
+
+            // Si quedó con el placeholder, asegurarse de que se muestre el ícono de "mostrar"
+            if (txtContrasenia.Text == "Contraseña" && txtContrasenia.ForeColor == Color.Gray)
+            {
+                pctMostrar.BringToFront();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -145,6 +155,26 @@ namespace Vista
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pctMostrar_Click(object sender, EventArgs e)
+        {
+            // Si el campo está vacío o con placeholder, no mostrar nada
+            if (txtContrasenia.ForeColor == Color.Gray)
+                return;
+
+            pctOcultar.BringToFront();
+            txtContrasenia.UseSystemPasswordChar = false;
+        }
+
+        private void pctOcultar_Click(object sender, EventArgs e)
+        {
+            // Si el campo está vacío o con placeholder, no ocultar nada
+            if (txtContrasenia.ForeColor == Color.Gray)
+                return;
+
+            pctMostrar.BringToFront();
+            txtContrasenia.UseSystemPasswordChar = true;
         }
 
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
