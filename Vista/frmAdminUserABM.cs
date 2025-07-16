@@ -561,12 +561,17 @@ namespace Vista
 
         private DtoUsuario CrearDtoUsuarioDesdeFormulario()
         {
+            CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();
+            DtoConfiguracionContraseña config = logicaConfig.ObtenerConfiguracion();
+
+
             return new DtoUsuario
             {
                 User = txtUsuario.Text.Trim(),
                 Id_Rol = (int)cmbRol.SelectedValue,
                 Activo = true,
-                PrimeraPass = true
+                PrimeraPass = true,
+                CambiaCada = config.DiasCambioPassword
             };
         }
     }

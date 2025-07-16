@@ -2,6 +2,7 @@
 using Sesion;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vista
@@ -25,22 +26,25 @@ namespace Vista
         {
             // Configurar la interfaz según el rol del usuario
             ConfigurarInterfazSegunRol();
+
             int diasRestantes = logicaUsuario.ObtenerDiasRestantesCambioContrasena(ClsSesionActual.Usuario.Id_user);
 
-            if (diasRestantes > 0)
+            // Si devuelve -1, significa que no aplica vencimiento (CambiaCada = 0)
+            if (diasRestantes == -1)
+            {
+                lblDiasRestantesContrasena.Visible = false;
+            }
+            else if (diasRestantes > 0)
             {
                 lblDiasRestantesContrasena.Text = $"Faltan {diasRestantes} días para cambiar su contraseña.";
-
+                lblDiasRestantesContrasena.ForeColor = Color.Black;
+                lblDiasRestantesContrasena.Visible = true;
             }
-            else if (diasRestantes <= 0) 
+            else // 0 o menos → vencida
             {
                 lblDiasRestantesContrasena.Text = "Su contraseña ha expirado o debe cambiarla. ¡ACTUALICE AHORA!";
-
-            }
-            else 
-            {
-                lblDiasRestantesContrasena.Text = "No se pudo verificar el estado de la contraseña.";
-  
+                lblDiasRestantesContrasena.ForeColor = Color.Red;
+                lblDiasRestantesContrasena.Visible = true;
             }
         }
 

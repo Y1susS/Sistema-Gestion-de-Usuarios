@@ -54,6 +54,7 @@ namespace Vista
                 chkCaractEsp.Checked = config.RequiereEspecial;
                 chkReutContra.Checked = config.EvitarRepetidas;
                 chkDatosPerson.Checked = config.EvitarDatosPersonales;
+                nudDiasCambio.Value = config.DiasCambioPassword;
             }
         }
         //si esta habilitado el checkbox, habilita el num updown
@@ -77,7 +78,8 @@ namespace Vista
                 RequiereNumLetra = chkNumyLet.Checked,
                 RequiereEspecial = chkCaractEsp.Checked,
                 EvitarRepetidas = chkReutContra.Checked,
-                EvitarDatosPersonales = chkDatosPerson.Checked
+                EvitarDatosPersonales = chkDatosPerson.Checked,
+                DiasCambioPassword = (int)nudDiasCambio.Value
             };
 
             CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();

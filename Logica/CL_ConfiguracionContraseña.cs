@@ -36,7 +36,12 @@ namespace Logica
             {
                 throw new ApplicationException("El mínimo de caracteres no puede ser negativo.");
             }
-        
+
+            if (dto.DiasCambioPassword < 0)
+            {
+                throw new ApplicationException("La cantidad de días para cambio de contraseña no puede ser negativa.");
+            }
+
             return configContraseñaDao.GuardarConfiguracionContras(dto);
         }
     }
