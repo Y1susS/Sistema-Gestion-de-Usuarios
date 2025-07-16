@@ -52,6 +52,7 @@ namespace Vista
             if (dataGridView1.Columns.Count == 0)
             {
                 dataGridView1.Columns.Add("Id", "ID");
+                dataGridView1.Columns["Id"].Visible = false;
                 dataGridView1.Columns.Add("Usuario", "Usuario");
                 dataGridView1.Columns.Add("Nombres", "Nombres");
                 dataGridView1.Columns.Add("Apellidos", "Apellidos");
@@ -162,7 +163,7 @@ namespace Vista
             button2.Enabled = true;
             btneliminar.Enabled = false;
 
-            txtNombres.Focus();
+            txtApellidos.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
