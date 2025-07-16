@@ -52,25 +52,29 @@ namespace Vista
 
         private void pctClose_Click(object sender, EventArgs e)
         {
-         
-            bool ambosVacios = string.IsNullOrWhiteSpace(txtPassActual.Text) && string.IsNullOrWhiteSpace(txtNuevaPass.Text);
 
-            if (ambosVacios == true)
-            {
-                this.Close();
-                FrmLoguin FrmLoguin = new FrmLoguin();
-                FrmLoguin.Show();
-            }
-            else
-            {
-                DialogResult opcion = MessageBox.Show("Hay datos ingresados, si cierra esta ventana se perderán \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (opcion == DialogResult.Yes)
-                {
-                    this.Close();
-                    FrmLoguin FrmLoguin = new FrmLoguin();
-                    FrmLoguin.Show();
-                }
-            }
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+            //bool ambosVacios = string.IsNullOrWhiteSpace(txtPassActual.Text) && string.IsNullOrWhiteSpace(txtNuevaPass.Text);
+
+
+            //if (ambosVacios == true)
+            //{
+            //    this.Close();
+            //    FrmLoguin FrmLoguin = new FrmLoguin();
+            //    FrmLoguin.Show();
+            //}
+            //else
+            //{
+            //    DialogResult opcion = MessageBox.Show("Hay datos ingresados, si cierra esta ventana se perderán \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            //    if (opcion == DialogResult.Yes)
+            //    {
+            //        this.Close();
+            //        FrmLoguin FrmLoguin = new FrmLoguin();
+            //        FrmLoguin.Show();
+            //    }
+            //}
         }
 
         private void pctMinimize_Click(object sender, EventArgs e)

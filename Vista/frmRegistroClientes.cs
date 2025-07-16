@@ -189,5 +189,17 @@ namespace Vista
             ClsPlaceHolder.Leave(PLACEHOLDER_PARTIDO, txtpartido);
             ClsPlaceHolder.Leave(PLACEHOLDER_LOCALIDAD, txtlocalidad);
         }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

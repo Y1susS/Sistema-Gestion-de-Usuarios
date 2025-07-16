@@ -45,7 +45,6 @@
             this.pctOcultar = new System.Windows.Forms.PictureBox();
             this.pctMostrar2 = new System.Windows.Forms.PictureBox();
             this.pctOcultar2 = new System.Windows.Forms.PictureBox();
-            this.lblFoco = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -183,7 +182,7 @@
             // pctFondo
             // 
             this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
-            this.pctFondo.Location = new System.Drawing.Point(-2, 0);
+            this.pctFondo.Location = new System.Drawing.Point(0, 0);
             this.pctFondo.Name = "pctFondo";
             this.pctFondo.Size = new System.Drawing.Size(400, 400);
             this.pctFondo.TabIndex = 27;
@@ -257,18 +256,6 @@
             this.pctOcultar2.TabStop = false;
             this.pctOcultar2.Click += new System.EventHandler(this.pctOcultar2_Click);
             // 
-            // lblFoco
-            // 
-            this.lblFoco.AutoSize = true;
-            this.lblFoco.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFoco.ForeColor = System.Drawing.Color.White;
-            this.lblFoco.Location = new System.Drawing.Point(5, 47);
-            this.lblFoco.Name = "lblFoco";
-            this.lblFoco.Size = new System.Drawing.Size(109, 18);
-            this.lblFoco.TabIndex = 1;
-            this.lblFoco.Text = "MeLlevoElFoco";
-            this.lblFoco.Visible = false;
-            // 
             // frmPrimerIngreso
             // 
             this.AcceptButton = this.btnCambiar;
@@ -277,7 +264,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
-            this.Controls.Add(this.lblFoco);
             this.Controls.Add(this.pctOcultar2);
             this.Controls.Add(this.pctMostrar2);
             this.Controls.Add(this.pctOcultar);
@@ -337,6 +323,5 @@
         private System.Windows.Forms.PictureBox pctOcultar;
         private System.Windows.Forms.PictureBox pctMostrar2;
         private System.Windows.Forms.PictureBox pctOcultar2;
-        private System.Windows.Forms.Label lblFoco;
     }
 }

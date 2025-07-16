@@ -266,6 +266,11 @@ namespace Vista
             
         }
 
+        private void lblFoco_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pctBorde_MouseUp(object sender, MouseEventArgs e)
         {
             mouse = 0;
