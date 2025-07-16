@@ -179,7 +179,7 @@ namespace Vista
             // pctFondo
             // 
             this.pctFondo.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.pctFondo.Location = new System.Drawing.Point(0, 0);
+            this.pctFondo.Location = new System.Drawing.Point(-2, 0);
             this.pctFondo.Name = "pctFondo";
             this.pctFondo.Size = new System.Drawing.Size(400, 400);
             this.pctFondo.TabIndex = 23;
@@ -212,6 +212,7 @@ namespace Vista
             // 
             // frmRecupero
             // 
+            this.AcceptButton = this.btnSiguiente;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 400);

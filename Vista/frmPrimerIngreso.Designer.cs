@@ -183,7 +183,7 @@
             // pctFondo
             // 
             this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
-            this.pctFondo.Location = new System.Drawing.Point(0, 0);
+            this.pctFondo.Location = new System.Drawing.Point(-2, 0);
             this.pctFondo.Name = "pctFondo";
             this.pctFondo.Size = new System.Drawing.Size(400, 400);
             this.pctFondo.TabIndex = 27;
@@ -271,6 +271,7 @@
             // 
             // frmPrimerIngreso
             // 
+            this.AcceptButton = this.btnCambiar;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
