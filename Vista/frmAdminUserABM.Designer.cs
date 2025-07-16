@@ -125,6 +125,8 @@
             // 
             // cmbLocalidad
             // 
+            this.cmbLocalidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbLocalidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbLocalidad.FormattingEnabled = true;
             this.cmbLocalidad.Location = new System.Drawing.Point(388, 160);
             this.cmbLocalidad.Name = "cmbLocalidad";
@@ -133,6 +135,8 @@
             // 
             // cmbPartido
             // 
+            this.cmbPartido.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPartido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbPartido.FormattingEnabled = true;
             this.cmbPartido.Location = new System.Drawing.Point(74, 160);
             this.cmbPartido.Name = "cmbPartido";
@@ -142,6 +146,8 @@
             // 
             // cmbTipoDoc
             // 
+            this.cmbTipoDoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTipoDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbTipoDoc.FormattingEnabled = true;
             this.cmbTipoDoc.Location = new System.Drawing.Point(74, 76);
             this.cmbTipoDoc.Name = "cmbTipoDoc";
@@ -150,6 +156,8 @@
             // 
             // cmbRol
             // 
+            this.cmbRol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbRol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbRol.FormattingEnabled = true;
             this.cmbRol.Location = new System.Drawing.Point(388, 46);
             this.cmbRol.Name = "cmbRol";
