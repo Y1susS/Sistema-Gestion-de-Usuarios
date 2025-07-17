@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsAbrirForms.cs" />
+    <Compile Include="ClsArrastrarFormularios.cs" />
+    <Compile Include="ClsFondoTransparente.cs" />
     <Compile Include="frmCambioPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,12 +115,6 @@
     <Compile Include="frmSegContraseña.Designer.cs">
       <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm1eringreso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm1eringreso.Designer.cs">
-      <DependentUpon>frm1eringreso.cs</DependentUpon>
-    </Compile>
     <Compile Include="ClsPlaceHolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,9 +144,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm1eringreso.resx">
-      <DependentUpon>frm1eringreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSegContraseña.resx">
       <DependentUpon>frmSegContraseña.cs</DependentUpon>

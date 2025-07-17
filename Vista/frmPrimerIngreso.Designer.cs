@@ -153,9 +153,6 @@
             this.pctBorde.Size = new System.Drawing.Size(402, 44);
             this.pctBorde.TabIndex = 19;
             this.pctBorde.TabStop = false;
-            this.pctBorde.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseDown);
-            this.pctBorde.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseMove);
-            this.pctBorde.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseUp);
             // 
             // lblUsuario
             // 
@@ -289,7 +286,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRegistro";
             this.Load += new System.EventHandler(this.frmPrimerIngreso_Load);
-            this.Shown += new System.EventHandler(this.frmPrimerIngreso_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();

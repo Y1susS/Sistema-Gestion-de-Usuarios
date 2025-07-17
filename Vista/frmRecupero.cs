@@ -15,6 +15,7 @@ namespace Vista
 {
     public partial class frmRecupero : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private string dni = "";
         private string preguntaseleccionada = "";
         private string respuesta = "";
@@ -23,11 +24,17 @@ namespace Vista
         public frmRecupero()
         {
             InitializeComponent();
+
             DoubleBuffered = true;
-            pctFondo.Controls.Add(pctLogo);
-            pctLogo.BackColor = Color.Transparent;
-            pctFondo.Controls.Add(lblPregunta);
-            lblPregunta.BackColor = Color.Transparent;
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pctBorde);
+            moverFormulario.HabilitarMovimiento(lblRecuperacion);
+
+            ClsFondoTransparente.Aplicar(
+            pctFondo,
+            pctLogo,
+            lblPregunta);
         }
         private void PctClose_Click(object sender, EventArgs e)
         {
@@ -58,13 +65,6 @@ namespace Vista
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        int mouse, mousex, mousey;
-
-        private void pctBorde_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouse = 0;
         }
 
         private const string DNI_PLACEHOLDER = "Ingrese DNI";
@@ -131,49 +131,14 @@ namespace Vista
                 }
             }
 
-            
-
             //enviar E-Mail
 
-
-        }
-
-        private void pctBorde_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouse == 1)
-            {
-                int newX = MousePosition.X - mousex;
-                int newY = MousePosition.Y - mousey;
-
-                // Obtener el área de trabajo de la pantalla (sin la barra de tareas)
-                Rectangle screenBounds = Screen.FromControl(this).WorkingArea;
-
-                // Limitar la nueva posición del formulario dentro de la pantalla
-                if (newX < screenBounds.Left)
-                    newX = screenBounds.Left;
-                if (newY < screenBounds.Top)
-                    newY = screenBounds.Top;
-                if (newX + this.Width > screenBounds.Right)
-                    newX = screenBounds.Right - this.Width;
-                if (newY + this.Height > screenBounds.Bottom)
-                    newY = screenBounds.Bottom - this.Height;
-
-                this.SetDesktopLocation(newX, newY);
-            }
-        }
-
-        private void pctBorde_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouse = 1;
-            mousex = e.X;
-            mousey = e.Y;
         }
 
         //COMBO PREGUNTAS//
 
         CL_Preguntas objPreguntas = new CL_Preguntas();
 
-      
         private void LlenarCombo()
         {
             cmbpreguntasseg.DataSource = objPreguntas.MostrarPreguntas();
@@ -212,16 +177,6 @@ namespace Vista
         private void txtrespuesta_Leave(object sender, EventArgs e)
         {
             ClsPlaceHolder.Leave(RESPUESTA_PLACEHOLDER, txtrespuesta);
-        }
-
-        private void cmbpreguntasseg_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbpreguntasseg_Leave(object sender, EventArgs e)
-        {
-
         }
 
         private void txtdni_KeyPress(object sender, KeyPressEventArgs e)
