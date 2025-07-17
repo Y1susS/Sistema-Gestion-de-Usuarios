@@ -15,19 +15,24 @@ namespace Vista
 {
     public partial class FrmLoguin : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Loguin objCL = new CL_Loguin();
         public FrmLoguin()
         {
             InitializeComponent();
+
             DoubleBuffered = true;
-            pctFondo.Controls.Add(lnkRecuperar);
-            lnkRecuperar.BackColor = Color.Transparent;
-            pctFondo.Controls.Add(pctLogo);
-            pctLogo.BackColor = Color.Transparent;
-            pctFondo.Controls.Add(pctMostrar);
-            pctMostrar.BackColor = Color.Transparent;
-            pctFondo.Controls.Add(pctOcultar);
-            pctOcultar.BackColor = Color.Transparent;
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pctBorde);
+            moverFormulario.HabilitarMovimiento(lblLogin);
+
+            ClsFondoTransparente.Aplicar(
+            pctFondo,
+            pctLogo,
+            lnkRecuperar,
+            pctMostrar,
+            pctOcultar);
         }
 
         private void FrmLoguin_Load(object sender, EventArgs e)
@@ -68,15 +73,6 @@ namespace Vista
             this.ShowInTaskbar = false;
             frmRecupero frmRecupero = new frmRecupero();
             frmRecupero.ShowDialog();
-        }
-
-        int mouse, mousex, mousey;
-
-        private void pctBorde_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouse = 1;
-            mousex = e.X;
-            mousey = e.Y;
         }
 
         private const string USER_PLACEHOLDER = "Usuario";
@@ -152,11 +148,6 @@ namespace Vista
             }
         }
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void pctMostrar_Click(object sender, EventArgs e)
         {
             // Si el campo está vacío o con placeholder, no mostrar nada
@@ -175,35 +166,6 @@ namespace Vista
 
             pctMostrar.BringToFront();
             txtContrasenia.UseSystemPasswordChar = true;
-        }
-
-        private void pctBorde_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouse = 0;
-        }
-
-        private void pctBorde_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouse == 1)
-            {
-                int newX = MousePosition.X - mousex;
-                int newY = MousePosition.Y - mousey;
-
-                // Obtener el área de trabajo de la pantalla (sin la barra de tareas)
-                Rectangle screenBounds = Screen.FromControl(this).WorkingArea;
-
-                // Limitar la nueva posición del formulario dentro de la pantalla
-                if (newX < screenBounds.Left)
-                    newX = screenBounds.Left;
-                if (newY < screenBounds.Top)
-                    newY = screenBounds.Top;
-                if (newX + this.Width > screenBounds.Right)
-                    newX = screenBounds.Right - this.Width;
-                if (newY + this.Height > screenBounds.Bottom)
-                    newY = screenBounds.Bottom - this.Height;
-
-                this.SetDesktopLocation(newX, newY);
-            }
         }
     }
 }

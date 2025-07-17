@@ -42,7 +42,7 @@ namespace Vista
             this.pctBordeInferior = new System.Windows.Forms.PictureBox();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pctFondo = new System.Windows.Forms.PictureBox();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblRecuperacion = new System.Windows.Forms.Label();
             this.lblPregunta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -108,8 +108,6 @@ namespace Vista
             this.cmbpreguntasseg.Size = new System.Drawing.Size(315, 26);
             this.cmbpreguntasseg.TabIndex = 31;
             this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
-            this.cmbpreguntasseg.Enter += new System.EventHandler(this.cmbpreguntasseg_Enter);
-            this.cmbpreguntasseg.Leave += new System.EventHandler(this.cmbpreguntasseg_Leave);
             // 
             // fileSystemWatcher1
             // 
@@ -150,9 +148,6 @@ namespace Vista
             this.pctBorde.Size = new System.Drawing.Size(402, 44);
             this.pctBorde.TabIndex = 24;
             this.pctBorde.TabStop = false;
-            this.pctBorde.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseDown);
-            this.pctBorde.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseMove);
-            this.pctBorde.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pctBorde_MouseUp);
             // 
             // pctBordeInferior
             // 
@@ -185,18 +180,18 @@ namespace Vista
             this.pctFondo.TabIndex = 23;
             this.pctFondo.TabStop = false;
             // 
-            // lblLogin
+            // lblRecuperacion
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblLogin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(137, 9);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(134, 24);
-            this.lblLogin.TabIndex = 32;
-            this.lblLogin.Text = "Recuperación";
-            this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRecuperacion.AutoSize = true;
+            this.lblRecuperacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblRecuperacion.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecuperacion.ForeColor = System.Drawing.Color.White;
+            this.lblRecuperacion.Location = new System.Drawing.Point(137, 9);
+            this.lblRecuperacion.Name = "lblRecuperacion";
+            this.lblRecuperacion.Size = new System.Drawing.Size(134, 24);
+            this.lblRecuperacion.TabIndex = 32;
+            this.lblRecuperacion.Text = "Recuperación";
+            this.lblRecuperacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPregunta
             // 
@@ -218,7 +213,7 @@ namespace Vista
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
             this.Controls.Add(this.lblPregunta);
-            this.Controls.Add(this.lblLogin);
+            this.Controls.Add(this.lblRecuperacion);
             this.Controls.Add(this.cmbpreguntasseg);
             this.Controls.Add(this.txtrespuesta);
             this.Controls.Add(this.pctMinimize);
@@ -270,7 +265,7 @@ namespace Vista
         private System.Windows.Forms.TextBox txtrespuesta;
         private System.Windows.Forms.ComboBox cmbpreguntasseg;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Label lblRecuperacion;
         private System.Windows.Forms.Label lblPregunta;
     }
 }

@@ -9,12 +9,30 @@ namespace Vista
 {
     public partial class frmPanelUsuarios : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private bool esAdministrador = false;
         private CL_Usuarios logicaUsuario = new CL_Usuarios();
         public frmPanelUsuarios()
         {
-            InitializeComponent();
-            
+                InitializeComponent();
+
+            this.Load += frmPanelUsuarios_Load;
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pctBorde);
+            moverFormulario.HabilitarMovimiento(lblAdministrador);
+
+            ClsFondoTransparente.Aplicar(
+            pctFondo,
+            btnGestionUsuarios,
+            btnGestionPermisos,
+            btnGestionValidaciones,
+            btnRegistroClientes,
+            btnCambiarContrasena,
+            btnPreguntas,
+            pctLogo,
+            lblDiasRestantesContrasena);
+
             // Verificar si el usuario actual es administrador
             if (ClsSesionActual.EstaLogueado())
             {
@@ -24,8 +42,9 @@ namespace Vista
 
         private void frmPanelUsuarios_Load(object sender, EventArgs e)
         {
-            // Configurar la interfaz según el rol del usuario
-            ConfigurarInterfazSegunRol();
+            AjustarInterfazPorRol();
+
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
 
             int diasRestantes = logicaUsuario.ObtenerDiasRestantesCambioContrasena(ClsSesionActual.Usuario.Id_user);
 
@@ -37,7 +56,7 @@ namespace Vista
             else if (diasRestantes > 0)
             {
                 lblDiasRestantesContrasena.Text = $"Faltan {diasRestantes} días para cambiar su contraseña.";
-                lblDiasRestantesContrasena.ForeColor = Color.Black;
+                lblDiasRestantesContrasena.ForeColor = Color.White;
                 lblDiasRestantesContrasena.Visible = true;
             }
             else // 0 o menos → vencida
@@ -46,22 +65,6 @@ namespace Vista
                 lblDiasRestantesContrasena.ForeColor = Color.Red;
                 lblDiasRestantesContrasena.Visible = true;
             }
-        }
-
-        private void ConfigurarInterfazSegunRol()
-        {
-            // Cambiar el título según el rol
-            lblAdministrador.Text = esAdministrador ? "Panel de Administración" : "Panel de Usuario Vendedor";
-            
-            // Configurar visibilidad de botones según el rol
-            btnGestionUsuarios.Visible = esAdministrador;
-            btnGestionPermisos.Visible = esAdministrador;
-            btnGestionContraseñas.Visible = esAdministrador;
-            
-            btnRegistroClientes.Visible = true;
-            btnCambiarContrasena.Visible = true;
-            btnPreguntas.Visible = true;
-            
         }
 
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
@@ -95,13 +98,10 @@ namespace Vista
         }
 
         private void btnRegistroClientes_Click(object sender, EventArgs e)
-        {
-            
-            
-                frmRegistroClientes frmRegistro = new frmRegistroClientes();
-                frmRegistro.Show();
-                this.Hide();
-            
+        {       
+            frmRegistroClientes frmRegistro = new frmRegistroClientes();
+            frmRegistro.Show();
+            this.Hide();
         }
 
         private void btnPreguntas_Click(object sender, EventArgs e)
@@ -119,13 +119,6 @@ namespace Vista
             this.Hide(); // Oculta el panel mientras se cambia la contraseña
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            FrmLoguin frm = new FrmLoguin();
-            frm.Show();
-            this.Close();
-        }
-
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -136,6 +129,27 @@ namespace Vista
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void AjustarInterfazPorRol()
+        {
+            if (!esAdministrador)
+            {
+                btnGestionUsuarios.Visible = false;
+                btnGestionUsuarios.Enabled = false;
+
+                btnGestionPermisos.Visible = false;
+                btnGestionPermisos.Enabled = false;
+
+                btnGestionValidaciones.Visible = false;
+                btnGestionValidaciones.Enabled = false;
+
+                btnRegistroClientes.Location = new Point(111, 187);
+                btnCambiarContrasena.Location = new Point(111, 237);
+                btnPreguntas.Location = new Point(111, 287);
+
+                lblAdministrador.Text = "Menú de Vendedor";
+            }
         }
     }
 }
