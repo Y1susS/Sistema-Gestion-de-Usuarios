@@ -30,7 +30,8 @@ namespace Vista
             pctMostrar,
             pctOcultar,
             pctMostrar2,
-            pctOcultar2);
+            pctOcultar2,
+            lblRestriccionesTexto);
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pctBorde);
@@ -48,8 +49,69 @@ namespace Vista
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
             lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblMensaje.Text = "Debido a su primer ingreso, escriba una nueva contraseña y repítala para confirmar el cambio";
-        }
+            MostrarRestriccionesContrasena();
 
+        }
+        private void MostrarRestriccionesContrasena()
+        {
+            try
+            {
+                CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
+                DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
+
+                if (config != null)
+                {
+                    lblRestriccionesTexto.Visible = true; 
+                    StringBuilder sb = new StringBuilder(); 
+                                        
+                    if (config.MinimoCaracteres > 0)
+                    {
+                        sb.Append($"Mínimo: {config.MinimoCaracteres} caracteres - ");
+                    }
+                    if (config.RequiereMayusMinus)
+                    {
+                        sb.Append("Combinación de mayúsculas y minúsculas - ");
+                    }
+                    if (config.RequiereNumLetra)
+                    {
+                        sb.Append("Números y letras - ");
+                    }
+                    if (config.RequiereEspecial)
+                    {
+                        sb.Append("Al menos 1 carácter especial - ");
+                    }
+                    if (config.EvitarRepetidas)
+                    {
+                        sb.Append("No reutilizar contraseñas anteriores - ");
+                    }
+                    if (config.EvitarDatosPersonales)
+                    {
+                        sb.Append("No contener datos personales - ");
+                    }
+
+                    
+                    if (sb.Length > 0)
+                    {
+                        sb.Length -= 3; // Elimina los últimos 3 caracteres (" - ")
+                        lblRestriccionesTexto.Text = sb.ToString();
+                    }
+                    else
+                    {
+                        // Si no hay restricciones configuradas, muestra por defecto
+                        lblRestriccionesTexto.Text = "No hay restricciones de contraseña configuradas.";
+                    }
+                }
+                else
+                {
+                    lblRestriccionesTexto.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las restricciones de contraseña: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblRestriccionesTexto.Visible = false;
+            }
+        }
         private void btnCambiar_Click(object sender, EventArgs e) 
         {
             try
