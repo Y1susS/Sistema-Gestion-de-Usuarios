@@ -41,6 +41,7 @@
             this.txtConfirmaPass = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.lblRestriccionesPassCambio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctBordeInferior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -52,7 +53,7 @@
             // pctBordeInferior
             // 
             this.pctBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 348);
+            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 469);
             this.pctBordeInferior.Name = "pctBordeInferior";
             this.pctBordeInferior.Size = new System.Drawing.Size(402, 22);
             this.pctBordeInferior.TabIndex = 22;
@@ -64,7 +65,7 @@
             this.txtNuevaPass.Location = new System.Drawing.Point(110, 213);
             this.txtNuevaPass.MaxLength = 25;
             this.txtNuevaPass.Name = "txtNuevaPass";
-            this.txtNuevaPass.Size = new System.Drawing.Size(186, 25);
+            this.txtNuevaPass.Size = new System.Drawing.Size(186, 30);
             this.txtNuevaPass.TabIndex = 2;
             this.txtNuevaPass.Enter += new System.EventHandler(this.txtNuevaPass_Enter);
             this.txtNuevaPass.Leave += new System.EventHandler(this.txtNuevaPass_Leave);
@@ -75,7 +76,7 @@
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(129, 63);
+            this.pctLogo.Location = new System.Drawing.Point(129, 65);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,7 +90,7 @@
             this.txtPassActual.Location = new System.Drawing.Point(110, 177);
             this.txtPassActual.MaxLength = 25;
             this.txtPassActual.Name = "txtPassActual";
-            this.txtPassActual.Size = new System.Drawing.Size(186, 25);
+            this.txtPassActual.Size = new System.Drawing.Size(186, 30);
             this.txtPassActual.TabIndex = 1;
             this.txtPassActual.Enter += new System.EventHandler(this.txtPassActual_Enter);
             this.txtPassActual.Leave += new System.EventHandler(this.txtPassActual_Leave);
@@ -143,7 +144,7 @@
             this.pctFondo.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.pctFondo.Location = new System.Drawing.Point(-2, -3);
             this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(405, 373);
+            this.pctFondo.Size = new System.Drawing.Size(402, 494);
             this.pctFondo.TabIndex = 23;
             this.pctFondo.TabStop = false;
             // 
@@ -165,7 +166,7 @@
             this.txtConfirmaPass.Location = new System.Drawing.Point(110, 249);
             this.txtConfirmaPass.MaxLength = 25;
             this.txtConfirmaPass.Name = "txtConfirmaPass";
-            this.txtConfirmaPass.Size = new System.Drawing.Size(186, 25);
+            this.txtConfirmaPass.Size = new System.Drawing.Size(186, 30);
             this.txtConfirmaPass.TabIndex = 3;
             this.txtConfirmaPass.Enter += new System.EventHandler(this.txtConfirmaPass_Enter);
             this.txtConfirmaPass.Leave += new System.EventHandler(this.txtConfirmaPass_Leave);
@@ -175,9 +176,9 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(135, 14);
+            this.lblUsuario.Location = new System.Drawing.Point(172, 9);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(44, 17);
+            this.lblUsuario.Size = new System.Drawing.Size(53, 21);
             this.lblUsuario.TabIndex = 26;
             this.lblUsuario.Text = "label1";
             // 
@@ -199,12 +200,27 @@
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // lblRestriccionesPassCambio
+            // 
+            this.lblRestriccionesPassCambio.BackColor = System.Drawing.Color.Black;
+            this.lblRestriccionesPassCambio.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblRestriccionesPassCambio.ForeColor = System.Drawing.Color.White;
+            this.lblRestriccionesPassCambio.Location = new System.Drawing.Point(82, 373);
+            this.lblRestriccionesPassCambio.Margin = new System.Windows.Forms.Padding(3);
+            this.lblRestriccionesPassCambio.Name = "lblRestriccionesPassCambio";
+            this.lblRestriccionesPassCambio.Size = new System.Drawing.Size(235, 63);
+            this.lblRestriccionesPassCambio.TabIndex = 27;
+            this.lblRestriccionesPassCambio.Text = "Restricciones PW";
+            this.lblRestriccionesPassCambio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRestriccionesPassCambio.Visible = false;
+            // 
             // frmCambioPass
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(400, 370);
+            this.ClientSize = new System.Drawing.Size(401, 489);
             this.ControlBox = false;
+            this.Controls.Add(this.lblRestriccionesPassCambio);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtConfirmaPass);
@@ -251,5 +267,6 @@
         private System.Windows.Forms.TextBox txtConfirmaPass;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Label lblRestriccionesPassCambio;
     }
 }
