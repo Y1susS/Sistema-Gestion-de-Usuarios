@@ -376,14 +376,10 @@ namespace Logica
 
         public bool ActualizarContrasenaUsuario(string usuario, string nuevaContrasenaPlano)
         {
-            string nuevaContrasenaHash = ClsSeguridad.SHA256(nuevaContrasenaPlano);
-            bool exito = objDaoUsuario.CambiarContraseña(usuario, nuevaContrasenaHash);
+            string cadenaParaHash = usuario + nuevaContrasenaPlano;
+            string nuevaContrasenaHash = ClsSeguridad.SHA256(cadenaParaHash);
 
-            if (exito)
-            {
-                objDaoUsuario.CambiarContraseña(usuario, nuevaContrasenaHash);
-            }
-            return exito;
+            return objDaoUsuario.CambiarContraseña(usuario, nuevaContrasenaHash);
         }
         public DtoDatosPersonalesPw ObtenerDatosPersonalesPwPorNombreUsuario(string nombreUsuario)
         {
@@ -423,6 +419,19 @@ namespace Logica
             int diasRestantes = cambiaCada - (int)diferencia.TotalDays;
 
             return diasRestantes;
+        }
+
+        public DtoDatosPersonalesPw ObtenerUsuarioDetallePorDni(string dni)
+        {
+            try
+            {
+                return objDaoUsuario.ObtenerUsuarioPorDni(dni); 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en CL_Usuarios.ObtenerUsuarioDetallePorDni: {ex.Message}");
+                throw;
+            }
         }
     }
 }

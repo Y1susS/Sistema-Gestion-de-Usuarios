@@ -562,5 +562,52 @@ namespace Datos
                 }
             }
         }
+
+        public DtoDatosPersonalesPw ObtenerUsuarioPorDni(string dni)
+        {
+            DtoDatosPersonalesPw usuarioEncontrado = null; 
+
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ObtenerUsuarioPorDni", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NroDocumento", dni);
+                    using (SqlDataReader dr = cmd.ExecuteReader()) 
+                    {
+                        if (dr.Read()) 
+                        {
+                            usuarioEncontrado = new DtoDatosPersonalesPw
+                            {
+                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")), 
+                                User = dr.GetString(dr.GetOrdinal("User")),
+                                Apellido = dr.GetString(dr.GetOrdinal("Apellido")),
+                                Nombre = dr.GetString(dr.GetOrdinal("Nombre")),
+                                NroDocumento = dr.GetString(dr.GetOrdinal("NroDocumento")),
+                                Email = dr.GetString(dr.GetOrdinal("Email"))
+                            };
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"Error SQL en ObtenerUsuarioPorDni: {ex.Message}");
+                    throw new Exception("Error de base de datos al obtener información del usuario por DNI.", ex);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error general en ObtenerUsuarioPorDni: {ex.Message}");
+                    throw new Exception("Error inesperado al obtener información del usuario por DNI.", ex);
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return usuarioEncontrado;
+        }
+
     }
 }
