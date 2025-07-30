@@ -178,6 +178,10 @@
     <Folder Include="Loguin\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{d733215d-d17f-4ec5-93ae-313fc0a23471}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{396edb10-ef7b-4cb6-89b8-1605aa017232}</Project>
       <Name>Logica</Name>

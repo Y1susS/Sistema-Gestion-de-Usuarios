@@ -565,7 +565,7 @@ namespace Datos
 
         public DtoDatosPersonalesPw ObtenerUsuarioPorDni(string dni)
         {
-            DtoDatosPersonalesPw usuarioEncontrado = null; 
+            DtoDatosPersonalesPw usuarioEncontrado = null;
 
             CD_Conexion conexion = new CD_Conexion();
             using (SqlConnection conn = conexion.AbrirConexion())
@@ -575,13 +575,13 @@ namespace Datos
                     SqlCommand cmd = new SqlCommand("SP_ObtenerUsuarioPorDni", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@NroDocumento", dni);
-                    using (SqlDataReader dr = cmd.ExecuteReader()) 
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        if (dr.Read()) 
+                        if (dr.Read())
                         {
                             usuarioEncontrado = new DtoDatosPersonalesPw
                             {
-                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")), 
+                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
                                 User = dr.GetString(dr.GetOrdinal("User")),
                                 Apellido = dr.GetString(dr.GetOrdinal("Apellido")),
                                 Nombre = dr.GetString(dr.GetOrdinal("Nombre")),
@@ -606,7 +606,7 @@ namespace Datos
                     conexion.CerrarConexion();
                 }
             }
-            return usuarioEncontrado;
+return usuarioEncontrado;
         }
 
     }
