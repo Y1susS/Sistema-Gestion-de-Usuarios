@@ -562,5 +562,51 @@ namespace Datos
                 }
             }
         }
+
+        public List<CD_UsuarioGestion> ListarUsuariosParaGestion()
+        {
+            var lista = new List<CD_UsuarioGestion>();
+            var conexion = new CD_Conexion();
+            SqlConnection conn = null; 
+
+            try
+            {
+                conn = conexion.AbrirConexion();
+                var cmd = new SqlCommand("sp_ListarUsuariosParaGestion", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new CD_UsuarioGestion
+                        {
+                            IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                            NombreUsuario = dr["User"].ToString(),
+                            Nombre = dr["Nombre"].ToString(),
+                            Apellido = dr["Apellido"].ToString(),
+                            IdRol = Convert.ToInt32(dr["IdRol"]),
+                            NombreRol = dr["NombreRol"].ToString(),                
+                            Activo = Convert.ToBoolean(dr["Activo"])             
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en CD_DaoUsuario.ListarUsuariosParaGestion: " + ex.Message, ex);
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return lista;
+        }
+
     }
 }

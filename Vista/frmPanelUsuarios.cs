@@ -1,5 +1,6 @@
 ﻿using Logica;
 using Sesion;
+using Sistema_Gestion_De_Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -81,11 +82,13 @@ namespace Vista
         {
             if (esAdministrador)
             {
-                frmPermisos frmPermisos = new frmPermisos();
-                frmPermisos.Show();
+                // Pasa 'this' (la instancia actual de frmPanelUsuarios) al constructor de frmPermisos
+                frmPermisos mifrmPermisos = new frmPermisos(this); // <-- ¡Cambio clave aquí!
+                mifrmPermisos.Show();
                 this.Hide();
             }
         }
+        
 
         private void btnGestionContraseñas_Click(object sender, EventArgs e)
         {

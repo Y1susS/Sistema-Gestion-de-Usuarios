@@ -1,4 +1,4 @@
-﻿namespace Vista
+﻿namespace Sistema_Gestion_De_Usuarios
 {
     partial class frmPermisos
     {
@@ -30,15 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPermisos));
             this.lblpermisos = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.cmbusuarios = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dgvusuarios = new System.Windows.Forms.DataGridView();
+            this.btnvolver = new System.Windows.Forms.Button();
+            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
+            this.dgvPermisos = new System.Windows.Forms.DataGridView();
+            this.colIdPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFuncionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHabilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnguardar = new System.Windows.Forms.Button();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvusuarios)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             this.SuspendLayout();
@@ -52,58 +55,81 @@
             this.lblpermisos.TabIndex = 0;
             this.lblpermisos.Text = "Gestion de permisos";
             // 
-            // btnVolver
+            // btnvolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(557, 312);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(92, 29);
-            this.btnVolver.TabIndex = 1;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnvolver.Location = new System.Drawing.Point(676, 396);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(92, 29);
+            this.btnvolver.TabIndex = 1;
+            this.btnvolver.Text = "Volver";
+            this.btnvolver.UseVisualStyleBackColor = true;
+            this.btnvolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // cmbusuarios
+            // cmbUsuarios
             // 
-            this.cmbusuarios.FormattingEnabled = true;
-            this.cmbusuarios.Location = new System.Drawing.Point(45, 89);
-            this.cmbusuarios.Name = "cmbusuarios";
-            this.cmbusuarios.Size = new System.Drawing.Size(154, 21);
-            this.cmbusuarios.TabIndex = 2;
-            this.cmbusuarios.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbUsuarios.FormattingEnabled = true;
+            this.cmbUsuarios.Location = new System.Drawing.Point(309, 89);
+            this.cmbUsuarios.Name = "cmbUsuarios";
+            this.cmbUsuarios.Size = new System.Drawing.Size(163, 21);
+            this.cmbUsuarios.TabIndex = 4;
+            this.cmbUsuarios.SelectedIndexChanged += new System.EventHandler(this.cmbUsuarios_SelectedIndexChanged);
+            this.cmbUsuarios.DisplayMemberChanged += new System.EventHandler(this.NombreUsuario);
+            this.cmbUsuarios.ValueMemberChanged += new System.EventHandler(this.IdUsuario);
             // 
-            // label1
+            // dgvPermisos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Seleccione un rol";
+            this.dgvPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIdPermiso,
+            this.colFuncionalidad,
+            this.colDescripcion,
+            this.colHabilitado});
+            this.dgvPermisos.Location = new System.Drawing.Point(25, 156);
+            this.dgvPermisos.Name = "dgvPermisos";
+            this.dgvPermisos.Size = new System.Drawing.Size(723, 234);
+            this.dgvPermisos.TabIndex = 5;
             // 
-            // comboBox1
+            // colIdPermiso
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(309, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 21);
-            this.comboBox1.TabIndex = 4;
+            this.colIdPermiso.DataPropertyName = "IdPermiso";
+            this.colIdPermiso.HeaderText = "Id permiso";
+            this.colIdPermiso.Name = "colIdPermiso";
+            this.colIdPermiso.ReadOnly = true;
+            this.colIdPermiso.Visible = false;
             // 
-            // dgvusuarios
+            // colFuncionalidad
             // 
-            this.dgvusuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvusuarios.Location = new System.Drawing.Point(141, 188);
-            this.dgvusuarios.Name = "dgvusuarios";
-            this.dgvusuarios.Size = new System.Drawing.Size(257, 65);
-            this.dgvusuarios.TabIndex = 5;
+            this.colFuncionalidad.DataPropertyName = "NombreFuncionalidad";
+            this.colFuncionalidad.HeaderText = "Funcionalidad";
+            this.colFuncionalidad.Name = "colFuncionalidad";
+            this.colFuncionalidad.ReadOnly = true;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.DataPropertyName = "Descripcion";
+            this.colDescripcion.HeaderText = "Descripcion";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            // 
+            // colHabilitado
+            // 
+            this.colHabilitado.DataPropertyName = "Habilitado";
+            this.colHabilitado.FalseValue = "False";
+            this.colHabilitado.HeaderText = "Habilitado";
+            this.colHabilitado.Name = "colHabilitado";
+            this.colHabilitado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colHabilitado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colHabilitado.TrueValue = "True";
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(557, 263);
+            this.btnguardar.Location = new System.Drawing.Point(578, 396);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(92, 29);
             this.btnguardar.TabIndex = 6;
             this.btnguardar.Text = "Guardar";
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // pctClose
             // 
@@ -116,7 +142,6 @@
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctClose.TabIndex = 21;
             this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
             // 
             // pctMinimize
             // 
@@ -129,25 +154,33 @@
             this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctMinimize.TabIndex = 23;
             this.pctMinimize.TabStop = false;
-            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(318, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Usuarios";
             // 
             // frmPermisos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pctMinimize);
             this.Controls.Add(this.pctClose);
             this.Controls.Add(this.btnguardar);
-            this.Controls.Add(this.dgvusuarios);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbusuarios);
-            this.Controls.Add(this.btnVolver);
+            this.Controls.Add(this.dgvPermisos);
+            this.Controls.Add(this.cmbUsuarios);
+            this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.lblpermisos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPermisos";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvusuarios)).EndInit();
+            this.Load += new System.EventHandler(this.frmPermisos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             this.ResumeLayout(false);
@@ -158,13 +191,16 @@
         #endregion
 
         private System.Windows.Forms.Label lblpermisos;
-        private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.ComboBox cmbusuarios;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dgvusuarios;
+        private System.Windows.Forms.Button btnvolver;
+        private System.Windows.Forms.ComboBox cmbUsuarios;
+        private System.Windows.Forms.DataGridView dgvPermisos;
         private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.PictureBox pctMinimize;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdPermiso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFuncionalidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colHabilitado;
     }
 }
