@@ -177,7 +177,7 @@ namespace Datos
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error al obtener 'CambiaCada' desde SP: " + ex.Message);
-                 
+
                 }
 
                 finally
@@ -270,7 +270,7 @@ namespace Datos
                 try
                 {
                     SqlCommand cmd = new SqlCommand("sp_ExisteUsuario", conn);
-                    cmd.CommandType= CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@User", usuario);
 
@@ -420,18 +420,18 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioDetallePorNombre", conn); 
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioDetallePorNombre", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        if (dr.Read()) 
+                        if (dr.Read())
                         {
                             usuario = new DtoDatosPersonalesPw
                             {
-                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")), 
+                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
                                 User = dr.GetString(dr.GetOrdinal("User")),
                                 Apellido = dr.GetString(dr.GetOrdinal("Apellido")),
                                 Nombre = dr.GetString(dr.GetOrdinal("Nombre")),
@@ -444,14 +444,14 @@ namespace Datos
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error en CD_DaoUsuarios.ObtenerUsuarioDetallePorNombre: {ex.Message}");
-                    throw; 
+                    throw;
                 }
                 finally
                 {
-                    conexion.CerrarConexion(); 
+                    conexion.CerrarConexion();
                 }
             }
-            return usuario; 
+            return usuario;
         }
 
         public DtoUsuario ObtenerUsuarioPorNombre(string usuario)
@@ -523,7 +523,7 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_ObtenerPasswordsUsadas", conn); 
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerPasswordsUsadas", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id_User", idUsuario);
 
@@ -531,10 +531,10 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new DtoHistorialContraseña 
+                            lista.Add(new DtoHistorialContraseña
                             {
-                                Password = dr["Password"].ToString(), 
-                                FechaCambio = Convert.ToDateTime(dr["FechaCambio"]) 
+                                Password = dr["Password"].ToString(),
+                                FechaCambio = Convert.ToDateTime(dr["FechaCambio"])
                             });
                         }
                     }
@@ -567,7 +567,7 @@ namespace Datos
         {
             var lista = new List<CD_UsuarioGestion>();
             var conexion = new CD_Conexion();
-            SqlConnection conn = null; 
+            SqlConnection conn = null;
 
             try
             {
@@ -588,8 +588,8 @@ namespace Datos
                             Nombre = dr["Nombre"].ToString(),
                             Apellido = dr["Apellido"].ToString(),
                             IdRol = Convert.ToInt32(dr["IdRol"]),
-                            NombreRol = dr["NombreRol"].ToString(),                
-                            Activo = Convert.ToBoolean(dr["Activo"])             
+                            NombreRol = dr["NombreRol"].ToString(),
+                            Activo = Convert.ToBoolean(dr["Activo"])
                         });
                     }
                 }
@@ -608,5 +608,54 @@ namespace Datos
             return lista;
         }
 
+        public DtoDatosPersonalesPw ObtenerUsuarioPorDni(string dni)
+        {
+            DtoDatosPersonalesPw usuarioEncontrado = null;
+
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ObtenerUsuarioPorDni", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NroDocumento", dni);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            usuarioEncontrado = new DtoDatosPersonalesPw
+                            {
+                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
+                                User = dr.GetString(dr.GetOrdinal("User")),
+                                Apellido = dr.GetString(dr.GetOrdinal("Apellido")),
+                                Nombre = dr.GetString(dr.GetOrdinal("Nombre")),
+                                NroDocumento = dr.GetString(dr.GetOrdinal("NroDocumento")),
+                                Email = dr.GetString(dr.GetOrdinal("Email"))
+                            };
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"Error SQL en ObtenerUsuarioPorDni: {ex.Message}");
+                    throw new Exception("Error de base de datos al obtener información del usuario por DNI.", ex);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error general en ObtenerUsuarioPorDni: {ex.Message}");
+                    throw new Exception("Error inesperado al obtener información del usuario por DNI.", ex);
+                }
+                finally
+                {
+                    
+                  conexion.CerrarConexion();
+                    
+                }
+                return usuarioEncontrado;
+
+            }
+        }
     }
 }
+

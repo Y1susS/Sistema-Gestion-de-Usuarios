@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Datos;
 using Servicios; 
 using Sesion; 
-using Sesion.Entidades; 
+using Sesion.Entidades;
 
 namespace Logica
 {
@@ -136,6 +136,8 @@ namespace Logica
             mensaje = "Error al cambiar la contraseña";
             return false;
         }
+
+       
 
         // método privado para validar las políticas de seguridad de la contraseña.
         private bool ValidarPoliticasSeguridad(string contraseña, string usuario, out string mensaje)
@@ -422,7 +424,7 @@ namespace Logica
             catch (Exception ex)
             {
                 Console.WriteLine($"Error en CL_Usuarios.ObtenerDatosPersonalesPwPorNombreUsuario: {ex.Message}");
-                throw; 
+                throw;
             }
         }
 
@@ -466,6 +468,18 @@ namespace Logica
             catch (Exception ex)
             {
                 throw new Exception("Error al listar usuarios para gestión desde la capa de negocio: " + ex.Message, ex);
+            }
+        }
+        public DtoDatosPersonalesPw ObtenerUsuarioDetallePorDni(string dni)
+        {
+            try
+            {
+                return objDaoUsuario.ObtenerUsuarioPorDni(dni);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en CL_Usuarios.ObtenerUsuarioDetallePorDni: {ex.Message}");
+                throw;
             }
         }
     }
