@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datos;
-using Servicios;
-using Sesion;
+using Servicios; 
+using Sesion; 
 using Sesion.Entidades;
 
 namespace Logica
@@ -14,21 +14,24 @@ namespace Logica
     {
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
         private readonly CD_DaoPassUsada daoPassUsada = new CD_DaoPassUsada();
+        private CD_DaoUsuario objDaoUsuario = new CD_DaoUsuario();
+        private CL_ConfiguracionContraseña objConfigContra = new CL_ConfiguracionContraseña();
 
-        public bool CambiarPrimeraContraseña(string nombreUsuarioStr, string nuevaContraseña, out string mensaje) // Renombrado 'usuario' a 'nombreUsuarioStr' por claridad
+        //método para cambiar la primera contraseña del usuario.
+        public bool CambiarPrimeraContraseña(string nombreUsuarioStr, string nuevaContraseña, out string mensaje)
         {
             DtoDatosPersonalesPw usuarioCompleto = daoUsuario.ObtenerUsuarioDetallePorNombre(nombreUsuarioStr);
 
             if (usuarioCompleto == null)
             {
-                mensaje = "No se pudieron obtener los datos personales del usuario para validar las políticas de seguridad.";
+                mensaje = "No pude obtener los datos personales del usuario para validar las políticas de seguridad.";
                 return false;
             }
             if (!ValidarNuevaContrasenaSegunPoliticas(nuevaContraseña, usuarioCompleto, out mensaje))
             {
                 return false;
             }
-            string hashNuevo = ClsSeguridad.SHA256(nombreUsuarioStr + nuevaContraseña); 
+            string hashNuevo = ClsSeguridad.SHA256(nombreUsuarioStr + nuevaContraseña);
 
             if (daoUsuario.CambiarContraseña(nombreUsuarioStr, hashNuevo))
             {
@@ -117,89 +120,95 @@ namespace Logica
             return false;
         }        //HAY NUEVO METODO que toma de la base
 
-        //private bool ValidarPoliticasSeguridad(string contraseña, string usuario, out string mensaje)
-        //{
-        //    // Estas validaciones podrían venir de tabla Restriccion en BD
-        //    int minLength = 8;
-        //    bool requireUppercase = true;
-        //    bool requireNumbers = true;
-        //    bool requireSpecialChar = true;
 
-        //    // Validar longitud mínima
-        //    if (contraseña.Length < minLength)
-        //    {
-        //        mensaje = $"La contraseña debe tener al menos {minLength} caracteres";
-        //        return false;
-        //    }
+       
 
-        //    // Validar mayúsculas
-        //    if (requireUppercase && !contraseña.Any(char.IsUpper))
-        //    {
-        //        mensaje = "La contraseña debe contener al menos una letra mayúscula";
-        //        return false;
-        //    }
+        // método privado para validar las políticas de seguridad de la contraseña.
+        private bool ValidarPoliticasSeguridad(string contraseña, string usuario, out string mensaje)
+        {
+            // Estas validaciones podrían venir de tabla Restriccion en BD
+            int minLength = 8;
+            bool requireUppercase = true;
+            bool requireNumbers = true;
+            bool requireSpecialChar = true;
 
-        //    // Validar números
-        //    if (requireNumbers && !contraseña.Any(char.IsDigit))
-        //    {
-        //        mensaje = "La contraseña debe contener al menos un número";
-        //        return false;
-        //    }
+            // Validar longitud mínima
+            if (contraseña.Length < minLength)
+            {
+                mensaje = $"La contraseña debe tener al menos {minLength} caracteres";
+                return false;
+            }
 
-        //    // Validar caracteres especiales
-        //    if (requireSpecialChar && contraseña.All(c => char.IsLetterOrDigit(c)))
-        //    {
-        //        mensaje = "La contraseña debe contener al menos un carácter especial";
-        //        return false;
-        //    }
+            // Validar mayúsculas
+            if (requireUppercase && !contraseña.Any(char.IsUpper))
+            {
+                mensaje = "La contraseña debe contener al menos una letra mayúscula";
+                return false;
+            }
 
-        //    // Validar que no contenga datos del usuario
-        //    if (contraseña.ToLower().Contains(usuario.ToLower()))
-        //    {
-        //        mensaje = "La contraseña no puede contener tu nombre de usuario";
-        //        return false;
-        //    }
+            // Validar números
+            if (requireNumbers && !contraseña.Any(char.IsDigit))
+            {
+                mensaje = "La contraseña debe contener al menos un número";
+                return false;
+            }
 
-        //    mensaje = "Contraseña válida";
-        //    return true;
-        //}
+            // Validar caracteres especiales
+            if (requireSpecialChar && contraseña.All(c => char.IsLetterOrDigit(c)))
+            {
+                mensaje = "La contraseña debe contener al menos un carácter especial";
+                return false;
+            }
+
+            // Validar que no contenga datos del usuario
+            if (contraseña.ToLower().Contains(usuario.ToLower()))
+            {
+                mensaje = "La contraseña no puede contener tu nombre de usuario";
+                return false;
+            }
+
+            mensaje = "Contraseña válida";
+            return true;
+        }
+
+        // método para registrar un nuevo usuario en el sistema.
 
         public bool RegistrarUsuario(DtoPersona persona, DtoUsuario usuario, string contrasenaPlana, out string mensaje)
         {
             try
             {
-                // 1. Validar que no exista un usuario con el mismo nombre
+                // Valido que no exista un usuario con el mismo nombre
                 if (daoUsuario.ExisteUsuario(usuario.User))
                 {
                     mensaje = "El nombre de usuario ya está en uso";
                     return false;
                 }
-                
-                // 2. Agregar la persona primero
+
+                // Agrego la persona primero
                 CD_DaoPersona daoPersona = new CD_DaoPersona();
                 int idPersona = daoPersona.AgregarPersona(persona);
-                
+
                 if (idPersona <= 0)
                 {
                     mensaje = "Error al registrar los datos personales";
                     return false;
                 }
-                
-                // 3. Asignar valores al usuario
+
+                // Asigno valores al usuario
                 usuario.Id_Persona = idPersona;
-                usuario.Password = ClsSeguridad.SHA256(usuario.User + contrasenaPlana); // Concatenar usuario y contraseña, luego encriptar
+                usuario.Password = ClsSeguridad.SHA256(usuario.User + contrasenaPlana); // Concateno usuario y contraseña, luego encripto
                 usuario.Activo = true;
-                usuario.PrimeraPass = true; // Forzar cambio en primer ingreso
-                
-                // 4. Agregar el usuario
+                usuario.PrimeraPass = true; // Fuerzo el cambio en el primer ingreso
+
+                // Agrego el usuario
                 int idUsuario = daoUsuario.AgregarUsuario(usuario);
-                
+
                 if (idUsuario <= 0)
                 {
                     mensaje = "Error al registrar el usuario";
                     return false;
                 }
-                
+
                 mensaje = "Usuario registrado correctamente";
                 return true;
             }
@@ -210,29 +219,30 @@ namespace Logica
             }
         }
 
+        // Mi método para actualizar un usuario existente.
         public bool ActualizarUsuario(DtoPersona persona, DtoUsuario usuario, out string mensaje)
         {
             try
             {
-                // 1. Actualizar datos de la persona
+                // Actualizo los datos de la persona
                 CD_DaoPersona daoPersona = new CD_DaoPersona();
                 bool resultadoPersona = daoPersona.ActualizarPersona(persona);
-                
+
                 if (!resultadoPersona)
                 {
                     mensaje = "Error al actualizar los datos personales";
                     return false;
                 }
-                
-                // 2. Actualizar datos del usuario
+
+                // Actualizo los datos del usuario
                 bool resultadoUsuario = daoUsuario.ActualizarUsuario(usuario);
-                
+
                 if (!resultadoUsuario)
                 {
                     mensaje = "Error al actualizar los datos del usuario";
                     return false;
                 }
-                
+
                 mensaje = "Usuario actualizado correctamente";
                 return true;
             }
@@ -243,13 +253,14 @@ namespace Logica
             }
         }
 
+        // método para eliminar un usuario (realizando una baja lógica).
         public bool EliminarUsuario(int idUsuario, out string mensaje)
         {
             try
             {
-                // Aplicamos una baja lógica, no física
+                // Aplico una baja lógica, no física
                 bool resultado = daoUsuario.BajaUsuario(idUsuario);
-                
+
                 mensaje = resultado ? "Usuario eliminado correctamente" : "Error al eliminar el usuario";
                 return resultado;
             }
@@ -260,6 +271,7 @@ namespace Logica
             }
         }
 
+        // método para listar usuarios con sus detalles (probablemente para una vista específica).
         public List<DtoUsuarioDetalle> ListarUsuarios()
         {
             try
@@ -268,10 +280,12 @@ namespace Logica
             }
             catch (Exception)
             {
+                // En caso de error, devuelvo una lista vacía para evitar nulos
                 return new List<DtoUsuarioDetalle>();
             }
         }
 
+        //método para obtener un usuario por su ID.
         public DtoUsuarioDetalle ObtenerUsuario(int idUsuario)
         {
             try
@@ -280,13 +294,12 @@ namespace Logica
             }
             catch (Exception)
             {
+                // En caso de error, devuelvo nulo
                 return null;
             }
         }
-        //SEGURDAD PW
-        private CD_DaoUsuario objDaoUsuario = new CD_DaoUsuario();
-        private CL_ConfiguracionContraseña objConfigContra = new CL_ConfiguracionContraseña();
 
+        // método para validar si una nueva contraseña cumple con las políticas de seguridad.
         public bool ValidarNuevaContrasenaSegunPoliticas(string password, DtoDatosPersonalesPw usuario, out string mensaje)
         
         {
@@ -295,11 +308,11 @@ namespace Logica
 
             if (config == null)
             {
-                mensaje = "No se pudo cargar la configuración de seguridad de la contraseña.";
+                mensaje = "No pude cargar la configuración de seguridad de la contraseña.";
                 return false;
             }
 
-            // Validaciones(MinimoCaracteres, MayusMinus, NumLetra, Especial)
+            // Valido las características mínimas (MinimoCaracteres, MayusMinus, NumLetra, Especial)
             if (config.MinimoCaracteres > 0 && password.Length < config.MinimoCaracteres)
             {
                 mensaje = $"La contraseña debe tener al menos {config.MinimoCaracteres} caracteres.";
@@ -322,7 +335,7 @@ namespace Logica
             }
 
 
-            // Validaciones que requieren datos del usuario o historial
+            // Valido que no se repitan contraseñas si la configuración lo indica
             if (config.EvitarRepetidas)
             {
                 List<DtoHistorialContraseña> historial = objDaoUsuario.ObtenerPasswordsUsadas(usuario.Id_user);
@@ -337,9 +350,9 @@ namespace Logica
                 }
             }
 
+            // Valido que no contenga datos personales si la configuración lo indica
             if (config.EvitarDatosPersonales)
             {
-                
                 string nombreLimpio = usuario.Nombre?.ToLowerInvariant().Replace(" ", "");
                 string apellidoLimpio = usuario.Apellido?.ToLowerInvariant().Replace(" ", "");
                 string documentoLimpio = usuario.NroDocumento?.ToLowerInvariant().Replace(" ", "");
@@ -347,7 +360,7 @@ namespace Logica
 
                 string passwordLower = password.ToLowerInvariant();
 
-                
+
                 if (!string.IsNullOrEmpty(nombreLimpio) && passwordLower.Contains(nombreLimpio))
                 {
                     mensaje = "La contraseña no puede contener partes de su nombre.";
@@ -374,6 +387,7 @@ namespace Logica
             return true;
         }
 
+        //método para actualizar la contraseña de un usuario directamente (sin verificación de actual).
         public bool ActualizarContrasenaUsuario(string usuario, string nuevaContrasenaPlano)
         {
             string cadenaParaHash = usuario + nuevaContrasenaPlano;
@@ -381,6 +395,8 @@ namespace Logica
 
             return objDaoUsuario.CambiarContraseña(usuario, nuevaContrasenaHash);
         }
+
+        // método para obtener los datos personales y de contraseña de un usuario por su nombre.
         public DtoDatosPersonalesPw ObtenerDatosPersonalesPwPorNombreUsuario(string nombreUsuario)
         {
             try
@@ -394,28 +410,29 @@ namespace Logica
             }
         }
 
+        // método para obtener los días restantes para el cambio de contraseña de un usuario.
         public int ObtenerDiasRestantesCambioContrasena(int idUsuario)
         {
-            // Obtener la fecha del último cambio 
+            // Obtengo la fecha del último cambio
             DateTime fechaUltimoCambio = daoUsuario.ObtenerFechaUltimoCambio(idUsuario);
 
-            // Obtener la frecuencia de cambio 
+            // Obtengo la frecuencia de cambio
             int cambiaCada = daoUsuario.ObtenerCambiaCada(idUsuario);
 
             if (cambiaCada <= 0)
             {
-                return -1; //  No aplica vencimiento
+                return -1; // No aplica vencimiento (cambiaCada 0 o negativo significa ilimitado)
             }
 
             if (fechaUltimoCambio == DateTime.MinValue)
             {
-                return 0; //  No tiene fecha registrada → forzar vencimiento
+                return 0; // No tiene fecha registrada → fuerzo el vencimiento
             }
 
-            // Calcular la diferencia de días transcurridos desde el último cambio
+            // Calculo la diferencia de días transcurridos desde el último cambio
             TimeSpan diferencia = DateTime.Now - fechaUltimoCambio;
 
-            // Calcular los días restantes
+            // Calculo los días restantes
             int diasRestantes = cambiaCada - (int)diferencia.TotalDays;
 
             return diasRestantes;
@@ -433,6 +450,6 @@ namespace Logica
                 throw;
             }
         }
+        
     }
 }
-    

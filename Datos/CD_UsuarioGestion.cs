@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    internal class CD_UsuarioGestion
+    public class CD_UsuarioGestion
     {
         public int IdUsuario { get; set; }
         public string NombreUsuario { get; set; }
-        public string NombreCompleto { get; set; } // Combinación de Nombre y Apellido
+        public string NombreCompleto { get { return $"{Nombre} {Apellido} ({NombreUsuario})"; } } 
         public int IdRol { get; set; }
         public string NombreRol { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public bool Activo { get; set; }
+        public string Usuario { get; set; } 
 
+       
     }
 }
