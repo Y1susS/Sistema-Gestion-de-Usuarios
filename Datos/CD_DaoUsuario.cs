@@ -177,7 +177,7 @@ namespace Datos
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error al obtener 'CambiaCada' desde SP: " + ex.Message);
-                 
+
                 }
 
                 finally
@@ -270,7 +270,7 @@ namespace Datos
                 try
                 {
                     SqlCommand cmd = new SqlCommand("sp_ExisteUsuario", conn);
-                    cmd.CommandType= CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@User", usuario);
 
@@ -420,18 +420,18 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioDetallePorNombre", conn); 
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioDetallePorNombre", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        if (dr.Read()) 
+                        if (dr.Read())
                         {
                             usuario = new DtoDatosPersonalesPw
                             {
-                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")), 
+                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
                                 User = dr.GetString(dr.GetOrdinal("User")),
                                 Apellido = dr.GetString(dr.GetOrdinal("Apellido")),
                                 Nombre = dr.GetString(dr.GetOrdinal("Nombre")),
@@ -444,14 +444,14 @@ namespace Datos
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error en CD_DaoUsuarios.ObtenerUsuarioDetallePorNombre: {ex.Message}");
-                    throw; 
+                    throw;
                 }
                 finally
                 {
-                    conexion.CerrarConexion(); 
+                    conexion.CerrarConexion();
                 }
             }
-            return usuario; 
+            return usuario;
         }
 
         public DtoUsuario ObtenerUsuarioPorNombre(string usuario)
@@ -523,7 +523,7 @@ namespace Datos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_ObtenerPasswordsUsadas", conn); 
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerPasswordsUsadas", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id_User", idUsuario);
 
@@ -531,10 +531,10 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new DtoHistorialContraseña 
+                            lista.Add(new DtoHistorialContraseña
                             {
-                                Password = dr["Password"].ToString(), 
-                                FechaCambio = Convert.ToDateTime(dr["FechaCambio"]) 
+                                Password = dr["Password"].ToString(),
+                                FechaCambio = Convert.ToDateTime(dr["FechaCambio"])
                             });
                         }
                     }
@@ -567,6 +567,7 @@ namespace Datos
         {
             DtoDatosPersonalesPw usuarioEncontrado = null;
 
+
             CD_Conexion conexion = new CD_Conexion();
             using (SqlConnection conn = conexion.AbrirConexion())
             {
@@ -589,6 +590,7 @@ namespace Datos
                                 Email = dr.GetString(dr.GetOrdinal("Email"))
                             };
                         }
+
                     }
                 }
                 catch (SqlException ex)
@@ -606,8 +608,10 @@ namespace Datos
                     conexion.CerrarConexion();
                 }
             }
-return usuarioEncontrado;
+          return usuarioEncontrado;
         }
 
+        
     }
 }
+

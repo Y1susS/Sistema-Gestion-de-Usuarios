@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Datos;
 using Servicios; 
 using Sesion; 
-using Sesion.Entidades; 
+using Sesion.Entidades;
 
 namespace Logica
 {
@@ -120,6 +120,10 @@ namespace Logica
             return false;
         }        //HAY NUEVO METODO que toma de la base
 
+
+       
+
+        // método privado para validar las políticas de seguridad de la contraseña.
         private bool ValidarPoliticasSeguridad(string contraseña, string usuario, out string mensaje)
         {
             // Estas validaciones podrían venir de tabla Restriccion en BD
@@ -402,7 +406,7 @@ namespace Logica
             catch (Exception ex)
             {
                 Console.WriteLine($"Error en CL_Usuarios.ObtenerDatosPersonalesPwPorNombreUsuario: {ex.Message}");
-                throw; 
+                throw;
             }
         }
 
@@ -446,5 +450,6 @@ namespace Logica
                 throw;
             }
         }
+        
     }
 }
