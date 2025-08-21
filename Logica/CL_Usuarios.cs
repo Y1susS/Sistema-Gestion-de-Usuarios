@@ -14,6 +14,8 @@ namespace Logica
     {
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
         private readonly CD_DaoPassUsada daoPassUsada = new CD_DaoPassUsada();
+        
+        //agregados por lucas
         private CD_DaoUsuario objDaoUsuario = new CD_DaoUsuario();
         private CL_ConfiguracionContraseña objConfigContra = new CL_ConfiguracionContraseña();
 
@@ -450,6 +452,26 @@ namespace Logica
                 throw;
             }
         }
+        public bool ActualizarPrimeraClave(string usuario, bool primeraPass)
+        {
+            // Llama al método existente en la capa de datos
+            // y le pasa el valor 'true' para marcar la contraseña como temporal.
+            return daoUsuario.ActualizarPrimeraClave(usuario, primeraPass);
+        }
+       
+
+        private readonly CD_DaoPregunta daoPregunta = new CD_DaoPregunta();
+
+        public bool UsuarioTienePreguntasDeSeguridad(string nombreUsuario)
+        {
+            // Llama al método de la capa de datos para verificar si el usuario tiene preguntas configuradas.
+            // Debes implementar este método en tu clase de datos (CD_DaoPregunta).
+            return daoPregunta.VerificarExistencia(nombreUsuario);
+        }
+
+      
         
+       
+
     }
 }

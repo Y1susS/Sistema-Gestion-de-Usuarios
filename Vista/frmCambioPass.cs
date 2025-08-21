@@ -172,7 +172,7 @@ namespace Vista
                     }
                     else
                     {
-                        // Cambio por administrador (primera contraseña)
+                        // Cambio por administrador o por recuperación (primera contraseña)
                         resultado = objUsuarios.CambiarPrimeraContraseña(usuario, nuevaPass, out mensaje);
                     }
 
@@ -180,10 +180,22 @@ namespace Vista
                     {
                         MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Redirigir al panel de usuarios
-                        frmPanelUsuarios frm = new frmPanelUsuarios();
-                        frm.Show();
-                        this.Close();
+                        if (!requiereContraseñaActual)
+                        {
+                            // Si no se requirió la contraseña actual, es una primera contraseña
+                            // o una recuperación. Redirigimos al formulario de Login.
+                            FrmLoguin frmLogin = new FrmLoguin();
+                            frmLogin.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            // Si se requirió la contraseña actual, es un cambio normal.
+                            // Se asume que el usuario ya estaba logueado.
+                            // Se vuelve al formulario anterior (en este caso, frmPanelUsuarios).
+                            _formularioAnterior.Show();
+                            this.Close();
+                        }
                     }
                     else
                     {
@@ -197,6 +209,50 @@ namespace Vista
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //private void btnCambiar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (ValidarCampos())
+        //        {
+        //            string passActual = requiereContraseñaActual ? txtPassActual.Text : string.Empty;
+        //            string nuevaPass = txtNuevaPass.Text;
+        //            bool resultado;
+        //            string mensaje;
+
+        //            if (requiereContraseñaActual)
+        //            {
+        //                // Cambio normal con verificación de contraseña actual
+        //                resultado = objUsuarios.CambiarContraseña(usuario, passActual, nuevaPass, out mensaje);
+        //            }
+        //            else
+        //            {
+        //                // Cambio por administrador (primera contraseña)
+        //                resultado = objUsuarios.CambiarPrimeraContraseña(usuario, nuevaPass, out mensaje);
+        //            }
+
+        //            if (resultado)
+        //            {
+        //                MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //                // Redirigir al panel de usuarios
+        //                frmPanelUsuarios frm = new frmPanelUsuarios();
+        //                frm.Show();
+        //                this.Close();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al cambiar contraseña: " + ex.Message,
+        //            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         // Métodos para los placeholders (entrada y salida del foco)
         private void txtPassActual_Enter(object sender, EventArgs e)
