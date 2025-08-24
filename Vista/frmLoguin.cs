@@ -33,6 +33,8 @@ namespace Vista
             lnkRecuperar,
             pctMostrar,
             pctOcultar);
+
+            ClsMostrarOcultarClave.Configurar(txtContrasenia, pctMostrar, pctOcultar, "Contraseña");
         }
 
         private void FrmLoguin_Load(object sender, EventArgs e)
@@ -96,12 +98,6 @@ namespace Vista
         private void txtContrasenia_Leave(object sender, EventArgs e)
         {
             ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
-
-            // Si quedó con el placeholder, asegurarse de que se muestre el ícono de "mostrar"
-            if (txtContrasenia.Text == "Contraseña" && txtContrasenia.ForeColor == Color.Gray)
-            {
-                pctMostrar.BringToFront();
-            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -148,24 +144,14 @@ namespace Vista
             }
         }
 
-        private void pctMostrar_Click(object sender, EventArgs e)
+        private void lblLogin_Click(object sender, EventArgs e)
         {
-            // Si el campo está vacío o con placeholder, no mostrar nada
-            if (txtContrasenia.ForeColor == Color.Gray)
-                return;
 
-            pctOcultar.BringToFront();
-            txtContrasenia.UseSystemPasswordChar = false;
         }
 
-        private void pctOcultar_Click(object sender, EventArgs e)
+        private void pctBorde_Click(object sender, EventArgs e)
         {
-            // Si el campo está vacío o con placeholder, no ocultar nada
-            if (txtContrasenia.ForeColor == Color.Gray)
-                return;
 
-            pctMostrar.BringToFront();
-            txtContrasenia.UseSystemPasswordChar = true;
         }
     }
 }

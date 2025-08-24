@@ -66,7 +66,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(185, 30);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -92,6 +92,7 @@
             this.pctBorde.Size = new System.Drawing.Size(402, 44);
             this.pctBorde.TabIndex = 9;
             this.pctBorde.TabStop = false;
+            this.pctBorde.Click += new System.EventHandler(this.pctBorde_Click);
             // 
             // pctMinimize
             // 
@@ -127,7 +128,7 @@
             this.lnkRecuperar.Location = new System.Drawing.Point(95, 285);
             this.lnkRecuperar.Name = "lnkRecuperar";
             this.lnkRecuperar.Size = new System.Drawing.Size(211, 18);
-            this.lnkRecuperar.TabIndex = 3;
+            this.lnkRecuperar.TabIndex = 4;
             this.lnkRecuperar.TabStop = true;
             this.lnkRecuperar.Text = "Recuperar usuario/contraseña";
             this.lnkRecuperar.VisitedLinkColor = System.Drawing.Color.Blue;
@@ -187,6 +188,7 @@
             this.lblLogin.TabIndex = 15;
             this.lblLogin.Text = "Login";
             this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
             // pctMostrar
             // 
@@ -200,7 +202,6 @@
             this.pctMostrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctMostrar.TabIndex = 16;
             this.pctMostrar.TabStop = false;
-            this.pctMostrar.Click += new System.EventHandler(this.pctMostrar_Click);
             // 
             // pctOcultar
             // 
@@ -214,7 +215,6 @@
             this.pctOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctOcultar.TabIndex = 17;
             this.pctOcultar.TabStop = false;
-            this.pctOcultar.Click += new System.EventHandler(this.pctOcultar_Click);
             // 
             // FrmLoguin
             // 

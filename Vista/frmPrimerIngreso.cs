@@ -35,6 +35,9 @@ namespace Vista
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pctBorde);
             moverFormulario.HabilitarMovimiento(lblLogin);
+
+            ClsMostrarOcultarClave.Configurar(txtNuevaPass, pctMostrar, pctOcultar, "Nueva contraseña");
+            ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar2, pctOcultar2, "Confirmar contraseña");
         }
 
         private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
@@ -167,10 +170,6 @@ namespace Vista
         private void txtNuevaPass_Leave(object sender, EventArgs e)
         {
             ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
-            if (txtNuevaPass.Text == "Nueva contraseña" && txtNuevaPass.ForeColor == Color.Gray)
-            {
-                pctMostrar.BringToFront();
-            }
         }
 
         private void txtConfirmaPass_Enter(object sender, EventArgs e)
@@ -182,51 +181,11 @@ namespace Vista
         private void txtConfirmaPass_Leave(object sender, EventArgs e)
         {
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
-            if (txtConfirmaPass.Text == "Confirmar contraseña" && txtConfirmaPass.ForeColor == Color.Gray)
-            {
-                pctMostrar2.BringToFront();
-            }
         }
 
         private void pctMinimize_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pctMostrar_Click(object sender, EventArgs e)
-        {
-            if (txtNuevaPass.ForeColor == Color.Gray)
-                return;
-
-            pctOcultar.BringToFront();
-            txtNuevaPass.UseSystemPasswordChar = false;
-        }
-
-        private void pctOcultar_Click(object sender, EventArgs e)
-        {
-            if (txtNuevaPass.ForeColor == Color.Gray)
-                return;
-
-            pctMostrar.BringToFront();
-            txtNuevaPass.UseSystemPasswordChar = true;
-        }
-
-        private void pctMostrar2_Click(object sender, EventArgs e)
-        {
-            if (txtConfirmaPass.ForeColor == Color.Gray)
-                return;
-
-            pctOcultar2.BringToFront();
-            txtConfirmaPass.UseSystemPasswordChar = false;
-        }
-
-        private void pctOcultar2_Click(object sender, EventArgs e)
-        {
-            if (txtConfirmaPass.ForeColor == Color.Gray)
-                return;
-
-            pctMostrar2.BringToFront();
-            txtConfirmaPass.UseSystemPasswordChar = true;
         }
 
         private void txtNuevaPass_Enter(object sender, EventArgs e)
