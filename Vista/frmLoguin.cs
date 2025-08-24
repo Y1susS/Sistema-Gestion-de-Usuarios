@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Logica;
+using Sesion;
+using Sesion.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Sesion;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -102,49 +103,108 @@ namespace Vista
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            bool usuarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
-            bool contraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
+            // ... (Tu código de validación de campos) ...
 
-            if (usuarioVacio || contraseniaVacia)
-            {
-                MessageBox.Show("Hay campos vacíos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else
-            {
-                string user = txtUsuario.Text.Trim();
-                string pass = txtContrasenia.Text;
-                string hashCalculadoParaLogin = ClsSeguridad.SHA256(user + pass);
+            string user = txtUsuario.Text.Trim();
+            string pass = txtContrasenia.Text;
 
-                if (objCL.Autenticar(user, pass, out string msg))
-                { 
-                    // Verificar si es primera contraseña
-                    if (ClsSesionActual.Usuario.PrimeraPass)
+            if (objCL.Autenticar(user, pass, out string msg))
+            {
+                // Verificar si es primera contraseña o contraseña temporal
+                if (ClsSesionActual.Usuario.PrimeraPass)
+                {
+                    // *** INICIO DE LA LÓGICA DE DISTINCIÓN ***
+                    // La instancia de CL_Usuarios debe ser utilizada aquí.
+                    // Si no la tienes, debes crearla:
+                    CL_Usuarios objUsuarios = new CL_Usuarios();
+
+                    // Llama al método para verificar si el usuario ya tiene preguntas de seguridad.
+                    // Asegúrate de que el método UsuarioTienePreguntasDeSeguridad esté en la clase CL_Usuarios
+                    if (objUsuarios.UsuarioTienePreguntasDeSeguridad(user))
                     {
-                        MessageBox.Show("Debe cambiar su contraseña por primera vez", 
+                        // Si el usuario ya configuró preguntas, es una recuperación de contraseña.
+                        MessageBox.Show("Debe cambiar su contraseña.",
                             "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
-                        frmPrimerIngreso frmPrimer = new frmPrimerIngreso();
-                        frmPrimer.Show();
+
+                        // Redirigimos al formulario de cambio de contraseña que no requiere la contraseña actual.
+                        frmCambioPass frmCambio = new frmCambioPass(user, this, false);
+                        frmCambio.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show(msg);
-                        new frmPanelUsuarios().Show();
+                        // Si no tiene preguntas, es un usuario nuevo.
+                        MessageBox.Show("Debe cambiar su contraseña por primera vez y configurar sus preguntas de seguridad.",
+                            "Primer Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Redirigimos al formulario de primer ingreso que incluye la configuración de preguntas.
+                        frmPrimerIngreso frmPrimer = new frmPrimerIngreso();
+                        frmPrimer.Show();
                         this.Hide();
                     }
+                    // *** FIN DE LA LÓGICA DE DISTINCIÓN ***
                 }
                 else
                 {
-                    MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtContrasenia.Clear();
-                    txtContrasenia.Focus();
+                    MessageBox.Show(msg);
+                    new frmPanelUsuarios().Show();
+                    this.Hide();
                 }
+            }
+            else
+            {
+                MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtContrasenia.Clear();
+                txtContrasenia.Focus();
             }
         }
 
-        private void lblLogin_Click(object sender, EventArgs e)
+
+        //private void btnLogin_Click(object sender, EventArgs e)
+        //{
+        //    bool usuarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
+        //    bool contraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
+
+        //    if (usuarioVacio || contraseniaVacia)
+        //    {
+        //        MessageBox.Show("Hay campos vacíos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        string user = txtUsuario.Text.Trim();
+        //        string pass = txtContrasenia.Text;
+        //        string hashCalculadoParaLogin = ClsSeguridad.SHA256(user + pass);
+
+        //        if (objCL.Autenticar(user, pass, out string msg))
+        //        {
+        //            // Verificar si es primera contraseña
+        //            if (ClsSesionActual.Usuario.PrimeraPass)
+        //            {
+        //                MessageBox.Show("Debe cambiar su contraseña por primera vez",
+        //                    "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //                frmPrimerIngreso frmPrimer = new frmPrimerIngreso();
+        //                frmPrimer.Show();
+        //                this.Hide();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show(msg);
+        //                new frmPanelUsuarios().Show();
+        //                this.Hide();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            txtContrasenia.Clear();
+        //            txtContrasenia.Focus();
+        //        }
+        //    }
+        //}
+
+        private void pctMostrar_Click(object sender, EventArgs e)
         {
 
         }

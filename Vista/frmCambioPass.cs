@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
+using Sesion.Entidades;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -21,6 +22,7 @@ namespace Vista
         private const string PASS_ACTUAL_PLACEHOLDER = "Contraseña actual";
         private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
         private const string CONFIRMA_PASS_PLACEHOLDER = "Confirmar contraseña";
+        private readonly CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
 
         public frmCambioPass(string usuario, Form formularioAnterior, bool requiereContraseñaActual = true)
         {
@@ -30,25 +32,88 @@ namespace Vista
             pctLogo.BackColor = Color.Transparent;
             this.usuario = usuario;
             this.requiereContraseñaActual = requiereContraseñaActual;
-            this.usuario = usuario;
-            this.requiereContraseñaActual = requiereContraseñaActual;
             this._formularioAnterior = formularioAnterior;
-            // Mostrar/ocultar campo de contraseña actual según corresponda
             txtPassActual.Visible = requiereContraseñaActual;
-       
+            ClsFondoTransparente.Aplicar(
+                pctFondo,
+                pctLogo,
+                lblUsuario,
+                lblRestriccionesPassCambio);
         }
 
         private void frmCambioPass_Load(object sender, EventArgs e)
         {
-            // Configurar placeholders
             if (requiereContraseñaActual)
                 ClsPlaceHolder.Leave(PASS_ACTUAL_PLACEHOLDER, txtPassActual, true);
 
             ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
-
+            MostrarRestriccionesContrasena();
             lblUsuario.Text = $"Usuario: {usuario}";
+            this.ActiveControl = lblUsuario;
+
         }
+        private void MostrarRestriccionesContrasena()
+        {
+            try
+            {
+                DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
+
+                if (config != null)
+                {
+                    lblRestriccionesPassCambio.Visible = true; // Hacer visible el Label
+
+                    StringBuilder sb = new StringBuilder();
+
+                    if (config.MinimoCaracteres > 0)
+                    {
+                        sb.Append($"Mínimo: {config.MinimoCaracteres} caracteres - ");
+                    }
+                    if (config.RequiereMayusMinus)
+                    {
+                        sb.Append("Mayúsculas y minúsculas - ");
+                    }
+                    if (config.RequiereNumLetra)
+                    {
+                        sb.Append("Números y letras - ");
+                    }
+                    if (config.RequiereEspecial)
+                    {
+                        sb.Append("Al menos 1 carácter especial - ");
+                    }
+                    if (config.EvitarRepetidas)
+                    {
+                        sb.Append("No reutilizar anteriores - ");
+                    }
+                    if (config.EvitarDatosPersonales)
+                    {
+                        sb.Append("No contener datos personales - ");
+                    }
+
+                    if (sb.Length > 0)
+                    {
+                        sb.Length -= 3; 
+                        lblRestriccionesPassCambio.Text = sb.ToString();
+                    }
+                    else
+                    {
+                        lblRestriccionesPassCambio.Text = "No hay restricciones de contraseña configuradas.";
+                    }
+                }
+                else
+                {
+                    // Si 'config' es null, ocultar el Label.
+                    lblRestriccionesPassCambio.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las restricciones de contraseña: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblRestriccionesPassCambio.Visible = false;
+            }
+        }
+
+
 
         private void pctClose_Click(object sender, EventArgs e)
         {
@@ -107,7 +172,7 @@ namespace Vista
                     }
                     else
                     {
-                        // Cambio por administrador (primera contraseña)
+                        // Cambio por administrador o por recuperación (primera contraseña)
                         resultado = objUsuarios.CambiarPrimeraContraseña(usuario, nuevaPass, out mensaje);
                     }
 
@@ -115,10 +180,22 @@ namespace Vista
                     {
                         MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Redirigir al panel de usuarios
-                        frmPanelUsuarios frm = new frmPanelUsuarios();
-                        frm.Show();
-                        this.Close();
+                        if (!requiereContraseñaActual)
+                        {
+                            // Si no se requirió la contraseña actual, es una primera contraseña
+                            // o una recuperación. Redirigimos al formulario de Login.
+                            FrmLoguin frmLogin = new FrmLoguin();
+                            frmLogin.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            // Si se requirió la contraseña actual, es un cambio normal.
+                            // Se asume que el usuario ya estaba logueado.
+                            // Se vuelve al formulario anterior (en este caso, frmPanelUsuarios).
+                            _formularioAnterior.Show();
+                            this.Close();
+                        }
                     }
                     else
                     {
@@ -132,6 +209,50 @@ namespace Vista
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //private void btnCambiar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (ValidarCampos())
+        //        {
+        //            string passActual = requiereContraseñaActual ? txtPassActual.Text : string.Empty;
+        //            string nuevaPass = txtNuevaPass.Text;
+        //            bool resultado;
+        //            string mensaje;
+
+        //            if (requiereContraseñaActual)
+        //            {
+        //                // Cambio normal con verificación de contraseña actual
+        //                resultado = objUsuarios.CambiarContraseña(usuario, passActual, nuevaPass, out mensaje);
+        //            }
+        //            else
+        //            {
+        //                // Cambio por administrador (primera contraseña)
+        //                resultado = objUsuarios.CambiarPrimeraContraseña(usuario, nuevaPass, out mensaje);
+        //            }
+
+        //            if (resultado)
+        //            {
+        //                MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //                // Redirigir al panel de usuarios
+        //                frmPanelUsuarios frm = new frmPanelUsuarios();
+        //                frm.Show();
+        //                this.Close();
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al cambiar contraseña: " + ex.Message,
+        //            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         // Métodos para los placeholders (entrada y salida del foco)
         private void txtPassActual_Enter(object sender, EventArgs e)

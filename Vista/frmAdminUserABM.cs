@@ -29,6 +29,11 @@ namespace Vista
         public frmAdminUserABM()
         {
             InitializeComponent();
+            cmbTipoDoc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPartido.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void frmAdministrador_Load(object sender, EventArgs e)
@@ -68,8 +73,6 @@ namespace Vista
             button2.Enabled = false;
             btneliminar.Text = "Eliminar";
             btneliminar.Enabled = false;
-            
-            // AGREGAR esta línea para asegurar que el evento esté conectado
             dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
