@@ -46,9 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCotizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCotizador.Designer.cs">
+      <DependentUpon>frmCotizador.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClsAbrirForms.cs" />
     <Compile Include="ClsArrastrarFormularios.cs" />
+    <Compile Include="ClsCerrarFormularios.cs" />
     <Compile Include="ClsFondoTransparente.cs" />
+    <Compile Include="ClsMostrarOcultarClave.cs" />
     <Compile Include="frmCambioPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +126,9 @@
     <Compile Include="ClsPlaceHolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCotizador.resx">
+      <DependentUpon>frmCotizador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCambioPass.resx">
       <DependentUpon>frmCambioPass.cs</DependentUpon>
     </EmbeddedResource>

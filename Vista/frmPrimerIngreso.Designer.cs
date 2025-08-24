@@ -210,7 +210,7 @@
             this.pctMostrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctMostrar.TabIndex = 34;
             this.pctMostrar.TabStop = false;
-            this.pctMostrar.Click += new System.EventHandler(this.pctMostrar_Click);
+            //this.pctMostrar.Click += new System.EventHandler(this.pctMostrar_Click);
             // 
             // pctOcultar
             // 
@@ -224,7 +224,7 @@
             this.pctOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctOcultar.TabIndex = 35;
             this.pctOcultar.TabStop = false;
-            this.pctOcultar.Click += new System.EventHandler(this.pctOcultar_Click);
+            //this.pctOcultar.Click += new System.EventHandler(this.pctOcultar_Click);
             // 
             // pctMostrar2
             // 
@@ -238,7 +238,7 @@
             this.pctMostrar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctMostrar2.TabIndex = 36;
             this.pctMostrar2.TabStop = false;
-            this.pctMostrar2.Click += new System.EventHandler(this.pctMostrar2_Click);
+            //this.pctMostrar2.Click += new System.EventHandler(this.pctMostrar2_Click);
             // 
             // pctOcultar2
             // 
@@ -252,7 +252,7 @@
             this.pctOcultar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctOcultar2.TabIndex = 37;
             this.pctOcultar2.TabStop = false;
-            this.pctOcultar2.Click += new System.EventHandler(this.pctOcultar2_Click);
+            //this.pctOcultar2.Click += new System.EventHandler(this.pctOcultar2_Click);
             // 
             // lblRestriccionesTexto
             // 
