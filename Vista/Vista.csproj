@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmStockyValores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockyValores.Designer.cs">
+      <DependentUpon>frmStockyValores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCotizador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroClientes.resx">
       <DependentUpon>frmRegistroClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockyValores.resx">
+      <DependentUpon>frmStockyValores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
