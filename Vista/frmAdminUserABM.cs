@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Servicios;
-using Sesion;
-using Sesion.Entidades;
+using Entidades;
+using Entidades.DTOs;
 
 
 namespace Vista

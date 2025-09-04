@@ -1,6 +1,6 @@
 using System;
 
-namespace Sesion.Entidades
+namespace Entidades.DTOs
 {
     public class DtoRespuesta
     {

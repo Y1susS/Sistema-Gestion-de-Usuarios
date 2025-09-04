@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Datos;
 using Servicios; 
-using Sesion; 
-using Sesion.Entidades;
+using Entidades; 
+using Entidades.DTOs;
 
 namespace Logica
 {

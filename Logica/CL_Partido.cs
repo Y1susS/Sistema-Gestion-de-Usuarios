@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Datos;
-using Sesion.Entidades;
+using Entidades.DTOs;
 
 namespace Logica
 {

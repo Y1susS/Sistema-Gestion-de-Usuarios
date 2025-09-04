@@ -45,21 +45,13 @@
     <Compile Include="ClsEnviarMail.cs" />
     <Compile Include="ClsSeguridad.cs" />
     <Compile Include="ClsSesionActual.cs" />
-    <Compile Include="Entidades\DtoConfiguracionContraseña.cs" />
-    <Compile Include="Entidades\DtoDatosPersonalesPw.cs" />
-    <Compile Include="Entidades\DtoFuncionalidad.cs" />
-    <Compile Include="Entidades\DtoHistorialContraseña.cs" />
-    <Compile Include="Entidades\DtoLocalidad.cs" />
-    <Compile Include="Entidades\DtoPartido.cs" />
-    <Compile Include="Entidades\DtoPermisoUsuario.cs" />
-    <Compile Include="Entidades\DtoPersona.cs" />
-    <Compile Include="Entidades\DtoPregunta.cs" />
-    <Compile Include="Entidades\DtoRespuesta.cs" />
-    <Compile Include="Entidades\DtoRol.cs" />
-    <Compile Include="Entidades\DtoTipoDoc.cs" />
-    <Compile Include="Entidades\DtoUsuario.cs" />
-    <Compile Include="Entidades\DtoUsuarioDetalle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{f5d73bb6-a291-414d-b997-93dd8e9e6016}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

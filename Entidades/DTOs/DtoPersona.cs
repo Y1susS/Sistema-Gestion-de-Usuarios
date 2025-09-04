@@ -1,4 +1,4 @@
-namespace Sesion.Entidades
+namespace Entidades.DTOs
 {
     public class DtoPersona
     {
