@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
-using Sesion.Entidades;
+using Entidades.DTOs;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista

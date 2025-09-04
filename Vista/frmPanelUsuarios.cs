@@ -1,5 +1,5 @@
 ﻿using Logica;
-using Sesion;
+using Entidades;
 using Sistema_Gestion_De_Usuarios;
 using System;
 using System.Collections.Generic;

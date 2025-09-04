@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Datos;          // Asegúrate de que CD_Permisos, CD_PermisoFuncionalidad, CD_UsuarioGestion estén aquí
-using Sesion.Entidades; // Asegúrate de que DtoRol esté aquí
+using Entidades.DTOs; // Asegúrate de que DtoRol esté aquí
 // Si CD_PermisoUsuarioViewModel está en Datos, asegúrate de que 'using Datos;' lo cubra,
 // o agrega 'using Vistas.ViewModels;' si tienes una carpeta ViewModels para esto.
 

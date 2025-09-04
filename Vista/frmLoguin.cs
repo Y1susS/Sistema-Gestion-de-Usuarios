@@ -1,6 +1,6 @@
 ﻿using Logica;
-using Sesion;
-using Sesion.Entidades;
+using Entidades;
+using Entidades.DTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -4,8 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Logica;
-using Sesion;
-using Sesion.Entidades;
+using Entidades;
+using Entidades.DTOs;
 
 namespace Vista
 {

@@ -1,6 +1,6 @@
 ﻿using Datos;       // Necesito esta referencia a mis clases de datos como CD_UsuarioGestion, CD_PermisoUsuarioViewModel
 using Logica;     // Necesito esta referencia a mi capa de lógica
-using Sesion.Entidades; // Necesito esto para DtoRol (si se usa, si no, puedes quitarlo)
+using Entidades.DTOs; // Necesito esto para DtoRol (si se usa, si no, puedes quitarlo)
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

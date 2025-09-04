@@ -5,8 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sesion;
-using Sesion.Entidades;
+using Entidades;
+using Entidades.DTOs;
 
 namespace Datos
 {
