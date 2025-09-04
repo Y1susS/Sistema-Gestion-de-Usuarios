@@ -217,7 +217,7 @@
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(661, 58);
+            this.pctLogo.Location = new System.Drawing.Point(661, -48);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -265,9 +265,11 @@
             this.pctFondo.Image = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.pctFondo.Location = new System.Drawing.Point(0, 0);
             this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(825, 1000);
+            this.pctFondo.Size = new System.Drawing.Size(1920, 1080);
+            this.pctFondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctFondo.TabIndex = 22;
             this.pctFondo.TabStop = false;
+            this.pctFondo.Click += new System.EventHandler(this.pctFondo_Click);
             // 
             // lbltitulo
             // 
@@ -1776,7 +1778,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(825, 1000);
+            this.ClientSize = new System.Drawing.Size(825, 788);
             this.Controls.Add(this.lblLargoMateriales);
             this.Controls.Add(this.lblTotalGastosMat);
             this.Controls.Add(this.lblotrosmateriales);

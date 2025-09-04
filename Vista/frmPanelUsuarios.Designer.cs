@@ -43,6 +43,11 @@
             this.lblAdministrador = new System.Windows.Forms.Label();
             this.pctBordeInferior = new System.Windows.Forms.PictureBox();
             this.pctLogo = new System.Windows.Forms.PictureBox();
+            this.btncotizador = new System.Windows.Forms.Button();
+            this.btnmetricas = new System.Windows.Forms.Button();
+            this.btnbackup = new System.Windows.Forms.Button();
+            this.btngestionstock = new System.Windows.Forms.Button();
+            this.btnbitacora = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
@@ -122,10 +127,10 @@
             this.lblDiasRestantesContrasena.BackColor = System.Drawing.Color.Transparent;
             this.lblDiasRestantesContrasena.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiasRestantesContrasena.ForeColor = System.Drawing.Color.White;
-            this.lblDiasRestantesContrasena.Location = new System.Drawing.Point(11, 339);
+            this.lblDiasRestantesContrasena.Location = new System.Drawing.Point(14, 502);
             this.lblDiasRestantesContrasena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDiasRestantesContrasena.Name = "lblDiasRestantesContrasena";
-            this.lblDiasRestantesContrasena.Size = new System.Drawing.Size(378, 22);
+            this.lblDiasRestantesContrasena.Size = new System.Drawing.Size(367, 22);
             this.lblDiasRestantesContrasena.TabIndex = 8;
             this.lblDiasRestantesContrasena.Text = "Dias Restantes";
             this.lblDiasRestantesContrasena.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,7 +166,7 @@
             this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
             this.pctFondo.Location = new System.Drawing.Point(0, 0);
             this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(400, 400);
+            this.pctFondo.Size = new System.Drawing.Size(400, 564);
             this.pctFondo.TabIndex = 22;
             this.pctFondo.TabStop = false;
             // 
@@ -189,7 +194,7 @@
             // pctBordeInferior
             // 
             this.pctBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 378);
+            this.pctBordeInferior.Location = new System.Drawing.Point(-2, 542);
             this.pctBordeInferior.Name = "pctBordeInferior";
             this.pctBordeInferior.Size = new System.Drawing.Size(402, 22);
             this.pctBordeInferior.TabIndex = 24;
@@ -201,18 +206,75 @@
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(124, 68);
+            this.pctLogo.Location = new System.Drawing.Point(121, 73);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctLogo.TabIndex = 25;
             this.pctLogo.TabStop = false;
             // 
+            // btncotizador
+            // 
+            this.btncotizador.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncotizador.Location = new System.Drawing.Point(209, 340);
+            this.btncotizador.Name = "btncotizador";
+            this.btncotizador.Size = new System.Drawing.Size(175, 35);
+            this.btncotizador.TabIndex = 28;
+            this.btncotizador.Text = "Cotizador";
+            this.btncotizador.UseVisualStyleBackColor = true;
+            this.btncotizador.Click += new System.EventHandler(this.btncotizador_Click);
+            // 
+            // btnmetricas
+            // 
+            this.btnmetricas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmetricas.Location = new System.Drawing.Point(209, 390);
+            this.btnmetricas.Name = "btnmetricas";
+            this.btnmetricas.Size = new System.Drawing.Size(175, 35);
+            this.btnmetricas.TabIndex = 29;
+            this.btnmetricas.Text = "Metricas";
+            this.btnmetricas.UseVisualStyleBackColor = true;
+            // 
+            // btnbackup
+            // 
+            this.btnbackup.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackup.Location = new System.Drawing.Point(17, 390);
+            this.btnbackup.Name = "btnbackup";
+            this.btnbackup.Size = new System.Drawing.Size(175, 35);
+            this.btnbackup.TabIndex = 27;
+            this.btnbackup.Text = "Realizar Back up";
+            this.btnbackup.UseVisualStyleBackColor = true;
+            // 
+            // btngestionstock
+            // 
+            this.btngestionstock.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngestionstock.Location = new System.Drawing.Point(17, 340);
+            this.btngestionstock.Name = "btngestionstock";
+            this.btngestionstock.Size = new System.Drawing.Size(175, 35);
+            this.btngestionstock.TabIndex = 26;
+            this.btngestionstock.Text = "Gestionar Stock";
+            this.btngestionstock.UseVisualStyleBackColor = true;
+            this.btngestionstock.Click += new System.EventHandler(this.btngestionstock_Click);
+            // 
+            // btnbitacora
+            // 
+            this.btnbitacora.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbitacora.Location = new System.Drawing.Point(17, 444);
+            this.btnbitacora.Name = "btnbitacora";
+            this.btnbitacora.Size = new System.Drawing.Size(175, 35);
+            this.btnbitacora.TabIndex = 30;
+            this.btnbitacora.Text = "Bitacora";
+            this.btnbitacora.UseVisualStyleBackColor = true;
+            // 
             // frmPanelUsuarios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(400, 400);
+            this.ClientSize = new System.Drawing.Size(400, 566);
+            this.Controls.Add(this.btnbitacora);
+            this.Controls.Add(this.btncotizador);
+            this.Controls.Add(this.btnmetricas);
+            this.Controls.Add(this.btnbackup);
+            this.Controls.Add(this.btngestionstock);
             this.Controls.Add(this.pctLogo);
             this.Controls.Add(this.pctBordeInferior);
             this.Controls.Add(this.pctMinimize);
@@ -259,5 +321,10 @@
         private System.Windows.Forms.Label lblAdministrador;
         private System.Windows.Forms.PictureBox pctBordeInferior;
         private System.Windows.Forms.PictureBox pctLogo;
+        private System.Windows.Forms.Button btncotizador;
+        private System.Windows.Forms.Button btnmetricas;
+        private System.Windows.Forms.Button btnbackup;
+        private System.Windows.Forms.Button btngestionstock;
+        private System.Windows.Forms.Button btnbitacora;
     }
 }

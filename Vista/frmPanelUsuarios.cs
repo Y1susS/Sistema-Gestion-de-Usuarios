@@ -154,5 +154,20 @@ namespace Vista
                 lblAdministrador.Text = "Menú de Vendedor";
             }
         }
+
+        private void btncotizador_Click(object sender, EventArgs e)
+        {
+            frmCotizador frmCotizador = new frmCotizador();
+            frmCotizador.Show();
+            this.Hide();
+
+        }
+
+        private void btngestionstock_Click(object sender, EventArgs e)
+        {
+            frmStockyValores frm = new frmStockyValores();
+            frm.Show();
+            this.Close();
+        }
     }
 }

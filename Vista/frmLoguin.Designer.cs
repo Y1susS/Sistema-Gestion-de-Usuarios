@@ -188,7 +188,6 @@
             this.lblLogin.TabIndex = 15;
             this.lblLogin.Text = "Login";
             this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
             // pctMostrar
             // 

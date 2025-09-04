@@ -50,5 +50,10 @@ namespace Vista
         {
             Application.Exit();
         }
+
+        private void pctFondo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
