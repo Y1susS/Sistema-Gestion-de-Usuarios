@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entidades;
 using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoConfiguracionSeguridad
+    public class CD_DaoConfiguracionSeguridad : CD_Conexion
     {
         public List<DtoConfiguracionContraseña> ObtenerConfiguracionesContras()
         {
             List<DtoConfiguracionContraseña> listaConfiguraciones = new List<DtoConfiguracionContraseña>();
-            CD_Conexion conexion = new CD_Conexion();
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -45,7 +40,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -53,11 +48,10 @@ namespace Datos
         }
         public bool GuardarConfiguracionContras(DtoConfiguracionContraseña dto)
         {
-            CD_Conexion conexion = new CD_Conexion();
             SqlConnection conn = null;
             try
             {
-                conn = conexion.AbrirConexion();
+                conn = AbrirConexion();
 
                 using (SqlCommand cmd = new SqlCommand("sp_GuardarConfiguracionSeguridad", conn))
                 {
@@ -73,7 +67,7 @@ namespace Datos
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read()) 
+                        if (reader.Read())
                         {
 
                             int result = reader.GetInt32(reader.GetOrdinal("Result"));
@@ -88,7 +82,7 @@ namespace Datos
             {
                 if (conn != null && conn.State == ConnectionState.Open)
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
         }

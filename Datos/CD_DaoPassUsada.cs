@@ -2,21 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoPassUsada
+    public class CD_DaoPassUsada : CD_Conexion
     {
         public bool AgregarPassUsada(int idUsuario, string password)
         {
-            CD_Conexion conexion = new CD_Conexion();
             bool resultado = false;
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -31,7 +27,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -40,10 +36,9 @@ namespace Datos
 
         public bool VerificarPassUsada(int idUsuario, string password)
         {
-            CD_Conexion conexion = new CD_Conexion();
             bool resultado = false;
             
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -59,7 +54,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             

@@ -6,17 +6,15 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoPregunta
+    public class CD_DaoPregunta : CD_Conexion
     {
-        CD_Conexion conexion = new CD_Conexion();
         SqlCommand comando = new SqlCommand();
         SqlDataReader leer;
         public List<DtoPregunta> ObtenerPreguntas()
         {
             List<DtoPregunta> preguntas = new List<DtoPregunta>();
-            CD_Conexion conexion = new CD_Conexion();
-            
-            using (SqlConnection conn = conexion.AbrirConexion())
+
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -37,7 +35,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             
@@ -47,12 +45,12 @@ namespace Datos
         public DataTable MostrarPreguntas()
         {
             DataTable tabla = new DataTable();
-            comando.Connection = conexion.AbrirConexion();
+            comando.Connection = AbrirConexion();
             comando.CommandText = "sp_ListarPregunta";
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            conexion.CerrarConexion();
+            CerrarConexion();
             return tabla;
         }
         public bool UsuarioYaConfiguroPreguntas(string nombreUsuario)
@@ -70,7 +68,7 @@ namespace Datos
             try
             {
                 // Se utiliza tu objeto de conexión 'conexion' para abrir la conexión a la base de datos.
-                using (SqlConnection connection = conexion.AbrirConexion())
+                using (SqlConnection connection = AbrirConexion())
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -101,7 +99,7 @@ namespace Datos
             finally
             {
                 // Asegúrate de que la conexión se cierre correctamente.
-                conexion.CerrarConexion();
+                CerrarConexion();
             }
             return tienePreguntas;
         }
@@ -117,7 +115,7 @@ namespace Datos
         INNER JOIN dbo.Usuario u ON r.Id_User = u.Id_User
         WHERE u.User = @nombreUsuario";
 
-            using (SqlConnection connection = conexion.AbrirConexion())
+            using (SqlConnection connection = AbrirConexion())
             {
                 try
                 {
@@ -141,7 +139,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return tienePreguntas;

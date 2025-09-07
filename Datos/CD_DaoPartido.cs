@@ -5,13 +5,13 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoPartido
+    public class CD_DaoPartido : CD_Conexion
     {
         public List<DtoPartido> ListarPartidos()
         {
             var lista = new List<DtoPartido>();
-            var conexion = new CD_Conexion();
-            using (var conn = conexion.AbrirConexion())
+
+            using (var conn = AbrirConexion())
             {
                 try
                 {
@@ -33,7 +33,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return lista;

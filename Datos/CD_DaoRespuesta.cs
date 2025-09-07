@@ -6,14 +6,13 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoRespuesta
+    public class CD_DaoRespuesta : CD_Conexion
     {
         public bool RegistrarRespuesta(int idUsuario, int idPregunta, string respuesta)
         {
             bool resultado = false;
-            CD_Conexion conexion = new CD_Conexion();
-            
-            using (SqlConnection conn = conexion.AbrirConexion())
+
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -40,7 +39,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             
@@ -50,9 +49,8 @@ namespace Datos
         public bool VerificarRespuesta(int idUsuario, int idPregunta, string respuesta)
         {
             bool resultado = false;
-            CD_Conexion conexion = new CD_Conexion();
-            
-            using (SqlConnection conn = conexion.AbrirConexion())
+
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -67,7 +65,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             
@@ -77,9 +75,8 @@ namespace Datos
         public List<DtoRespuesta> ObtenerRespuestasUsuario(int idUsuario)
         {
             List<DtoRespuesta> respuestas = new List<DtoRespuesta>();
-            CD_Conexion conexion = new CD_Conexion();
-            
-            using (SqlConnection conn = conexion.AbrirConexion())
+
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -103,7 +100,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             

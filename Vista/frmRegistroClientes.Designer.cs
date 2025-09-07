@@ -48,10 +48,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.pctBorde = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -68,7 +71,7 @@
             this.groupBox1.Controls.Add(this.txttelefono);
             this.groupBox1.Controls.Add(this.txttipodocumento);
             this.groupBox1.Controls.Add(this.txtapellido);
-            this.groupBox1.Location = new System.Drawing.Point(27, 45);
+            this.groupBox1.Location = new System.Drawing.Point(42, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(655, 173);
             this.groupBox1.TabIndex = 4;
@@ -185,7 +188,7 @@
             // 
             // btnVolverRegCliente
             // 
-            this.btnVolverRegCliente.Location = new System.Drawing.Point(716, 149);
+            this.btnVolverRegCliente.Location = new System.Drawing.Point(750, 164);
             this.btnVolverRegCliente.Name = "btnVolverRegCliente";
             this.btnVolverRegCliente.Size = new System.Drawing.Size(75, 24);
             this.btnVolverRegCliente.TabIndex = 15;
@@ -195,7 +198,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(716, 119);
+            this.button2.Location = new System.Drawing.Point(750, 108);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
@@ -204,7 +207,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(716, 88);
+            this.button4.Location = new System.Drawing.Point(750, 79);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 13;
@@ -214,7 +217,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 236);
+            this.dataGridView1.Location = new System.Drawing.Point(42, 267);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -226,7 +229,7 @@
             this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(757, 2);
+            this.pctClose.Location = new System.Drawing.Point(812, 2);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -247,10 +250,29 @@
             this.pctMinimize.TabStop = false;
             this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(750, 135);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 25;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // pctBorde
+            // 
+            this.pctBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctBorde.Location = new System.Drawing.Point(-7, -2);
+            this.pctBorde.Name = "pctBorde";
+            this.pctBorde.Size = new System.Drawing.Size(869, 44);
+            this.pctBorde.TabIndex = 26;
+            this.pctBorde.TabStop = false;
+            // 
             // frmRegistroClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(853, 490);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.pctMinimize);
             this.Controls.Add(this.pctClose);
             this.Controls.Add(this.dataGridView1);
@@ -258,6 +280,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pctBorde);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRegistroClientes";
             this.Text = "Form1";
@@ -267,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,5 +316,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.PictureBox pctMinimize;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.PictureBox pctBorde;
     }
 }
