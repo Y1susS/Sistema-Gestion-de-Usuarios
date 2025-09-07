@@ -5,13 +5,12 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoRol
+    public class CD_DaoRol : CD_Conexion
     {
         public List<DtoRol> ListarRoles()
         {
             var lista = new List<DtoRol>();
-            var conexion = new CD_Conexion();
-            using (var conn = conexion.AbrirConexion())
+            using (var conn = AbrirConexion())
             {
                 try
                 {
@@ -33,7 +32,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return lista;

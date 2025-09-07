@@ -13,18 +13,18 @@ namespace Vista
     public partial class frmRegistroClientes : Form
     {
 
-        private const string PLACEHOLDER_APELLIDO = "Ingrese su apellido";
-        private const string PLACEHOLDER_NOMBRE = "Ingrese su nombre";
-        private const string PLACEHOLDER_TIPO_DOCUMENTO = "Ingrese su tipo documento";
-        private const string PLACEHOLDER_NUMERO_DOCUMENTO = "Ingrese su numero de documento";
-        private const string PLACEHOLDER_TELEFONO = "Ingrese su numero de telefono";
-        private const string PLACEHOLDER_EMAIL = "Ingrese su e-mail";
-        private const string PLACEHOLDER_CALLE = "Ingrese el nombre de su calle";
-        private const string PLACEHOLDER_NUMERO_CALLE = "Ingrese el numero de su domicilio";
-        private const string PLACEHOLDER_PISO = "Ingrese el piso de su departamento";
-        private const string PLACEHOLDER_DEPARTAMENTO = "Ingrese la letra o numero de departamento";
-        private const string PLACEHOLDER_PARTIDO = "Ingrese el partido";
-        private const string PLACEHOLDER_LOCALIDAD = "Ingrese la localidad";
+        private const string PLACEHOLDER_APELLIDO = "Apellido";
+        private const string PLACEHOLDER_NOMBRE = "Nombres";
+        private const string PLACEHOLDER_TIPO_DOCUMENTO = "Tipo de Documento";
+        private const string PLACEHOLDER_NUMERO_DOCUMENTO = "Numero de documento";
+        private const string PLACEHOLDER_TELEFONO = "Telefono";
+        private const string PLACEHOLDER_EMAIL = "E-mail";
+        private const string PLACEHOLDER_CALLE = "Calle";
+        private const string PLACEHOLDER_NUMERO_CALLE = "Altura";
+        private const string PLACEHOLDER_PISO = "Piso";
+        private const string PLACEHOLDER_DEPARTAMENTO = "Dpto";
+        private const string PLACEHOLDER_PARTIDO = "Partido";
+        private const string PLACEHOLDER_LOCALIDAD = "Localidad";
 
         public frmRegistroClientes()
         {
@@ -176,6 +176,7 @@ namespace Vista
 
         private void frmRegistroClientes_Load(object sender, EventArgs e)
         {
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
             ClsPlaceHolder.Leave(PLACEHOLDER_APELLIDO, txtapellido);
             ClsPlaceHolder.Leave(PLACEHOLDER_NOMBRE, txtnombre);
             ClsPlaceHolder.Leave(PLACEHOLDER_TIPO_DOCUMENTO, txttipodocumento);

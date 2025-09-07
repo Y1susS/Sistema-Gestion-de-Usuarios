@@ -7,7 +7,7 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_Permisos
+    public class CD_Permisos : CD_Conexion
     {
         // El constructor está vacío porque no hay campos de clase que inicializar
         public CD_Permisos()
@@ -25,8 +25,7 @@ namespace Datos
         {
             List<CD_UsuarioGestion> lista = new List<CD_UsuarioGestion>();
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_ListarUsuariosParaGestion", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -64,8 +63,8 @@ namespace Datos
         {
             List<CD_PermisoFuncionalidad> lista = new List<CD_PermisoFuncionalidad>();
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_ObtenerTodasLasFuncionalidades", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -102,8 +101,7 @@ namespace Datos
         {
             List<CD_PermisoFuncionalidad> listaPermisos = new List<CD_PermisoFuncionalidad>();
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_ObtenerPermisosExplicitosUsuario", oConexion);
                 cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -141,8 +139,7 @@ namespace Datos
         {
             List<int> listaIds = new List<int>();
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_ObtenerPermisosPorRolIds", oConexion);
                 cmd.Parameters.AddWithValue("@IdRol", idRol);
@@ -169,8 +166,7 @@ namespace Datos
 
         public bool GuardarPermisoExplicitoUsuario(int idUsuario, int idPermiso, bool habilitado)
         {
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_UpsertUsuarioPermiso", oConexion);
                 cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -203,8 +199,7 @@ namespace Datos
         {
             bool resultado = false;
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_InsertarUsuarioPermiso", oConexion);
                 cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -228,8 +223,7 @@ namespace Datos
         {
             bool resultado = false;
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_EliminarUsuarioPermiso", oConexion);
                 cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -253,8 +247,7 @@ namespace Datos
         {
             bool resultado = false;
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_InsertarRolPermiso", oConexion);
                 cmd.Parameters.AddWithValue("@IdRol", idRol);
@@ -278,8 +271,7 @@ namespace Datos
         {
             bool resultado = false;
 
-            CD_Conexion cnx = new CD_Conexion();
-            using (SqlConnection oConexion = cnx.AbrirConexion())
+            using (SqlConnection oConexion = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_EliminarRolPermiso", oConexion);
                 cmd.Parameters.AddWithValue("@IdRol", idRol);

@@ -9,12 +9,11 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoUsuario
+    public class CD_DaoUsuario : CD_Conexion
     {
         public DtoUsuario ValidarUsuario(string usuario, string password)
         {
-            CD_Conexion conexion = new CD_Conexion();
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -38,7 +37,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return null;
@@ -46,10 +45,10 @@ namespace Datos
 
         public bool VerificarContraseñaActual(string usuario, string password)
         {
-            CD_Conexion conexion = new CD_Conexion();
+
             bool resultado = false;
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -63,7 +62,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -72,10 +71,10 @@ namespace Datos
 
         public bool CambiarContraseña(string usuario, string nuevaPassword)
         {
-            CD_Conexion conexion = new CD_Conexion();
+
             bool resultado = false;
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -89,7 +88,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -98,10 +97,10 @@ namespace Datos
 
         public bool ActualizarPrimeraClave(string usuario, bool primeraPass)
         {
-            CD_Conexion conexion = new CD_Conexion();
+
             bool resultado = false;
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -115,7 +114,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -124,10 +123,9 @@ namespace Datos
 
         public DateTime ObtenerFechaUltimoCambio(int idUsuario)
         {
-            CD_Conexion conexion = new CD_Conexion();
             DateTime fechaUltimoCambio = DateTime.MinValue;
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_ObtenerFechaUltimoCambio", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -148,7 +146,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -157,10 +155,9 @@ namespace Datos
 
         public int ObtenerCambiaCada(int idUsuario)
         {
-            CD_Conexion conexion = new CD_Conexion();
             int diasCambiaCada = 0;
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 SqlCommand cmd = new SqlCommand("sp_ObtenerCambiaCada", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -182,7 +179,7 @@ namespace Datos
 
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -192,9 +189,7 @@ namespace Datos
         public int AgregarUsuario(DtoUsuario usuario)
         {
             int idUsuario = 0;
-            CD_Conexion conexion = new CD_Conexion();
-
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -224,7 +219,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -234,9 +229,8 @@ namespace Datos
         public bool ActualizarUsuario(DtoUsuario usuario)
         {
             bool resultado = false;
-            CD_Conexion conexion = new CD_Conexion();
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -253,7 +247,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -263,9 +257,7 @@ namespace Datos
         public bool ExisteUsuario(string usuario)
         {
             bool resultado = false;
-            CD_Conexion conexion = new CD_Conexion();
-
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -279,7 +271,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -289,9 +281,8 @@ namespace Datos
         public bool BajaUsuario(int idUsuario)
         {
             bool resultado = false;
-            CD_Conexion conexion = new CD_Conexion();
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -304,7 +295,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -314,9 +305,7 @@ namespace Datos
         public List<DtoUsuarioDetalle> ListarUsuariosDatos()
         {
             List<DtoUsuarioDetalle> usuarios = new List<DtoUsuarioDetalle>();
-            CD_Conexion conexion = new CD_Conexion();
-
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -353,7 +342,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -363,9 +352,7 @@ namespace Datos
         public DtoUsuarioDetalle ObtenerUsuarioPorId(int idUsuario)
         {
             DtoUsuarioDetalle usuario = null;
-            CD_Conexion conexion = new CD_Conexion();
-
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -405,7 +392,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -414,9 +401,8 @@ namespace Datos
         public DtoDatosPersonalesPw ObtenerUsuarioDetallePorNombre(string nombreUsuario)
         {
             DtoDatosPersonalesPw usuario = null;
-            CD_Conexion conexion = new CD_Conexion();
 
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -448,7 +434,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return usuario;
@@ -456,8 +442,7 @@ namespace Datos
 
         public DtoUsuario ObtenerUsuarioPorNombre(string usuario)
         {
-            CD_Conexion conexion = new CD_Conexion();
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -482,7 +467,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return null;
@@ -490,36 +475,36 @@ namespace Datos
 
         public bool VerificarParametrosRecupero(string NroDocumento, int Id_Pregunta, string Respuesta)
         {
-            CD_Conexion conexion = new CD_Conexion();
-
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SP_VerificarRecuperoRespuesta";
-            comando.CommandType = CommandType.StoredProcedure;
-
-            comando.Parameters.AddWithValue("@NroDocumento", NroDocumento);
-            comando.Parameters.AddWithValue("@IdPregunta", Id_Pregunta);
-            comando.Parameters.AddWithValue("@Respuesta", Respuesta);
-
-            int resultado = Convert.ToInt32(comando.ExecuteScalar());
-
-            conexion.CerrarConexion();
-
-            if (resultado > 0)
+            using (SqlConnection conn = AbrirConexion())
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conn;
+                comando.CommandText = "SP_VerificarRecuperoRespuesta";
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.AddWithValue("@NroDocumento", NroDocumento);
+                comando.Parameters.AddWithValue("@IdPregunta", Id_Pregunta);
+                comando.Parameters.AddWithValue("@Respuesta", Respuesta);
+
+                int resultado = Convert.ToInt32(comando.ExecuteScalar());
+
+                CerrarConexion();
+
+                if (resultado > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
         public List<DtoHistorialContraseña> ObtenerPasswordsUsadas(int idUsuario)
         {
             List<DtoHistorialContraseña> lista = new List<DtoHistorialContraseña>();
-            CD_Conexion conexion = new CD_Conexion();
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -541,7 +526,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
 
@@ -550,8 +535,7 @@ namespace Datos
 
         public void ActualizarCambiaCada(string nombreUsuario, int dias)
         {
-            CD_Conexion conexion = new CD_Conexion();
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 using (SqlCommand cmd = new SqlCommand("sp_ActualizarCambiaCada", conn))
                 {
@@ -568,8 +552,7 @@ namespace Datos
             DtoDatosPersonalesPw usuarioEncontrado = null;
 
 
-            CD_Conexion conexion = new CD_Conexion();
-            using (SqlConnection conn = conexion.AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -605,7 +588,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
           return usuarioEncontrado;

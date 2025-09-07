@@ -5,13 +5,12 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoLocalidad
+    public class CD_DaoLocalidad : CD_Conexion
     {
         public List<DtoLocalidad> ListarLocalidadesPorPartido(int idPartido)
         {
             var lista = new List<DtoLocalidad>();
-            var conexion = new CD_Conexion();
-            using (var conn = conexion.AbrirConexion())
+            using (var conn = AbrirConexion())
             {
                 try
                 {
@@ -34,7 +33,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return lista;

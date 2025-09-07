@@ -5,14 +5,13 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoPersona
+    public class CD_DaoPersona : CD_Conexion
     {
         public int AgregarPersona(DtoPersona persona)
         {
             int idPersona = 0;
-            CD_Conexion conexion = new CD_Conexion();
-            
-            using (SqlConnection conn = conexion.AbrirConexion())
+
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -40,7 +39,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             
@@ -50,9 +49,8 @@ namespace Datos
         public bool ActualizarPersona(DtoPersona persona)
         {
             bool resultado = false;
-            CD_Conexion conexion = new CD_Conexion();
-            
-            using (SqlConnection conn = conexion.AbrirConexion())
+
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
@@ -84,7 +82,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             

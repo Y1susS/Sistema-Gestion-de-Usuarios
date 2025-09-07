@@ -11,27 +11,40 @@ namespace Datos
 {
     public class CD_Conexion
     {
-        private string cadena = "Data Source=.;Initial Catalog=Sistema Integral Remuebla;Integrated Security=True;";
+        private readonly string cadena = "Data Source=.;Initial Catalog=Sistema Integral Remuebla;Integrated Security=True;";
         private SqlConnection oConn;
 
         public CD_Conexion()
         {
             oConn = new SqlConnection(cadena);
         }
+
         public SqlConnection AbrirConexion()
         {
-            if (oConn.State == ConnectionState.Closed) oConn.Open();
+            
+            if (oConn == null || string.IsNullOrEmpty(oConn.ConnectionString))
+            {
+                // Reinicializar la conexión si es necesario
+                oConn = new SqlConnection(cadena);
+            }
+
+            if (oConn.State == ConnectionState.Closed) 
+            {
+                oConn.Open();
+            }
 
             return oConn;
         }
+
         public SqlConnection CerrarConexion()
         {
-            if (oConn.State == ConnectionState.Open) oConn.Close();
-             
+            if (oConn != null && oConn.State == ConnectionState.Open) 
+            {
+                oConn.Close();
+            }
             
             return oConn;
         }
-
 
     }
 }

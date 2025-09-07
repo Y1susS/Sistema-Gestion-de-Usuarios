@@ -6,7 +6,7 @@ using System.Threading.Tasks; // Asegúrate de que esto esté presente si usas T
 
 namespace Datos
     {
-        public class CD_PermisoFuncionalidad
+        public class CD_PermisoFuncionalidad 
         {
             public int IdPermiso { get; set; }
             public string NombreFuncionalidad { get; set; }

@@ -5,13 +5,13 @@ using Entidades.DTOs;
 
 namespace Datos
 {
-    public class CD_DaoTipoDoc
+    public class CD_DaoTipoDoc : CD_Conexion
     {
         public List<DtoTipoDoc> ListarTiposDocumento()
         {
             var lista = new List<DtoTipoDoc>();
-            var conexion = new CD_Conexion();
-            using (var conn = conexion.AbrirConexion())
+
+            using (var conn = AbrirConexion())
             {
                 try
                 {
@@ -33,7 +33,7 @@ namespace Datos
                 }
                 finally
                 {
-                    conexion.CerrarConexion();
+                    CerrarConexion();
                 }
             }
             return lista;

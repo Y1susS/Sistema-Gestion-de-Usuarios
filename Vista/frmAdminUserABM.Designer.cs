@@ -65,10 +65,12 @@
             this.btneliminar = new System.Windows.Forms.Button();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.pctBorde = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregarNuevo
@@ -121,7 +123,7 @@
             this.groupBox1.Controls.Add(this.txtCalle);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.txtApellidos);
-            this.groupBox1.Location = new System.Drawing.Point(59, 62);
+            this.groupBox1.Location = new System.Drawing.Point(47, 62);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(642, 193);
             this.groupBox1.TabIndex = 3;
@@ -192,9 +194,9 @@
             this.lblDepart.AutoSize = true;
             this.lblDepart.Location = new System.Drawing.Point(525, 136);
             this.lblDepart.Name = "lblDepart";
-            this.lblDepart.Size = new System.Drawing.Size(39, 13);
+            this.lblDepart.Size = new System.Drawing.Size(36, 13);
             this.lblDepart.TabIndex = 31;
-            this.lblDepart.Text = "Depart";
+            this.lblDepart.Text = "Depto";
             // 
             // lblPiso
             // 
@@ -210,9 +212,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(315, 136);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 29;
-            this.label10.Text = "Nro";
+            this.label10.Text = "Altura";
             // 
             // lblCalle
             // 
@@ -368,7 +370,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 277);
+            this.dataGridView1.Location = new System.Drawing.Point(47, 277);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -421,6 +423,15 @@
             this.pctMinimize.TabStop = false;
             this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
             // 
+            // pctBorde
+            // 
+            this.pctBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctBorde.Location = new System.Drawing.Point(-5, -2);
+            this.pctBorde.Name = "pctBorde";
+            this.pctBorde.Size = new System.Drawing.Size(859, 44);
+            this.pctBorde.TabIndex = 23;
+            this.pctBorde.TabStop = false;
+            // 
             // frmAdminUserABM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -433,6 +444,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnAgregarNuevo);
+            this.Controls.Add(this.pctBorde);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAdminUserABM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -443,6 +455,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBorde)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +499,6 @@
         private System.Windows.Forms.ComboBox cmbLocalidad;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.PictureBox pctMinimize;
+        private System.Windows.Forms.PictureBox pctBorde;
     }
 }
