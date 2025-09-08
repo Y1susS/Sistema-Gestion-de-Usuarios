@@ -7,6 +7,10 @@ namespace Datos
 {
     public class CD_DaoPersona : CD_Conexion
     {
+        public CD_DaoPersona() : base()
+        {
+        }
+
         public int AgregarPersona(DtoPersona persona)
         {
             int idPersona = 0;
@@ -17,32 +21,37 @@ namespace Datos
                 {
                     SqlCommand cmd = new SqlCommand("sp_AgregarPersona", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    
+
                     cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
                     cmd.Parameters.AddWithValue("@Apellido", persona.Apellido);
                     cmd.Parameters.AddWithValue("@Id_TipoDocumento", persona.Id_TipoDocumento);
                     cmd.Parameters.AddWithValue("@NroDocumento", persona.NroDocumento);
                     cmd.Parameters.AddWithValue("@Email", persona.Email);
-                    cmd.Parameters.AddWithValue("@Calle", persona.Calle);
+                    cmd.Parameters.AddWithValue("@Calle", persona.Calle ?? string.Empty);
                     cmd.Parameters.AddWithValue("@Nro", persona.Nro);
-                    cmd.Parameters.AddWithValue("@Piso", string.IsNullOrEmpty(persona.Piso) ? DBNull.Value : (object)persona.Piso);
-                    cmd.Parameters.AddWithValue("@Depto", string.IsNullOrEmpty(persona.Depto) ? DBNull.Value : (object)persona.Depto);
+                    cmd.Parameters.AddWithValue("@Piso", persona.Piso ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@Depto", persona.Depto ?? string.Empty);
                     cmd.Parameters.AddWithValue("@Id_Localidad", persona.Id_Localidad);
-                    cmd.Parameters.AddWithValue("@Telefono", persona.Telefono ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Telefono", persona.Telefono ?? string.Empty);
 
-                    // Modificar el SP para que devuelva el ID generado
-                    object result = cmd.ExecuteScalar();
-                    if (result != null && result != DBNull.Value)
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        idPersona = Convert.ToInt32(result);
+                        if (dr.Read())
+                        {
+                            idPersona = Convert.ToInt32(dr["Id_Persona"]);
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al agregar persona: " + ex.Message, ex);
                 }
                 finally
                 {
                     CerrarConexion();
                 }
             }
-            
+
             return idPersona;
         }
 
@@ -54,31 +63,28 @@ namespace Datos
             {
                 try
                 {
-                    // NO LLAMAR conexion.Open() aquí porque AbrirConexion() ya lo hace
                     SqlCommand cmd = new SqlCommand("sp_ModificarPersona", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Parámetros para el procedimiento almacenado
                     cmd.Parameters.AddWithValue("@Id_Persona", persona.Id_Persona);
                     cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
                     cmd.Parameters.AddWithValue("@Apellido", persona.Apellido);
                     cmd.Parameters.AddWithValue("@Id_TipoDocumento", persona.Id_TipoDocumento);
                     cmd.Parameters.AddWithValue("@NroDocumento", persona.NroDocumento);
                     cmd.Parameters.AddWithValue("@Email", persona.Email);
-                    cmd.Parameters.AddWithValue("@Calle", persona.Calle);
+                    cmd.Parameters.AddWithValue("@Calle", persona.Calle ?? string.Empty);
                     cmd.Parameters.AddWithValue("@Nro", persona.Nro);
-                    cmd.Parameters.AddWithValue("@Piso", persona.Piso ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Depto", persona.Depto ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Piso", persona.Piso ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@Depto", persona.Depto ?? string.Empty);
                     cmd.Parameters.AddWithValue("@Id_Localidad", persona.Id_Localidad);
-                    cmd.Parameters.AddWithValue("@Telefono", persona.Telefono ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Telefono", persona.Telefono ?? string.Empty);
 
-                    int filasAfectadas = cmd.ExecuteNonQuery();
-                    resultado = filasAfectadas > 0;
+                    int filas = cmd.ExecuteNonQuery();
+                    resultado = filas > 0;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al actualizar persona: " + ex.Message);
-                    resultado = false;
+                    throw new Exception("Error al actualizar persona: " + ex.Message, ex);
                 }
                 finally
                 {

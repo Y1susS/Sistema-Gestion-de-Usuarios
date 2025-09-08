@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Datos;
 using Entidades.DTOs;
@@ -10,7 +11,14 @@ namespace Logica
 
         public List<DtoPartido> MostrarPartidos()
         {
-            return daoPartido.ListarPartidos();
+            try
+            {
+                return daoPartido.ListarPartidos();
+            }
+            catch (Exception)
+            {
+                return new List<DtoPartido>();
+            }
         }
     }
 }
