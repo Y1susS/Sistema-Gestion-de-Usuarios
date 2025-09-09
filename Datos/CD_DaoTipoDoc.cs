@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,33 +10,37 @@ namespace Datos
     {
         public List<DtoTipoDoc> ListarTiposDocumento()
         {
-            var lista = new List<DtoTipoDoc>();
+            List<DtoTipoDoc> lista = new List<DtoTipoDoc>();
 
-            using (var conn = AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
-                    var cmd = new SqlCommand("sp_ListarTipoDocumento", conn)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    using (var dr = cmd.ExecuteReader())
+                    SqlCommand cmd = new SqlCommand("sp_ListarTipoDocumento", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {
                             lista.Add(new DtoTipoDoc
                             {
-                                Id_TipoDocumento = dr.GetString(0),
-                                DescDocumento = dr.GetString(1)
+                                Id_TipoDocumento = dr["Id_TipoDocumento"].ToString(),
+                                DescDocumento = dr["DescDocumento"].ToString()
                             });
                         }
                     }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al listar tipos de documento: " + ex.Message, ex);
                 }
                 finally
                 {
                     CerrarConexion();
                 }
             }
+
             return lista;
         }
     }

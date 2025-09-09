@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Datos;
 using Entidades.DTOs;
@@ -10,7 +11,14 @@ namespace Logica
 
         public List<DtoTipoDoc> MostrarTiposDocumento()
         {
-            return daoTipoDoc.ListarTiposDocumento();
+            try
+            {
+                return daoTipoDoc.ListarTiposDocumento();
+            }
+            catch (Exception)
+            {
+                return new List<DtoTipoDoc>();
+            }
         }
     }
 }

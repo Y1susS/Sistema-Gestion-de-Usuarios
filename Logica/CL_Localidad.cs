@@ -12,5 +12,18 @@ namespace Logica
         {
             return daoLocalidad.ListarLocalidadesPorPartido(idPartido);
         }
+
+        // Obtener localidad por ID
+        public DtoLocalidad ObtenerLocalidadPorId(int idLocalidad)
+        {
+            try
+            {
+                return daoLocalidad.ObtenerLocalidadPorId(idLocalidad);
+            }
+            catch (System.Exception)
+            {
+                return null;
+            }
+        }
     }
 }

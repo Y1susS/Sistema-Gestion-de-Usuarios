@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroClientes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
+            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
+            this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.txtderpatamento = new System.Windows.Forms.TextBox();
             this.txtpiso = new System.Windows.Forms.TextBox();
-            this.txtlocalidad = new System.Windows.Forms.TextBox();
-            this.txtpartido = new System.Windows.Forms.TextBox();
             this.txtnumerocalle = new System.Windows.Forms.TextBox();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.txtnumerodocumento = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtcalle = new System.Windows.Forms.TextBox();
             this.txttelefono = new System.Windows.Forms.TextBox();
-            this.txttipodocumento = new System.Windows.Forms.TextBox();
             this.txtapellido = new System.Windows.Forms.TextBox();
             this.btnVolverRegCliente = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
@@ -59,17 +59,17 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbTipoDoc);
+            this.groupBox1.Controls.Add(this.cmbLocalidad);
+            this.groupBox1.Controls.Add(this.cmbPartido);
             this.groupBox1.Controls.Add(this.txtderpatamento);
             this.groupBox1.Controls.Add(this.txtpiso);
-            this.groupBox1.Controls.Add(this.txtlocalidad);
-            this.groupBox1.Controls.Add(this.txtpartido);
             this.groupBox1.Controls.Add(this.txtnumerocalle);
             this.groupBox1.Controls.Add(this.txtemail);
             this.groupBox1.Controls.Add(this.txtnumerodocumento);
             this.groupBox1.Controls.Add(this.txtnombre);
             this.groupBox1.Controls.Add(this.txtcalle);
             this.groupBox1.Controls.Add(this.txttelefono);
-            this.groupBox1.Controls.Add(this.txttipodocumento);
             this.groupBox1.Controls.Add(this.txtapellido);
             this.groupBox1.Location = new System.Drawing.Point(42, 61);
             this.groupBox1.Name = "groupBox1";
@@ -77,6 +77,36 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro y Modificación de clientes";
+            // 
+            // cmbTipoDoc
+            // 
+            this.cmbTipoDoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTipoDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbTipoDoc.FormattingEnabled = true;
+            this.cmbTipoDoc.Location = new System.Drawing.Point(6, 50);
+            this.cmbTipoDoc.Name = "cmbTipoDoc";
+            this.cmbTipoDoc.Size = new System.Drawing.Size(251, 21);
+            this.cmbTipoDoc.TabIndex = 16;
+            // 
+            // cmbLocalidad
+            // 
+            this.cmbLocalidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbLocalidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocalidad.FormattingEnabled = true;
+            this.cmbLocalidad.Location = new System.Drawing.Point(385, 133);
+            this.cmbLocalidad.Name = "cmbLocalidad";
+            this.cmbLocalidad.Size = new System.Drawing.Size(251, 21);
+            this.cmbLocalidad.TabIndex = 15;
+            // 
+            // cmbPartido
+            // 
+            this.cmbPartido.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPartido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbPartido.FormattingEnabled = true;
+            this.cmbPartido.Location = new System.Drawing.Point(6, 133);
+            this.cmbPartido.Name = "cmbPartido";
+            this.cmbPartido.Size = new System.Drawing.Size(251, 21);
+            this.cmbPartido.TabIndex = 14;
             // 
             // txtderpatamento
             // 
@@ -95,24 +125,6 @@
             this.txtpiso.TabIndex = 9;
             this.txtpiso.Enter += new System.EventHandler(this.txtpiso_Enter);
             this.txtpiso.Leave += new System.EventHandler(this.txtpiso_Leave);
-            // 
-            // txtlocalidad
-            // 
-            this.txtlocalidad.Location = new System.Drawing.Point(385, 133);
-            this.txtlocalidad.Name = "txtlocalidad";
-            this.txtlocalidad.Size = new System.Drawing.Size(251, 20);
-            this.txtlocalidad.TabIndex = 12;
-            this.txtlocalidad.Enter += new System.EventHandler(this.txtlocalidad_Enter);
-            this.txtlocalidad.Leave += new System.EventHandler(this.txtlocalidad_Leave);
-            // 
-            // txtpartido
-            // 
-            this.txtpartido.Location = new System.Drawing.Point(6, 133);
-            this.txtpartido.Name = "txtpartido";
-            this.txtpartido.Size = new System.Drawing.Size(251, 20);
-            this.txtpartido.TabIndex = 11;
-            this.txtpartido.Enter += new System.EventHandler(this.txtpartido_Enter);
-            this.txtpartido.Leave += new System.EventHandler(this.txtpartido_Leave);
             // 
             // txtnumerocalle
             // 
@@ -138,7 +150,7 @@
             this.txtnumerodocumento.Name = "txtnumerodocumento";
             this.txtnumerodocumento.Size = new System.Drawing.Size(251, 20);
             this.txtnumerodocumento.TabIndex = 4;
-            this.txtnumerodocumento.Enter += new System.EventHandler(this.txttipodocumento_Enter);
+            this.txtnumerodocumento.Enter += new System.EventHandler(this.txtnumerodocumento_Enter);
             this.txtnumerodocumento.Leave += new System.EventHandler(this.txtnumerodocumento_Leave);
             // 
             // txtnombre
@@ -168,15 +180,6 @@
             this.txttelefono.Enter += new System.EventHandler(this.txttelefono_Enter);
             this.txttelefono.Leave += new System.EventHandler(this.txttelefono_Leave);
             // 
-            // txttipodocumento
-            // 
-            this.txttipodocumento.Location = new System.Drawing.Point(6, 49);
-            this.txttipodocumento.Name = "txttipodocumento";
-            this.txttipodocumento.Size = new System.Drawing.Size(251, 20);
-            this.txttipodocumento.TabIndex = 3;
-            this.txttipodocumento.Enter += new System.EventHandler(this.txttipodocumento_Enter);
-            this.txttipodocumento.Leave += new System.EventHandler(this.txttipodocumento_Enter);
-            // 
             // txtapellido
             // 
             this.txtapellido.Location = new System.Drawing.Point(6, 21);
@@ -196,23 +199,25 @@
             this.btnVolverRegCliente.UseVisualStyleBackColor = true;
             this.btnVolverRegCliente.Click += new System.EventHandler(this.btnVolverRegCliente_Click);
             // 
-            // button2
+            // btnModificar
             // 
-            this.button2.Location = new System.Drawing.Point(750, 108);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(750, 108);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 14;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // button4
+            // btnAgregar
             // 
-            this.button4.Location = new System.Drawing.Point(750, 79);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Agregar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAgregar.Location = new System.Drawing.Point(750, 79);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dataGridView1
             // 
@@ -258,6 +263,7 @@
             this.btnEliminar.TabIndex = 25;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // pctBorde
             // 
@@ -277,8 +283,8 @@
             this.Controls.Add(this.pctClose);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnVolverRegCliente);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pctBorde);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -300,23 +306,23 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtderpatamento;
         private System.Windows.Forms.TextBox txtpiso;
-        private System.Windows.Forms.TextBox txtlocalidad;
-        private System.Windows.Forms.TextBox txtpartido;
         private System.Windows.Forms.TextBox txtnumerocalle;
         private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.TextBox txtnumerodocumento;
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.TextBox txtcalle;
         private System.Windows.Forms.TextBox txttelefono;
-        private System.Windows.Forms.TextBox txttipodocumento;
         private System.Windows.Forms.TextBox txtapellido;
         private System.Windows.Forms.Button btnVolverRegCliente;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.PictureBox pctBorde;
+        private System.Windows.Forms.ComboBox cmbPartido;
+        private System.Windows.Forms.ComboBox cmbLocalidad;
+        private System.Windows.Forms.ComboBox cmbTipoDoc;
     }
 }

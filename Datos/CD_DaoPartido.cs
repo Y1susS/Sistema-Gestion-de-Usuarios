@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,33 +10,37 @@ namespace Datos
     {
         public List<DtoPartido> ListarPartidos()
         {
-            var lista = new List<DtoPartido>();
+            List<DtoPartido> lista = new List<DtoPartido>();
 
-            using (var conn = AbrirConexion())
+            using (SqlConnection conn = AbrirConexion())
             {
                 try
                 {
-                    var cmd = new SqlCommand("sp_ListarPartido", conn)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    using (var dr = cmd.ExecuteReader())
+                    SqlCommand cmd = new SqlCommand("sp_ListarPartido", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {
                             lista.Add(new DtoPartido
                             {
-                                Id_Partido = dr.GetInt32(0),
-                                Partido = dr.GetString(1)
+                                Id_Partido = Convert.ToInt32(dr["Id_Partido"]),
+                                Partido = dr["Partido"].ToString()
                             });
                         }
                     }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al listar partidos: " + ex.Message, ex);
                 }
                 finally
                 {
                     CerrarConexion();
                 }
             }
+
             return lista;
         }
     }
