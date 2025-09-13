@@ -45,6 +45,7 @@
     <Compile Include="CL_ConfiguracionContraseña.cs" />
     <Compile Include="CL_Localidad.cs" />
     <Compile Include="CL_Loguin.cs" />
+    <Compile Include="CL_Materiales.cs" />
     <Compile Include="CL_Partido.cs" />
     <Compile Include="CL_Permisos.cs" />
     <Compile Include="CL_Preguntas.cs" />

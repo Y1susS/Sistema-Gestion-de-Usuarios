@@ -85,7 +85,7 @@
             this.cmbTipoDoc.FormattingEnabled = true;
             this.cmbTipoDoc.Location = new System.Drawing.Point(6, 50);
             this.cmbTipoDoc.Name = "cmbTipoDoc";
-            this.cmbTipoDoc.Size = new System.Drawing.Size(251, 21);
+            this.cmbTipoDoc.Size = new System.Drawing.Size(251, 24);
             this.cmbTipoDoc.TabIndex = 16;
             // 
             // cmbLocalidad
@@ -95,7 +95,7 @@
             this.cmbLocalidad.FormattingEnabled = true;
             this.cmbLocalidad.Location = new System.Drawing.Point(385, 133);
             this.cmbLocalidad.Name = "cmbLocalidad";
-            this.cmbLocalidad.Size = new System.Drawing.Size(251, 21);
+            this.cmbLocalidad.Size = new System.Drawing.Size(251, 24);
             this.cmbLocalidad.TabIndex = 15;
             // 
             // cmbPartido
@@ -105,14 +105,14 @@
             this.cmbPartido.FormattingEnabled = true;
             this.cmbPartido.Location = new System.Drawing.Point(6, 133);
             this.cmbPartido.Name = "cmbPartido";
-            this.cmbPartido.Size = new System.Drawing.Size(251, 21);
+            this.cmbPartido.Size = new System.Drawing.Size(251, 24);
             this.cmbPartido.TabIndex = 14;
             // 
             // txtderpatamento
             // 
             this.txtderpatamento.Location = new System.Drawing.Point(579, 105);
             this.txtderpatamento.Name = "txtderpatamento";
-            this.txtderpatamento.Size = new System.Drawing.Size(57, 20);
+            this.txtderpatamento.Size = new System.Drawing.Size(57, 22);
             this.txtderpatamento.TabIndex = 10;
             this.txtderpatamento.Enter += new System.EventHandler(this.txtdepartamento_Enter);
             this.txtderpatamento.Leave += new System.EventHandler(this.txtdepartamento_Leave);
@@ -121,7 +121,7 @@
             // 
             this.txtpiso.Location = new System.Drawing.Point(482, 105);
             this.txtpiso.Name = "txtpiso";
-            this.txtpiso.Size = new System.Drawing.Size(57, 20);
+            this.txtpiso.Size = new System.Drawing.Size(57, 22);
             this.txtpiso.TabIndex = 9;
             this.txtpiso.Enter += new System.EventHandler(this.txtpiso_Enter);
             this.txtpiso.Leave += new System.EventHandler(this.txtpiso_Leave);
@@ -130,7 +130,7 @@
             // 
             this.txtnumerocalle.Location = new System.Drawing.Point(385, 105);
             this.txtnumerocalle.Name = "txtnumerocalle";
-            this.txtnumerocalle.Size = new System.Drawing.Size(57, 20);
+            this.txtnumerocalle.Size = new System.Drawing.Size(57, 22);
             this.txtnumerocalle.TabIndex = 8;
             this.txtnumerocalle.Enter += new System.EventHandler(this.txtnumerocalle_Enter);
             this.txtnumerocalle.Leave += new System.EventHandler(this.txtnumerocalle_Leave);
@@ -139,7 +139,7 @@
             // 
             this.txtemail.Location = new System.Drawing.Point(385, 77);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(251, 20);
+            this.txtemail.Size = new System.Drawing.Size(251, 22);
             this.txtemail.TabIndex = 6;
             this.txtemail.Enter += new System.EventHandler(this.txtemail_Enter);
             this.txtemail.Leave += new System.EventHandler(this.txtemail_Leave);
@@ -148,7 +148,7 @@
             // 
             this.txtnumerodocumento.Location = new System.Drawing.Point(385, 49);
             this.txtnumerodocumento.Name = "txtnumerodocumento";
-            this.txtnumerodocumento.Size = new System.Drawing.Size(251, 20);
+            this.txtnumerodocumento.Size = new System.Drawing.Size(251, 22);
             this.txtnumerodocumento.TabIndex = 4;
             this.txtnumerodocumento.Enter += new System.EventHandler(this.txtnumerodocumento_Enter);
             this.txtnumerodocumento.Leave += new System.EventHandler(this.txtnumerodocumento_Leave);
@@ -157,7 +157,7 @@
             // 
             this.txtnombre.Location = new System.Drawing.Point(385, 21);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(251, 20);
+            this.txtnombre.Size = new System.Drawing.Size(251, 22);
             this.txtnombre.TabIndex = 2;
             this.txtnombre.Enter += new System.EventHandler(this.txtnombre_Enter);
             this.txtnombre.Leave += new System.EventHandler(this.txtnombre_Leave);
@@ -166,7 +166,7 @@
             // 
             this.txtcalle.Location = new System.Drawing.Point(6, 105);
             this.txtcalle.Name = "txtcalle";
-            this.txtcalle.Size = new System.Drawing.Size(251, 20);
+            this.txtcalle.Size = new System.Drawing.Size(251, 22);
             this.txtcalle.TabIndex = 7;
             this.txtcalle.Enter += new System.EventHandler(this.txtcalle_Enter);
             this.txtcalle.Leave += new System.EventHandler(this.txtcalle_Leave);
@@ -175,7 +175,7 @@
             // 
             this.txttelefono.Location = new System.Drawing.Point(6, 77);
             this.txttelefono.Name = "txttelefono";
-            this.txttelefono.Size = new System.Drawing.Size(251, 20);
+            this.txttelefono.Size = new System.Drawing.Size(251, 22);
             this.txttelefono.TabIndex = 5;
             this.txttelefono.Enter += new System.EventHandler(this.txttelefono_Enter);
             this.txttelefono.Leave += new System.EventHandler(this.txttelefono_Leave);
@@ -184,14 +184,14 @@
             // 
             this.txtapellido.Location = new System.Drawing.Point(6, 21);
             this.txtapellido.Name = "txtapellido";
-            this.txtapellido.Size = new System.Drawing.Size(251, 20);
+            this.txtapellido.Size = new System.Drawing.Size(251, 22);
             this.txtapellido.TabIndex = 1;
             this.txtapellido.Enter += new System.EventHandler(this.txtapellido_Enter);
             this.txtapellido.Leave += new System.EventHandler(this.txtapellido_Leave);
             // 
             // btnVolverRegCliente
             // 
-            this.btnVolverRegCliente.Location = new System.Drawing.Point(750, 164);
+            this.btnVolverRegCliente.Location = new System.Drawing.Point(555, 237);
             this.btnVolverRegCliente.Name = "btnVolverRegCliente";
             this.btnVolverRegCliente.Size = new System.Drawing.Size(75, 24);
             this.btnVolverRegCliente.TabIndex = 15;
@@ -201,7 +201,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(750, 108);
+            this.btnModificar.Location = new System.Drawing.Point(240, 238);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 14;
@@ -211,7 +211,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(750, 79);
+            this.btnAgregar.Location = new System.Drawing.Point(105, 240);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 13;
@@ -234,7 +234,7 @@
             this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(812, 2);
+            this.pctClose.Location = new System.Drawing.Point(692, 2);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -247,7 +247,7 @@
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(2, 2);
+            this.pctMinimize.Location = new System.Drawing.Point(657, 2);
             this.pctMinimize.Name = "pctMinimize";
             this.pctMinimize.Size = new System.Drawing.Size(40, 40);
             this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -257,7 +257,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(750, 135);
+            this.btnEliminar.Location = new System.Drawing.Point(400, 238);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 25;
@@ -270,14 +270,14 @@
             this.pctBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctBorde.Location = new System.Drawing.Point(-7, -2);
             this.pctBorde.Name = "pctBorde";
-            this.pctBorde.Size = new System.Drawing.Size(869, 44);
+            this.pctBorde.Size = new System.Drawing.Size(739, 44);
             this.pctBorde.TabIndex = 26;
             this.pctBorde.TabStop = false;
             // 
             // frmRegistroClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(853, 490);
+            this.ClientSize = new System.Drawing.Size(731, 490);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.pctMinimize);
             this.Controls.Add(this.pctClose);

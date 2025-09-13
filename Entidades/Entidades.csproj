@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -48,6 +48,7 @@
     <Compile Include="DTOs\DtoFuncionalidad.cs" />
     <Compile Include="DTOs\DtoHistorialContraseña.cs" />
     <Compile Include="DTOs\DtoLocalidad.cs" />
+    <Compile Include="DTOs\DtoMaterial.cs" />
     <Compile Include="DTOs\DtoPartido.cs" />
     <Compile Include="DTOs\DtoPermisoUsuario.cs" />
     <Compile Include="DTOs\DtoPersona.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="DTOs\DtoRespuesta.cs" />
     <Compile Include="DTOs\DtoRol.cs" />
     <Compile Include="DTOs\DtoTipoDoc.cs" />
+    <Compile Include="DTOs\DtoTipoMaterial.cs" />
     <Compile Include="DTOs\DtoUsuario.cs" />
     <Compile Include="DTOs\DtoUsuarioDetalle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

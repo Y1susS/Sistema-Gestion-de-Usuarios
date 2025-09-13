@@ -45,6 +45,7 @@
     <Compile Include="CD_DaoCliente.cs" />
     <Compile Include="CD_DaoConfiguracionContraseña.cs" />
     <Compile Include="CD_DaoLocalidad.cs" />
+    <Compile Include="CD_DaoMateriales.cs" />
     <Compile Include="CD_DaoPartido.cs" />
     <Compile Include="CD_DaoPassUsada.cs" />
     <Compile Include="CD_DaoPersona.cs" />

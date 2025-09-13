@@ -165,9 +165,11 @@ namespace Vista
 
         private void btngestionstock_Click(object sender, EventArgs e)
         {
-            frmStockyValores frm = new frmStockyValores();
-            frm.Show();
-            this.Close();
+            frmControlStock frm = new frmControlStock();
+            this.Hide();  
+            frm.ShowDialog();
+            this.Show();
+
         }
     }
 }
