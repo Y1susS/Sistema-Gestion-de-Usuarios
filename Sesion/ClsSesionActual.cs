@@ -26,6 +26,12 @@ namespace Entidades
             return Usuario != null;
         }
 
+        // Nuevo método para obtener el usuario de la sesión
+        public static DtoUsuario ObtenerUsuario()
+        {
+            return Usuario;
+        }
+
         //settea para todo el sistema la confid de pw
         public static DtoConfiguracionContraseña ConfiguracionContraseña { get; private set; }
 
@@ -37,6 +43,5 @@ namespace Entidades
             }
             ConfiguracionContraseña = dto;
         }
-               
     }
 }

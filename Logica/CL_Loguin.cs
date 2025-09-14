@@ -38,6 +38,9 @@ namespace Logica
                 return false;
             }
 
+            List<string> permisos = daoUsuario.ObtenerPermisosPorUsuario(dto.Id_user);
+            dto.Permisos = permisos;
+
             // 3. Si todo está en orden, proceder con el login
             ClsSesionActual.Iniciar(dto);
             
