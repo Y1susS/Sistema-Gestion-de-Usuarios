@@ -594,7 +594,67 @@ namespace Datos
           return usuarioEncontrado;
         }
 
-      
+        public bool AsignarPermisosPorRol(int idUsuario, int idRol)
+        {
+            try
+            {
+                CD_Conexion oConexion = new CD_Conexion();
+                using (SqlCommand cmd = new SqlCommand("SP_AsignarPermisosPorRol", oConexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Agregamos los parámetros del stored procedure
+                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    cmd.Parameters.AddWithValue("@IdRol", idRol);
+
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Muestra el error en la consola para depuración
+                Console.WriteLine($"Error al asignar permisos: {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                CD_Conexion oConexion = new CD_Conexion();
+                oConexion.CerrarConexion();
+            }
+        }
+        public List<string> ObtenerPermisosPorUsuario(int idUsuario)
+        {
+            List<string> permisos = new List<string>();
+            try
+            {
+                CD_Conexion oConexion = new CD_Conexion();
+                // Ahora la consulta trae el nombre del permiso en lugar de la descripción
+                string query = "SELECT p.[Permiso] FROM Usuario_Permiso pu INNER JOIN Permiso p ON pu.Id_Permiso = p.Id_Permiso WHERE pu.Id_User = @IdUsuario AND pu.Habilitado = 1";
+                using (SqlCommand cmd = new SqlCommand(query, oConexion.AbrirConexion()))
+                {
+                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            permisos.Add(dr["Permiso"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener permisos: {ex.Message}");
+            }
+            finally
+            {
+                CD_Conexion oConexion = new CD_Conexion();
+                oConexion.CerrarConexion();
+            }
+            return permisos;
+        }
     }
 }
+
 

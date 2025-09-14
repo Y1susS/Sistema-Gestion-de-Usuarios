@@ -20,5 +20,7 @@ namespace Entidades.DTOs
         public DateTime? FechaBaja { get; set; } 
         public bool RequiereCambioContraseña => CambiaCada > 0 && 
             (DateTime.Now - FechaUltimoCambio).TotalDays > CambiaCada;
+        public List<string> Permisos { get; set; }
+
     }
 }
