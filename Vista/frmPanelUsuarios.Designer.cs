@@ -233,6 +233,7 @@
             this.btnmetricas.TabIndex = 29;
             this.btnmetricas.Text = "Metricas";
             this.btnmetricas.UseVisualStyleBackColor = true;
+            this.btnmetricas.Click += new System.EventHandler(this.btnmetricas_Click);
             // 
             // btnbackup
             // 

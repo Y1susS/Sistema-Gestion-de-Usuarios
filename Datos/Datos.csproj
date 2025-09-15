@@ -54,6 +54,7 @@
     <Compile Include="CD_DaoRol.cs" />
     <Compile Include="CD_DaoTipoDoc.cs" />
     <Compile Include="CD_DaoUsuario.cs" />
+    <Compile Include="CD_DaoVenta.cs" />
     <Compile Include="CD_PermisoFuncionalidad.cs" />
     <Compile Include="CD_Permisos.cs" />
     <Compile Include="CD_PermisoUsuarioViewModel.cs" />

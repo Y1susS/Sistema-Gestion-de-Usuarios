@@ -54,6 +54,7 @@
     <Compile Include="CL_Usuarios.cs" />
     <Compile Include="CL_ValidacionCliente.cs" />
     <Compile Include="CL_ValidacionesBase.cs" />
+    <Compile Include="CL_Ventas.cs" />
     <Compile Include="CL_VerificarRecupero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
