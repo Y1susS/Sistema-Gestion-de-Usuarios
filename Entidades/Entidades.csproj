@@ -59,6 +59,7 @@
     <Compile Include="DTOs\DtoTipoMaterial.cs" />
     <Compile Include="DTOs\DtoUsuario.cs" />
     <Compile Include="DTOs\DtoUsuarioDetalle.cs" />
+    <Compile Include="DTOs\DtoVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

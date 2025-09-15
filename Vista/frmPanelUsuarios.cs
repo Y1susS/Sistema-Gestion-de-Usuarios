@@ -224,5 +224,12 @@ namespace Vista
             frm.ShowDialog();
             this.Show();
         }
+
+        private void btnmetricas_Click(object sender, EventArgs e)
+        {
+            frmReportes frmReportes = new frmReportes();
+            frmReportes.Show();
+            this.Hide();
+        }
     }
 }
