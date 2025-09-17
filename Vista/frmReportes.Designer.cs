@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
@@ -40,8 +43,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblPromedio = new System.Windows.Forms.Label();
+            this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblTotalVentas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvVentas
@@ -49,9 +56,10 @@
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentas.Location = new System.Drawing.Point(12, 239);
             this.dgvVentas.Name = "dgvVentas";
+            this.dgvVentas.ReadOnly = true;
             this.dgvVentas.RowHeadersWidth = 51;
             this.dgvVentas.RowTemplate.Height = 24;
-            this.dgvVentas.Size = new System.Drawing.Size(776, 199);
+            this.dgvVentas.Size = new System.Drawing.Size(739, 182);
             this.dgvVentas.TabIndex = 0;
             // 
             // dtpDesde
@@ -97,7 +105,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(703, 202);
+            this.btnLimpiar.Location = new System.Drawing.Point(407, 202);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 6;
@@ -152,10 +160,46 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Hasta";
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(551, 168);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(44, 16);
+            this.lblTotal.TabIndex = 13;
+            this.lblTotal.Text = "label5";
+            // 
+            // lblPromedio
+            // 
+            this.lblPromedio.AutoSize = true;
+            this.lblPromedio.Location = new System.Drawing.Point(551, 205);
+            this.lblPromedio.Name = "lblPromedio";
+            this.lblPromedio.Size = new System.Drawing.Size(44, 16);
+            this.lblPromedio.TabIndex = 14;
+            this.lblPromedio.Text = "label5";
+            // 
+            // chartVentas
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartVentas.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartVentas.Legends.Add(legend2);
+            this.chartVentas.Location = new System.Drawing.Point(810, 12);
+            this.chartVentas.Name = "chartVentas";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartVentas.Series.Add(series2);
+            this.chartVentas.Size = new System.Drawing.Size(555, 426);
+            this.chartVentas.TabIndex = 15;
+            this.chartVentas.Text = "chart1";
+            // 
             // lblTotalVentas
             // 
             this.lblTotalVentas.AutoSize = true;
-            this.lblTotalVentas.Location = new System.Drawing.Point(638, 24);
+            this.lblTotalVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalVentas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalVentas.Location = new System.Drawing.Point(551, 133);
             this.lblTotalVentas.Name = "lblTotalVentas";
             this.lblTotalVentas.Size = new System.Drawing.Size(44, 16);
             this.lblTotalVentas.TabIndex = 12;
@@ -165,8 +209,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1373, 450);
             this.Controls.Add(this.lblTotalVentas);
+            this.Controls.Add(this.chartVentas);
+            this.Controls.Add(this.lblPromedio);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -183,6 +230,7 @@
             this.Text = "frmReportes";
             this.Load += new System.EventHandler(this.frmReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,6 +250,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblPromedio;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartVentas;
         private System.Windows.Forms.Label lblTotalVentas;
     }
 }
