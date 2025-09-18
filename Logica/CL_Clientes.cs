@@ -88,27 +88,23 @@ namespace Logica
         {
             try
             {
-                // Validaciones básicas
-                if (!ValidarDatosPersona(persona, out mensaje))
-                {
-                    return false;
-                }
-
-                // Obtener el cliente actual
-                var clienteActual = daoCliente.ObtenerClientePorId(idCliente);
-                if (clienteActual == null)
+                // Obtener el cliente existente para obtener el Id_Persona
+                var clienteExistente = daoCliente.ObtenerClientePorId(idCliente);
+                if (clienteExistente == null)
                 {
                     mensaje = "Cliente no encontrado";
                     return false;
                 }
 
-                // Actualizar datos de la persona
-                persona.Id_Persona = clienteActual.Id_Persona;
-                bool resultadoPersona = daoPersona.ActualizarPersona(persona);
+                // Asignar el Id_Persona para la actualización
+                persona.Id_Persona = clienteExistente.Id_Persona;
 
+                // Actualizar los datos de la persona
+                bool resultadoPersona = daoPersona.ActualizarPersona(persona);
+                
                 if (!resultadoPersona)
                 {
-                    mensaje = "Error al actualizar los datos del cliente";
+                    mensaje = "Error al actualizar los datos personales del cliente";
                     return false;
                 }
 
