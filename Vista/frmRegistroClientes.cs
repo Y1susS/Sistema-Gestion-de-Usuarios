@@ -14,17 +14,7 @@ namespace Vista
 {
     public partial class frmRegistroClientes : Form
     {
-        private const string PLACEHOLDER_APELLIDO = "Apellido";
-        private const string PLACEHOLDER_NOMBRE = "Nombres";
-        private const string PLACEHOLDER_TIPO_DOCUMENTO = "Tipo de Documento";
-        private const string PLACEHOLDER_NUMERO_DOCUMENTO = "Numero de documento";
-        private const string PLACEHOLDER_TELEFONO = "Telefono";
-        private const string PLACEHOLDER_EMAIL = "E-mail";
-        private const string PLACEHOLDER_CALLE = "Calle";
-        private const string PLACEHOLDER_NUMERO_CALLE = "Altura";
-        private const string PLACEHOLDER_PISO = "Piso";
-        private const string PLACEHOLDER_DEPARTAMENTO = "Dpto";
-
+        private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Clientes _logicaClientes = new CL_Clientes();
         private readonly CL_Partido _logicaPartido = new CL_Partido();
         private readonly CL_Localidad _logicaLocalidad = new CL_Localidad();
@@ -37,10 +27,20 @@ namespace Vista
         public frmRegistroClientes()
         {
             InitializeComponent();
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
         }
 
         private void frmRegistroClientes_Load(object sender, EventArgs e)
         {
+            dataGridView1.DefaultCellStyle.BackColor = Color.White;
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightGray;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.RowHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.EnableHeadersVisualStyles = false;
+
             try
             {
                 this.BeginInvoke(new Action(() => this.ActiveControl = null));
@@ -297,75 +297,144 @@ namespace Vista
 
         private bool ValidarCampos()
         {
-            if (string.IsNullOrWhiteSpace(ObtenerTextoSinPlaceholder(txtnombre, PLACEHOLDER_NOMBRE)))
+
+            if (string.IsNullOrWhiteSpace(txtnombre.Text))
             {
-                MessageBox.Show("Debe ingresar el nombre", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe ingresar el nombre", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtnombre.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(ObtenerTextoSinPlaceholder(txtapellido, PLACEHOLDER_APELLIDO)))
+            if (string.IsNullOrWhiteSpace(txtapellido.Text))
             {
-                MessageBox.Show("Debe ingresar el apellido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe ingresar el apellido", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtapellido.Focus();
                 return false;
             }
 
-            // Validar Tipo de Documento
-            if (cmbTipoDoc != null && cmbTipoDoc.SelectedIndex == -1)
+            if (cmbTipoDoc.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar un tipo de documento", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar un tipo de documento", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbTipoDoc.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(ObtenerTextoSinPlaceholder(txtnumerodocumento, PLACEHOLDER_NUMERO_DOCUMENTO)))
+            if (string.IsNullOrWhiteSpace(txtnumerodocumento.Text))
             {
-                MessageBox.Show("Debe ingresar el número de documento", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe ingresar el número de documento", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtnumerodocumento.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(ObtenerTextoSinPlaceholder(txtemail, PLACEHOLDER_EMAIL)) || 
-                !ObtenerTextoSinPlaceholder(txtemail, PLACEHOLDER_EMAIL).Contains("@"))
+            if (string.IsNullOrWhiteSpace(txtemail.Text) || !txtemail.Text.Contains("@") || !txtemail.Text.Contains("."))
             {
-                MessageBox.Show("Debe ingresar un email válido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe ingresar un correo electrónico válido", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtemail.Focus();
                 return false;
             }
 
-            // Validar Partido y Localidad
-            if (cmbPartido != null && cmbPartido.SelectedIndex == -1)
+            // Validacion de telefono
+            if (string.IsNullOrWhiteSpace(txttelefono.Text))
             {
-                MessageBox.Show("Debe seleccionar un partido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe ingresar el número de teléfono", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttelefono.Focus();
+                return false;
+            }
+
+            if (cmbPartido.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un partido", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbPartido.Focus();
                 return false;
             }
 
-            if (cmbLocalidad != null && cmbLocalidad.SelectedIndex == -1)
+            if (cmbLocalidad.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar una localidad", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar una localidad", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbLocalidad.Focus();
                 return false;
             }
 
             return true;
         }
+        // ANTIGUAS VALIDACIONES DE CAMPOS
+        //private bool ValidarCampos()
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtnombre.Text))
+        //    {
+        //        MessageBox.Show("Debe ingresar el nombre", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        txtnombre.Focus();
+        //        return false;
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(txtapellido.Text))
+        //    {
+        //        MessageBox.Show("Debe ingresar el apellido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        txtapellido.Focus();
+        //        return false;
+        //    }
+
+        //    // Validar Tipo de Documento
+        //    if (cmbTipoDoc != null && cmbTipoDoc.SelectedIndex == -1)
+        //    {
+        //        MessageBox.Show("Debe seleccionar un tipo de documento", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        cmbTipoDoc.Focus();
+        //        return false;
+        //    }
+
+        //    if (string.IsNullOrWhiteSpace(txtnumerodocumento.Text))
+        //    {
+        //        MessageBox.Show("Debe ingresar el número de documento", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        txtnumerodocumento.Focus();
+        //        return false;
+        //    }
+
+        //    if ((string.IsNullOrWhiteSpace(txtemail.Text)) || !txtemail.Text.Contains("@"))
+        //    {
+        //        MessageBox.Show("Debe ingresar un email válido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        txtemail.Focus();
+        //        return false;
+        //    }
+
+        //    if (cmbPartido != null && cmbPartido.SelectedIndex == -1)
+        //    {
+        //        MessageBox.Show("Debe seleccionar un partido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        cmbPartido.Focus();
+        //        return false;
+        //    }
+
+        //    if (cmbLocalidad != null && cmbLocalidad.SelectedIndex == -1)
+        //    {
+        //        MessageBox.Show("Debe seleccionar una localidad", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        cmbLocalidad.Focus();
+        //        return false;
+        //    }
+
+        //    return true;
+        //}
 
         private DtoPersona CrearDtoPersonaDesdeFormulario()
         {
             var persona = new DtoPersona
             {
-                Nombre = ObtenerTextoSinPlaceholder(txtnombre, PLACEHOLDER_NOMBRE),
-                Apellido = ObtenerTextoSinPlaceholder(txtapellido, PLACEHOLDER_APELLIDO),
+                Nombre = txtnombre.Text,
+                Apellido = txtapellido.Text,
                 Id_TipoDocumento = cmbTipoDoc?.SelectedValue?.ToString() ?? string.Empty,
-                NroDocumento = ObtenerTextoSinPlaceholder(txtnumerodocumento, PLACEHOLDER_NUMERO_DOCUMENTO),
-                Email = ObtenerTextoSinPlaceholder(txtemail, PLACEHOLDER_EMAIL),
-                Telefono = ObtenerTextoSinPlaceholder(txttelefono, PLACEHOLDER_TELEFONO),
-                Calle = ObtenerTextoSinPlaceholder(txtcalle, PLACEHOLDER_CALLE),
-                Nro = ObtenerNumeroDesdeTexto(txtnumerocalle, PLACEHOLDER_NUMERO_CALLE),
-                Piso = ObtenerTextoSinPlaceholder(txtpiso, PLACEHOLDER_PISO),
-                Depto = ObtenerTextoSinPlaceholder(txtderpatamento, PLACEHOLDER_DEPARTAMENTO),
+                NroDocumento = txtnumerodocumento.Text,
+                Email = txtemail.Text,
+                Telefono = txttelefono.Text,
+                Calle = txtcalle.Text,
+                Nro = ObtenerNumero(txtnumerocalle),
+                Piso = txtpiso.Text,
+                Depto = txtderpatamento.Text,
                 Id_Localidad = cmbLocalidad?.SelectedValue != null ?
                               (int)cmbLocalidad.SelectedValue : 1 // Valor por defecto
             };
@@ -373,31 +442,31 @@ namespace Vista
             return persona;
         }
 
-        private string ObtenerTextoSinPlaceholder(TextBox textBox, string placeholder)
+        private string ObtenerTextoSinEspacios(TextBox textBox)
         {
-            return textBox.Text == placeholder ? string.Empty : textBox.Text.Trim();
+            return textBox.Text.Trim();
         }
 
-        private int ObtenerNumeroDesdeTexto(TextBox textBox, string placeholder)
+        private int ObtenerNumero(TextBox textBox)
         {
-            string texto = ObtenerTextoSinPlaceholder(textBox, placeholder);
+            string texto = ObtenerTextoSinEspacios(textBox);
             return int.TryParse(texto, out int numero) ? numero : 0;
         }
 
         private void LimpiarFormulario()
         {
-            // Restaurar placeholders en todos los campos de texto
-            ClsPlaceHolder.Leave(PLACEHOLDER_APELLIDO, txtapellido);
-            ClsPlaceHolder.Leave(PLACEHOLDER_NOMBRE, txtnombre);
-            ClsPlaceHolder.Leave(PLACEHOLDER_NUMERO_DOCUMENTO, txtnumerodocumento);
-            ClsPlaceHolder.Leave(PLACEHOLDER_TELEFONO, txttelefono);
-            ClsPlaceHolder.Leave(PLACEHOLDER_EMAIL, txtemail);
-            ClsPlaceHolder.Leave(PLACEHOLDER_CALLE, txtcalle);
-            ClsPlaceHolder.Leave(PLACEHOLDER_NUMERO_CALLE, txtnumerocalle);
-            ClsPlaceHolder.Leave(PLACEHOLDER_PISO, txtpiso);
-            ClsPlaceHolder.Leave(PLACEHOLDER_DEPARTAMENTO, txtderpatamento);
+            // Limpia TextBoxes
+            txtnombre.Clear();
+            txtapellido.Clear();
+            txtnumerodocumento.Clear();
+            txtemail.Clear();
+            txttelefono.Clear();
+            txtcalle.Clear();
+            txtnumerocalle.Clear();
+            txtpiso.Clear();
+            txtderpatamento.Clear();
 
-            // Limpiar ComboBoxes si existen
+            // Limpia ComboBoxes si existen
             if (cmbTipoDoc != null)
                 cmbTipoDoc.SelectedIndex = -1;
             if (cmbPartido != null)
@@ -405,122 +474,12 @@ namespace Vista
             if (cmbLocalidad != null)
                 cmbLocalidad.DataSource = null;
 
-            // Resetear modo edición
+            // Resetea modo edición
             modoEdicion = false;
             idClienteSeleccionado = 0;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             btnAgregar.Text = "Agregar";
-        }
-
-        private void btnVolverRegCliente_Click(object sender, EventArgs e)
-        {
-            frmPanelUsuarios frm = new frmPanelUsuarios();
-            frm.Show();
-            this.Close();
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        // Eventos de placeholders...
-        private void txtapellido_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_APELLIDO, txtapellido);
-        }
-
-        private void txtapellido_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_APELLIDO, txtapellido);
-        }
-
-        private void txtnombre_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_NOMBRE, txtnombre);
-        }
-
-        private void txtnombre_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_NOMBRE, txtnombre);
-        }
-
-        private void txtnumerodocumento_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_NUMERO_DOCUMENTO, txtnumerodocumento);
-        }
-
-        private void txtnumerodocumento_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_NUMERO_DOCUMENTO, txtnumerodocumento);
-        }
-
-        private void txttelefono_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_TELEFONO, txttelefono);
-        }
-
-        private void txttelefono_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_TELEFONO, txttelefono);
-        }
-
-        private void txtemail_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_EMAIL, txtemail);
-        }
-
-        private void txtemail_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_EMAIL, txtemail);
-        }
-
-        private void txtcalle_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_CALLE, txtcalle);
-        }
-
-        private void txtcalle_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_CALLE, txtcalle);
-        }
-
-        private void txtnumerocalle_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_NUMERO_CALLE, txtnumerocalle);
-        }
-
-        private void txtnumerocalle_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_NUMERO_CALLE, txtnumerocalle);
-        }
-
-        private void txtpiso_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_PISO, txtpiso);
-        }
-
-        private void txtpiso_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_PISO, txtpiso);
-        }
-
-        private void txtdepartamento_Enter(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Enter(PLACEHOLDER_DEPARTAMENTO, txtderpatamento);
-        }
-
-        private void txtdepartamento_Leave(object sender, EventArgs e)
-        {
-            ClsPlaceHolder.Leave(PLACEHOLDER_DEPARTAMENTO, txtderpatamento);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -628,6 +587,18 @@ namespace Vista
                     MessageBox.Show($"Error al eliminar cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void pctMinimize_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
         }
     }
 }

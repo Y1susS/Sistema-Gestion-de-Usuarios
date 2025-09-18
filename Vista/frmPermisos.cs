@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista; // Asegúrate de que este using sea correcto para encontrar frmPanelUsuarios
+using Entidades; // Necesito esto para ClsSesionActual
 
 namespace Sistema_Gestion_De_Usuarios
 {
@@ -202,6 +203,7 @@ namespace Sistema_Gestion_De_Usuarios
                 if (guardadoExitoso)
                 {
                     MessageBox.Show("Permisos del usuario guardados exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     // Recarga los permisos para reflejar cualquier cambio (aunque ya estén en la lista)
                     List<CD_PermisoFuncionalidad> permisosRecargados = _logicaPermisos.CargarPermisosDeUsuario(_idUsuarioSeleccionado);
                     dgvPermisos.DataSource = permisosRecargados;
@@ -209,6 +211,12 @@ namespace Sistema_Gestion_De_Usuarios
                 else
                 {
                     MessageBox.Show("No se realizaron cambios en los permisos o ya estaban actualizados.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                if (_idUsuarioSeleccionado == ClsSesionActual.Usuario.Id_user)
+                {
+                    var dao = new CD_DaoUsuario();
+                    ClsSesionActual.Usuario.Permisos = dao.ObtenerPermisosPorUsuario(_idUsuarioSeleccionado) ?? new List<string>();
                 }
             }
             catch (Exception ex)

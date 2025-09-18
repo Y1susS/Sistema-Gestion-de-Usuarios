@@ -17,6 +17,7 @@ namespace Vista
 {
     public partial class frmAdminUserABM : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Usuarios objCL = new CL_Usuarios();
         private readonly CL_Partido objPartido = new CL_Partido();
         private readonly CL_Rol objRol = new CL_Rol();
@@ -33,11 +34,19 @@ namespace Vista
             cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPartido.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
 
         }
 
         private void frmAdministrador_Load(object sender, EventArgs e)
         {
+            dataGridView1.DefaultCellStyle.BackColor = Color.White;
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightGray;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.RowHeadersDefaultCellStyle.ForeColor = Color.Black;
             try
             {
                 InicializarFormulario();
@@ -475,13 +484,6 @@ namespace Vista
             }
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            frmPanelUsuarios frm = new frmPanelUsuarios();
-            frm.Show();
-            this.Close();
-        }
-
         private void CargarDatosUsuarioEnFormulario(DtoUsuarioDetalle usuario)
         {
             // DESBLOQUEAR controles para permitir edición
@@ -589,6 +591,126 @@ namespace Vista
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void cmbLocalidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLocalidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNroCalle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPiso_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDepart_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNroDoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombres_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNroDoc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombres_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellidos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblApellidos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTipoDoc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTelefono_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCalle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPartido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCalle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
