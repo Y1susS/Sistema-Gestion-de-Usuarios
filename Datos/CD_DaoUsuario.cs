@@ -598,29 +598,24 @@ namespace Datos
         {
             try
             {
-                CD_Conexion oConexion = new CD_Conexion();
-                using (SqlCommand cmd = new SqlCommand("SP_AsignarPermisosPorRol", oConexion.AbrirConexion()))
+                using (SqlConnection conn = AbrirConexion())
+                using (SqlCommand cmd = new SqlCommand("sp_AsignarPermisosPorRol", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Agregamos los parámetros del stored procedure
                     cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
                     cmd.Parameters.AddWithValue("@IdRol", idRol);
-
                     cmd.ExecuteNonQuery();
+                    return true;
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                // Muestra el error en la consola para depuración
                 Console.WriteLine($"Error al asignar permisos: {ex.Message}");
                 return false;
             }
             finally
             {
-                CD_Conexion oConexion = new CD_Conexion();
-                oConexion.CerrarConexion();
+                CerrarConexion();
             }
         }
         public List<string> ObtenerPermisosPorUsuario(int idUsuario)
