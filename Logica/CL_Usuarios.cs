@@ -8,6 +8,7 @@ using Servicios;
 using Entidades; 
 using Entidades.DTOs;
 
+
 namespace Logica
 {
     public class CL_Usuarios
@@ -220,7 +221,6 @@ namespace Logica
                 {
                     daoUsuario.AsignarPermisosPorRol(idUsuario, 2);
                 }
-                // --- FIN DEL CAMBIO ---
 
                 mensaje = "Usuario registrado correctamente";
                 return true;
@@ -480,9 +480,24 @@ namespace Logica
             return daoPregunta.VerificarExistencia(nombreUsuario);
         }
 
-      
-        
-       
+        public int ObtenerIdRolUsuario()
+        {
+            // Obtenemos el objeto del usuario de la sesión actual
+            DtoUsuario usuarioActual = ClsSesionActual.ObtenerUsuario();
+
+            // Verificamos si el usuario no es nulo
+            if (usuarioActual != null)
+            {
+                return usuarioActual.Id_Rol;
+            }
+            else
+            {
+                // Si el usuario es nulo, devolvemos un valor por defecto que indique un error o un rol desconocido
+                return -1; // Por ejemplo, -1 para indicar que no se pudo obtener el rol
+            }
+        }
+
+
 
     }
 }

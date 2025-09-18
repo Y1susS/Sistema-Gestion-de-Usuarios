@@ -15,7 +15,7 @@ namespace Logica
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
         public bool Autenticar(string usuario, string passwordPlano, out string mensaje)
         {
-            // 1. Buscar al usuario por su nombre
+            // Buscar al usuario por su nombre
             DtoUsuario dto = daoUsuario.ObtenerUsuarioPorNombre(usuario);
 
             // Si el usuario no existe, o si la contraseña no coincide
@@ -25,7 +25,7 @@ namespace Logica
                 return false;
             }
 
-            // 2. Si el usuario existe y la contraseña es correcta, verificar su estado
+            // Si el usuario existe y la contraseña es correcta, verificar su estado
             if (dto.FechaBaja != null)
             {
                 mensaje = "Este usuario ha sido dado de baja. Contacte al administrador.";
@@ -41,7 +41,6 @@ namespace Logica
             List<string> permisos = daoUsuario.ObtenerPermisosPorUsuario(dto.Id_user);
             dto.Permisos = permisos;
 
-            // 3. Si todo está en orden, proceder con el login
             ClsSesionActual.Iniciar(dto);
             
             // Verificar si es primera contraseña

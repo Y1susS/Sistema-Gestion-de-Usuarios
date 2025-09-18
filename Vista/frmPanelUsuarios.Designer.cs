@@ -40,7 +40,7 @@
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctFondo = new System.Windows.Forms.PictureBox();
             this.pctBorde = new System.Windows.Forms.PictureBox();
-            this.lblAdministrador = new System.Windows.Forms.Label();
+            this.lbltitulo = new System.Windows.Forms.Label();
             this.pctBordeInferior = new System.Windows.Forms.PictureBox();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.btncotizador = new System.Windows.Forms.Button();
@@ -179,17 +179,17 @@
             this.pctBorde.TabIndex = 23;
             this.pctBorde.TabStop = false;
             // 
-            // lblAdministrador
+            // lbltitulo
             // 
-            this.lblAdministrador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblAdministrador.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrador.ForeColor = System.Drawing.Color.White;
-            this.lblAdministrador.Location = new System.Drawing.Point(48, 10);
-            this.lblAdministrador.Name = "lblAdministrador";
-            this.lblAdministrador.Size = new System.Drawing.Size(303, 24);
-            this.lblAdministrador.TabIndex = 3;
-            this.lblAdministrador.Text = "Menú de Administrador";
-            this.lblAdministrador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lbltitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Location = new System.Drawing.Point(48, 10);
+            this.lbltitulo.Name = "lbltitulo";
+            this.lbltitulo.Size = new System.Drawing.Size(303, 24);
+            this.lbltitulo.TabIndex = 3;
+            this.lbltitulo.Text = "Menú de Administrador";
+            this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctBordeInferior
             // 
@@ -284,7 +284,7 @@
             this.Controls.Add(this.btnCambiarContrasena);
             this.Controls.Add(this.btnPreguntas);
             this.Controls.Add(this.btnRegistroClientes);
-            this.Controls.Add(this.lblAdministrador);
+            this.Controls.Add(this.lbltitulo);
             this.Controls.Add(this.btnGestionValidaciones);
             this.Controls.Add(this.btnGestionPermisos);
             this.Controls.Add(this.btnGestionUsuarios);
@@ -319,7 +319,7 @@
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.PictureBox pctBorde;
-        private System.Windows.Forms.Label lblAdministrador;
+        private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.PictureBox pctBordeInferior;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Button btncotizador;
