@@ -41,6 +41,12 @@ namespace Vista
 
         private void frmAdministrador_Load(object sender, EventArgs e)
         {
+            dataGridView1.DefaultCellStyle.BackColor = Color.White;
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightGray;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.RowHeadersDefaultCellStyle.ForeColor = Color.Black;
             try
             {
                 InicializarFormulario();
