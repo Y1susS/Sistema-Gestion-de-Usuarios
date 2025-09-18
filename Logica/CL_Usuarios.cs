@@ -211,16 +211,9 @@ namespace Logica
                     return false;
                 }
 
-                // --- CAMBIO CLAVE: ASIGNAR PERMISOS POR ROL ---
-                if (usuario.Id_Rol == 1) // 1 es el ID del rol de Administrador
-                {
-                    daoUsuario.AsignarPermisosPorRol(idUsuario, 1);
-                }
-                else if (usuario.Id_Rol == 2) // 2 es el ID del rol de Vendedor
-                {
-                    daoUsuario.AsignarPermisosPorRol(idUsuario, 2);
-                }
-                // --- FIN DEL CAMBIO ---
+                // ASIGNAR PERMISOS POR ROL ---
+                daoUsuario.AsignarPermisosPorRol(idUsuario, usuario.Id_Rol);
+             
 
                 mensaje = "Usuario registrado correctamente";
                 return true;

@@ -13,12 +13,11 @@ namespace Logica
     public class CL_Loguin
     {
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
+
         public bool Autenticar(string usuario, string passwordPlano, out string mensaje)
         {
-            // 1. Buscar al usuario por su nombre
             DtoUsuario dto = daoUsuario.ObtenerUsuarioPorNombre(usuario);
 
-            // Si el usuario no existe, o si la contraseña no coincide
             if (dto == null || dto.Password != ClsSeguridad.SHA256(usuario + passwordPlano))
             {
                 mensaje = "Usuario o contraseña incorrectos.";
@@ -38,36 +37,34 @@ namespace Logica
                 return false;
             }
 
-            List<string> permisos = daoUsuario.ObtenerPermisosPorUsuario(dto.Id_user);
-            dto.Permisos = permisos;
+            // Cargar permisos del usuario antes de iniciar sesión
+            dto.Permisos = daoUsuario.ObtenerPermisosPorUsuario(dto.Id_user) ?? new List<string>();
 
-            // 3. Si todo está en orden, proceder con el login
             ClsSesionActual.Iniciar(dto);
             
-            // Verificar si es primera contraseña
             if (dto.PrimeraPass)
             {
                 mensaje = "Debe cambiar su contraseña por primera vez";
-                return true; // Devuelve true pero debe dirigir a frmCambioContraseña
+                return true; // redirige a cambio de contraseña
             }
 
-            // Verificar si expiró la contraseña
             DateTime fechaUltimoCambio = daoUsuario.ObtenerFechaUltimoCambio(dto.Id_user);
             int cambiaCada = daoUsuario.ObtenerCambiaCada(dto.Id_user);
-            
+
             if (fechaUltimoCambio != DateTime.MinValue && cambiaCada > 0)
             {
                 TimeSpan diferencia = DateTime.Now - fechaUltimoCambio;
                 if (diferencia.TotalDays > cambiaCada)
                 {
                     mensaje = "Su contraseña ha expirado. Debe cambiarla.";
-                    return true; // Devuelve true pero debe dirigir a frmCambioContraseña
+                    return true; // redirige a cambio de contraseña
                 }
             }
 
             mensaje = "Login correcto! Bienvenido: " + ClsSesionActual.Usuario.User;
             return true;
         }
+
         public void EnviarCorreo(string direccionCorreo, string asunto, string nuevaContraseña)
         {
             ClsArmarMail.DireccionCorreo = direccionCorreo;
