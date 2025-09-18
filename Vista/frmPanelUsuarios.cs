@@ -1,11 +1,12 @@
-﻿using Logica;
+﻿using Datos;
 using Entidades;
+using Entidades.DTOs;
+using Logica;
 using Sistema_Gestion_De_Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Entidades.DTOs;
 
 
 namespace Vista
@@ -22,7 +23,7 @@ namespace Vista
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pctBorde);
-            moverFormulario.HabilitarMovimiento(lblAdministrador);
+            moverFormulario.HabilitarMovimiento(lbltitulo);
 
             ClsFondoTransparente.Aplicar(
             pctFondo,
@@ -144,7 +145,7 @@ namespace Vista
             // Verificamos si el objeto del usuario no es nulo
             if (usuarioActual != null && usuarioActual.Permisos != null)
             {
-                // Ahora sí, obtenemos la lista de permisos
+                // obtenemos la lista de permisos
                 List<string> permisos = usuarioActual.Permisos;
 
                 // Ocultamos todos los botones por defecto
@@ -204,6 +205,27 @@ namespace Vista
                 if (permisos.Contains("Cotizador"))
                 {
                     btncotizador.Visible = true;
+                }
+                // Instancia o accede a la clase de la capa Lógica (ajusta según tu arquitectura)
+                // Suponiendo que la clase se llama "UsuarioBLL"
+                CL_Usuarios logicaUsuario = new CL_Usuarios();
+
+                // Obtenemos el Id_Rol desde la capa Lógica
+                int idRol = logicaUsuario.ObtenerIdRolUsuario();
+
+                // Ahora, en la capa de la vista, decidimos qué hacer con el valor del Id_Rol
+                switch (idRol)
+                {
+                    case 1:
+                        lbltitulo.Text = "Menu Administrador";
+                        break;
+                    case 2:
+                        lbltitulo.Text = "Menu Vendedor";
+                        break;
+                    default:
+                        // Para cualquier otro rol o en caso de error
+                        lbltitulo.Text = "Menú Principal";
+                        break;
                 }
             }
         }

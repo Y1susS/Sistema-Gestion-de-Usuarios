@@ -16,6 +16,7 @@ namespace Logica
 
         public bool Autenticar(string usuario, string passwordPlano, out string mensaje)
         {
+
             DtoUsuario dto = daoUsuario.ObtenerUsuarioPorNombre(usuario);
 
             if (dto == null || dto.Password != ClsSeguridad.SHA256(usuario + passwordPlano))
@@ -24,7 +25,7 @@ namespace Logica
                 return false;
             }
 
-            // 2. Si el usuario existe y la contraseña es correcta, verificar su estado
+            // Si el usuario existe y la contraseña es correcta, verificar su estado
             if (dto.FechaBaja != null)
             {
                 mensaje = "Este usuario ha sido dado de baja. Contacte al administrador.";
