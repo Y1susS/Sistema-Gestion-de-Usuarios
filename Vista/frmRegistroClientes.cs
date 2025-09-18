@@ -338,6 +338,15 @@ namespace Vista
                 return false;
             }
 
+            // Validacion de telefono
+            if (string.IsNullOrWhiteSpace(txttelefono.Text))
+            {
+                MessageBox.Show("Debe ingresar el número de teléfono", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttelefono.Focus();
+                return false;
+            }
+
             if (cmbPartido.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un partido", "Validación",
@@ -446,8 +455,18 @@ namespace Vista
 
         private void LimpiarFormulario()
         {
+            // Limpia TextBoxes
+            txtnombre.Clear();
+            txtapellido.Clear();
+            txtnumerodocumento.Clear();
+            txtemail.Clear();
+            txttelefono.Clear();
+            txtcalle.Clear();
+            txtnumerocalle.Clear();
+            txtpiso.Clear();
+            txtderpatamento.Clear();
 
-            // Limpiar ComboBoxes si existen
+            // Limpia ComboBoxes si existen
             if (cmbTipoDoc != null)
                 cmbTipoDoc.SelectedIndex = -1;
             if (cmbPartido != null)
@@ -455,7 +474,7 @@ namespace Vista
             if (cmbLocalidad != null)
                 cmbLocalidad.DataSource = null;
 
-            // Resetear modo edición
+            // Resetea modo edición
             modoEdicion = false;
             idClienteSeleccionado = 0;
             btnModificar.Enabled = false;
