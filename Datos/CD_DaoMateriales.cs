@@ -236,5 +236,47 @@ namespace Datos
 
             return materiales;
         }
+
+        public List<DtoTipoMaterial> ListarTiposMateriales()
+        {
+            List<DtoTipoMaterial> listaTipos = new List<DtoTipoMaterial>();
+            SqlConnection conn = null;
+
+            try
+            {
+                conn = AbrirConexion();
+                SqlCommand cmd = new SqlCommand("sp_ListarTiposMaterial", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        listaTipos.Add(MapearLectorATipoMaterial(dr));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar tipos de material: " + ex.Message, ex);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
+            return listaTipos;
+        }
+        private DtoTipoMaterial MapearLectorATipoMaterial(SqlDataReader dr)
+        {
+            return new DtoTipoMaterial
+            {
+                IdTipoMaterial = dr.GetInt32(dr.GetOrdinal("IdTipoMaterial")),
+                NombreTipoMaterial = dr.GetString(dr.GetOrdinal("NombreTipoMaterial")),
+                DescripcionTipoMaterial = dr.IsDBNull(dr.GetOrdinal("DescripcionTipoMaterial")) ? null : dr.GetString(dr.GetOrdinal("DescripcionTipoMaterial")),
+                ActivoTipoMaterial = dr.GetBoolean(dr.GetOrdinal("ActivoTipoMaterial"))
+            };
+        }
     }
 }
+

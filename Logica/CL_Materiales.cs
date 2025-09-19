@@ -157,5 +157,18 @@ namespace Logica
                 throw new ApplicationException("Error en la lógica de negocio al modificar el material. " + ex.Message, ex);
             }
         }
+        public List<DtoTipoMaterial> ListarTiposMateriales()
+        {
+            try
+            {
+                // Llama al método de la capa de acceso a datos y devuelve el resultado
+                return daoMaterial.ListarTiposMateriales();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores a nivel de la capa de lógica
+                throw new Exception("Error en la lógica de negocio al listar los tipos de material.", ex);
+            }
+        }
     }
 }
