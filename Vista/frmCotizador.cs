@@ -17,28 +17,27 @@ namespace Vista
         {
             InitializeComponent();
 
-            DoubleBuffered = true;
-
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pctBorde);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblCotizador);
-
-            ClsFondoTransparente.Aplicar(
-            pctFondo,pctLogo,lbltitulo,lblmadera,lblmadera1,lblmadera2,lblmadera3,lblmadera4,lblmadera5,lblmadera6, chk1, chk2, chk3, chk4, chk5, chk6,
-            lbldesperdicio,lblganancia,label20,label1,label2,label3,lblcantidad,lblpie,lblpies1,lblpie1,lblpie2,lblpie3,lblpie4,lblpie5,lblpie6,lblpies,
-            lblseleccionmaderas,lblvidrios,lblVidrio1,lblVidrio2,lblVidrio3,chkvidrio1,chkvidrio2,chkvidrio3,lblLargoVidrio,lblUnidadVidrio,lblTotalVidrio,
-            lblTotalVidrios2,lbltotalvidrios,lblAnchoVidrio, lblvidriounidad1,lblvidriounidad2,lblvidriounidad3,lblCantidadVidrio,lbltotalvidrios,
-            lblvidriototal1, lblvidriototal2,lblvidriototal3,lblmetros2,lblvalorxmetro21,lblvalorxmetro22,lblvalorxmetro23,lblbisagras,lblbisagrasunidad1,
-            lblCantBisagras,lblBisagrasTotal,chkbisagras1,lbltotalbisagras,lblUnidadBisagras,lbltitulomateriales,lblCantMateriales,lblLargoMateriales,
-            lbltitulovalorguias,lbltitulototal,chkguias1,chkguias2,chkotrosmateriales,chkgastosvarios,lblguias1,lblguias2,lblOtrosMat,lblGastosVariosMat,
-            lblTotalGastosMat,lblvalorguias1,lblvalorguias2,lbltotalguias1,lbltotalguias2,lblotrosmateriales,lbltotalgastosvarios,lbltotalgastosadicionales,
-            lblPresupuesto);
         }
 
         private void CalculoPiesMuebles_Load(object sender, EventArgs e)
         {
+            int maxWidth = Screen.PrimaryScreen.WorkingArea.Width;
+            int maxHeight = Screen.PrimaryScreen.WorkingArea.Height;
 
-            this.BeginInvoke(new Action(() => this.ActiveControl = null));
+            if (this.Width > maxWidth) this.Width = maxWidth;
+            if (this.Height > maxHeight) this.Height = maxHeight;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
         }
 
         private void pctMinimize_Click(object sender, EventArgs e)
@@ -46,14 +45,76 @@ namespace Vista
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void pctClose_Click(object sender, EventArgs e)
+        private void lblpie1_Paint_1(object sender, PaintEventArgs e)
         {
-            Application.Exit();
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, lblpie1.Width - 1, lblpie1.Height - 1);
+            }
         }
 
-        private void pctFondo_Click(object sender, EventArgs e)
+        private void lblpie2_Paint_1(object sender, PaintEventArgs e)
         {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, lblpie2.Width - 1, lblpie2.Height - 1);
+            }
+        }
 
+        private void lblpie3_Paint_1(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, lblpie3.Width - 1, lblpie3.Height - 1);
+            }
+        }
+
+        private void lblpie4_Paint_1(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, lblpie4.Width - 1, lblpie4.Height - 1);
+            }
+        }
+
+        private void lblpie5_Paint_1(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, lblpie5.Width - 1, lblpie5.Height - 1);
+            }
+        }
+
+        private void lblpie6_Paint_1(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, lblpie6.Width - 1, lblpie6.Height - 1);
+            }
+        }
+
+        private void pnlTitulo_Paint_1(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlTitulo.Width - 1, pnlTitulo.Height - 1);
+            }
+        }
+
+        private void pnlPresupuesto_Paint_1(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlPresupuesto.Width - 1, pnlPresupuesto.Height - 1);
+            }
+        }
+
+        private void pnlVarios_Paint_1(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlVarios.Width - 1, pnlVarios.Height - 1);
+            }
         }
     }
 }

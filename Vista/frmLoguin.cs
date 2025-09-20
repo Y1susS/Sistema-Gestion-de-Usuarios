@@ -67,7 +67,9 @@ namespace Vista
 
         private void PctMinimize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            //this.WindowState = FormWindowState.Minimized;
+            frmCotizador frmCotizador = new frmCotizador();
+            frmCotizador.ShowDialog();
         }
 
         private void lnkRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
