@@ -37,7 +37,6 @@
             this.btnNuevoMaterial = new System.Windows.Forms.Button();
             this.btnGestion = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.txtUnidad = new System.Windows.Forms.TextBox();
             this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
@@ -129,22 +128,13 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(957, 90);
+            this.btnGuardar.Location = new System.Drawing.Point(957, 132);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(150, 24);
             this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "GURDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(957, 136);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(150, 24);
-            this.btnEliminar.TabIndex = 11;
-            this.btnEliminar.Text = "ELIMINAR";
-            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // btnCerrar
             // 
@@ -169,6 +159,7 @@
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
             this.txtPrecioUnitario.Size = new System.Drawing.Size(96, 22);
             this.txtPrecioUnitario.TabIndex = 14;
+            this.txtPrecioUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioUnitario_KeyPress);
             // 
             // txtStockMinimo
             // 
@@ -176,6 +167,7 @@
             this.txtStockMinimo.Name = "txtStockMinimo";
             this.txtStockMinimo.Size = new System.Drawing.Size(96, 22);
             this.txtStockMinimo.TabIndex = 16;
+            this.txtStockMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockMinimo_KeyPress);
             // 
             // txtStockActual
             // 
@@ -183,6 +175,7 @@
             this.txtStockActual.Name = "txtStockActual";
             this.txtStockActual.Size = new System.Drawing.Size(96, 22);
             this.txtStockActual.TabIndex = 15;
+            this.txtStockActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockActual_KeyPress);
             // 
             // label3
             // 
@@ -274,7 +267,6 @@
             this.Controls.Add(this.txtPrecioUnitario);
             this.Controls.Add(this.txtUnidad);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnGestion);
             this.Controls.Add(this.btnNuevoMaterial);
@@ -303,7 +295,6 @@
         private System.Windows.Forms.Button btnNuevoMaterial;
         private System.Windows.Forms.Button btnGestion;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.TextBox txtUnidad;
         private System.Windows.Forms.TextBox txtPrecioUnitario;

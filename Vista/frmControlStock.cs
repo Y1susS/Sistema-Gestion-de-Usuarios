@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Entidades.DTOs;
+using Servicios;
 
 namespace Vista
 {
@@ -41,7 +42,6 @@ namespace Vista
             btnNuevoMaterial.Enabled = true;
             btnGestion.Enabled = true;
             btnGuardar.Enabled = false;
-            btnEliminar.Enabled = false;
             cmbMaterial.Enabled = false;
             cmbTipoMaterial.Enabled = false;
             cmbTipoMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -130,7 +130,6 @@ namespace Vista
 
                 // Habilita botones de acción para la gestión
                 btnGuardar.Enabled = true;
-                btnEliminar.Enabled = true;
                 cmbMaterial.Enabled = true;
 
             }
@@ -193,7 +192,6 @@ namespace Vista
             modoGestion = true;
             modoNuevo = false;
             lblMensajeBoton.Text = "Estas en el modo de Gestión de Materiales. Filtrá el Tipo de Material y después editalo seleccionándolo en la tabla";
-            cmbMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
 
             // 1. Preguntar si hay datos para limpiar
             if (HayDatosParaLimpiar())
@@ -253,6 +251,8 @@ namespace Vista
                 {
                     materialSeleccionado.Descripcion = txtDescripcion.Text;
                     materialSeleccionado.Unidad = txtUnidad.Text;
+                    materialSeleccionado.NombreMaterial = cmbMaterial.Text.Trim();
+
 
                     // Manejo de valores para campos opcionales
                     materialSeleccionado.PrecioUnitario = decimal.TryParse(txtPrecioUnitario.Text, out decimal precio) ? precio : (decimal?)null;
@@ -260,6 +260,7 @@ namespace Vista
                     materialSeleccionado.StockMinimo = decimal.TryParse(txtStockMinimo.Text, out decimal stockMinimo) ? stockMinimo : (decimal?)null;
                     materialSeleccionado.FechaActualizacion = DateTime.Now;
                     materialSeleccionado.Activo = cbxActivo.Checked;
+                    logicaMaterial.ValidarMaterialVista(materialSeleccionado);
 
                     logicaMaterial.ModificarMaterial(materialSeleccionado);
 
@@ -291,11 +292,11 @@ namespace Vista
                 try
                 {
                     // Validaciones para el nuevo material
-                    if (string.IsNullOrWhiteSpace(cmbMaterial.Text))
-                    {
-                        MessageBox.Show("El nombre del material es obligatorio.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    //if (string.IsNullOrWhiteSpace(cmbMaterial.Text))
+                    //{
+                    //    MessageBox.Show("El nombre del material es obligatorio.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //    return;
+                    //}
                     if (cmbTipoMaterial.SelectedValue == null || cmbTipoMaterial.SelectedValue is int idTipoMaterial && idTipoMaterial <= 0)
                     {
                         MessageBox.Show("Debe seleccionar un tipo de material válido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -306,16 +307,16 @@ namespace Vista
                     nuevoMaterial.NombreMaterial = cmbMaterial.Text.Trim();
                     nuevoMaterial.Descripcion = txtDescripcion.Text.Trim();
                     nuevoMaterial.Unidad = txtUnidad.Text.Trim();
-                    nuevoMaterial.PrecioUnitario = decimal.TryParse(txtPrecioUnitario.Text, out decimal precio) ? precio : (decimal?)null;
-                    nuevoMaterial.StockActual = decimal.TryParse(txtStockActual.Text, out decimal stockActual) ? stockActual : (decimal?)null;
-                    nuevoMaterial.StockMinimo = decimal.TryParse(txtStockMinimo.Text, out decimal stockMinimo) ? stockMinimo : (decimal?)null;
+                    nuevoMaterial.PrecioUnitario = decimal.TryParse(txtPrecioUnitario.Text, out decimal precio) ? precio : (decimal?)0;
+                    nuevoMaterial.StockActual = decimal.TryParse(txtStockActual.Text, out decimal stockActual) ? stockActual : (decimal?)0;
+                    nuevoMaterial.StockMinimo = decimal.TryParse(txtStockMinimo.Text, out decimal stockMinimo) ? stockMinimo : (decimal?)0;
                     nuevoMaterial.FechaActualizacion = DateTime.Now;
                     nuevoMaterial.Activo = cbxActivo.Checked;
                     nuevoMaterial.TipoMaterial = new DtoTipoMaterial
                     {
                         IdTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue)
                     };
-
+                    logicaMaterial.ValidarMaterialVista(nuevoMaterial);
                     // Llama al método de la capa lógica para dar de alta el material
                     int idNuevoMaterial = logicaMaterial.AltaMaterial(nuevoMaterial);
 
@@ -403,7 +404,6 @@ namespace Vista
             dataGridView1.Enabled = false;
             cmbTipoMaterial.Enabled = true; // El tipo de material es necesario para un nuevo registro
             btnGestion.Enabled = true;
-            btnEliminar.Enabled = false; // El botón de eliminar no tiene sentido para un nuevo registro
             cmbMaterial.DataSource = null; // Limpia el contenido del ComboBox de materiales
 
             // Habilita el botón de guardar
@@ -424,6 +424,23 @@ namespace Vista
                 return true;
             }
             return false;
+        }
+
+        private void txtPrecioUnitario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClsSoloNumeros.ValidarNroDecimales(e, txtPrecioUnitario);
+        }
+
+        private void txtStockActual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClsSoloNumeros.ValidarNroDecimales(e, txtStockActual);
+
+        }
+
+        private void txtStockMinimo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClsSoloNumeros.ValidarNroDecimales(e, txtStockMinimo);
+
         }
     }
 }       
