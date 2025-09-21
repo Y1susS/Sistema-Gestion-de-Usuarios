@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Logica
@@ -12,7 +13,7 @@ namespace Logica
     {
         public readonly CD_DaoMateriales daoMaterial = new CD_DaoMateriales();
 
-    
+
 
         // --- Métodos de Gestión ---
 
@@ -23,7 +24,7 @@ namespace Logica
             {
                 throw new ArgumentNullException(nameof(material), "Los datos del material no pueden ser nulos.");
             }
-            if (string.IsNullOrEmpty(material.NombreMaterial))
+            if (string.IsNullOrWhiteSpace(material.NombreMaterial) && string.IsNullOrWhiteSpace(material.Descripcion))
             {
                 throw new ArgumentException("El nombre del material es obligatorio.");
             }
@@ -41,26 +42,6 @@ namespace Logica
             {
                 // 3. Manejo de excepciones.
                 throw new ApplicationException("Error en la lógica de negocio al agregar el material. " + ex.Message, ex);
-            }
-        }
-               
-        public bool EliminarMaterial(int id)
-        {
-            // 1. Validación simple.
-            if (id <= 0)
-            {
-                throw new ArgumentException("El ID del material es inválido.");
-            }
-
-            try
-            {
-                // 2. Coordinación con la capa de datos.
-                return daoMaterial.EliminarMaterial(id);
-            }
-            catch (Exception ex)
-            {
-                // 3. Manejo de excepciones.
-                throw new ApplicationException("Error en la lógica de negocio al eliminar el material. " + ex.Message, ex);
             }
         }
 
@@ -141,6 +122,7 @@ namespace Logica
             {
                 throw new ArgumentException("El stock mínimo no puede ser negativo.");
             }
+
         }
         public void ModificarMaterial(DtoMaterial material)
         {
@@ -154,7 +136,7 @@ namespace Logica
             catch (Exception ex)
             {
                 // Relanzar la excepción con un mensaje más descriptivo para la capa superior (UI)
-                throw new ApplicationException("Error en la lógica de negocio al modificar el material. " + ex.Message, ex);
+                throw new ApplicationException(ex.Message, ex);
             }
         }
         public List<DtoTipoMaterial> ListarTiposMateriales()
@@ -169,6 +151,32 @@ namespace Logica
                 // Manejo de errores a nivel de la capa de lógica
                 throw new Exception("Error en la lógica de negocio al listar los tipos de material.", ex);
             }
+        }
+        public void ValidarMaterialVista(DtoMaterial material)
+        {
+            // Tipo de material obligatorio y válido
+            if (material.TipoMaterial == null || material.TipoMaterial.IdTipoMaterial <= 0)
+                throw new ApplicationException("Debe seleccionar un tipo de material válido.");
+
+            // Material o Descripción: al menos uno debe estar lleno
+            if (string.IsNullOrWhiteSpace(material.NombreMaterial) && string.IsNullOrWhiteSpace(material.Descripcion))
+                throw new ApplicationException("Debe ingresar un nombre de material o una descripción.");
+
+            // Unidad: letras o números
+            if (!string.IsNullOrWhiteSpace(material.Unidad) &&
+                !Regex.IsMatch(material.Unidad, @"^[a-zA-Z0-9\s]+$"))
+                throw new ApplicationException("La unidad solo puede contener letras o números.");
+
+            // Precio Unitario: debe ser número decimal positivo
+            if (material.PrecioUnitario.HasValue && material.PrecioUnitario <= 0)
+                throw new ApplicationException("El precio unitario debe ser mayor a cero.");
+
+            // StockActual y StockMinimo: deben ser decimales >= 0
+            if (material.StockActual.HasValue && material.StockActual < 0)
+                throw new ApplicationException("El stock actual no puede ser negativo.");
+
+            if (material.StockMinimo.HasValue && material.StockMinimo < 0)
+                throw new ApplicationException("El stock mínimo no puede ser negativo.");
         }
     }
 }

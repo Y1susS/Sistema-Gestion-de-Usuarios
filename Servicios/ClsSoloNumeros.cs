@@ -24,7 +24,26 @@ namespace Servicios
                 }
                 return e.Handled;
             }
-        
+
+            //Valida numeros decimales
+            public static bool ValidarNroDecimales(KeyPressEventArgs e, TextBox textBox)
+            {
+                if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (e.KeyChar == ',' && !textBox.Text.Contains(","))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+
+                return e.Handled;
+            }
+
     }
 
 }
