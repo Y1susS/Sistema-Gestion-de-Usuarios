@@ -498,6 +498,124 @@ namespace Datos
 
             return lista;
         }
+        // --- NUEVO MÉTODO PARA LA GESTIÓN DE PERMISOS ---
+        // Este método usará el SP 'sp_ListarUsuariosConRol' para obtener solo la información necesaria
+        // para la lista de usuarios en el formulario de permisos.
+        public List<DtoUsuarioDetalle> ListarUsuariosParaPermisos()
+        {
+            List<DtoUsuarioDetalle> usuarios = new List<DtoUsuarioDetalle>();
+            CD_Conexion conexion = new CD_Conexion();
+
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    // ¡Importante! Usamos el SP específico para listar usuarios con su rol
+                    SqlCommand cmd = new SqlCommand("sp_ListarUsuariosConRol", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            DtoUsuarioDetalle usuario = new DtoUsuarioDetalle
+                            {
+                                Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
+                                User = dr.GetString(dr.GetOrdinal("User")),
+                                Nombre = dr.GetString(dr.GetOrdinal("Nombre")),
+                                Apellido = dr.GetString(dr.GetOrdinal("Apellido")),
+                                Rol = dr.GetString(dr.GetOrdinal("NombreRol")), // Coincide con el alias 'NombreRol' del SP
+                                Id_Rol = dr.GetInt32(dr.GetOrdinal("Id_Rol"))
+                                // No se mapean el resto de campos (Id_TipoDocumento, NroDocumento, Email, Calle, etc.)
+                                // porque el SP 'sp_ListarUsuariosConRol' no los devuelve y no son necesarios para esta vista.
+                                // Los demás campos de DtoUsuarioDetalle tendrán sus valores por defecto (null, 0, false).
+                                // Para 'Activo', asumimos que el SP solo trae usuarios que consideramos "activos" para la gestión de permisos.
+                                // Si el SP pudiera devolver inactivos y necesitas filtrarlos, tendrías que modificar el SP.
+                            };
+                            usuarios.Add(usuario);
+                        }
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return usuarios;
+        }
+        // Nuevo método para obtener los permisos explícitos de un usuario
+        public List<int> ObtenerPermisosExplicitosUsuario(int idUsuario)
+        {
+            List<int> permisos = new List<int>();
+            CD_Conexion conexion = new CD_Conexion();
+
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerPermisosExplicitosUsuario", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_User", idUsuario);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            permisos.Add(dr.GetInt32(dr.GetOrdinal("Id_Permiso")));
+                        }
+                    }
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+            return permisos;
+        }
+
+        // Nuevo método para insertar un permiso explícito
+        public bool InsertarUsuarioPermiso(int idUsuario, int idPermiso)
+        {
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_InsertarUsuarioPermiso", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_User", idUsuario);
+                    cmd.Parameters.AddWithValue("@Id_Permiso", idPermiso);
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        // Nuevo método para eliminar un permiso explícito
+        public bool EliminarUsuarioPermiso(int idUsuario, int idPermiso)
+        {
+            CD_Conexion conexion = new CD_Conexion();
+            using (SqlConnection conn = conexion.AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_EliminarUsuarioPermiso", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_User", idUsuario);
+                    cmd.Parameters.AddWithValue("@Id_Permiso", idPermiso);
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+                finally
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
 
     }
 }

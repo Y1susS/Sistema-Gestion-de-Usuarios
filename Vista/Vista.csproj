@@ -71,6 +71,12 @@
     <Compile Include="frmLoguin.Designer.cs">
       <DependentUpon>frmLoguin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPermisos.Designer.cs">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPreguntas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,12 +107,6 @@
     <Compile Include="frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPermisos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPermisos.Designer.cs">
-      <DependentUpon>frmPermisos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmSegContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +134,9 @@
     <EmbeddedResource Include="frmLoguin.resx">
       <DependentUpon>frmLoguin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPermisos.resx">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPreguntas.resx">
       <DependentUpon>frmPreguntas.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,9 +157,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSegContraseña.resx">
       <DependentUpon>frmSegContraseña.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPermisos.resx">
-      <DependentUpon>frmPermisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,6 +185,10 @@
     <Folder Include="Loguin\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{d733215d-d17f-4ec5-93ae-313fc0a23471}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{396edb10-ef7b-4cb6-89b8-1605aa017232}</Project>
       <Name>Logica</Name>
