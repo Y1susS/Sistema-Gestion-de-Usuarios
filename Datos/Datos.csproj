@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CD_BackUp.cs" />
     <Compile Include="CD_Conexion.cs" />
     <Compile Include="CD_DaoCliente.cs" />
     <Compile Include="CD_DaoConfiguracionContraseña.cs" />
