@@ -253,5 +253,13 @@ namespace Vista
             frmReportes.Show();
             this.Hide();
         }
+
+        private void btnbackup_Click(object sender, EventArgs e)
+        {
+            frmBackUp frm = new frmBackUp();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

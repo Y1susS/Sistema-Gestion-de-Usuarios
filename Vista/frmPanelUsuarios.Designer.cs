@@ -244,6 +244,7 @@
             this.btnbackup.TabIndex = 27;
             this.btnbackup.Text = "Realizar Back up";
             this.btnbackup.UseVisualStyleBackColor = true;
+            this.btnbackup.Click += new System.EventHandler(this.btnbackup_Click);
             // 
             // btngestionstock
             // 
