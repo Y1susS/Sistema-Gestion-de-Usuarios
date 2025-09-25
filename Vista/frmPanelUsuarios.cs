@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
+
 namespace Vista
 {
     public partial class frmPanelUsuarios : Form
