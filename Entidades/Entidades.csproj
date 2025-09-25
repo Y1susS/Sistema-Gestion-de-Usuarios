@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocumentoComercial.cs" />
     <Compile Include="DTOs\DtoCliente.cs" />
     <Compile Include="DTOs\DtoClienteDetalle.cs" />
     <Compile Include="DTOs\DtoConfiguracionContraseña.cs" />
+    <Compile Include="DTOs\DtoCotizacion.cs" />
     <Compile Include="DTOs\DtoDatosPersonalesPw.cs" />
     <Compile Include="DTOs\DtoFuncionalidad.cs" />
     <Compile Include="DTOs\DtoHistorialContraseña.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="DTOs\DtoPermisoUsuario.cs" />
     <Compile Include="DTOs\DtoPersona.cs" />
     <Compile Include="DTOs\DtoPregunta.cs" />
+    <Compile Include="DTOs\DtoPresupuesto.cs" />
     <Compile Include="DTOs\DtoRespuesta.cs" />
     <Compile Include="DTOs\DtoRol.cs" />
     <Compile Include="DTOs\DtoTipoDoc.cs" />
@@ -60,6 +63,8 @@
     <Compile Include="DTOs\DtoUsuario.cs" />
     <Compile Include="DTOs\DtoUsuarioDetalle.cs" />
     <Compile Include="DTOs\DtoVenta.cs" />
+    <Compile Include="DTOs\EstadoPresupuesto.cs" />
+    <Compile Include="DTOs\EstadoVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

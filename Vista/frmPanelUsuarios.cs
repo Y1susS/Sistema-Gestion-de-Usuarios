@@ -43,7 +43,6 @@ namespace Vista
 
             int diasRestantes = logicaUsuario.ObtenerDiasRestantesCambioContrasena(ClsSesionActual.Usuario.Id_user);
 
-            // Si devuelve -1, significa que no aplica vencimiento (CambiaCada = 0)
             if (diasRestantes == -1)
             {
                 lblDiasRestantesContrasena.Visible = false;
@@ -54,7 +53,7 @@ namespace Vista
                 lblDiasRestantesContrasena.ForeColor = Color.White;
                 lblDiasRestantesContrasena.Visible = true;
             }
-            else // 0 o menos → vencida
+            else 
             {
                 lblDiasRestantesContrasena.Text = "Su contraseña ha expirado o debe cambiarla. ¡ACTUALICE AHORA!";
                 lblDiasRestantesContrasena.ForeColor = Color.Red;
@@ -77,8 +76,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Permisos"))
             {
-                // Pasa 'this' (la instancia actual de frmPanelUsuarios) al constructor de frmPermisos
-                frmPermisos mifrmPermisos = new frmPermisos(this); // <-- ¡Cambio clave aquí!
+                frmPermisos mifrmPermisos = new frmPermisos(this); 
                 mifrmPermisos.Show();
                 this.Hide();
             }
@@ -86,7 +84,7 @@ namespace Vista
 
         private void btnGestionContraseñas_Click(object sender, EventArgs e)
         {
-            if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) // El nombre del permiso es "Gestión de Validaciones"
+            if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) 
             {
                 frmSegContraseña frmSegContraseña = new frmSegContraseña();
                 frmSegContraseña.Show();
@@ -121,7 +119,7 @@ namespace Vista
                 string usuario = ClsSesionActual.Usuario.User;
                 frmCambioPass frmCambio = new frmCambioPass(usuario, this, true);
                 frmCambio.Show();
-                this.Hide(); // Oculta el panel mientras se cambia la contraseña
+                this.Hide(); 
             }
         }
 
@@ -139,16 +137,12 @@ namespace Vista
 
         private void AjustarInterfazPorPermisos()
         {
-            // Obtenemos el objeto del usuario de la sesión actual
             DtoUsuario usuarioActual = ClsSesionActual.ObtenerUsuario();
 
-            // Verificamos si el objeto del usuario no es nulo
             if (usuarioActual != null && usuarioActual.Permisos != null)
             {
-                // obtenemos la lista de permisos
                 List<string> permisos = usuarioActual.Permisos;
 
-                // Ocultamos todos los botones por defecto
                 btnGestionUsuarios.Visible = false;
                 btnGestionPermisos.Visible = false;
                 btnGestionValidaciones.Visible = false;
@@ -161,7 +155,6 @@ namespace Vista
                 btnmetricas.Visible = false;
                 btncotizador.Visible = false;
 
-                // Hacemos visibles solo los botones para los permisos que el usuario tiene
                 if (permisos.Contains("Gestión de Usuarios"))
                 {
                     btnGestionUsuarios.Visible = true;
@@ -206,14 +199,10 @@ namespace Vista
                 {
                     btncotizador.Visible = true;
                 }
-                // Instancia o accede a la clase de la capa Lógica (ajusta según tu arquitectura)
-                // Suponiendo que la clase se llama "UsuarioBLL"
                 CL_Usuarios logicaUsuario = new CL_Usuarios();
 
-                // Obtenemos el Id_Rol desde la capa Lógica
                 int idRol = logicaUsuario.ObtenerIdRolUsuario();
 
-                // Ahora, en la capa de la vista, decidimos qué hacer con el valor del Id_Rol
                 switch (idRol)
                 {
                     case 1:
@@ -223,7 +212,6 @@ namespace Vista
                         lbltitulo.Text = "Menu Vendedor";
                         break;
                     default:
-                        // Para cualquier otro rol o en caso de error
                         lbltitulo.Text = "Menú Principal";
                         break;
                 }
