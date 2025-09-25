@@ -41,6 +41,7 @@ namespace Vista
 
         private void frmPreguntas_Load(object sender, EventArgs e)
         {
+            this.AcceptButton = btnSiguiente;
             lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblInstrucciones.Text = "Por favor, seleccione 3 preguntas de seguridad y proporcione sus respuestas." +
                                   Environment.NewLine +
@@ -173,7 +174,15 @@ namespace Vista
             this.Close();
         }
 
-        private void pctClose_Click(object sender, EventArgs e)
+        private void TxtRespuesta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pctClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
             frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
@@ -184,12 +193,25 @@ namespace Vista
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void TxtRespuesta_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void txtRespuesta3_TextChanged(object sender, EventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
+
+        }
+
+        private void txtRespuesta2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRespuesta1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtrespuestas_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

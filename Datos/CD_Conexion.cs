@@ -11,7 +11,7 @@ namespace Datos
 {
     public class CD_Conexion
     {
-        private readonly string cadena = "Data Source=.;Initial Catalog=Sistema Integral Remuebla;Integrated Security=True;";
+        private readonly string cadena = "Data Source=DESKTOP-6URFE1B\\SQLEXPRESS;Initial Catalog=Sistema Integral Remuebla;Integrated Security=True;";
         private SqlConnection oConn;
 
         public CD_Conexion()
