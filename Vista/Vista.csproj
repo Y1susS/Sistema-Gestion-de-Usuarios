@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBackUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackUp.Designer.cs">
+      <DependentUpon>frmBackUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmControlStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBackUp.resx">
+      <DependentUpon>frmBackUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmControlStock.resx">
       <DependentUpon>frmControlStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +264,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WoodenPlankCyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaderaCelesteFrmPreguntas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

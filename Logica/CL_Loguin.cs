@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using Datos;
 using Entidades.DTOs;
-using Entidades; 
+using Entidades;
+using Sesion;
 
 namespace Logica
 {

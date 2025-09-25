@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentoComercial.cs" />
+
+    <Compile Include="ClsSesionActual.cs" />
     <Compile Include="DTOs\DtoCliente.cs" />
     <Compile Include="DTOs\DtoClienteDetalle.cs" />
     <Compile Include="DTOs\DtoConfiguracionContraseña.cs" />

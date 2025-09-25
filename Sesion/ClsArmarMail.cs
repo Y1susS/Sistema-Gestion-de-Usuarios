@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sesion;
 
-namespace Entidades
+namespace Sesion
 {
     public static class ClsArmarMail
     {

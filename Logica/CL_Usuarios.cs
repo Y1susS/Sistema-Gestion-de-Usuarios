@@ -7,6 +7,7 @@ using Datos;
 using Servicios; 
 using Entidades; 
 using Entidades.DTOs;
+using Sesion;
 
 
 namespace Logica

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
+
 namespace Vista
 {
     public partial class frmPanelUsuarios : Form
@@ -240,6 +241,14 @@ namespace Vista
             frmReportes frmReportes = new frmReportes();
             frmReportes.Show();
             this.Hide();
+        }
+
+        private void btnbackup_Click(object sender, EventArgs e)
+        {
+            frmBackUp frm = new frmBackUp();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
         }
     }
 }
