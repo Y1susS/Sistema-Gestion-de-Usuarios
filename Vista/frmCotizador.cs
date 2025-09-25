@@ -93,13 +93,6 @@ namespace Vista
             }
         }
 
-        private void pnlTitulo_Paint_1(object sender, PaintEventArgs e)
-        {
-            using (Pen p = new Pen(Color.White, 1))
-            {
-                e.Graphics.DrawRectangle(p, 0, 0, pnlTitulo.Width - 1, pnlTitulo.Height - 1);
-            }
-        }
 
         private void pnlPresupuesto_Paint_1(object sender, PaintEventArgs e)
         {
@@ -109,12 +102,12 @@ namespace Vista
             }
         }
 
-        private void pnlVarios_Paint_1(object sender, PaintEventArgs e)
-        {
-            using (Pen p = new Pen(Color.White, 1))
-            {
-                e.Graphics.DrawRectangle(p, 0, 0, pnlVarios.Width - 1, pnlVarios.Height - 1);
-            }
-        }
+        //private void pnlVarios_Paint_1(object sender, PaintEventArgs e)
+        //{
+        //    using (Pen p = new Pen(Color.White, 1))
+        //    {
+        //        e.Graphics.DrawRectangle(p, 0, 0, pnlVarios.Width - 1, pnlVarios.Height - 1);
+        //    }
+        //}
     }
 }

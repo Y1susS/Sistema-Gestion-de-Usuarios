@@ -183,10 +183,7 @@ namespace Vista
                 MessageBox.Show("Error al cargar los tipos de material: " + ex.Message);
             }
         }
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
         private void btnGestion_Click(object sender, EventArgs e)
         {
             modoGestion = true;
@@ -376,7 +373,7 @@ namespace Vista
             modoNuevo = true;
             modoGestion = false;
             lblMensajeBoton.Text = "Podes cargar un Nuevo Material. Seleccioná un Tipo de Material y carga los parametros en los campos";
-            cmbMaterial.DropDownStyle = ComboBoxStyle.Simple;
+            //cmbMaterial.DropDownStyle = ComboBoxStyle.Simple; ( ¡OJO! COMENTÉ ESTA LÍNEA PORQUE CAMBIA VISUALMENTE EL COMBOBOX Y SE VE MAL )
 
             // 1. Preguntar si hay datos para limpiar
             if (HayDatosParaLimpiar())
@@ -441,6 +438,18 @@ namespace Vista
         {
             ClsSoloNumeros.ValidarNroDecimales(e, txtStockMinimo);
 
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }       
