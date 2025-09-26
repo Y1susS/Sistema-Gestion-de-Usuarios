@@ -185,7 +185,7 @@
             // 
             this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLogo.Location = new System.Drawing.Point(7, 7);
+            this.pctLogo.Location = new System.Drawing.Point(8, 8);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(45, 25);
             this.pctLogo.TabIndex = 8024;
