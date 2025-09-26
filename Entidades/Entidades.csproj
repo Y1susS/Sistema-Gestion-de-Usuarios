@@ -41,13 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="ClsSesionActual.cs" />
     <Compile Include="DTOs\DtoCliente.cs" />
     <Compile Include="DTOs\DtoClienteDetalle.cs" />
     <Compile Include="DTOs\DtoConfiguracionContraseña.cs" />
     <Compile Include="DTOs\DtoCotizacion.cs" />
     <Compile Include="DTOs\DtoDatosPersonalesPw.cs" />
+    <Compile Include="DTOs\DtoDocumentoComercial.cs" />
     <Compile Include="DTOs\DtoFuncionalidad.cs" />
     <Compile Include="DTOs\DtoHistorialContraseña.cs" />
     <Compile Include="DTOs\DtoLocalidad.cs" />
@@ -64,8 +64,8 @@
     <Compile Include="DTOs\DtoUsuario.cs" />
     <Compile Include="DTOs\DtoUsuarioDetalle.cs" />
     <Compile Include="DTOs\DtoVenta.cs" />
-    <Compile Include="DTOs\EstadoPresupuesto.cs" />
-    <Compile Include="DTOs\EstadoVenta.cs" />
+    <Compile Include="DTOs\DtoEstadoPresupuesto.cs" />
+    <Compile Include="DTOs\DtoEstadoVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

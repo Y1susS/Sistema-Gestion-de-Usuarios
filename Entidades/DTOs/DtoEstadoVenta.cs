@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.DTOs
 {
-    public class EstadoVenta
+    public class DtoEstadoVenta
     {
         public int IdEstadoVenta { get; set; }
         public string Estado { get; set; }

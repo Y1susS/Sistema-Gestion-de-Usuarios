@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.DTOs
 {
-    public class DtoVenta : DocumentoComercial
+    public class DtoVenta : DtoDocumentoComercial
     {
         public int IdVenta { get; set; }
         public string NumeroVenta { get; set; }
