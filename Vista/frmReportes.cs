@@ -55,11 +55,33 @@ namespace Vista
             cboUsuarios.DisplayMember = "User";
             cboUsuarios.ValueMember = "Id_user";
             cboUsuarios.SelectedIndex = -1;
+            cboUsuarios.Enabled = false;
 
             cboClientes.DataSource = _ventas.ObtenerClientes();
             cboClientes.DisplayMember = "Nombre";
             cboClientes.ValueMember = "Id_Cliente";
             cboClientes.SelectedIndex = -1;
+            cboClientes.Enabled = false;
+
+            // ---- CheckBoxes ----
+            chkFiltrarUsuario.Checked = false;
+            chkFiltrarCliente.Checked = false;
+
+
+            chkFiltrarUsuario.CheckedChanged += (s, ev) =>
+            {
+                cboUsuarios.Enabled = chkFiltrarUsuario.Checked;
+                if (!chkFiltrarUsuario.Checked)
+                    cboUsuarios.SelectedIndex = -1; // resetea selección
+            };
+
+            chkFiltrarCliente.CheckedChanged += (s, ev) =>
+            {
+                cboClientes.Enabled = chkFiltrarCliente.Checked;
+                if (!chkFiltrarCliente.Checked)
+                    cboClientes.SelectedIndex = -1; // resetea selección
+            };
+
 
             // Arrancar con los DateTimePicker deshabilitados
             chkUsarFechas.Checked = false;
@@ -88,6 +110,10 @@ namespace Vista
             //lblTotal.Text = $"Total Final: {totalFinal:C}";
 
 
+            cboTipoGrafico.Items.Add("Ventas por Vendedor");
+            cboTipoGrafico.Items.Add("Ventas por Día de Semana");
+            cboTipoGrafico.SelectedIndex = 0; // Arranca en "Ventas por Vendedor"
+
 
             // engancho el evento
             dtpDesde.ValueChanged += dtpDesde_ValueChanged;
@@ -100,6 +126,8 @@ namespace Vista
             ActualizarMetricas(listaCompleta);
 
         }
+
+        
 
         private void dtpHasta_ValueChanged(object sender, EventArgs e)
         {
@@ -116,11 +144,17 @@ namespace Vista
             if (chkUsarFechas.Checked)
             {
                 desde = dtpDesde.Value.Date;
-                hasta = dtpHasta.Value.Date.AddDays(1).AddTicks(-1);
+                hasta = dtpHasta.Value.Date;
             }
 
-            int? idUser = cboUsuarios.SelectedIndex >= 0 ? (int?)Convert.ToInt32(cboUsuarios.SelectedValue) : null;
-            int? idCliente = cboClientes.SelectedIndex >= 0 ? (int?)Convert.ToInt32(cboClientes.SelectedValue) : null;
+            int? idUser = (chkFiltrarUsuario.Checked && cboUsuarios.SelectedIndex >= 0)
+                ? (int?)Convert.ToInt32(cboUsuarios.SelectedValue)
+                : null;
+
+            int? idCliente = (chkFiltrarCliente.Checked && cboClientes.SelectedIndex >= 0)
+                ? (int?)Convert.ToInt32(cboClientes.SelectedValue)
+                : null;
+
 
             //List<DtoVenta> ventas = _ventas.FiltrarVentas(desde, hasta, idUser, idCliente);
 
@@ -142,8 +176,8 @@ namespace Vista
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             // Limpiar combos
-            cboUsuarios.SelectedIndex = -1;
-            cboClientes.SelectedIndex = -1;
+            chkFiltrarUsuario.Checked = false;
+            chkFiltrarCliente.Checked = false;
 
             // Limpiar check y fechas
             chkUsarFechas.Checked = false;
@@ -176,7 +210,7 @@ namespace Vista
             dtpHasta.Enabled = habilitar;
         }
 
-    
+
 
         private void dtpDesde_ValueChanged(object sender, EventArgs e)
         {
@@ -192,6 +226,53 @@ namespace Vista
 
 
 
+        //private void ActualizarMetricas(List<DtoVenta> ventas)
+        //{
+        //    // Total de ventas
+        //    lblTotalVentas.Text = $"Total Ventas {ventas.Count}";
+
+        //    // Suma de montos finales
+        //    decimal totalMontosFinales = ventas.Sum(v => v.MontoFinal ?? 0);
+        //    lblTotal.Text = $"Total Final: {totalMontosFinales:C}";
+
+        //    // Ticket promedio
+        //    decimal ticketPromedio = ventas.Count > 0
+        //        ? totalMontosFinales / ventas.Count
+        //        : 0;
+        //    lblPromedio.Text = $"Ticket Promedio: {ticketPromedio:C}";
+
+
+
+
+
+        //    // --- Chart (ventas por día) ---
+        //    chartVentas.Series.Clear();
+        //    chartVentas.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // Inclina etiquetas
+        //    chartVentas.ChartAreas[0].AxisX.Interval = 1;
+        //    // Configurar el formato de las etiquetas del eje X
+        //    chartVentas.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM";
+
+        //    var ventasPorDia = ventas
+        //        .Where(v => v.FechaVenta.HasValue) // filtra las que tienen fecha
+        //        .GroupBy(v => v.FechaVenta.Value.Date) // usamos .Value.Date
+        //        .Select(g => new { Fecha = g.Key, Total = g.Sum(v => v.MontoFinal ?? 0) })
+        //        .OrderBy(x => x.Fecha)
+        //        .ToList();
+
+
+        //    Series serie = new Series("Ventas por Día");
+        //    serie.ChartType = SeriesChartType.Column; // Columnas verticales
+        //    serie.XValueType = ChartValueType.Date;
+
+        //    foreach (var item in ventasPorDia)
+        //    {
+        //        serie.Points.AddXY(item.Fecha.ToShortDateString(), item.Total);
+        //    }
+
+        //    chartVentas.Series.Add(serie);
+        //}
+
+
         private void ActualizarMetricas(List<DtoVenta> ventas)
         {
             // Total de ventas
@@ -200,43 +281,95 @@ namespace Vista
             // Suma de montos finales
             decimal totalMontosFinales = ventas.Sum(v => v.MontoFinal ?? 0);
             lblTotal.Text = $"Total Final: {totalMontosFinales:C}";
-            
+
             // Ticket promedio
             decimal ticketPromedio = ventas.Count > 0
                 ? totalMontosFinales / ventas.Count
                 : 0;
             lblPromedio.Text = $"Ticket Promedio: {ticketPromedio:C}";
 
-
-
-
-
-            // --- Chart (ventas por día) ---
+            // --- Configurar gráfico ---
             chartVentas.Series.Clear();
-            chartVentas.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // Inclina etiquetas
-            chartVentas.ChartAreas[0].AxisX.Interval = 1;
-            // Configurar el formato de las etiquetas del eje X
-            chartVentas.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM";
+            chartVentas.Titles.Clear();
 
-            var ventasPorDia = ventas
-                .Where(v => v.FechaVenta.HasValue) // filtra las que tienen fecha
-                .GroupBy(v => v.FechaVenta.Value.Date) // usamos .Value.Date
-                .Select(g => new { Fecha = g.Key, Total = g.Sum(v => v.MontoFinal ?? 0) })
-                .OrderBy(x => x.Fecha)
-                .ToList();
-
-
-            Series serie = new Series("Ventas por Día");
-            serie.ChartType = SeriesChartType.Column; // Columnas verticales
-            serie.XValueType = ChartValueType.Date;
-
-            foreach (var item in ventasPorDia)
+            if (cboTipoGrafico.SelectedItem.ToString() == "Ventas por Vendedor")
             {
-                serie.Points.AddXY(item.Fecha.ToShortDateString(), item.Total);
-            }
+                // Agrupamos ventas por vendedor
+                var ventasPorVendedor = ventas
+                    .GroupBy(v => v.VendedorUserName)
+                    .Select(g => new { Vendedor = g.Key, Cantidad = g.Count() })
+                    .OrderByDescending(x => x.Cantidad)
+                    .ToList();
 
-            chartVentas.Series.Add(serie);
+                Series serie = new Series("Ventas por Vendedor");
+                serie.ChartType = SeriesChartType.Pie;
+                serie.IsValueShownAsLabel = true;
+
+                // Mostrar porcentajes en vez de cantidades
+                serie.Label = "#PERCENT{P0}";
+                serie.LegendText = "#VALX";
+
+                foreach (var item in ventasPorVendedor)
+                {
+                    serie.Points.AddXY(item.Vendedor, item.Cantidad);
+                }
+
+                chartVentas.Series.Add(serie);
+                chartVentas.Titles.Add("Distribución de Ventas por Vendedor (%)");
+            }
+            else if (cboTipoGrafico.SelectedItem.ToString() == "Ventas por Día de Semana")
+            {
+
+                Dictionary<DayOfWeek, string> diasSemanaEs = new Dictionary<DayOfWeek, string>
+                {
+                    { DayOfWeek.Sunday, "Domingo" },
+                    { DayOfWeek.Monday, "Lunes" },
+                    { DayOfWeek.Tuesday, "Martes" },
+                    { DayOfWeek.Wednesday, "Miércoles" },
+                    { DayOfWeek.Thursday, "Jueves" },
+                    { DayOfWeek.Friday, "Viernes" },
+                    { DayOfWeek.Saturday, "Sábado" }
+                };
+
+
+                // Siempre mostrar los 7 días
+                var diasSemana = Enum.GetValues(typeof(DayOfWeek))
+                                     .Cast<DayOfWeek>()
+                                     .ToList();
+
+                var ventasPorDiaSemana = diasSemana
+                    .GroupJoin(
+                        ventas.Where(v => v.FechaVenta.HasValue),
+                        d => d,
+                        v => v.FechaVenta.Value.DayOfWeek,
+                        (d, g) => new { Dia = d, Cantidad = g.Count() }
+                    )
+                    .OrderBy(x => x.Dia)
+                    .ToList();
+
+                Series serie = new Series("Ventas por Día");
+                serie.ChartType = SeriesChartType.Column;
+                serie.IsValueShownAsLabel = true;
+
+                foreach (var item in ventasPorDiaSemana)
+                {
+                    serie.Points.AddXY(diasSemanaEs[item.Dia], item.Cantidad);
+                }
+
+                chartVentas.Series.Add(serie);
+                chartVentas.Titles.Add("Ventas según Día de la Semana");
+            }
         }
+
+
+        private void cboTipoGrafico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dgvVentas.DataSource is List<DtoVenta> ventas)
+            {
+                ActualizarMetricas(ventas);
+            }
+        }
+
 
 
     }
