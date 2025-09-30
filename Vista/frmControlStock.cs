@@ -50,9 +50,8 @@ namespace Vista
         }
         private void LimpiarControles()
         {
-            // Reinicia los campos a sus valores predeterminados
             cmbTipoMaterial.SelectedIndex = -1;
-            cmbMaterial.SelectedIndex = -1; // o cmbMaterial.Text = string.Empty; si es un ComboBox de texto
+            cmbMaterial.SelectedIndex = -1;
             txtDescripcion.Clear();
             txtUnidad.Clear();
             txtPrecioUnitario.Clear();
@@ -124,11 +123,9 @@ namespace Vista
                 // Obtiene el objeto DTO de la fila
                 materialSeleccionado = (DtoMaterial)dataGridView1.Rows[e.RowIndex].DataBoundItem;
 
-                // Habilitar los controles para la edición y mostrar los datos
                 HabilitarControlesDeEdicion(true);
                 MostrarDatosEnFormulario(materialSeleccionado);
 
-                // Habilita botones de acción para la gestión
                 btnGuardar.Enabled = true;
                 cmbMaterial.Enabled = true;
 
@@ -161,16 +158,6 @@ namespace Vista
             try
             {
                 List<DtoTipoMaterial> listaMateriales = logicaMaterial.ListarTiposMateriales();
-                //List<DtoTipoMaterial> listaTipos = new List<DtoTipoMaterial>();
-
-
-                //foreach (var material in listaMateriales)
-                //{
-                //    if (!listaTipos.Any(t => t.IdTipoMaterial == material.TipoMaterial.IdTipoMaterial))
-                //    {
-                //        listaTipos.Add(material.TipoMaterial);
-                //    }
-                //}
 
                 cmbTipoMaterial.DataSource = listaMateriales;
                 cmbTipoMaterial.DisplayMember = "NombreTipoMaterial";
@@ -183,23 +170,19 @@ namespace Vista
                 MessageBox.Show("Error al cargar los tipos de material: " + ex.Message);
             }
         }
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
         private void btnGestion_Click(object sender, EventArgs e)
         {
             modoGestion = true;
             modoNuevo = false;
             lblMensajeBoton.Text = "Estas en el modo de Gestión de Materiales. Filtrá el Tipo de Material y después editalo seleccionándolo en la tabla";
 
-            // 1. Preguntar si hay datos para limpiar
             if (HayDatosParaLimpiar())
             {
                 DialogResult resultado = MessageBox.Show("Estas ingresando al Modo Gestion de Materiales. Se perderán los cambios no guardados.", "Confirmar ingreso al modo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.No)
                 {
-                    return; // No hace nada si el usuario cancela
+                    return; 
                 }
             }
             {
@@ -243,30 +226,25 @@ namespace Vista
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Esta es la validación para saber si el usuario está modificando un material existente.
             if (materialSeleccionado != null)
             {
-                // Funcionalidad de MODIFICAR (tu código actual)
+                // Funcionalidad de GESTION DE MATERIAL 
                 try
                 {
                     materialSeleccionado.Descripcion = txtDescripcion.Text;
                     materialSeleccionado.Unidad = txtUnidad.Text;
                     materialSeleccionado.NombreMaterial = cmbMaterial.Text.Trim();
-
-
-                    // Manejo de valores para campos opcionales
                     materialSeleccionado.PrecioUnitario = decimal.TryParse(txtPrecioUnitario.Text, out decimal precio) ? precio : (decimal?)null;
                     materialSeleccionado.StockActual = decimal.TryParse(txtStockActual.Text, out decimal stockActual) ? stockActual : (decimal?)null;
                     materialSeleccionado.StockMinimo = decimal.TryParse(txtStockMinimo.Text, out decimal stockMinimo) ? stockMinimo : (decimal?)null;
                     materialSeleccionado.FechaActualizacion = DateTime.Now;
                     materialSeleccionado.Activo = cbxActivo.Checked;
-                    logicaMaterial.ValidarMaterialVista(materialSeleccionado);
 
+                    logicaMaterial.ValidarMaterialVista(materialSeleccionado);
                     logicaMaterial.ModificarMaterial(materialSeleccionado);
 
                     MessageBox.Show("¡Material modificado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Refresca la grilla si hay un tipo de material seleccionado
                     if (cmbTipoMaterial.SelectedValue != null)
                     {
                         int idTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue);
@@ -284,26 +262,19 @@ namespace Vista
                     MessageBox.Show("Error al guardar los cambios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            // Esta es la nueva sección que maneja la inserción de un nuevo material.
+            
             else if (modoNuevo)
             {
-                // Funcionalidad de INSERTAR (el código que necesitas agregar)
+                // Funcionalidad NUEVO MATERIAL
 
                 try
                 {
-                    // Validaciones para el nuevo material
-                    //if (string.IsNullOrWhiteSpace(cmbMaterial.Text))
-                    //{
-                    //    MessageBox.Show("El nombre del material es obligatorio.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //    return;
-                    //}
                     if (cmbTipoMaterial.SelectedValue == null || cmbTipoMaterial.SelectedValue is int idTipoMaterial && idTipoMaterial <= 0)
                     {
                         MessageBox.Show("Debe seleccionar un tipo de material válido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    // Asigna los valores del formulario al nuevo DTO
                     nuevoMaterial.NombreMaterial = cmbMaterial.Text.Trim();
                     nuevoMaterial.Descripcion = txtDescripcion.Text.Trim();
                     nuevoMaterial.Unidad = txtUnidad.Text.Trim();
@@ -317,25 +288,26 @@ namespace Vista
                         IdTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue)
                     };
                     logicaMaterial.ValidarMaterialVista(nuevoMaterial);
-                    // Llama al método de la capa lógica para dar de alta el material
+
                     int idNuevoMaterial = logicaMaterial.AltaMaterial(nuevoMaterial);
 
-                    // Muestra mensaje de éxito y restablece el formulario.
                     MessageBox.Show($"Acabas de cargar un nuevo material: '{nuevoMaterial.NombreMaterial}.'", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmbMaterial.DataSource = null;
                     cmbMaterial.Text = string.Empty;
                     EstablecerEstadoInicial();
                 }
+
                 catch (ApplicationException ex)
                 {
                     MessageBox.Show("Error de validación: " + ex.Message, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al guardar el nuevo material: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            // Si no es ni un material seleccionado ni el modo nuevo, se muestra este mensaje.
+
             else
             {
                 MessageBox.Show("Debe estar en modo 'Nuevo' o seleccionar un material para guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -347,7 +319,6 @@ namespace Vista
         {
             try
             {
-                // Limpia cualquier selección previa
                 cmbMaterial.DataSource = null;
 
                 if (materiales != null && materiales.Count > 0)
@@ -359,9 +330,9 @@ namespace Vista
                     cmbMaterial.SelectedIndex = -1;
 
                 }
+
                 else
                 {
-                    // Si no hay materiales, deshabilita y limpia el ComboBox
                     cmbMaterial.Enabled = false;
                 }
 
@@ -376,19 +347,17 @@ namespace Vista
             modoNuevo = true;
             modoGestion = false;
             lblMensajeBoton.Text = "Podes cargar un Nuevo Material. Seleccioná un Tipo de Material y carga los parametros en los campos";
-            cmbMaterial.DropDownStyle = ComboBoxStyle.Simple;
+            //cmbMaterial.DropDownStyle = ComboBoxStyle.Simple; ( ¡OJO! COMENTÉ ESTA LÍNEA PORQUE CAMBIA VISUALMENTE EL COMBOBOX Y SE VE MAL )
 
-            // 1. Preguntar si hay datos para limpiar
             if (HayDatosParaLimpiar())
             {
                 DialogResult resultado = MessageBox.Show("Estas ingresando al Modo de Nuevo Material. Se perderán los cambios no guardados.", "Confirmar limpieza", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.No)
                 {
-                    return; // No hace nada si el usuario cancela
+                    return; 
                 }
             }
 
-            // 2. Limpiar el formulario y habilitar los campos de edición
             LimpiarFormularioParaNuevoMaterial();
             LlenarComboBoxTipoMaterial();
             cmbTipoMaterial.Enabled = true;
@@ -396,26 +365,20 @@ namespace Vista
         }
         private void LimpiarFormularioParaNuevoMaterial()
         {
-            // Resetea todos los controles de entrada de datos a sus valores iniciales
             LimpiarControles();
             HabilitarControlesDeEdicion(true);
 
-            // Deshabilita los controles del modo de gestión
             dataGridView1.Enabled = false;
-            cmbTipoMaterial.Enabled = true; // El tipo de material es necesario para un nuevo registro
+            cmbTipoMaterial.Enabled = true;
             btnGestion.Enabled = true;
-            cmbMaterial.DataSource = null; // Limpia el contenido del ComboBox de materiales
+            cmbMaterial.DataSource = null; 
 
-            // Habilita el botón de guardar
             btnGuardar.Enabled = true;
 
-            // Puedes agregar una bandera para saber en qué modo estás
-            // private bool modoNuevo = true;
         }
 
         private bool HayDatosParaLimpiar()
         {
-            // Verifica si algún campo de texto, ComboBox, etc., tiene datos ingresados
             if (!string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
                 !string.IsNullOrWhiteSpace(txtUnidad.Text) ||
                 cmbTipoMaterial.SelectedIndex != -1 ||
@@ -441,6 +404,18 @@ namespace Vista
         {
             ClsSoloNumeros.ValidarNroDecimales(e, txtStockMinimo);
 
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }       

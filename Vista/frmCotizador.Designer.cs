@@ -30,62 +30,62 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizador));
             this.pnlBorde = new System.Windows.Forms.Panel();
+            this.lblCotizador = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlPresupuesto = new System.Windows.Forms.Panel();
-            this.dgvmaderas = new System.Windows.Forms.DataGridView();
             this.btncerrar = new System.Windows.Forms.Button();
-            this.lblPresupuesto = new System.Windows.Forms.Label();
             this.btncalcularpresupuesto = new System.Windows.Forms.Button();
             this.btnlimpiarmedidas = new System.Windows.Forms.Button();
             this.btnguardarpresupuesto = new System.Windows.Forms.Button();
-            this.pnlTitulo = new System.Windows.Forms.Panel();
-            this.lbltitulo = new System.Windows.Forms.Label();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.pnlVarios = new System.Windows.Forms.Panel();
-            this.lblseleccionmaderas = new System.Windows.Forms.Label();
-            this.cmbmaderas = new System.Windows.Forms.ComboBox();
-            this.lblpies = new System.Windows.Forms.Label();
-            this.btnmostrartodas = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lbltitulototal = new System.Windows.Forms.Label();
-            this.chkguias1 = new System.Windows.Forms.CheckBox();
-            this.lblguias1 = new System.Windows.Forms.Label();
-            this.txtguias1 = new System.Windows.Forms.TextBox();
-            this.cmbguias1 = new System.Windows.Forms.ComboBox();
-            this.lblCantMateriales = new System.Windows.Forms.Label();
-            this.lblLargoMateriales = new System.Windows.Forms.Label();
-            this.lbltitulovalorguias = new System.Windows.Forms.Label();
-            this.lblTotalGastosMat = new System.Windows.Forms.Label();
-            this.lblvalorguias1 = new System.Windows.Forms.Label();
-            this.lblotrosmateriales = new System.Windows.Forms.Label();
-            this.lbltotalguias1 = new System.Windows.Forms.Label();
-            this.lbltotalgastosvarios = new System.Windows.Forms.Label();
-            this.chkguias2 = new System.Windows.Forms.CheckBox();
-            this.txtgastosvarios = new System.Windows.Forms.TextBox();
-            this.lblguias2 = new System.Windows.Forms.Label();
-            this.lblGastosVariosMat = new System.Windows.Forms.Label();
-            this.txtguias2 = new System.Windows.Forms.TextBox();
-            this.chkgastosvarios = new System.Windows.Forms.CheckBox();
-            this.cmbguias2 = new System.Windows.Forms.ComboBox();
-            this.lbltotalgastosadicionales = new System.Windows.Forms.Label();
-            this.lblvalorguias2 = new System.Windows.Forms.Label();
-            this.txtmateriales = new System.Windows.Forms.TextBox();
-            this.lbltotalguias2 = new System.Windows.Forms.Label();
-            this.lblOtrosMat = new System.Windows.Forms.Label();
-            this.chkotrosmateriales = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblbisagras = new System.Windows.Forms.Label();
+            this.lblMaterial = new System.Windows.Forms.Label();
+            this.lblTipoMaterial = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbTipoMaterial5 = new System.Windows.Forms.ComboBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbTipoMaterial4 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbTipoMaterial3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbTipoMaterial2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.chkbisagras1 = new System.Windows.Forms.CheckBox();
             this.txtbisagrascantidad = new System.Windows.Forms.TextBox();
             this.lblbisagrasunidad1 = new System.Windows.Forms.Label();
             this.lbltotalbisagras = new System.Windows.Forms.Label();
-            this.cmbbisagras1 = new System.Windows.Forms.ComboBox();
+            this.cmbTipoMaterial1 = new System.Windows.Forms.ComboBox();
             this.lblCantBisagras = new System.Windows.Forms.Label();
             this.lblUnidadBisagras = new System.Windows.Forms.Label();
             this.lblBisagrasTotal = new System.Windows.Forms.Label();
+            this.lblTotalGastosMat = new System.Windows.Forms.Label();
+            this.lblotrosmateriales = new System.Windows.Forms.Label();
+            this.lbltotalgastosvarios = new System.Windows.Forms.Label();
+            this.txtgastosvarios = new System.Windows.Forms.TextBox();
+            this.lblGastosVariosMat = new System.Windows.Forms.Label();
+            this.chkgastosvarios = new System.Windows.Forms.CheckBox();
+            this.lbltotalgastosadicionales = new System.Windows.Forms.Label();
+            this.txtmateriales = new System.Windows.Forms.TextBox();
+            this.lblOtrosMat = new System.Windows.Forms.Label();
+            this.chkotrosmateriales = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblvidriounidad1 = new System.Windows.Forms.Label();
             this.chkvidrio1 = new System.Windows.Forms.CheckBox();
@@ -123,6 +123,8 @@
             this.cmbvidrios2 = new System.Windows.Forms.ComboBox();
             this.cmbvidrios3 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbmaderas = new System.Windows.Forms.ComboBox();
+            this.lblseleccionmaderas = new System.Windows.Forms.Label();
             this.txtganancia = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtdesperdicio = new System.Windows.Forms.TextBox();
@@ -183,41 +185,69 @@
             this.txtanchom5 = new System.Windows.Forms.TextBox();
             this.txtcantidad5 = new System.Windows.Forms.TextBox();
             this.txtlargom5 = new System.Windows.Forms.TextBox();
-            this.lblCotizador = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlBorde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             this.pnlContenedor.SuspendLayout();
             this.pnlPresupuesto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvmaderas)).BeginInit();
-            this.pnlTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
-            this.pnlVarios.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblCotizador);
+            this.pnlBorde.Controls.Add(this.pctLogo);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
+            this.pnlBorde.Controls.Add(this.lblCotizador);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
             this.pnlBorde.Size = new System.Drawing.Size(1425, 40);
             this.pnlBorde.TabIndex = 8022;
             // 
+            // lblCotizador
+            // 
+            this.lblCotizador.BackColor = System.Drawing.Color.Transparent;
+            this.lblCotizador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCotizador.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCotizador.ForeColor = System.Drawing.Color.White;
+            this.lblCotizador.Location = new System.Drawing.Point(0, 0);
+            this.lblCotizador.Name = "lblCotizador";
+            this.lblCotizador.Size = new System.Drawing.Size(1425, 40);
+            this.lblCotizador.TabIndex = 7965;
+            this.lblCotizador.Text = "Cotizador";
+            this.lblCotizador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pctMinimize
             // 
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Left;
             this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(0, 0);
+            this.pctMinimize.Location = new System.Drawing.Point(1345, 0);
             this.pctMinimize.Name = "pctMinimize";
             this.pctMinimize.Size = new System.Drawing.Size(40, 40);
             this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,7 +259,6 @@
             // 
             this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
             this.pctClose.Location = new System.Drawing.Point(1385, 0);
             this.pctClose.Name = "pctClose";
@@ -243,7 +272,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 584);
+            this.panel3.Location = new System.Drawing.Point(0, 683);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1425, 20);
             this.panel3.TabIndex = 8031;
@@ -252,42 +281,31 @@
             // 
             this.pnlContenedor.AutoScroll = true;
             this.pnlContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlContenedor.BackgroundImage")));
+            this.pnlContenedor.Controls.Add(this.dataGridView1);
+            this.pnlContenedor.Controls.Add(this.textBox10);
             this.pnlContenedor.Controls.Add(this.pnlPresupuesto);
-            this.pnlContenedor.Controls.Add(this.pnlTitulo);
-            this.pnlContenedor.Controls.Add(this.pnlVarios);
             this.pnlContenedor.Controls.Add(this.groupBox4);
-            this.pnlContenedor.Controls.Add(this.groupBox3);
             this.pnlContenedor.Controls.Add(this.groupBox2);
             this.pnlContenedor.Controls.Add(this.groupBox1);
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(0, 40);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(1425, 544);
+            this.pnlContenedor.Size = new System.Drawing.Size(1425, 643);
             this.pnlContenedor.TabIndex = 8032;
             // 
             // pnlPresupuesto
             // 
             this.pnlPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlPresupuesto.Controls.Add(this.dgvmaderas);
+            this.pnlPresupuesto.Controls.Add(this.button1);
             this.pnlPresupuesto.Controls.Add(this.btncerrar);
-            this.pnlPresupuesto.Controls.Add(this.lblPresupuesto);
             this.pnlPresupuesto.Controls.Add(this.btncalcularpresupuesto);
             this.pnlPresupuesto.Controls.Add(this.btnlimpiarmedidas);
             this.pnlPresupuesto.Controls.Add(this.btnguardarpresupuesto);
-            this.pnlPresupuesto.Location = new System.Drawing.Point(950, 322);
+            this.pnlPresupuesto.Location = new System.Drawing.Point(1178, 371);
             this.pnlPresupuesto.Name = "pnlPresupuesto";
-            this.pnlPresupuesto.Size = new System.Drawing.Size(457, 205);
+            this.pnlPresupuesto.Size = new System.Drawing.Size(230, 238);
             this.pnlPresupuesto.TabIndex = 8037;
             this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint_1);
-            // 
-            // dgvmaderas
-            // 
-            this.dgvmaderas.BackgroundColor = System.Drawing.Color.White;
-            this.dgvmaderas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvmaderas.Location = new System.Drawing.Point(7, 29);
-            this.dgvmaderas.Name = "dgvmaderas";
-            this.dgvmaderas.Size = new System.Drawing.Size(250, 169);
-            this.dgvmaderas.TabIndex = 7940;
             // 
             // btncerrar
             // 
@@ -295,24 +313,12 @@
             this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncerrar.ForeColor = System.Drawing.Color.Black;
-            this.btncerrar.Location = new System.Drawing.Point(262, 158);
+            this.btncerrar.Location = new System.Drawing.Point(20, 190);
             this.btncerrar.Name = "btncerrar";
             this.btncerrar.Size = new System.Drawing.Size(188, 40);
             this.btncerrar.TabIndex = 7950;
             this.btncerrar.Text = "Cerrar";
             this.btncerrar.UseVisualStyleBackColor = false;
-            // 
-            // lblPresupuesto
-            // 
-            this.lblPresupuesto.AutoSize = true;
-            this.lblPresupuesto.BackColor = System.Drawing.Color.Transparent;
-            this.lblPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresupuesto.ForeColor = System.Drawing.Color.White;
-            this.lblPresupuesto.Location = new System.Drawing.Point(86, 6);
-            this.lblPresupuesto.Name = "lblPresupuesto";
-            this.lblPresupuesto.Size = new System.Drawing.Size(92, 18);
-            this.lblPresupuesto.TabIndex = 7939;
-            this.lblPresupuesto.Text = "Presupuesto";
             // 
             // btncalcularpresupuesto
             // 
@@ -320,7 +326,7 @@
             this.btncalcularpresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncalcularpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncalcularpresupuesto.ForeColor = System.Drawing.Color.Black;
-            this.btncalcularpresupuesto.Location = new System.Drawing.Point(262, 29);
+            this.btncalcularpresupuesto.Location = new System.Drawing.Point(20, 18);
             this.btncalcularpresupuesto.Name = "btncalcularpresupuesto";
             this.btncalcularpresupuesto.Size = new System.Drawing.Size(188, 40);
             this.btncalcularpresupuesto.TabIndex = 7947;
@@ -333,7 +339,7 @@
             this.btnlimpiarmedidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlimpiarmedidas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlimpiarmedidas.ForeColor = System.Drawing.Color.Black;
-            this.btnlimpiarmedidas.Location = new System.Drawing.Point(262, 115);
+            this.btnlimpiarmedidas.Location = new System.Drawing.Point(20, 147);
             this.btnlimpiarmedidas.Name = "btnlimpiarmedidas";
             this.btnlimpiarmedidas.Size = new System.Drawing.Size(188, 40);
             this.btnlimpiarmedidas.TabIndex = 7948;
@@ -346,478 +352,392 @@
             this.btnguardarpresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardarpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardarpresupuesto.ForeColor = System.Drawing.Color.Black;
-            this.btnguardarpresupuesto.Location = new System.Drawing.Point(262, 72);
+            this.btnguardarpresupuesto.Location = new System.Drawing.Point(20, 61);
             this.btnguardarpresupuesto.Name = "btnguardarpresupuesto";
             this.btnguardarpresupuesto.Size = new System.Drawing.Size(188, 40);
             this.btnguardarpresupuesto.TabIndex = 7949;
             this.btnguardarpresupuesto.Text = "Guardar presupuesto";
             this.btnguardarpresupuesto.UseVisualStyleBackColor = false;
             // 
-            // pnlTitulo
-            // 
-            this.pnlTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlTitulo.Controls.Add(this.lbltitulo);
-            this.pnlTitulo.Controls.Add(this.pctLogo);
-            this.pnlTitulo.ForeColor = System.Drawing.Color.White;
-            this.pnlTitulo.Location = new System.Drawing.Point(681, 17);
-            this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(727, 98);
-            this.pnlTitulo.TabIndex = 8036;
-            this.pnlTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTitulo_Paint_1);
-            // 
-            // lbltitulo
-            // 
-            this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
-            this.lbltitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitulo.ForeColor = System.Drawing.Color.White;
-            this.lbltitulo.Location = new System.Drawing.Point(9, 11);
-            this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(559, 75);
-            this.lbltitulo.TabIndex = 23;
-            this.lbltitulo.Text = "Introduzca los datos correspondientes en cada tabla para completar el proceso de " +
-    "cotización, la coma \" , \" indica decimales";
-            this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLogo.Location = new System.Drawing.Point(577, 7);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(143, 85);
-            this.pctLogo.TabIndex = 8023;
-            this.pctLogo.TabStop = false;
-            // 
-            // pnlVarios
-            // 
-            this.pnlVarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlVarios.Controls.Add(this.lblseleccionmaderas);
-            this.pnlVarios.Controls.Add(this.cmbmaderas);
-            this.pnlVarios.Controls.Add(this.lblpies);
-            this.pnlVarios.Controls.Add(this.btnmostrartodas);
-            this.pnlVarios.ForeColor = System.Drawing.Color.White;
-            this.pnlVarios.Location = new System.Drawing.Point(524, 427);
-            this.pnlVarios.Name = "pnlVarios";
-            this.pnlVarios.Size = new System.Drawing.Size(410, 100);
-            this.pnlVarios.TabIndex = 8035;
-            this.pnlVarios.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlVarios_Paint_1);
-            // 
-            // lblseleccionmaderas
-            // 
-            this.lblseleccionmaderas.BackColor = System.Drawing.Color.Transparent;
-            this.lblseleccionmaderas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblseleccionmaderas.ForeColor = System.Drawing.Color.White;
-            this.lblseleccionmaderas.Location = new System.Drawing.Point(8, 37);
-            this.lblseleccionmaderas.Name = "lblseleccionmaderas";
-            this.lblseleccionmaderas.Size = new System.Drawing.Size(195, 18);
-            this.lblseleccionmaderas.TabIndex = 7894;
-            this.lblseleccionmaderas.Text = "Selección de maderas";
-            this.lblseleccionmaderas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cmbmaderas
-            // 
-            this.cmbmaderas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbmaderas.ForeColor = System.Drawing.Color.Black;
-            this.cmbmaderas.FormattingEnabled = true;
-            this.cmbmaderas.Location = new System.Drawing.Point(8, 61);
-            this.cmbmaderas.Name = "cmbmaderas";
-            this.cmbmaderas.Size = new System.Drawing.Size(195, 26);
-            this.cmbmaderas.TabIndex = 7929;
-            // 
-            // lblpies
-            // 
-            this.lblpies.AutoSize = true;
-            this.lblpies.BackColor = System.Drawing.Color.Transparent;
-            this.lblpies.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpies.ForeColor = System.Drawing.Color.White;
-            this.lblpies.Location = new System.Drawing.Point(261, 13);
-            this.lblpies.Name = "lblpies";
-            this.lblpies.Size = new System.Drawing.Size(93, 18);
-            this.lblpies.TabIndex = 7905;
-            this.lblpies.Text = "Valor por pie";
-            this.lblpies.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnmostrartodas
-            // 
-            this.btnmostrartodas.BackColor = System.Drawing.Color.White;
-            this.btnmostrartodas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmostrartodas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmostrartodas.ForeColor = System.Drawing.Color.Black;
-            this.btnmostrartodas.Location = new System.Drawing.Point(209, 37);
-            this.btnmostrartodas.Name = "btnmostrartodas";
-            this.btnmostrartodas.Size = new System.Drawing.Size(195, 50);
-            this.btnmostrartodas.TabIndex = 7910;
-            this.btnmostrartodas.Text = "Mostrar todas las maderas";
-            this.btnmostrartodas.UseVisualStyleBackColor = false;
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox4.Controls.Add(this.lbltitulototal);
-            this.groupBox4.Controls.Add(this.chkguias1);
-            this.groupBox4.Controls.Add(this.lblguias1);
-            this.groupBox4.Controls.Add(this.txtguias1);
-            this.groupBox4.Controls.Add(this.cmbguias1);
-            this.groupBox4.Controls.Add(this.lblCantMateriales);
-            this.groupBox4.Controls.Add(this.lblLargoMateriales);
-            this.groupBox4.Controls.Add(this.lbltitulovalorguias);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Controls.Add(this.textBox8);
+            this.groupBox4.Controls.Add(this.textBox9);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.comboBox3);
+            this.groupBox4.Controls.Add(this.checkBox6);
+            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.comboBox5);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.textBox5);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.checkBox5);
+            this.groupBox4.Controls.Add(this.lblMaterial);
+            this.groupBox4.Controls.Add(this.lblTipoMaterial);
+            this.groupBox4.Controls.Add(this.comboBox6);
+            this.groupBox4.Controls.Add(this.checkBox3);
+            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.cmbTipoMaterial5);
+            this.groupBox4.Controls.Add(this.comboBox8);
+            this.groupBox4.Controls.Add(this.checkBox4);
+            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.cmbTipoMaterial4);
+            this.groupBox4.Controls.Add(this.comboBox4);
+            this.groupBox4.Controls.Add(this.checkBox2);
+            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.cmbTipoMaterial3);
+            this.groupBox4.Controls.Add(this.comboBox2);
+            this.groupBox4.Controls.Add(this.checkBox1);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.cmbTipoMaterial2);
+            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.chkbisagras1);
+            this.groupBox4.Controls.Add(this.txtbisagrascantidad);
+            this.groupBox4.Controls.Add(this.lblbisagrasunidad1);
+            this.groupBox4.Controls.Add(this.lbltotalbisagras);
+            this.groupBox4.Controls.Add(this.cmbTipoMaterial1);
+            this.groupBox4.Controls.Add(this.lblCantBisagras);
+            this.groupBox4.Controls.Add(this.lblUnidadBisagras);
+            this.groupBox4.Controls.Add(this.lblBisagrasTotal);
             this.groupBox4.Controls.Add(this.lblTotalGastosMat);
-            this.groupBox4.Controls.Add(this.lblvalorguias1);
             this.groupBox4.Controls.Add(this.lblotrosmateriales);
-            this.groupBox4.Controls.Add(this.lbltotalguias1);
             this.groupBox4.Controls.Add(this.lbltotalgastosvarios);
-            this.groupBox4.Controls.Add(this.chkguias2);
             this.groupBox4.Controls.Add(this.txtgastosvarios);
-            this.groupBox4.Controls.Add(this.lblguias2);
             this.groupBox4.Controls.Add(this.lblGastosVariosMat);
-            this.groupBox4.Controls.Add(this.txtguias2);
             this.groupBox4.Controls.Add(this.chkgastosvarios);
-            this.groupBox4.Controls.Add(this.cmbguias2);
             this.groupBox4.Controls.Add(this.lbltotalgastosadicionales);
-            this.groupBox4.Controls.Add(this.lblvalorguias2);
             this.groupBox4.Controls.Add(this.txtmateriales);
-            this.groupBox4.Controls.Add(this.lbltotalguias2);
             this.groupBox4.Controls.Add(this.lblOtrosMat);
             this.groupBox4.Controls.Add(this.chkotrosmateriales);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(17, 322);
+            this.groupBox4.Location = new System.Drawing.Point(12, 371);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(491, 205);
+            this.groupBox4.Size = new System.Drawing.Size(1160, 258);
             this.groupBox4.TabIndex = 8034;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Materiales Varios";
             // 
-            // lbltitulototal
+            // lblMaterial
             // 
-            this.lbltitulototal.BackColor = System.Drawing.Color.Transparent;
-            this.lbltitulototal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitulototal.ForeColor = System.Drawing.Color.White;
-            this.lbltitulototal.Location = new System.Drawing.Point(409, 15);
-            this.lbltitulototal.Name = "lbltitulototal";
-            this.lbltitulototal.Size = new System.Drawing.Size(75, 36);
-            this.lbltitulototal.TabIndex = 7955;
-            this.lbltitulototal.Text = "Total";
-            this.lbltitulototal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMaterial.BackColor = System.Drawing.Color.Transparent;
+            this.lblMaterial.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaterial.ForeColor = System.Drawing.Color.White;
+            this.lblMaterial.Location = new System.Drawing.Point(172, 21);
+            this.lblMaterial.Name = "lblMaterial";
+            this.lblMaterial.Size = new System.Drawing.Size(75, 36);
+            this.lblMaterial.TabIndex = 8054;
+            this.lblMaterial.Text = "Material";
+            this.lblMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkguias1
+            // lblTipoMaterial
             // 
-            this.chkguias1.BackColor = System.Drawing.Color.Transparent;
-            this.chkguias1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkguias1.ForeColor = System.Drawing.Color.Black;
-            this.chkguias1.Location = new System.Drawing.Point(8, 60);
-            this.chkguias1.Name = "chkguias1";
-            this.chkguias1.Size = new System.Drawing.Size(16, 16);
-            this.chkguias1.TabIndex = 7942;
-            this.chkguias1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkguias1.UseVisualStyleBackColor = false;
+            this.lblTipoMaterial.BackColor = System.Drawing.Color.Transparent;
+            this.lblTipoMaterial.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoMaterial.ForeColor = System.Drawing.Color.White;
+            this.lblTipoMaterial.Location = new System.Drawing.Point(24, 22);
+            this.lblTipoMaterial.Name = "lblTipoMaterial";
+            this.lblTipoMaterial.Size = new System.Drawing.Size(142, 36);
+            this.lblTipoMaterial.TabIndex = 8053;
+            this.lblTipoMaterial.Text = "Tipo de material";
+            this.lblTipoMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblguias1
+            // comboBox6
             // 
-            this.lblguias1.BackColor = System.Drawing.Color.Transparent;
-            this.lblguias1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblguias1.ForeColor = System.Drawing.Color.White;
-            this.lblguias1.Location = new System.Drawing.Point(27, 55);
-            this.lblguias1.Name = "lblguias1";
-            this.lblguias1.Size = new System.Drawing.Size(141, 25);
-            this.lblguias1.TabIndex = 7951;
-            this.lblguias1.Text = "Cajones con guías";
-            this.lblguias1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBox6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.ForeColor = System.Drawing.Color.Black;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(171, 188);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(138, 26);
+            this.comboBox6.TabIndex = 8052;
             // 
-            // txtguias1
+            // checkBox3
             // 
-            this.txtguias1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtguias1.ForeColor = System.Drawing.Color.Black;
-            this.txtguias1.Location = new System.Drawing.Point(172, 84);
-            this.txtguias1.Name = "txtguias1";
-            this.txtguias1.Size = new System.Drawing.Size(75, 25);
-            this.txtguias1.TabIndex = 7943;
+            this.checkBox3.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.ForeColor = System.Drawing.Color.Black;
+            this.checkBox3.Location = new System.Drawing.Point(5, 194);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(16, 16);
+            this.checkBox3.TabIndex = 8047;
+            this.checkBox3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox3.UseVisualStyleBackColor = false;
             // 
-            // cmbguias1
+            // textBox3
             // 
-            this.cmbguias1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbguias1.ForeColor = System.Drawing.Color.Black;
-            this.cmbguias1.FormattingEnabled = true;
-            this.cmbguias1.Location = new System.Drawing.Point(251, 54);
-            this.cmbguias1.Name = "cmbguias1";
-            this.cmbguias1.Size = new System.Drawing.Size(75, 26);
-            this.cmbguias1.TabIndex = 7960;
+            this.textBox3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.Black;
+            this.textBox3.Location = new System.Drawing.Point(316, 189);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(75, 25);
+            this.textBox3.TabIndex = 8048;
             // 
-            // lblCantMateriales
+            // label6
             // 
-            this.lblCantMateriales.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantMateriales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantMateriales.ForeColor = System.Drawing.Color.White;
-            this.lblCantMateriales.Location = new System.Drawing.Point(172, 15);
-            this.lblCantMateriales.Name = "lblCantMateriales";
-            this.lblCantMateriales.Size = new System.Drawing.Size(75, 36);
-            this.lblCantMateriales.TabIndex = 7952;
-            this.lblCantMateriales.Text = "Cantidad";
-            this.lblCantMateriales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(395, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 25);
+            this.label6.TabIndex = 8049;
+            this.label6.Text = "$";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblLargoMateriales
+            // label7
             // 
-            this.lblLargoMateriales.BackColor = System.Drawing.Color.Transparent;
-            this.lblLargoMateriales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLargoMateriales.ForeColor = System.Drawing.Color.White;
-            this.lblLargoMateriales.Location = new System.Drawing.Point(251, 15);
-            this.lblLargoMateriales.Name = "lblLargoMateriales";
-            this.lblLargoMateriales.Size = new System.Drawing.Size(75, 36);
-            this.lblLargoMateriales.TabIndex = 8021;
-            this.lblLargoMateriales.Text = "Largo";
-            this.lblLargoMateriales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(474, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 25);
+            this.label7.TabIndex = 8050;
+            this.label7.Text = "$";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbltitulovalorguias
+            // cmbTipoMaterial5
             // 
-            this.lbltitulovalorguias.BackColor = System.Drawing.Color.Transparent;
-            this.lbltitulovalorguias.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitulovalorguias.ForeColor = System.Drawing.Color.White;
-            this.lbltitulovalorguias.Location = new System.Drawing.Point(330, 15);
-            this.lbltitulovalorguias.Name = "lbltitulovalorguias";
-            this.lbltitulovalorguias.Size = new System.Drawing.Size(75, 36);
-            this.lbltitulovalorguias.TabIndex = 7953;
-            this.lbltitulovalorguias.Text = "Unidad";
-            this.lbltitulovalorguias.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cmbTipoMaterial5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoMaterial5.ForeColor = System.Drawing.Color.Black;
+            this.cmbTipoMaterial5.FormattingEnabled = true;
+            this.cmbTipoMaterial5.Location = new System.Drawing.Point(27, 188);
+            this.cmbTipoMaterial5.Name = "cmbTipoMaterial5";
+            this.cmbTipoMaterial5.Size = new System.Drawing.Size(138, 26);
+            this.cmbTipoMaterial5.TabIndex = 8051;
             // 
-            // lblTotalGastosMat
+            // comboBox8
             // 
-            this.lblTotalGastosMat.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalGastosMat.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalGastosMat.ForeColor = System.Drawing.Color.White;
-            this.lblTotalGastosMat.Location = new System.Drawing.Point(8, 172);
-            this.lblTotalGastosMat.Name = "lblTotalGastosMat";
-            this.lblTotalGastosMat.Size = new System.Drawing.Size(238, 25);
-            this.lblTotalGastosMat.TabIndex = 8020;
-            this.lblTotalGastosMat.Text = "Total gastos Adicionales";
-            this.lblTotalGastosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBox8.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.ForeColor = System.Drawing.Color.Black;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(171, 156);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(138, 26);
+            this.comboBox8.TabIndex = 8046;
             // 
-            // lblvalorguias1
+            // checkBox4
             // 
-            this.lblvalorguias1.BackColor = System.Drawing.Color.Transparent;
-            this.lblvalorguias1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblvalorguias1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblvalorguias1.ForeColor = System.Drawing.Color.White;
-            this.lblvalorguias1.Location = new System.Drawing.Point(330, 55);
-            this.lblvalorguias1.Name = "lblvalorguias1";
-            this.lblvalorguias1.Size = new System.Drawing.Size(75, 25);
-            this.lblvalorguias1.TabIndex = 7954;
-            this.lblvalorguias1.Text = "$";
-            this.lblvalorguias1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox4.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.ForeColor = System.Drawing.Color.Black;
+            this.checkBox4.Location = new System.Drawing.Point(5, 162);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(16, 16);
+            this.checkBox4.TabIndex = 8041;
+            this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox4.UseVisualStyleBackColor = false;
             // 
-            // lblotrosmateriales
+            // textBox4
             // 
-            this.lblotrosmateriales.BackColor = System.Drawing.Color.Transparent;
-            this.lblotrosmateriales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblotrosmateriales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblotrosmateriales.ForeColor = System.Drawing.Color.White;
-            this.lblotrosmateriales.Location = new System.Drawing.Point(409, 113);
-            this.lblotrosmateriales.Name = "lblotrosmateriales";
-            this.lblotrosmateriales.Size = new System.Drawing.Size(75, 25);
-            this.lblotrosmateriales.TabIndex = 8019;
-            this.lblotrosmateriales.Text = "$";
-            this.lblotrosmateriales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.Black;
+            this.textBox4.Location = new System.Drawing.Point(316, 157);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(75, 25);
+            this.textBox4.TabIndex = 8042;
             // 
-            // lbltotalguias1
+            // label8
             // 
-            this.lbltotalguias1.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalguias1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbltotalguias1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalguias1.ForeColor = System.Drawing.Color.White;
-            this.lbltotalguias1.Location = new System.Drawing.Point(409, 55);
-            this.lbltotalguias1.Name = "lbltotalguias1";
-            this.lbltotalguias1.Size = new System.Drawing.Size(75, 25);
-            this.lbltotalguias1.TabIndex = 7956;
-            this.lbltotalguias1.Text = "$";
-            this.lbltotalguias1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(395, 157);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 25);
+            this.label8.TabIndex = 8043;
+            this.label8.Text = "$";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbltotalgastosvarios
+            // label11
             // 
-            this.lbltotalgastosvarios.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalgastosvarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbltotalgastosvarios.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalgastosvarios.ForeColor = System.Drawing.Color.White;
-            this.lbltotalgastosvarios.Location = new System.Drawing.Point(409, 142);
-            this.lbltotalgastosvarios.Name = "lbltotalgastosvarios";
-            this.lbltotalgastosvarios.Size = new System.Drawing.Size(75, 25);
-            this.lbltotalgastosvarios.TabIndex = 8018;
-            this.lbltotalgastosvarios.Text = "$";
-            this.lbltotalgastosvarios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label11.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(474, 157);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 25);
+            this.label11.TabIndex = 8044;
+            this.label11.Text = "$";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkguias2
+            // cmbTipoMaterial4
             // 
-            this.chkguias2.BackColor = System.Drawing.Color.Transparent;
-            this.chkguias2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkguias2.ForeColor = System.Drawing.Color.Black;
-            this.chkguias2.Location = new System.Drawing.Point(8, 89);
-            this.chkguias2.Name = "chkguias2";
-            this.chkguias2.Size = new System.Drawing.Size(16, 16);
-            this.chkguias2.TabIndex = 7944;
-            this.chkguias2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkguias2.UseVisualStyleBackColor = false;
+            this.cmbTipoMaterial4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoMaterial4.ForeColor = System.Drawing.Color.Black;
+            this.cmbTipoMaterial4.FormattingEnabled = true;
+            this.cmbTipoMaterial4.Location = new System.Drawing.Point(27, 156);
+            this.cmbTipoMaterial4.Name = "cmbTipoMaterial4";
+            this.cmbTipoMaterial4.Size = new System.Drawing.Size(138, 26);
+            this.cmbTipoMaterial4.TabIndex = 8045;
             // 
-            // txtgastosvarios
+            // comboBox4
             // 
-            this.txtgastosvarios.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtgastosvarios.Location = new System.Drawing.Point(172, 142);
-            this.txtgastosvarios.Name = "txtgastosvarios";
-            this.txtgastosvarios.Size = new System.Drawing.Size(75, 25);
-            this.txtgastosvarios.TabIndex = 8014;
+            this.comboBox4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.ForeColor = System.Drawing.Color.Black;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(171, 126);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(138, 26);
+            this.comboBox4.TabIndex = 8040;
             // 
-            // lblguias2
+            // checkBox2
             // 
-            this.lblguias2.BackColor = System.Drawing.Color.Transparent;
-            this.lblguias2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblguias2.ForeColor = System.Drawing.Color.White;
-            this.lblguias2.Location = new System.Drawing.Point(27, 84);
-            this.lblguias2.Name = "lblguias2";
-            this.lblguias2.Size = new System.Drawing.Size(141, 25);
-            this.lblguias2.TabIndex = 7957;
-            this.lblguias2.Text = "Cajones con guías";
-            this.lblguias2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox2.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.ForeColor = System.Drawing.Color.Black;
+            this.checkBox2.Location = new System.Drawing.Point(5, 132);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(16, 16);
+            this.checkBox2.TabIndex = 8032;
+            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox2.UseVisualStyleBackColor = false;
             // 
-            // lblGastosVariosMat
+            // textBox2
             // 
-            this.lblGastosVariosMat.BackColor = System.Drawing.Color.Transparent;
-            this.lblGastosVariosMat.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGastosVariosMat.ForeColor = System.Drawing.Color.White;
-            this.lblGastosVariosMat.Location = new System.Drawing.Point(27, 142);
-            this.lblGastosVariosMat.Name = "lblGastosVariosMat";
-            this.lblGastosVariosMat.Size = new System.Drawing.Size(141, 25);
-            this.lblGastosVariosMat.TabIndex = 8017;
-            this.lblGastosVariosMat.Text = "Gastos varios";
-            this.lblGastosVariosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(316, 127);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(75, 25);
+            this.textBox2.TabIndex = 8033;
             // 
-            // txtguias2
+            // label9
             // 
-            this.txtguias2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtguias2.ForeColor = System.Drawing.Color.Black;
-            this.txtguias2.Location = new System.Drawing.Point(172, 55);
-            this.txtguias2.Name = "txtguias2";
-            this.txtguias2.Size = new System.Drawing.Size(75, 25);
-            this.txtguias2.TabIndex = 7945;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(395, 127);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 25);
+            this.label9.TabIndex = 8034;
+            this.label9.Text = "$";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkgastosvarios
+            // label10
             // 
-            this.chkgastosvarios.Location = new System.Drawing.Point(8, 145);
-            this.chkgastosvarios.Name = "chkgastosvarios";
-            this.chkgastosvarios.Size = new System.Drawing.Size(16, 16);
-            this.chkgastosvarios.TabIndex = 8013;
-            this.chkgastosvarios.UseVisualStyleBackColor = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label10.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(474, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 25);
+            this.label10.TabIndex = 8035;
+            this.label10.Text = "$";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cmbguias2
+            // cmbTipoMaterial3
             // 
-            this.cmbguias2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbguias2.ForeColor = System.Drawing.Color.Black;
-            this.cmbguias2.FormattingEnabled = true;
-            this.cmbguias2.Location = new System.Drawing.Point(251, 83);
-            this.cmbguias2.Name = "cmbguias2";
-            this.cmbguias2.Size = new System.Drawing.Size(75, 26);
-            this.cmbguias2.TabIndex = 7946;
+            this.cmbTipoMaterial3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoMaterial3.ForeColor = System.Drawing.Color.Black;
+            this.cmbTipoMaterial3.FormattingEnabled = true;
+            this.cmbTipoMaterial3.Location = new System.Drawing.Point(27, 126);
+            this.cmbTipoMaterial3.Name = "cmbTipoMaterial3";
+            this.cmbTipoMaterial3.Size = new System.Drawing.Size(138, 26);
+            this.cmbTipoMaterial3.TabIndex = 8036;
             // 
-            // lbltotalgastosadicionales
+            // comboBox2
             // 
-            this.lbltotalgastosadicionales.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalgastosadicionales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbltotalgastosadicionales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalgastosadicionales.ForeColor = System.Drawing.Color.White;
-            this.lbltotalgastosadicionales.Location = new System.Drawing.Point(409, 171);
-            this.lbltotalgastosadicionales.Name = "lbltotalgastosadicionales";
-            this.lbltotalgastosadicionales.Size = new System.Drawing.Size(75, 25);
-            this.lbltotalgastosadicionales.TabIndex = 8016;
-            this.lbltotalgastosadicionales.Text = "$";
-            this.lbltotalgastosadicionales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBox2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.ForeColor = System.Drawing.Color.Black;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(171, 94);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(138, 26);
+            this.comboBox2.TabIndex = 8031;
             // 
-            // lblvalorguias2
+            // checkBox1
             // 
-            this.lblvalorguias2.BackColor = System.Drawing.Color.Transparent;
-            this.lblvalorguias2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblvalorguias2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblvalorguias2.ForeColor = System.Drawing.Color.White;
-            this.lblvalorguias2.Location = new System.Drawing.Point(330, 84);
-            this.lblvalorguias2.Name = "lblvalorguias2";
-            this.lblvalorguias2.Size = new System.Drawing.Size(75, 25);
-            this.lblvalorguias2.TabIndex = 7958;
-            this.lblvalorguias2.Text = "$";
-            this.lblvalorguias2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.Black;
+            this.checkBox1.Location = new System.Drawing.Point(5, 100);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(16, 16);
+            this.checkBox1.TabIndex = 8023;
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.UseVisualStyleBackColor = false;
             // 
-            // txtmateriales
+            // textBox1
             // 
-            this.txtmateriales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmateriales.Location = new System.Drawing.Point(172, 113);
-            this.txtmateriales.Name = "txtmateriales";
-            this.txtmateriales.Size = new System.Drawing.Size(75, 25);
-            this.txtmateriales.TabIndex = 8012;
+            this.textBox1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(316, 95);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(75, 25);
+            this.textBox1.TabIndex = 8024;
             // 
-            // lbltotalguias2
+            // label4
             // 
-            this.lbltotalguias2.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalguias2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbltotalguias2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalguias2.ForeColor = System.Drawing.Color.White;
-            this.lbltotalguias2.Location = new System.Drawing.Point(409, 84);
-            this.lbltotalguias2.Name = "lbltotalguias2";
-            this.lbltotalguias2.Size = new System.Drawing.Size(75, 25);
-            this.lbltotalguias2.TabIndex = 7959;
-            this.lbltotalguias2.Text = "$";
-            this.lbltotalguias2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(395, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 25);
+            this.label4.TabIndex = 8025;
+            this.label4.Text = "$";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblOtrosMat
+            // label5
             // 
-            this.lblOtrosMat.BackColor = System.Drawing.Color.Transparent;
-            this.lblOtrosMat.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOtrosMat.ForeColor = System.Drawing.Color.White;
-            this.lblOtrosMat.Location = new System.Drawing.Point(27, 113);
-            this.lblOtrosMat.Name = "lblOtrosMat";
-            this.lblOtrosMat.Size = new System.Drawing.Size(141, 25);
-            this.lblOtrosMat.TabIndex = 8015;
-            this.lblOtrosMat.Text = "Otros materiales";
-            this.lblOtrosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(474, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 25);
+            this.label5.TabIndex = 8026;
+            this.label5.Text = "$";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkotrosmateriales
+            // cmbTipoMaterial2
             // 
-            this.chkotrosmateriales.Location = new System.Drawing.Point(8, 117);
-            this.chkotrosmateriales.Name = "chkotrosmateriales";
-            this.chkotrosmateriales.Size = new System.Drawing.Size(16, 16);
-            this.chkotrosmateriales.TabIndex = 8011;
-            this.chkotrosmateriales.UseVisualStyleBackColor = true;
+            this.cmbTipoMaterial2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoMaterial2.ForeColor = System.Drawing.Color.Black;
+            this.cmbTipoMaterial2.FormattingEnabled = true;
+            this.cmbTipoMaterial2.Location = new System.Drawing.Point(27, 94);
+            this.cmbTipoMaterial2.Name = "cmbTipoMaterial2";
+            this.cmbTipoMaterial2.Size = new System.Drawing.Size(138, 26);
+            this.cmbTipoMaterial2.TabIndex = 8027;
             // 
-            // groupBox3
+            // comboBox1
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox3.Controls.Add(this.lblbisagras);
-            this.groupBox3.Controls.Add(this.chkbisagras1);
-            this.groupBox3.Controls.Add(this.txtbisagrascantidad);
-            this.groupBox3.Controls.Add(this.lblbisagrasunidad1);
-            this.groupBox3.Controls.Add(this.lbltotalbisagras);
-            this.groupBox3.Controls.Add(this.cmbbisagras1);
-            this.groupBox3.Controls.Add(this.lblCantBisagras);
-            this.groupBox3.Controls.Add(this.lblUnidadBisagras);
-            this.groupBox3.Controls.Add(this.lblBisagrasTotal);
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(524, 322);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(410, 100);
-            this.groupBox3.TabIndex = 8033;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Bisagras";
-            // 
-            // lblbisagras
-            // 
-            this.lblbisagras.BackColor = System.Drawing.Color.Transparent;
-            this.lblbisagras.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblbisagras.ForeColor = System.Drawing.Color.White;
-            this.lblbisagras.Location = new System.Drawing.Point(26, 21);
-            this.lblbisagras.Name = "lblbisagras";
-            this.lblbisagras.Size = new System.Drawing.Size(141, 36);
-            this.lblbisagras.TabIndex = 8007;
-            this.lblbisagras.Text = "BISAGRAS";
-            this.lblbisagras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.comboBox1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.Black;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(171, 61);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(138, 26);
+            this.comboBox1.TabIndex = 8022;
             // 
             // chkbisagras1
             // 
             this.chkbisagras1.BackColor = System.Drawing.Color.Transparent;
             this.chkbisagras1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkbisagras1.ForeColor = System.Drawing.Color.Black;
-            this.chkbisagras1.Location = new System.Drawing.Point(7, 66);
+            this.chkbisagras1.Location = new System.Drawing.Point(5, 67);
             this.chkbisagras1.Name = "chkbisagras1";
             this.chkbisagras1.Size = new System.Drawing.Size(16, 16);
             this.chkbisagras1.TabIndex = 8002;
@@ -828,7 +748,7 @@
             // 
             this.txtbisagrascantidad.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbisagrascantidad.ForeColor = System.Drawing.Color.Black;
-            this.txtbisagrascantidad.Location = new System.Drawing.Point(171, 61);
+            this.txtbisagrascantidad.Location = new System.Drawing.Point(316, 62);
             this.txtbisagrascantidad.Name = "txtbisagrascantidad";
             this.txtbisagrascantidad.Size = new System.Drawing.Size(75, 25);
             this.txtbisagrascantidad.TabIndex = 8003;
@@ -839,7 +759,7 @@
             this.lblbisagrasunidad1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblbisagrasunidad1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbisagrasunidad1.ForeColor = System.Drawing.Color.White;
-            this.lblbisagrasunidad1.Location = new System.Drawing.Point(250, 61);
+            this.lblbisagrasunidad1.Location = new System.Drawing.Point(395, 62);
             this.lblbisagrasunidad1.Name = "lblbisagrasunidad1";
             this.lblbisagrasunidad1.Size = new System.Drawing.Size(75, 25);
             this.lblbisagrasunidad1.TabIndex = 8004;
@@ -852,29 +772,29 @@
             this.lbltotalbisagras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbltotalbisagras.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalbisagras.ForeColor = System.Drawing.Color.White;
-            this.lbltotalbisagras.Location = new System.Drawing.Point(329, 61);
+            this.lbltotalbisagras.Location = new System.Drawing.Point(474, 62);
             this.lbltotalbisagras.Name = "lbltotalbisagras";
             this.lbltotalbisagras.Size = new System.Drawing.Size(75, 25);
             this.lbltotalbisagras.TabIndex = 8005;
             this.lbltotalbisagras.Text = "$";
             this.lbltotalbisagras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cmbbisagras1
+            // cmbTipoMaterial1
             // 
-            this.cmbbisagras1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbbisagras1.ForeColor = System.Drawing.Color.Black;
-            this.cmbbisagras1.FormattingEnabled = true;
-            this.cmbbisagras1.Location = new System.Drawing.Point(29, 60);
-            this.cmbbisagras1.Name = "cmbbisagras1";
-            this.cmbbisagras1.Size = new System.Drawing.Size(138, 26);
-            this.cmbbisagras1.TabIndex = 8006;
+            this.cmbTipoMaterial1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoMaterial1.ForeColor = System.Drawing.Color.Black;
+            this.cmbTipoMaterial1.FormattingEnabled = true;
+            this.cmbTipoMaterial1.Location = new System.Drawing.Point(27, 61);
+            this.cmbTipoMaterial1.Name = "cmbTipoMaterial1";
+            this.cmbTipoMaterial1.Size = new System.Drawing.Size(138, 26);
+            this.cmbTipoMaterial1.TabIndex = 8006;
             // 
             // lblCantBisagras
             // 
             this.lblCantBisagras.BackColor = System.Drawing.Color.Transparent;
             this.lblCantBisagras.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantBisagras.ForeColor = System.Drawing.Color.White;
-            this.lblCantBisagras.Location = new System.Drawing.Point(171, 21);
+            this.lblCantBisagras.Location = new System.Drawing.Point(316, 22);
             this.lblCantBisagras.Name = "lblCantBisagras";
             this.lblCantBisagras.Size = new System.Drawing.Size(75, 36);
             this.lblCantBisagras.TabIndex = 8008;
@@ -886,7 +806,7 @@
             this.lblUnidadBisagras.BackColor = System.Drawing.Color.Transparent;
             this.lblUnidadBisagras.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidadBisagras.ForeColor = System.Drawing.Color.White;
-            this.lblUnidadBisagras.Location = new System.Drawing.Point(250, 21);
+            this.lblUnidadBisagras.Location = new System.Drawing.Point(395, 22);
             this.lblUnidadBisagras.Name = "lblUnidadBisagras";
             this.lblUnidadBisagras.Size = new System.Drawing.Size(75, 36);
             this.lblUnidadBisagras.TabIndex = 8009;
@@ -898,12 +818,119 @@
             this.lblBisagrasTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblBisagrasTotal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBisagrasTotal.ForeColor = System.Drawing.Color.White;
-            this.lblBisagrasTotal.Location = new System.Drawing.Point(329, 21);
+            this.lblBisagrasTotal.Location = new System.Drawing.Point(474, 22);
             this.lblBisagrasTotal.Name = "lblBisagrasTotal";
             this.lblBisagrasTotal.Size = new System.Drawing.Size(75, 36);
             this.lblBisagrasTotal.TabIndex = 8010;
             this.lblBisagrasTotal.Text = "Total";
             this.lblBisagrasTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotalGastosMat
+            // 
+            this.lblTotalGastosMat.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalGastosMat.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalGastosMat.ForeColor = System.Drawing.Color.White;
+            this.lblTotalGastosMat.Location = new System.Drawing.Point(600, 154);
+            this.lblTotalGastosMat.Name = "lblTotalGastosMat";
+            this.lblTotalGastosMat.Size = new System.Drawing.Size(338, 25);
+            this.lblTotalGastosMat.TabIndex = 8020;
+            this.lblTotalGastosMat.Text = "Total gastos Adicionales";
+            this.lblTotalGastosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblotrosmateriales
+            // 
+            this.lblotrosmateriales.BackColor = System.Drawing.Color.Transparent;
+            this.lblotrosmateriales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblotrosmateriales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblotrosmateriales.ForeColor = System.Drawing.Color.White;
+            this.lblotrosmateriales.Location = new System.Drawing.Point(1060, 51);
+            this.lblotrosmateriales.Name = "lblotrosmateriales";
+            this.lblotrosmateriales.Size = new System.Drawing.Size(75, 25);
+            this.lblotrosmateriales.TabIndex = 8019;
+            this.lblotrosmateriales.Text = "$";
+            this.lblotrosmateriales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbltotalgastosvarios
+            // 
+            this.lbltotalgastosvarios.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalgastosvarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbltotalgastosvarios.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalgastosvarios.ForeColor = System.Drawing.Color.White;
+            this.lbltotalgastosvarios.Location = new System.Drawing.Point(1060, 118);
+            this.lbltotalgastosvarios.Name = "lbltotalgastosvarios";
+            this.lbltotalgastosvarios.Size = new System.Drawing.Size(75, 25);
+            this.lbltotalgastosvarios.TabIndex = 8018;
+            this.lbltotalgastosvarios.Text = "$";
+            this.lbltotalgastosvarios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtgastosvarios
+            // 
+            this.txtgastosvarios.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtgastosvarios.Location = new System.Drawing.Point(790, 123);
+            this.txtgastosvarios.Name = "txtgastosvarios";
+            this.txtgastosvarios.Size = new System.Drawing.Size(148, 25);
+            this.txtgastosvarios.TabIndex = 8014;
+            // 
+            // lblGastosVariosMat
+            // 
+            this.lblGastosVariosMat.BackColor = System.Drawing.Color.Transparent;
+            this.lblGastosVariosMat.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGastosVariosMat.ForeColor = System.Drawing.Color.White;
+            this.lblGastosVariosMat.Location = new System.Drawing.Point(622, 123);
+            this.lblGastosVariosMat.Name = "lblGastosVariosMat";
+            this.lblGastosVariosMat.Size = new System.Drawing.Size(141, 25);
+            this.lblGastosVariosMat.TabIndex = 8017;
+            this.lblGastosVariosMat.Text = "Gastos varios";
+            this.lblGastosVariosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chkgastosvarios
+            // 
+            this.chkgastosvarios.Location = new System.Drawing.Point(600, 132);
+            this.chkgastosvarios.Name = "chkgastosvarios";
+            this.chkgastosvarios.Size = new System.Drawing.Size(16, 16);
+            this.chkgastosvarios.TabIndex = 8013;
+            this.chkgastosvarios.UseVisualStyleBackColor = true;
+            // 
+            // lbltotalgastosadicionales
+            // 
+            this.lbltotalgastosadicionales.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalgastosadicionales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbltotalgastosadicionales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalgastosadicionales.ForeColor = System.Drawing.Color.White;
+            this.lbltotalgastosadicionales.Location = new System.Drawing.Point(1060, 149);
+            this.lbltotalgastosadicionales.Name = "lbltotalgastosadicionales";
+            this.lbltotalgastosadicionales.Size = new System.Drawing.Size(75, 25);
+            this.lbltotalgastosadicionales.TabIndex = 8016;
+            this.lbltotalgastosadicionales.Text = "$";
+            this.lbltotalgastosadicionales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtmateriales
+            // 
+            this.txtmateriales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmateriales.Location = new System.Drawing.Point(790, 61);
+            this.txtmateriales.Name = "txtmateriales";
+            this.txtmateriales.Size = new System.Drawing.Size(148, 25);
+            this.txtmateriales.TabIndex = 8012;
+            // 
+            // lblOtrosMat
+            // 
+            this.lblOtrosMat.BackColor = System.Drawing.Color.Transparent;
+            this.lblOtrosMat.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOtrosMat.ForeColor = System.Drawing.Color.White;
+            this.lblOtrosMat.Location = new System.Drawing.Point(622, 61);
+            this.lblOtrosMat.Name = "lblOtrosMat";
+            this.lblOtrosMat.Size = new System.Drawing.Size(141, 25);
+            this.lblOtrosMat.TabIndex = 8015;
+            this.lblOtrosMat.Text = "Otros materiales";
+            this.lblOtrosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chkotrosmateriales
+            // 
+            this.chkotrosmateriales.Location = new System.Drawing.Point(600, 66);
+            this.chkotrosmateriales.Name = "chkotrosmateriales";
+            this.chkotrosmateriales.Size = new System.Drawing.Size(16, 16);
+            this.chkotrosmateriales.TabIndex = 8011;
+            this.chkotrosmateriales.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -944,7 +971,7 @@
             this.groupBox2.Controls.Add(this.cmbvidrios2);
             this.groupBox2.Controls.Add(this.cmbvidrios3);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(681, 121);
+            this.groupBox2.Location = new System.Drawing.Point(682, 180);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(726, 185);
             this.groupBox2.TabIndex = 8032;
@@ -1348,6 +1375,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.groupBox1.Controls.Add(this.cmbmaderas);
+            this.groupBox1.Controls.Add(this.lblseleccionmaderas);
             this.groupBox1.Controls.Add(this.txtganancia);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.txtdesperdicio);
@@ -1409,18 +1438,40 @@
             this.groupBox1.Controls.Add(this.txtcantidad5);
             this.groupBox1.Controls.Add(this.txtlargom5);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(17, 17);
+            this.groupBox1.Location = new System.Drawing.Point(12, 48);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(648, 289);
+            this.groupBox1.Size = new System.Drawing.Size(648, 317);
             this.groupBox1.TabIndex = 8031;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Maderas";
+            // 
+            // cmbmaderas
+            // 
+            this.cmbmaderas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbmaderas.ForeColor = System.Drawing.Color.Black;
+            this.cmbmaderas.FormattingEnabled = true;
+            this.cmbmaderas.Location = new System.Drawing.Point(112, 21);
+            this.cmbmaderas.Name = "cmbmaderas";
+            this.cmbmaderas.Size = new System.Drawing.Size(97, 26);
+            this.cmbmaderas.TabIndex = 7929;
+            // 
+            // lblseleccionmaderas
+            // 
+            this.lblseleccionmaderas.BackColor = System.Drawing.Color.Transparent;
+            this.lblseleccionmaderas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblseleccionmaderas.ForeColor = System.Drawing.Color.White;
+            this.lblseleccionmaderas.Location = new System.Drawing.Point(6, 21);
+            this.lblseleccionmaderas.Name = "lblseleccionmaderas";
+            this.lblseleccionmaderas.Size = new System.Drawing.Size(97, 41);
+            this.lblseleccionmaderas.TabIndex = 7894;
+            this.lblseleccionmaderas.Text = "Selección de maderas";
+            this.lblseleccionmaderas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtganancia
             // 
             this.txtganancia.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtganancia.ForeColor = System.Drawing.Color.Black;
-            this.txtganancia.Location = new System.Drawing.Point(108, 257);
+            this.txtganancia.Location = new System.Drawing.Point(109, 292);
             this.txtganancia.Name = "txtganancia";
             this.txtganancia.Size = new System.Drawing.Size(138, 25);
             this.txtganancia.TabIndex = 7964;
@@ -1430,7 +1481,7 @@
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(108, 15);
+            this.label20.Location = new System.Drawing.Point(109, 50);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(138, 36);
             this.label20.TabIndex = 7937;
@@ -1441,7 +1492,7 @@
             // 
             this.txtdesperdicio.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdesperdicio.ForeColor = System.Drawing.Color.Black;
-            this.txtdesperdicio.Location = new System.Drawing.Point(108, 229);
+            this.txtdesperdicio.Location = new System.Drawing.Point(109, 264);
             this.txtdesperdicio.Name = "txtdesperdicio";
             this.txtdesperdicio.Size = new System.Drawing.Size(138, 25);
             this.txtdesperdicio.TabIndex = 7963;
@@ -1451,7 +1502,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(250, 15);
+            this.label1.Location = new System.Drawing.Point(251, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 36);
             this.label1.TabIndex = 7879;
@@ -1463,7 +1514,7 @@
             this.lblganancia.BackColor = System.Drawing.Color.Transparent;
             this.lblganancia.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblganancia.ForeColor = System.Drawing.Color.White;
-            this.lblganancia.Location = new System.Drawing.Point(9, 257);
+            this.lblganancia.Location = new System.Drawing.Point(10, 292);
             this.lblganancia.Name = "lblganancia";
             this.lblganancia.Size = new System.Drawing.Size(83, 25);
             this.lblganancia.TabIndex = 7962;
@@ -1475,7 +1526,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(329, 15);
+            this.label2.Location = new System.Drawing.Point(330, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 36);
             this.label2.TabIndex = 7882;
@@ -1487,7 +1538,7 @@
             this.lbldesperdicio.BackColor = System.Drawing.Color.Transparent;
             this.lbldesperdicio.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldesperdicio.ForeColor = System.Drawing.Color.White;
-            this.lbldesperdicio.Location = new System.Drawing.Point(4, 229);
+            this.lbldesperdicio.Location = new System.Drawing.Point(5, 264);
             this.lbldesperdicio.Name = "lbldesperdicio";
             this.lbldesperdicio.Size = new System.Drawing.Size(101, 25);
             this.lbldesperdicio.TabIndex = 7961;
@@ -1499,7 +1550,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(408, 15);
+            this.label3.Location = new System.Drawing.Point(409, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 36);
             this.label3.TabIndex = 7884;
@@ -1511,7 +1562,7 @@
             this.lblpies1.BackColor = System.Drawing.Color.Transparent;
             this.lblpies1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpies1.ForeColor = System.Drawing.Color.White;
-            this.lblpies1.Location = new System.Drawing.Point(330, 252);
+            this.lblpies1.Location = new System.Drawing.Point(331, 287);
             this.lblpies1.Name = "lblpies1";
             this.lblpies1.Size = new System.Drawing.Size(75, 30);
             this.lblpies1.TabIndex = 7938;
@@ -1522,7 +1573,7 @@
             // 
             this.txtespesorm1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtespesorm1.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm1.Location = new System.Drawing.Point(250, 61);
+            this.txtespesorm1.Location = new System.Drawing.Point(251, 96);
             this.txtespesorm1.Name = "txtespesorm1";
             this.txtespesorm1.Size = new System.Drawing.Size(75, 25);
             this.txtespesorm1.TabIndex = 7883;
@@ -1533,7 +1584,7 @@
             this.btncalcularpies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncalcularpies.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncalcularpies.ForeColor = System.Drawing.Color.Black;
-            this.btncalcularpies.Location = new System.Drawing.Point(407, 252);
+            this.btncalcularpies.Location = new System.Drawing.Point(408, 287);
             this.btncalcularpies.Name = "btncalcularpies";
             this.btncalcularpies.Size = new System.Drawing.Size(155, 30);
             this.btncalcularpies.TabIndex = 7941;
@@ -1544,7 +1595,7 @@
             // 
             this.txtanchom1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtanchom1.ForeColor = System.Drawing.Color.Black;
-            this.txtanchom1.Location = new System.Drawing.Point(329, 61);
+            this.txtanchom1.Location = new System.Drawing.Point(330, 96);
             this.txtanchom1.Name = "txtanchom1";
             this.txtanchom1.Size = new System.Drawing.Size(75, 25);
             this.txtanchom1.TabIndex = 7885;
@@ -1553,7 +1604,7 @@
             // 
             this.txtlargom1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom1.ForeColor = System.Drawing.Color.Black;
-            this.txtlargom1.Location = new System.Drawing.Point(408, 61);
+            this.txtlargom1.Location = new System.Drawing.Point(409, 96);
             this.txtlargom1.Name = "txtlargom1";
             this.txtlargom1.Size = new System.Drawing.Size(75, 25);
             this.txtlargom1.TabIndex = 7886;
@@ -1562,7 +1613,7 @@
             // 
             this.txtdescmad6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescmad6.ForeColor = System.Drawing.Color.Black;
-            this.txtdescmad6.Location = new System.Drawing.Point(108, 201);
+            this.txtdescmad6.Location = new System.Drawing.Point(109, 236);
             this.txtdescmad6.Name = "txtdescmad6";
             this.txtdescmad6.Size = new System.Drawing.Size(138, 25);
             this.txtdescmad6.TabIndex = 7919;
@@ -1572,7 +1623,7 @@
             this.lblcantidad.BackColor = System.Drawing.Color.Transparent;
             this.lblcantidad.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcantidad.ForeColor = System.Drawing.Color.White;
-            this.lblcantidad.Location = new System.Drawing.Point(487, 15);
+            this.lblcantidad.Location = new System.Drawing.Point(488, 50);
             this.lblcantidad.Name = "lblcantidad";
             this.lblcantidad.Size = new System.Drawing.Size(75, 36);
             this.lblcantidad.TabIndex = 7913;
@@ -1583,7 +1634,7 @@
             // 
             this.txtdescmad5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescmad5.ForeColor = System.Drawing.Color.Black;
-            this.txtdescmad5.Location = new System.Drawing.Point(108, 173);
+            this.txtdescmad5.Location = new System.Drawing.Point(109, 208);
             this.txtdescmad5.Name = "txtdescmad5";
             this.txtdescmad5.Size = new System.Drawing.Size(138, 25);
             this.txtdescmad5.TabIndex = 7909;
@@ -1592,7 +1643,7 @@
             // 
             this.txtcantidad1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcantidad1.ForeColor = System.Drawing.Color.Black;
-            this.txtcantidad1.Location = new System.Drawing.Point(487, 61);
+            this.txtcantidad1.Location = new System.Drawing.Point(488, 96);
             this.txtcantidad1.Name = "txtcantidad1";
             this.txtcantidad1.Size = new System.Drawing.Size(75, 25);
             this.txtcantidad1.TabIndex = 7887;
@@ -1601,7 +1652,7 @@
             // 
             this.txtdescmad4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescmad4.ForeColor = System.Drawing.Color.Black;
-            this.txtdescmad4.Location = new System.Drawing.Point(108, 145);
+            this.txtdescmad4.Location = new System.Drawing.Point(109, 180);
             this.txtdescmad4.Name = "txtdescmad4";
             this.txtdescmad4.Size = new System.Drawing.Size(138, 25);
             this.txtdescmad4.TabIndex = 7902;
@@ -1610,7 +1661,7 @@
             // 
             this.txtdescmad3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescmad3.ForeColor = System.Drawing.Color.Black;
-            this.txtdescmad3.Location = new System.Drawing.Point(108, 117);
+            this.txtdescmad3.Location = new System.Drawing.Point(109, 152);
             this.txtdescmad3.Name = "txtdescmad3";
             this.txtdescmad3.Size = new System.Drawing.Size(138, 25);
             this.txtdescmad3.TabIndex = 7896;
@@ -1620,7 +1671,7 @@
             this.lblmadera1.BackColor = System.Drawing.Color.Transparent;
             this.lblmadera1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmadera1.ForeColor = System.Drawing.Color.White;
-            this.lblmadera1.Location = new System.Drawing.Point(27, 61);
+            this.lblmadera1.Location = new System.Drawing.Point(28, 96);
             this.lblmadera1.Name = "lblmadera1";
             this.lblmadera1.Size = new System.Drawing.Size(71, 25);
             this.lblmadera1.TabIndex = 7918;
@@ -1631,7 +1682,7 @@
             // 
             this.txtdescmad2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescmad2.ForeColor = System.Drawing.Color.Black;
-            this.txtdescmad2.Location = new System.Drawing.Point(108, 89);
+            this.txtdescmad2.Location = new System.Drawing.Point(109, 124);
             this.txtdescmad2.Name = "txtdescmad2";
             this.txtdescmad2.Size = new System.Drawing.Size(138, 25);
             this.txtdescmad2.TabIndex = 7889;
@@ -1641,7 +1692,7 @@
             this.lblmadera2.BackColor = System.Drawing.Color.Transparent;
             this.lblmadera2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmadera2.ForeColor = System.Drawing.Color.White;
-            this.lblmadera2.Location = new System.Drawing.Point(27, 89);
+            this.lblmadera2.Location = new System.Drawing.Point(28, 124);
             this.lblmadera2.Name = "lblmadera2";
             this.lblmadera2.Size = new System.Drawing.Size(71, 25);
             this.lblmadera2.TabIndex = 7920;
@@ -1652,7 +1703,7 @@
             // 
             this.txtdescmad1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescmad1.ForeColor = System.Drawing.Color.Black;
-            this.txtdescmad1.Location = new System.Drawing.Point(108, 61);
+            this.txtdescmad1.Location = new System.Drawing.Point(109, 96);
             this.txtdescmad1.Name = "txtdescmad1";
             this.txtdescmad1.Size = new System.Drawing.Size(138, 25);
             this.txtdescmad1.TabIndex = 7881;
@@ -1662,7 +1713,7 @@
             this.lblmadera3.BackColor = System.Drawing.Color.Transparent;
             this.lblmadera3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmadera3.ForeColor = System.Drawing.Color.White;
-            this.lblmadera3.Location = new System.Drawing.Point(27, 117);
+            this.lblmadera3.Location = new System.Drawing.Point(28, 152);
             this.lblmadera3.Name = "lblmadera3";
             this.lblmadera3.Size = new System.Drawing.Size(71, 25);
             this.lblmadera3.TabIndex = 7921;
@@ -1674,7 +1725,7 @@
             this.chk6.BackColor = System.Drawing.Color.Transparent;
             this.chk6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk6.ForeColor = System.Drawing.Color.Black;
-            this.chk6.Location = new System.Drawing.Point(8, 206);
+            this.chk6.Location = new System.Drawing.Point(9, 241);
             this.chk6.Name = "chk6";
             this.chk6.Size = new System.Drawing.Size(16, 16);
             this.chk6.TabIndex = 7917;
@@ -1686,7 +1737,7 @@
             this.lblmadera4.BackColor = System.Drawing.Color.Transparent;
             this.lblmadera4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmadera4.ForeColor = System.Drawing.Color.White;
-            this.lblmadera4.Location = new System.Drawing.Point(27, 145);
+            this.lblmadera4.Location = new System.Drawing.Point(28, 180);
             this.lblmadera4.Name = "lblmadera4";
             this.lblmadera4.Size = new System.Drawing.Size(71, 25);
             this.lblmadera4.TabIndex = 7924;
@@ -1698,7 +1749,7 @@
             this.chk5.BackColor = System.Drawing.Color.Transparent;
             this.chk5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk5.ForeColor = System.Drawing.Color.Black;
-            this.chk5.Location = new System.Drawing.Point(8, 178);
+            this.chk5.Location = new System.Drawing.Point(9, 213);
             this.chk5.Name = "chk5";
             this.chk5.Size = new System.Drawing.Size(16, 16);
             this.chk5.TabIndex = 7908;
@@ -1710,7 +1761,7 @@
             this.lblmadera5.BackColor = System.Drawing.Color.Transparent;
             this.lblmadera5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmadera5.ForeColor = System.Drawing.Color.White;
-            this.lblmadera5.Location = new System.Drawing.Point(27, 173);
+            this.lblmadera5.Location = new System.Drawing.Point(28, 208);
             this.lblmadera5.Name = "lblmadera5";
             this.lblmadera5.Size = new System.Drawing.Size(71, 25);
             this.lblmadera5.TabIndex = 7925;
@@ -1722,7 +1773,7 @@
             this.chk4.BackColor = System.Drawing.Color.Transparent;
             this.chk4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk4.ForeColor = System.Drawing.Color.Black;
-            this.chk4.Location = new System.Drawing.Point(8, 150);
+            this.chk4.Location = new System.Drawing.Point(9, 185);
             this.chk4.Name = "chk4";
             this.chk4.Size = new System.Drawing.Size(16, 16);
             this.chk4.TabIndex = 7901;
@@ -1734,7 +1785,7 @@
             this.lblmadera6.BackColor = System.Drawing.Color.Transparent;
             this.lblmadera6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmadera6.ForeColor = System.Drawing.Color.White;
-            this.lblmadera6.Location = new System.Drawing.Point(27, 201);
+            this.lblmadera6.Location = new System.Drawing.Point(28, 236);
             this.lblmadera6.Name = "lblmadera6";
             this.lblmadera6.Size = new System.Drawing.Size(71, 25);
             this.lblmadera6.TabIndex = 7927;
@@ -1746,7 +1797,7 @@
             this.chk3.BackColor = System.Drawing.Color.Transparent;
             this.chk3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk3.ForeColor = System.Drawing.Color.Black;
-            this.chk3.Location = new System.Drawing.Point(8, 122);
+            this.chk3.Location = new System.Drawing.Point(9, 157);
             this.chk3.Name = "chk3";
             this.chk3.Size = new System.Drawing.Size(16, 16);
             this.chk3.TabIndex = 7895;
@@ -1757,7 +1808,7 @@
             // 
             this.txtespesorm2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtespesorm2.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm2.Location = new System.Drawing.Point(250, 89);
+            this.txtespesorm2.Location = new System.Drawing.Point(251, 124);
             this.txtespesorm2.Name = "txtespesorm2";
             this.txtespesorm2.Size = new System.Drawing.Size(75, 25);
             this.txtespesorm2.TabIndex = 7890;
@@ -1767,7 +1818,7 @@
             this.chk2.BackColor = System.Drawing.Color.Transparent;
             this.chk2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk2.ForeColor = System.Drawing.Color.Black;
-            this.chk2.Location = new System.Drawing.Point(8, 94);
+            this.chk2.Location = new System.Drawing.Point(9, 129);
             this.chk2.Name = "chk2";
             this.chk2.Size = new System.Drawing.Size(16, 16);
             this.chk2.TabIndex = 7888;
@@ -1778,7 +1829,7 @@
             // 
             this.txtanchom2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtanchom2.ForeColor = System.Drawing.Color.Black;
-            this.txtanchom2.Location = new System.Drawing.Point(329, 89);
+            this.txtanchom2.Location = new System.Drawing.Point(330, 124);
             this.txtanchom2.Name = "txtanchom2";
             this.txtanchom2.Size = new System.Drawing.Size(75, 25);
             this.txtanchom2.TabIndex = 7891;
@@ -1788,7 +1839,7 @@
             this.chk1.BackColor = System.Drawing.Color.Transparent;
             this.chk1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk1.ForeColor = System.Drawing.Color.Black;
-            this.chk1.Location = new System.Drawing.Point(8, 66);
+            this.chk1.Location = new System.Drawing.Point(9, 101);
             this.chk1.Name = "chk1";
             this.chk1.Size = new System.Drawing.Size(16, 16);
             this.chk1.TabIndex = 7880;
@@ -1799,7 +1850,7 @@
             // 
             this.txtlargom2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom2.ForeColor = System.Drawing.Color.Black;
-            this.txtlargom2.Location = new System.Drawing.Point(408, 89);
+            this.txtlargom2.Location = new System.Drawing.Point(409, 124);
             this.txtlargom2.Name = "txtlargom2";
             this.txtlargom2.Size = new System.Drawing.Size(75, 25);
             this.txtlargom2.TabIndex = 7892;
@@ -1807,9 +1858,10 @@
             // lblpie6
             // 
             this.lblpie6.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpie6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpie6.ForeColor = System.Drawing.Color.White;
-            this.lblpie6.Location = new System.Drawing.Point(566, 201);
+            this.lblpie6.Location = new System.Drawing.Point(567, 236);
             this.lblpie6.Name = "lblpie6";
             this.lblpie6.Size = new System.Drawing.Size(75, 25);
             this.lblpie6.TabIndex = 7936;
@@ -1820,7 +1872,7 @@
             // 
             this.txtcantidad2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcantidad2.ForeColor = System.Drawing.Color.Black;
-            this.txtcantidad2.Location = new System.Drawing.Point(487, 89);
+            this.txtcantidad2.Location = new System.Drawing.Point(488, 124);
             this.txtcantidad2.Name = "txtcantidad2";
             this.txtcantidad2.Size = new System.Drawing.Size(75, 25);
             this.txtcantidad2.TabIndex = 7893;
@@ -1828,9 +1880,10 @@
             // lblpie5
             // 
             this.lblpie5.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpie5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpie5.ForeColor = System.Drawing.Color.White;
-            this.lblpie5.Location = new System.Drawing.Point(566, 173);
+            this.lblpie5.Location = new System.Drawing.Point(567, 208);
             this.lblpie5.Name = "lblpie5";
             this.lblpie5.Size = new System.Drawing.Size(75, 25);
             this.lblpie5.TabIndex = 7935;
@@ -1841,7 +1894,7 @@
             // 
             this.txtespesorm3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtespesorm3.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm3.Location = new System.Drawing.Point(250, 117);
+            this.txtespesorm3.Location = new System.Drawing.Point(251, 152);
             this.txtespesorm3.Name = "txtespesorm3";
             this.txtespesorm3.Size = new System.Drawing.Size(75, 25);
             this.txtespesorm3.TabIndex = 7897;
@@ -1849,9 +1902,10 @@
             // lblpie4
             // 
             this.lblpie4.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpie4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpie4.ForeColor = System.Drawing.Color.White;
-            this.lblpie4.Location = new System.Drawing.Point(566, 145);
+            this.lblpie4.Location = new System.Drawing.Point(567, 180);
             this.lblpie4.Name = "lblpie4";
             this.lblpie4.Size = new System.Drawing.Size(75, 25);
             this.lblpie4.TabIndex = 7934;
@@ -1862,7 +1916,7 @@
             // 
             this.txtanchom3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtanchom3.ForeColor = System.Drawing.Color.Black;
-            this.txtanchom3.Location = new System.Drawing.Point(329, 117);
+            this.txtanchom3.Location = new System.Drawing.Point(330, 152);
             this.txtanchom3.Name = "txtanchom3";
             this.txtanchom3.Size = new System.Drawing.Size(75, 25);
             this.txtanchom3.TabIndex = 7898;
@@ -1870,9 +1924,10 @@
             // lblpie3
             // 
             this.lblpie3.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpie3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpie3.ForeColor = System.Drawing.Color.White;
-            this.lblpie3.Location = new System.Drawing.Point(566, 117);
+            this.lblpie3.Location = new System.Drawing.Point(567, 152);
             this.lblpie3.Name = "lblpie3";
             this.lblpie3.Size = new System.Drawing.Size(75, 25);
             this.lblpie3.TabIndex = 7933;
@@ -1883,7 +1938,7 @@
             // 
             this.txtlargom3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom3.ForeColor = System.Drawing.Color.Black;
-            this.txtlargom3.Location = new System.Drawing.Point(408, 117);
+            this.txtlargom3.Location = new System.Drawing.Point(409, 152);
             this.txtlargom3.Name = "txtlargom3";
             this.txtlargom3.Size = new System.Drawing.Size(75, 25);
             this.txtlargom3.TabIndex = 7899;
@@ -1891,9 +1946,10 @@
             // lblpie2
             // 
             this.lblpie2.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpie2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpie2.ForeColor = System.Drawing.Color.White;
-            this.lblpie2.Location = new System.Drawing.Point(566, 89);
+            this.lblpie2.Location = new System.Drawing.Point(567, 124);
             this.lblpie2.Name = "lblpie2";
             this.lblpie2.Size = new System.Drawing.Size(75, 25);
             this.lblpie2.TabIndex = 7932;
@@ -1904,7 +1960,7 @@
             // 
             this.txtcantidad3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcantidad3.ForeColor = System.Drawing.Color.Black;
-            this.txtcantidad3.Location = new System.Drawing.Point(487, 117);
+            this.txtcantidad3.Location = new System.Drawing.Point(488, 152);
             this.txtcantidad3.Name = "txtcantidad3";
             this.txtcantidad3.Size = new System.Drawing.Size(75, 25);
             this.txtcantidad3.TabIndex = 7900;
@@ -1912,9 +1968,10 @@
             // lblpie1
             // 
             this.lblpie1.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpie1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpie1.ForeColor = System.Drawing.Color.White;
-            this.lblpie1.Location = new System.Drawing.Point(566, 61);
+            this.lblpie1.Location = new System.Drawing.Point(567, 96);
             this.lblpie1.Name = "lblpie1";
             this.lblpie1.Size = new System.Drawing.Size(75, 25);
             this.lblpie1.TabIndex = 7931;
@@ -1925,7 +1982,7 @@
             // 
             this.txtespesorm4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtespesorm4.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm4.Location = new System.Drawing.Point(250, 145);
+            this.txtespesorm4.Location = new System.Drawing.Point(251, 180);
             this.txtespesorm4.Name = "txtespesorm4";
             this.txtespesorm4.Size = new System.Drawing.Size(75, 25);
             this.txtespesorm4.TabIndex = 7903;
@@ -1935,7 +1992,7 @@
             this.lblpie.BackColor = System.Drawing.Color.Transparent;
             this.lblpie.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpie.ForeColor = System.Drawing.Color.White;
-            this.lblpie.Location = new System.Drawing.Point(566, 15);
+            this.lblpie.Location = new System.Drawing.Point(567, 50);
             this.lblpie.Name = "lblpie";
             this.lblpie.Size = new System.Drawing.Size(75, 36);
             this.lblpie.TabIndex = 7930;
@@ -1946,7 +2003,7 @@
             // 
             this.txtanchom4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtanchom4.ForeColor = System.Drawing.Color.Black;
-            this.txtanchom4.Location = new System.Drawing.Point(329, 145);
+            this.txtanchom4.Location = new System.Drawing.Point(330, 180);
             this.txtanchom4.Name = "txtanchom4";
             this.txtanchom4.Size = new System.Drawing.Size(75, 25);
             this.txtanchom4.TabIndex = 7904;
@@ -1955,7 +2012,7 @@
             // 
             this.txtcantidad6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcantidad6.ForeColor = System.Drawing.Color.Black;
-            this.txtcantidad6.Location = new System.Drawing.Point(487, 201);
+            this.txtcantidad6.Location = new System.Drawing.Point(488, 236);
             this.txtcantidad6.Name = "txtcantidad6";
             this.txtcantidad6.Size = new System.Drawing.Size(75, 25);
             this.txtcantidad6.TabIndex = 7928;
@@ -1964,7 +2021,7 @@
             // 
             this.txtlargom4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom4.ForeColor = System.Drawing.Color.Black;
-            this.txtlargom4.Location = new System.Drawing.Point(408, 145);
+            this.txtlargom4.Location = new System.Drawing.Point(409, 180);
             this.txtlargom4.Name = "txtlargom4";
             this.txtlargom4.Size = new System.Drawing.Size(75, 25);
             this.txtlargom4.TabIndex = 7906;
@@ -1973,7 +2030,7 @@
             // 
             this.txtlargom6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom6.ForeColor = System.Drawing.Color.Black;
-            this.txtlargom6.Location = new System.Drawing.Point(408, 201);
+            this.txtlargom6.Location = new System.Drawing.Point(409, 236);
             this.txtlargom6.Name = "txtlargom6";
             this.txtlargom6.Size = new System.Drawing.Size(75, 25);
             this.txtlargom6.TabIndex = 7926;
@@ -1982,7 +2039,7 @@
             // 
             this.txtcantidad4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcantidad4.ForeColor = System.Drawing.Color.Black;
-            this.txtcantidad4.Location = new System.Drawing.Point(487, 145);
+            this.txtcantidad4.Location = new System.Drawing.Point(488, 180);
             this.txtcantidad4.Name = "txtcantidad4";
             this.txtcantidad4.Size = new System.Drawing.Size(75, 25);
             this.txtcantidad4.TabIndex = 7907;
@@ -1991,7 +2048,7 @@
             // 
             this.txtanchom6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtanchom6.ForeColor = System.Drawing.Color.Black;
-            this.txtanchom6.Location = new System.Drawing.Point(329, 201);
+            this.txtanchom6.Location = new System.Drawing.Point(330, 236);
             this.txtanchom6.Name = "txtanchom6";
             this.txtanchom6.Size = new System.Drawing.Size(75, 25);
             this.txtanchom6.TabIndex = 7923;
@@ -2000,7 +2057,7 @@
             // 
             this.txtespesorm5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtespesorm5.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm5.Location = new System.Drawing.Point(250, 173);
+            this.txtespesorm5.Location = new System.Drawing.Point(251, 208);
             this.txtespesorm5.Name = "txtespesorm5";
             this.txtespesorm5.Size = new System.Drawing.Size(75, 25);
             this.txtespesorm5.TabIndex = 7911;
@@ -2009,7 +2066,7 @@
             // 
             this.txtespesorm6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtespesorm6.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm6.Location = new System.Drawing.Point(250, 201);
+            this.txtespesorm6.Location = new System.Drawing.Point(251, 236);
             this.txtespesorm6.Name = "txtespesorm6";
             this.txtespesorm6.Size = new System.Drawing.Size(75, 25);
             this.txtespesorm6.TabIndex = 7922;
@@ -2018,7 +2075,7 @@
             // 
             this.txtanchom5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtanchom5.ForeColor = System.Drawing.Color.Black;
-            this.txtanchom5.Location = new System.Drawing.Point(329, 173);
+            this.txtanchom5.Location = new System.Drawing.Point(330, 208);
             this.txtanchom5.Name = "txtanchom5";
             this.txtanchom5.Size = new System.Drawing.Size(75, 25);
             this.txtanchom5.TabIndex = 7912;
@@ -2027,7 +2084,7 @@
             // 
             this.txtcantidad5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcantidad5.ForeColor = System.Drawing.Color.Black;
-            this.txtcantidad5.Location = new System.Drawing.Point(487, 173);
+            this.txtcantidad5.Location = new System.Drawing.Point(488, 208);
             this.txtcantidad5.Name = "txtcantidad5";
             this.txtcantidad5.Size = new System.Drawing.Size(75, 25);
             this.txtcantidad5.TabIndex = 7915;
@@ -2036,30 +2093,213 @@
             // 
             this.txtlargom5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom5.ForeColor = System.Drawing.Color.Black;
-            this.txtlargom5.Location = new System.Drawing.Point(408, 173);
+            this.txtlargom5.Location = new System.Drawing.Point(409, 208);
             this.txtlargom5.Name = "txtlargom5";
             this.txtlargom5.Size = new System.Drawing.Size(75, 25);
             this.txtlargom5.TabIndex = 7914;
             // 
-            // lblCotizador
+            // label12
             // 
-            this.lblCotizador.BackColor = System.Drawing.Color.Transparent;
-            this.lblCotizador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCotizador.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCotizador.ForeColor = System.Drawing.Color.White;
-            this.lblCotizador.Location = new System.Drawing.Point(40, 0);
-            this.lblCotizador.Name = "lblCotizador";
-            this.lblCotizador.Size = new System.Drawing.Size(1345, 40);
-            this.lblCotizador.TabIndex = 7965;
-            this.lblCotizador.Text = "Cotizador";
-            this.lblCotizador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label12.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(1060, 82);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 25);
+            this.label12.TabIndex = 8058;
+            this.label12.Text = "$";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(790, 92);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(148, 25);
+            this.textBox5.TabIndex = 8056;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(622, 92);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(141, 25);
+            this.label13.TabIndex = 8057;
+            this.label13.Text = "Otros materiales";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.Location = new System.Drawing.Point(600, 97);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(16, 16);
+            this.checkBox5.TabIndex = 8055;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.ForeColor = System.Drawing.Color.Black;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(171, 220);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(138, 26);
+            this.comboBox3.TabIndex = 8064;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox6.ForeColor = System.Drawing.Color.Black;
+            this.checkBox6.Location = new System.Drawing.Point(5, 226);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(16, 16);
+            this.checkBox6.TabIndex = 8059;
+            this.checkBox6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox6.UseVisualStyleBackColor = false;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.Black;
+            this.textBox6.Location = new System.Drawing.Point(316, 221);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(75, 25);
+            this.textBox6.TabIndex = 8060;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label14.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(395, 221);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(75, 25);
+            this.label14.TabIndex = 8061;
+            this.label14.Text = "$";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label15.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(474, 221);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 25);
+            this.label15.TabIndex = 8062;
+            this.label15.Text = "$";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.ForeColor = System.Drawing.Color.Black;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(27, 220);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(138, 26);
+            this.comboBox5.TabIndex = 8063;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(796, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(142, 36);
+            this.label16.TabIndex = 8065;
+            this.label16.Text = "Descripción";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(944, 92);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(95, 25);
+            this.textBox7.TabIndex = 8068;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(944, 123);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(95, 25);
+            this.textBox8.TabIndex = 8067;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(944, 61);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(95, 25);
+            this.textBox9.TabIndex = 8066;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(944, 21);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(75, 36);
+            this.label17.TabIndex = 8069;
+            this.label17.Text = "Precio";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(20, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 40);
+            this.button1.TabIndex = 7951;
+            this.button1.Text = "Cargar presupuesto";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.ForeColor = System.Drawing.Color.Black;
+            this.textBox10.Location = new System.Drawing.Point(121, 17);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(454, 25);
+            this.textBox10.TabIndex = 7965;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(682, 29);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(324, 145);
+            this.dataGridView1.TabIndex = 8038;
+            // 
+            // pctLogo
+            // 
+            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
+            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctLogo.Location = new System.Drawing.Point(8, 8);
+            this.pctLogo.Name = "pctLogo";
+            this.pctLogo.Size = new System.Drawing.Size(45, 25);
+            this.pctLogo.TabIndex = 8026;
+            this.pctLogo.TabStop = false;
             // 
             // frmCotizador
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1425, 604);
+            this.ClientSize = new System.Drawing.Size(1425, 703);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlBorde);
@@ -2074,21 +2314,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             this.pnlContenedor.ResumeLayout(false);
+            this.pnlContenedor.PerformLayout();
             this.pnlPresupuesto.ResumeLayout(false);
-            this.pnlPresupuesto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvmaderas)).EndInit();
-            this.pnlTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
-            this.pnlVarios.ResumeLayout(false);
-            this.pnlVarios.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2100,54 +2335,28 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Panel pnlPresupuesto;
-        private System.Windows.Forms.DataGridView dgvmaderas;
         private System.Windows.Forms.Button btncerrar;
-        private System.Windows.Forms.Label lblPresupuesto;
         private System.Windows.Forms.Button btncalcularpresupuesto;
         private System.Windows.Forms.Button btnlimpiarmedidas;
         private System.Windows.Forms.Button btnguardarpresupuesto;
-        private System.Windows.Forms.Panel pnlTitulo;
-        private System.Windows.Forms.Label lbltitulo;
-        private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.Panel pnlVarios;
         private System.Windows.Forms.Label lblseleccionmaderas;
         private System.Windows.Forms.ComboBox cmbmaderas;
-        private System.Windows.Forms.Label lblpies;
-        private System.Windows.Forms.Button btnmostrartodas;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label lbltitulototal;
-        private System.Windows.Forms.CheckBox chkguias1;
-        private System.Windows.Forms.Label lblguias1;
-        private System.Windows.Forms.TextBox txtguias1;
-        private System.Windows.Forms.ComboBox cmbguias1;
-        private System.Windows.Forms.Label lblCantMateriales;
-        private System.Windows.Forms.Label lblLargoMateriales;
-        private System.Windows.Forms.Label lbltitulovalorguias;
         private System.Windows.Forms.Label lblTotalGastosMat;
-        private System.Windows.Forms.Label lblvalorguias1;
         private System.Windows.Forms.Label lblotrosmateriales;
-        private System.Windows.Forms.Label lbltotalguias1;
         private System.Windows.Forms.Label lbltotalgastosvarios;
-        private System.Windows.Forms.CheckBox chkguias2;
         private System.Windows.Forms.TextBox txtgastosvarios;
-        private System.Windows.Forms.Label lblguias2;
         private System.Windows.Forms.Label lblGastosVariosMat;
-        private System.Windows.Forms.TextBox txtguias2;
         private System.Windows.Forms.CheckBox chkgastosvarios;
-        private System.Windows.Forms.ComboBox cmbguias2;
         private System.Windows.Forms.Label lbltotalgastosadicionales;
-        private System.Windows.Forms.Label lblvalorguias2;
         private System.Windows.Forms.TextBox txtmateriales;
-        private System.Windows.Forms.Label lbltotalguias2;
         private System.Windows.Forms.Label lblOtrosMat;
         private System.Windows.Forms.CheckBox chkotrosmateriales;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label lblbisagras;
         private System.Windows.Forms.CheckBox chkbisagras1;
         private System.Windows.Forms.TextBox txtbisagrascantidad;
         private System.Windows.Forms.Label lblbisagrasunidad1;
         private System.Windows.Forms.Label lbltotalbisagras;
-        private System.Windows.Forms.ComboBox cmbbisagras1;
+        private System.Windows.Forms.ComboBox cmbTipoMaterial1;
         private System.Windows.Forms.Label lblCantBisagras;
         private System.Windows.Forms.Label lblUnidadBisagras;
         private System.Windows.Forms.Label lblBisagrasTotal;
@@ -2249,5 +2458,51 @@
         private System.Windows.Forms.TextBox txtcantidad5;
         private System.Windows.Forms.TextBox txtlargom5;
         private System.Windows.Forms.Label lblCotizador;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbTipoMaterial3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbTipoMaterial2;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbTipoMaterial5;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbTipoMaterial4;
+        private System.Windows.Forms.Label lblMaterial;
+        private System.Windows.Forms.Label lblTipoMaterial;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pctLogo;
     }
 }

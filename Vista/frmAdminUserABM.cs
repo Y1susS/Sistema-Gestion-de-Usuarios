@@ -11,6 +11,7 @@ using Logica;
 using Servicios;
 using Entidades.DTOs;
 using Entidades;
+using Sesion;
 
 
 namespace Vista

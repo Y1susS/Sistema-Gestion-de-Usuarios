@@ -13,13 +13,8 @@ namespace Logica
     {
         public readonly CD_DaoMateriales daoMaterial = new CD_DaoMateriales();
 
-
-
-        // --- Métodos de Gestión ---
-
         public int AltaMaterial(DtoMaterial material)
         {
-            // 1. Validaciones de datos (reglas de negocio).
             if (material == null)
             {
                 throw new ArgumentNullException(nameof(material), "Los datos del material no pueden ser nulos.");
@@ -35,19 +30,16 @@ namespace Logica
 
             try
             {
-                // 2. Coordinación con la capa de datos.
                 return daoMaterial.InsertarMaterial(material);
             }
             catch (Exception ex)
             {
-                // 3. Manejo de excepciones.
                 throw new ApplicationException("Error en la lógica de negocio al agregar el material. " + ex.Message, ex);
             }
         }
 
         public DtoMaterial ObtenerMaterial(int id)
         {
-            // 1. Validación simple.
             if (id <= 0)
             {
                 throw new ArgumentException("El ID del material es inválido.");
@@ -55,7 +47,6 @@ namespace Logica
 
             try
             {
-                // 2. Coordinación con la capa de datos.
                 var material = daoMaterial.ObtenerMaterial(id);
                 if (material == null)
                 {
@@ -65,7 +56,6 @@ namespace Logica
             }
             catch (Exception ex)
             {
-                // 3. Manejo de excepciones.
                 throw new ApplicationException("Error en la lógica de negocio al obtener el material. " + ex.Message, ex);
             }
         }
@@ -74,12 +64,10 @@ namespace Logica
         {
             try
             {
-                // 2. Coordinación con la capa de datos.
                 return daoMaterial.ListarMateriales();
             }
             catch (Exception ex)
             {
-                // 3. Manejo de excepciones.
                 throw new ApplicationException("Error en la lógica de negocio al listar los materiales. " + ex.Message, ex);
             }
         }
@@ -87,12 +75,10 @@ namespace Logica
         {
             try
             {
-                // Pasa el idTipoMaterial a la capa de datos.
                 return daoMaterial.ListarMaterialesPorTipo(idTipoMaterial);
             }
             catch (Exception ex)
             {
-                // Maneja la excepción y la relanza con un mensaje más claro.
                 throw new ApplicationException("Error en la lógica de negocio al filtrar los materiales por tipo. " + ex.Message, ex);
             }
         }
@@ -128,14 +114,12 @@ namespace Logica
         {
             try
             {
-                // Realizar las validaciones de negocio antes de llamar a la capa de datos
                 ValidarMaterial(material);
 
                 daoMaterial.ActualizarMaterial(material);
             }
             catch (Exception ex)
             {
-                // Relanzar la excepción con un mensaje más descriptivo para la capa superior (UI)
                 throw new ApplicationException(ex.Message, ex);
             }
         }
@@ -143,35 +127,28 @@ namespace Logica
         {
             try
             {
-                // Llama al método de la capa de acceso a datos y devuelve el resultado
                 return daoMaterial.ListarTiposMateriales();
             }
             catch (Exception ex)
             {
-                // Manejo de errores a nivel de la capa de lógica
                 throw new Exception("Error en la lógica de negocio al listar los tipos de material.", ex);
             }
         }
         public void ValidarMaterialVista(DtoMaterial material)
         {
-            // Tipo de material obligatorio y válido
             if (material.TipoMaterial == null || material.TipoMaterial.IdTipoMaterial <= 0)
                 throw new ApplicationException("Debe seleccionar un tipo de material válido.");
 
-            // Material o Descripción: al menos uno debe estar lleno
             if (string.IsNullOrWhiteSpace(material.NombreMaterial) && string.IsNullOrWhiteSpace(material.Descripcion))
                 throw new ApplicationException("Debe ingresar un nombre de material o una descripción.");
 
-            // Unidad: letras o números
             if (!string.IsNullOrWhiteSpace(material.Unidad) &&
                 !Regex.IsMatch(material.Unidad, @"^[a-zA-Z0-9\s]+$"))
                 throw new ApplicationException("La unidad solo puede contener letras o números.");
 
-            // Precio Unitario: debe ser número decimal positivo
             if (material.PrecioUnitario.HasValue && material.PrecioUnitario <= 0)
                 throw new ApplicationException("El precio unitario debe ser mayor a cero.");
 
-            // StockActual y StockMinimo: deben ser decimales >= 0
             if (material.StockActual.HasValue && material.StockActual < 0)
                 throw new ApplicationException("El stock actual no puede ser negativo.");
 

@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entidades
+namespace Sesion
 {
     public static class ClsSeguridad
     {

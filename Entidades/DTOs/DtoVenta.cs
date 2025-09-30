@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.DTOs
 {
-    public class DtoVenta
+    public class DtoVenta : DtoDocumentoComercial
     {
         public int IdVenta { get; set; }
         public string NumeroVenta { get; set; }
@@ -25,5 +25,11 @@ namespace Entidades.DTOs
         public string VendedorUserName { get; set; }
         public string VendedorNombre { get; set; }
         public int? IdRolVendedor { get; set; }
+
+        //public int IdVenta { get; set; } 
+        //public int IdPresupuesto { get; set; }
+        //public int IdUser { get; set; }        
+        //public int IdEstadoVenta { get; set; } 
+        //public DateTime FechaVenta { get; set; }
     }
 }

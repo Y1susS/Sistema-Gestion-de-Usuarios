@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsMensajeEmergente.cs" />
     <Compile Include="frmBackUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +150,12 @@
       <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </Compile>
     <Compile Include="ClsPlaceHolder.cs" />
+    <Compile Include="frmPresupuestador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPresupuestador.Designer.cs">
+      <DependentUpon>frmPresupuestador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBackUp.resx">
@@ -199,12 +206,14 @@
     <EmbeddedResource Include="frmPermisos.resx">
       <DependentUpon>frmPermisos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPresupuestador.resx">
+      <DependentUpon>frmPresupuestador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -256,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WoodenPlankCyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaderaCelesteFrmPreguntas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
