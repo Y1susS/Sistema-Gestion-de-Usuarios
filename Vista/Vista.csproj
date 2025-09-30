@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsMensajeEmergente.cs" />
     <Compile Include="frmBackUp.cs">
       <SubType>Form</SubType>
     </Compile>

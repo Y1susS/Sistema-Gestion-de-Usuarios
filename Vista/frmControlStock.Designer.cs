@@ -235,7 +235,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 26);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Precio Unitario";
+            this.label4.Text = "Precio unitario";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -245,7 +245,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 26);
             this.label5.TabIndex = 20;
-            this.label5.Text = "Stock Minimo";
+            this.label5.Text = "Stock mínimo";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
@@ -255,7 +255,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 26);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Stock Actual";
+            this.label6.Text = "Stock actual";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTipoMaterial
@@ -265,7 +265,7 @@
             this.lblTipoMaterial.Name = "lblTipoMaterial";
             this.lblTipoMaterial.Size = new System.Drawing.Size(107, 26);
             this.lblTipoMaterial.TabIndex = 21;
-            this.lblTipoMaterial.Text = "Tipo Material";
+            this.lblTipoMaterial.Text = "Tipo material";
             this.lblTipoMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMaterial
