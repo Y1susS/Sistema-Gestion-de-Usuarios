@@ -9,7 +9,7 @@ namespace Datos
         public class CD_PermisoFuncionalidad 
         {
             public int IdPermiso { get; set; }
-            public string NombreFuncionalidad { get; set; }
+            public string Nombre { get; set; }
             public string Descripcion { get; set; }
             public bool Habilitado { get; set; }
 

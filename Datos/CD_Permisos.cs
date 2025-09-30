@@ -59,9 +59,10 @@ namespace Datos
             return lista;
         }
 
-        public List<CD_PermisoFuncionalidad> ObtenerTodasLasFuncionalidades()
+        public List<DtoPermisoUsuario> ObtenerTodasLasFuncionalidades()
         {
-            List<CD_PermisoFuncionalidad> lista = new List<CD_PermisoFuncionalidad>();
+            // 1. Cambiamos el tipo de lista a DtoPermisoUsuario
+            List<DtoPermisoUsuario> lista = new List<DtoPermisoUsuario>();
 
 
             using (SqlConnection oConexion = AbrirConexion())
@@ -75,14 +76,20 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new CD_PermisoFuncionalidad()
+                            // 2. Instanciamos el DtoPermisoUsuario de la capa de Entidades
+                            lista.Add(new DtoPermisoUsuario()
                             {
-                                // AQUI: El SP ObtenerTodasLasFuncionalidades devuelve 'IdPermiso' (sin guion bajo)
-                                // Asegúrate de que el SP 'sp_ObtenerTodasLasFuncionalidades' también devuelva 'IdPermiso'
-                                // o ajusta esta línea si devuelve 'Id_Permiso'.
-                                IdPermiso = Convert.ToInt32(dr["IdPermiso"]),
-                                NombreFuncionalidad = dr["NombreFuncionalidad"].ToString(),
+                                // AQUI: Mapeamos al DTO final. 
+                                // IdFuncionalidad es la propiedad de la clase base DtoFuncionalidad.
+                                IdFuncionalidad = Convert.ToInt32(dr["IdPermiso"]),
+
+                                // CORRECCIÓN CLAVE: Mapeamos el nombre corto a la propiedad 'Nombre' del DTO.
+                                Nombre = dr["Nombre"].ToString(),
+
+                                // Mapeamos la descripción larga.
                                 Descripcion = dr["Descripcion"].ToString(),
+
+                                // Propiedad específica de DtoPermisoUsuario, inicializada a false.
                                 Habilitado = false
                             });
                         }
@@ -90,16 +97,16 @@ namespace Datos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<CD_PermisoFuncionalidad>();
+                    lista = new List<DtoPermisoUsuario>();
                     throw new Exception("Error en la capa de datos al obtener todas las funcionalidades: " + ex.Message);
                 }
             }
             return lista;
         }
 
-        public List<CD_PermisoFuncionalidad> ObtenerPermisosExplicitosUsuario(int idUsuario)
+        public List<DtoPermisoUsuario> ObtenerPermisosExplicitosUsuario(int idUsuario) // <-- Cambiamos el tipo de retorno
         {
-            List<CD_PermisoFuncionalidad> listaPermisos = new List<CD_PermisoFuncionalidad>();
+            List<DtoPermisoUsuario> listaPermisos = new List<DtoPermisoUsuario>(); // <-- Cambiamos la lista
 
             using (SqlConnection oConexion = AbrirConexion())
             {
@@ -113,22 +120,23 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            listaPermisos.Add(new CD_PermisoFuncionalidad()
+                            listaPermisos.Add(new DtoPermisoUsuario() // <-- Instanciamos el DTO de Entidades
                             {
-                                // ***** CORRECCIÓN CLAVE AQUÍ *****
-                                // El SP devuelve 'IdPermiso' (sin guion bajo) debido al alias 'AS IdPermiso'.
-                                // Por lo tanto, el DataReader debe buscar 'IdPermiso'.
-                                IdPermiso = Convert.ToInt32(dr["IdPermiso"]),
-                                NombreFuncionalidad = dr["NombreFuncionalidad"].ToString(),
+                                // Mapeamos a las propiedades del DTO base (DtoFuncionalidad)
+                                IdFuncionalidad = Convert.ToInt32(dr["IdPermiso"]),
+
+                                // CORRECCIÓN CLAVE: Mapeamos el nombre corto a la propiedad 'Nombre'.
+                                Nombre = dr["Nombre"].ToString(),
+
                                 Descripcion = dr["Descripcion"].ToString(),
-                                Habilitado = Convert.ToBoolean(dr["Habilitado"])
+                                Habilitado = Convert.ToBoolean(dr["Habilitado"]) // Propiedad específica
                             });
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    listaPermisos = new List<CD_PermisoFuncionalidad>();
+                    listaPermisos = new List<DtoPermisoUsuario>();
                     throw new Exception("Error en la capa de datos al obtener permisos explicitos de usuario: " + ex.Message);
                 }
             }
@@ -289,6 +297,48 @@ namespace Datos
                 }
             }
             return resultado;
+        }
+        public bool GuardarPermisosDeUsuarioEnLote(int idUsuario, List<DtoPermisoUsuario> permisosACambiar)
+        {
+            // Usamos TransactionScope para asegurar que todas las operaciones se completen o ninguna lo haga.
+            // Aunque usas un solo SP para el UPSERT, una transacción simple es una buena práctica.
+            using (SqlConnection oConexion = AbrirConexion())
+            {
+                try
+                {
+                    oConexion.Open(); // Abre la conexión aquí para toda la operación
+                    SqlTransaction transaction = oConexion.BeginTransaction();
+
+                    SqlCommand cmd = new SqlCommand("sp_UpsertUsuarioPermiso", oConexion, transaction);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Creamos los parámetros fuera del bucle, solo actualizamos sus valores.
+                    SqlParameter pIdUsuario = cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    SqlParameter pIdPermiso = cmd.Parameters.Add("@IdPermiso", SqlDbType.Int);
+                    SqlParameter pHabilitado = cmd.Parameters.Add("@Habilitado", SqlDbType.Bit);
+
+                    foreach (var permiso in permisosACambiar)
+                    {
+                        // Actualiza los parámetros para el permiso actual.
+                        pIdPermiso.Value = permiso.IdFuncionalidad;
+                        pHabilitado.Value = permiso.Habilitado;
+
+                        // Ejecuta la operación para el permiso explícito (UPSERT).
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Si todo fue bien, hacemos Commit de la transacción.
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    // Si algo falla, la excepción se lanza y la transacción se revierte automáticamente (o debes manejarlo explícitamente con transaction.Rollback()).
+                    // Por simplicidad, solo lanzamos la excepción.
+                    throw new Exception("Error en la capa de datos al guardar permisos del usuario: " + ex.Message, ex);
+                }
+                // La conexión se cerrará automáticamente con el 'using' al salir del bloque.
+            }
         }
     }
 }

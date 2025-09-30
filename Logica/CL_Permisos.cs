@@ -46,12 +46,11 @@ namespace Logica
         // Ya está recibiendo CD_PermisoFuncionalidad, que es lo que devuelve el SP modificado.
         // La lógica de si está habilitado por rol o explícitamente YA ESTÁ EN EL SP.
         // No hay necesidad de procesar los permisos por rol aquí.
-        public List<CD_PermisoFuncionalidad> CargarPermisosDeUsuario(int idUsuario)
+        public List<DtoPermisoUsuario> CargarPermisosDeUsuario(int idUsuario) // <-- Cambiamos el tipo de retorno
         {
             try
             {
-                // El SP sp_ObtenerPermisosExplicitosUsuario ahora devuelve directamente
-                // todas las funcionalidades con su estado 'Habilitado' ya calculado.
+                // Esto ahora llama al método corregido en la capa de Datos
                 return _datosPermisos.ObtenerPermisosExplicitosUsuario(idUsuario);
             }
             catch (Exception ex)
@@ -62,7 +61,7 @@ namespace Logica
 
         // ***** MÉTODO PARA EL BOTÓN GUARDAR *****
         // Recibe la lista completa de permisos del DataGridView, que ya contiene el estado 'Habilitado' modificado.
-        public bool GuardarPermisosDeUsuario(int idUsuario, List<CD_PermisoFuncionalidad> permisosActualesDGV)
+        public bool GuardarPermisosDeUsuario(int idUsuario, List<DtoPermisoUsuario> permisosActualesDGV)
         {
             // Asumimos que la operación general será exitosa a menos que una excepción ocurra.
             // Esto es coherente con la idea de que el SP de UPSERT maneja el estado deseado.
@@ -73,7 +72,7 @@ namespace Logica
                     // Llamamos al método de la capa de datos.
                     // Si hay un problema en un permiso individual, GuardarPermisoExplicitoUsuario
                     // debería lanzar una excepción, que será capturada por el catch de este método.
-                    _datosPermisos.GuardarPermisoExplicitoUsuario(idUsuario, permisoFuncionalidad.IdPermiso, permisoFuncionalidad.Habilitado);
+                    _datosPermisos.GuardarPermisoExplicitoUsuario(idUsuario, permisoFuncionalidad.IdFuncionalidad, permisoFuncionalidad.Habilitado);
                 }
                 return true; // Si llegamos aquí sin lanzar una excepción, todo fue exitoso.
             }
@@ -93,20 +92,26 @@ namespace Logica
 
         public List<CD_PermisoUsuarioViewModel> ObtenerFuncionalidadesYPermisosDeRol(int idRol)
         {
-            List<CD_PermisoFuncionalidad> todasFuncionalidades = _datosPermisos.ObtenerTodasLasFuncionalidades();
+            // 1. Llama al método corregido, que ahora devuelve List<DtoPermisoUsuario>
+            List<DtoPermisoUsuario> todasFuncionalidades = _datosPermisos.ObtenerTodasLasFuncionalidades();
+
             List<int> permisosDelRol = _datosPermisos.ObtenerPermisosPorRol(idRol);
 
+            // 2. Mantenemos el ViewModel (CD_PermisoUsuarioViewModel) para la lógica de Rol, pero la fuente de datos ahora usa 'Nombre'.
             List<CD_PermisoUsuarioViewModel> permisosViewModel = new List<CD_PermisoUsuarioViewModel>();
 
             foreach (var funcionalidad in todasFuncionalidades)
             {
                 permisosViewModel.Add(new CD_PermisoUsuarioViewModel
                 {
-                    IdPermiso = funcionalidad.IdPermiso,
-                    NombreFuncionalidad = funcionalidad.NombreFuncionalidad,
+                    IdPermiso = funcionalidad.IdFuncionalidad,
+
+                    // CORRECCIÓN: Asignamos funcionalidad.Nombre (el nombre corto) a NombreFuncionalidad del ViewModel
+                    NombreFuncionalidad = funcionalidad.Nombre,
+
                     Descripcion = funcionalidad.Descripcion,
-                    Habilitado = permisosDelRol.Contains(funcionalidad.IdPermiso),
-                    HabilitadoPorRol = permisosDelRol.Contains(funcionalidad.IdPermiso)
+                    Habilitado = permisosDelRol.Contains(funcionalidad.IdFuncionalidad),
+                    HabilitadoPorRol = permisosDelRol.Contains(funcionalidad.IdFuncionalidad)
                 });
             }
             return permisosViewModel;

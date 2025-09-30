@@ -242,7 +242,7 @@
             this.btnbackup.Name = "btnbackup";
             this.btnbackup.Size = new System.Drawing.Size(175, 35);
             this.btnbackup.TabIndex = 27;
-            this.btnbackup.Text = "Realizar Back up";
+            this.btnbackup.Text = "Back up";
             this.btnbackup.UseVisualStyleBackColor = true;
             this.btnbackup.Click += new System.EventHandler(this.btnbackup_Click);
             // 
