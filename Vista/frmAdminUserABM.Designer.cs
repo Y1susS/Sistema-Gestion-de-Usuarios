@@ -81,7 +81,7 @@
             this.btnAgregarNuevo.Name = "btnAgregarNuevo";
             this.btnAgregarNuevo.Size = new System.Drawing.Size(150, 28);
             this.btnAgregarNuevo.TabIndex = 15;
-            this.btnAgregarNuevo.Text = "Agregar";
+            this.btnAgregarNuevo.Text = "Nuevo usuario";
             this.btnAgregarNuevo.UseVisualStyleBackColor = true;
             this.btnAgregarNuevo.Click += new System.EventHandler(this.btnAgregarNuevo_Click);
             // 
@@ -414,7 +414,7 @@
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(150, 28);
             this.btneliminar.TabIndex = 17;
-            this.btneliminar.Text = "Eliminar";
+            this.btneliminar.Text = "Eliminar usuario";
             this.btneliminar.UseVisualStyleBackColor = true;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 

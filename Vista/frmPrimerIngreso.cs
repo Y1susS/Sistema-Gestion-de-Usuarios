@@ -16,6 +16,7 @@ namespace Vista
 {
     public partial class frmPrimerIngreso : Form
     {
+        private ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
         private readonly CL_Usuarios objUsuarios = new CL_Usuarios();
         private ClsArrastrarFormularios moverFormulario;
         public frmPrimerIngreso()
@@ -31,11 +32,12 @@ namespace Vista
             pctOcultar,
             pctMostrar2,
             pctOcultar2,
-            lblRestriccionesTexto);
+            lblRestriccionesTexto,
+            pctValidaciones);
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pctBorde);
-            moverFormulario.HabilitarMovimiento(lblLogin);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblPrimerIngreso);
 
             ClsMostrarOcultarClave.Configurar(txtNuevaPass, pctMostrar, pctOcultar, "Nueva contraseña");
             ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar2, pctOcultar2, "Confirmar contraseña");
@@ -55,6 +57,7 @@ namespace Vista
             MostrarRestriccionesContrasena();
 
         }
+
         private void MostrarRestriccionesContrasena()
         {
             try
@@ -64,57 +67,117 @@ namespace Vista
 
                 if (config != null)
                 {
-                    lblRestriccionesTexto.Visible = true; 
-                    StringBuilder sb = new StringBuilder(); 
-                                        
+                    StringBuilder sb = new StringBuilder();
+
                     if (config.MinimoCaracteres > 0)
                     {
-                        sb.Append($"Mínimo: {config.MinimoCaracteres} caracteres - ");
+                        sb.AppendLine($"• Mínimo: {config.MinimoCaracteres} caracteres");
                     }
                     if (config.RequiereMayusMinus)
                     {
-                        sb.Append("Combinación de mayúsculas y minúsculas - ");
+                        sb.AppendLine("• Combinación de mayúsculas y minúsculas");
                     }
                     if (config.RequiereNumLetra)
                     {
-                        sb.Append("Números y letras - ");
+                        sb.AppendLine("• Números y letras");
                     }
                     if (config.RequiereEspecial)
                     {
-                        sb.Append("Al menos 1 carácter especial - ");
+                        sb.AppendLine("• Al menos 1 carácter especial");
                     }
                     if (config.EvitarRepetidas)
                     {
-                        sb.Append("No reutilizar contraseñas anteriores - ");
+                        sb.AppendLine("• No reutilizar contraseñas anteriores");
                     }
                     if (config.EvitarDatosPersonales)
                     {
-                        sb.Append("No contener datos personales - ");
+                        sb.AppendLine("• No contener datos personales");
                     }
 
-                    
-                    if (sb.Length > 0)
-                    {
-                        sb.Length -= 3; // Elimina los últimos 3 caracteres (" - ")
-                        lblRestriccionesTexto.Text = sb.ToString();
-                    }
-                    else
-                    {
-                        // Si no hay restricciones configuradas, muestra por defecto
-                        lblRestriccionesTexto.Text = "No hay restricciones de contraseña configuradas.";
-                    }
+                    string mensaje = sb.Length > 0
+                        ? sb.ToString()
+                        : "No hay restricciones de contraseña configuradas.";
+
+                    ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
+                    mensajes.AsignarMensaje(pctValidaciones, mensaje);
                 }
                 else
                 {
-                    lblRestriccionesTexto.Visible = false;
+                    ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
+                    mensajes.AsignarMensaje(pctValidaciones, "No hay restricciones configuradas.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar las restricciones de contraseña: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                lblRestriccionesTexto.Visible = false;
+                MessageBox.Show($"Error al cargar las restricciones de contraseña: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
+                mensajes.AsignarMensaje(pctValidaciones, string.Empty);
             }
         }
+
+
+        //private void MostrarRestriccionesContrasena()
+        //{
+        //    try
+        //    {
+        //        CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
+        //        DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
+
+        //        if (config != null)
+        //        {
+        //            lblRestriccionesTexto.Visible = true; 
+        //            StringBuilder sb = new StringBuilder(); 
+
+        //            if (config.MinimoCaracteres > 0)
+        //            {
+        //                sb.Append($"Mínimo: {config.MinimoCaracteres} caracteres - ");
+        //            }
+        //            if (config.RequiereMayusMinus)
+        //            {
+        //                sb.Append("Combinación de mayúsculas y minúsculas - ");
+        //            }
+        //            if (config.RequiereNumLetra)
+        //            {
+        //                sb.Append("Números y letras - ");
+        //            }
+        //            if (config.RequiereEspecial)
+        //            {
+        //                sb.Append("Al menos 1 carácter especial - ");
+        //            }
+        //            if (config.EvitarRepetidas)
+        //            {
+        //                sb.Append("No reutilizar contraseñas anteriores - ");
+        //            }
+        //            if (config.EvitarDatosPersonales)
+        //            {
+        //                sb.Append("No contener datos personales - ");
+        //            }
+
+
+        //            if (sb.Length > 0)
+        //            {
+        //                sb.Length -= 3; // Elimina los últimos 3 caracteres (" - ")
+        //                lblRestriccionesTexto.Text = sb.ToString();
+        //            }
+        //            else
+        //            {
+        //                // Si no hay restricciones configuradas, muestra por defecto
+        //                lblRestriccionesTexto.Text = "No hay restricciones de contraseña configuradas.";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            lblRestriccionesTexto.Visible = false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Error al cargar las restricciones de contraseña: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        lblRestriccionesTexto.Visible = false;
+        //    }
+        //}
         private void btnCambiar_Click(object sender, EventArgs e) 
         {
             try
