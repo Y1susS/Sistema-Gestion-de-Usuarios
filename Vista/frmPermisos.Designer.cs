@@ -33,14 +33,14 @@
             this.btnvolver = new System.Windows.Forms.Button();
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.dgvPermisos = new System.Windows.Forms.DataGridView();
-            this.colIdPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFuncionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHabilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnguardar = new System.Windows.Forms.Button();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.colIdPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFuncionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHabilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -89,38 +89,6 @@
             this.dgvPermisos.Size = new System.Drawing.Size(723, 234);
             this.dgvPermisos.TabIndex = 5;
             // 
-            // colIdPermiso
-            // 
-            this.colIdPermiso.DataPropertyName = "IdPermiso";
-            this.colIdPermiso.HeaderText = "Id permiso";
-            this.colIdPermiso.Name = "colIdPermiso";
-            this.colIdPermiso.ReadOnly = true;
-            this.colIdPermiso.Visible = false;
-            // 
-            // colFuncionalidad
-            // 
-            this.colFuncionalidad.DataPropertyName = "NombreFuncionalidad";
-            this.colFuncionalidad.HeaderText = "Funcionalidad";
-            this.colFuncionalidad.Name = "colFuncionalidad";
-            this.colFuncionalidad.ReadOnly = true;
-            // 
-            // colDescripcion
-            // 
-            this.colDescripcion.DataPropertyName = "Descripcion";
-            this.colDescripcion.HeaderText = "Descripcion";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.ReadOnly = true;
-            // 
-            // colHabilitado
-            // 
-            this.colHabilitado.DataPropertyName = "Habilitado";
-            this.colHabilitado.FalseValue = "False";
-            this.colHabilitado.HeaderText = "Habilitado";
-            this.colHabilitado.Name = "colHabilitado";
-            this.colHabilitado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colHabilitado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colHabilitado.TrueValue = "True";
-            // 
             // btnguardar
             // 
             this.btnguardar.Location = new System.Drawing.Point(578, 396);
@@ -163,6 +131,38 @@
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 24;
             this.label2.Text = "Usuarios";
+            // 
+            // colIdPermiso
+            // 
+            this.colIdPermiso.DataPropertyName = "IdPermiso";
+            this.colIdPermiso.HeaderText = "Id permiso";
+            this.colIdPermiso.Name = "colIdPermiso";
+            this.colIdPermiso.ReadOnly = true;
+            this.colIdPermiso.Visible = false;
+            // 
+            // colFuncionalidad
+            // 
+            this.colFuncionalidad.DataPropertyName = "Nombre";
+            this.colFuncionalidad.HeaderText = "Funcionalidad";
+            this.colFuncionalidad.Name = "colFuncionalidad";
+            this.colFuncionalidad.ReadOnly = true;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.DataPropertyName = "Descripcion";
+            this.colDescripcion.HeaderText = "Descripcion";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            // 
+            // colHabilitado
+            // 
+            this.colHabilitado.DataPropertyName = "Habilitado";
+            this.colHabilitado.FalseValue = "False";
+            this.colHabilitado.HeaderText = "Habilitado";
+            this.colHabilitado.Name = "colHabilitado";
+            this.colHabilitado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colHabilitado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colHabilitado.TrueValue = "True";
             // 
             // frmPermisos
             // 

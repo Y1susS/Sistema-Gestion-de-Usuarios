@@ -67,7 +67,7 @@ namespace Sistema_Gestion_De_Usuarios
             {
                 Name = "colFuncionalidad", // ¡Importante: usa el prefijo "col"!
                 HeaderText = "Funcionalidad",
-                DataPropertyName = "NombreFuncionalidad",
+                DataPropertyName = "Nombre",
                 ReadOnly = true, // El usuario no puede editar el nombre directamente.
             });
 
@@ -146,7 +146,7 @@ namespace Sistema_Gestion_De_Usuarios
 
             try
             {
-                List<CD_PermisoFuncionalidad> permisos = _logicaPermisos.CargarPermisosDeUsuario(_idUsuarioSeleccionado);
+                List<DtoPermisoUsuario> permisos = _logicaPermisos.CargarPermisosDeUsuario(_idUsuarioSeleccionado);
 
                 // Asegúrate de que AutoGenerateColumns sea false en el diseñador o en el constructor del formulario.
                 // Si no, ponlo aquí ANTES de asignar el DataSource.
@@ -188,7 +188,7 @@ namespace Sistema_Gestion_De_Usuarios
             {
                 // Obtengo la lista actual de permisos que tengo en mi DataGridView.
                 // ¡CAMBIO AQUÍ! Casteamos a List<CD_PermisoFuncionalidad>
-                List<CD_PermisoFuncionalidad> permisosACambiar = dgvPermisos.DataSource as List<CD_PermisoFuncionalidad>;
+                List<DtoPermisoUsuario> permisosACambiar = dgvPermisos.DataSource as List<DtoPermisoUsuario>;
 
                 if (permisosACambiar == null || !permisosACambiar.Any())
                 {
@@ -205,7 +205,7 @@ namespace Sistema_Gestion_De_Usuarios
                     MessageBox.Show("Permisos del usuario guardados exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                     // Recarga los permisos para reflejar cualquier cambio (aunque ya estén en la lista)
-                    List<CD_PermisoFuncionalidad> permisosRecargados = _logicaPermisos.CargarPermisosDeUsuario(_idUsuarioSeleccionado);
+                    List<DtoPermisoUsuario> permisosRecargados = _logicaPermisos.CargarPermisosDeUsuario(_idUsuarioSeleccionado);
                     dgvPermisos.DataSource = permisosRecargados;
                 }
                 else

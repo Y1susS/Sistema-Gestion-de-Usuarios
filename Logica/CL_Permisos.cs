@@ -38,10 +38,16 @@ namespace Logica
             }
         }
 
-        public List<CD_PermisoFuncionalidad> CargarPermisosDeUsuario(int idUsuario)
+        // Este método se usa para cargar la grilla de permisos de usuario.
+        // Ya está recibiendo CD_PermisoFuncionalidad, que es lo que devuelve el SP modificado.
+        // La lógica de si está habilitado por rol o explícitamente YA ESTÁ EN EL SP.
+        // No hay necesidad de procesar los permisos por rol aquí.
+        public List<DtoPermisoUsuario> CargarPermisosDeUsuario(int idUsuario) // <-- Cambiamos el tipo de retorno
         {
             try
             {
+                // Esto ahora llama al método corregido en la capa de Datos
+
                 return _datosPermisos.ObtenerPermisosExplicitosUsuario(idUsuario);
             }
             catch (Exception ex)
@@ -50,13 +56,20 @@ namespace Logica
             }
         }
 
-        public bool GuardarPermisosDeUsuario(int idUsuario, List<CD_PermisoFuncionalidad> permisosActualesDGV)
+        // ***** MÉTODO PARA EL BOTÓN GUARDAR *****
+        // Recibe la lista completa de permisos del DataGridView, que ya contiene el estado 'Habilitado' modificado.
+        public bool GuardarPermisosDeUsuario(int idUsuario, List<DtoPermisoUsuario> permisosActualesDGV)
+
         {
             try
             {
                 foreach (var permisoFuncionalidad in permisosActualesDGV)
                 {
-                    _datosPermisos.GuardarPermisoExplicitoUsuario(idUsuario, permisoFuncionalidad.IdPermiso, permisoFuncionalidad.Habilitado);
+                    // Llamamos al método de la capa de datos.
+                    // Si hay un problema en un permiso individual, GuardarPermisoExplicitoUsuario
+                    // debería lanzar una excepción, que será capturada por el catch de este método.
+                    _datosPermisos.GuardarPermisoExplicitoUsuario(idUsuario, permisoFuncionalidad.IdFuncionalidad, permisoFuncionalidad.Habilitado);
+
                 }
                 return true; 
             }
@@ -69,20 +82,26 @@ namespace Logica
 
         public List<CD_PermisoUsuarioViewModel> ObtenerFuncionalidadesYPermisosDeRol(int idRol)
         {
-            List<CD_PermisoFuncionalidad> todasFuncionalidades = _datosPermisos.ObtenerTodasLasFuncionalidades();
+            // 1. Llama al método corregido, que ahora devuelve List<DtoPermisoUsuario>
+            List<DtoPermisoUsuario> todasFuncionalidades = _datosPermisos.ObtenerTodasLasFuncionalidades();
+
             List<int> permisosDelRol = _datosPermisos.ObtenerPermisosPorRol(idRol);
 
+            // 2. Mantenemos el ViewModel (CD_PermisoUsuarioViewModel) para la lógica de Rol, pero la fuente de datos ahora usa 'Nombre'.
             List<CD_PermisoUsuarioViewModel> permisosViewModel = new List<CD_PermisoUsuarioViewModel>();
 
             foreach (var funcionalidad in todasFuncionalidades)
             {
                 permisosViewModel.Add(new CD_PermisoUsuarioViewModel
                 {
-                    IdPermiso = funcionalidad.IdPermiso,
-                    NombreFuncionalidad = funcionalidad.NombreFuncionalidad,
+                    IdPermiso = funcionalidad.IdFuncionalidad,
+
+                    // CORRECCIÓN: Asignamos funcionalidad.Nombre (el nombre corto) a NombreFuncionalidad del ViewModel
+                    NombreFuncionalidad = funcionalidad.Nombre,
+
                     Descripcion = funcionalidad.Descripcion,
-                    Habilitado = permisosDelRol.Contains(funcionalidad.IdPermiso),
-                    HabilitadoPorRol = permisosDelRol.Contains(funcionalidad.IdPermiso)
+                    Habilitado = permisosDelRol.Contains(funcionalidad.IdFuncionalidad),
+                    HabilitadoPorRol = permisosDelRol.Contains(funcionalidad.IdFuncionalidad)
                 });
             }
             return permisosViewModel;
