@@ -250,5 +250,12 @@ namespace Vista
             frm.ShowDialog();
             this.Show();
         }
+
+        private void btnEstadoVentas_Click(object sender, EventArgs e)
+        {
+            frmEstadosVentas frmEstadosVentas = new frmEstadosVentas();
+            frmEstadosVentas.Show();
+            this.Hide();
+        }
     }
 }

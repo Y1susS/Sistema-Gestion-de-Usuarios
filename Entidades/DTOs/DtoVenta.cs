@@ -26,6 +26,10 @@ namespace Entidades.DTOs
         public string VendedorNombre { get; set; }
         public int? IdRolVendedor { get; set; }
 
+
+        public int? IdEstadoVenta { get; set; }
+        public string EstadoVenta { get; set; }
+
         //public int IdVenta { get; set; } 
         //public int IdPresupuesto { get; set; }
         //public int IdUser { get; set; }        
