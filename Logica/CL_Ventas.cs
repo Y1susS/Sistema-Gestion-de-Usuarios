@@ -28,6 +28,13 @@ namespace Logica
 
         public List<DtoCliente> ObtenerClientes()
             => _dao.ListarClientesVentas();
+
+
+        public List<DtoEstadoVenta> ObtenerEstadosVenta()
+    => _dao.ListarEstadosVenta();
+
+        public void GuardarEstadoVenta(int idVenta, int idEstadoVenta)
+    => _dao.ActualizarEstadoVenta(idVenta, idEstadoVenta);
     }
 
 

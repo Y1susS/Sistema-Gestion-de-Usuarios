@@ -48,6 +48,7 @@
             this.btnbackup = new System.Windows.Forms.Button();
             this.btngestionstock = new System.Windows.Forms.Button();
             this.btnbitacora = new System.Windows.Forms.Button();
+            this.btnEstadoVentas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
@@ -267,11 +268,23 @@
             this.btnbitacora.Text = "Bitacora";
             this.btnbitacora.UseVisualStyleBackColor = true;
             // 
+            // btnEstadoVentas
+            // 
+            this.btnEstadoVentas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadoVentas.Location = new System.Drawing.Point(209, 444);
+            this.btnEstadoVentas.Name = "btnEstadoVentas";
+            this.btnEstadoVentas.Size = new System.Drawing.Size(175, 35);
+            this.btnEstadoVentas.TabIndex = 31;
+            this.btnEstadoVentas.Text = "Estado Venta";
+            this.btnEstadoVentas.UseVisualStyleBackColor = true;
+            this.btnEstadoVentas.Click += new System.EventHandler(this.btnEstadoVentas_Click);
+            // 
             // frmPanelUsuarios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 566);
+            this.Controls.Add(this.btnEstadoVentas);
             this.Controls.Add(this.btnbitacora);
             this.Controls.Add(this.btncotizador);
             this.Controls.Add(this.btnmetricas);
@@ -328,5 +341,6 @@
         private System.Windows.Forms.Button btnbackup;
         private System.Windows.Forms.Button btngestionstock;
         private System.Windows.Forms.Button btnbitacora;
+        private System.Windows.Forms.Button btnEstadoVentas;
     }
 }
