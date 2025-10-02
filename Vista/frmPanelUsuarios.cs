@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 
 
@@ -23,19 +24,78 @@ namespace Vista
             this.Load += frmPanelUsuarios_Load;
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pctBorde);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lbltitulo);
+        }
+        private void AjustarTamañoFormulario()
+        {
+            int cantBotonesVisibles = flwBotones.Controls.Cast<Control>()
+                                  .Count(c => c.Visible);
 
-            ClsFondoTransparente.Aplicar(
-            pctFondo,
-            btnGestionUsuarios,
-            btnGestionPermisos,
-            btnGestionValidaciones,
-            btnRegistroClientes,
-            btnCambiarContrasena,
-            btnPreguntas,
-            pctLogo,
-            lblDiasRestantesContrasena);
+            switch (cantBotonesVisibles)
+            {
+                case 0:
+                case 1:
+                    this.Height = 275;
+                    break;
+                case 2:
+                    this.Height = 325;
+                    break;
+                case 3:
+                    this.Height = 375;
+                    break;
+                case 4:
+                    this.Height = 425;
+                    break;
+                case 5:
+                    this.Height = 475;
+                    break;
+                case 6:
+                    this.Height = 525;
+                    break;
+                case 7:
+                    this.Height = 415;
+                    break;
+                case 8:
+                    this.Height = 415;
+                    break;
+                case 9:
+                    this.Height = 465;
+                    break;
+                case 10:
+                    this.Height = 465;
+                    break;
+                default:
+                    break;
+            }
+
+            if (cantBotonesVisibles <= 6)
+            {
+                flwBotones.Width = 185;
+                flwBotones.Height = 285;
+                flwBotones.Location = new Point(105, 175);
+            }
+        }
+
+        private void AjustarUltimoBoton()
+        {
+            int cantBotonesVisibles = flwBotones.Controls.Cast<Control>().Count(c => c.Visible);
+
+            if (cantBotonesVisibles > 6)
+            {
+                int columnas = 2;
+                int botonesUltimaFila = cantBotonesVisibles % columnas;
+                if (botonesUltimaFila == 1)
+                {
+                    var btnUltimo = flwBotones.Controls
+                                      .OfType<Button>()
+                                      .Where(b => b.Visible)
+                                      .Last();
+
+                    btnUltimo.Width = 362;
+                    btnUltimo.Height = 35;
+                }
+            }
         }
 
         private void frmPanelUsuarios_Load(object sender, EventArgs e)
@@ -124,18 +184,6 @@ namespace Vista
             }
         }
 
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmLoguin FrmLoguin = new FrmLoguin();
-            FrmLoguin.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void AjustarInterfazPorPermisos()
         {
             DtoUsuario usuarioActual = ClsSesionActual.ObtenerUsuario();
@@ -200,6 +248,7 @@ namespace Vista
                 {
                     btncotizador.Visible = true;
                 }
+
                 CL_Usuarios logicaUsuario = new CL_Usuarios();
 
                 int idRol = logicaUsuario.ObtenerIdRolUsuario();
@@ -217,8 +266,9 @@ namespace Vista
                         break;
                 }
             }
+            AjustarTamañoFormulario();
+            AjustarUltimoBoton();
         }
-
 
 
         private void btncotizador_Click(object sender, EventArgs e)
@@ -255,6 +305,18 @@ namespace Vista
             frmEstadosVentas frmEstadosVentas = new frmEstadosVentas();
             frmEstadosVentas.Show();
             this.Hide();
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLoguin FrmLoguin = new FrmLoguin();
+            FrmLoguin.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
