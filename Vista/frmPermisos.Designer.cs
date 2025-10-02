@@ -33,19 +33,20 @@
             this.btnvolver = new System.Windows.Forms.Button();
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.dgvPermisos = new System.Windows.Forms.DataGridView();
-            this.btnguardar = new System.Windows.Forms.Button();
-            this.lblUsuarios = new System.Windows.Forms.Label();
-            this.pnlBorde = new System.Windows.Forms.Panel();
-            this.pctMinimize = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.colIdPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFuncionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHabilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnguardar = new System.Windows.Forms.Button();
+            this.lblUsuarios = new System.Windows.Forms.Label();
+            this.pnlBorde = new System.Windows.Forms.Panel();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             this.pnlBorde.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // lblpermisos
@@ -83,7 +84,8 @@
             // 
             // dgvPermisos
             // 
-            this.dgvPermisos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvPermisos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPermisos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPermisos.BackgroundColor = System.Drawing.Color.White;
             this.dgvPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -95,6 +97,40 @@
             this.dgvPermisos.Name = "dgvPermisos";
             this.dgvPermisos.Size = new System.Drawing.Size(750, 310);
             this.dgvPermisos.TabIndex = 5;
+            // 
+            // colIdPermiso
+            // 
+            this.colIdPermiso.DataPropertyName = "IdPermiso";
+            this.colIdPermiso.HeaderText = "Id permiso";
+            this.colIdPermiso.Name = "colIdPermiso";
+            this.colIdPermiso.ReadOnly = true;
+            this.colIdPermiso.Visible = false;
+            // 
+            // colFuncionalidad
+            // 
+            this.colFuncionalidad.DataPropertyName = "Nombre";
+            this.colFuncionalidad.HeaderText = "Funcionalidad";
+            this.colFuncionalidad.Name = "colFuncionalidad";
+            this.colFuncionalidad.ReadOnly = true;
+            this.colFuncionalidad.Width = 124;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.DataPropertyName = "Descripcion";
+            this.colDescripcion.HeaderText = "Descripcion";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            this.colDescripcion.Width = 111;
+            // 
+            // colHabilitado
+            // 
+            this.colHabilitado.DataPropertyName = "Habilitado";
+            this.colHabilitado.FalseValue = "False";
+            this.colHabilitado.HeaderText = "Habilitado";
+            this.colHabilitado.Name = "colHabilitado";
+            this.colHabilitado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colHabilitado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colHabilitado.TrueValue = "True";
             // 
             // btnguardar
             // 
@@ -121,13 +157,24 @@
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlBorde.Controls.Add(this.lblpermisos);
-            this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
+            this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
             this.pnlBorde.Size = new System.Drawing.Size(775, 40);
             this.pnlBorde.TabIndex = 27;
+            // 
+            // pctClose
+            // 
+            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctClose.Image = global::Vista.Properties.Resources.CircleX;
+            this.pctClose.Location = new System.Drawing.Point(735, 0);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.TabIndex = 23;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
             // 
             // pctMinimize
             // 
@@ -143,20 +190,6 @@
             this.pctMinimize.TabStop = false;
             this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
             // 
-            // pctClose
-            // 
-            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(735, 0);
-            this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(40, 40);
-            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctClose.TabIndex = 20;
-            this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-            // 
             // pnlBordeInferior
             // 
             this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -166,46 +199,14 @@
             this.pnlBordeInferior.Size = new System.Drawing.Size(775, 20);
             this.pnlBordeInferior.TabIndex = 28;
             // 
-            // colIdPermiso
-            // 
-            this.colIdPermiso.DataPropertyName = "IdPermiso";
-            this.colIdPermiso.HeaderText = "Id permiso";
-            this.colIdPermiso.Name = "colIdPermiso";
-            this.colIdPermiso.ReadOnly = true;
-            this.colIdPermiso.Visible = false;
-            // 
-            // colFuncionalidad
-            // 
-            this.colFuncionalidad.DataPropertyName = "Nombre";
-            this.colFuncionalidad.HeaderText = "Funcionalidad";
-            this.colFuncionalidad.Name = "colFuncionalidad";
-            this.colFuncionalidad.ReadOnly = true;
-            // 
-            // colDescripcion
-            // 
-            this.colDescripcion.DataPropertyName = "Descripcion";
-            this.colDescripcion.HeaderText = "Descripcion";
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.ReadOnly = true;
-            // 
-            // colHabilitado
-            // 
-            this.colHabilitado.DataPropertyName = "Habilitado";
-            this.colHabilitado.FalseValue = "False";
-            this.colHabilitado.HeaderText = "Habilitado";
-            this.colHabilitado.Name = "colHabilitado";
-            this.colHabilitado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colHabilitado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colHabilitado.TrueValue = "True";
-            // 
             // frmPermisos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.ClientSize = new System.Drawing.Size(775, 500);
+            this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.dgvPermisos);
             this.Controls.Add(this.lblUsuarios);
-            this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.cmbUsuarios);
@@ -218,8 +219,8 @@
             this.Load += new System.EventHandler(this.frmPermisos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).EndInit();
             this.pnlBorde.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             this.ResumeLayout(false);
 
         }
