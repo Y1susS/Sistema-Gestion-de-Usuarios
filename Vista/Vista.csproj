@@ -60,6 +60,12 @@
     <Compile Include="frmControlStock.Designer.cs">
       <DependentUpon>frmControlStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEstadosVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadosVentas.Designer.cs">
+      <DependentUpon>frmEstadosVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCambioPass.resx">
       <DependentUpon>frmCambioPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadosVentas.resx">
+      <DependentUpon>frmEstadosVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPanelUsuarios.resx">
       <DependentUpon>frmPanelUsuarios.cs</DependentUpon>

@@ -181,9 +181,84 @@ namespace Datos
                 IdVendedor = r["IdVendedor"] != DBNull.Value ? (int?)Convert.ToInt32(r["IdVendedor"]) : null,
                 VendedorUserName = r["VendedorUserName"]?.ToString(),
                 VendedorNombre = r["VendedorNombre"]?.ToString(),
-                IdRolVendedor = r["IdRolVendedor"] != DBNull.Value ? (int?)Convert.ToInt32(r["IdRolVendedor"]) : null
+                IdRolVendedor = r["IdRolVendedor"] != DBNull.Value ? (int?)Convert.ToInt32(r["IdRolVendedor"]) : null,
+
+                IdEstadoVenta = r["Id_EstadoVenta"] != DBNull.Value ? (int?)Convert.ToInt32(r["Id_EstadoVenta"]) : null,
+                EstadoVenta = r["EstadoVenta"]?.ToString()
             };
         }
+
+
+        public List<DtoEstadoVenta> ListarEstadosVenta()
+        {
+            List<DtoEstadoVenta> lista = new List<DtoEstadoVenta>();
+
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    // CAMBIO: Llamada al Stored Procedure
+                    SqlCommand cmd = new SqlCommand("dbo.sp_ListarEstadosVenta", conn);
+                    cmd.CommandType = CommandType.StoredProcedure; // Establecer tipo StoredProcedure
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new DtoEstadoVenta
+                            {
+                                IdEstadoVenta = Convert.ToInt32(reader["Id_EstadoVenta"]),
+                                Estado = reader["Estado"]?.ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Se propaga la excepción, permitiendo que la capa superior la capture.
+                    throw new Exception("Error al listar estados de venta: " + ex.Message, ex);
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+
+            return lista;
+        }
+
+        public void ActualizarEstadoVenta(int idVenta, int idEstadoVenta)
+        {
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.sp_ActualizarEstadoVenta", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros del SP
+                    cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+                    cmd.Parameters.AddWithValue("@IdEstadoVenta", idEstadoVenta);
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    // Manejar errores específicos lanzados por el RAISERROR del SP
+                    throw new Exception("Error SQL al actualizar estado: " + ex.Message, ex);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al actualizar estado de la venta: " + ex.Message, ex);
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+        }
+
+
     }
 }
 
