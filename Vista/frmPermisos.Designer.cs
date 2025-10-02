@@ -167,6 +167,7 @@
             // 
             // pctClose
             // 
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = global::Vista.Properties.Resources.CircleX;
             this.pctClose.Location = new System.Drawing.Point(735, 0);
