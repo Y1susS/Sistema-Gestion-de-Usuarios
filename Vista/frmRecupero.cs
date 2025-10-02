@@ -31,43 +31,13 @@ namespace Vista
             DoubleBuffered = true;
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pctBorde);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblRecuperacion);
 
             ClsFondoTransparente.Aplicar(
             pctFondo,
             pctLogo,
             lblPregunta);
-        }
-        private void PctClose_Click(object sender, EventArgs e)
-        {
-            {
-                bool dniVacio = string.IsNullOrWhiteSpace(txtdni.Text) || txtdni.Text == DNI_PLACEHOLDER;
-                bool respuestaVacia = string.IsNullOrWhiteSpace(txtrespuesta.Text) || txtrespuesta.Text == RESPUESTA_PLACEHOLDER;
-
-                if (respuestaVacia && dniVacio == true)
-                {
-                    this.Close();
-                    FrmLoguin FrmLoguin = new FrmLoguin();
-                    FrmLoguin.Show();
-                }
-                else
-                {
-                    DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                    if (opcion == DialogResult.Yes)
-                    {
-                        this.Close();
-                        FrmLoguin FrmLoguin = new FrmLoguin();
-                        FrmLoguin.Show();
-                    }
-                }
-            }
-
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private const string DNI_PLACEHOLDER = "Ingrese DNI";
@@ -515,5 +485,34 @@ namespace Vista
             }
         }
 
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            {
+                bool dniVacio = string.IsNullOrWhiteSpace(txtdni.Text) || txtdni.Text == DNI_PLACEHOLDER;
+                bool respuestaVacia = string.IsNullOrWhiteSpace(txtrespuesta.Text) || txtrespuesta.Text == RESPUESTA_PLACEHOLDER;
+
+                if (respuestaVacia && dniVacio == true)
+                {
+                    this.Close();
+                    FrmLoguin FrmLoguin = new FrmLoguin();
+                    FrmLoguin.Show();
+                }
+                else
+                {
+                    DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    if (opcion == DialogResult.Yes)
+                    {
+                        this.Close();
+                        FrmLoguin FrmLoguin = new FrmLoguin();
+                        FrmLoguin.Show();
+                    }
+                }
+            }
+        }
     }
 }

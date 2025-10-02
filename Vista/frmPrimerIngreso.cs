@@ -32,7 +32,6 @@ namespace Vista
             pctOcultar,
             pctMostrar2,
             pctOcultar2,
-            lblRestriccionesTexto,
             pctValidaciones);
 
             moverFormulario = new ClsArrastrarFormularios(this);

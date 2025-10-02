@@ -43,7 +43,6 @@
             this.pctOcultar = new System.Windows.Forms.PictureBox();
             this.pctMostrar2 = new System.Windows.Forms.PictureBox();
             this.pctOcultar2 = new System.Windows.Forms.PictureBox();
-            this.lblRestriccionesTexto = new System.Windows.Forms.Label();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pctValidaciones = new System.Windows.Forms.PictureBox();
@@ -62,7 +61,7 @@
             // txtConfirmaPass
             // 
             this.txtConfirmaPass.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmaPass.Location = new System.Drawing.Point(162, 269);
+            this.txtConfirmaPass.Location = new System.Drawing.Point(107, 269);
             this.txtConfirmaPass.MaxLength = 25;
             this.txtConfirmaPass.Name = "txtConfirmaPass";
             this.txtConfirmaPass.Size = new System.Drawing.Size(185, 25);
@@ -75,7 +74,7 @@
             this.pctLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(188, 61);
+            this.pctLogo.Location = new System.Drawing.Point(126, 56);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,7 +85,7 @@
             // 
             this.txtNuevaPass.BackColor = System.Drawing.Color.White;
             this.txtNuevaPass.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNuevaPass.Location = new System.Drawing.Point(162, 220);
+            this.txtNuevaPass.Location = new System.Drawing.Point(107, 219);
             this.txtNuevaPass.MaxLength = 25;
             this.txtNuevaPass.Name = "txtNuevaPass";
             this.txtNuevaPass.Size = new System.Drawing.Size(185, 25);
@@ -114,7 +113,7 @@
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(483, 0);
+            this.pctClose.Location = new System.Drawing.Point(360, 0);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -131,7 +130,7 @@
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiar.ForeColor = System.Drawing.Color.Black;
-            this.btnCambiar.Location = new System.Drawing.Point(162, 317);
+            this.btnCambiar.Location = new System.Drawing.Point(107, 318);
             this.btnCambiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(185, 30);
@@ -142,12 +141,11 @@
             // 
             // lblUsuario
             // 
-            this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblUsuario.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(0, 477);
+            this.lblUsuario.Location = new System.Drawing.Point(0, 360);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(523, 30);
+            this.lblUsuario.Size = new System.Drawing.Size(400, 18);
             this.lblUsuario.TabIndex = 25;
             this.lblUsuario.Text = "Usuario";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -156,31 +154,31 @@
             // 
             this.lblMensaje.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.ForeColor = System.Drawing.Color.White;
-            this.lblMensaje.Location = new System.Drawing.Point(0, 168);
+            this.lblMensaje.Location = new System.Drawing.Point(0, 159);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(523, 40);
+            this.lblMensaje.Size = new System.Drawing.Size(400, 40);
             this.lblMensaje.TabIndex = 26;
-            this.lblMensaje.Text = "Mensaje\r\nh";
+            this.lblMensaje.Text = "Mensaje";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctFondo
             // 
             this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
-            this.pctFondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pctFondo.Location = new System.Drawing.Point(0, 0);
             this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(523, 527);
+            this.pctFondo.Size = new System.Drawing.Size(400, 400);
             this.pctFondo.TabIndex = 27;
             this.pctFondo.TabStop = false;
             // 
             // lblPrimerIngreso
             // 
             this.lblPrimerIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblPrimerIngreso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPrimerIngreso.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrimerIngreso.ForeColor = System.Drawing.Color.White;
-            this.lblPrimerIngreso.Location = new System.Drawing.Point(188, 0);
+            this.lblPrimerIngreso.Location = new System.Drawing.Point(40, 0);
             this.lblPrimerIngreso.Name = "lblPrimerIngreso";
-            this.lblPrimerIngreso.Size = new System.Drawing.Size(150, 40);
+            this.lblPrimerIngreso.Size = new System.Drawing.Size(320, 40);
             this.lblPrimerIngreso.TabIndex = 33;
             this.lblPrimerIngreso.Text = "Primer Ingreso";
             this.lblPrimerIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -191,7 +189,7 @@
             this.pctMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctMostrar.Image = ((System.Drawing.Image)(resources.GetObject("pctMostrar.Image")));
-            this.pctMostrar.Location = new System.Drawing.Point(353, 214);
+            this.pctMostrar.Location = new System.Drawing.Point(299, 213);
             this.pctMostrar.Name = "pctMostrar";
             this.pctMostrar.Size = new System.Drawing.Size(35, 35);
             this.pctMostrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -204,7 +202,7 @@
             this.pctOcultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctOcultar.Image = ((System.Drawing.Image)(resources.GetObject("pctOcultar.Image")));
-            this.pctOcultar.Location = new System.Drawing.Point(353, 214);
+            this.pctOcultar.Location = new System.Drawing.Point(299, 213);
             this.pctOcultar.Name = "pctOcultar";
             this.pctOcultar.Size = new System.Drawing.Size(35, 35);
             this.pctOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -217,7 +215,7 @@
             this.pctMostrar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctMostrar2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctMostrar2.Image = ((System.Drawing.Image)(resources.GetObject("pctMostrar2.Image")));
-            this.pctMostrar2.Location = new System.Drawing.Point(353, 263);
+            this.pctMostrar2.Location = new System.Drawing.Point(299, 263);
             this.pctMostrar2.Name = "pctMostrar2";
             this.pctMostrar2.Size = new System.Drawing.Size(35, 35);
             this.pctMostrar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -230,26 +228,12 @@
             this.pctOcultar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctOcultar2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctOcultar2.Image = ((System.Drawing.Image)(resources.GetObject("pctOcultar2.Image")));
-            this.pctOcultar2.Location = new System.Drawing.Point(353, 263);
+            this.pctOcultar2.Location = new System.Drawing.Point(299, 263);
             this.pctOcultar2.Name = "pctOcultar2";
             this.pctOcultar2.Size = new System.Drawing.Size(35, 35);
             this.pctOcultar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pctOcultar2.TabIndex = 37;
             this.pctOcultar2.TabStop = false;
-            // 
-            // lblRestriccionesTexto
-            // 
-            this.lblRestriccionesTexto.BackColor = System.Drawing.Color.Black;
-            this.lblRestriccionesTexto.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblRestriccionesTexto.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestriccionesTexto.ForeColor = System.Drawing.Color.White;
-            this.lblRestriccionesTexto.Location = new System.Drawing.Point(0, 354);
-            this.lblRestriccionesTexto.Margin = new System.Windows.Forms.Padding(3);
-            this.lblRestriccionesTexto.Name = "lblRestriccionesTexto";
-            this.lblRestriccionesTexto.Size = new System.Drawing.Size(523, 123);
-            this.lblRestriccionesTexto.TabIndex = 26;
-            this.lblRestriccionesTexto.Text = "Restricciones PW";
-            this.lblRestriccionesTexto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBorde
             // 
@@ -260,16 +244,16 @@
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(523, 40);
+            this.pnlBorde.Size = new System.Drawing.Size(400, 40);
             this.pnlBorde.TabIndex = 38;
             // 
             // pnlBordeInferior
             // 
             this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 507);
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 380);
             this.pnlBordeInferior.Name = "pnlBordeInferior";
-            this.pnlBordeInferior.Size = new System.Drawing.Size(523, 20);
+            this.pnlBordeInferior.Size = new System.Drawing.Size(400, 20);
             this.pnlBordeInferior.TabIndex = 39;
             // 
             // pctValidaciones
@@ -278,9 +262,9 @@
             this.pctValidaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pctValidaciones.Cursor = System.Windows.Forms.Cursors.Help;
             this.pctValidaciones.Image = ((System.Drawing.Image)(resources.GetObject("pctValidaciones.Image")));
-            this.pctValidaciones.Location = new System.Drawing.Point(130, 220);
+            this.pctValidaciones.Location = new System.Drawing.Point(79, 221);
             this.pctValidaciones.Name = "pctValidaciones";
-            this.pctValidaciones.Size = new System.Drawing.Size(25, 25);
+            this.pctValidaciones.Size = new System.Drawing.Size(20, 20);
             this.pctValidaciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctValidaciones.TabIndex = 40;
             this.pctValidaciones.TabStop = false;
@@ -291,11 +275,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(523, 527);
+            this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
-            this.Controls.Add(this.pctValidaciones);
-            this.Controls.Add(this.lblRestriccionesTexto);
             this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.pctValidaciones);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.pctOcultar2);
@@ -349,7 +332,6 @@
         private System.Windows.Forms.PictureBox pctOcultar;
         private System.Windows.Forms.PictureBox pctMostrar2;
         private System.Windows.Forms.PictureBox pctOcultar2;
-        private System.Windows.Forms.Label lblRestriccionesTexto;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.Panel pnlBordeInferior;
         private System.Windows.Forms.PictureBox pctValidaciones;

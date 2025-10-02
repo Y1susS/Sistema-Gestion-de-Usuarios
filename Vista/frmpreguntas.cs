@@ -16,8 +16,7 @@ namespace Vista
         private List<TextBox> txtRespuestas;
         private Form _formularioAnterior;
         private List<DtoPregunta> todasLasPreguntas;
-
-
+        private ClsArrastrarFormularios moverFormulario;
 
         public frmPreguntas(Form formularioAnterior)
         {
@@ -36,6 +35,8 @@ namespace Vista
                 combo.DropDownStyle = ComboBoxStyle.DropDownList;
             }
 
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
         }
 
 
