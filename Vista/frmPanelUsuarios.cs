@@ -230,10 +230,9 @@ namespace Vista
 
         private void btngestionstock_Click(object sender, EventArgs e)
         {
-            frmControlStock frm = new frmControlStock();
             this.Hide();
-            frm.ShowDialog();
-            this.Show();
+            frmControlStock frm = new frmControlStock();
+            frm.Show();
         }
 
         private void btnmetricas_Click(object sender, EventArgs e)

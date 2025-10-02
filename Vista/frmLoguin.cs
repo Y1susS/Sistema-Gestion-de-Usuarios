@@ -25,7 +25,7 @@ namespace Vista
             DoubleBuffered = true;
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pctBorde);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblLogin);
 
             ClsFondoTransparente.Aplicar(
@@ -44,32 +44,6 @@ namespace Vista
             txtContrasenia.UseSystemPasswordChar = false;
             ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
             ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
-        }
-
-        private void PctClose_Click(object sender, EventArgs e)
-        {
-            bool UsarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
-            bool ContraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
-
-            if (UsarioVacio && ContraseniaVacia == true)
-            {
-                Application.Exit();
-            }
-            else
-            {
-                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (opcion == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-            }
-        }
-
-        private void PctMinimize_Click(object sender, EventArgs e)
-        {
-            //this.WindowState = FormWindowState.Minimized;
-            frmPrimerIngreso frmPrimerIngreso = new frmPrimerIngreso();
-            frmPrimerIngreso.ShowDialog();
         }
 
         private void lnkRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -206,14 +180,28 @@ namespace Vista
         //    }
         //}
 
-        private void pctMostrar_Click(object sender, EventArgs e)
+        private void pctMinimize_Click_1(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void pctBorde_Click(object sender, EventArgs e)
+        private void pctClose_Click_1(object sender, EventArgs e)
         {
+            bool UsarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
+            bool ContraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
 
+            if (UsarioVacio && ContraseniaVacia == true)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (opcion == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
 }

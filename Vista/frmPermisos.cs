@@ -18,6 +18,8 @@ namespace Sistema_Gestion_De_Usuarios
     // Esta es la clase de mi formulario de gestión de permisos.
     public partial class frmPermisos : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
+
         // Declara una variable privada para guardar la referencia al formulario padre
         private frmPanelUsuarios _frmPanelUsuariosPadre;
 
@@ -34,6 +36,11 @@ namespace Sistema_Gestion_De_Usuarios
         public frmPermisos(frmPanelUsuarios panelUsuariosPadre)
         {
             InitializeComponent();
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblpermisos);
+
             _frmPanelUsuariosPadre = panelUsuariosPadre; // Guarda la referencia al formulario padre
 
             // Inmediatamente después de inicializar, configuro mi DataGridView para que muestre los permisos correctamente.
@@ -246,8 +253,16 @@ namespace Sistema_Gestion_De_Usuarios
 
         }
 
-       
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
 
-       
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
