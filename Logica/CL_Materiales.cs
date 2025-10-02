@@ -71,6 +71,7 @@ namespace Logica
                 throw new ApplicationException("Error en la lógica de negocio al listar los materiales. " + ex.Message, ex);
             }
         }
+
         public List<DtoMaterial> ListarMaterialesPorTipo(int idTipoMaterial)
         {
             try
@@ -82,6 +83,64 @@ namespace Logica
                 throw new ApplicationException("Error en la lógica de negocio al filtrar los materiales por tipo. " + ex.Message, ex);
             }
         }
+
+        /// <summary>
+        /// Obtiene todas las maderas con sus precios para el cotizador
+        /// </summary>
+        public List<DtoMaterial> ListarMaderas()
+        {
+            try
+            {
+                return daoMaterial.ListarMaderas();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error en la lógica de negocio al listar las maderas. " + ex.Message, ex);
+            }
+        }
+
+        /// <summary>
+        /// Obtiene todos los vidrios con sus precios para el cotizador
+        /// </summary>
+        public List<DtoMaterial> ListarVidrios()
+        {
+            try
+            {
+                return daoMaterial.ListarVidrios();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error en la lógica de negocio al listar los vidrios. " + ex.Message, ex);
+            }
+        }
+
+        public List<DtoTipoMaterial> ListarTiposMateriales()
+        {
+            try
+            {
+                return daoMaterial.ListarTiposMateriales();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la lógica de negocio al listar los tipos de material.", ex);
+            }
+        }
+
+        /// <summary>
+        /// Obtiene tipos de materiales excluyendo maderas y vidrios para "Materiales Varios"
+        /// </summary>
+        public List<DtoTipoMaterial> ListarTiposMaterialesVarios()
+        {
+            try
+            {
+                return daoMaterial.ListarTiposMaterialesVarios();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la lógica de negocio al listar los tipos de materiales varios.", ex);
+            }
+        }
+
         private void ValidarMaterial(DtoMaterial material)
         {
             if (material == null)
@@ -108,8 +167,8 @@ namespace Logica
             {
                 throw new ArgumentException("El stock mínimo no puede ser negativo.");
             }
-
         }
+
         public void ModificarMaterial(DtoMaterial material)
         {
             try
@@ -123,17 +182,7 @@ namespace Logica
                 throw new ApplicationException(ex.Message, ex);
             }
         }
-        public List<DtoTipoMaterial> ListarTiposMateriales()
-        {
-            try
-            {
-                return daoMaterial.ListarTiposMateriales();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error en la lógica de negocio al listar los tipos de material.", ex);
-            }
-        }
+
         public void ValidarMaterialVista(DtoMaterial material)
         {
             if (material.TipoMaterial == null || material.TipoMaterial.IdTipoMaterial <= 0)

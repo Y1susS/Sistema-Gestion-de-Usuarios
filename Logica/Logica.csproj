@@ -45,6 +45,7 @@
     <Compile Include="CL_BackUp.cs" />
     <Compile Include="CL_Clientes.cs" />
     <Compile Include="CL_ConfiguracionContraseña.cs" />
+    <Compile Include="CL_Cotizacion.cs" />
     <Compile Include="CL_Localidad.cs" />
     <Compile Include="CL_Loguin.cs" />
     <Compile Include="CL_Materiales.cs" />
