@@ -89,7 +89,7 @@
             this.cmbTipoMaterial.Location = new System.Drawing.Point(125, 40);
             this.cmbTipoMaterial.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cmbTipoMaterial.Name = "cmbTipoMaterial";
-            this.cmbTipoMaterial.Size = new System.Drawing.Size(200, 26);
+            this.cmbTipoMaterial.Size = new System.Drawing.Size(200, 30);
             this.cmbTipoMaterial.TabIndex = 1;
             this.cmbTipoMaterial.SelectedIndexChanged += new System.EventHandler(this.cmbTipoMaterial_SelectedIndexChanged);
             // 
@@ -101,7 +101,7 @@
             this.cmbMaterial.Location = new System.Drawing.Point(125, 70);
             this.cmbMaterial.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cmbMaterial.Name = "cmbMaterial";
-            this.cmbMaterial.Size = new System.Drawing.Size(200, 26);
+            this.cmbMaterial.Size = new System.Drawing.Size(200, 30);
             this.cmbMaterial.TabIndex = 2;
             // 
             // txtDescripcion
@@ -111,7 +111,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(125, 100);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(250, 25);
+            this.txtDescripcion.Size = new System.Drawing.Size(250, 30);
             this.txtDescripcion.TabIndex = 3;
             // 
             // label1
@@ -182,7 +182,7 @@
             this.txtUnidad.Location = new System.Drawing.Point(505, 40);
             this.txtUnidad.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtUnidad.Name = "txtUnidad";
-            this.txtUnidad.Size = new System.Drawing.Size(150, 25);
+            this.txtUnidad.Size = new System.Drawing.Size(150, 30);
             this.txtUnidad.TabIndex = 13;
             // 
             // txtPrecioUnitario
@@ -192,7 +192,7 @@
             this.txtPrecioUnitario.Location = new System.Drawing.Point(505, 70);
             this.txtPrecioUnitario.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
-            this.txtPrecioUnitario.Size = new System.Drawing.Size(150, 25);
+            this.txtPrecioUnitario.Size = new System.Drawing.Size(150, 30);
             this.txtPrecioUnitario.TabIndex = 14;
             this.txtPrecioUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioUnitario_KeyPress);
             // 
@@ -203,7 +203,7 @@
             this.txtStockMinimo.Location = new System.Drawing.Point(505, 130);
             this.txtStockMinimo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtStockMinimo.Name = "txtStockMinimo";
-            this.txtStockMinimo.Size = new System.Drawing.Size(150, 25);
+            this.txtStockMinimo.Size = new System.Drawing.Size(150, 30);
             this.txtStockMinimo.TabIndex = 16;
             this.txtStockMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockMinimo_KeyPress);
             // 
@@ -214,7 +214,7 @@
             this.txtStockActual.Location = new System.Drawing.Point(505, 100);
             this.txtStockActual.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtStockActual.Name = "txtStockActual";
-            this.txtStockActual.Size = new System.Drawing.Size(150, 25);
+            this.txtStockActual.Size = new System.Drawing.Size(150, 30);
             this.txtStockActual.TabIndex = 15;
             this.txtStockActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockActual_KeyPress);
             // 
@@ -397,7 +397,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(290, 6);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(250, 28);
+            this.txtBuscar.Size = new System.Drawing.Size(250, 34);
             this.txtBuscar.TabIndex = 29;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -429,7 +429,7 @@
             // 
             // frmControlStock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(860, 605);
