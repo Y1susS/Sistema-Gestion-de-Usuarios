@@ -20,8 +20,8 @@ namespace Logica
         public List<DtoVenta> ObtenerTodasLasVentas()
             => _dao.ListarVentas();
 
-        public List<DtoVenta> FiltrarVentas(DateTime? desde, DateTime? hasta, int? idVendedor, int? idCliente)
-            => _dao.FiltrarVentas(desde, hasta, idVendedor, idCliente);
+        public List<DtoVenta> FiltrarVentas(DateTime? desde, DateTime? hasta, int? idVendedor, int? idCliente, int? idEstadoVenta)
+            => _dao.FiltrarVentas(desde, hasta, idVendedor, idCliente, idEstadoVenta);
 
         public List<DtoUsuario> ObtenerUsuariosConVentas()
             => _dao.ListarUsuariosConVentas();

@@ -26,31 +26,6 @@ namespace Vista
         private void frmReportes_Load(object sender, EventArgs e)
         {
 
-            //cboUsuarios.DataSource = _ventas.ObtenerUsuariosConVentas();
-            //cboUsuarios.DisplayMember = "User";   // o "NombreCompleto" si lo tenés en el DTO
-            //cboUsuarios.ValueMember = "Id_user";
-            //cboUsuarios.SelectedIndex = -1;
-
-            //cboClientes.DataSource = _ventas.ObtenerClientes();
-            //cboClientes.DisplayMember = "Nombre";
-            //cboClientes.ValueMember = "Id_Cliente";
-            //cboClientes.SelectedIndex = -1;
-
-            //// Arrancar con los DateTimePicker deshabilitados
-            //chkUsarFechas.Checked = false;
-            //dtpDesde.Enabled = false;
-            //dtpHasta.Enabled = false;
-
-
-            //// Obtener la lista de ventas completa
-            //List<DtoVenta> listaCompleta = _ventas.ObtenerTodasLasVentas();
-
-            //// Asignar esa lista al DataGridView (tu línea de código actual)
-            //dgvVentas.DataSource = listaCompleta;
-
-            //// Actualizar el label con el conteo de esa misma lista
-            //lblTotalVentas.Text = $"Total de Ventas: {listaCompleta.Count}";
-
             cboUsuarios.DataSource = _ventas.ObtenerUsuariosConVentas();
             cboUsuarios.DisplayMember = "User";
             cboUsuarios.ValueMember = "Id_user";
@@ -83,6 +58,22 @@ namespace Vista
             };
 
 
+            //  Cargar ComboBox de Estados de Venta
+            cboEstados.DataSource = _ventas.ObtenerEstadosVenta();
+            cboEstados.DisplayMember = "Estado";
+            cboEstados.ValueMember = "IdEstadoVenta";
+            cboEstados.SelectedIndex = -1;
+            cboEstados.Enabled = false; // Deshabilitado inicialmente
+
+            // CheckBox para filtrar por Estado
+            chkFiltrarEstado.Checked = false;
+            chkFiltrarEstado.CheckedChanged += (s, ev) =>
+            {
+                cboEstados.Enabled = chkFiltrarEstado.Checked;
+                if (!chkFiltrarEstado.Checked)
+                    cboEstados.SelectedIndex = -1; // resetea selección
+            };
+
             // Arrancar con los DateTimePicker deshabilitados
             chkUsarFechas.Checked = false;
             dtpDesde.Enabled = false;
@@ -92,12 +83,10 @@ namespace Vista
             dgvVentas.AutoGenerateColumns = false;
             dgvVentas.Columns.Clear();
 
-            //dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "N° Venta", DataPropertyName = "NumeroVenta" });
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Fecha", DataPropertyName = "FechaVenta" });
-            //dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Monto Total", DataPropertyName = "MontoTotal" });
-            //dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Descuento", DataPropertyName = "Descuento" });
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Monto Final", DataPropertyName = "MontoFinal" });
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Observaciones", DataPropertyName = "Observaciones" });
+            dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Estado", DataPropertyName = "EstadoVenta" });
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Cliente", DataPropertyName = "ClienteNombre" });
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Vendedor", DataPropertyName = "VendedorUserName" });
 
@@ -112,6 +101,7 @@ namespace Vista
 
             cboTipoGrafico.Items.Add("Ventas por Vendedor");
             cboTipoGrafico.Items.Add("Ventas por Día de Semana");
+            cboTipoGrafico.Items.Add("Ventas por Estado");
             cboTipoGrafico.SelectedIndex = 0; // Arranca en "Ventas por Vendedor"
 
 
@@ -155,6 +145,9 @@ namespace Vista
                 ? (int?)Convert.ToInt32(cboClientes.SelectedValue)
                 : null;
 
+            int? idEstadoVenta = (chkFiltrarEstado.Checked && cboEstados.SelectedIndex >= 0)
+                ? (int?)Convert.ToInt32(cboEstados.SelectedValue)
+                : null;
 
             //List<DtoVenta> ventas = _ventas.FiltrarVentas(desde, hasta, idUser, idCliente);
 
@@ -166,7 +159,7 @@ namespace Vista
             //decimal totalFinal = ventas.Sum(v => v.MontoFinal ?? 0);
             //lblTotal.Text = $"Total Final: {totalFinal:C}";
 
-            List<DtoVenta> ventas = _ventas.FiltrarVentas(desde, hasta, idUser, idCliente);
+            List<DtoVenta> ventas = _ventas.FiltrarVentas(desde, hasta, idUser, idCliente, idEstadoVenta);
             dgvVentas.DataSource = ventas;
             ActualizarMetricas(ventas);
 
@@ -178,11 +171,13 @@ namespace Vista
             // Limpiar combos
             chkFiltrarUsuario.Checked = false;
             chkFiltrarCliente.Checked = false;
+            chkFiltrarEstado.Checked = false;
 
             // Limpiar check y fechas
             chkUsarFechas.Checked = false;
             dtpDesde.Value = DateTime.Now;
             dtpHasta.Value = DateTime.Now;
+            
 
             //// Obtener la lista completa de ventas
             //List<DtoVenta> ventasCompletas = _ventas.ObtenerTodasLasVentas();
@@ -223,55 +218,6 @@ namespace Vista
                 dtpHasta.Value = dtpDesde.Value;
             }
         }
-
-
-
-        //private void ActualizarMetricas(List<DtoVenta> ventas)
-        //{
-        //    // Total de ventas
-        //    lblTotalVentas.Text = $"Total Ventas {ventas.Count}";
-
-        //    // Suma de montos finales
-        //    decimal totalMontosFinales = ventas.Sum(v => v.MontoFinal ?? 0);
-        //    lblTotal.Text = $"Total Final: {totalMontosFinales:C}";
-
-        //    // Ticket promedio
-        //    decimal ticketPromedio = ventas.Count > 0
-        //        ? totalMontosFinales / ventas.Count
-        //        : 0;
-        //    lblPromedio.Text = $"Ticket Promedio: {ticketPromedio:C}";
-
-
-
-
-
-        //    // --- Chart (ventas por día) ---
-        //    chartVentas.Series.Clear();
-        //    chartVentas.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // Inclina etiquetas
-        //    chartVentas.ChartAreas[0].AxisX.Interval = 1;
-        //    // Configurar el formato de las etiquetas del eje X
-        //    chartVentas.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM";
-
-        //    var ventasPorDia = ventas
-        //        .Where(v => v.FechaVenta.HasValue) // filtra las que tienen fecha
-        //        .GroupBy(v => v.FechaVenta.Value.Date) // usamos .Value.Date
-        //        .Select(g => new { Fecha = g.Key, Total = g.Sum(v => v.MontoFinal ?? 0) })
-        //        .OrderBy(x => x.Fecha)
-        //        .ToList();
-
-
-        //    Series serie = new Series("Ventas por Día");
-        //    serie.ChartType = SeriesChartType.Column; // Columnas verticales
-        //    serie.XValueType = ChartValueType.Date;
-
-        //    foreach (var item in ventasPorDia)
-        //    {
-        //        serie.Points.AddXY(item.Fecha.ToShortDateString(), item.Total);
-        //    }
-
-        //    chartVentas.Series.Add(serie);
-        //}
-
 
         private void ActualizarMetricas(List<DtoVenta> ventas)
         {
@@ -317,6 +263,34 @@ namespace Vista
                 chartVentas.Series.Add(serie);
                 chartVentas.Titles.Add("Distribución de Ventas por Vendedor (%)");
             }
+
+            else if (cboTipoGrafico.SelectedItem.ToString() == "Ventas por Estado")
+            {
+                // Agrupamos ventas por Estado
+                var ventasPorEstado = ventas
+                    .GroupBy(v => v.EstadoVenta)
+                    .Where(g => g.Key != null) // Ignora ventas sin estado (si es que existe)
+                    .Select(g => new { Estado = g.Key, Cantidad = g.Count() })
+                    .OrderByDescending(x => x.Cantidad)
+                    .ToList();
+
+                Series serie = new Series("Ventas por Estado");
+                serie.ChartType = SeriesChartType.Pie;
+                serie.IsValueShownAsLabel = true;
+
+                // Mostrar cantidades
+                serie.Label = "#VALY";
+                serie.LegendText = "#VALX";
+
+                foreach (var item in ventasPorEstado)
+                {
+                    serie.Points.AddXY(item.Estado, item.Cantidad);
+                }
+
+                chartVentas.Series.Add(serie);
+                chartVentas.Titles.Add("Distribución de Ventas por Estado (Cantidad)");
+            }
+
             else if (cboTipoGrafico.SelectedItem.ToString() == "Ventas por Día de Semana")
             {
 
@@ -370,7 +344,11 @@ namespace Vista
             }
         }
 
-
-
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmPanelUsuarios frmInicio = new frmPanelUsuarios();
+            frmInicio.Show();
+            this.Hide();
+        }
     }
 }

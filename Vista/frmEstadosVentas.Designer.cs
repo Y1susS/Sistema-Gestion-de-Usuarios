@@ -30,7 +30,7 @@
         {
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.btnActualizarEstado = new System.Windows.Forms.Button();
-            this.btnRefrescar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,21 +54,22 @@
             this.btnActualizarEstado.UseVisualStyleBackColor = true;
             this.btnActualizarEstado.Click += new System.EventHandler(this.btnActualizarEstado_Click);
             // 
-            // btnRefrescar
+            // btnVolver
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(701, 66);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(87, 23);
-            this.btnRefrescar.TabIndex = 2;
-            this.btnRefrescar.Text = "REFRESCAR";
-            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnVolver.Location = new System.Drawing.Point(701, 66);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(87, 23);
+            this.btnVolver.TabIndex = 2;
+            this.btnVolver.Text = "VOLVER";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // frmEstadosVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnRefrescar);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnActualizarEstado);
             this.Controls.Add(this.dgvVentas);
             this.Name = "frmEstadosVentas";
@@ -83,6 +84,6 @@
 
         private System.Windows.Forms.DataGridView dgvVentas;
         private System.Windows.Forms.Button btnActualizarEstado;
-        private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
