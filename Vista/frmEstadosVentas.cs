@@ -169,6 +169,14 @@ namespace Vista
                 MessageBox.Show("Error al recargar la lista de ventas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmPanelUsuarios frmInicio = new frmPanelUsuarios();
+            frmInicio.Show();
+            this.Hide();
+        }
     }
     
 }
