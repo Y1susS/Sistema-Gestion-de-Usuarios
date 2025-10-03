@@ -215,9 +215,6 @@ namespace Datos
             return listaTipos;
         }
 
-        /// <summary>
-        /// Obtiene tipos de materiales excluyendo maderas y vidrios para la sección "Materiales Varios"
-        /// </summary>
         public List<DtoTipoMaterial> ListarTiposMaterialesVarios()
         {
             List<DtoTipoMaterial> listaTipos = new List<DtoTipoMaterial>();
@@ -249,9 +246,6 @@ namespace Datos
             return listaTipos;
         }
 
-        /// <summary>
-        /// Obtiene todas las maderas (TipoMaterial ID = 1) con sus precios
-        /// </summary>
         public List<DtoMaterial> ListarMaderas()
         {
             List<DtoMaterial> maderas = new List<DtoMaterial>();
@@ -294,9 +288,6 @@ namespace Datos
             return maderas;
         }
 
-        /// <summary>
-        /// Obtiene todos los vidrios (TipoMaterial ID = 2) con sus precios
-        /// </summary>
         public List<DtoMaterial> ListarVidrios()
         {
             List<DtoMaterial> vidrios = new List<DtoMaterial>();
@@ -341,9 +332,6 @@ namespace Datos
 
         #region MÉTODOS ALTERNATIVOS
 
-        /// <summary>
-        /// Método alternativo para obtener maderas usando el SP general
-        /// </summary>
         private List<DtoMaterial> ListarMaderasAlternativo()
         {
             List<DtoMaterial> maderas = new List<DtoMaterial>();
@@ -376,9 +364,6 @@ namespace Datos
             return maderas;
         }
 
-        /// <summary>
-        /// Método alternativo para obtener vidrios usando el SP general
-        /// </summary>
         private List<DtoMaterial> ListarVidriosAlternativo()
         {
             List<DtoMaterial> vidrios = new List<DtoMaterial>();
@@ -415,9 +400,6 @@ namespace Datos
 
         #region MAPEO SEGURO
 
-        /// <summary>
-        /// Método de mapeo mejorado con manejo de errores y verificación de columnas
-        /// </summary>
         private DtoMaterial MapearLectorAMaterialSeguro(SqlDataReader dr)
         {
             try
@@ -471,9 +453,6 @@ namespace Datos
             }
         }
 
-        /// <summary>
-        /// Método de mapeo seguro para TipoMaterial
-        /// </summary>
         private DtoTipoMaterial MapearLectorATipoMaterialSeguro(SqlDataReader dr)
         {
             try
@@ -492,9 +471,6 @@ namespace Datos
             }
         }
 
-        /// <summary>
-        /// Obtiene un valor de forma segura del DataReader
-        /// </summary>
         private T ObtenerValorSeguro<T>(SqlDataReader dr, string nombreColumna)
         {
             try
@@ -530,9 +506,6 @@ namespace Datos
             }
         }
 
-        /// <summary>
-        /// Obtiene un valor nullable de forma segura del DataReader
-        /// </summary>
         private T? ObtenerValorNullableSeguro<T>(SqlDataReader dr, string nombreColumna) where T : struct
         {
             try
@@ -568,9 +541,7 @@ namespace Datos
             }
         }
 
-        /// <summary>
-        /// Convierte un objeto a boolean de forma segura
-        /// </summary>
+
         private bool ConvertirABoolean(object valor)
         {
             if (valor == null) return false;

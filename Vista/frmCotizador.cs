@@ -75,9 +75,7 @@ namespace Vista
             // y conecta los eventos aquí o directamente en el diseñador
         }
 
-        /// <summary>
-        /// Método principal para cargar todos los ComboBoxes del formulario de forma segura
-        /// </summary>
+        // Método principal para cargar todos los ComboBoxes del formulario de forma segura
         private void CargarTodosLosCombos()
         {
             try
@@ -99,9 +97,8 @@ namespace Vista
 
         #region CARGA SEGURA DE COMBOS
 
-        /// <summary>
-        /// Carga maderas de forma segura con manejo de errores
-        /// </summary>
+
+        // Carga maderas de forma segura con manejo de errores
         private void CargarComboMaderasSeguro()
         {
             try
@@ -116,9 +113,8 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Carga vidrios de forma segura con manejo de errores
-        /// </summary>
+
+        // Carga vidrios de forma segura con manejo de errores
         private void CargarComboVidriosSeguro()
         {
             try
@@ -139,9 +135,7 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Carga tipos de materiales de forma segura
-        /// </summary>
+        // Carga tipos de materiales de forma segura
         private void CargarCombosTiposMaterialesSeguro()
         {
             try
@@ -166,9 +160,8 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Método auxiliar para asignar datos a un ComboBox de forma segura
-        /// </summary>
+
+        // Método auxiliar para asignar datos a un ComboBox de forma segura
         private void AsignarDatosACombo(string nombreCombo, object dataSource, string displayMember, string valueMember)
         {
             var combo = this.Controls.Find(nombreCombo, true).FirstOrDefault() as ComboBox;
@@ -186,9 +179,8 @@ namespace Vista
 
         #region MÉTODOS ALTERNATIVOS
 
-        /// <summary>
-        /// Método alternativo para cargar maderas usando todos los materiales
-        /// </summary>
+
+        // Método alternativo para cargar maderas usando todos los materiales
         private void CargarMaderasAlternativo()
         {
             try
@@ -205,9 +197,8 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Método alternativo para cargar vidrios
-        /// </summary>
+
+        // Método alternativo para cargar vidrios
         private void CargarVidriosAlternativo()
         {
             try
@@ -229,9 +220,8 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Método alternativo para cargar tipos de materiales
-        /// </summary>
+
+        // Método alternativo para cargar tipos de materiales
         private void CargarTiposMaterialesAlternativo()
         {
             try
@@ -257,9 +247,8 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Método de respaldo completo usando solo ListarMateriales básico
-        /// </summary>
+
+        // Método de respaldo completo usando solo ListarMateriales básico
         private void CargarCombosAlternativo()
         {
             try
@@ -302,9 +291,8 @@ namespace Vista
 
         #region CARGA DE MATERIALES POR TIPO
 
-        /// <summary>
-        /// Carga los materiales específicos en el ComboBox correspondiente según el tipo seleccionado
-        /// </summary>
+
+        // Carga los materiales específicos en el ComboBox correspondiente según el tipo seleccionado
         private void CargarMaterialesPorTipo(int idTipoMaterial, int numeroCombo)
         {
             try
@@ -327,9 +315,7 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Limpia el ComboBox de materiales correspondiente
-        /// </summary>
+        // Limpia el ComboBox de materiales correspondiente
         private void LimpiarComboMateriales(int numeroCombo)
         {
             string nombreComboMaterial = $"cmbMaterial{numeroCombo}";
@@ -347,9 +333,7 @@ namespace Vista
 
         #region EVENTOS DE COMBOS
 
-        /// <summary>
-        /// Configura los eventos de los ComboBoxes de forma segura
-        /// </summary>
+        // Configura los eventos de los ComboBoxes de forma segura
         private void ConfigurarEventosCombos()
         {
             try
