@@ -50,7 +50,7 @@
             this.lblMaterial = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblMensajeBoton = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlOpciones = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.pctLogo = new System.Windows.Forms.PictureBox();
@@ -58,14 +58,14 @@
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlBuscar = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlOpciones.SuspendLayout();
             this.pnlBorde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.pnlBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -290,45 +290,46 @@
             // 
             // lblMensajeBoton
             // 
-            this.lblMensajeBoton.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblMensajeBoton.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMensajeBoton.Location = new System.Drawing.Point(0, 0);
             this.lblMensajeBoton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMensajeBoton.Name = "lblMensajeBoton";
             this.lblMensajeBoton.Size = new System.Drawing.Size(840, 26);
             this.lblMensajeBoton.TabIndex = 24;
-            this.lblMensajeBoton.Text = " Bienvenido al control de stock, presione los botones correspondientes para empez" +
-    "ar a modificar";
+            this.lblMensajeBoton.Text = "Bienvenido al control de stock, presione los botones correspondientes para empeza" +
+    "r a modificar";
             this.lblMensajeBoton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMensajeBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.lblMensajeBoton_Paint);
             // 
-            // panel1
+            // pnlOpciones
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.panel1.Controls.Add(this.btnGestion);
-            this.panel1.Controls.Add(this.btnNuevoMaterial);
-            this.panel1.Controls.Add(this.btnGuardar);
-            this.panel1.Controls.Add(this.lblMensajeBoton);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.lblDescripcion);
-            this.panel1.Controls.Add(this.cmbTipoMaterial);
-            this.panel1.Controls.Add(this.lblMaterial);
-            this.panel1.Controls.Add(this.cmbMaterial);
-            this.panel1.Controls.Add(this.lblTipoMaterial);
-            this.panel1.Controls.Add(this.txtDescripcion);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbxActivo);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtStockMinimo);
-            this.panel1.Controls.Add(this.txtUnidad);
-            this.panel1.Controls.Add(this.txtStockActual);
-            this.panel1.Controls.Add(this.txtPrecioUnitario);
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(10, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(840, 170);
-            this.panel1.TabIndex = 25;
+            this.pnlOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlOpciones.Controls.Add(this.btnGestion);
+            this.pnlOpciones.Controls.Add(this.btnNuevoMaterial);
+            this.pnlOpciones.Controls.Add(this.btnGuardar);
+            this.pnlOpciones.Controls.Add(this.lblMensajeBoton);
+            this.pnlOpciones.Controls.Add(this.label6);
+            this.pnlOpciones.Controls.Add(this.lblDescripcion);
+            this.pnlOpciones.Controls.Add(this.cmbTipoMaterial);
+            this.pnlOpciones.Controls.Add(this.lblMaterial);
+            this.pnlOpciones.Controls.Add(this.cmbMaterial);
+            this.pnlOpciones.Controls.Add(this.lblTipoMaterial);
+            this.pnlOpciones.Controls.Add(this.txtDescripcion);
+            this.pnlOpciones.Controls.Add(this.label5);
+            this.pnlOpciones.Controls.Add(this.label1);
+            this.pnlOpciones.Controls.Add(this.cbxActivo);
+            this.pnlOpciones.Controls.Add(this.label4);
+            this.pnlOpciones.Controls.Add(this.label3);
+            this.pnlOpciones.Controls.Add(this.txtStockMinimo);
+            this.pnlOpciones.Controls.Add(this.txtUnidad);
+            this.pnlOpciones.Controls.Add(this.txtStockActual);
+            this.pnlOpciones.Controls.Add(this.txtPrecioUnitario);
+            this.pnlOpciones.ForeColor = System.Drawing.Color.White;
+            this.pnlOpciones.Location = new System.Drawing.Point(10, 50);
+            this.pnlOpciones.Name = "pnlOpciones";
+            this.pnlOpciones.Size = new System.Drawing.Size(840, 170);
+            this.pnlOpciones.TabIndex = 25;
+            this.pnlOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlOpciones_Paint);
             // 
             // panel2
             // 
@@ -415,17 +416,18 @@
             this.btnBuscar.TabIndex = 30;
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // pnlBuscar
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.panel3.Controls.Add(this.txtBuscar);
-            this.panel3.Controls.Add(this.btnBuscar);
-            this.panel3.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(10, 230);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(840, 40);
-            this.panel3.TabIndex = 31;
+            this.pnlBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBuscar.Controls.Add(this.txtBuscar);
+            this.pnlBuscar.Controls.Add(this.btnBuscar);
+            this.pnlBuscar.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlBuscar.ForeColor = System.Drawing.Color.White;
+            this.pnlBuscar.Location = new System.Drawing.Point(10, 230);
+            this.pnlBuscar.Name = "pnlBuscar";
+            this.pnlBuscar.Size = new System.Drawing.Size(840, 40);
+            this.pnlBuscar.TabIndex = 31;
+            this.pnlBuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBuscar_Paint);
             // 
             // frmControlStock
             // 
@@ -433,10 +435,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(860, 605);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlBorde);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlOpciones);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -445,14 +447,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlOpciones.ResumeLayout(false);
+            this.pnlOpciones.PerformLayout();
             this.pnlBorde.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlBuscar.ResumeLayout(false);
+            this.pnlBuscar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -480,7 +482,7 @@
         private System.Windows.Forms.Label lblMaterial;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblMensajeBoton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlOpciones;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
@@ -488,6 +490,6 @@
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlBuscar;
     }
 }

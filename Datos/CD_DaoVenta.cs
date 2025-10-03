@@ -50,7 +50,7 @@ namespace Datos
             return lista;
         }
 
-        public List<DtoVenta> FiltrarVentas(DateTime? fechaDesde, DateTime? fechaHasta, int? idVendedor, int? idCliente)
+        public List<DtoVenta> FiltrarVentas(DateTime? fechaDesde, DateTime? fechaHasta, int? idVendedor, int? idCliente, int? idEstadoVenta)
         {
             List<DtoVenta> lista = new List<DtoVenta>();
 
@@ -65,6 +65,7 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@FechaHasta", (object)fechaHasta ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Id_Vendedor", (object)idVendedor ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Id_Cliente", (object)idCliente ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Id_EstadoVenta", (object)idEstadoVenta ?? DBNull.Value);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

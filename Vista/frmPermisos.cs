@@ -18,6 +18,8 @@ namespace Sistema_Gestion_De_Usuarios
     // Esta es la clase de mi formulario de gestión de permisos.
     public partial class frmPermisos : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
+
         // Declara una variable privada para guardar la referencia al formulario padre
         private frmPanelUsuarios _frmPanelUsuariosPadre;
 
@@ -34,6 +36,11 @@ namespace Sistema_Gestion_De_Usuarios
         public frmPermisos(frmPanelUsuarios panelUsuariosPadre)
         {
             InitializeComponent();
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblpermisos);
+
             _frmPanelUsuariosPadre = panelUsuariosPadre; // Guarda la referencia al formulario padre
 
             // Inmediatamente después de inicializar, configuro mi DataGridView para que muestre los permisos correctamente.
@@ -105,8 +112,13 @@ namespace Sistema_Gestion_De_Usuarios
             // Configuración general del DataGridView
             dgvPermisos.AllowUserToAddRows = false;    // Deshabilitar la fila para añadir nuevos registros
             dgvPermisos.AllowUserToDeleteRows = false; // Deshabilitar la eliminación de filas
-            dgvPermisos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Seleccionar fila completa
-            dgvPermisos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Las columnas se ajustan al ancho
+            //dgvPermisos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Seleccionar fila completa
+            //dgvPermisos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Las columnas se ajustan al ancho
+
+            dgvPermisos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvPermisos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvPermisos.Refresh();
+
         }
 
         // Este método se encarga de cargar los usuarios en el ComboBox de usuarios.
@@ -246,8 +258,16 @@ namespace Sistema_Gestion_De_Usuarios
 
         }
 
-       
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
 
-       
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
     }
 }

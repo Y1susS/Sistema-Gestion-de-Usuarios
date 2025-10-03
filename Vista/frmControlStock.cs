@@ -15,6 +15,7 @@ namespace Vista
 {
     public partial class frmControlStock : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         public CL_Materiales logicaMaterial = new CL_Materiales();
         DtoMaterial nuevoMaterial = new DtoMaterial();
         private DtoMaterial materialSeleccionado;
@@ -26,7 +27,8 @@ namespace Vista
         {
             InitializeComponent();
             EstablecerEstadoInicial();
-
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
 
         }
         private void EstablecerEstadoInicial()
@@ -416,6 +418,30 @@ namespace Vista
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pnlBuscar_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
+            }
+        }
+
+        private void pnlOpciones_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlOpciones.Width - 1, pnlOpciones.Height - 1);
+            }
+        }
+
+        private void lblMensajeBoton_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, lblMensajeBoton.Width - 1, lblMensajeBoton.Height - 1);
+            }
         }
     }
 }       
