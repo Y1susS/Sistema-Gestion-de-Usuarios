@@ -202,7 +202,7 @@ namespace Vista
                 if (cmbTipoMaterial.SelectedValue == null || !(cmbTipoMaterial.SelectedValue is int))
                     return;
                 {
-                    try
+                    //try
                     {
                         int idTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue);
 
@@ -219,10 +219,10 @@ namespace Vista
                         }
                         dataGridView1.Enabled = true;
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al filtrar materiales: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    //catch (Exception ex)
+                    //{
+                    //    MessageBox.Show("Error al filtrar materiales: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
                 }
             }
         }

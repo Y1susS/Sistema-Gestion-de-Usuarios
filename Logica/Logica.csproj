@@ -52,6 +52,7 @@
     <Compile Include="CL_Partido.cs" />
     <Compile Include="CL_Permisos.cs" />
     <Compile Include="CL_Preguntas.cs" />
+    <Compile Include="CL_Presupuestador.cs" />
     <Compile Include="CL_Rol.cs" />
     <Compile Include="CL_TipoDoc.cs" />
     <Compile Include="CL_Usuarios.cs" />
