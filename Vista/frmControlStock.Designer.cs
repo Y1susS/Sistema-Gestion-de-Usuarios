@@ -157,7 +157,7 @@
             this.btnGestion.Name = "btnGestion";
             this.btnGestion.Size = new System.Drawing.Size(150, 30);
             this.btnGestion.TabIndex = 9;
-            this.btnGestion.Text = "Modificar";
+            this.btnGestion.Text = "Gestionar";
             this.btnGestion.UseVisualStyleBackColor = false;
             this.btnGestion.Click += new System.EventHandler(this.btnGestion_Click);
             // 
@@ -415,6 +415,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(28, 28);
             this.btnBuscar.TabIndex = 30;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pnlBuscar
             // 

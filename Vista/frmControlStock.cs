@@ -19,6 +19,8 @@ namespace Vista
         public CL_Materiales logicaMaterial = new CL_Materiales();
         DtoMaterial nuevoMaterial = new DtoMaterial();
         private DtoMaterial materialSeleccionado;
+        private List<DtoMaterial> materialesCompletosPorTipo;
+
         private bool modoNuevo = false;
         private bool modoGestion = false;
 
@@ -184,7 +186,7 @@ namespace Vista
                 DialogResult resultado = MessageBox.Show("Estas ingresando al Modo Gestion de Materiales. Se perderán los cambios no guardados.", "Confirmar ingreso al modo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.No)
                 {
-                    return; 
+                    return;
                 }
             }
             {
@@ -197,33 +199,31 @@ namespace Vista
 
         private void cmbTipoMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbTipoMaterial.SelectedValue == null || !(cmbTipoMaterial.SelectedValue is int))
+                return;
+
+            try
             {
-               
-                if (cmbTipoMaterial.SelectedValue == null || !(cmbTipoMaterial.SelectedValue is int))
-                    return;
+                int idTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue);
+
+                List<DtoMaterial> materialesFiltrados = logicaMaterial.ListarMaterialesPorTipo(idTipoMaterial);
+
+                materialesCompletosPorTipo = materialesFiltrados;
+
+                dataGridView1.DataSource = materialesCompletosPorTipo;
+                CargarGrillaDeMateriales();
+                LlenarCmbMaterialConFiltro(materialesCompletosPorTipo);
+
+                if (modoNuevo)
                 {
-                    //try
-                    {
-                        int idTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue);
-
-                        List<DtoMaterial> materialesFiltrados = logicaMaterial.ListarMaterialesPorTipo(idTipoMaterial);
-
-                        dataGridView1.DataSource = materialesFiltrados;
-
-                        CargarGrillaDeMateriales();
-                        LlenarCmbMaterialConFiltro(materialesFiltrados);
-                        if (modoNuevo)
-                        {
-                            dataGridView1.DataSource = null;
-                            return;
-                        }
-                        dataGridView1.Enabled = true;
-                    }
-                    //catch (Exception ex)
-                    //{
-                    //    MessageBox.Show("Error al filtrar materiales: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //}
+                    dataGridView1.DataSource = null;
+                    return;
                 }
+                dataGridView1.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar materiales: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace Vista
                     MessageBox.Show("Error al guardar los cambios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
             else if (modoNuevo)
             {
                 // Funcionalidad NUEVO MATERIAL
@@ -344,7 +344,7 @@ namespace Vista
                 MessageBox.Show("Error al cargar los materiales en el ComboBox: " + ex.Message);
             }
         }
-         private void btnNuevoMaterial_Click(object sender, EventArgs e)
+        private void btnNuevoMaterial_Click(object sender, EventArgs e)
         {
             modoNuevo = true;
             modoGestion = false;
@@ -356,7 +356,7 @@ namespace Vista
                 DialogResult resultado = MessageBox.Show("Estas ingresando al Modo de Nuevo Material. Se perderán los cambios no guardados.", "Confirmar limpieza", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.No)
                 {
-                    return; 
+                    return;
                 }
             }
 
@@ -373,7 +373,7 @@ namespace Vista
             dataGridView1.Enabled = false;
             cmbTipoMaterial.Enabled = true;
             btnGestion.Enabled = true;
-            cmbMaterial.DataSource = null; 
+            cmbMaterial.DataSource = null;
 
             btnGuardar.Enabled = true;
 
@@ -443,6 +443,51 @@ namespace Vista
                 e.Graphics.DrawRectangle(p, 0, 0, lblMensajeBoton.Width - 1, lblMensajeBoton.Height - 1);
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (!modoGestion)
+            {
+                MessageBox.Show("La búsqueda solo está disponible en el Modo de Gestión de Materiales.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (cmbTipoMaterial.SelectedValue == null || cmbTipoMaterial.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un Tipo de Material en el ComboBox para poder realizar la búsqueda sobre los resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (materialesCompletosPorTipo == null)
+            {
+                MessageBox.Show("Error interno: La lista de materiales no se cargó correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            string termino = txtBuscar.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(termino))
+            {
+                dataGridView1.DataSource = materialesCompletosPorTipo;
+                CargarGrillaDeMateriales();
+                return;
+            }
+
+            var resultadosFiltrados = materialesCompletosPorTipo
+                .Where(m => m.NombreMaterial != null && m.NombreMaterial.ToLower().Contains(termino) ||
+                            m.Descripcion != null && m.Descripcion.ToLower().Contains(termino) ||
+                            m.Unidad != null && m.Unidad.ToLower().Contains(termino))
+                .ToList();
+
+            dataGridView1.DataSource = resultadosFiltrados;
+            CargarGrillaDeMateriales();
+
+            if (resultadosFiltrados.Count == 0)
+            {
+                MessageBox.Show($"No se encontraron materiales para el término: '{termino}'", "Resultado de Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
-}       
+}
 
