@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbxCliente = new System.Windows.Forms.GroupBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.cmbDni = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxCotizaciones = new System.Windows.Forms.GroupBox();
             this.btnBuscarCotizacion = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtSubtotal = new System.Windows.Forms.Button();
@@ -69,8 +69,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbxCliente.SuspendLayout();
+            this.gbxCotizaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,30 +84,30 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Busque al Cliente para Confirme las cotizaciones y finalizar el Presupuesto";
             // 
-            // groupBox1
+            // gbxCliente
             // 
-            this.groupBox1.Controls.Add(this.txtMail);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtTelefono);
-            this.groupBox1.Controls.Add(this.txtApellido);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnBuscarDni);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtDni);
-            this.groupBox1.Controls.Add(this.cmbDni);
-            this.groupBox1.Location = new System.Drawing.Point(57, 72);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(852, 100);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cliente";
+            this.gbxCliente.Controls.Add(this.txtMail);
+            this.gbxCliente.Controls.Add(this.label4);
+            this.gbxCliente.Controls.Add(this.txtTelefono);
+            this.gbxCliente.Controls.Add(this.txtApellido);
+            this.gbxCliente.Controls.Add(this.label5);
+            this.gbxCliente.Controls.Add(this.label3);
+            this.gbxCliente.Controls.Add(this.txtNombre);
+            this.gbxCliente.Controls.Add(this.label2);
+            this.gbxCliente.Controls.Add(this.btnBuscarDni);
+            this.gbxCliente.Controls.Add(this.label1);
+            this.gbxCliente.Controls.Add(this.txtDni);
+            this.gbxCliente.Controls.Add(this.cmbDni);
+            this.gbxCliente.Location = new System.Drawing.Point(57, 72);
+            this.gbxCliente.Name = "gbxCliente";
+            this.gbxCliente.Size = new System.Drawing.Size(869, 100);
+            this.gbxCliente.TabIndex = 17;
+            this.gbxCliente.TabStop = false;
+            this.gbxCliente.Text = "Cliente";
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(695, 58);
+            this.txtMail.Location = new System.Drawing.Point(621, 59);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(147, 22);
             this.txtMail.TabIndex = 24;
@@ -115,7 +115,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(641, 61);
+            this.label4.Location = new System.Drawing.Point(567, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 16);
             this.label4.TabIndex = 23;
@@ -124,14 +124,14 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(694, 21);
+            this.txtTelefono.Location = new System.Drawing.Point(620, 22);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(147, 22);
             this.txtTelefono.TabIndex = 22;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(477, 58);
+            this.txtApellido.Location = new System.Drawing.Point(403, 59);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(132, 22);
             this.txtApellido.TabIndex = 20;
@@ -139,7 +139,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(630, 24);
+            this.label5.Location = new System.Drawing.Point(556, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 21;
@@ -149,7 +149,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(413, 61);
+            this.label3.Location = new System.Drawing.Point(339, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 16);
             this.label3.TabIndex = 19;
@@ -158,7 +158,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(477, 20);
+            this.txtNombre.Location = new System.Drawing.Point(403, 21);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(132, 22);
             this.txtNombre.TabIndex = 18;
@@ -166,7 +166,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(413, 23);
+            this.label2.Location = new System.Drawing.Point(339, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 17;
@@ -175,12 +175,13 @@
             // 
             // btnBuscarDni
             // 
-            this.btnBuscarDni.Location = new System.Drawing.Point(299, 41);
+            this.btnBuscarDni.Location = new System.Drawing.Point(255, 42);
             this.btnBuscarDni.Name = "btnBuscarDni";
             this.btnBuscarDni.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarDni.TabIndex = 16;
             this.btnBuscarDni.Text = "Buscar";
             this.btnBuscarDni.UseVisualStyleBackColor = true;
+            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
             // 
             // label1
             // 
@@ -194,33 +195,35 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(132, 42);
+            this.txtDni.Location = new System.Drawing.Point(112, 41);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(137, 22);
             this.txtDni.TabIndex = 14;
+            this.txtDni.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDni_KeyDown);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_Keypress);
             // 
             // cmbDni
             // 
             this.cmbDni.FormattingEnabled = true;
-            this.cmbDni.Location = new System.Drawing.Point(65, 42);
+            this.cmbDni.Location = new System.Drawing.Point(45, 40);
             this.cmbDni.Name = "cmbDni";
             this.cmbDni.Size = new System.Drawing.Size(61, 24);
             this.cmbDni.TabIndex = 13;
             // 
-            // groupBox2
+            // gbxCotizaciones
             // 
-            this.groupBox2.Controls.Add(this.btnBuscarCotizacion);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.txtSubtotal);
-            this.groupBox2.Controls.Add(this.txtBorrarCotizacion);
-            this.groupBox2.Controls.Add(this.txtEditarCotizacion);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(51, 240);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(858, 291);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Cotizaciones";
+            this.gbxCotizaciones.Controls.Add(this.btnBuscarCotizacion);
+            this.gbxCotizaciones.Controls.Add(this.label18);
+            this.gbxCotizaciones.Controls.Add(this.txtSubtotal);
+            this.gbxCotizaciones.Controls.Add(this.txtBorrarCotizacion);
+            this.gbxCotizaciones.Controls.Add(this.txtEditarCotizacion);
+            this.gbxCotizaciones.Controls.Add(this.dataGridView1);
+            this.gbxCotizaciones.Location = new System.Drawing.Point(51, 240);
+            this.gbxCotizaciones.Name = "gbxCotizaciones";
+            this.gbxCotizaciones.Size = new System.Drawing.Size(875, 291);
+            this.gbxCotizaciones.TabIndex = 18;
+            this.gbxCotizaciones.TabStop = false;
+            this.gbxCotizaciones.Text = "Cotizaciones";
             // 
             // btnBuscarCotizacion
             // 
@@ -242,7 +245,7 @@
             // 
             // txtSubtotal
             // 
-            this.txtSubtotal.Location = new System.Drawing.Point(750, 165);
+            this.txtSubtotal.Location = new System.Drawing.Point(762, 166);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(75, 23);
             this.txtSubtotal.TabIndex = 22;
@@ -251,7 +254,7 @@
             // 
             // txtBorrarCotizacion
             // 
-            this.txtBorrarCotizacion.Location = new System.Drawing.Point(752, 110);
+            this.txtBorrarCotizacion.Location = new System.Drawing.Point(764, 111);
             this.txtBorrarCotizacion.Name = "txtBorrarCotizacion";
             this.txtBorrarCotizacion.Size = new System.Drawing.Size(75, 23);
             this.txtBorrarCotizacion.TabIndex = 21;
@@ -260,7 +263,7 @@
             // 
             // txtEditarCotizacion
             // 
-            this.txtEditarCotizacion.Location = new System.Drawing.Point(750, 61);
+            this.txtEditarCotizacion.Location = new System.Drawing.Point(762, 62);
             this.txtEditarCotizacion.Name = "txtEditarCotizacion";
             this.txtEditarCotizacion.Size = new System.Drawing.Size(75, 23);
             this.txtEditarCotizacion.TabIndex = 20;
@@ -479,9 +482,9 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbxCotizaciones);
             this.Controls.Add(this.btnDescuento);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbxCliente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.label8);
@@ -489,10 +492,10 @@
             this.Controls.Add(this.label9);
             this.Name = "frmPresupuestador";
             this.Text = "Presupuestador";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbxCliente.ResumeLayout(false);
+            this.gbxCliente.PerformLayout();
+            this.gbxCotizaciones.ResumeLayout(false);
+            this.gbxCotizaciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -501,7 +504,7 @@
 
         #endregion
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbxCliente;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTelefono;
@@ -514,7 +517,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.ComboBox cmbDni;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxCotizaciones;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDescripcion;

@@ -203,6 +203,8 @@ namespace Vista
                 btnbitacora.Visible = false;
                 btnmetricas.Visible = false;
                 btncotizador.Visible = false;
+                btnPresupuestador.Visible = false;
+
 
                 if (permisos.Contains("Gestión de Usuarios"))
                 {
@@ -248,6 +250,10 @@ namespace Vista
                 {
                     btncotizador.Visible = true;
                 }
+                if (permisos.Contains("Presupuestador")) 
+                {
+                    btnPresupuestador.Visible = true;
+                }
 
                 CL_Usuarios logicaUsuario = new CL_Usuarios();
 
@@ -268,6 +274,8 @@ namespace Vista
             }
             AjustarTamañoFormulario();
             AjustarUltimoBoton();
+            this.flwBotones.PerformLayout();
+
         }
 
 
@@ -318,5 +326,17 @@ namespace Vista
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btnPresupuestador_Click(object sender, EventArgs e)
+        {
+            if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
+            {
+                frmPresupuestador frmPresupuestador = new frmPresupuestador();
+                frmPresupuestador.Show();
+                this.Hide();
+            }
+        }
+
+    
     }
 }

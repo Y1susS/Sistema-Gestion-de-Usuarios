@@ -44,6 +44,7 @@
             this.btnbitacora = new System.Windows.Forms.Button();
             this.btnEstadoVentas = new System.Windows.Forms.Button();
             this.flwBotones = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnPresupuestador = new System.Windows.Forms.Button();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
@@ -135,10 +136,10 @@
             this.lblDiasRestantesContrasena.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiasRestantesContrasena.ForeColor = System.Drawing.Color.White;
             this.lblDiasRestantesContrasena.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblDiasRestantesContrasena.Location = new System.Drawing.Point(0, 468);
+            this.lblDiasRestantesContrasena.Location = new System.Drawing.Point(0, 530);
             this.lblDiasRestantesContrasena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDiasRestantesContrasena.Name = "lblDiasRestantesContrasena";
-            this.lblDiasRestantesContrasena.Size = new System.Drawing.Size(400, 22);
+            this.lblDiasRestantesContrasena.Size = new System.Drawing.Size(396, 22);
             this.lblDiasRestantesContrasena.TabIndex = 8;
             this.lblDiasRestantesContrasena.Text = "Dias Restantes";
             this.lblDiasRestantesContrasena.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -151,7 +152,7 @@
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
             this.lbltitulo.Location = new System.Drawing.Point(40, 0);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(320, 40);
+            this.lbltitulo.Size = new System.Drawing.Size(316, 40);
             this.lbltitulo.TabIndex = 3;
             this.lbltitulo.Text = "Menú de Administrador";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -242,10 +243,23 @@
             this.flwBotones.Controls.Add(this.btncotizador);
             this.flwBotones.Controls.Add(this.btnbitacora);
             this.flwBotones.Controls.Add(this.btnEstadoVentas);
+            this.flwBotones.Controls.Add(this.btnPresupuestador);
             this.flwBotones.Location = new System.Drawing.Point(13, 175);
             this.flwBotones.Name = "flwBotones";
-            this.flwBotones.Size = new System.Drawing.Size(375, 285);
+            this.flwBotones.Size = new System.Drawing.Size(375, 331);
             this.flwBotones.TabIndex = 32;
+            // 
+            // btnPresupuestador
+            // 
+            this.btnPresupuestador.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresupuestador.Location = new System.Drawing.Point(6, 288);
+            this.btnPresupuestador.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPresupuestador.Name = "btnPresupuestador";
+            this.btnPresupuestador.Size = new System.Drawing.Size(175, 35);
+            this.btnPresupuestador.TabIndex = 32;
+            this.btnPresupuestador.Text = "Presupuestador";
+            this.btnPresupuestador.UseVisualStyleBackColor = true;
+            this.btnPresupuestador.Click += new System.EventHandler(this.btnPresupuestador_Click);
             // 
             // pnlBorde
             // 
@@ -256,7 +270,7 @@
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(400, 40);
+            this.pnlBorde.Size = new System.Drawing.Size(396, 40);
             this.pnlBorde.TabIndex = 33;
             // 
             // pctMinimize
@@ -279,7 +293,7 @@
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(360, 0);
+            this.pctClose.Location = new System.Drawing.Point(356, 0);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -291,9 +305,9 @@
             // 
             this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 490);
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 552);
             this.pnlBordeInferior.Name = "pnlBordeInferior";
-            this.pnlBordeInferior.Size = new System.Drawing.Size(400, 20);
+            this.pnlBordeInferior.Size = new System.Drawing.Size(396, 20);
             this.pnlBordeInferior.TabIndex = 34;
             // 
             // pctLogo
@@ -302,7 +316,7 @@
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(124, 60);
+            this.pctLogo.Location = new System.Drawing.Point(122, 60);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -314,7 +328,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(400, 510);
+            this.ClientSize = new System.Drawing.Size(396, 572);
             this.Controls.Add(this.lblDiasRestantesContrasena);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
@@ -357,5 +371,6 @@
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;
         private System.Windows.Forms.PictureBox pctLogo;
+        private System.Windows.Forms.Button btnPresupuestador;
     }
 }
