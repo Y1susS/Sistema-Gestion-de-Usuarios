@@ -37,7 +37,8 @@ namespace Vista
             ClsFondoTransparente.Aplicar(
             pctFondo,
             pctLogo,
-            lblPregunta);
+            lblPregunta,
+            btnSiguiente);
         }
 
         private const string DNI_PLACEHOLDER = "Ingrese DNI";

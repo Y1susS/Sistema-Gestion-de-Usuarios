@@ -36,8 +36,10 @@ namespace Vista
             cmbPartido.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pnlBorde);
 
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
         private void frmAdministrador_Load(object sender, EventArgs e)
@@ -78,10 +80,10 @@ namespace Vista
 
             ClsUtilidadesForms.BloquearControles(groupBox1);
 
-            btnAgregarNuevo.Text = "Nuevo";
+            btnAgregarNuevo.Text = "Nuevo usuario";
             button2.Text = "Guardar";
             button2.Enabled = false;
-            btneliminar.Text = "Eliminar";
+            btneliminar.Text = "Eliminar usuario";
             btneliminar.Enabled = false;
             dataGridView1.CellClick += dataGridView1_CellClick;
         }
@@ -594,124 +596,12 @@ namespace Vista
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void cmbLocalidad_SelectedIndexChanged(object sender, EventArgs e)
+        private void pnlBuscar_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void lblLocalidad_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEmail_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNroCalle_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPiso_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDepart_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNroDoc_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbRol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombres_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNroDoc_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRol_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNombres_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtApellidos_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblApellidos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTipoDoc_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTelefono_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCalle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPartido_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCalle_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
+            }
         }
     }
 }

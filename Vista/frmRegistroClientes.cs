@@ -29,7 +29,9 @@ namespace Vista
         {
             InitializeComponent();
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
         private void frmRegistroClientes_Load(object sender, EventArgs e)
@@ -190,7 +192,7 @@ namespace Vista
             modoEdicion = true;
             btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
-            btnAgregar.Text = "Nuevo"; // Cambiar texto del botón
+            btnAgregar.Text = "Nuevo cliente";
         }
 
         private void CargarCombos()
@@ -366,61 +368,6 @@ namespace Vista
 
             return true;
         }
-        // ANTIGUAS VALIDACIONES DE CAMPOS
-        //private bool ValidarCampos()
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtnombre.Text))
-        //    {
-        //        MessageBox.Show("Debe ingresar el nombre", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        txtnombre.Focus();
-        //        return false;
-        //    }
-
-        //    if (string.IsNullOrWhiteSpace(txtapellido.Text))
-        //    {
-        //        MessageBox.Show("Debe ingresar el apellido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        txtapellido.Focus();
-        //        return false;
-        //    }
-
-        //    // Validar Tipo de Documento
-        //    if (cmbTipoDoc != null && cmbTipoDoc.SelectedIndex == -1)
-        //    {
-        //        MessageBox.Show("Debe seleccionar un tipo de documento", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        cmbTipoDoc.Focus();
-        //        return false;
-        //    }
-
-        //    if (string.IsNullOrWhiteSpace(txtnumerodocumento.Text))
-        //    {
-        //        MessageBox.Show("Debe ingresar el número de documento", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        txtnumerodocumento.Focus();
-        //        return false;
-        //    }
-
-        //    if ((string.IsNullOrWhiteSpace(txtemail.Text)) || !txtemail.Text.Contains("@"))
-        //    {
-        //        MessageBox.Show("Debe ingresar un email válido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        txtemail.Focus();
-        //        return false;
-        //    }
-
-        //    if (cmbPartido != null && cmbPartido.SelectedIndex == -1)
-        //    {
-        //        MessageBox.Show("Debe seleccionar un partido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        cmbPartido.Focus();
-        //        return false;
-        //    }
-
-        //    if (cmbLocalidad != null && cmbLocalidad.SelectedIndex == -1)
-        //    {
-        //        MessageBox.Show("Debe seleccionar una localidad", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        cmbLocalidad.Focus();
-        //        return false;
-        //    }
-
-        //    return true;
-        //}
 
         private DtoPersona CrearDtoPersonaDesdeFormulario()
         {
@@ -480,7 +427,7 @@ namespace Vista
             idClienteSeleccionado = 0;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
-            btnAgregar.Text = "Agregar";
+            btnAgregar.Text = "Nuevo cliente";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -600,6 +547,14 @@ namespace Vista
             this.Close();
             frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
             frmPanelUsuarios.Show();
+        }
+
+        private void pnlBuscar_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
+            }
         }
     }
 }

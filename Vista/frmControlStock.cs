@@ -30,8 +30,9 @@ namespace Vista
             InitializeComponent();
             EstablecerEstadoInicial();
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pnlBorde);
-
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
         }
         private void EstablecerEstadoInicial()
         {
@@ -179,7 +180,7 @@ namespace Vista
         {
             modoGestion = true;
             modoNuevo = false;
-            lblMensajeBoton.Text = "Estas en el modo de Gestión de Materiales. Filtrá el Tipo de Material y después editalo seleccionándolo en la tabla";
+            //lblMensajeBoton.Text = "Estas en el modo de Gestión de Materiales. Filtrá el Tipo de Material y después editalo seleccionándolo en la tabla";
 
             if (HayDatosParaLimpiar())
             {
@@ -348,7 +349,7 @@ namespace Vista
         {
             modoNuevo = true;
             modoGestion = false;
-            lblMensajeBoton.Text = "Podes cargar un Nuevo Material. Seleccioná un Tipo de Material y carga los parametros en los campos";
+            //lblMensajeBoton.Text = "Podes cargar un Nuevo Material. Seleccioná un Tipo de Material y carga los parametros en los campos";
             //cmbMaterial.DropDownStyle = ComboBoxStyle.Simple; ( ¡OJO! COMENTÉ ESTA LÍNEA PORQUE CAMBIA VISUALMENTE EL COMBOBOX Y SE VE MAL )
 
             if (HayDatosParaLimpiar())
@@ -425,22 +426,6 @@ namespace Vista
             using (Pen p = new Pen(Color.White, 1))
             {
                 e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
-            }
-        }
-
-        private void pnlOpciones_Paint(object sender, PaintEventArgs e)
-        {
-            using (Pen p = new Pen(Color.White, 1))
-            {
-                e.Graphics.DrawRectangle(p, 0, 0, pnlOpciones.Width - 1, pnlOpciones.Height - 1);
-            }
-        }
-
-        private void lblMensajeBoton_Paint(object sender, PaintEventArgs e)
-        {
-            using (Pen p = new Pen(Color.White, 1))
-            {
-                e.Graphics.DrawRectangle(p, 0, 0, lblMensajeBoton.Width - 1, lblMensajeBoton.Height - 1);
             }
         }
 

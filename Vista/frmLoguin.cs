@@ -33,7 +33,8 @@ namespace Vista
             pctLogo,
             lnkRecuperar,
             pctMostrar,
-            pctOcultar);
+            pctOcultar,
+            btnLogin);
 
             ClsMostrarOcultarClave.Configurar(txtContrasenia, pctMostrar, pctOcultar, "Contraseña");
         }

@@ -124,10 +124,6 @@
             // btnCambiar
             // 
             this.btnCambiar.BackColor = System.Drawing.Color.White;
-            this.btnCambiar.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnCambiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCambiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiar.ForeColor = System.Drawing.Color.Black;
             this.btnCambiar.Location = new System.Drawing.Point(107, 318);
@@ -154,7 +150,7 @@
             // 
             this.lblMensaje.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.ForeColor = System.Drawing.Color.White;
-            this.lblMensaje.Location = new System.Drawing.Point(0, 159);
+            this.lblMensaje.Location = new System.Drawing.Point(0, 164);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(400, 40);
             this.lblMensaje.TabIndex = 26;
