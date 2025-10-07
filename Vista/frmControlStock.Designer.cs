@@ -49,30 +49,32 @@
             this.lblTipoMaterial = new System.Windows.Forms.Label();
             this.lblMaterial = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.lblMensajeBoton = new System.Windows.Forms.Label();
-            this.pnlOpciones = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pnlLogo = new System.Windows.Forms.Panel();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlBuscar = new System.Windows.Forms.Panel();
+            this.grpStock = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.pnlOpciones.SuspendLayout();
             this.pnlBorde.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             this.pnlBuscar.SuspendLayout();
+            this.grpStock.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 281);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 260);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -83,40 +85,44 @@
             // 
             // cmbTipoMaterial
             // 
+            this.cmbTipoMaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbTipoMaterial.BackColor = System.Drawing.Color.White;
             this.cmbTipoMaterial.ForeColor = System.Drawing.Color.Black;
             this.cmbTipoMaterial.FormattingEnabled = true;
-            this.cmbTipoMaterial.Location = new System.Drawing.Point(125, 40);
+            this.cmbTipoMaterial.Location = new System.Drawing.Point(127, 22);
             this.cmbTipoMaterial.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cmbTipoMaterial.Name = "cmbTipoMaterial";
-            this.cmbTipoMaterial.Size = new System.Drawing.Size(200, 30);
+            this.cmbTipoMaterial.Size = new System.Drawing.Size(200, 26);
             this.cmbTipoMaterial.TabIndex = 1;
             this.cmbTipoMaterial.SelectedIndexChanged += new System.EventHandler(this.cmbTipoMaterial_SelectedIndexChanged);
             // 
             // cmbMaterial
             // 
+            this.cmbMaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbMaterial.BackColor = System.Drawing.Color.White;
             this.cmbMaterial.ForeColor = System.Drawing.Color.Black;
             this.cmbMaterial.FormattingEnabled = true;
-            this.cmbMaterial.Location = new System.Drawing.Point(125, 70);
+            this.cmbMaterial.Location = new System.Drawing.Point(127, 52);
             this.cmbMaterial.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cmbMaterial.Name = "cmbMaterial";
-            this.cmbMaterial.Size = new System.Drawing.Size(200, 30);
+            this.cmbMaterial.Size = new System.Drawing.Size(200, 26);
             this.cmbMaterial.TabIndex = 2;
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDescripcion.BackColor = System.Drawing.Color.White;
             this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.txtDescripcion.Location = new System.Drawing.Point(125, 100);
+            this.txtDescripcion.Location = new System.Drawing.Point(127, 82);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(250, 30);
+            this.txtDescripcion.Size = new System.Drawing.Size(250, 25);
             this.txtDescripcion.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(10, 130);
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Location = new System.Drawing.Point(12, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 26);
@@ -126,7 +132,8 @@
             // 
             // cbxActivo
             // 
-            this.cbxActivo.Location = new System.Drawing.Point(125, 138);
+            this.cbxActivo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxActivo.Location = new System.Drawing.Point(127, 120);
             this.cbxActivo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbxActivo.Name = "cbxActivo";
             this.cbxActivo.Size = new System.Drawing.Size(15, 15);
@@ -135,10 +142,12 @@
             // 
             // btnNuevoMaterial
             // 
+            this.btnNuevoMaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNuevoMaterial.BackColor = System.Drawing.Color.White;
+            this.btnNuevoMaterial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnNuevoMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoMaterial.ForeColor = System.Drawing.Color.Black;
-            this.btnNuevoMaterial.Location = new System.Drawing.Point(673, 39);
+            this.btnNuevoMaterial.Location = new System.Drawing.Point(675, 21);
             this.btnNuevoMaterial.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnNuevoMaterial.Name = "btnNuevoMaterial";
             this.btnNuevoMaterial.Size = new System.Drawing.Size(150, 30);
@@ -149,10 +158,12 @@
             // 
             // btnGestion
             // 
+            this.btnGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGestion.BackColor = System.Drawing.Color.White;
+            this.btnGestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestion.ForeColor = System.Drawing.Color.Black;
-            this.btnGestion.Location = new System.Drawing.Point(673, 82);
+            this.btnGestion.Location = new System.Drawing.Point(675, 64);
             this.btnGestion.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnGestion.Name = "btnGestion";
             this.btnGestion.Size = new System.Drawing.Size(150, 30);
@@ -163,10 +174,12 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGuardar.BackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(673, 126);
+            this.btnGuardar.Location = new System.Drawing.Point(675, 108);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(150, 30);
@@ -177,50 +190,55 @@
             // 
             // txtUnidad
             // 
+            this.txtUnidad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUnidad.BackColor = System.Drawing.Color.White;
             this.txtUnidad.ForeColor = System.Drawing.Color.Black;
-            this.txtUnidad.Location = new System.Drawing.Point(505, 40);
+            this.txtUnidad.Location = new System.Drawing.Point(507, 22);
             this.txtUnidad.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtUnidad.Name = "txtUnidad";
-            this.txtUnidad.Size = new System.Drawing.Size(150, 30);
+            this.txtUnidad.Size = new System.Drawing.Size(150, 25);
             this.txtUnidad.TabIndex = 13;
             // 
             // txtPrecioUnitario
             // 
+            this.txtPrecioUnitario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPrecioUnitario.BackColor = System.Drawing.Color.White;
             this.txtPrecioUnitario.ForeColor = System.Drawing.Color.Black;
-            this.txtPrecioUnitario.Location = new System.Drawing.Point(505, 70);
+            this.txtPrecioUnitario.Location = new System.Drawing.Point(507, 52);
             this.txtPrecioUnitario.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
-            this.txtPrecioUnitario.Size = new System.Drawing.Size(150, 30);
+            this.txtPrecioUnitario.Size = new System.Drawing.Size(150, 25);
             this.txtPrecioUnitario.TabIndex = 14;
             this.txtPrecioUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioUnitario_KeyPress);
             // 
             // txtStockMinimo
             // 
+            this.txtStockMinimo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtStockMinimo.BackColor = System.Drawing.Color.White;
             this.txtStockMinimo.ForeColor = System.Drawing.Color.Black;
-            this.txtStockMinimo.Location = new System.Drawing.Point(505, 130);
+            this.txtStockMinimo.Location = new System.Drawing.Point(507, 112);
             this.txtStockMinimo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtStockMinimo.Name = "txtStockMinimo";
-            this.txtStockMinimo.Size = new System.Drawing.Size(150, 30);
+            this.txtStockMinimo.Size = new System.Drawing.Size(150, 25);
             this.txtStockMinimo.TabIndex = 16;
             this.txtStockMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockMinimo_KeyPress);
             // 
             // txtStockActual
             // 
+            this.txtStockActual.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtStockActual.BackColor = System.Drawing.Color.White;
             this.txtStockActual.ForeColor = System.Drawing.Color.Black;
-            this.txtStockActual.Location = new System.Drawing.Point(505, 100);
+            this.txtStockActual.Location = new System.Drawing.Point(507, 82);
             this.txtStockActual.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtStockActual.Name = "txtStockActual";
-            this.txtStockActual.Size = new System.Drawing.Size(150, 30);
+            this.txtStockActual.Size = new System.Drawing.Size(150, 25);
             this.txtStockActual.TabIndex = 15;
             this.txtStockActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockActual_KeyPress);
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(390, 40);
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Location = new System.Drawing.Point(392, 22);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 26);
@@ -230,7 +248,8 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(390, 70);
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.Location = new System.Drawing.Point(392, 52);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 26);
@@ -240,7 +259,8 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(390, 130);
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.Location = new System.Drawing.Point(392, 112);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 26);
@@ -250,7 +270,8 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(390, 100);
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.Location = new System.Drawing.Point(392, 82);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 26);
@@ -260,7 +281,8 @@
             // 
             // lblTipoMaterial
             // 
-            this.lblTipoMaterial.Location = new System.Drawing.Point(10, 40);
+            this.lblTipoMaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTipoMaterial.Location = new System.Drawing.Point(12, 22);
             this.lblTipoMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoMaterial.Name = "lblTipoMaterial";
             this.lblTipoMaterial.Size = new System.Drawing.Size(107, 26);
@@ -270,7 +292,8 @@
             // 
             // lblMaterial
             // 
-            this.lblMaterial.Location = new System.Drawing.Point(10, 70);
+            this.lblMaterial.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMaterial.Location = new System.Drawing.Point(12, 52);
             this.lblMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMaterial.Name = "lblMaterial";
             this.lblMaterial.Size = new System.Drawing.Size(107, 26);
@@ -280,7 +303,8 @@
             // 
             // lblDescripcion
             // 
-            this.lblDescripcion.Location = new System.Drawing.Point(10, 100);
+            this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDescripcion.Location = new System.Drawing.Point(12, 82);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(107, 26);
@@ -288,62 +312,20 @@
             this.lblDescripcion.Text = "Descripcion";
             this.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblMensajeBoton
+            // pnlBordeInferior
             // 
-            this.lblMensajeBoton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblMensajeBoton.Location = new System.Drawing.Point(0, 0);
-            this.lblMensajeBoton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMensajeBoton.Name = "lblMensajeBoton";
-            this.lblMensajeBoton.Size = new System.Drawing.Size(840, 26);
-            this.lblMensajeBoton.TabIndex = 24;
-            this.lblMensajeBoton.Text = "Bienvenido al control de stock, presione los botones correspondientes para empeza" +
-    "r a modificar";
-            this.lblMensajeBoton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMensajeBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.lblMensajeBoton_Paint);
-            // 
-            // pnlOpciones
-            // 
-            this.pnlOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlOpciones.Controls.Add(this.btnGestion);
-            this.pnlOpciones.Controls.Add(this.btnNuevoMaterial);
-            this.pnlOpciones.Controls.Add(this.btnGuardar);
-            this.pnlOpciones.Controls.Add(this.lblMensajeBoton);
-            this.pnlOpciones.Controls.Add(this.label6);
-            this.pnlOpciones.Controls.Add(this.lblDescripcion);
-            this.pnlOpciones.Controls.Add(this.cmbTipoMaterial);
-            this.pnlOpciones.Controls.Add(this.lblMaterial);
-            this.pnlOpciones.Controls.Add(this.cmbMaterial);
-            this.pnlOpciones.Controls.Add(this.lblTipoMaterial);
-            this.pnlOpciones.Controls.Add(this.txtDescripcion);
-            this.pnlOpciones.Controls.Add(this.label5);
-            this.pnlOpciones.Controls.Add(this.label1);
-            this.pnlOpciones.Controls.Add(this.cbxActivo);
-            this.pnlOpciones.Controls.Add(this.label4);
-            this.pnlOpciones.Controls.Add(this.label3);
-            this.pnlOpciones.Controls.Add(this.txtStockMinimo);
-            this.pnlOpciones.Controls.Add(this.txtUnidad);
-            this.pnlOpciones.Controls.Add(this.txtStockActual);
-            this.pnlOpciones.Controls.Add(this.txtPrecioUnitario);
-            this.pnlOpciones.ForeColor = System.Drawing.Color.White;
-            this.pnlOpciones.Location = new System.Drawing.Point(10, 50);
-            this.pnlOpciones.Name = "pnlOpciones";
-            this.pnlOpciones.Size = new System.Drawing.Size(840, 170);
-            this.pnlOpciones.TabIndex = 25;
-            this.pnlOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlOpciones_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 585);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(860, 20);
-            this.panel2.TabIndex = 27;
+            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 565);
+            this.pnlBordeInferior.Name = "pnlBordeInferior";
+            this.pnlBordeInferior.Size = new System.Drawing.Size(860, 20);
+            this.pnlBordeInferior.TabIndex = 27;
             // 
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.pctLogo);
+            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.pnlLogo);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -351,6 +333,27 @@
             this.pnlBorde.Name = "pnlBorde";
             this.pnlBorde.Size = new System.Drawing.Size(860, 40);
             this.pnlBorde.TabIndex = 26;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(80, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(700, 40);
+            this.lblTitulo.TabIndex = 8027;
+            this.lblTitulo.Text = "Control de stock";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Controls.Add(this.pctLogo);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(80, 40);
+            this.pnlLogo.TabIndex = 8026;
             // 
             // pctLogo
             // 
@@ -398,7 +401,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(290, 6);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(250, 34);
+            this.txtBuscar.Size = new System.Drawing.Size(250, 28);
             this.txtBuscar.TabIndex = 29;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -424,22 +427,52 @@
             this.pnlBuscar.Controls.Add(this.btnBuscar);
             this.pnlBuscar.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlBuscar.ForeColor = System.Drawing.Color.White;
-            this.pnlBuscar.Location = new System.Drawing.Point(10, 230);
+            this.pnlBuscar.Location = new System.Drawing.Point(10, 210);
             this.pnlBuscar.Name = "pnlBuscar";
             this.pnlBuscar.Size = new System.Drawing.Size(840, 40);
             this.pnlBuscar.TabIndex = 31;
             this.pnlBuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBuscar_Paint);
             // 
+            // grpStock
+            // 
+            this.grpStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.grpStock.Controls.Add(this.btnGestion);
+            this.grpStock.Controls.Add(this.cbxActivo);
+            this.grpStock.Controls.Add(this.label4);
+            this.grpStock.Controls.Add(this.btnNuevoMaterial);
+            this.grpStock.Controls.Add(this.label1);
+            this.grpStock.Controls.Add(this.label3);
+            this.grpStock.Controls.Add(this.btnGuardar);
+            this.grpStock.Controls.Add(this.label5);
+            this.grpStock.Controls.Add(this.label6);
+            this.grpStock.Controls.Add(this.txtStockMinimo);
+            this.grpStock.Controls.Add(this.txtDescripcion);
+            this.grpStock.Controls.Add(this.lblDescripcion);
+            this.grpStock.Controls.Add(this.txtUnidad);
+            this.grpStock.Controls.Add(this.cmbTipoMaterial);
+            this.grpStock.Controls.Add(this.lblTipoMaterial);
+            this.grpStock.Controls.Add(this.lblMaterial);
+            this.grpStock.Controls.Add(this.txtStockActual);
+            this.grpStock.Controls.Add(this.txtPrecioUnitario);
+            this.grpStock.Controls.Add(this.cmbMaterial);
+            this.grpStock.ForeColor = System.Drawing.Color.White;
+            this.grpStock.Location = new System.Drawing.Point(10, 50);
+            this.grpStock.Name = "grpStock";
+            this.grpStock.Size = new System.Drawing.Size(840, 150);
+            this.grpStock.TabIndex = 32;
+            this.grpStock.TabStop = false;
+            this.grpStock.Text = "Stock";
+            // 
             // frmControlStock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(860, 605);
+            this.ClientSize = new System.Drawing.Size(860, 585);
+            this.Controls.Add(this.grpStock);
             this.Controls.Add(this.pnlBuscar);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
-            this.Controls.Add(this.pnlOpciones);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -448,14 +481,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.pnlOpciones.ResumeLayout(false);
-            this.pnlOpciones.PerformLayout();
             this.pnlBorde.ResumeLayout(false);
+            this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
+            this.grpStock.ResumeLayout(false);
+            this.grpStock.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -482,9 +516,7 @@
         private System.Windows.Forms.Label lblTipoMaterial;
         private System.Windows.Forms.Label lblMaterial;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.Label lblMensajeBoton;
-        private System.Windows.Forms.Panel pnlOpciones;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlBordeInferior;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
@@ -492,5 +524,8 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel pnlBuscar;
+        private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.GroupBox grpStock;
     }
 }

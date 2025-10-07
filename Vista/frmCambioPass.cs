@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Entidades;
+using Entidades.DTOs;
+using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Entidades.DTOs;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -19,10 +20,8 @@ namespace Vista
         private readonly string usuario;
         private readonly bool requiereContraseñaActual;
         private Form _formularioAnterior;
-        private const string PASS_ACTUAL_PLACEHOLDER = "Contraseña actual";
-        private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
-        private const string CONFIRMA_PASS_PLACEHOLDER = "Confirmar contraseña";
         private readonly CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
+        private ClsArrastrarFormularios moverFormulario;
 
         public frmCambioPass(string usuario, Form formularioAnterior, bool requiereContraseñaActual = true)
         {
@@ -34,12 +33,29 @@ namespace Vista
             this.requiereContraseñaActual = requiereContraseñaActual;
             this._formularioAnterior = formularioAnterior;
             txtPassActual.Visible = requiereContraseñaActual;
+
             ClsFondoTransparente.Aplicar(
                 pctFondo,
                 pctLogo,
                 lblUsuario,
-                lblRestriccionesPassCambio);
+                pctValidaciones,
+                pctOcultar, pctOcultar2, pctOcultar3,
+                pctMostrar, pctMostrar2, pctMostrar3,
+                btnCambiar);
+
+            pctMostrar.BringToFront();
+            pctMostrar2.BringToFront();
+            pctMostrar3.BringToFront();
+
+            ClsMostrarOcultarClave.Configurar(txtPassActual, pctMostrar, pctOcultar, "Contraseña actual");
+            ClsMostrarOcultarClave.Configurar(txtNuevaPass, pctMostrar2, pctOcultar2, "Nueva contraseña");
+            ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar3, pctOcultar3, "Confirmar contraseña");
+
         }
+
+        private const string PASS_ACTUAL_PLACEHOLDER = "Contraseña actual";
+        private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
+        private const string CONFIRMA_PASS_PLACEHOLDER = "Confirmar contraseña";
 
         private void frmCambioPass_Load(object sender, EventArgs e)
         {
@@ -49,109 +65,70 @@ namespace Vista
             ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
             MostrarRestriccionesContrasena();
-            lblUsuario.Text = $"Usuario: {usuario}";
+            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             this.ActiveControl = lblUsuario;
 
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
         private void MostrarRestriccionesContrasena()
         {
             try
             {
+                CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
                 DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
 
                 if (config != null)
                 {
-                    lblRestriccionesPassCambio.Visible = true; // Hacer visible el Label
-
                     StringBuilder sb = new StringBuilder();
 
                     if (config.MinimoCaracteres > 0)
                     {
-                        sb.Append($"Mínimo: {config.MinimoCaracteres} caracteres - ");
+                        sb.AppendLine($"• Mínimo: {config.MinimoCaracteres} caracteres");
                     }
                     if (config.RequiereMayusMinus)
                     {
-                        sb.Append("Mayúsculas y minúsculas - ");
+                        sb.AppendLine("• Combinación de mayúsculas y minúsculas");
                     }
                     if (config.RequiereNumLetra)
                     {
-                        sb.Append("Números y letras - ");
+                        sb.AppendLine("• Números y letras");
                     }
                     if (config.RequiereEspecial)
                     {
-                        sb.Append("Al menos 1 carácter especial - ");
+                        sb.AppendLine("• Al menos 1 carácter especial");
                     }
                     if (config.EvitarRepetidas)
                     {
-                        sb.Append("No reutilizar anteriores - ");
+                        sb.AppendLine("• No reutilizar contraseñas anteriores");
                     }
                     if (config.EvitarDatosPersonales)
                     {
-                        sb.Append("No contener datos personales - ");
+                        sb.AppendLine("• No contener datos personales");
                     }
 
-                    if (sb.Length > 0)
-                    {
-                        sb.Length -= 3; 
-                        lblRestriccionesPassCambio.Text = sb.ToString();
-                    }
-                    else
-                    {
-                        lblRestriccionesPassCambio.Text = "No hay restricciones de contraseña configuradas.";
-                    }
+                    string mensaje = sb.Length > 0
+                        ? sb.ToString()
+                        : "No hay restricciones de contraseña configuradas.";
+
+                    ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
+                    mensajes.AsignarMensaje(pctValidaciones, mensaje);
                 }
                 else
                 {
-                    // Si 'config' es null, ocultar el Label.
-                    lblRestriccionesPassCambio.Visible = false;
+                    ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
+                    mensajes.AsignarMensaje(pctValidaciones, "No hay restricciones configuradas.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar las restricciones de contraseña: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                lblRestriccionesPassCambio.Visible = false;
+                MessageBox.Show($"Error al cargar las restricciones de contraseña: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
+                mensajes.AsignarMensaje(pctValidaciones, string.Empty);
             }
-        }
-
-
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-            //bool ambosVacios = string.IsNullOrWhiteSpace(txtPassActual.Text) && string.IsNullOrWhiteSpace(txtNuevaPass.Text);
-
-
-            //if (ambosVacios == true)
-            //{
-            //    this.Close();
-            //    FrmLoguin FrmLoguin = new FrmLoguin();
-            //    FrmLoguin.Show();
-            //}
-            //else
-            //{
-            //    DialogResult opcion = MessageBox.Show("Hay datos ingresados, si cierra esta ventana se perderán \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            //    if (opcion == DialogResult.Yes)
-            //    {
-            //        this.Close();
-            //        FrmLoguin FrmLoguin = new FrmLoguin();
-            //        FrmLoguin.Show();
-            //    }
-            //}
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        int mouse, mousex, mousey;
-
-        private void pctBorde_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouse = 0;
         }
 
         private void btnCambiar_Click(object sender, EventArgs e)
@@ -210,51 +187,6 @@ namespace Vista
             }
         }
 
-        //private void btnCambiar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (ValidarCampos())
-        //        {
-        //            string passActual = requiereContraseñaActual ? txtPassActual.Text : string.Empty;
-        //            string nuevaPass = txtNuevaPass.Text;
-        //            bool resultado;
-        //            string mensaje;
-
-        //            if (requiereContraseñaActual)
-        //            {
-        //                // Cambio normal con verificación de contraseña actual
-        //                resultado = objUsuarios.CambiarContraseña(usuario, passActual, nuevaPass, out mensaje);
-        //            }
-        //            else
-        //            {
-        //                // Cambio por administrador (primera contraseña)
-        //                resultado = objUsuarios.CambiarPrimeraContraseña(usuario, nuevaPass, out mensaje);
-        //            }
-
-        //            if (resultado)
-        //            {
-        //                MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //                // Redirigir al panel de usuarios
-        //                frmPanelUsuarios frm = new frmPanelUsuarios();
-        //                frm.Show();
-        //                this.Close();
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error al cambiar contraseña: " + ex.Message,
-        //            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        // Métodos para los placeholders (entrada y salida del foco)
         private void txtPassActual_Enter(object sender, EventArgs e)
         {
             ClsPlaceHolder.Enter(PASS_ACTUAL_PLACEHOLDER, txtPassActual, true);
@@ -285,7 +217,6 @@ namespace Vista
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
         }
 
-        // Método para validar campos
         private bool ValidarCampos()
         {
             // Validar contraseña actual si se requiere
@@ -326,41 +257,16 @@ namespace Vista
             return true;
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void pctClose_Click(object sender, EventArgs e)
         {
-            _formularioAnterior.Show();
             this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
         }
 
-        private void pctBorde_MouseMove(object sender, MouseEventArgs e)
+        private void pctMinimize_Click(object sender, EventArgs e)
         {
-            if (mouse == 1)
-            {
-                int newX = MousePosition.X - mousex;
-                int newY = MousePosition.Y - mousey;
-
-                // Obtener el área de trabajo de la pantalla (sin la barra de tareas)
-                Rectangle screenBounds = Screen.FromControl(this).WorkingArea;
-
-                // Limitar la nueva posición del formulario dentro de la pantalla
-                if (newX < screenBounds.Left)
-                    newX = screenBounds.Left;
-                if (newY < screenBounds.Top)
-                    newY = screenBounds.Top;
-                if (newX + this.Width > screenBounds.Right)
-                    newX = screenBounds.Right - this.Width;
-                if (newY + this.Height > screenBounds.Bottom)
-                    newY = screenBounds.Bottom - this.Height;
-
-                this.SetDesktopLocation(newX, newY);
-            }
-        }
-
-        private void pctBorde_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouse = 1;
-            mousex = e.X;
-            mousey = e.Y;
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

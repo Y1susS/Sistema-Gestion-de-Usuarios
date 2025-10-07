@@ -38,8 +38,9 @@ namespace Sistema_Gestion_De_Usuarios
             InitializeComponent();
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblpermisos);
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
 
             _frmPanelUsuariosPadre = panelUsuariosPadre; // Guarda la referencia al formulario padre
 

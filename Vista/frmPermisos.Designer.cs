@@ -43,10 +43,14 @@
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.pctLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             this.pnlBorde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
+            this.pnlLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblpermisos
@@ -54,9 +58,9 @@
             this.lblpermisos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblpermisos.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpermisos.ForeColor = System.Drawing.Color.White;
-            this.lblpermisos.Location = new System.Drawing.Point(40, 0);
+            this.lblpermisos.Location = new System.Drawing.Point(80, 0);
             this.lblpermisos.Name = "lblpermisos";
-            this.lblpermisos.Size = new System.Drawing.Size(695, 40);
+            this.lblpermisos.Size = new System.Drawing.Size(615, 40);
             this.lblpermisos.TabIndex = 0;
             this.lblpermisos.Text = "Gestión de permisos";
             this.lblpermisos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -157,8 +161,9 @@
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlBorde.Controls.Add(this.lblpermisos);
-            this.pnlBorde.Controls.Add(this.pctClose);
+            this.pnlBorde.Controls.Add(this.pnlLogo);
             this.pnlBorde.Controls.Add(this.pctMinimize);
+            this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
@@ -181,9 +186,9 @@
             // 
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(0, 0);
+            this.pctMinimize.Location = new System.Drawing.Point(695, 0);
             this.pctMinimize.Name = "pctMinimize";
             this.pctMinimize.Size = new System.Drawing.Size(40, 40);
             this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -199,6 +204,25 @@
             this.pnlBordeInferior.Name = "pnlBordeInferior";
             this.pnlBordeInferior.Size = new System.Drawing.Size(775, 20);
             this.pnlBordeInferior.TabIndex = 28;
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Controls.Add(this.pctLogo);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(80, 40);
+            this.pnlLogo.TabIndex = 8027;
+            // 
+            // pctLogo
+            // 
+            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
+            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctLogo.Location = new System.Drawing.Point(8, 8);
+            this.pctLogo.Name = "pctLogo";
+            this.pctLogo.Size = new System.Drawing.Size(45, 25);
+            this.pctLogo.TabIndex = 8025;
+            this.pctLogo.TabStop = false;
             // 
             // frmPermisos
             // 
@@ -222,6 +246,8 @@
             this.pnlBorde.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
+            this.pnlLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,5 +268,7 @@
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;
+        private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.PictureBox pctLogo;
     }
 }
