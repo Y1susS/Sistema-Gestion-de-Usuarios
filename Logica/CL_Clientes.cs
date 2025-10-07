@@ -180,5 +180,23 @@ namespace Logica
             mensaje = "Datos válidos";
             return true;
         }
+        public DtoCliente BuscarClientePorDocumento(string tipoDocumento, string nroDocumento) // 
+        {
+            //AGREGAR VALIDACIONES
+            if (string.IsNullOrWhiteSpace(tipoDocumento) || string.IsNullOrWhiteSpace(nroDocumento))
+            {
+                throw new ArgumentException("El tipo y número de documento no pueden estar vacíos.");
+            }
+
+            try
+            {
+                // Llama al método del DAO con los dos parámetros
+                return daoCliente.ObtenerClientePorDocumento(tipoDocumento, nroDocumento);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la lógica de negocio al buscar cliente.", ex);
+            }
+        }
     }
 }

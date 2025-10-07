@@ -331,7 +331,7 @@
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(860, 40);
+            this.pnlBorde.Size = new System.Drawing.Size(861, 40);
             this.pnlBorde.TabIndex = 26;
             // 
             // lblTitulo
@@ -371,7 +371,7 @@
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(780, 0);
+            this.pctMinimize.Location = new System.Drawing.Point(781, 0);
             this.pctMinimize.Name = "pctMinimize";
             this.pctMinimize.Size = new System.Drawing.Size(40, 40);
             this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -385,7 +385,7 @@
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(820, 0);
+            this.pctClose.Location = new System.Drawing.Point(821, 0);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -398,7 +398,7 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(290, 6);
+            this.txtBuscar.Location = new System.Drawing.Point(290, 4);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 28);

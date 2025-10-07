@@ -473,6 +473,30 @@ namespace Vista
                 MessageBox.Show($"No se encontraron materiales para el término: '{termino}'", "Resultado de Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (materialSeleccionado == null)
+            {
+                MessageBox.Show("Seleccione un material para poder eliminarlo.");
+                return;
+            }
+
+            if (MessageBox.Show("¿Está seguro de que desea eliminar este material?", "Confirmar Eliminación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    logicaMaterial.EliminarMaterial(materialSeleccionado.IdMaterial);
+                    MessageBox.Show("Material eliminado exitosamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar el material: " + ex.Message);
+                }
+            }
+            LimpiarControles();
+            EstablecerEstadoInicial();
+        }
     }
 }
 

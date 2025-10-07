@@ -72,12 +72,6 @@
     <Compile Include="frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStockyValores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmStockyValores.Designer.cs">
-      <DependentUpon>frmStockyValores.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCotizador.cs">
       <SubType>Form</SubType>
     </Compile>
