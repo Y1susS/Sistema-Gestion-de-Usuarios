@@ -59,6 +59,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlBuscar = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlOpciones.SuspendLayout();
             this.pnlBorde.SuspendLayout();
@@ -72,7 +73,7 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 281);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 318);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -138,7 +139,7 @@
             this.btnNuevoMaterial.BackColor = System.Drawing.Color.White;
             this.btnNuevoMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoMaterial.ForeColor = System.Drawing.Color.Black;
-            this.btnNuevoMaterial.Location = new System.Drawing.Point(673, 39);
+            this.btnNuevoMaterial.Location = new System.Drawing.Point(32, 174);
             this.btnNuevoMaterial.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnNuevoMaterial.Name = "btnNuevoMaterial";
             this.btnNuevoMaterial.Size = new System.Drawing.Size(150, 30);
@@ -152,7 +153,7 @@
             this.btnGestion.BackColor = System.Drawing.Color.White;
             this.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestion.ForeColor = System.Drawing.Color.Black;
-            this.btnGestion.Location = new System.Drawing.Point(673, 82);
+            this.btnGestion.Location = new System.Drawing.Point(238, 174);
             this.btnGestion.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnGestion.Name = "btnGestion";
             this.btnGestion.Size = new System.Drawing.Size(150, 30);
@@ -166,7 +167,7 @@
             this.btnGuardar.BackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(673, 126);
+            this.btnGuardar.Location = new System.Drawing.Point(634, 174);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(150, 30);
@@ -179,7 +180,7 @@
             // 
             this.txtUnidad.BackColor = System.Drawing.Color.White;
             this.txtUnidad.ForeColor = System.Drawing.Color.Black;
-            this.txtUnidad.Location = new System.Drawing.Point(505, 40);
+            this.txtUnidad.Location = new System.Drawing.Point(561, 39);
             this.txtUnidad.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtUnidad.Name = "txtUnidad";
             this.txtUnidad.Size = new System.Drawing.Size(150, 30);
@@ -189,7 +190,7 @@
             // 
             this.txtPrecioUnitario.BackColor = System.Drawing.Color.White;
             this.txtPrecioUnitario.ForeColor = System.Drawing.Color.Black;
-            this.txtPrecioUnitario.Location = new System.Drawing.Point(505, 70);
+            this.txtPrecioUnitario.Location = new System.Drawing.Point(561, 69);
             this.txtPrecioUnitario.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
             this.txtPrecioUnitario.Size = new System.Drawing.Size(150, 30);
@@ -200,7 +201,7 @@
             // 
             this.txtStockMinimo.BackColor = System.Drawing.Color.White;
             this.txtStockMinimo.ForeColor = System.Drawing.Color.Black;
-            this.txtStockMinimo.Location = new System.Drawing.Point(505, 130);
+            this.txtStockMinimo.Location = new System.Drawing.Point(561, 129);
             this.txtStockMinimo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtStockMinimo.Name = "txtStockMinimo";
             this.txtStockMinimo.Size = new System.Drawing.Size(150, 30);
@@ -211,7 +212,7 @@
             // 
             this.txtStockActual.BackColor = System.Drawing.Color.White;
             this.txtStockActual.ForeColor = System.Drawing.Color.Black;
-            this.txtStockActual.Location = new System.Drawing.Point(505, 100);
+            this.txtStockActual.Location = new System.Drawing.Point(561, 99);
             this.txtStockActual.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtStockActual.Name = "txtStockActual";
             this.txtStockActual.Size = new System.Drawing.Size(150, 30);
@@ -220,7 +221,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(390, 40);
+            this.label3.Location = new System.Drawing.Point(446, 39);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 26);
@@ -230,7 +231,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(390, 70);
+            this.label4.Location = new System.Drawing.Point(446, 69);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 26);
@@ -240,7 +241,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(390, 130);
+            this.label5.Location = new System.Drawing.Point(446, 129);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 26);
@@ -250,7 +251,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(390, 100);
+            this.label6.Location = new System.Drawing.Point(446, 99);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 26);
@@ -304,6 +305,7 @@
             // pnlOpciones
             // 
             this.pnlOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlOpciones.Controls.Add(this.btnEliminar);
             this.pnlOpciones.Controls.Add(this.btnGestion);
             this.pnlOpciones.Controls.Add(this.btnNuevoMaterial);
             this.pnlOpciones.Controls.Add(this.btnGuardar);
@@ -327,7 +329,7 @@
             this.pnlOpciones.ForeColor = System.Drawing.Color.White;
             this.pnlOpciones.Location = new System.Drawing.Point(10, 50);
             this.pnlOpciones.Name = "pnlOpciones";
-            this.pnlOpciones.Size = new System.Drawing.Size(840, 170);
+            this.pnlOpciones.Size = new System.Drawing.Size(840, 217);
             this.pnlOpciones.TabIndex = 25;
             this.pnlOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlOpciones_Paint);
             // 
@@ -335,9 +337,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 585);
+            this.panel2.Location = new System.Drawing.Point(0, 617);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(860, 20);
+            this.panel2.Size = new System.Drawing.Size(861, 20);
             this.panel2.TabIndex = 27;
             // 
             // pnlBorde
@@ -349,7 +351,7 @@
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(860, 40);
+            this.pnlBorde.Size = new System.Drawing.Size(861, 40);
             this.pnlBorde.TabIndex = 26;
             // 
             // pctLogo
@@ -368,7 +370,7 @@
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(780, 0);
+            this.pctMinimize.Location = new System.Drawing.Point(781, 0);
             this.pctMinimize.Name = "pctMinimize";
             this.pctMinimize.Size = new System.Drawing.Size(40, 40);
             this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -382,7 +384,7 @@
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(820, 0);
+            this.pctClose.Location = new System.Drawing.Point(821, 0);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -395,7 +397,7 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(290, 6);
+            this.txtBuscar.Location = new System.Drawing.Point(290, 4);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 34);
@@ -424,18 +426,32 @@
             this.pnlBuscar.Controls.Add(this.btnBuscar);
             this.pnlBuscar.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlBuscar.ForeColor = System.Drawing.Color.White;
-            this.pnlBuscar.Location = new System.Drawing.Point(10, 230);
+            this.pnlBuscar.Location = new System.Drawing.Point(14, 273);
             this.pnlBuscar.Name = "pnlBuscar";
             this.pnlBuscar.Size = new System.Drawing.Size(840, 40);
             this.pnlBuscar.TabIndex = 31;
             this.pnlBuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBuscar_Paint);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Location = new System.Drawing.Point(429, 174);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(150, 30);
+            this.btnEliminar.TabIndex = 25;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmControlStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(860, 605);
+            this.ClientSize = new System.Drawing.Size(861, 637);
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlBorde);
@@ -492,5 +508,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel pnlBuscar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

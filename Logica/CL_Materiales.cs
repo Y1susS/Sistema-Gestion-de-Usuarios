@@ -59,6 +59,22 @@ namespace Logica
                 throw new ApplicationException("Error en la lógica de negocio al obtener el material. " + ex.Message, ex);
             }
         }
+        public bool EliminarMaterial(int id)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("El ID del material es inválido.");
+            }
+
+            try
+            {
+                return daoMaterial.EliminarMaterial(id);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error en la lógica de negocio al eliminar el material. " + ex.Message, ex);
+            }
+        }
 
         public List<DtoMaterial> ListarMateriales()
         {

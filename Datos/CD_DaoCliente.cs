@@ -211,5 +211,57 @@ namespace Datos
 
             return resultado;
         }
+
+        public DtoCliente ObtenerClientePorDocumento(string tipoDocumento, string nroDocumento)
+        {
+            DtoCliente cliente = null;
+
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerClientePorDocumento", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_TipoDocumento", tipoDocumento);
+                    cmd.Parameters.AddWithValue("@NroDocumento", nroDocumento);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            cliente = new DtoCliente();
+
+                            cliente.Id_Cliente = Convert.ToInt32(dr["Id_Cliente"]);
+                            cliente.FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"]);
+                            cliente.Activo = Convert.ToBoolean(dr["Activo"]);
+                            cliente.Observaciones = dr["Observaciones"].ToString();
+
+                            cliente.Id_Persona = Convert.ToInt32(dr["Id_Persona"]);
+                            cliente.Nombre = dr["Nombre"].ToString();
+                            cliente.Apellido = dr["Apellido"].ToString();
+                            cliente.Id_TipoDocumento = dr["Id_TipoDocumento"].ToString();
+                            cliente.NroDocumento = dr["NroDocumento"].ToString();
+                            cliente.Email = dr["Email"].ToString();
+                            cliente.Calle = dr["Calle"].ToString();
+                            cliente.Nro = dr.IsDBNull(dr.GetOrdinal("Nro")) ? 0 : Convert.ToInt32(dr["Nro"]);
+                            cliente.Piso = dr["Piso"].ToString();
+                            cliente.Depto = dr["Depto"].ToString();
+                            cliente.Id_Localidad = Convert.ToInt32(dr["Id_Localidad"]);
+                            cliente.Telefono = dr.IsDBNull(dr.GetOrdinal("NroTelefono")) ? string.Empty : dr["NroTelefono"].ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener cliente por documento: " + ex.Message, ex);
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+
+            return cliente;
+        }
     }
 }

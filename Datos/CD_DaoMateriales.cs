@@ -51,7 +51,32 @@ namespace Datos
 
             return idMaterial;
         }
+        public bool EliminarMaterial(int id)
+        {
+            bool resultado = false;
+            SqlConnection conn = null;
 
+            try
+            {
+                conn = AbrirConexion();
+                SqlCommand cmd = new SqlCommand("SP_EliminarMaterial", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_Material", id);
+
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                resultado = filasAfectadas > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar material: " + ex.Message, ex);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
+            return resultado;
+        }
         public bool ActualizarMaterial(DtoMaterial material)
         {
             bool resultado = false;

@@ -21,8 +21,8 @@ namespace Vista
             CargarEventos();
         }
 
-        private CL_Clientes clClientes;
-        private DtoCliente clienteActual;
+        private CL_Clientes clCliente = new CL_Clientes();
+        private DtoCliente clienteActual = new DtoCliente();
         private CL_TipoDoc _logicaTipoDoc = new CL_TipoDoc();
 
         private void ConfigurarControles()
@@ -37,19 +37,19 @@ namespace Vista
                 cmbDni.SelectedIndex = -1;
             }
             // Configurar campos como solo lectura
-            txtNombre.ReadOnly = true;
-            txtApellido.ReadOnly = true;
-            txtTelefono.ReadOnly = true;
-            txtMail.ReadOnly = true;
+            txtNombreCliente.ReadOnly = true;
+            txtApellidoCliente.ReadOnly = true;
+            txtTelefonoCliente.ReadOnly = true;
+            txtMailCliente.ReadOnly = true;
 
             // Configurar colores para campos de solo lectura
-            txtNombre.BackColor = System.Drawing.SystemColors.Control;
-            txtApellido.BackColor = System.Drawing.SystemColors.Control;
-            txtTelefono.BackColor = System.Drawing.SystemColors.Control;
-            txtMail.BackColor = System.Drawing.SystemColors.Control;
+            txtNombreCliente.BackColor = System.Drawing.SystemColors.Control;
+            txtApellidoCliente.BackColor = System.Drawing.SystemColors.Control;
+            txtTelefonoCliente.BackColor = System.Drawing.SystemColors.Control;
+            txtMailCliente.BackColor = System.Drawing.SystemColors.Control;
 
             // Limpiar campos al inicio
-            LimpiarDatosCliente();
+            LimpiarCamposCliente();
         }
         private void CargarEventos()
         {
@@ -65,378 +65,58 @@ namespace Vista
 
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
-            BuscarCliente();
-        }
+            string tipoDoc = cmbDni.SelectedValue.ToString();
+            string dni = txtDni.Text.Trim();
 
-        private void TxtNroDocumento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Solo permite números y teclas de control (backspace, delete, etc)
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+
+            // Limpiar los campos de cliente antes de la búsqueda
+            LimpiarCamposCliente();
+
+            if (string.IsNullOrEmpty(dni))
             {
-                e.Handled = true;
+                MessageBox.Show("Debe ingresar un DNI para buscar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-        }
-        private void TxtNroDocumento_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-        private void BuscarCliente()
-        {
-            try
+            if (string.IsNullOrEmpty(tipoDoc) || string.IsNullOrEmpty(dni))
             {
-                // Validar que se haya ingresado un documento
-                if (string.IsNullOrWhiteSpace(txtDni.Text))
-                {
-                    MessageBox.Show("Por favor, ingrese un número de documento",
-                        "Validación",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    txtDni.Focus();
-                    return;
-                }
-
-                // Validar longitud mínima del documento
-                string nroDocumento = txtDni.Text.Trim();
-
-                if (nroDocumento.Length < 7)
-                {
-                    MessageBox.Show("El número de documento debe tener al menos 7 dígitos",
-                        "Validación",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    txtDni.Focus();
-                    return;
-                }
-
-                // Cambiar cursor a espera
-                this.Cursor = Cursors.WaitCursor;
-                btnBuscarDni.Enabled = false;
-
-                // Obtener todos los clientes y buscar por documento
-                var clientes = clClientes.ListarClientes();
-
-                if (clientes == null || clientes.Count == 0)
-                {
-                    MessageBox.Show("No hay clientes registrados en el sistema",
-                        "Información",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    return;
-                }
-
-                // Buscar el cliente por número de documento (activos solamente)
-                DtoCliente cliente = clientes.FirstOrDefault(c =>
-                    c.NroDocumento == nroDocumento && c.Activo);
-
-                if (cliente != null)
-                {
-                    // Cliente encontrado
-                    clienteActual = cliente;
-                    MostrarDatosCliente(cliente);
-
-                    MessageBox.Show($"Cliente encontrado:\n{cliente.Apellido}, {cliente.Nombre}",
-                        "Búsqueda Exitosa",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
-                else
-                {
-                    // Verificar si existe pero está inactivo
-                    DtoCliente clienteInactivo = clientes.FirstOrDefault(c =>
-                        c.NroDocumento == nroDocumento && !c.Activo);
-
-                    if (clienteInactivo != null)
-                    {
-                        MessageBox.Show("El cliente con ese documento existe pero está inactivo en el sistema",
-                            "Cliente Inactivo",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                        LimpiarDatosCliente();
-                        clienteActual = null;
-                    }
-                    else
-                    {
-                        // Cliente no encontrado
-                        MostrarOpcionRegistrarCliente(nroDocumento);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al buscar cliente:\n{ex.Message}",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            finally
-            {
-                // Restaurar cursor y botón
-                this.Cursor = Cursors.Default;
-                btnBuscarDni.Enabled = true;
-            }
-        }
-        private void MostrarOpcionRegistrarCliente(string nroDocumento)
-        {
-            LimpiarDatosCliente();
-            clienteActual = null;
-
-            DialogResult resultado = MessageBox.Show(
-                $"No se encontró ningún cliente con el documento: {nroDocumento}\n\n" +
-                "¿Desea registrar un nuevo cliente?",
-                "Cliente no encontrado",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.Yes)
-            {
-                AbrirFormularioRegistroCliente(nroDocumento);
-            }
-            else
-            {
-                txtDni.Focus();
-            }
-        }
-        private void AbrirFormularioRegistroCliente(string nroDocumento)
-        {
-            try
-            {
-                // Aquí deberías abrir tu formulario de registro de cliente
-                // Pasándole el número de documento como parámetro
-
-                // Ejemplo (descomenta cuando tengas el formulario):
-                // frmRegistroCliente frmRegistro = new frmRegistroCliente(nroDocumento);
-                // DialogResult resultado = frmRegistro.ShowDialog();
-
-                // if (resultado == DialogResult.OK)
-                // {
-                //     // Cliente registrado exitosamente, buscarlo nuevamente
-                //     BuscarCliente();
-                // }
-
-                MessageBox.Show(
-                    "El formulario de registro de cliente se abrirá próximamente.\n" +
-                    $"Documento a registrar: {nroDocumento}",
-                    "Funcionalidad en desarrollo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al abrir formulario de registro:\n{ex.Message}",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-        private void MostrarDatosCliente(DtoCliente cliente)
-        {
-            if (cliente == null)
-            {
-                LimpiarDatosCliente();
+                MessageBox.Show("Debe seleccionar un Tipo de Documento e ingresar un DNI.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Cargar datos en los controles
-            txtNombre.Text = cliente.Nombre ?? string.Empty;
-            txtApellido.Text = cliente.Apellido ?? string.Empty;
-            txtTelefono.Text = cliente.Telefono ?? string.Empty;
-            txtMail.Text = cliente.Email ?? string.Empty;
-
-            // Cambiar color de fondo para indicar que hay datos cargados (verde claro)
-            System.Drawing.Color colorExito = System.Drawing.Color.FromArgb(230, 255, 230);
-
-            txtNombre.BackColor = colorExito;
-            txtApellido.BackColor = colorExito;
-            txtTelefono.BackColor = colorExito;
-            txtMail.BackColor = colorExito;
-
-            // Deshabilitar el campo de documento una vez encontrado el cliente
-            txtDni.ReadOnly = true;
-            txtDni.BackColor = System.Drawing.SystemColors.Control;
-        }
-
-        /// <summary>
-        /// Limpia los datos del cliente de los controles
-        /// </summary>
-        private void LimpiarDatosCliente()
-        {
-            txtNombre.Text = string.Empty;
-            txtApellido.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
-            txtMail.Text = string.Empty;
-
-            // Restaurar color de fondo
-            txtNombre.BackColor = System.Drawing.SystemColors.Control;
-            txtApellido.BackColor = System.Drawing.SystemColors.Control;
-            txtTelefono.BackColor = System.Drawing.SystemColors.Control;
-            txtMail.BackColor = System.Drawing.SystemColors.Control;
-
-            // Habilitar el campo de documento
-            txtDni.ReadOnly = false;
-            txtDni.BackColor = System.Drawing.SystemColors.Window;
-
-            // Limpiar referencia al cliente actual
-            clienteActual = null;
-        }
-
-
-
-
-        /// <summary>
-        /// Valida que haya un cliente seleccionado antes de continuar
-        /// </summary>
-        private bool ValidarClienteSeleccionado()
-        {
-            if (clienteActual == null)
-            {
-                MessageBox.Show(
-                    "Debe buscar y seleccionar un cliente antes de continuar con el presupuesto",
-                    "Validación",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtDni.Focus();
-                return false;
-            }
-
-            if (!clienteActual.Activo)
-            {
-                MessageBox.Show(
-                    "El cliente seleccionado está inactivo. No se pueden crear presupuestos para clientes inactivos",
-                    "Validación",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                LimpiarDatosCliente();
-                return false;
-            }
-
-            return true;
-        }
-
-        //Métodos Auxiliares
-
-        /// <summary>
-        /// Limpia todos los campos del formulario de presupuesto
-        /// </summary>
-        private void LimpiarFormularioPresupuesto()
-        {
-            // Limpiar datos del cliente
-            txtDni.Text = string.Empty;
-            LimpiarDatosCliente();
-
-            // Limpiar tipo de documento
-            cmbDni.SelectedIndex = 0;
-
-            // Aquí limpiarías otros controles del formulario
-            // - DataGridView de cotizaciones
-            // - Descripción del presupuesto
-            // - Totales
-            // - Observaciones
-            // - Fecha de validez
-
-            // Enfocar en el campo de documento
-            txtDni.Focus();
-        }
-
-        /// <summary>
-        /// Obtiene el cliente actual seleccionado
-        /// </summary>
-        public DtoCliente ObtenerClienteActual()
-        {
-            return clienteActual;
-        }
-
-        /// <summary>
-        /// Obtiene información completa del cliente para el presupuesto
-        /// </summary>
-        public string ObtenerInfoCliente()
-        {
-            if (clienteActual == null)
-                return "No hay cliente seleccionado";
-
-            return $"Cliente: {clienteActual.Apellido}, {clienteActual.Nombre}\n" +
-                   $"Documento: {clienteActual.NroDocumento}\n" +
-                   $"Email: {clienteActual.Email}\n" +
-                   $"Teléfono: {clienteActual.Telefono}";
-        }
-
-        /// <summary>
-        /// Permite cambiar de cliente (limpiar selección actual)
-        /// </summary>
-        private void CambiarCliente()
-        {
-            if (clienteActual != null)
-            {
-                DialogResult resultado = MessageBox.Show(
-                    "¿Está seguro que desea cambiar el cliente?\n" +
-                    "Se perderán los datos del presupuesto actual si no los guardó.",
-                    "Confirmar cambio de cliente",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (resultado == DialogResult.Yes)
-                {
-                    LimpiarFormularioPresupuesto();
-                }
-            }
-            else
-            {
-                LimpiarFormularioPresupuesto();
-            }
-        }
-
-
-        // Métodos para otros eventos del formulario
-
-        // Estos métodos serán útiles cuando implementes el resto del formulario
-
-        /// <summary>
-        /// Evento del botón Nuevo (si lo tienes)
-        /// </summary>
-        private void BtnNuevo_Click(object sender, EventArgs e)
-        {
-            CambiarCliente();
-        }
-
-        /// <summary>
-        /// Evento de carga del formulario
-        /// </summary>
-        private void FrmPresupuesto_Load(object sender, EventArgs e)
-        {
             try
             {
-                // Enfocar en el campo de documento al cargar
-                txtDni.Focus();
+                DtoCliente cliente = clCliente.BuscarClientePorDocumento(tipoDoc, dni);
+
+                if (cliente != null)
+                {
+                    // Cliente encontrado: Cargar datos en los TextBoxes
+                    txtNombreCliente.Text = cliente.Nombre;
+                    txtApellidoCliente.Text = cliente.Apellido;
+                    txtTelefonoCliente.Text = cliente.Telefono;
+                    txtMailCliente.Text = cliente.Email;
+                    // Aquí podrías guardar el ID del cliente o el objeto DtoCliente
+                    // en una variable a nivel de formulario para usarlo al Guardar el Presupuesto.
+                    // this.clienteActual = cliente;
+                    MessageBox.Show("Cliente encontrado exitosamente.", "Búsqueda Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Cliente no encontrado
+                    MessageBox.Show($"No se encontró un cliente con el DNI: {dni}.", "Cliente No Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Opcional: Podrías abrir un formulario para registrar el nuevo cliente aquí.
+                }
+            }
+            catch (ArgumentException argEx)
+            {
+                // Manejo de la validación de DNI vacío de la capa de Lógica
+                MessageBox.Show(argEx.Message, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar el formulario:\n{ex.Message}",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                // Manejo de errores de la lógica o del DAO (conexión, BD, etc.)
+                MessageBox.Show("Ocurrió un error al buscar el cliente. Por favor, intente de nuevo.\nDetalle: " + ex.Message, "Error del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
 
-        /// <summary>
-        /// Evento al cerrar el formulario
-        /// </summary>
-        private void FrmPresupuesto_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Validar si hay cambios sin guardar
-            // if (HayCambiosSinGuardar())
-            // {
-            //     DialogResult resultado = MessageBox.Show(
-            //         "Hay cambios sin guardar. ¿Está seguro que desea salir?",
-            //         "Confirmar salida",
-            //         MessageBoxButtons.YesNo,
-            //         MessageBoxIcon.Question);
-            //     
-            //     if (resultado == DialogResult.No)
-            //     {
-            //         e.Cancel = true;
-            //     }
-            // }
         }
 
         private void txtDni_KeyDown(object sender, KeyEventArgs e)
@@ -446,7 +126,21 @@ namespace Vista
 
         private void txtDni_Keypress(object sender, KeyPressEventArgs e)
         {
+            // Solo permite números y teclas de control (backspace, delete, etc)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
 
+        }
+
+        private void LimpiarCamposCliente()
+        {
+            txtNombreCliente.Text = string.Empty;
+            txtApellidoCliente.Text = string.Empty;
+            txtTelefonoCliente.Text = string.Empty;
+            txtMailCliente.Text = string.Empty;
+            // Limpiar otras propiedades del cliente si es necesario
         }
     }
 

@@ -30,13 +30,13 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.gbxCliente = new System.Windows.Forms.GroupBox();
-            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtMailCliente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtTelefonoCliente = new System.Windows.Forms.TextBox();
+            this.txtApellidoCliente = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscarDni = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -86,13 +86,13 @@
             // 
             // gbxCliente
             // 
-            this.gbxCliente.Controls.Add(this.txtMail);
+            this.gbxCliente.Controls.Add(this.txtMailCliente);
             this.gbxCliente.Controls.Add(this.label4);
-            this.gbxCliente.Controls.Add(this.txtTelefono);
-            this.gbxCliente.Controls.Add(this.txtApellido);
+            this.gbxCliente.Controls.Add(this.txtTelefonoCliente);
+            this.gbxCliente.Controls.Add(this.txtApellidoCliente);
             this.gbxCliente.Controls.Add(this.label5);
             this.gbxCliente.Controls.Add(this.label3);
-            this.gbxCliente.Controls.Add(this.txtNombre);
+            this.gbxCliente.Controls.Add(this.txtNombreCliente);
             this.gbxCliente.Controls.Add(this.label2);
             this.gbxCliente.Controls.Add(this.btnBuscarDni);
             this.gbxCliente.Controls.Add(this.label1);
@@ -105,12 +105,12 @@
             this.gbxCliente.TabStop = false;
             this.gbxCliente.Text = "Cliente";
             // 
-            // txtMail
+            // txtMailCliente
             // 
-            this.txtMail.Location = new System.Drawing.Point(621, 59);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(147, 22);
-            this.txtMail.TabIndex = 24;
+            this.txtMailCliente.Location = new System.Drawing.Point(621, 59);
+            this.txtMailCliente.Name = "txtMailCliente";
+            this.txtMailCliente.Size = new System.Drawing.Size(147, 22);
+            this.txtMailCliente.TabIndex = 24;
             // 
             // label4
             // 
@@ -122,19 +122,19 @@
             this.label4.Text = "Mail";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtTelefono
+            // txtTelefonoCliente
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(620, 22);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(147, 22);
-            this.txtTelefono.TabIndex = 22;
+            this.txtTelefonoCliente.Location = new System.Drawing.Point(620, 22);
+            this.txtTelefonoCliente.Name = "txtTelefonoCliente";
+            this.txtTelefonoCliente.Size = new System.Drawing.Size(147, 22);
+            this.txtTelefonoCliente.TabIndex = 22;
             // 
-            // txtApellido
+            // txtApellidoCliente
             // 
-            this.txtApellido.Location = new System.Drawing.Point(403, 59);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(132, 22);
-            this.txtApellido.TabIndex = 20;
+            this.txtApellidoCliente.Location = new System.Drawing.Point(403, 59);
+            this.txtApellidoCliente.Name = "txtApellidoCliente";
+            this.txtApellidoCliente.Size = new System.Drawing.Size(132, 22);
+            this.txtApellidoCliente.TabIndex = 20;
             // 
             // label5
             // 
@@ -156,12 +156,12 @@
             this.label3.Text = "Apellido";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtNombre
+            // txtNombreCliente
             // 
-            this.txtNombre.Location = new System.Drawing.Point(403, 21);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(132, 22);
-            this.txtNombre.TabIndex = 18;
+            this.txtNombreCliente.Location = new System.Drawing.Point(403, 21);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(132, 22);
+            this.txtNombreCliente.TabIndex = 18;
             // 
             // label2
             // 
@@ -505,13 +505,13 @@
         #endregion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox gbxCliente;
-        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.TextBox txtMailCliente;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtTelefonoCliente;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtApellidoCliente;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscarDni;
         private System.Windows.Forms.Label label1;
