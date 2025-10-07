@@ -136,7 +136,7 @@
             this.lblDiasRestantesContrasena.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiasRestantesContrasena.ForeColor = System.Drawing.Color.White;
             this.lblDiasRestantesContrasena.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblDiasRestantesContrasena.Location = new System.Drawing.Point(0, 530);
+            this.lblDiasRestantesContrasena.Location = new System.Drawing.Point(0, 513);
             this.lblDiasRestantesContrasena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDiasRestantesContrasena.Name = "lblDiasRestantesContrasena";
             this.lblDiasRestantesContrasena.Size = new System.Drawing.Size(396, 22);
@@ -305,7 +305,7 @@
             // 
             this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 552);
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 535);
             this.pnlBordeInferior.Name = "pnlBordeInferior";
             this.pnlBordeInferior.Size = new System.Drawing.Size(396, 20);
             this.pnlBordeInferior.TabIndex = 34;
@@ -328,7 +328,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(396, 572);
+            this.ClientSize = new System.Drawing.Size(396, 555);
             this.Controls.Add(this.lblDiasRestantesContrasena);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);

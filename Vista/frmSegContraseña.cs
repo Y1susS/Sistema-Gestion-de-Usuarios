@@ -15,9 +15,17 @@ namespace Vista
 {
     public partial class frmSegContraseña : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
+
         public frmSegContraseña()
         {
             InitializeComponent();
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
+
         }
 
         private void frmadmin_Load(object sender, EventArgs e)

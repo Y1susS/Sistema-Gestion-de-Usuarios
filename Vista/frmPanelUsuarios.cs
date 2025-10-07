@@ -21,7 +21,9 @@ namespace Vista
         {
             InitializeComponent();
 
-            this.Load += frmPanelUsuarios_Load;
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.UpdateStyles();
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
@@ -110,7 +112,7 @@ namespace Vista
             }
             else if (diasRestantes > 0)
             {
-                lblDiasRestantesContrasena.Text = $"Faltan {diasRestantes} días para cambiar su contraseña.";
+                lblDiasRestantesContrasena.Text = $"Faltan {diasRestantes} días para cambiar su contraseña";
                 lblDiasRestantesContrasena.ForeColor = Color.White;
                 lblDiasRestantesContrasena.Visible = true;
             }

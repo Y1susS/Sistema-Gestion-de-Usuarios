@@ -69,10 +69,6 @@ namespace Vista
             // btnSiguiente
             // 
             this.btnSiguiente.BackColor = System.Drawing.Color.White;
-            this.btnSiguiente.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnSiguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSiguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSiguiente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSiguiente.ForeColor = System.Drawing.Color.Black;
             this.btnSiguiente.Location = new System.Drawing.Point(107, 335);

@@ -36,6 +36,7 @@
             this.lblCotizador = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblpresupuesto = new System.Windows.Forms.Label();
             this.lblCotiacion = new System.Windows.Forms.Label();
             this.dvgCotizaciones = new System.Windows.Forms.DataGridView();
@@ -116,8 +117,12 @@
             this.txtvidriocant1 = new System.Windows.Forms.TextBox();
             this.chkvidrio2 = new System.Windows.Forms.CheckBox();
             this.lblVidrio2 = new System.Windows.Forms.Label();
+            this.lblmetros2 = new System.Windows.Forms.Label();
+            this.lblvalorxmetro21 = new System.Windows.Forms.Label();
             this.txtvidriolargo2 = new System.Windows.Forms.TextBox();
+            this.lblvalorxmetro22 = new System.Windows.Forms.Label();
             this.txtvidrioancho2 = new System.Windows.Forms.TextBox();
+            this.lblvalorxmetro23 = new System.Windows.Forms.Label();
             this.txtvidriocant2 = new System.Windows.Forms.TextBox();
             this.chkvidrio3 = new System.Windows.Forms.CheckBox();
             this.lblVidrio3 = new System.Windows.Forms.Label();
@@ -132,13 +137,9 @@
             this.lblvidriototal1 = new System.Windows.Forms.Label();
             this.lblvidriounidad2 = new System.Windows.Forms.Label();
             this.lblvidriototal2 = new System.Windows.Forms.Label();
-            this.lblvalorxmetro23 = new System.Windows.Forms.Label();
             this.lblvidriounidad3 = new System.Windows.Forms.Label();
-            this.lblvalorxmetro22 = new System.Windows.Forms.Label();
             this.lblvidriototal3 = new System.Windows.Forms.Label();
-            this.lblvalorxmetro21 = new System.Windows.Forms.Label();
             this.lbltotalvidrios = new System.Windows.Forms.Label();
-            this.lblmetros2 = new System.Windows.Forms.Label();
             this.lblTotalVidrios2 = new System.Windows.Forms.Label();
             this.cmbVidrio1 = new System.Windows.Forms.ComboBox();
             this.cmbVidrio2 = new System.Windows.Forms.ComboBox();
@@ -208,7 +209,6 @@
             this.txtanchom5 = new System.Windows.Forms.TextBox();
             this.txtcantidad5 = new System.Windows.Forms.TextBox();
             this.txtlargom5 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnlBorde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -224,9 +224,9 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.pctLogo);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
+            this.pnlBorde.Controls.Add(this.pctLogo);
             this.pnlBorde.Controls.Add(this.lblCotizador);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
@@ -310,6 +310,18 @@
             this.pnlContenedor.Name = "pnlContenedor";
             this.pnlContenedor.Size = new System.Drawing.Size(1425, 643);
             this.pnlContenedor.TabIndex = 8032;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(14, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 41);
+            this.label4.TabIndex = 8041;
+            this.label4.Text = "Descripción del mueble";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblpresupuesto
             // 
@@ -1297,6 +1309,31 @@
             this.lblVidrio2.Text = "Vidrio 2";
             this.lblVidrio2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblmetros2
+            // 
+            this.lblmetros2.BackColor = System.Drawing.Color.Transparent;
+            this.lblmetros2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmetros2.ForeColor = System.Drawing.Color.White;
+            this.lblmetros2.Location = new System.Drawing.Point(247, 16);
+            this.lblmetros2.Name = "lblmetros2";
+            this.lblmetros2.Size = new System.Drawing.Size(75, 36);
+            this.lblmetros2.TabIndex = 7998;
+            this.lblmetros2.Text = "Valor x metro2";
+            this.lblmetros2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblvalorxmetro21
+            // 
+            this.lblvalorxmetro21.BackColor = System.Drawing.Color.Transparent;
+            this.lblvalorxmetro21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblvalorxmetro21.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblvalorxmetro21.ForeColor = System.Drawing.Color.White;
+            this.lblvalorxmetro21.Location = new System.Drawing.Point(247, 64);
+            this.lblvalorxmetro21.Name = "lblvalorxmetro21";
+            this.lblvalorxmetro21.Size = new System.Drawing.Size(75, 25);
+            this.lblvalorxmetro21.TabIndex = 7999;
+            this.lblvalorxmetro21.Text = "$";
+            this.lblvalorxmetro21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // txtvidriolargo2
             // 
             this.txtvidriolargo2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1306,6 +1343,19 @@
             this.txtvidriolargo2.Size = new System.Drawing.Size(75, 25);
             this.txtvidriolargo2.TabIndex = 7972;
             // 
+            // lblvalorxmetro22
+            // 
+            this.lblvalorxmetro22.BackColor = System.Drawing.Color.Transparent;
+            this.lblvalorxmetro22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblvalorxmetro22.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblvalorxmetro22.ForeColor = System.Drawing.Color.White;
+            this.lblvalorxmetro22.Location = new System.Drawing.Point(247, 93);
+            this.lblvalorxmetro22.Name = "lblvalorxmetro22";
+            this.lblvalorxmetro22.Size = new System.Drawing.Size(75, 25);
+            this.lblvalorxmetro22.TabIndex = 8000;
+            this.lblvalorxmetro22.Text = "$";
+            this.lblvalorxmetro22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // txtvidrioancho2
             // 
             this.txtvidrioancho2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1314,6 +1364,19 @@
             this.txtvidrioancho2.Name = "txtvidrioancho2";
             this.txtvidrioancho2.Size = new System.Drawing.Size(75, 25);
             this.txtvidrioancho2.TabIndex = 7973;
+            // 
+            // lblvalorxmetro23
+            // 
+            this.lblvalorxmetro23.BackColor = System.Drawing.Color.Transparent;
+            this.lblvalorxmetro23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblvalorxmetro23.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblvalorxmetro23.ForeColor = System.Drawing.Color.White;
+            this.lblvalorxmetro23.Location = new System.Drawing.Point(247, 122);
+            this.lblvalorxmetro23.Name = "lblvalorxmetro23";
+            this.lblvalorxmetro23.Size = new System.Drawing.Size(75, 25);
+            this.lblvalorxmetro23.TabIndex = 8001;
+            this.lblvalorxmetro23.Text = "$";
+            this.lblvalorxmetro23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtvidriocant2
             // 
@@ -1474,19 +1537,6 @@
             this.lblvidriototal2.Text = "$";
             this.lblvidriototal2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblvalorxmetro23
-            // 
-            this.lblvalorxmetro23.BackColor = System.Drawing.Color.Transparent;
-            this.lblvalorxmetro23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblvalorxmetro23.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblvalorxmetro23.ForeColor = System.Drawing.Color.White;
-            this.lblvalorxmetro23.Location = new System.Drawing.Point(247, 122);
-            this.lblvalorxmetro23.Name = "lblvalorxmetro23";
-            this.lblvalorxmetro23.Size = new System.Drawing.Size(75, 25);
-            this.lblvalorxmetro23.TabIndex = 8001;
-            this.lblvalorxmetro23.Text = "$";
-            this.lblvalorxmetro23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblvidriounidad3
             // 
             this.lblvidriounidad3.BackColor = System.Drawing.Color.Transparent;
@@ -1499,19 +1549,6 @@
             this.lblvidriounidad3.TabIndex = 7989;
             this.lblvidriounidad3.Text = "$";
             this.lblvidriounidad3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblvalorxmetro22
-            // 
-            this.lblvalorxmetro22.BackColor = System.Drawing.Color.Transparent;
-            this.lblvalorxmetro22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblvalorxmetro22.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblvalorxmetro22.ForeColor = System.Drawing.Color.White;
-            this.lblvalorxmetro22.Location = new System.Drawing.Point(247, 93);
-            this.lblvalorxmetro22.Name = "lblvalorxmetro22";
-            this.lblvalorxmetro22.Size = new System.Drawing.Size(75, 25);
-            this.lblvalorxmetro22.TabIndex = 8000;
-            this.lblvalorxmetro22.Text = "$";
-            this.lblvalorxmetro22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblvidriototal3
             // 
@@ -1526,19 +1563,6 @@
             this.lblvidriototal3.Text = "$";
             this.lblvidriototal3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblvalorxmetro21
-            // 
-            this.lblvalorxmetro21.BackColor = System.Drawing.Color.Transparent;
-            this.lblvalorxmetro21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblvalorxmetro21.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblvalorxmetro21.ForeColor = System.Drawing.Color.White;
-            this.lblvalorxmetro21.Location = new System.Drawing.Point(247, 64);
-            this.lblvalorxmetro21.Name = "lblvalorxmetro21";
-            this.lblvalorxmetro21.Size = new System.Drawing.Size(75, 25);
-            this.lblvalorxmetro21.TabIndex = 7999;
-            this.lblvalorxmetro21.Text = "$";
-            this.lblvalorxmetro21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lbltotalvidrios
             // 
             this.lbltotalvidrios.BackColor = System.Drawing.Color.Transparent;
@@ -1550,18 +1574,6 @@
             this.lbltotalvidrios.TabIndex = 7991;
             this.lbltotalvidrios.Text = "$";
             this.lbltotalvidrios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblmetros2
-            // 
-            this.lblmetros2.BackColor = System.Drawing.Color.Transparent;
-            this.lblmetros2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmetros2.ForeColor = System.Drawing.Color.White;
-            this.lblmetros2.Location = new System.Drawing.Point(247, 16);
-            this.lblmetros2.Name = "lblmetros2";
-            this.lblmetros2.Size = new System.Drawing.Size(75, 36);
-            this.lblmetros2.TabIndex = 7998;
-            this.lblmetros2.Text = "Valor x metro2";
-            this.lblmetros2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTotalVidrios2
             // 
@@ -2355,18 +2367,6 @@
             this.txtlargom5.Name = "txtlargom5";
             this.txtlargom5.Size = new System.Drawing.Size(75, 25);
             this.txtlargom5.TabIndex = 7914;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 41);
-            this.label4.TabIndex = 8041;
-            this.label4.Text = "Descripción del mueble";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmCotizador
             // 
