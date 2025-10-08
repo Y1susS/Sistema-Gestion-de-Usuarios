@@ -50,6 +50,7 @@
     <Compile Include="DTOs\DtoDatosPersonalesPw.cs" />
     <Compile Include="DTOs\DtoDocumentoComercial.cs" />
     <Compile Include="DTOs\DtoFuncionalidad.cs" />
+    <Compile Include="DTOs\DtoGastoVario.cs" />
     <Compile Include="DTOs\DtoHistorialContraseña.cs" />
     <Compile Include="DTOs\DtoLocalidad.cs" />
     <Compile Include="DTOs\DtoMaterial.cs" />

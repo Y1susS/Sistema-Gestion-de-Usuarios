@@ -15,7 +15,7 @@ namespace Entidades.DTOs
         // Cálculos
         public decimal EspesorPulgadas { get; set; }
         public decimal AnchoPulgadas { get; set; }
-        public decimal PiesCubicos { get; set; }
+        public decimal Pies { get; set; }
         public decimal PrecioUnitario { get; set; }
         public decimal SubTotal { get; set; }
     }

@@ -11,6 +11,7 @@ namespace Logica
     {
         private readonly CD_DaoCotizacion daoCotizacion = new CD_DaoCotizacion();
         private readonly CD_DaoMateriales daoMaterial = new CD_DaoMateriales();
+        private readonly CD_DaoGastosVarios daoGastosVarios = new CD_DaoGastosVarios(); // NUEVO
 
         public List<DtoMaterial> ObtenerMaderas()
         {
@@ -101,7 +102,7 @@ namespace Logica
                 detalle.AnchoPulgadas = (decimal)AproximarPulgadas(anchoPulgadasDouble);
 
                 // Cálculo de pies cúbicos
-                detalle.PiesCubicos = (decimal)CalcularPies((double)detalle.EspesorPulgadas, 
+                detalle.Pies = (decimal)CalcularPies((double)detalle.EspesorPulgadas, 
                                                           (double)detalle.AnchoPulgadas, 
                                                           (double)largoCm, cantidad);
 
@@ -154,11 +155,30 @@ namespace Logica
             return true;
         }
 
+        /// <summary>
+        /// Calcula el total de gastos varios para una cotización
+        /// </summary>
+        public virtual decimal CalcularTotalGastosVarios(List<DtoGastoVario> gastosVarios)
+        {
+            if (gastosVarios == null || !gastosVarios.Any())
+                return 0;
+
+            try
+            {
+                return gastosVarios.Where(g => g.Activo).Sum(g => g.Monto);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error al calcular total de gastos varios: " + ex.Message, ex);
+            }
+        }
+
         public DtoCotizacion CalcularPresupuesto(List<DtoCotizacionDetalle> detalles, 
                                                decimal porcentajeDesperdicio, 
                                                decimal porcentajeGanancia,
                                                decimal precioPorPie,
-                                               string descripcionMueble = "")
+                                               string descripcionMueble = "",
+                                               List<DtoGastoVario> gastosVarios = null)
         {
             try
             {
@@ -168,20 +188,27 @@ namespace Logica
                     PorcentajeDesperdicio = porcentajeDesperdicio,
                     PorcentajeGanancia = porcentajeGanancia,
                     Detalles = detalles,
+                    GastosVarios = gastosVarios ?? new List<DtoGastoVario>(),
                     IdUser = ClsSesionActual.EstaLogueado() ? ClsSesionActual.Usuario.Id_user : (int?)null
                 };
 
-                // Calcular total de pies cúbicos
-                decimal totalPies = detalles.Sum(d => d.PiesCubicos);
+                // Calcular total de pies cúbicos de maderas (SIN desperdicio aún)
+                decimal totalPiesMaderas = detalles.Sum(d => d.Pies);
                 
-                // Aplicar desperdicio
+                // APLICAR DESPERDICIO SOLO A LAS MADERAS
                 decimal factorDesperdicio = 1 + (porcentajeDesperdicio / 100);
-                totalPies *= factorDesperdicio;
+                decimal totalPiesConDesperdicio = totalPiesMaderas * factorDesperdicio;
 
-                // Calcular monto de materiales
-                cotizacion.MontoMateriales = totalPies * precioPorPie;
+                // Calcular monto de maderas (con desperdicio aplicado)
+                decimal montoMaderas = totalPiesConDesperdicio * precioPorPie;
 
-                // Aplicar ganancia
+                // Calcular total de gastos varios (SIN desperdicio)
+                decimal totalGastosVarios = CalcularTotalGastosVarios(cotizacion.GastosVarios);
+
+                // SUMAR: Maderas (con desperdicio) + Gastos varios (sin desperdicio)
+                cotizacion.MontoMateriales = montoMaderas + totalGastosVarios;
+
+                // Aplicar ganancia al total
                 decimal factorGanancia = 1 + (porcentajeGanancia / 100);
                 cotizacion.MontoTotal = cotizacion.MontoMateriales * factorGanancia;
                 cotizacion.MontoFinal = cotizacion.MontoTotal;
@@ -209,7 +236,20 @@ namespace Logica
                 cotizacion.FechaCreacion = DateTime.Now;
                 cotizacion.Activo = true;
 
-                return daoCotizacion.InsertarCotizacion(cotizacion);
+                // Insertar la cotización primero
+                int idCotizacion = daoCotizacion.InsertarCotizacion(cotizacion);
+
+                // Si se insertó correctamente y hay gastos varios, insertarlos
+                if (idCotizacion > 0 && cotizacion.GastosVarios != null && cotizacion.GastosVarios.Any())
+                {
+                    foreach (var gasto in cotizacion.GastosVarios)
+                    {
+                        gasto.IdCotizacion = idCotizacion;
+                        AgregarGastoVario(gasto);
+                    }
+                }
+
+                return idCotizacion;
             }
             catch (Exception ex)
             {
@@ -217,80 +257,215 @@ namespace Logica
             }
         }
 
-        public bool ModificarCotizacion(DtoCotizacion cotizacion)
+        /// <summary>
+        /// Agrega un gasto vario a una cotización
+        /// </summary>
+        public int AgregarGastoVario(DtoGastoVario gasto)
         {
             try
             {
-                ValidarCotizacion(cotizacion);
-                return daoCotizacion.ActualizarCotizacion(cotizacion);
+                ValidarGastoVario(gasto);
+                return daoGastosVarios.InsertarGastoVario(gasto);
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error en la lógica de negocio al modificar la cotización: " + ex.Message, ex);
+                throw new ApplicationException("Error al agregar gasto vario: " + ex.Message, ex);
             }
         }
 
-        public DtoCotizacion ObtenerCotizacion(int id)
+        /// <summary>
+        /// Lista todos los gastos varios de una cotización específica
+        /// </summary>
+        public List<DtoGastoVario> ListarGastosPorCotizacion(int idCotizacion)
         {
-            if (id <= 0)
+            if (idCotizacion <= 0)
             {
                 throw new ArgumentException("El ID de la cotización es inválido.");
             }
 
             try
             {
-                var cotizacion = daoCotizacion.ObtenerCotizacion(id);
-                if (cotizacion == null)
+                return daoGastosVarios.ListarGastosPorCotizacion(idCotizacion);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error al listar gastos varios: " + ex.Message, ex);
+            }
+        }
+
+        ///// <summary>
+        ///// Actualiza un gasto vario existente
+        ///// </summary>
+        //public bool ActualizarGastoVario(DtoGastoVario gasto)
+        //{
+        //    try
+        //    {
+        //        ValidarGastoVario(gasto);
+        //        return daoGastosVarios.ActualizarGastoVario(gasto);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new ApplicationException("Error al actualizar gasto vario: " + ex.Message, ex);
+        //    }
+        //}
+
+        ///// <summary>
+        ///// Elimina un gasto vario (eliminación lógica)
+        ///// </summary>
+        //public bool EliminarGastoVario(int idGastoVario)
+        //{
+        //    if (idGastoVario <= 0)
+        //    {
+        //        throw new ArgumentException("El ID del gasto vario es inválido.");
+        //    }
+
+        //    try
+        //    {
+        //        return daoGastosVarios.EliminarGastoVario(idGastoVario);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new ApplicationException("Error al eliminar gasto vario: " + ex.Message, ex);
+        //    }
+        //}
+
+        /// <summary>
+        /// Procesa y calcula gastos varios desde datos del formulario
+        /// </summary>
+        public List<DtoGastoVario> ProcesarGastosVariosDesdeFormulario(
+            bool incluyeOtrosMateriales, decimal montoOtrosMateriales, string descripcionOtrosMateriales,
+            bool incluyeGastosVarios, decimal montoGastosVarios, string descripcionGastosVarios,
+            int? idCotizacion = null)
+        {
+            var gastosVarios = new List<DtoGastoVario>();
+
+            try
+            {
+                // Procesar "Otros Materiales"
+                if (incluyeOtrosMateriales && montoOtrosMateriales > 0)
                 {
-                    throw new ApplicationException("No se encontró la cotización con el ID especificado.");
+                    gastosVarios.Add(new DtoGastoVario
+                    {
+                        Descripcion = !string.IsNullOrWhiteSpace(descripcionOtrosMateriales) 
+                            ? descripcionOtrosMateriales 
+                            : "Otros materiales",
+                        Monto = montoOtrosMateriales,
+                        TipoGasto = "OtrosMateriales",
+                        IdCotizacion = idCotizacion,
+                        FechaCreacion = DateTime.Now,
+                        Activo = true
+                    });
                 }
-                return cotizacion;
+
+                // Procesar "Gastos Varios"
+                if (incluyeGastosVarios && montoGastosVarios > 0)
+                {
+                    gastosVarios.Add(new DtoGastoVario
+                    {
+                        Descripcion = !string.IsNullOrWhiteSpace(descripcionGastosVarios) 
+                            ? descripcionGastosVarios 
+                            : "Gastos varios",
+                        Monto = montoGastosVarios,
+                        TipoGasto = "GastosVarios",
+                        IdCotizacion = idCotizacion,
+                        FechaCreacion = DateTime.Now,
+                        Activo = true
+                    });
+                }
+
+                return gastosVarios;
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error en la lógica de negocio al obtener la cotización: " + ex.Message, ex);
+                throw new ApplicationException("Error al procesar gastos varios: " + ex.Message, ex);
             }
         }
 
-        public List<DtoCotizacion> ListarCotizaciones()
+        /// <summary>
+        /// Procesa múltiples gastos varios desde datos del formulario
+        /// </summary>
+        public List<DtoGastoVario> ProcesarMultiplesGastosVariosDesdeFormulario(
+            bool incluyeOtrosMateriales1, decimal montoOtrosMateriales1, string descripcionOtrosMateriales1,
+            bool incluyeOtrosMateriales2, decimal montoOtrosMateriales2, string descripcionOtrosMateriales2,
+            bool incluyeGastosVarios, decimal montoGastosVarios, string descripcionGastosVarios,
+            int? idCotizacion = null)
         {
+            var gastosVarios = new List<DtoGastoVario>();
+
             try
             {
-                return daoCotizacion.ListarCotizaciones();
+                // Procesar PRIMER "Otros Materiales"
+                if (incluyeOtrosMateriales1 && montoOtrosMateriales1 > 0)
+                {
+                    gastosVarios.Add(new DtoGastoVario
+                    {
+                        Descripcion = !string.IsNullOrWhiteSpace(descripcionOtrosMateriales1) 
+                            ? descripcionOtrosMateriales1 
+                            : "Otros materiales 1",
+                        Monto = montoOtrosMateriales1,
+                        TipoGasto = "OtrosMateriales1",
+                        IdCotizacion = idCotizacion,
+                        FechaCreacion = DateTime.Now,
+                        Activo = true
+                    });
+                }
+
+                // Procesar SEGUNDO "Otros Materiales"
+                if (incluyeOtrosMateriales2 && montoOtrosMateriales2 > 0)
+                {
+                    gastosVarios.Add(new DtoGastoVario
+                    {
+                        Descripcion = !string.IsNullOrWhiteSpace(descripcionOtrosMateriales2) 
+                            ? descripcionOtrosMateriales2 
+                            : "Otros materiales 2",
+                        Monto = montoOtrosMateriales2,
+                        TipoGasto = "OtrosMateriales2",
+                        IdCotizacion = idCotizacion,
+                        FechaCreacion = DateTime.Now,
+                        Activo = true
+                    });
+                }
+
+                // Procesar "Gastos Varios"
+                if (incluyeGastosVarios && montoGastosVarios > 0)
+                {
+                    gastosVarios.Add(new DtoGastoVario
+                    {
+                        Descripcion = !string.IsNullOrWhiteSpace(descripcionGastosVarios) 
+                            ? descripcionGastosVarios 
+                            : "Gastos varios",
+                        Monto = montoGastosVarios,
+                        TipoGasto = "GastosVarios",
+                        IdCotizacion = idCotizacion,
+                        FechaCreacion = DateTime.Now,
+                        Activo = true
+                    });
+                }
+
+                return gastosVarios;
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error en la lógica de negocio al listar cotizaciones: " + ex.Message, ex);
+                throw new ApplicationException("Error al procesar múltiples gastos varios: " + ex.Message, ex);
             }
         }
 
-        public List<DtoCotizacion> ListarCotizacionesPorUsuario(int idUsuario)
+        /// <summary>
+        /// Valida un gasto vario
+        /// </summary>
+        private void ValidarGastoVario(DtoGastoVario gasto)
         {
-            try
-            {
-                return daoCotizacion.ListarCotizacionesPorUsuario(idUsuario);
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException("Error en la lógica de negocio al listar cotizaciones por usuario: " + ex.Message, ex);
-            }
-        }
+            if (gasto == null)
+                throw new ArgumentNullException("El gasto no puede ser nulo.");
 
-        public bool EliminarCotizacion(int id)
-        {
-            if (id <= 0)
-            {
-                throw new ArgumentException("El ID de la cotización es inválido.");
-            }
+            if (string.IsNullOrWhiteSpace(gasto.Descripcion))
+                throw new ArgumentException("La descripción del gasto es obligatoria.");
 
-            try
-            {
-                return daoCotizacion.EliminarCotizacion(id);
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException("Error en la lógica de negocio al eliminar la cotización: " + ex.Message, ex);
-            }
+            if (gasto.Monto <= 0)
+                throw new ArgumentException("El monto debe ser mayor a cero.");
+
+            if (gasto.Descripcion.Length > 100)
+                throw new ArgumentException("La descripción no puede exceder los 100 caracteres.");
         }
 
         private void ValidarCotizacion(DtoCotizacion cotizacion)
