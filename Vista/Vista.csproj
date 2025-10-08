@@ -192,9 +192,6 @@
     <EmbeddedResource Include="frmReportes.resx">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStockyValores.resx">
-      <DependentUpon>frmStockyValores.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSegContraseña.resx">
       <DependentUpon>frmSegContraseña.cs</DependentUpon>
     </EmbeddedResource>

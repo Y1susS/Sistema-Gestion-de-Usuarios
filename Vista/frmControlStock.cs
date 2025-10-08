@@ -33,6 +33,7 @@ namespace Vista
             moverFormulario.HabilitarMovimiento(lblTitulo);
             moverFormulario.HabilitarMovimiento(pnlLogo);
             moverFormulario.HabilitarMovimiento(pctLogo);
+            dataGridView1.ForeColor = Color.Black;
         }
         private void EstablecerEstadoInicial()
         {
@@ -473,7 +474,6 @@ namespace Vista
                 MessageBox.Show($"No se encontraron materiales para el término: '{termino}'", "Resultado de Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (materialSeleccionado == null)
