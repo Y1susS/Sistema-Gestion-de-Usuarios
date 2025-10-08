@@ -283,14 +283,14 @@ namespace Vista
 
         private void btncotizador_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmCotizador frmCotizador = new frmCotizador();
             frmCotizador.Show();
-            this.Hide();
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmControlStock frm = new frmControlStock();
             frm.Show();
         }

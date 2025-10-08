@@ -60,6 +60,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.grpStock = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBorde.SuspendLayout();
             this.pnlLogo.SuspendLayout();
@@ -147,7 +148,7 @@
             this.btnNuevoMaterial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnNuevoMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoMaterial.ForeColor = System.Drawing.Color.Black;
-            this.btnNuevoMaterial.Location = new System.Drawing.Point(675, 21);
+            this.btnNuevoMaterial.Location = new System.Drawing.Point(675, 16);
             this.btnNuevoMaterial.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnNuevoMaterial.Name = "btnNuevoMaterial";
             this.btnNuevoMaterial.Size = new System.Drawing.Size(150, 30);
@@ -163,7 +164,7 @@
             this.btnGestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestion.ForeColor = System.Drawing.Color.Black;
-            this.btnGestion.Location = new System.Drawing.Point(675, 64);
+            this.btnGestion.Location = new System.Drawing.Point(675, 48);
             this.btnGestion.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnGestion.Name = "btnGestion";
             this.btnGestion.Size = new System.Drawing.Size(150, 30);
@@ -179,7 +180,7 @@
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(675, 108);
+            this.btnGuardar.Location = new System.Drawing.Point(675, 80);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(150, 30);
@@ -331,7 +332,7 @@
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(861, 40);
+            this.pnlBorde.Size = new System.Drawing.Size(860, 40);
             this.pnlBorde.TabIndex = 26;
             // 
             // lblTitulo
@@ -371,7 +372,7 @@
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(781, 0);
+            this.pctMinimize.Location = new System.Drawing.Point(780, 0);
             this.pctMinimize.Name = "pctMinimize";
             this.pctMinimize.Size = new System.Drawing.Size(40, 40);
             this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -385,7 +386,7 @@
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(821, 0);
+            this.pctClose.Location = new System.Drawing.Point(820, 0);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -398,7 +399,7 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(290, 4);
+            this.txtBuscar.Location = new System.Drawing.Point(290, 6);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 28);
@@ -436,13 +437,14 @@
             // grpStock
             // 
             this.grpStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.grpStock.Controls.Add(this.btnEliminar);
             this.grpStock.Controls.Add(this.btnGestion);
+            this.grpStock.Controls.Add(this.btnGuardar);
             this.grpStock.Controls.Add(this.cbxActivo);
             this.grpStock.Controls.Add(this.label4);
             this.grpStock.Controls.Add(this.btnNuevoMaterial);
             this.grpStock.Controls.Add(this.label1);
             this.grpStock.Controls.Add(this.label3);
-            this.grpStock.Controls.Add(this.btnGuardar);
             this.grpStock.Controls.Add(this.label5);
             this.grpStock.Controls.Add(this.label6);
             this.grpStock.Controls.Add(this.txtStockMinimo);
@@ -462,6 +464,22 @@
             this.grpStock.TabIndex = 32;
             this.grpStock.TabStop = false;
             this.grpStock.Text = "Stock";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Location = new System.Drawing.Point(675, 112);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(150, 30);
+            this.btnEliminar.TabIndex = 24;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmControlStock
             // 
@@ -527,5 +545,6 @@
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox grpStock;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
