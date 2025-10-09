@@ -24,10 +24,14 @@ namespace Entidades.DTOs
         
         // Información del usuario que cotiza
         public string UsuarioNombre { get; set; }
+
+        // Gastos varios asociados a la cotización
+        public List<DtoGastoVario> GastosVarios { get; set; }
         
         public DtoCotizacion()
         {
             Detalles = new List<DtoCotizacionDetalle>();
+            GastosVarios = new List<DtoGastoVario>();
             FechaCreacion = DateTime.Now;
             UnidadMedida = "cm";
         }

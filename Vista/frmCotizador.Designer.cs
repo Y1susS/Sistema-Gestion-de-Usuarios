@@ -48,6 +48,7 @@
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnGuardarPresupuesto = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lbltotalgastosadicionales = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtMaterialPrecio2 = new System.Windows.Forms.TextBox();
             this.txtMaterialPrecio3 = new System.Windows.Forms.TextBox();
@@ -59,10 +60,9 @@
             this.lblMaterialUnidad6 = new System.Windows.Forms.Label();
             this.lblMateriaTotal6 = new System.Windows.Forms.Label();
             this.cmbTipoMaterial6 = new System.Windows.Forms.ComboBox();
-            this.lblotrosmateriales2 = new System.Windows.Forms.Label();
             this.txtDescMateriale2 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.chkotrosmateriale2 = new System.Windows.Forms.CheckBox();
+            this.chkotrosmateriales2 = new System.Windows.Forms.CheckBox();
             this.lblMaterial = new System.Windows.Forms.Label();
             this.lblTipoMaterial = new System.Windows.Forms.Label();
             this.cmbMaterial5 = new System.Windows.Forms.ComboBox();
@@ -99,12 +99,9 @@
             this.lblUnidadBisagras = new System.Windows.Forms.Label();
             this.lblBisagrasTotal = new System.Windows.Forms.Label();
             this.lblTotalGastosMat = new System.Windows.Forms.Label();
-            this.lblotrosmateriales1 = new System.Windows.Forms.Label();
-            this.lblotrosmateriales3 = new System.Windows.Forms.Label();
             this.txtDescMateriale3 = new System.Windows.Forms.TextBox();
             this.lblGastosVariosMat = new System.Windows.Forms.Label();
             this.chkotrosmateriales3 = new System.Windows.Forms.CheckBox();
-            this.lbltotalgastosadicionales = new System.Windows.Forms.Label();
             this.txtDescMateriale1 = new System.Windows.Forms.TextBox();
             this.lblOtrosMat = new System.Windows.Forms.Label();
             this.chkotrosmateriales1 = new System.Windows.Forms.CheckBox();
@@ -340,7 +337,7 @@
             this.lblCotiacion.BackColor = System.Drawing.Color.Transparent;
             this.lblCotiacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCotiacion.ForeColor = System.Drawing.Color.White;
-            this.lblCotiacion.Location = new System.Drawing.Point(1151, 331);
+            this.lblCotiacion.Location = new System.Drawing.Point(1163, 331);
             this.lblCotiacion.Name = "lblCotiacion";
             this.lblCotiacion.Size = new System.Drawing.Size(123, 36);
             this.lblCotiacion.TabIndex = 8039;
@@ -376,7 +373,6 @@
             this.pnlPresupuesto.Name = "pnlPresupuesto";
             this.pnlPresupuesto.Size = new System.Drawing.Size(230, 238);
             this.pnlPresupuesto.TabIndex = 8037;
-            this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint_1);
             // 
             // btnCargarCotizacion
             // 
@@ -449,6 +445,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.groupBox4.Controls.Add(this.lbltotalgastosadicionales);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtMaterialPrecio2);
             this.groupBox4.Controls.Add(this.txtMaterialPrecio3);
@@ -460,10 +457,9 @@
             this.groupBox4.Controls.Add(this.lblMaterialUnidad6);
             this.groupBox4.Controls.Add(this.lblMateriaTotal6);
             this.groupBox4.Controls.Add(this.cmbTipoMaterial6);
-            this.groupBox4.Controls.Add(this.lblotrosmateriales2);
             this.groupBox4.Controls.Add(this.txtDescMateriale2);
             this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.chkotrosmateriale2);
+            this.groupBox4.Controls.Add(this.chkotrosmateriales2);
             this.groupBox4.Controls.Add(this.lblMaterial);
             this.groupBox4.Controls.Add(this.lblTipoMaterial);
             this.groupBox4.Controls.Add(this.cmbMaterial5);
@@ -500,12 +496,9 @@
             this.groupBox4.Controls.Add(this.lblUnidadBisagras);
             this.groupBox4.Controls.Add(this.lblBisagrasTotal);
             this.groupBox4.Controls.Add(this.lblTotalGastosMat);
-            this.groupBox4.Controls.Add(this.lblotrosmateriales1);
-            this.groupBox4.Controls.Add(this.lblotrosmateriales3);
             this.groupBox4.Controls.Add(this.txtDescMateriale3);
             this.groupBox4.Controls.Add(this.lblGastosVariosMat);
             this.groupBox4.Controls.Add(this.chkotrosmateriales3);
-            this.groupBox4.Controls.Add(this.lbltotalgastosadicionales);
             this.groupBox4.Controls.Add(this.txtDescMateriale1);
             this.groupBox4.Controls.Add(this.lblOtrosMat);
             this.groupBox4.Controls.Add(this.chkotrosmateriales1);
@@ -516,6 +509,19 @@
             this.groupBox4.TabIndex = 8034;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Materiales Varios";
+            // 
+            // lbltotalgastosadicionales
+            // 
+            this.lbltotalgastosadicionales.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalgastosadicionales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbltotalgastosadicionales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalgastosadicionales.ForeColor = System.Drawing.Color.White;
+            this.lbltotalgastosadicionales.Location = new System.Drawing.Point(952, 156);
+            this.lbltotalgastosadicionales.Name = "lbltotalgastosadicionales";
+            this.lbltotalgastosadicionales.Size = new System.Drawing.Size(75, 25);
+            this.lbltotalgastosadicionales.TabIndex = 8016;
+            this.lbltotalgastosadicionales.Text = "$";
+            this.lbltotalgastosadicionales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
@@ -632,25 +638,12 @@
             this.cmbTipoMaterial6.Size = new System.Drawing.Size(138, 26);
             this.cmbTipoMaterial6.TabIndex = 8063;
             // 
-            // lblotrosmateriales2
-            // 
-            this.lblotrosmateriales2.BackColor = System.Drawing.Color.Transparent;
-            this.lblotrosmateriales2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblotrosmateriales2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblotrosmateriales2.ForeColor = System.Drawing.Color.White;
-            this.lblotrosmateriales2.Location = new System.Drawing.Point(1058, 92);
-            this.lblotrosmateriales2.Name = "lblotrosmateriales2";
-            this.lblotrosmateriales2.Size = new System.Drawing.Size(75, 25);
-            this.lblotrosmateriales2.TabIndex = 8058;
-            this.lblotrosmateriales2.Text = "$";
-            this.lblotrosmateriales2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtDescMateriale2
             // 
             this.txtDescMateriale2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescMateriale2.Location = new System.Drawing.Point(790, 92);
+            this.txtDescMateriale2.Location = new System.Drawing.Point(782, 92);
             this.txtDescMateriale2.Name = "txtDescMateriale2";
-            this.txtDescMateriale2.Size = new System.Drawing.Size(148, 25);
+            this.txtDescMateriale2.Size = new System.Drawing.Size(156, 25);
             this.txtDescMateriale2.TabIndex = 8056;
             // 
             // label13
@@ -662,16 +655,16 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 25);
             this.label13.TabIndex = 8057;
-            this.label13.Text = "Otros materiales";
+            this.label13.Text = "Otro material 2";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkotrosmateriale2
+            // chkotrosmateriales2
             // 
-            this.chkotrosmateriale2.Location = new System.Drawing.Point(600, 97);
-            this.chkotrosmateriale2.Name = "chkotrosmateriale2";
-            this.chkotrosmateriale2.Size = new System.Drawing.Size(16, 16);
-            this.chkotrosmateriale2.TabIndex = 8055;
-            this.chkotrosmateriale2.UseVisualStyleBackColor = true;
+            this.chkotrosmateriales2.Location = new System.Drawing.Point(600, 97);
+            this.chkotrosmateriales2.Name = "chkotrosmateriales2";
+            this.chkotrosmateriales2.Size = new System.Drawing.Size(16, 16);
+            this.chkotrosmateriales2.TabIndex = 8055;
+            this.chkotrosmateriales2.UseVisualStyleBackColor = true;
             // 
             // lblMaterial
             // 
@@ -1073,45 +1066,19 @@
             this.lblTotalGastosMat.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalGastosMat.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalGastosMat.ForeColor = System.Drawing.Color.White;
-            this.lblTotalGastosMat.Location = new System.Drawing.Point(600, 154);
+            this.lblTotalGastosMat.Location = new System.Drawing.Point(684, 155);
             this.lblTotalGastosMat.Name = "lblTotalGastosMat";
             this.lblTotalGastosMat.Size = new System.Drawing.Size(338, 25);
             this.lblTotalGastosMat.TabIndex = 8020;
             this.lblTotalGastosMat.Text = "Total gastos Adicionales";
             this.lblTotalGastosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblotrosmateriales1
-            // 
-            this.lblotrosmateriales1.BackColor = System.Drawing.Color.Transparent;
-            this.lblotrosmateriales1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblotrosmateriales1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblotrosmateriales1.ForeColor = System.Drawing.Color.White;
-            this.lblotrosmateriales1.Location = new System.Drawing.Point(1058, 60);
-            this.lblotrosmateriales1.Name = "lblotrosmateriales1";
-            this.lblotrosmateriales1.Size = new System.Drawing.Size(75, 25);
-            this.lblotrosmateriales1.TabIndex = 8019;
-            this.lblotrosmateriales1.Text = "$";
-            this.lblotrosmateriales1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblotrosmateriales3
-            // 
-            this.lblotrosmateriales3.BackColor = System.Drawing.Color.Transparent;
-            this.lblotrosmateriales3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblotrosmateriales3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblotrosmateriales3.ForeColor = System.Drawing.Color.White;
-            this.lblotrosmateriales3.Location = new System.Drawing.Point(1058, 124);
-            this.lblotrosmateriales3.Name = "lblotrosmateriales3";
-            this.lblotrosmateriales3.Size = new System.Drawing.Size(75, 25);
-            this.lblotrosmateriales3.TabIndex = 8018;
-            this.lblotrosmateriales3.Text = "$";
-            this.lblotrosmateriales3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtDescMateriale3
             // 
             this.txtDescMateriale3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescMateriale3.Location = new System.Drawing.Point(790, 123);
+            this.txtDescMateriale3.Location = new System.Drawing.Point(782, 123);
             this.txtDescMateriale3.Name = "txtDescMateriale3";
-            this.txtDescMateriale3.Size = new System.Drawing.Size(148, 25);
+            this.txtDescMateriale3.Size = new System.Drawing.Size(156, 25);
             this.txtDescMateriale3.TabIndex = 8014;
             // 
             // lblGastosVariosMat
@@ -1134,25 +1101,12 @@
             this.chkotrosmateriales3.TabIndex = 8013;
             this.chkotrosmateriales3.UseVisualStyleBackColor = true;
             // 
-            // lbltotalgastosadicionales
-            // 
-            this.lbltotalgastosadicionales.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalgastosadicionales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbltotalgastosadicionales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalgastosadicionales.ForeColor = System.Drawing.Color.White;
-            this.lbltotalgastosadicionales.Location = new System.Drawing.Point(1058, 157);
-            this.lbltotalgastosadicionales.Name = "lbltotalgastosadicionales";
-            this.lbltotalgastosadicionales.Size = new System.Drawing.Size(75, 25);
-            this.lbltotalgastosadicionales.TabIndex = 8016;
-            this.lbltotalgastosadicionales.Text = "$";
-            this.lbltotalgastosadicionales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtDescMateriale1
             // 
             this.txtDescMateriale1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescMateriale1.Location = new System.Drawing.Point(790, 61);
+            this.txtDescMateriale1.Location = new System.Drawing.Point(782, 61);
             this.txtDescMateriale1.Name = "txtDescMateriale1";
-            this.txtDescMateriale1.Size = new System.Drawing.Size(148, 25);
+            this.txtDescMateriale1.Size = new System.Drawing.Size(156, 25);
             this.txtDescMateriale1.TabIndex = 8012;
             // 
             // lblOtrosMat
@@ -1164,7 +1118,7 @@
             this.lblOtrosMat.Name = "lblOtrosMat";
             this.lblOtrosMat.Size = new System.Drawing.Size(141, 25);
             this.lblOtrosMat.TabIndex = 8015;
-            this.lblOtrosMat.Text = "Otros materiales";
+            this.lblOtrosMat.Text = "Otro material 1";
             this.lblOtrosMat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkotrosmateriales1
@@ -1214,7 +1168,7 @@
             this.groupBox2.Controls.Add(this.cmbVidrio2);
             this.groupBox2.Controls.Add(this.cmbVidrio3);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(687, 17);
+            this.groupBox2.Location = new System.Drawing.Point(682, 29);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(726, 185);
             this.groupBox2.TabIndex = 8032;
@@ -2136,7 +2090,6 @@
             this.lblpie6.Size = new System.Drawing.Size(75, 25);
             this.lblpie6.TabIndex = 7936;
             this.lblpie6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie6.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie6_Paint_1);
             // 
             // txtcantidad2
             // 
@@ -2158,7 +2111,7 @@
             this.lblpie5.Size = new System.Drawing.Size(75, 25);
             this.lblpie5.TabIndex = 7935;
             this.lblpie5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie5.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie5_Paint_1);
+
             // 
             // txtespesorm3
             // 
@@ -2180,7 +2133,6 @@
             this.lblpie4.Size = new System.Drawing.Size(75, 25);
             this.lblpie4.TabIndex = 7934;
             this.lblpie4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie4.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie4_Paint_1);
             // 
             // txtanchom3
             // 
@@ -2202,7 +2154,7 @@
             this.lblpie3.Size = new System.Drawing.Size(75, 25);
             this.lblpie3.TabIndex = 7933;
             this.lblpie3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie3.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie3_Paint_1);
+
             // 
             // txtlargom3
             // 
@@ -2224,7 +2176,7 @@
             this.lblpie2.Size = new System.Drawing.Size(75, 25);
             this.lblpie2.TabIndex = 7932;
             this.lblpie2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie2.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie2_Paint_1);
+
             // 
             // txtcantidad3
             // 
@@ -2246,7 +2198,7 @@
             this.lblpie1.Size = new System.Drawing.Size(75, 25);
             this.lblpie1.TabIndex = 7931;
             this.lblpie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie1.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie1_Paint_1);
+
             // 
             // txtespesorm4
             // 
@@ -2417,8 +2369,6 @@
         private System.Windows.Forms.ComboBox cmbMaderas;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label lblTotalGastosMat;
-        private System.Windows.Forms.Label lblotrosmateriales1;
-        private System.Windows.Forms.Label lblotrosmateriales3;
         private System.Windows.Forms.TextBox txtDescMateriale3;
         private System.Windows.Forms.Label lblGastosVariosMat;
         private System.Windows.Forms.CheckBox chkotrosmateriales3;
@@ -2565,10 +2515,9 @@
         private System.Windows.Forms.Label lblMaterialUnidad6;
         private System.Windows.Forms.Label lblMateriaTotal6;
         private System.Windows.Forms.ComboBox cmbTipoMaterial6;
-        private System.Windows.Forms.Label lblotrosmateriales2;
         private System.Windows.Forms.TextBox txtDescMateriale2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox chkotrosmateriale2;
+        private System.Windows.Forms.CheckBox chkotrosmateriales2;
         private System.Windows.Forms.Button btnCargarCotizacion;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtMaterialPrecio2;
