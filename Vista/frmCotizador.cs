@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Logica;
 using Entidades.DTOs;
 using Entidades;
+using Servicios; // Agregar using para Servicios
 
 namespace Vista
 {
@@ -29,6 +30,9 @@ namespace Vista
         public frmCotizador()
         {
             InitializeComponent();
+
+            // CONFIGURAR FORMATO ESPAÑOL PARA DECIMALES
+            ClsSoloNumeros.ConfigurarCulturaEspañola();
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
@@ -470,7 +474,7 @@ namespace Vista
                 else
                 {
                     // Si no hay selección, limpiar los labels
-                    LimpiarLabelsMaterialesVarios(numeroCombo);
+                    ClsUtilidadesForms.LimpiarLabelsMaterialesVarios(this, numeroCombo);
                 }
             }
             catch (Exception ex)
@@ -539,8 +543,15 @@ namespace Vista
                 {
                     decimal total = (material.PrecioUnitario ?? 0) * cantidad;
 
-                    // Actualizar todos los labels necesarios
-                    ActualizarLabelsMaterialesVarios(numeroCombo, material, cantidad, total);  // CORREGIDO
+                    // LLAMAR DIRECTAMENTE A ClsUtilidadesForms SIN MÉTODO INTERMEDIO
+                    ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(
+                        this, 
+                        numeroCombo, 
+                        material.PrecioUnitario ?? 0, 
+                        material.NombreMaterial, 
+                        cantidad, 
+                        total
+                    );
                     break;
                 }
             }
@@ -611,14 +622,21 @@ namespace Vista
                             decimal total = (material.PrecioUnitario ?? 0) * cantidad;
 
                             // Actualizar todos los labels necesarios
-                            ActualizarLabelsMaterialesVarios(numeroCombo, material, cantidad, total);
+                            ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(
+                                this,
+                                numeroCombo,
+                                material.PrecioUnitario ?? 0,
+                                material.NombreMaterial,
+                                cantidad,
+                                total
+                            );
 
                             System.Diagnostics.Debug.WriteLine($"Calculado: {material.NombreMaterial} x {cantidad} = ${total:N2}");
                         }
                         else
                         {
                             // Si no hay cantidad válida, limpiar los labels
-                            LimpiarLabelsMaterialesVarios(numeroCombo);
+                            ClsUtilidadesForms.LimpiarLabelsMaterialesVarios(this, numeroCombo);
                         }
                     }
                 }
@@ -672,7 +690,7 @@ namespace Vista
 
                 // MOSTRAR desperdicio aplicado solo para información visual
                 // (El desperdicio real se aplica solo en el cálculo final de la cotización)
-                if (decimal.TryParse(txtdesperdicio.Text, out decimal desperdicio))
+                if (ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desperdicio))
                 {
                     if (desperdicio < 0)
                     {
@@ -686,15 +704,15 @@ namespace Vista
                     totalPies *= factorDesperdicio;
                 }
 
-                lblcalculopies.Text = $"{totalPies:F2}";
+                lblcalculopies.Text = ClsSoloNumeros.FormatearDecimal(totalPies);
                 lblcalculopies.Visible = true;
 
                 // Mensaje aclaratorio
-                string mensajeDesperdicio = decimal.TryParse(txtdesperdicio.Text, out decimal desp) && desp > 0
-                    ? $" (incluye {desp}% de desperdicio solo para maderas)"
+                string mensajeDesperdicio = ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desp) && desp > 0
+                    ? $" (incluye {ClsSoloNumeros.FormatearDecimal(desp)}% de desperdicio solo para maderas)"
                     : "";
                 
-                MessageBox.Show($"Cálculo completado. Total: {totalPies:F2} pies{mensajeDesperdicio}", "Información",
+                MessageBox.Show($"Cálculo completado. Total: {ClsSoloNumeros.FormatearDecimal(totalPies)} pies{mensajeDesperdicio}", "Información",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -712,11 +730,11 @@ namespace Vista
 
             try
             {
-                // Obtener valores
-                if (!decimal.TryParse(txtEspesor.Text, out decimal espesor) ||
-                    !decimal.TryParse(txtAncho.Text, out decimal ancho) ||
-                    !decimal.TryParse(txtLargo.Text, out decimal largo) ||
-                    !int.TryParse(txtCantidad.Text, out int cantidad))
+                // Usar los nuevos métodos de parsing
+                if (!ClsSoloNumeros.TryParseDecimal(txtEspesor.Text, out decimal espesor) ||
+                    !ClsSoloNumeros.TryParseDecimal(txtAncho.Text, out decimal ancho) ||
+                    !ClsSoloNumeros.TryParseDecimal(txtLargo.Text, out decimal largo) ||
+                    !ClsSoloNumeros.TryParseInt(txtCantidad.Text, out int cantidad))
                 {
                     string mensaje = $"Error en los datos de la línea {numeroLinea}. Verifique que todos los campos tengan valores numéricos válidos.";
                     MessageBox.Show(mensaje, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -731,7 +749,6 @@ namespace Vista
                     return;
                 }
 
-                // FIX: Corregir la declaración de la variable descripcion
                 string descripcion = txtDescripcion?.Text ?? $"Pieza {numeroLinea}";
                 var detalle = CL_Cotizacion.CalculadorPiesCubicos.CalcularDetalle(
                     espesor, ancho, largo, cantidad, descripcion);
@@ -739,8 +756,8 @@ namespace Vista
                 detalle.NumeroLinea = numeroLinea;
                 detallesCotizacion.Add(detalle);
 
-                // Mostrar resultado
-                lblResultado.Text = $"{detalle.Pies:F2}";
+                // Mostrar resultado usando formato español
+                lblResultado.Text = ClsSoloNumeros.FormatearDecimal(detalle.Pies);
                 lblResultado.Visible = true;
             }
             catch (Exception ex)
@@ -756,7 +773,7 @@ namespace Vista
             {
                 if (detallesCotizacion.Count == 0)
                 {
-                    MessageBox.Show("Primero debe calcular los pies cúbicos.", "Advertencia",
+                    MessageBox.Show("Primero debe calcular los pies.", "Advertencia",
                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -764,9 +781,16 @@ namespace Vista
                 // Validar parámetros
                 if (!ValidarParametrosPresupuesto()) return;
 
-                // Obtener valores
-                decimal porcentajeDesperdicio = decimal.TryParse(txtdesperdicio.Text, out decimal desp) ? desp : 0;
-                decimal porcentajeGanancia = decimal.Parse(txtganancia.Text);
+                // Obtener valores usando parsing con coma
+                decimal porcentajeDesperdicio = ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desp) ? desp : 0;
+                
+                if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal porcentajeGanancia))
+                {
+                    MessageBox.Show("El porcentaje de ganancia no es válido.", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
                 decimal precioPorPie = ObtenerPrecioPorPieSeleccionado();
                 string descripcionMueble = ObtenerDescripcionMueble();
 
@@ -776,7 +800,6 @@ namespace Vista
                 decimal otrosCostos = CalcularOtrosCostos(); // Gastos varios procesados
 
                 // Crear cotización con gastos varios incluidos
-                // El desperdicio se aplica SOLO a las maderas dentro de CalcularPresupuesto
                 var cotizacion = logicaCotizacion.CalcularPresupuesto(
                     detallesCotizacion, porcentajeDesperdicio, porcentajeGanancia,
                     precioPorPie, descripcionMueble, ViewState.CotizacionActual?.GastosVarios);
@@ -790,8 +813,8 @@ namespace Vista
                 cotizacion.MontoTotal = totalSinGanancia * factorGanancia;
                 cotizacion.MontoFinal = cotizacion.MontoTotal - cotizacion.Descuento;
 
-                // Mostrar resultado
-                lblpresupuesto.Text = $"${cotizacion.MontoFinal:N2}";
+                // Mostrar resultado usando formato español
+                lblpresupuesto.Text = $"${ClsSoloNumeros.FormatearDecimal(cotizacion.MontoFinal)}";
                 lblpresupuesto.Visible = true;
 
                 // Guardar cotización para posible guardado
@@ -803,17 +826,17 @@ namespace Vista
                 decimal montoMaderas = totalPiesConDesperdicio * precioPorPie;
                 
                 System.Diagnostics.Debug.WriteLine("=== DESGLOSE DEL CÁLCULO ===");
-                System.Diagnostics.Debug.WriteLine($"Pies de madera (sin desperdicio): {totalPiesMaderas:F2}");
-                System.Diagnostics.Debug.WriteLine($"Desperdicio aplicado: {porcentajeDesperdicio}%");
-                System.Diagnostics.Debug.WriteLine($"Pies de madera (con desperdicio): {totalPiesConDesperdicio:F2}");
-                System.Diagnostics.Debug.WriteLine($"Precio por pie: ${precioPorPie:N2}");
-                System.Diagnostics.Debug.WriteLine($"Monto maderas: ${montoMaderas:N2}");
-                System.Diagnostics.Debug.WriteLine($"Gastos varios: ${otrosCostos:N2}");
-                System.Diagnostics.Debug.WriteLine($"Vidrios: ${costoVidrios:N2}");
-                System.Diagnostics.Debug.WriteLine($"Materiales varios: ${costoMaterialesVarios:N2}");
-                System.Diagnostics.Debug.WriteLine($"Total sin ganancia: ${totalSinGanancia:N2}");
-                System.Diagnostics.Debug.WriteLine($"Ganancia aplicada: {porcentajeGanancia}%");
-                System.Diagnostics.Debug.WriteLine($"Total final: ${cotizacion.MontoFinal:N2}");
+                System.Diagnostics.Debug.WriteLine($"Pies de madera (sin desperdicio): {ClsSoloNumeros.FormatearDecimal(totalPiesMaderas)}");
+                System.Diagnostics.Debug.WriteLine($"Desperdicio aplicado: {ClsSoloNumeros.FormatearDecimal(porcentajeDesperdicio)}%");
+                System.Diagnostics.Debug.WriteLine($"Pies de madera (con desperdicio): {ClsSoloNumeros.FormatearDecimal(totalPiesConDesperdicio)}");
+                System.Diagnostics.Debug.WriteLine($"Precio por pie: ${ClsSoloNumeros.FormatearDecimal(precioPorPie)}");
+                System.Diagnostics.Debug.WriteLine($"Monto maderas: ${ClsSoloNumeros.FormatearDecimal(montoMaderas)}");
+                System.Diagnostics.Debug.WriteLine($"Gastos varios: ${ClsSoloNumeros.FormatearDecimal(otrosCostos)}");
+                System.Diagnostics.Debug.WriteLine($"Vidrios: ${ClsSoloNumeros.FormatearDecimal(costoVidrios)}");
+                System.Diagnostics.Debug.WriteLine($"Materiales varios: ${ClsSoloNumeros.FormatearDecimal(costoMaterialesVarios)}");
+                System.Diagnostics.Debug.WriteLine($"Total sin ganancia: ${ClsSoloNumeros.FormatearDecimal(totalSinGanancia)}");
+                System.Diagnostics.Debug.WriteLine($"Ganancia aplicada: {ClsSoloNumeros.FormatearDecimal(porcentajeGanancia)}%");
+                System.Diagnostics.Debug.WriteLine($"Total final: ${ClsSoloNumeros.FormatearDecimal(cotizacion.MontoFinal)}");
 
                 MessageBox.Show("Cotización calculada exitosamente.", "Éxito",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -825,10 +848,10 @@ namespace Vista
                 System.Diagnostics.Debug.WriteLine($"Error completo: {ex}");
             }
         }
-        #endregion
+
         private bool ValidarParametrosPresupuesto()
         {
-            if (!decimal.TryParse(txtganancia.Text, out decimal ganancia) || ganancia <= 0)
+            if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal ganancia) || ganancia <= 0)
             {
                 MessageBox.Show("Debe ingresar un porcentaje de ganancia válido mayor a cero.",
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -987,7 +1010,14 @@ namespace Vista
                         totalMateriales += costoTotal;
 
                         // Actualizar labels de unidad y total con nombres del designer
-                        ActualizarLabelsMaterialesVarios(i, material, cantidad, costoTotal);
+                        ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(
+                            this,
+                            i,
+                            material.PrecioUnitario ?? 0,
+                            material.NombreMaterial,
+                            cantidad,
+                            costoTotal
+                        );
                     }
                 }
             }
@@ -1043,20 +1073,20 @@ namespace Vista
                 var txtGastosVarios = this.Controls.Find("txtMaterialPrecio3", true).FirstOrDefault() as TextBox;
                 var txtDescGastosVarios = this.Controls.Find("txtDescMateriale3", true).FirstOrDefault() as TextBox;
 
-                // Procesar datos
+                // Procesar datos usando parsing con coma
                 bool incluyeOtrosMateriales1 = chkOtrosMateriales1?.Checked == true;
                 decimal montoOtrosMateriales1 = 0;
-                decimal.TryParse(txtOtrosMateriales1?.Text, out montoOtrosMateriales1);
+                ClsSoloNumeros.TryParseDecimal(txtOtrosMateriales1?.Text, out montoOtrosMateriales1);
                 string descripcionOtrosMateriales1 = txtDescOtrosMateriales1?.Text;
 
                 bool incluyeOtrosMateriales2 = chkOtrosMateriales2?.Checked == true;
                 decimal montoOtrosMateriales2 = 0;
-                decimal.TryParse(txtOtrosMateriales2?.Text, out montoOtrosMateriales2);
+                ClsSoloNumeros.TryParseDecimal(txtOtrosMateriales2?.Text, out montoOtrosMateriales2);
                 string descripcionOtrosMateriales2 = txtDescOtrosMateriales2?.Text;
 
                 bool incluyeGastosVarios = chkGastosVarios?.Checked == true;
                 decimal montoGastosVarios = 0;
-                decimal.TryParse(txtGastosVarios?.Text, out montoGastosVarios);
+                ClsSoloNumeros.TryParseDecimal(txtGastosVarios?.Text, out montoGastosVarios);
                 string descripcionGastosVarios = txtDescGastosVarios?.Text;
 
                 // USAR EL MÉTODO NUEVO DE CL_COTIZACION
@@ -1081,7 +1111,7 @@ namespace Vista
                                             incluyeGastosVarios, montoGastosVarios, otrosCostos);
 
                 // Debug para verificar
-                System.Diagnostics.Debug.WriteLine($"Total otros costos calculado: ${otrosCostos:N2}");
+                System.Diagnostics.Debug.WriteLine($"Total otros costos calculado: ${ClsSoloNumeros.FormatearDecimal(otrosCostos)}");
                 System.Diagnostics.Debug.WriteLine($"Cantidad de gastos varios: {gastosVarios.Count}");
 
                 return otrosCostos;
@@ -1103,7 +1133,7 @@ namespace Vista
                 var lblOtrosMateriales1 = this.Controls.Find("lblotrosmateriales1", true).FirstOrDefault() as Label;
                 if (lblOtrosMateriales1 != null)
                 {
-                    lblOtrosMateriales1.Text = $"${montoOtrosMateriales1:N2}";
+                    lblOtrosMateriales1.Text = $"${ClsSoloNumeros.FormatearDecimal(montoOtrosMateriales1)}";
                     lblOtrosMateriales1.Visible = true;
                 }
             }
@@ -1124,7 +1154,7 @@ namespace Vista
                 var lblOtrosMateriales2 = this.Controls.Find("lblotrosmateriales2", true).FirstOrDefault() as Label;
                 if (lblOtrosMateriales2 != null)
                 {
-                    lblOtrosMateriales2.Text = $"${montoOtrosMateriales2:N2}";
+                    lblOtrosMateriales2.Text = $"${ClsSoloNumeros.FormatearDecimal(montoOtrosMateriales2)}";
                     lblOtrosMateriales2.Visible = true;
                 }
             }
@@ -1145,7 +1175,7 @@ namespace Vista
                 var lblGastosVarios = this.Controls.Find("lbltotalgastosvarios", true).FirstOrDefault() as Label;
                 if (lblGastosVarios != null)
                 {
-                    lblGastosVarios.Text = $"${montoGastosVarios:N2}";
+                    lblGastosVarios.Text = $"${ClsSoloNumeros.FormatearDecimal(montoGastosVarios)}";
                     lblGastosVarios.Visible = true;
                 }
             }
@@ -1164,99 +1194,9 @@ namespace Vista
             var lblTotalGastos = this.Controls.Find("lbltotalgastosadicionales", true).FirstOrDefault() as Label;
             if (lblTotalGastos != null)
             {
-                lblTotalGastos.Text = $"${totalOtrosCostos:N2}";
+                lblTotalGastos.Text = $"${ClsSoloNumeros.FormatearDecimal(totalOtrosCostos)}";
                 lblTotalGastos.Visible = totalOtrosCostos > 0;
             }
-        }
-
-        //private void btnCalcularCotizacion_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (detallesCotizacion.Count == 0)
-        //        {
-        //            MessageBox.Show("Primero debe calcular los pies cúbicos.", "Advertencia", 
-        //                          MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //            return;
-        //        }
-
-        //        // Validar parámetros
-        //        if (!ValidarParametrosPresupuesto()) return;
-
-        //        // Obtener valores
-        //        decimal porcentajeDesperdicio = decimal.TryParse(txtdesperdicio.Text, out decimal desp) ? desp : 0;
-        //        decimal porcentajeGanancia = decimal.Parse(txtganancia.Text);
-        //        decimal precioPorPie = ObtenerPrecioPorPieSeleccionado();
-        //        string descripcionMueble = ObtenerDescripcionMueble();
-
-        //        // Calcular costos adicionales
-        //        decimal costoVidrios = CalcularCostoVidrios();
-        //        decimal costoMaterialesVarios = CalcularCostoMaterialesVarios();
-        //        decimal otrosCostos = CalcularOtrosCostos(); // Este método ya procesa los gastos varios
-
-        //        // Crear cotización
-        //        var cotizacion = logicaCotizacion.CalcularPresupuesto(
-        //            detallesCotizacion, porcentajeDesperdicio, porcentajeGanancia, 
-        //            precioPorPie, descripcionMueble);
-
-        //        // Agregar costos adicionales
-        //        cotizacion.MontoMateriales += costoVidrios + costoMaterialesVarios + otrosCostos;
-        //        cotizacion.MontoTotal = cotizacion.MontoMateriales + cotizacion.MontoManoObra;
-        //        cotizacion.MontoFinal = cotizacion.MontoTotal - cotizacion.Descuento;
-
-        //        // Mostrar resultado
-        //        lblpresupuesto.Text = $"${cotizacion.MontoFinal:N2}";
-        //        lblpresupuesto.Visible = true;
-
-        //        // Guardar cotización para posible guardado
-        //        ViewState.CotizacionActual = cotizacion;
-
-        //        // Mostrar desglose de costos si es necesario
-        //        MostrarDesgloseCostos(costoVidrios, costoMaterialesVarios, otrosCostos);
-
-        //        MessageBox.Show("Cotización calculada exitosamente.", "Éxito", 
-        //                      MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error al calcular presupuesto: {ex.Message}", "Error", 
-        //                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        private void lblpie1_Paint_1(object sender, PaintEventArgs e)
-        {
-            // Método vacío - requerido por el designer
-        }
-
-        private void lblpie2_Paint_1(object sender, PaintEventArgs e)
-        {
-            // Método vacío - requerido por el designer
-        }
-
-        private void lblpie3_Paint_1(object sender, PaintEventArgs e)
-        {
-            // Método vacío - requerido por el designer
-        }
-
-        private void lblpie4_Paint_1(object sender, PaintEventArgs e)
-        {
-            // Método vacío - requerido por el designer
-        }
-
-        private void lblpie5_Paint_1(object sender, PaintEventArgs e)
-        {
-            // Método vacío - requerido por el designer
-        }
-
-        private void lblpie6_Paint_1(object sender, PaintEventArgs e)
-        {
-            // Método vacío - requerido por el designer
-        }
-
-        private void pnlPresupuesto_Paint_1(object sender, PaintEventArgs e)
-        {
-            // Método vacío - requerido por el designer
         }
 
         private void pctClose_Click(object sender, EventArgs e)
@@ -1435,20 +1375,12 @@ namespace Vista
         {
             try
             {
-                // Limpiar controles de entrada de maderas
-                LimpiarControlesmaderas();
-
-                // Limpiar controles de vidrios
-                LimpiarControlesVidrios();
-
-                // Limpiar controles de materiales varios
-                LimpiarControlesMaterialesVarios();
-
-                // Limpiar otros controles
-                LimpiarOtrosControles();
-
-                // Ocultar resultados
-                OcultarLabelsResultados();
+                // Usar métodos de la clase de utilidades
+                ClsUtilidadesForms.LimpiarControlesMaderas(this);
+                ClsUtilidadesForms.LimpiarControlesVidrios(this);
+                ClsUtilidadesForms.LimpiarControlesMaterialesVarios(this);
+                ClsUtilidadesForms.LimpiarOtrosControlesCotizador(this);
+                ClsUtilidadesForms.OcultarLabelsResultados(this);
 
                 // Limpiar colección de detalles
                 detallesCotizacion.Clear();
@@ -1456,279 +1388,14 @@ namespace Vista
                 // Limpiar ViewState
                 ViewState.CotizacionActual = null;
 
-                // Enfocar primer campo si existe
-                if (txtespesorm1 != null)
-                {
-                    txtespesorm1.Focus();
-                }
-                else
-                {
-                    // Si no existe txtespesorm1, buscar el primer campo disponible
-                    var primerCampo = this.Controls.Find("txtespesorm1", true).FirstOrDefault() as TextBox ??
-                                     this.Controls.Find("txtEspesor1", true).FirstOrDefault() as TextBox ??
-                                     this.Controls.Find("txtEspesorMadera1", true).FirstOrDefault() as TextBox;
-
-                    primerCampo?.Focus();
-                }
+                // Enfocar primer campo
+                ClsUtilidadesForms.EnfocarPrimerCampo(this);
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error al limpiar formulario: {ex.Message}");
-                // No lanzar excepción para evitar romper el flujo
                 MessageBox.Show("Se produjo un error al limpiar el formulario. Algunos campos pueden no haberse limpiado correctamente.",
                                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void LimpiarControlesmaderas()
-        {
-            // Limpiar TextBoxes de medidas
-            txtespesorm1?.Clear(); txtespesorm2?.Clear(); txtespesorm3?.Clear();
-            txtespesorm4?.Clear(); txtespesorm5?.Clear(); txtespesorm6?.Clear();
-
-            txtanchom1?.Clear(); txtanchom2?.Clear(); txtanchom3?.Clear();
-            txtanchom4?.Clear(); txtanchom5?.Clear(); txtanchom6?.Clear();
-
-            txtlargom1?.Clear(); txtlargom2?.Clear(); txtlargom3?.Clear();
-            txtlargom4?.Clear(); txtlargom5?.Clear(); txtlargom6?.Clear();
-
-            txtcantidad1?.Clear(); txtcantidad2?.Clear(); txtcantidad3?.Clear();
-            txtcantidad4?.Clear(); txtcantidad5?.Clear(); txtcantidad6?.Clear();
-
-            txtdescmad1?.Clear(); txtdescmad2?.Clear(); txtdescmad3?.Clear();
-            txtdescmad4?.Clear(); txtdescmad5?.Clear(); txtdescmad6?.Clear();
-
-            // Desmarcar CheckBoxes de maderas
-            if (chk1 != null) chk1.Checked = false;
-            if (chk2 != null) chk2.Checked = false;
-            if (chk3 != null) chk3.Checked = false;
-            if (chk4 != null) chk4.Checked = false;
-            if (chk5 != null) chk5.Checked = false;
-            if (chk6 != null) chk6.Checked = false;
-
-            // Resetear ComboBox de maderas
-            var cmbMaderas = this.Controls.Find("cmbMaderas", true).FirstOrDefault() as ComboBox;
-            if (cmbMaderas != null) cmbMaderas.SelectedIndex = -1;
-        }
-
-        private void LimpiarControlesVidrios()
-        {
-            // Resetear ComboBoxes de vidrios
-            for (int i = 1; i <= 3; i++)
-            {
-                var cmbVidrio = this.Controls.Find($"cmbVidrio{i}", true).FirstOrDefault() as ComboBox;
-                if (cmbVidrio != null) cmbVidrio.SelectedIndex = -1;
-
-                // Limpiar campos de vidrios
-                var txtLargo = this.Controls.Find($"txtvidriolargo{i}", true).FirstOrDefault() as TextBox;
-                if (txtLargo != null) txtLargo.Clear();
-
-                var txtAncho = this.Controls.Find($"txtvidrioancho{i}", true).FirstOrDefault() as TextBox;
-                if (txtAncho != null) txtAncho.Clear();
-
-                var txtCantidad = this.Controls.Find($"txtvidriocant{i}", true).FirstOrDefault() as TextBox;
-                if (txtCantidad != null) txtCantidad.Clear();
-
-                // Desmarcar CheckBoxes de vidrios
-                var chkVidrio = this.Controls.Find($"chkvidrio{i}", true).FirstOrDefault() as CheckBox;
-                if (chkVidrio != null) chkVidrio.Checked = false;
-
-                // Limpiar labels de precios de vidrios
-                var lblPrecioM2 = this.Controls.Find($"lblvalorxmetro2{i}", true).FirstOrDefault() as Label;
-                if (lblPrecioM2 != null)
-                {
-                    lblPrecioM2.Text = "$";
-                    lblPrecioM2.Visible = false;
-                }
-
-                var lblUnidad = this.Controls.Find($"lblvidriounidad{i}", true).FirstOrDefault() as Label;
-                if (lblUnidad != null)
-                {
-                    lblUnidad.Text = "$";
-                    lblUnidad.Visible = false;
-                }
-
-                var lblTotal = this.Controls.Find($"lblvidriototal{i}", true).FirstOrDefault() as Label;
-                if (lblTotal != null)
-                {
-                    lblTotal.Text = "$";
-                    lblTotal.Visible = false;
-                }
-            }
-
-            // Limpiar total de vidrios
-            var lblTotalVidrios = this.Controls.Find("lbltotalvidrios", true).FirstOrDefault() as Label;
-            if (lblTotalVidrios != null)
-            {
-                lblTotalVidrios.Text = "$";
-                lblTotalVidrios.Visible = false;
-            }
-        }
-
-        private void LimpiarControlesMaterialesVarios()
-        {
-            // Resetear ComboBoxes - TIPOS DE MATERIALES
-            for (int i = 1; i <= 6; i++)
-            {
-                var cmbTipoMaterial = this.Controls.Find($"cmbTipoMaterial{i}", true).FirstOrDefault() as ComboBox;
-                if (cmbTipoMaterial != null) cmbTipoMaterial.SelectedIndex = -1;
-
-                // Limpiar combo de materiales correspondiente
-                LimpiarComboMateriales(i);
-
-                // Limpiar campos de cantidad con nombres más flexibles
-                var posiblesNombresCantidad = new[] {
-                    $"txtMaterialCantidad{i}",
-                    $"txtcantidadmaterial{i}",
-                    $"txtCantidadMaterial{i}",
-                    $"txtCantidad{i}",
-                    $"textBoxCantidad{i}"
-                };
-
-                foreach (var nombreCantidad in posiblesNombresCantidad)
-                {
-                    var txtCantidad = this.Controls.Find(nombreCantidad, true).FirstOrDefault() as TextBox;
-                    if (txtCantidad != null)
-                    {
-                        txtCantidad.Clear();
-                        break;
-                    }
-                }
-
-                // Desmarcar checkbox correspondiente con nombres más flexibles
-                var posiblesNombresCheckbox = new[] {
-                    $"chkmaterial{i}",
-                    $"chkMaterial{i}",
-                    $"checkBoxMaterial{i}",
-                    $"chkmat{i}"
-                };
-
-                foreach (var nombreCheckbox in posiblesNombresCheckbox)
-                {
-                    var chkMaterial = this.Controls.Find(nombreCheckbox, true).FirstOrDefault() as CheckBox;
-                    if (chkMaterial != null)
-                    {
-                        chkMaterial.Checked = false;
-                        break;
-                    }
-                }
-
-                // Limpiar labels de precios y totales
-                LimpiarLabelsMaterialesVarios(i);
-            }
-        }
-
-        private void LimpiarLabelsMaterialesVarios(int numeroCombo)
-        {
-            // Limpiar label de precio unitario
-            var posiblesNombresPrecio = new[] {
-                $"lblMaterialUnidad{numeroCombo}",
-                $"lblUnidadBisagras", // Para bisagras específicamente
-                $"lblPrecioUnidad{numeroCombo}",
-                $"lblValorUnidad{numeroCombo}"
-            };
-
-            foreach (var nombrePrecio in posiblesNombresPrecio)
-            {
-                var lblPrecio = this.Controls.Find(nombrePrecio, true).FirstOrDefault() as Label;
-                if (lblPrecio != null)
-                {
-                    lblPrecio.Text = "$";
-                    lblPrecio.Visible = false;
-                    break;
-                }
-            }
-
-            // Limpiar label de total
-            var posiblesNombresTotal = new[] {
-                $"lblMateriaTotal{numeroCombo}",     // Nombre principal del designer
-                $"lblBisagrasTotal",                 // Para bisagras específicamente
-                $"lbltotalmaterial{numeroCombo}",
-                $"lblTotalMaterial{numeroCombo}",
-                $"lblTotal{numeroCombo}"
-            };
-
-            foreach (var nombreTotal in posiblesNombresTotal)
-            {
-                var lblTotal = this.Controls.Find(nombreTotal, true).FirstOrDefault() as Label;
-                if (lblTotal != null)
-                {
-                    lblTotal.Text = "$";
-                    lblTotal.Visible = false;
-                    break;
-                }
-            }
-        }
-
-        private void LimpiarOtrosControles()
-        {
-            // Limpiar otros controles
-            txtdesperdicio?.Clear();
-            txtganancia?.Clear();
-
-            // Limpiar campos de descripción del mueble
-            var txtDescripcion = this.Controls.Find("txtDescripcionMueble", true).FirstOrDefault() as TextBox;
-            if (txtDescripcion != null) txtDescripcion.Clear();
-
-            // Limpiar PRIMER otros materiales
-            var chkOtrosMateriales1 = this.Controls.Find("chkotrosmateriales1", true).FirstOrDefault() as CheckBox;
-            var txtOtrosMateriales1 = this.Controls.Find("txtMaterialPrecio1", true).FirstOrDefault() as TextBox;
-            var txtDescOtrosMateriales1 = this.Controls.Find("txtDescMateriale1", true).FirstOrDefault() as TextBox;
-            var lblOtrosMateriales1 = this.Controls.Find("lblotrosmateriales1", true).FirstOrDefault() as Label;
-
-            if (chkOtrosMateriales1 != null) chkOtrosMateriales1.Checked = false;
-            if (txtOtrosMateriales1 != null) txtOtrosMateriales1.Clear();
-            if (txtDescOtrosMateriales1 != null) txtDescOtrosMateriales1.Clear();
-            if (lblOtrosMateriales1 != null)
-            {
-                lblOtrosMateriales1.Text = "$";
-                lblOtrosMateriales1.Visible = false;
-            }
-
-            // Limpiar SEGUNDO otros materiales (NUEVO)
-            var chkOtrosMateriales2 = this.Controls.Find("chkotrosmateriales2", true).FirstOrDefault() as CheckBox;
-            var txtOtrosMateriales2 = this.Controls.Find("txtMaterialPrecio2", true).FirstOrDefault() as TextBox;
-            var txtDescOtrosMateriales2 = this.Controls.Find("txtDescMateriale2", true).FirstOrDefault() as TextBox;
-            var lblOtrosMateriales2 = this.Controls.Find("lblotrosmateriales2", true).FirstOrDefault() as Label;
-
-            if (chkOtrosMateriales2 != null) chkOtrosMateriales2.Checked = false;
-            if (txtOtrosMateriales2 != null) txtOtrosMateriales2.Clear();
-            if (txtDescOtrosMateriales2 != null) txtDescOtrosMateriales2.Clear();
-            if (lblOtrosMateriales2 != null)
-            {
-                lblOtrosMateriales2.Text = "$";
-                lblOtrosMateriales2.Visible = false;
-            }
-
-            // Limpiar gastos varios
-            var chkGastosVarios = this.Controls.Find("chkotrosmateriales3", true).FirstOrDefault() as CheckBox;
-            var txtGastosVarios = this.Controls.Find("txtMaterialPrecio3", true).FirstOrDefault() as TextBox;
-            var txtDescGastosVarios = this.Controls.Find("txtDescMateriale3", true).FirstOrDefault() as TextBox;
-            var lblGastosVarios = this.Controls.Find("lbltotalgastosvarios", true).FirstOrDefault() as Label;
-
-            if (chkGastosVarios != null) chkGastosVarios.Checked = false;
-            if (txtGastosVarios != null) txtGastosVarios.Clear();
-            if (txtDescGastosVarios != null) txtDescGastosVarios.Clear();
-            if (lblGastosVarios != null)
-            {
-                lblGastosVarios.Text = "$";
-                lblGastosVarios.Visible = false;
-            }
-
-            // Limpiar total de gastos adicionales
-            var lblTotalGastos = this.Controls.Find("lbltotalgastosadicionales", true).FirstOrDefault() as Label;
-            if (lblTotalGastos != null)
-            {
-                lblTotalGastos.Text = "$";
-                lblTotalGastos.Visible = false;
-            }
-
-            // Limpiar label de precio de maderas
-            var lblPrecio = this.Controls.Find("lblPrecioPorPie", true).FirstOrDefault() as Label;
-            if (lblPrecio != null)
-            {
-                lblPrecio.Text = "$";
-                lblPrecio.Visible = false;
             }
         }
 
@@ -1736,186 +1403,13 @@ namespace Vista
         {
             try
             {
-                // Configurar validaciones numéricas en campos de cantidad de materiales
-                for (int i = 1; i <= 6; i++)
-                {
-                    var txtCantidad = this.Controls.Find($"txtMaterialCantidad{i}", true).FirstOrDefault() as TextBox;
-                    if (txtCantidad != null)
-                    {
-                        txtCantidad.KeyPress += (sender, e) => ValidarSoloNumeros(sender, e);
-                    }
-                }
-
-                // Validar campos numéricos de maderas
-                ValidarCamposNumericosMaderas();
-
-                // Validar campos de vidrios
-                ValidarCamposNumericosVidrios();
-
-                // AGREGAR: Validar campos de gastos varios
-                ValidarCamposNumericosGastosVarios();
+                ClsUtilidadesForms.ConfigurarValidacionesNumericas(this);
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error al configurar validaciones: {ex.Message}");
             }
         }
-
-        private void ValidarCamposNumericosMaderas()
-        {
-            // Validar campos numéricos de dimensiones
-            for (int i = 1; i <= 6; i++)
-            {
-                var txtEspesor = this.Controls.Find($"txtespesorm{i}", true).FirstOrDefault() as TextBox;
-                if (txtEspesor != null)
-                    txtEspesor.KeyPress += (sender, e) => ValidarNumerosDecimales(sender, e);
-
-                var txtAncho = this.Controls.Find($"txtanchom{i}", true).FirstOrDefault() as TextBox;
-                if (txtAncho != null)
-                    txtAncho.KeyPress += (sender, e) => ValidarNumerosDecimales(sender, e);
-
-                var txtLargo = this.Controls.Find($"txtlargom{i}", true).FirstOrDefault() as TextBox;
-                if (txtLargo != null)
-                    txtLargo.KeyPress += (sender, e) => ValidarNumerosDecimales(sender, e);
-
-                var txtCantidad = this.Controls.Find($"txtcantidad{i}", true).FirstOrDefault() as TextBox;
-                if (txtCantidad != null)
-                    txtCantidad.KeyPress += (sender, e) => ValidarSoloNumeros(sender, e);
-            }
-        }
-
-        private void ValidarCamposNumericosVidrios()
-        {
-            for (int i = 1; i <= 3; i++)
-            {
-                var txtLargo = this.Controls.Find($"txtvidriolargo{i}", true).FirstOrDefault() as TextBox;
-                if (txtLargo != null)
-                    txtLargo.KeyPress += (sender, e) => ValidarNumerosDecimales(sender, e);
-
-                var txtAncho = this.Controls.Find($"txtvidrioancho{i}", true).FirstOrDefault() as TextBox;
-                if (txtAncho != null)
-                    txtAncho.KeyPress += (sender, e) => ValidarNumerosDecimales(sender, e);
-
-                var txtCantidad = this.Controls.Find($"txtvidriocant{i}", true).FirstOrDefault() as TextBox;
-                if (txtCantidad != null)
-                    txtCantidad.KeyPress += (sender, e) => ValidarSoloNumeros(sender, e);
-            }
-        }
-
-        private void ValidarSoloNumeros(object sender, KeyPressEventArgs e)
-        {
-            // Solo permitir números y teclas de control
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void ValidarNumerosDecimales(object sender, KeyPressEventArgs e)
-        {
-            // Permitir números, punto decimal, coma y teclas de control
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-        }
-        private void ValidarCamposNumericosGastosVarios()
-        {
-            // Validar campos de precios de gastos varios
-            for (int i = 1; i <= 3; i++)
-            {
-                var txtPrecio = this.Controls.Find($"txtMaterialPrecio{i}", true).FirstOrDefault() as TextBox;
-                if (txtPrecio != null)
-                {
-                    txtPrecio.KeyPress += (sender, e) => ValidarNumerosDecimales(sender, e);
-                }
-            }
-        }
-
-        // Método para el botón cerrar (si existe un botón btncerrar)
-        private void btncerrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Close();
-                frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-                frmPanelUsuarios.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cerrar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // AGREGAR este método que falta después de LimpiarLabelsMaterialesVarios
-        private void ActualizarLabelsMaterialesVarios(int numeroCombo, DtoMaterial material, int cantidad, decimal costoTotal)
-        {
-            // Actualizar label de unidad con precio y unidad
-            var posiblesNombresUnidad = new[] {
-                $"lblMaterialUnidad{numeroCombo}",
-                $"lblUnidadBisagras", // Para bisagras específicamente
-                $"lblPrecioUnidad{numeroCombo}",
-                $"lblValorUnidad{numeroCombo}"
-            };
-
-            foreach (var nombreUnidad in posiblesNombresUnidad)
-            {
-                var lblUnidad = this.Controls.Find(nombreUnidad, true).FirstOrDefault() as Label;
-                if (lblUnidad != null)
-                {
-                    // Mostrar precio con unidad
-                    lblUnidad.Text = $"${material.PrecioUnitario:N2}";
-                    lblUnidad.Visible = true;
-                    break;
-                }
-            }
-
-
-            // Actualizar label de total
-            var posiblesNombresTotal = new[] {
-                $"lblMateriaTotal{numeroCombo}",
-                $"lblBisagrasTotal", // Para bisagras específicamente
-                $"lbltotalmaterial{numeroCombo}",
-                $"lblTotalMaterial{numeroCombo}",
-                $"lblTotal{numeroCombo}"
-            };
-
-            foreach (var nombreTotal in posiblesNombresTotal)
-            {
-                var lblTotal = this.Controls.Find(nombreTotal, true).FirstOrDefault() as Label;
-                if (lblTotal != null)
-                {
-                    lblTotal.Text = $"${costoTotal:N2}";
-                    lblTotal.Visible = true;
-                    break;
-                }
-            }
-
-            System.Diagnostics.Debug.WriteLine($"Material {numeroCombo}: {material.NombreMaterial} - Cantidad: {cantidad} - Precio unitario: ${material.PrecioUnitario:N2} - Total: ${costoTotal:N2}");
-        }
-
-        private void MostrarTotalMaterialVarios(int numeroCombo, decimal total)
-        {
-            // Usar los nombres exactos del designer para labels de total
-            var posiblesNombresTotal = new[] {
-                $"lblMateriaTotal{numeroCombo}",     // Nombre principal del designer
-                $"lblBisagrasTotal",                 // Para bisagras específicamente
-                $"lbltotalmaterial{numeroCombo}",
-                $"lblTotalMaterial{numeroCombo}",
-                $"lblTotal{numeroCombo}"
-            };
-
-            foreach ( var nombreTotal in posiblesNombresTotal)
-            {
-                var lblTotal = this.Controls.Find(nombreTotal, true).FirstOrDefault() as Label;
-                if (lblTotal != null)
-                {
-                    lblTotal.Text = $"${total:N2}";
-                    lblTotal.Visible = true;
-                    System.Diagnostics.Debug.WriteLine($"Total mostrado en {nombreTotal}: ${total:N2}");
-                    break;
-                }
-            }
-        }
+        #endregion
     }
 }

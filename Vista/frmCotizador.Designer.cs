@@ -48,6 +48,7 @@
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnGuardarPresupuesto = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lbltotalgastosadicionales = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtMaterialPrecio2 = new System.Windows.Forms.TextBox();
             this.txtMaterialPrecio3 = new System.Windows.Forms.TextBox();
@@ -101,7 +102,6 @@
             this.txtDescMateriale3 = new System.Windows.Forms.TextBox();
             this.lblGastosVariosMat = new System.Windows.Forms.Label();
             this.chkotrosmateriales3 = new System.Windows.Forms.CheckBox();
-            this.lbltotalgastosadicionales = new System.Windows.Forms.Label();
             this.txtDescMateriale1 = new System.Windows.Forms.TextBox();
             this.lblOtrosMat = new System.Windows.Forms.Label();
             this.chkotrosmateriales1 = new System.Windows.Forms.CheckBox();
@@ -337,7 +337,7 @@
             this.lblCotiacion.BackColor = System.Drawing.Color.Transparent;
             this.lblCotiacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCotiacion.ForeColor = System.Drawing.Color.White;
-            this.lblCotiacion.Location = new System.Drawing.Point(1151, 331);
+            this.lblCotiacion.Location = new System.Drawing.Point(1163, 331);
             this.lblCotiacion.Name = "lblCotiacion";
             this.lblCotiacion.Size = new System.Drawing.Size(123, 36);
             this.lblCotiacion.TabIndex = 8039;
@@ -373,7 +373,6 @@
             this.pnlPresupuesto.Name = "pnlPresupuesto";
             this.pnlPresupuesto.Size = new System.Drawing.Size(230, 238);
             this.pnlPresupuesto.TabIndex = 8037;
-            this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint_1);
             // 
             // btnCargarCotizacion
             // 
@@ -510,6 +509,19 @@
             this.groupBox4.TabIndex = 8034;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Materiales Varios";
+            // 
+            // lbltotalgastosadicionales
+            // 
+            this.lbltotalgastosadicionales.BackColor = System.Drawing.Color.Transparent;
+            this.lbltotalgastosadicionales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbltotalgastosadicionales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalgastosadicionales.ForeColor = System.Drawing.Color.White;
+            this.lbltotalgastosadicionales.Location = new System.Drawing.Point(952, 156);
+            this.lbltotalgastosadicionales.Name = "lbltotalgastosadicionales";
+            this.lbltotalgastosadicionales.Size = new System.Drawing.Size(75, 25);
+            this.lbltotalgastosadicionales.TabIndex = 8016;
+            this.lbltotalgastosadicionales.Text = "$";
+            this.lbltotalgastosadicionales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
@@ -1089,19 +1101,6 @@
             this.chkotrosmateriales3.TabIndex = 8013;
             this.chkotrosmateriales3.UseVisualStyleBackColor = true;
             // 
-            // lbltotalgastosadicionales
-            // 
-            this.lbltotalgastosadicionales.BackColor = System.Drawing.Color.Transparent;
-            this.lbltotalgastosadicionales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbltotalgastosadicionales.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalgastosadicionales.ForeColor = System.Drawing.Color.White;
-            this.lbltotalgastosadicionales.Location = new System.Drawing.Point(952, 156);
-            this.lbltotalgastosadicionales.Name = "lbltotalgastosadicionales";
-            this.lbltotalgastosadicionales.Size = new System.Drawing.Size(75, 25);
-            this.lbltotalgastosadicionales.TabIndex = 8016;
-            this.lbltotalgastosadicionales.Text = "$";
-            this.lbltotalgastosadicionales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtDescMateriale1
             // 
             this.txtDescMateriale1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1169,7 +1168,7 @@
             this.groupBox2.Controls.Add(this.cmbVidrio2);
             this.groupBox2.Controls.Add(this.cmbVidrio3);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(687, 17);
+            this.groupBox2.Location = new System.Drawing.Point(682, 29);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(726, 185);
             this.groupBox2.TabIndex = 8032;
@@ -2091,7 +2090,6 @@
             this.lblpie6.Size = new System.Drawing.Size(75, 25);
             this.lblpie6.TabIndex = 7936;
             this.lblpie6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie6.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie6_Paint_1);
             // 
             // txtcantidad2
             // 
@@ -2113,7 +2111,7 @@
             this.lblpie5.Size = new System.Drawing.Size(75, 25);
             this.lblpie5.TabIndex = 7935;
             this.lblpie5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie5.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie5_Paint_1);
+
             // 
             // txtespesorm3
             // 
@@ -2135,7 +2133,6 @@
             this.lblpie4.Size = new System.Drawing.Size(75, 25);
             this.lblpie4.TabIndex = 7934;
             this.lblpie4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie4.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie4_Paint_1);
             // 
             // txtanchom3
             // 
@@ -2157,7 +2154,7 @@
             this.lblpie3.Size = new System.Drawing.Size(75, 25);
             this.lblpie3.TabIndex = 7933;
             this.lblpie3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie3.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie3_Paint_1);
+
             // 
             // txtlargom3
             // 
@@ -2179,7 +2176,7 @@
             this.lblpie2.Size = new System.Drawing.Size(75, 25);
             this.lblpie2.TabIndex = 7932;
             this.lblpie2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie2.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie2_Paint_1);
+
             // 
             // txtcantidad3
             // 
@@ -2201,7 +2198,7 @@
             this.lblpie1.Size = new System.Drawing.Size(75, 25);
             this.lblpie1.TabIndex = 7931;
             this.lblpie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblpie1.Paint += new System.Windows.Forms.PaintEventHandler(this.lblpie1_Paint_1);
+
             // 
             // txtespesorm4
             // 

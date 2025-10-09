@@ -63,8 +63,8 @@ namespace Logica
             {
                 if (espesorCm <= 0) return 0;
                 if (espesorCm > 0 && espesorCm <= 2.5) return 1;
-                if (espesorCm > 2.5 && espesorCm <= 3.2) return 1.5;
-                if (espesorCm > 3.2 && espesorCm <= 5) return 2;
+                if (espesorCm > 2.5 && espesorCm <= 3.8) return 1.5;
+                if (espesorCm > 3.8 && espesorCm <= 5) return 2;
                 if (espesorCm > 5 && espesorCm <= 7.5) return 3;
                 if (espesorCm > 7.5 && espesorCm <= 10) return 4;
                 return 0;

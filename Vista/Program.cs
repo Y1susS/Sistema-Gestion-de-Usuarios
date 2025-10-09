@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
+using Servicios;
 
 namespace Vista
 {
@@ -14,6 +14,7 @@ namespace Vista
         [STAThread]
         static void Main()
         {
+            ClsSoloNumeros.ConfigurarCulturaEspañola();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmLoguin());
