@@ -36,7 +36,7 @@ namespace Sistema_Gestion_De_Usuarios
         public frmPermisos(frmPanelUsuarios panelUsuariosPadre)
         {
             InitializeComponent();
-
+            this.AcceptButton = btnguardar;
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(lblpermisos);
             moverFormulario.HabilitarMovimiento(pnlLogo);
@@ -238,16 +238,16 @@ namespace Sistema_Gestion_De_Usuarios
             }
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close(); // Cierra frmPermisos
+        //private void btnVolver_Click(object sender, EventArgs e)
+        //{
+        //    this.Close(); // Cierra frmPermisos
 
-            // Muestra el formulario padre si la referencia no es nula
-            if (_frmPanelUsuariosPadre != null)
-            {
-                _frmPanelUsuariosPadre.Show();
-            }
-        }
+        //    // Muestra el formulario padre si la referencia no es nula
+        //    if (_frmPanelUsuariosPadre != null)
+        //    {
+        //        _frmPanelUsuariosPadre.Show();
+        //    }
+        //}
 
         private void IdUsuario(object sender, EventArgs e)
         {
@@ -269,6 +269,12 @@ namespace Sistema_Gestion_De_Usuarios
             this.Close();
             frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
             frmPanelUsuarios.Show();
+        }
+
+        private void frmPermisos_Shown(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnguardar;
+            this.ActiveControl = null;
         }
     }
 }

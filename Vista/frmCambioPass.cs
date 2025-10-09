@@ -26,6 +26,7 @@ namespace Vista
         public frmCambioPass(string usuario, Form formularioAnterior, bool requiereContraseñaActual = true)
         {
             InitializeComponent();
+            this.AcceptButton = btnCambiar;
             DoubleBuffered = true;
             pctFondo.Controls.Add(pctLogo);
             pctLogo.BackColor = Color.Transparent;
@@ -267,6 +268,12 @@ namespace Vista
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void frmCambioPass_Shown(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnCambiar;
+            txtPassActual.Focus();
         }
     }
 }

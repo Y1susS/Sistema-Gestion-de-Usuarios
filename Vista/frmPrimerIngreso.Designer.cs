@@ -297,6 +297,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRegistro";
             this.Load += new System.EventHandler(this.frmPrimerIngreso_Load);
+            this.Shown += new System.EventHandler(this.frmPrimerIngreso_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();

@@ -40,7 +40,6 @@
             this.cmbPregunta2 = new System.Windows.Forms.ComboBox();
             this.cmbPregunta3 = new System.Windows.Forms.ComboBox();
             this.lblPreguntas = new System.Windows.Forms.Label();
-            this.btnvolver = new System.Windows.Forms.Button();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
@@ -108,9 +107,9 @@
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(296, 5);
+            this.btnSiguiente.Location = new System.Drawing.Point(152, 5);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(272, 30);
+            this.btnSiguiente.Size = new System.Drawing.Size(275, 30);
             this.btnSiguiente.TabIndex = 7;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -159,16 +158,6 @@
             this.lblPreguntas.TabIndex = 12;
             this.lblPreguntas.Text = "Preguntas";
             this.lblPreguntas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnvolver
-            // 
-            this.btnvolver.Location = new System.Drawing.Point(13, 5);
-            this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(272, 30);
-            this.btnvolver.TabIndex = 8;
-            this.btnvolver.Text = "Volver";
-            this.btnvolver.UseVisualStyleBackColor = true;
-            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
             // 
             // pnlBorde
             // 
@@ -236,7 +225,6 @@
             // 
             this.pnlBotones.BackColor = System.Drawing.Color.Transparent;
             this.pnlBotones.Controls.Add(this.btnSiguiente);
-            this.pnlBotones.Controls.Add(this.btnvolver);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotones.Location = new System.Drawing.Point(0, 355);
             this.pnlBotones.Name = "pnlBotones";
@@ -302,6 +290,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preguntas de seguridad";
             this.Load += new System.EventHandler(this.frmPreguntas_Load);
+            this.Shown += new System.EventHandler(this.frmPreguntas_Shown);
             this.pnlBorde.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
@@ -325,7 +314,6 @@
         private System.Windows.Forms.ComboBox cmbPregunta2;
         private System.Windows.Forms.ComboBox cmbPregunta3;
         private System.Windows.Forms.Label lblPreguntas;
-        private System.Windows.Forms.Button btnvolver;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;

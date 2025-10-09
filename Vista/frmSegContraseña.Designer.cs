@@ -37,7 +37,6 @@
             this.chkCaractEsp = new System.Windows.Forms.CheckBox();
             this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.nudCaractMin = new System.Windows.Forms.NumericUpDown();
-            this.btnVolveradmin = new System.Windows.Forms.Button();
             this.lblDiasCambio = new System.Windows.Forms.Label();
             this.nudDiasCambio = new System.Windows.Forms.NumericUpDown();
             this.pnlBorde = new System.Windows.Forms.Panel();
@@ -125,7 +124,7 @@
             // 
             // btnGuardarCambios
             // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(61, 405);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(145, 405);
             this.btnGuardarCambios.Name = "btnGuardarCambios";
             this.btnGuardarCambios.Size = new System.Drawing.Size(160, 31);
             this.btnGuardarCambios.TabIndex = 8;
@@ -140,16 +139,6 @@
             this.nudCaractMin.Size = new System.Drawing.Size(65, 25);
             this.nudCaractMin.TabIndex = 2;
             this.nudCaractMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnVolveradmin
-            // 
-            this.btnVolveradmin.Location = new System.Drawing.Point(227, 405);
-            this.btnVolveradmin.Name = "btnVolveradmin";
-            this.btnVolveradmin.Size = new System.Drawing.Size(160, 31);
-            this.btnVolveradmin.TabIndex = 9;
-            this.btnVolveradmin.Text = "Volver";
-            this.btnVolveradmin.UseVisualStyleBackColor = true;
-            this.btnVolveradmin.Click += new System.EventHandler(this.btnVolveradmin_Click);
             // 
             // lblDiasCambio
             // 
@@ -321,7 +310,6 @@
             this.Controls.Add(this.lblseguridad);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
-            this.Controls.Add(this.btnVolveradmin);
             this.Controls.Add(this.btnGuardarCambios);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -329,6 +317,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
             this.Load += new System.EventHandler(this.frmadmin_Load);
+            this.Shown += new System.EventHandler(this.frmSegContraseña_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.nudCaractMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDiasCambio)).EndInit();
             this.pnlBorde.ResumeLayout(false);
@@ -353,7 +342,6 @@
         private System.Windows.Forms.CheckBox chkCaractEsp;
         private System.Windows.Forms.Button btnGuardarCambios;
         private System.Windows.Forms.NumericUpDown nudCaractMin;
-        private System.Windows.Forms.Button btnVolveradmin;
         private System.Windows.Forms.Label lblDiasCambio;
         private System.Windows.Forms.NumericUpDown nudDiasCambio;
         private System.Windows.Forms.Panel pnlBorde;

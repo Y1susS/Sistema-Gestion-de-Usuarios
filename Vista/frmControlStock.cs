@@ -497,6 +497,16 @@ namespace Vista
             LimpiarControles();
             EstablecerEstadoInicial();
         }
+
+        private void frmControlStock_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
+
+        private void frmControlStock_Shown(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
     }
 }
 

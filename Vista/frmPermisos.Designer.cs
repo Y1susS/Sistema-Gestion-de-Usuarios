@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPermisos));
             this.lblpermisos = new System.Windows.Forms.Label();
-            this.btnvolver = new System.Windows.Forms.Button();
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.dgvPermisos = new System.Windows.Forms.DataGridView();
             this.colIdPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,17 +39,17 @@
             this.btnguardar = new System.Windows.Forms.Button();
             this.lblUsuarios = new System.Windows.Forms.Label();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.pctClose = new System.Windows.Forms.PictureBox();
-            this.pctMinimize = new System.Windows.Forms.PictureBox();
-            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pctLogo = new System.Windows.Forms.PictureBox();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             this.pnlBorde.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             this.SuspendLayout();
             // 
             // lblpermisos
@@ -65,20 +64,10 @@
             this.lblpermisos.Text = "Gestión de permisos";
             this.lblpermisos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnvolver
-            // 
-            this.btnvolver.Location = new System.Drawing.Point(450, 440);
-            this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(200, 29);
-            this.btnvolver.TabIndex = 1;
-            this.btnvolver.Text = "Volver";
-            this.btnvolver.UseVisualStyleBackColor = true;
-            this.btnvolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
             // cmbUsuarios
             // 
             this.cmbUsuarios.FormattingEnabled = true;
-            this.cmbUsuarios.Location = new System.Drawing.Point(285, 80);
+            this.cmbUsuarios.Location = new System.Drawing.Point(287, 80);
             this.cmbUsuarios.Name = "cmbUsuarios";
             this.cmbUsuarios.Size = new System.Drawing.Size(200, 26);
             this.cmbUsuarios.TabIndex = 4;
@@ -138,7 +127,7 @@
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(125, 440);
+            this.btnguardar.Location = new System.Drawing.Point(287, 440);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(200, 29);
             this.btnguardar.TabIndex = 6;
@@ -170,41 +159,6 @@
             this.pnlBorde.Size = new System.Drawing.Size(775, 40);
             this.pnlBorde.TabIndex = 27;
             // 
-            // pctClose
-            // 
-            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctClose.Image = global::Vista.Properties.Resources.CircleX;
-            this.pctClose.Location = new System.Drawing.Point(735, 0);
-            this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(40, 40);
-            this.pctClose.TabIndex = 23;
-            this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-            // 
-            // pctMinimize
-            // 
-            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(695, 0);
-            this.pctMinimize.Name = "pctMinimize";
-            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
-            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctMinimize.TabIndex = 22;
-            this.pctMinimize.TabStop = false;
-            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
-            // 
-            // pnlBordeInferior
-            // 
-            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 480);
-            this.pnlBordeInferior.Name = "pnlBordeInferior";
-            this.pnlBordeInferior.Size = new System.Drawing.Size(775, 20);
-            this.pnlBordeInferior.TabIndex = 28;
-            // 
             // pnlLogo
             // 
             this.pnlLogo.Controls.Add(this.pctLogo);
@@ -224,6 +178,41 @@
             this.pctLogo.TabIndex = 8025;
             this.pctLogo.TabStop = false;
             // 
+            // pctMinimize
+            // 
+            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
+            this.pctMinimize.Location = new System.Drawing.Point(695, 0);
+            this.pctMinimize.Name = "pctMinimize";
+            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctMinimize.TabIndex = 22;
+            this.pctMinimize.TabStop = false;
+            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
+            // pctClose
+            // 
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctClose.Image = global::Vista.Properties.Resources.CircleX;
+            this.pctClose.Location = new System.Drawing.Point(735, 0);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.TabIndex = 23;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pnlBordeInferior
+            // 
+            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 480);
+            this.pnlBordeInferior.Name = "pnlBordeInferior";
+            this.pnlBordeInferior.Size = new System.Drawing.Size(775, 20);
+            this.pnlBordeInferior.TabIndex = 28;
+            // 
             // frmPermisos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -235,19 +224,19 @@
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.cmbUsuarios);
-            this.Controls.Add(this.btnvolver);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPermisos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmPermisos_Load);
+            this.Shown += new System.EventHandler(this.frmPermisos_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).EndInit();
             this.pnlBorde.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,7 +244,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblpermisos;
-        private System.Windows.Forms.Button btnvolver;
         private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.DataGridView dgvPermisos;
         private System.Windows.Forms.Button btnguardar;

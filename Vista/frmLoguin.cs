@@ -23,7 +23,7 @@ namespace Vista
             InitializeComponent();
 
             DoubleBuffered = true;
-
+            
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblLogin);
@@ -132,7 +132,6 @@ namespace Vista
             {
                 MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtContrasenia.Clear();
-                txtContrasenia.Focus();
             }
         }
 
@@ -203,6 +202,11 @@ namespace Vista
                     Application.Exit();
                 }
             }
+        }
+
+        private void FrmLoguin_Shown(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnLogin;
         }
     }
 }
