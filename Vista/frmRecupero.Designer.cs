@@ -231,6 +231,7 @@ namespace Vista
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRecupero";
             this.Load += new System.EventHandler(this.frmRecupero_Load);
+            this.Shown += new System.EventHandler(this.frmRecupero_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();

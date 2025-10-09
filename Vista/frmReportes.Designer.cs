@@ -31,6 +31,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
@@ -52,87 +53,104 @@
             this.chkFiltrarCliente = new System.Windows.Forms.CheckBox();
             this.cboEstados = new System.Windows.Forms.ComboBox();
             this.chkFiltrarEstado = new System.Windows.Forms.CheckBox();
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.pnlBorde = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.pctLogo = new System.Windows.Forms.PictureBox();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pnlBordeInferior = new System.Windows.Forms.Panel();
+            this.pnlFunciones = new System.Windows.Forms.Panel();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).BeginInit();
+            this.pnlBorde.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
+            this.pnlFunciones.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvVentas
             // 
+            this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentas.Location = new System.Drawing.Point(11, 235);
-            this.dgvVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvVentas.Location = new System.Drawing.Point(14, 355);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.ReadOnly = true;
             this.dgvVentas.RowHeadersWidth = 51;
             this.dgvVentas.RowTemplate.Height = 24;
-            this.dgvVentas.Size = new System.Drawing.Size(554, 148);
+            this.dgvVentas.Size = new System.Drawing.Size(725, 225);
             this.dgvVentas.TabIndex = 0;
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Location = new System.Drawing.Point(8, 138);
-            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDesde.Location = new System.Drawing.Point(15, 146);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(151, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(200, 25);
             this.dtpDesde.TabIndex = 1;
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(8, 190);
-            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHasta.Location = new System.Drawing.Point(15, 201);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(151, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(200, 25);
             this.dtpHasta.TabIndex = 2;
             this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
             // 
             // cboUsuarios
             // 
             this.cboUsuarios.FormattingEnabled = true;
-            this.cboUsuarios.Location = new System.Drawing.Point(8, 34);
-            this.cboUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboUsuarios.Location = new System.Drawing.Point(15, 35);
             this.cboUsuarios.Name = "cboUsuarios";
-            this.cboUsuarios.Size = new System.Drawing.Size(92, 21);
+            this.cboUsuarios.Size = new System.Drawing.Size(175, 26);
             this.cboUsuarios.TabIndex = 3;
             // 
             // cboClientes
             // 
             this.cboClientes.FormattingEnabled = true;
-            this.cboClientes.Location = new System.Drawing.Point(8, 77);
-            this.cboClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboClientes.Location = new System.Drawing.Point(15, 90);
             this.cboClientes.Name = "cboClientes";
-            this.cboClientes.Size = new System.Drawing.Size(92, 21);
+            this.cboClientes.Size = new System.Drawing.Size(175, 26);
             this.cboClientes.TabIndex = 4;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(308, 171);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.BackColor = System.Drawing.Color.White;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Location = new System.Drawing.Point(560, 196);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(56, 19);
+            this.btnBuscar.Size = new System.Drawing.Size(150, 30);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(308, 205);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLimpiar.BackColor = System.Drawing.Color.White;
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(403, 196);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(56, 19);
+            this.btnLimpiar.Size = new System.Drawing.Size(150, 30);
             this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // chkUsarFechas
             // 
-            this.chkUsarFechas.AutoSize = true;
-            this.chkUsarFechas.Location = new System.Drawing.Point(173, 138);
-            this.chkUsarFechas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkUsarFechas.Location = new System.Drawing.Point(221, 146);
             this.chkUsarFechas.Name = "chkUsarFechas";
-            this.chkUsarFechas.Size = new System.Drawing.Size(107, 17);
+            this.chkUsarFechas.Size = new System.Drawing.Size(175, 25);
             this.chkUsarFechas.TabIndex = 7;
             this.chkUsarFechas.Text = "Buscar por fecha";
             this.chkUsarFechas.UseVisualStyleBackColor = true;
@@ -140,121 +158,110 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(121, 18);
             this.label1.TabIndex = 8;
             this.label1.Text = "Usuario";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(121, 18);
             this.label2.TabIndex = 9;
             this.label2.Text = "Cliente";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 114);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(15, 125);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(196, 18);
             this.label3.TabIndex = 10;
             this.label3.Text = "Desde";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 167);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(15, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(47, 18);
             this.label4.TabIndex = 11;
             this.label4.Text = "Hasta";
             // 
             // lblTotal
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(416, 177);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(400, 117);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(35, 13);
+            this.lblTotal.Size = new System.Drawing.Size(310, 18);
             this.lblTotal.TabIndex = 13;
-            this.lblTotal.Text = "label5";
+            this.lblTotal.Text = "Total";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPromedio
             // 
-            this.lblPromedio.AutoSize = true;
-            this.lblPromedio.Location = new System.Drawing.Point(416, 207);
-            this.lblPromedio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPromedio.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromedio.Location = new System.Drawing.Point(400, 157);
             this.lblPromedio.Name = "lblPromedio";
-            this.lblPromedio.Size = new System.Drawing.Size(35, 13);
+            this.lblPromedio.Size = new System.Drawing.Size(310, 18);
             this.lblPromedio.TabIndex = 14;
-            this.lblPromedio.Text = "label5";
+            this.lblPromedio.Text = "Promedio";
+            this.lblPromedio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chartVentas
             // 
             chartArea2.Name = "ChartArea1";
             this.chartVentas.ChartAreas.Add(chartArea2);
+            this.chartVentas.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Name = "Legend1";
             this.chartVentas.Legends.Add(legend2);
-            this.chartVentas.Location = new System.Drawing.Point(604, 49);
-            this.chartVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartVentas.Location = new System.Drawing.Point(0, 0);
             this.chartVentas.Name = "chartVentas";
+            this.chartVentas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chartVentas.Series.Add(series2);
-            this.chartVentas.Size = new System.Drawing.Size(416, 346);
+            this.chartVentas.Size = new System.Drawing.Size(555, 485);
             this.chartVentas.TabIndex = 15;
             this.chartVentas.Text = "chart1";
             // 
             // lblTotalVentas
             // 
-            this.lblTotalVentas.AutoSize = true;
-            this.lblTotalVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalVentas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotalVentas.Location = new System.Drawing.Point(416, 149);
-            this.lblTotalVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalVentas.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalVentas.ForeColor = System.Drawing.Color.White;
+            this.lblTotalVentas.Location = new System.Drawing.Point(400, 77);
             this.lblTotalVentas.Name = "lblTotalVentas";
-            this.lblTotalVentas.Size = new System.Drawing.Size(35, 13);
+            this.lblTotalVentas.Size = new System.Drawing.Size(310, 18);
             this.lblTotalVentas.TabIndex = 12;
-            this.lblTotalVentas.Text = "label5";
+            this.lblTotalVentas.Text = "Total ventas";
+            this.lblTotalVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboTipoGrafico
             // 
             this.cboTipoGrafico.FormattingEnabled = true;
-            this.cboTipoGrafico.Location = new System.Drawing.Point(437, 16);
-            this.cboTipoGrafico.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTipoGrafico.Location = new System.Drawing.Point(562, 55);
             this.cboTipoGrafico.Name = "cboTipoGrafico";
-            this.cboTipoGrafico.Size = new System.Drawing.Size(154, 21);
+            this.cboTipoGrafico.Size = new System.Drawing.Size(200, 26);
             this.cboTipoGrafico.TabIndex = 16;
             this.cboTipoGrafico.SelectedIndexChanged += new System.EventHandler(this.cboTipoGrafico_SelectedIndexChanged);
             // 
             // chkFiltrarUsuario
             // 
-            this.chkFiltrarUsuario.AutoSize = true;
-            this.chkFiltrarUsuario.Location = new System.Drawing.Point(112, 37);
-            this.chkFiltrarUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkFiltrarUsuario.Location = new System.Drawing.Point(196, 35);
             this.chkFiltrarUsuario.Name = "chkFiltrarUsuario";
-            this.chkFiltrarUsuario.Size = new System.Drawing.Size(125, 17);
+            this.chkFiltrarUsuario.Size = new System.Drawing.Size(175, 26);
             this.chkFiltrarUsuario.TabIndex = 17;
             this.chkFiltrarUsuario.Text = "Buscar por vendedor";
             this.chkFiltrarUsuario.UseVisualStyleBackColor = true;
             // 
             // chkFiltrarCliente
             // 
-            this.chkFiltrarCliente.AutoSize = true;
-            this.chkFiltrarCliente.Location = new System.Drawing.Point(112, 80);
-            this.chkFiltrarCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkFiltrarCliente.Location = new System.Drawing.Point(196, 90);
             this.chkFiltrarCliente.Name = "chkFiltrarCliente";
-            this.chkFiltrarCliente.Size = new System.Drawing.Size(111, 17);
+            this.chkFiltrarCliente.Size = new System.Drawing.Size(175, 26);
             this.chkFiltrarCliente.TabIndex = 18;
             this.chkFiltrarCliente.Text = "Buscar por cliente";
             this.chkFiltrarCliente.UseVisualStyleBackColor = true;
@@ -262,66 +269,179 @@
             // cboEstados
             // 
             this.cboEstados.FormattingEnabled = true;
-            this.cboEstados.Location = new System.Drawing.Point(281, 76);
+            this.cboEstados.Location = new System.Drawing.Point(401, 35);
+            this.cboEstados.Margin = new System.Windows.Forms.Padding(4);
             this.cboEstados.Name = "cboEstados";
-            this.cboEstados.Size = new System.Drawing.Size(121, 21);
+            this.cboEstados.Size = new System.Drawing.Size(152, 26);
             this.cboEstados.TabIndex = 19;
             // 
             // chkFiltrarEstado
             // 
-            this.chkFiltrarEstado.AutoSize = true;
-            this.chkFiltrarEstado.Location = new System.Drawing.Point(419, 80);
+            this.chkFiltrarEstado.Location = new System.Drawing.Point(561, 35);
+            this.chkFiltrarEstado.Margin = new System.Windows.Forms.Padding(4);
             this.chkFiltrarEstado.Name = "chkFiltrarEstado";
-            this.chkFiltrarEstado.Size = new System.Drawing.Size(112, 17);
+            this.chkFiltrarEstado.Size = new System.Drawing.Size(149, 26);
             this.chkFiltrarEstado.TabIndex = 20;
             this.chkFiltrarEstado.Text = "Buscar por estado";
             this.chkFiltrarEstado.UseVisualStyleBackColor = true;
             // 
-            // btnVolver
+            // pnlBorde
             // 
-            this.btnVolver.Location = new System.Drawing.Point(945, 14);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 21;
-            this.btnVolver.Text = "VOLVER";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.pnlLogo);
+            this.pnlBorde.Controls.Add(this.pctMinimize);
+            this.pnlBorde.Controls.Add(this.pctClose);
+            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
+            this.pnlBorde.Name = "pnlBorde";
+            this.pnlBorde.Size = new System.Drawing.Size(1325, 40);
+            this.pnlBorde.TabIndex = 27;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(80, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(1165, 40);
+            this.lblTitulo.TabIndex = 23;
+            this.lblTitulo.Text = "Login";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Controls.Add(this.pctLogo);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(80, 40);
+            this.pnlLogo.TabIndex = 8027;
+            // 
+            // pctLogo
+            // 
+            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
+            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctLogo.Location = new System.Drawing.Point(8, 8);
+            this.pctLogo.Name = "pctLogo";
+            this.pctLogo.Size = new System.Drawing.Size(45, 25);
+            this.pctLogo.TabIndex = 8025;
+            this.pctLogo.TabStop = false;
+            // 
+            // pctMinimize
+            // 
+            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
+            this.pctMinimize.Location = new System.Drawing.Point(1245, 0);
+            this.pctMinimize.Name = "pctMinimize";
+            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctMinimize.TabIndex = 22;
+            this.pctMinimize.TabStop = false;
+            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
+            // pctClose
+            // 
+            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
+            this.pctClose.Location = new System.Drawing.Point(1285, 0);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctClose.TabIndex = 20;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pnlBordeInferior
+            // 
+            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 595);
+            this.pnlBordeInferior.Name = "pnlBordeInferior";
+            this.pnlBordeInferior.Size = new System.Drawing.Size(1325, 20);
+            this.pnlBordeInferior.TabIndex = 28;
+            // 
+            // pnlFunciones
+            // 
+            this.pnlFunciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlFunciones.Controls.Add(this.lblEstado);
+            this.pnlFunciones.Controls.Add(this.cboUsuarios);
+            this.pnlFunciones.Controls.Add(this.cboClientes);
+            this.pnlFunciones.Controls.Add(this.label1);
+            this.pnlFunciones.Controls.Add(this.chkFiltrarEstado);
+            this.pnlFunciones.Controls.Add(this.lblTotalVentas);
+            this.pnlFunciones.Controls.Add(this.cboEstados);
+            this.pnlFunciones.Controls.Add(this.label2);
+            this.pnlFunciones.Controls.Add(this.lblPromedio);
+            this.pnlFunciones.Controls.Add(this.chkFiltrarUsuario);
+            this.pnlFunciones.Controls.Add(this.lblTotal);
+            this.pnlFunciones.Controls.Add(this.chkFiltrarCliente);
+            this.pnlFunciones.Controls.Add(this.label4);
+            this.pnlFunciones.Controls.Add(this.label3);
+            this.pnlFunciones.Controls.Add(this.dtpDesde);
+            this.pnlFunciones.Controls.Add(this.chkUsarFechas);
+            this.pnlFunciones.Controls.Add(this.dtpHasta);
+            this.pnlFunciones.Controls.Add(this.btnLimpiar);
+            this.pnlFunciones.Controls.Add(this.btnBuscar);
+            this.pnlFunciones.ForeColor = System.Drawing.Color.White;
+            this.pnlFunciones.Location = new System.Drawing.Point(14, 95);
+            this.pnlFunciones.Name = "pnlFunciones";
+            this.pnlFunciones.Size = new System.Drawing.Size(725, 245);
+            this.pnlFunciones.TabIndex = 29;
+            this.pnlFunciones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFunciones_Paint);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(400, 15);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(160, 18);
+            this.lblEstado.TabIndex = 21;
+            this.lblEstado.Text = "Estado";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.chartVentas);
+            this.panel1.Location = new System.Drawing.Point(755, 95);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(555, 485);
+            this.panel1.TabIndex = 30;
             // 
             // frmReportes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 405);
-            this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.chkFiltrarEstado);
-            this.Controls.Add(this.cboEstados);
-            this.Controls.Add(this.chkFiltrarCliente);
-            this.Controls.Add(this.chkFiltrarUsuario);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
+            this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
+            this.ClientSize = new System.Drawing.Size(1325, 615);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlFunciones);
+            this.Controls.Add(this.pnlBordeInferior);
+            this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.cboTipoGrafico);
-            this.Controls.Add(this.lblTotalVentas);
-            this.Controls.Add(this.chartVentas);
-            this.Controls.Add(this.lblPromedio);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.chkUsarFechas);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.cboClientes);
-            this.Controls.Add(this.cboUsuarios);
-            this.Controls.Add(this.dtpHasta);
-            this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.dgvVentas);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReportes";
             this.Load += new System.EventHandler(this.frmReportes_Load);
+            this.Shown += new System.EventHandler(this.frmReportes_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).EndInit();
+            this.pnlBorde.ResumeLayout(false);
+            this.pnlLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
+            this.pnlFunciones.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -348,6 +468,15 @@
         private System.Windows.Forms.CheckBox chkFiltrarCliente;
         private System.Windows.Forms.ComboBox cboEstados;
         private System.Windows.Forms.CheckBox chkFiltrarEstado;
-        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Panel pnlBorde;
+        private System.Windows.Forms.PictureBox pctMinimize;
+        private System.Windows.Forms.PictureBox pctClose;
+        private System.Windows.Forms.Panel pnlBordeInferior;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.PictureBox pctLogo;
+        private System.Windows.Forms.Panel pnlFunciones;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Panel panel1;
     }
 }

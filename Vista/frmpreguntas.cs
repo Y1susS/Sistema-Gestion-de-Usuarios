@@ -22,7 +22,7 @@ namespace Vista
         {
             InitializeComponent();
             _formularioAnterior = formularioAnterior;
-
+            this.AcceptButton = btnSiguiente;
             combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
             txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
 
@@ -169,12 +169,6 @@ namespace Vista
             return true;
         }
 
-        private void btnvolver_Click(object sender, EventArgs e)
-        {
-            _formularioAnterior.Show();
-            this.Close();
-        }
-
         private void TxtRespuesta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -212,6 +206,13 @@ namespace Vista
 
         private void txtrespuestas_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void frmPreguntas_Shown(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnSiguiente;
+            cmbPregunta1.Focus();
 
         }
     }

@@ -23,6 +23,8 @@ namespace Vista
         {
             InitializeComponent();
 
+            this.AcceptButton = btnCambiar;
+
             ClsFondoTransparente.Aplicar(
             pctFondo,
             pctLogo,
@@ -255,6 +257,12 @@ namespace Vista
         private void txtNuevaPass_Enter(object sender, EventArgs e)
         {
             ClsPlaceHolder.Enter(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
+        }
+
+        private void frmPrimerIngreso_Shown(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnCambiar;
+            txtNuevaPass.Focus();
         }
     }
 }

@@ -28,6 +28,8 @@ namespace Vista
         {
             InitializeComponent();
 
+            this.AcceptButton = btnSiguiente;
+
             DoubleBuffered = true;
 
             moverFormulario = new ClsArrastrarFormularios(this);
@@ -514,6 +516,12 @@ namespace Vista
                     }
                 }
             }
+        }
+
+        private void frmRecupero_Shown(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnSiguiente;
+            txtdni.Focus();
         }
     }
 }

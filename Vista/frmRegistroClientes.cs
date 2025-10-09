@@ -27,6 +27,7 @@ namespace Vista
 
         public frmRegistroClientes()
         {
+            this.ActiveControl = null;
             InitializeComponent();
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(lblTitulo);
@@ -555,6 +556,11 @@ namespace Vista
             {
                 e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
             }
+        }
+
+        private void frmRegistroClientes_Shown(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
         }
     }
 }

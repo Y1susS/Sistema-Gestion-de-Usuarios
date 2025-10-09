@@ -13,12 +13,19 @@ namespace Vista
 {
     public partial class frmBackUp : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
+
         // 1. Instanciamos la clase de lógica en el nivel de la clase
         private readonly CL_BackUp oCL_BackUp = new CL_BackUp();
 
         public frmBackUp()
         {
             InitializeComponent();
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
 
             // 2. Suscribimos el evento de progreso en el constructor
             oCL_BackUp.ProgressChanged += OnBackupProgressChanged;
@@ -38,14 +45,6 @@ namespace Vista
                 // Asigna la ruta seleccionada al TextBox
                 txtRutaBackup.Text = fbd.SelectedPath;
             }
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            frmPanelUsuarios frm = new frmPanelUsuarios();
-            this.Hide();
-            frm.ShowDialog();
-            this.Close(); // Es mejor usar Close() al final para no dejar el formulario en memoria.
         }
 
         private void btnGuardarrapido_Click(object sender, EventArgs e)
@@ -122,6 +121,23 @@ namespace Vista
             {
                 pgbGuardadoPersonalizado.Value = progress;
             }
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void frmBackUp_Shown(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
         }
     }
 }

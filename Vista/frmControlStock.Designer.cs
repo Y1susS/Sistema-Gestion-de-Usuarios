@@ -498,6 +498,8 @@
             this.Name = "frmControlStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmControlStock_Load);
+            this.Shown += new System.EventHandler(this.frmControlStock_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlBorde.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);

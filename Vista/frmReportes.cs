@@ -16,16 +16,23 @@ namespace Vista
 {
     public partial class frmReportes : Form
     {
+        private Size _formSizeInicial;
+        private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Ventas _ventas;
         public frmReportes()
         {
             InitializeComponent();
+            _formSizeInicial = this.Size;
             _ventas = new CL_Ventas();
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
         private void frmReportes_Load(object sender, EventArgs e)
         {
-
+            this.ActiveControl = null;
             cboUsuarios.DataSource = _ventas.ObtenerUsuariosConVentas();
             cboUsuarios.DisplayMember = "User";
             cboUsuarios.ValueMember = "Id_user";
@@ -344,11 +351,30 @@ namespace Vista
             }
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void pctClose_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmPanelUsuarios frmInicio = new frmPanelUsuarios();
             frmInicio.Show();
-            this.Hide();
+        }
+
+        private void pnlFunciones_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlFunciones.Width - 1, pnlFunciones.Height - 1);
+            }
+        }
+
+        private void frmReportes_Shown(object sender, EventArgs e)
+        {
+            this.Size = _formSizeInicial;
+            this.ActiveControl = null;
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

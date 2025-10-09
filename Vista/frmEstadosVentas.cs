@@ -14,11 +14,17 @@ namespace Vista
 {
     public partial class frmEstadosVentas : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Ventas _ventas;
         private List<DtoEstadoVenta> _estadosVenta;
         public frmEstadosVentas()
         {
             InitializeComponent();
+            this.AcceptButton = btnActualizarEstado;
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pnlLogo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
             _ventas = new CL_Ventas();
         }
 
@@ -170,13 +176,22 @@ namespace Vista
             }
         }
 
-
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void pctClose_Click(object sender, EventArgs e)
         {
-            frmPanelUsuarios frmInicio = new frmPanelUsuarios();
-            frmInicio.Show();
-            this.Hide();
+            this.Close();
+            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
+            frmPanelUsuarios.Show();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void frmEstadosVentas_Shown(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+            this.AcceptButton = btnActualizarEstado;
         }
     }
-    
 }

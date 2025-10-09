@@ -603,5 +603,10 @@ namespace Vista
                 e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
             }
         }
+
+        private void frmAdminUserABM_Shown(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
     }
 }

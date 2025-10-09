@@ -340,6 +340,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmPanelUsuarios_Load);
+            this.Shown += new System.EventHandler(this.frmPanelUsuarios_Shown);
             this.flwBotones.ResumeLayout(false);
             this.pnlBorde.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();

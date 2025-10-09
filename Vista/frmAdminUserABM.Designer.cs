@@ -553,6 +553,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdministrador";
             this.Load += new System.EventHandler(this.frmAdministrador_Load);
+            this.Shown += new System.EventHandler(this.frmAdminUserABM_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

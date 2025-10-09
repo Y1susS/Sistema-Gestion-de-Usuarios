@@ -243,6 +243,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú";
             this.Load += new System.EventHandler(this.FrmLoguin_Load);
+            this.Shown += new System.EventHandler(this.FrmLoguin_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMostrar)).EndInit();

@@ -129,9 +129,9 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Usuarios"))
             {
-                frmAdminUserABM frmalta = new frmAdminUserABM();
-                frmalta.Show();
                 this.Close();
+                frmAdminUserABM frmAdminUserABM = new frmAdminUserABM();
+                frmAdminUserABM.Show();
             }
         }
 
@@ -139,9 +139,9 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Permisos"))
             {
-                frmPermisos mifrmPermisos = new frmPermisos(this); 
-                mifrmPermisos.Show();
-                this.Hide();
+                this.Close();
+                frmPermisos frmPermisos = new frmPermisos(this); 
+                frmPermisos.Show();
             }
         }
 
@@ -149,9 +149,9 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) 
             {
+                this.Close();
                 frmSegContraseña frmSegContraseña = new frmSegContraseña();
                 frmSegContraseña.Show();
-                this.Hide();
             }
         }
 
@@ -159,9 +159,9 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Registro de Clientes"))
             {
-                frmRegistroClientes frmRegistro = new frmRegistroClientes();
-                frmRegistro.Show();
-                this.Hide();
+                this.Close();
+                frmRegistroClientes frmRegistroClientes = new frmRegistroClientes();
+                frmRegistroClientes.Show();
             }
         }
 
@@ -169,9 +169,9 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("PreguntasSeguridad"))
             {
-                frmPreguntas frmPreg = new frmPreguntas(this);
-                frmPreg.Show();
-                this.Hide();
+                this.Close();
+                frmPreguntas frmPreguntas = new frmPreguntas(this);
+                frmPreguntas.Show();
             }
         }
 
@@ -179,10 +179,10 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Cambiar contraseña"))
             {
+                this.Close();
                 string usuario = ClsSesionActual.Usuario.User;
-                frmCambioPass frmCambio = new frmCambioPass(usuario, this, true);
-                frmCambio.Show();
-                this.Hide(); 
+                frmCambioPass frmCambioPass = new frmCambioPass(usuario, this, true);
+                frmCambioPass.Show();
             }
         }
 
@@ -291,30 +291,29 @@ namespace Vista
         private void btngestionstock_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmControlStock frm = new frmControlStock();
-            frm.Show();
+            frmControlStock frmControlStock = new frmControlStock();
+            frmControlStock.Show();
         }
 
         private void btnmetricas_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmReportes frmReportes = new frmReportes();
             frmReportes.Show();
-            this.Hide();
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
         {
-            frmBackUp frm = new frmBackUp();
-            this.Hide();
-            frm.ShowDialog();
-            this.Show();
+            this.Close();
+            frmBackUp frmBackUp = new frmBackUp();
+            frmBackUp.Show();
         }
 
         private void btnEstadoVentas_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmEstadosVentas frmEstadosVentas = new frmEstadosVentas();
             frmEstadosVentas.Show();
-            this.Hide();
         }
 
         private void pctClose_Click(object sender, EventArgs e)
@@ -333,12 +332,15 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
             {
+                this.Close();
                 frmPresupuestador frmPresupuestador = new frmPresupuestador();
                 frmPresupuestador.Show();
-                this.Hide();
             }
         }
 
-    
+        private void frmPanelUsuarios_Shown(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
     }
 }
