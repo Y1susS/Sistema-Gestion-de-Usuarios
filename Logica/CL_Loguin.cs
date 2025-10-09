@@ -63,7 +63,7 @@ namespace Logica
                 }
             }
 
-            mensaje = "Login correcto! Bienvenido: " + ClsSesionActual.Usuario.User;
+            mensaje = "";
             return true;
         }
 

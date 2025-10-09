@@ -123,7 +123,6 @@ namespace Vista
                 }
                 else
                 {
-                    MessageBox.Show(msg);
                     new frmPanelUsuarios().Show();
                     this.Hide();
                 }
