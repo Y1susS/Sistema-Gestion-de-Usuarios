@@ -43,20 +43,21 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.cmbDni = new System.Windows.Forms.ComboBox();
             this.gbxCotizaciones = new System.Windows.Forms.GroupBox();
+            this.btnCotizar = new System.Windows.Forms.Button();
             this.btnBuscarCotizacion = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtSubtotal = new System.Windows.Forms.Button();
-            this.txtBorrarCotizacion = new System.Windows.Forms.Button();
-            this.txtEditarCotizacion = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnSubtotal = new System.Windows.Forms.Button();
+            this.btnBorrarCotizacion = new System.Windows.Forms.Button();
+            this.btnEditarCotizacion = new System.Windows.Forms.Button();
+            this.dgvPresupuesto = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.lblValorSubtotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.btnDescuento = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lvlValorPresupuesto = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnEnviarMail = new System.Windows.Forms.Button();
@@ -69,9 +70,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarPresupuesto = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.gbxCliente.SuspendLayout();
             this.gbxCotizaciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPresupuesto)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -212,22 +215,32 @@
             // 
             // gbxCotizaciones
             // 
+            this.gbxCotizaciones.Controls.Add(this.btnCotizar);
             this.gbxCotizaciones.Controls.Add(this.btnBuscarCotizacion);
             this.gbxCotizaciones.Controls.Add(this.label18);
-            this.gbxCotizaciones.Controls.Add(this.txtSubtotal);
-            this.gbxCotizaciones.Controls.Add(this.txtBorrarCotizacion);
-            this.gbxCotizaciones.Controls.Add(this.txtEditarCotizacion);
-            this.gbxCotizaciones.Controls.Add(this.dataGridView1);
-            this.gbxCotizaciones.Location = new System.Drawing.Point(51, 240);
+            this.gbxCotizaciones.Controls.Add(this.btnSubtotal);
+            this.gbxCotizaciones.Controls.Add(this.btnBorrarCotizacion);
+            this.gbxCotizaciones.Controls.Add(this.btnEditarCotizacion);
+            this.gbxCotizaciones.Controls.Add(this.dgvPresupuesto);
+            this.gbxCotizaciones.Location = new System.Drawing.Point(51, 278);
             this.gbxCotizaciones.Name = "gbxCotizaciones";
             this.gbxCotizaciones.Size = new System.Drawing.Size(875, 291);
             this.gbxCotizaciones.TabIndex = 18;
             this.gbxCotizaciones.TabStop = false;
             this.gbxCotizaciones.Text = "Cotizaciones";
             // 
+            // btnCotizar
+            // 
+            this.btnCotizar.Location = new System.Drawing.Point(762, 41);
+            this.btnCotizar.Name = "btnCotizar";
+            this.btnCotizar.Size = new System.Drawing.Size(75, 23);
+            this.btnCotizar.TabIndex = 25;
+            this.btnCotizar.Text = "Cotizar";
+            this.btnCotizar.UseVisualStyleBackColor = true;
+            // 
             // btnBuscarCotizacion
             // 
-            this.btnBuscarCotizacion.Location = new System.Drawing.Point(409, 243);
+            this.btnBuscarCotizacion.Location = new System.Drawing.Point(389, 243);
             this.btnBuscarCotizacion.Name = "btnBuscarCotizacion";
             this.btnBuscarCotizacion.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarCotizacion.TabIndex = 24;
@@ -243,47 +256,47 @@
             this.label18.TabIndex = 23;
             this.label18.Text = "Cargar Cotizacion existente";
             // 
-            // txtSubtotal
+            // btnSubtotal
             // 
-            this.txtSubtotal.Location = new System.Drawing.Point(762, 166);
-            this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(75, 23);
-            this.txtSubtotal.TabIndex = 22;
-            this.txtSubtotal.Text = "Subtotal";
-            this.txtSubtotal.UseVisualStyleBackColor = true;
+            this.btnSubtotal.Location = new System.Drawing.Point(762, 166);
+            this.btnSubtotal.Name = "btnSubtotal";
+            this.btnSubtotal.Size = new System.Drawing.Size(75, 23);
+            this.btnSubtotal.TabIndex = 22;
+            this.btnSubtotal.Text = "Subtotal";
+            this.btnSubtotal.UseVisualStyleBackColor = true;
             // 
-            // txtBorrarCotizacion
+            // btnBorrarCotizacion
             // 
-            this.txtBorrarCotizacion.Location = new System.Drawing.Point(764, 111);
-            this.txtBorrarCotizacion.Name = "txtBorrarCotizacion";
-            this.txtBorrarCotizacion.Size = new System.Drawing.Size(75, 23);
-            this.txtBorrarCotizacion.TabIndex = 21;
-            this.txtBorrarCotizacion.Text = "Borrar";
-            this.txtBorrarCotizacion.UseVisualStyleBackColor = true;
+            this.btnBorrarCotizacion.Location = new System.Drawing.Point(762, 124);
+            this.btnBorrarCotizacion.Name = "btnBorrarCotizacion";
+            this.btnBorrarCotizacion.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrarCotizacion.TabIndex = 21;
+            this.btnBorrarCotizacion.Text = "Borrar";
+            this.btnBorrarCotizacion.UseVisualStyleBackColor = true;
             // 
-            // txtEditarCotizacion
+            // btnEditarCotizacion
             // 
-            this.txtEditarCotizacion.Location = new System.Drawing.Point(762, 62);
-            this.txtEditarCotizacion.Name = "txtEditarCotizacion";
-            this.txtEditarCotizacion.Size = new System.Drawing.Size(75, 23);
-            this.txtEditarCotizacion.TabIndex = 20;
-            this.txtEditarCotizacion.Text = "Editar";
-            this.txtEditarCotizacion.UseVisualStyleBackColor = true;
+            this.btnEditarCotizacion.Location = new System.Drawing.Point(762, 83);
+            this.btnEditarCotizacion.Name = "btnEditarCotizacion";
+            this.btnEditarCotizacion.Size = new System.Drawing.Size(75, 23);
+            this.btnEditarCotizacion.TabIndex = 20;
+            this.btnEditarCotizacion.Text = "Editar";
+            this.btnEditarCotizacion.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvPresupuesto
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(697, 203);
-            this.dataGridView1.TabIndex = 16;
+            this.dgvPresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPresupuesto.Location = new System.Drawing.Point(19, 21);
+            this.dgvPresupuesto.Name = "dgvPresupuesto";
+            this.dgvPresupuesto.RowHeadersWidth = 51;
+            this.dgvPresupuesto.RowTemplate.Height = 24;
+            this.dgvPresupuesto.Size = new System.Drawing.Size(697, 203);
+            this.dgvPresupuesto.TabIndex = 16;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(76, 202);
+            this.label7.Location = new System.Drawing.Point(54, 219);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(158, 16);
             this.label7.TabIndex = 19;
@@ -292,35 +305,35 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(256, 202);
+            this.txtDescripcion.Location = new System.Drawing.Point(227, 216);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(487, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(371, 22);
             this.txtDescripcion.TabIndex = 20;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(76, 580);
+            this.label8.Location = new System.Drawing.Point(76, 609);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 16);
             this.label8.TabIndex = 21;
             this.label8.Text = "Subtotal";
             // 
-            // lblSubtotal
+            // lblValorSubtotal
             // 
-            this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblSubtotal.Location = new System.Drawing.Point(179, 580);
-            this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(100, 18);
-            this.lblSubtotal.TabIndex = 22;
-            this.lblSubtotal.Tag = "";
-            this.lblSubtotal.Text = "Valor Subtotal\r\n";
+            this.lblValorSubtotal.AutoSize = true;
+            this.lblValorSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblValorSubtotal.Location = new System.Drawing.Point(179, 609);
+            this.lblValorSubtotal.Name = "lblValorSubtotal";
+            this.lblValorSubtotal.Size = new System.Drawing.Size(100, 18);
+            this.lblValorSubtotal.TabIndex = 22;
+            this.lblValorSubtotal.Tag = "";
+            this.lblValorSubtotal.Text = "Valor Subtotal\r\n";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(76, 635);
+            this.label9.Location = new System.Drawing.Point(76, 664);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 16);
             this.label9.TabIndex = 23;
@@ -328,35 +341,35 @@
             // 
             // txtDescuento
             // 
-            this.txtDescuento.Location = new System.Drawing.Point(169, 632);
+            this.txtDescuento.Location = new System.Drawing.Point(169, 661);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(60, 22);
             this.txtDescuento.TabIndex = 24;
             // 
             // btnDescuento
             // 
-            this.btnDescuento.Location = new System.Drawing.Point(253, 631);
+            this.btnDescuento.Location = new System.Drawing.Point(253, 660);
             this.btnDescuento.Name = "btnDescuento";
             this.btnDescuento.Size = new System.Drawing.Size(75, 23);
             this.btnDescuento.TabIndex = 25;
             this.btnDescuento.Text = "Aplicar";
             this.btnDescuento.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // lvlValorPresupuesto
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.Location = new System.Drawing.Point(191, 681);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(147, 20);
-            this.label10.TabIndex = 27;
-            this.label10.Tag = "";
-            this.label10.Text = "Valor Presupuesto";
+            this.lvlValorPresupuesto.AutoSize = true;
+            this.lvlValorPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lvlValorPresupuesto.Location = new System.Drawing.Point(191, 710);
+            this.lvlValorPresupuesto.Name = "lvlValorPresupuesto";
+            this.lvlValorPresupuesto.Size = new System.Drawing.Size(147, 20);
+            this.lvlValorPresupuesto.TabIndex = 27;
+            this.lvlValorPresupuesto.Tag = "";
+            this.lvlValorPresupuesto.Text = "Valor Presupuesto";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(68, 684);
+            this.label11.Location = new System.Drawing.Point(68, 713);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(117, 16);
             this.label11.TabIndex = 26;
@@ -364,7 +377,7 @@
             // 
             // btnVenta
             // 
-            this.btnVenta.Location = new System.Drawing.Point(779, 631);
+            this.btnVenta.Location = new System.Drawing.Point(779, 660);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(109, 51);
             this.btnVenta.TabIndex = 21;
@@ -373,7 +386,7 @@
             // 
             // btnEnviarMail
             // 
-            this.btnEnviarMail.Location = new System.Drawing.Point(611, 635);
+            this.btnEnviarMail.Location = new System.Drawing.Point(611, 664);
             this.btnEnviarMail.Name = "btnEnviarMail";
             this.btnEnviarMail.Size = new System.Drawing.Size(73, 23);
             this.btnEnviarMail.TabIndex = 28;
@@ -383,7 +396,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(763, 597);
+            this.label12.Location = new System.Drawing.Point(763, 626);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 16);
             this.label12.TabIndex = 29;
@@ -392,7 +405,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(457, 638);
+            this.label13.Location = new System.Drawing.Point(457, 667);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(96, 16);
             this.label13.TabIndex = 30;
@@ -401,7 +414,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(437, 585);
+            this.label14.Location = new System.Drawing.Point(437, 614);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(133, 16);
             this.label14.TabIndex = 32;
@@ -409,7 +422,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(611, 582);
+            this.btnImprimir.Location = new System.Drawing.Point(611, 611);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(73, 23);
             this.btnImprimir.TabIndex = 31;
@@ -419,7 +432,7 @@
             // dtpVigencia
             // 
             this.dtpVigencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVigencia.Location = new System.Drawing.Point(488, 681);
+            this.dtpVigencia.Location = new System.Drawing.Point(488, 710);
             this.dtpVigencia.Name = "dtpVigencia";
             this.dtpVigencia.Size = new System.Drawing.Size(98, 22);
             this.dtpVigencia.TabIndex = 33;
@@ -427,7 +440,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(386, 684);
+            this.label15.Location = new System.Drawing.Point(386, 713);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 16);
             this.label15.TabIndex = 34;
@@ -455,18 +468,39 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(611, 680);
+            this.button1.Location = new System.Drawing.Point(611, 709);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(73, 23);
             this.button1.TabIndex = 37;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // btnBuscarPresupuesto
+            // 
+            this.btnBuscarPresupuesto.Location = new System.Drawing.Point(813, 216);
+            this.btnBuscarPresupuesto.Name = "btnBuscarPresupuesto";
+            this.btnBuscarPresupuesto.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarPresupuesto.TabIndex = 39;
+            this.btnBuscarPresupuesto.Text = "Buscar";
+            this.btnBuscarPresupuesto.UseVisualStyleBackColor = true;
+            this.btnBuscarPresupuesto.Click += new System.EventHandler(this.btnBuscarPresupuesto_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(627, 219);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(183, 16);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Cargar Presupuesto existente";
+            // 
             // frmPresupuestador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 730);
+            this.ClientSize = new System.Drawing.Size(971, 757);
+            this.Controls.Add(this.btnBuscarPresupuesto);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -477,7 +511,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnEnviarMail);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lvlValorPresupuesto);
             this.Controls.Add(this.btnVenta);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label11);
@@ -488,7 +522,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lblSubtotal);
+            this.Controls.Add(this.lblValorSubtotal);
             this.Controls.Add(this.label9);
             this.Name = "frmPresupuestador";
             this.Text = "Presupuestador";
@@ -496,7 +530,7 @@
             this.gbxCliente.PerformLayout();
             this.gbxCotizaciones.ResumeLayout(false);
             this.gbxCotizaciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPresupuesto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,15 +552,15 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.ComboBox cmbDni;
         private System.Windows.Forms.GroupBox gbxCotizaciones;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPresupuesto;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.Label lblValorSubtotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Button btnDescuento;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lvlValorPresupuesto;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Button btnEnviarMail;
@@ -534,9 +568,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Button txtSubtotal;
-        private System.Windows.Forms.Button txtBorrarCotizacion;
-        private System.Windows.Forms.Button txtEditarCotizacion;
+        private System.Windows.Forms.Button btnSubtotal;
+        private System.Windows.Forms.Button btnBorrarCotizacion;
+        private System.Windows.Forms.Button btnEditarCotizacion;
         private System.Windows.Forms.DateTimePicker dtpVigencia;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -544,5 +578,8 @@
         private System.Windows.Forms.Button btnBuscarCotizacion;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCotizar;
+        private System.Windows.Forms.Button btnBuscarPresupuesto;
+        private System.Windows.Forms.Label label10;
     }
 }

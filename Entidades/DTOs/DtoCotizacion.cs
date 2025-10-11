@@ -30,6 +30,8 @@ namespace Entidades.DTOs
             Detalles = new List<DtoCotizacionDetalle>();
             FechaCreacion = DateTime.Now;
             UnidadMedida = "cm";
+            Activo = true;
+
         }
     }
 }

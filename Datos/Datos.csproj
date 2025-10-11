@@ -52,6 +52,7 @@
     <Compile Include="CD_DaoPassUsada.cs" />
     <Compile Include="CD_DaoPersona.cs" />
     <Compile Include="CD_DaoPregunta.cs" />
+    <Compile Include="CD_DaoPresupuesto.cs" />
     <Compile Include="CD_DaoRespuesta.cs" />
     <Compile Include="CD_DaoRol.cs" />
     <Compile Include="CD_DaoTipoDoc.cs" />
