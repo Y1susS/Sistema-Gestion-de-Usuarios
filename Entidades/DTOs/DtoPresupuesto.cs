@@ -13,6 +13,14 @@ namespace Entidades.DTOs
         public int? IdUser { get; set; }      
         public DateTime FechaCreacion { get; set; }
         public DateTime? FechaValidez { get; set; }
-        public int IdEstadoPresupuesto { get; set; } 
+        public int IdEstadoPresupuesto { get; set; }
+
+
+        public Presupuesto()
+        {
+            Activo = true;
+            FechaCreacion = DateTime.Now;
+            IdEstadoPresupuesto = 1; // Estado inicial
+        }
     }
 }

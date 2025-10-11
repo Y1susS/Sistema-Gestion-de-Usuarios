@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsSesionActual.cs" />
+    <Compile Include="DTOs\DtoPresupuestoDetalle.cs" />
     <Compile Include="DTOs\DtoCliente.cs" />
     <Compile Include="DTOs\DtoClienteDetalle.cs" />
     <Compile Include="DTOs\DtoConfiguracionContraseña.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="DTOs\DtoPersona.cs" />
     <Compile Include="DTOs\DtoPregunta.cs" />
     <Compile Include="DTOs\DtoPresupuesto.cs" />
+    <Compile Include="DTOs\DtoPresupuestoFiltro.cs" />
     <Compile Include="DTOs\DtoRespuesta.cs" />
     <Compile Include="DTOs\DtoRol.cs" />
     <Compile Include="DTOs\DtoTipoDoc.cs" />

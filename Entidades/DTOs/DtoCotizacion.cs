@@ -34,6 +34,8 @@ namespace Entidades.DTOs
             GastosVarios = new List<DtoGastoVario>();
             FechaCreacion = DateTime.Now;
             UnidadMedida = "cm";
+            Activo = true;
+
         }
     }
 }

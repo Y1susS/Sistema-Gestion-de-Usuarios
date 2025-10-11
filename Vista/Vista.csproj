@@ -54,6 +54,12 @@
     <Compile Include="frmBackUp.Designer.cs">
       <DependentUpon>frmBackUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarPresupuesto.Designer.cs">
+      <DependentUpon>frmBuscarPresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmControlStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBackUp.resx">
       <DependentUpon>frmBackUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarPresupuesto.resx">
+      <DependentUpon>frmBuscarPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmControlStock.resx">
       <DependentUpon>frmControlStock.cs</DependentUpon>
