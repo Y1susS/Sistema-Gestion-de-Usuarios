@@ -14,24 +14,13 @@ namespace Vista
     {
         private readonly CL_Cotizacion logicaCotizacion = new CL_Cotizacion();
         private List<DtoCotizacion> cotizaciones = new List<DtoCotizacion>();
-
-        // Fuente de datos para filtrar/ordenar sin perder el binding
-        private readonly BindingSource bsCotizaciones = new BindingSource();
+        private List<DtoCotizacion> vistaFiltrada = new List<DtoCotizacion>(); // lista mostrada
 
         public frmListarCotizaciones()
         {
             InitializeComponent();
-            // Asegurar que el Load esté enganchado
             this.Load -= frmListarCotizaciones_Load;
             this.Load += frmListarCotizaciones_Load;
-        }
-
-        // Carga inicial garantizada al mostrarse el form (por si el Load del diseñador no se ejecuta)
-        protected override void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-            CargarCotizaciones();
-            AplicarFiltro();
         }
 
         private void frmListarCotizaciones_Load(object sender, EventArgs e)
@@ -39,12 +28,8 @@ namespace Vista
             try
             {
                 ConfigurarDataGridView();
-
-                // Enganchar eventos de UI (si existen los controles)
                 ConfigurarEventosBusqueda();
-
-                CargarCotizaciones();         // Carga inicial
-                AplicarFiltro();              // Aplica filtro inicial (vacío = muestra todo)
+                CargarCotizaciones();
             }
             catch (Exception ex)
             {
@@ -67,9 +52,9 @@ namespace Vista
 
             dvgCotizaciones.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "IdCotizacion",
+                Name = "Id_Cotizacion",
                 HeaderText = "ID",
-                DataPropertyName = "IdCotizacion",
+                DataPropertyName = "Id_Cotizacion",
                 Width = 60
             });
 
@@ -115,24 +100,33 @@ namespace Vista
                 DefaultCellStyle = new DataGridViewCellStyle { Format = "N2" }
             });
 
-            // Sin columnas de botones
-            dvgCotizaciones.DataSource = bsCotizaciones;
-
-            // Habilitar/deshabilitar botón Editar según selección
+            // Eventos grilla
             dvgCotizaciones.SelectionChanged -= dvgCotizaciones_SelectionChanged;
             dvgCotizaciones.SelectionChanged += dvgCotizaciones_SelectionChanged;
+
+            dvgCotizaciones.CellClick -= dvgCotizaciones_CellClick;
+            dvgCotizaciones.CellClick += dvgCotizaciones_CellClick;
+
+            dvgCotizaciones.CellDoubleClick -= dvgCotizaciones_CellDoubleClick;
+            dvgCotizaciones.CellDoubleClick += dvgCotizaciones_CellDoubleClick;
+
+            dvgCotizaciones.KeyDown -= dvgCotizaciones_KeyDown;
+            dvgCotizaciones.KeyDown += dvgCotizaciones_KeyDown;
         }
 
         private void CargarCotizaciones()
         {
             try
             {
-                cotizaciones = logicaCotizacion.ListarCotizaciones() ?? new List<DtoCotizacion>();
+                // cargar solo activos desde la BD
+                cotizaciones = (logicaCotizacion.ListarCotizaciones() ?? new List<DtoCotizacion>())
+                                .Where(c => c.Activo)
+                                .ToList();
 
-                // BindingList para notificaciones y refresco consistente
-                bsCotizaciones.DataSource = new BindingList<DtoCotizacion>(cotizaciones);
-                dvgCotizaciones.DataSource = bsCotizaciones;
-
+                // Mostrar todo al abrir (sin filtro)
+                vistaFiltrada = new List<DtoCotizacion>(cotizaciones);
+                dvgCotizaciones.DataSource = null;
+                dvgCotizaciones.DataSource = vistaFiltrada;
                 dvgCotizaciones.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
                 dvgCotizaciones.Refresh();
             }
@@ -140,45 +134,64 @@ namespace Vista
             {
                 MessageBox.Show($"Error al cargar cotizaciones: {ex.Message}", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Mostrar grilla vacía si hubo error
-                bsCotizaciones.DataSource = new BindingList<DtoCotizacion>();
-                dvgCotizaciones.DataSource = bsCotizaciones;
+
+                vistaFiltrada = new List<DtoCotizacion>();
+                dvgCotizaciones.DataSource = null;
+                dvgCotizaciones.DataSource = vistaFiltrada;
             }
         }
 
-        // Aplica filtro por texto y (opcional) rango de fechas si los controles existen
+        // Aplica filtro por descripción, vendedor y fecha (solo si chkFechaActivo está marcado)
         private void AplicarFiltro()
         {
             try
             {
-                var texto = ObtenerTexto("txtBuscar")?.ToLowerInvariant();
-                var lista = cotizaciones.AsEnumerable();
+                var descripcion = ObtenerTexto("txtDescripcion")?.ToLowerInvariant();
+                var vendedor = ObtenerTexto("txtVendedor")?.ToLowerInvariant();
 
-                if (!string.IsNullOrWhiteSpace(texto))
+                IEnumerable<DtoCotizacion> lista = cotizaciones;
+
+                if (!string.IsNullOrWhiteSpace(descripcion))
+                    lista = lista.Where(c => (c.DescripcionMueble ?? "").ToLowerInvariant().Contains(descripcion));
+
+                if (!string.IsNullOrWhiteSpace(vendedor))
+                    lista = lista.Where(c => (c.UsuarioNombre ?? "").ToLowerInvariant().Contains(vendedor));
+
+                // Solo filtrar por fecha si el checkbox de activación está marcado
+                var chkFechaActivo = Controls.Find("chkFechaActivo", true).FirstOrDefault() as CheckBox;
+                bool filtrarPorFecha = chkFechaActivo != null && chkFechaActivo.Checked;
+
+                if (filtrarPorFecha)
                 {
-                    lista = lista.Where(c =>
-                        (c.NumeroCotizacion ?? "").ToLowerInvariant().Contains(texto) ||
-                        (c.DescripcionMueble ?? "").ToLowerInvariant().Contains(texto) ||
-                        (c.UsuarioNombre ?? "").ToLowerInvariant().Contains(texto) ||
-                        c.Id_Cotizacion.ToString().Contains(texto)
-                    );
+                    var chkRango = Controls.Find("chkRangoFechas", true).FirstOrDefault() as CheckBox;
+                    var dtpDesde = Controls.Find("dtpDesde", true).FirstOrDefault() as DateTimePicker;
+                    var dtpHasta = Controls.Find("dtpHasta", true).FirstOrDefault() as DateTimePicker;
+
+                    if (chkRango != null && chkRango.Checked && dtpDesde != null && dtpHasta != null)
+                    {
+                        var desde = dtpDesde.Value.Date;
+                        var hasta = dtpHasta.Value.Date;
+                        if (hasta < desde) hasta = desde;
+
+                        lista = lista.Where(c => c.FechaCreacion.Date >= desde && c.FechaCreacion.Date <= hasta);
+                    }
+                    else
+                    {
+                        var dtpFecha = Controls.Find("dateTimePicker1", true).FirstOrDefault() as DateTimePicker;
+                        if (dtpFecha != null)
+                        {
+                            var fecha = dtpFecha.Value.Date;
+                            lista = lista.Where(c => c.FechaCreacion.Date == fecha);
+                        }
+                    }
                 }
 
-                // Filtro por rango de fechas si existe un CheckBox para habilitarlo
-                var chkRango = Controls.Find("chkRangoFechas", true).FirstOrDefault() as CheckBox;
-                var dtpDesde = Controls.Find("dtpDesde", true).FirstOrDefault() as DateTimePicker;
-                var dtpHasta = Controls.Find("dtpHasta", true).FirstOrDefault() as DateTimePicker;
+                vistaFiltrada = lista.ToList();
 
-                if (chkRango != null && chkRango.Checked && dtpDesde != null && dtpHasta != null)
-                {
-                    var desde = dtpDesde.Value.Date;
-                    var hasta = dtpHasta.Value.Date;
-                    if (hasta < desde) hasta = desde;
-
-                    lista = lista.Where(c => c.FechaCreacion.Date >= desde && c.FechaCreacion.Date <= hasta);
-                }
-
-                bsCotizaciones.DataSource = lista.ToList();
+                dvgCotizaciones.DataSource = null; // reasignación simple
+                dvgCotizaciones.DataSource = vistaFiltrada;
+                dvgCotizaciones.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                dvgCotizaciones.Refresh();
             }
             catch (Exception ex)
             {
@@ -189,23 +202,16 @@ namespace Vista
 
         private void ConfigurarEventosBusqueda()
         {
-            // Buscar por texto incremental
-            var txtBuscar = Controls.Find("txtBuscar", true).FirstOrDefault() as TextBox;
-            if (txtBuscar != null)
-            {
-                txtBuscar.TextChanged -= TxtBuscar_TextChanged;
-                txtBuscar.TextChanged += TxtBuscar_TextChanged;
-            }
-
-            // Botón buscar (si existe en el diseñador)
-            var btnBuscar = Controls.Find("btnBuscarCotización", true).FirstOrDefault() as Button;
+            // Botón buscar (aplica filtros)
+            var btnBuscar = Controls.Find("btnBuscarCotización", true).FirstOrDefault() as Button
+                            ?? Controls.Find("btnBuscarCotizacion", true).FirstOrDefault() as Button;
             if (btnBuscar != null)
             {
                 btnBuscar.Click -= btnBuscarCotización_Click;
                 btnBuscar.Click += btnBuscarCotización_Click;
             }
 
-            // Rango de fechas (si existen)
+            // Rango de fechas (solo habilita/deshabilita, NO filtra automáticamente)
             var dtpDesde = Controls.Find("dtpDesde", true).FirstOrDefault() as DateTimePicker;
             var dtpHasta = Controls.Find("dtpHasta", true).FirstOrDefault() as DateTimePicker;
             var chkRango = Controls.Find("chkRangoFechas", true).FirstOrDefault() as CheckBox;
@@ -213,11 +219,61 @@ namespace Vista
             if (dtpDesde != null) { dtpDesde.ValueChanged -= Dtp_ValueChanged; dtpDesde.ValueChanged += Dtp_ValueChanged; }
             if (dtpHasta != null) { dtpHasta.ValueChanged -= Dtp_ValueChanged; dtpHasta.ValueChanged += Dtp_ValueChanged; }
             if (chkRango != null) { chkRango.CheckedChanged -= ChkRango_CheckedChanged; chkRango.CheckedChanged += ChkRango_CheckedChanged; }
+
+            // Activación del filtrado por fecha: habilita los DateTimePicker, NO filtra
+            var chkFechaActivo = Controls.Find("chkFechaActivo", true).FirstOrDefault() as CheckBox;
+            if (chkFechaActivo != null)
+            {
+                chkFechaActivo.CheckedChanged -= ChkFechaActivo_CheckedChanged;
+                chkFechaActivo.CheckedChanged += ChkFechaActivo_CheckedChanged;
+
+                // Estado inicial de habilitación
+                ActualizarHabilitacionFechas(chkFechaActivo.Checked);
+            }
+
+            // Botones Editar/Eliminar
+            var btnEditar = Controls.Find("btnEditarCotizacion", true).FirstOrDefault() as Button;
+            if (btnEditar != null)
+            {
+                btnEditar.Click -= btnEditarCotizacion_Click;
+                btnEditar.Click += btnEditarCotizacion_Click;
+            }
+
+            var btnEliminar = Controls.Find("btnEliminarCotizacion", true).FirstOrDefault() as Button;
+            if (btnEliminar != null)
+            {
+                btnEliminar.Click -= btnEliminarCotizacion_Click;
+                btnEliminar.Click += btnEliminarCotizacion_Click;
+            }
         }
 
-        private void TxtBuscar_TextChanged(object sender, EventArgs e) => AplicarFiltro();
-        private void Dtp_ValueChanged(object sender, EventArgs e) => AplicarFiltro();
-        private void ChkRango_CheckedChanged(object sender, EventArgs e) => AplicarFiltro();
+
+        // NO filtra: solo ajusta mínimos y UI
+        private void Dtp_ValueChanged(object sender, EventArgs e)
+        {
+            var dtpDesde = Controls.Find("dtpDesde", true).FirstOrDefault() as DateTimePicker;
+            var dtpHasta = Controls.Find("dtpHasta", true).FirstOrDefault() as DateTimePicker;
+            if (dtpDesde != null && dtpHasta != null)
+            {
+                dtpHasta.MinDate = dtpDesde.Value.Date;
+                if (dtpHasta.Value < dtpDesde.Value)
+                    dtpHasta.Value = dtpDesde.Value;
+            }
+        }
+
+        private void ChkRango_CheckedChanged(object sender, EventArgs e)
+        {
+            var chkFechaActivo = Controls.Find("chkFechaActivo", true).FirstOrDefault() as CheckBox;
+            ActualizarHabilitacionFechas(chkFechaActivo != null && chkFechaActivo.Checked);
+            // No aplicar filtro aquí
+        }
+
+        private void ChkFechaActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            var chk = sender as CheckBox;
+            ActualizarHabilitacionFechas(chk != null && chk.Checked);
+            // No aplicar filtro aquí
+        }
 
         private string ObtenerTexto(string nombreTextBox)
         {
@@ -228,21 +284,18 @@ namespace Vista
         private void dvgCotizaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
-            // Tomar la entidad enlazada a la fila (no por índice de la lista)
             var fila = dvgCotizaciones.Rows[e.RowIndex].DataBoundItem as DtoCotizacion;
             if (fila == null) return;
 
             try
             {
-                if (e.ColumnIndex == dvgCotizaciones.Columns["btnEditar"].Index)
-                {
+                var colEditar = dvgCotizaciones.Columns["btnEditar"];
+                var colEliminar = dvgCotizaciones.Columns["btnEliminar"];
+
+                if (colEditar != null && e.ColumnIndex == colEditar.Index)
                     EditarCotizacion(fila);
-                }
-                else if (e.ColumnIndex == dvgCotizaciones.Columns["btnEliminar"].Index)
-                {
+                else if (colEliminar != null && e.ColumnIndex == colEliminar.Index)
                     EliminarCotizacion(fila);
-                }
             }
             catch (Exception ex)
             {
@@ -251,6 +304,27 @@ namespace Vista
             }
         }
 
+        private void dvgCotizaciones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var fila = dvgCotizaciones.Rows[e.RowIndex].DataBoundItem as DtoCotizacion;
+            if (fila == null) return;
+
+            EditarCotizacion(fila);
+        }
+
+        private void dvgCotizaciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                var seleccion = ObtenerCotizacionSeleccionada();
+                if (seleccion != null)
+                {
+                    EliminarCotizacion(seleccion);
+                    e.Handled = true;
+                }
+            }
+        }
 
         private void EditarCotizacion(DtoCotizacion cotizacion)
         {
@@ -269,7 +343,7 @@ namespace Vista
                     EventHandler onLoad = null;
                     onLoad = (s, e) =>
                     {
-                        frm.Load -= onLoad; // evitar múltiple invocación
+                        frm.Load -= onLoad;
                         frm.CargarCotizacionParaEdicion(cotizacionCompleta);
                     };
                     frm.Load += onLoad;
@@ -278,7 +352,6 @@ namespace Vista
                 }
 
                 CargarCotizaciones();
-                AplicarFiltro();
             }
             catch (Exception ex)
             {
@@ -290,24 +363,34 @@ namespace Vista
         private void EliminarCotizacion(DtoCotizacion cotizacion)
         {
             var resultado = MessageBox.Show(
-                $"¿Está seguro que desea eliminar la cotización {cotizacion.NumeroCotizacion}?",
+                $"¿Está seguro que desea eliminar la cotización {cotizacion.NumeroCotizacion} (ID {cotizacion.Id_Cotizacion})?",
                 "Confirmar Eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
             if (resultado == DialogResult.Yes)
             {
-                if (logicaCotizacion.EliminarCotizacion(cotizacion.Id_Cotizacion))
+                try
                 {
-                    MessageBox.Show("Cotización eliminada correctamente.", "Éxito",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarCotizaciones();
-                    AplicarFiltro();
+                    if (logicaCotizacion.EliminarCotizacion(cotizacion.Id_Cotizacion))
+                    {
+                        MessageBox.Show("Cotización eliminada correctamente.", "Éxito",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Recargar SOLO ACTIVAS y refrescar de inmediato
+                        CargarCotizaciones();
+                        dvgCotizaciones.ClearSelection();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar la cotización.", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error al eliminar la cotización.", "Error",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error al eliminar: {ex.Message}", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -339,23 +422,20 @@ namespace Vista
 
                 var frm = new frmCotizador();
 
-                // Diferir la carga hasta que el formulario haya inicializado los combos
                 EventHandler onLoad = null;
                 onLoad = (s, args) =>
                 {
-                    frm.Load -= onLoad; // evitar múltiples ejecuciones
+                    frm.Load -= onLoad;
                     frm.CargarCotizacionParaEdicion(cotizacionCompleta);
                 };
                 frm.Load += onLoad;
 
-                // Ocultar este formulario y cerrarlo al cerrar el cotizador
                 this.Hide();
                 frm.FormClosed += (s, args) =>
                 {
-                    try { this.Close(); } catch { /* silencioso */ }
+                    try { this.Close(); } catch { }
                 };
 
-                // Mostrar el cotizador de forma no modal
                 frm.Show();
             }
             catch (Exception ex)
@@ -376,6 +456,39 @@ namespace Vista
             var btnEditar = Controls.Find("btnEditarCotizacion", true).FirstOrDefault() as Button;
             if (btnEditar != null)
                 btnEditar.Enabled = dvgCotizaciones.CurrentRow != null;
+
+            var btnEliminar = Controls.Find("btnEliminarCotizacion", true).FirstOrDefault() as Button;
+            if (btnEliminar != null)
+                btnEliminar.Enabled = dvgCotizaciones.CurrentRow != null;
+        }
+
+        private void btnEliminarCotizacion_Click(object sender, EventArgs e)
+        {
+            var seleccion = ObtenerCotizacionSeleccionada();
+            if (seleccion == null)
+            {
+                MessageBox.Show("Seleccione una cotización de la lista.", "Información",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            EliminarCotizacion(seleccion);
+        }
+
+        private void ActualizarHabilitacionFechas(bool habilitar)
+        {
+            var chkRango = Controls.Find("chkRangoFechas", true).FirstOrDefault() as CheckBox;
+            var dtpDesde = Controls.Find("dtpDesde", true).FirstOrDefault() as DateTimePicker;
+            var dtpHasta = Controls.Find("dtpHasta", true).FirstOrDefault() as DateTimePicker;
+            var dtpFecha = Controls.Find("dateTimePicker1", true).FirstOrDefault() as DateTimePicker;
+
+            if (chkRango != null) chkRango.Enabled = habilitar;
+
+            bool usarRango = habilitar && chkRango != null && chkRango.Checked;
+
+            if (dtpDesde != null) dtpDesde.Enabled = usarRango;
+            if (dtpHasta != null) dtpHasta.Enabled = usarRango;
+            if (dtpFecha != null) dtpFecha.Enabled = habilitar && !usarRango;
         }
     }
 }
