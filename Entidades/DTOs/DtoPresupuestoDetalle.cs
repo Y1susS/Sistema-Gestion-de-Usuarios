@@ -39,7 +39,7 @@ namespace Entidades
         {
             if (cotizacion == null) throw new ArgumentNullException(nameof(cotizacion));
 
-            this.IdCotizacion = cotizacion.IdCotizacion;
+            this.IdCotizacion = cotizacion.Id_Cotizacion;
             this.NumeroCotizacion = cotizacion.NumeroCotizacion;
             this.DescripcionMueble = cotizacion.DescripcionMueble;
             this.PrecioUnitario = cotizacion.MontoFinal; // El precio unitario es el MontoFinal de la cotización
