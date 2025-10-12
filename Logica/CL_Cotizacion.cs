@@ -16,43 +16,6 @@ namespace Logica
         private readonly CD_DaoCotizacionDetalleVidrio daoDetalleVidrio = new CD_DaoCotizacionDetalleVidrio();
         private readonly CD_DaoCotizacionMaterial daoMaterialesVarios = new CD_DaoCotizacionMaterial(); // NUEVO
 
-        public List<DtoMaterial> ObtenerMaderas()
-        {
-            try
-            {
-                var todosMateriales = daoMaterial.ListarMateriales();
-                var maderas = todosMateriales.Where(m =>
-                    m.TipoMaterial != null &&
-                    (m.TipoMaterial.NombreTipoMaterial.ToLower().Contains("madera") ||
-                     m.NombreMaterial.ToLower().Contains("madera") ||
-                     EsMaderaConocida(m.NombreMaterial))
-                ).ToList();
-
-                return maderas;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error en lógica al obtener maderas: " + ex.Message);
-            }
-        }
-
-        private bool EsMaderaConocida(string nombreMaterial)
-        {
-            var maderasConocidas = new[] { "pino", "petiribi", "guayubira", "paraiso", "cancharana", "álamo", "alamo", "roble", "cedro", "eucalipto" };
-            return maderasConocidas.Any(madera => nombreMaterial.ToLower().Contains(madera));
-        }
-
-        public List<DtoMaterial> ObtenerTodosLosMateriales()
-        {
-            try
-            {
-                return daoMaterial.ListarMateriales();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error en lógica al obtener materiales: " + ex.Message);
-            }
-        }
 
         public static class CalculadorPies
         {
