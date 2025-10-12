@@ -30,23 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizador));
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.lblCotizador = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblpresupuesto = new System.Windows.Forms.Label();
             this.lblCotiacion = new System.Windows.Forms.Label();
-            this.dvgCotizaciones = new System.Windows.Forms.DataGridView();
             this.txtDescripcionMueble = new System.Windows.Forms.TextBox();
             this.pnlPresupuesto = new System.Windows.Forms.Panel();
-            this.btnCargarCotizacion = new System.Windows.Forms.Button();
-            this.btncerrar = new System.Windows.Forms.Button();
+            this.btnCotizaciones = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnCalcularCotizacion = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
-            this.btnGuardarPresupuesto = new System.Windows.Forms.Button();
+            this.btnGuardarCotizacion = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lbltotalgastosadicionales = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -207,11 +206,10 @@
             this.txtcantidad5 = new System.Windows.Forms.TextBox();
             this.txtlargom5 = new System.Windows.Forms.TextBox();
             this.pnlBorde.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).BeginInit();
             this.pnlPresupuesto.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -230,16 +228,6 @@
             this.pnlBorde.Name = "pnlBorde";
             this.pnlBorde.Size = new System.Drawing.Size(1425, 40);
             this.pnlBorde.TabIndex = 8022;
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLogo.Location = new System.Drawing.Point(8, 8);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(45, 25);
-            this.pctLogo.TabIndex = 8026;
-            this.pctLogo.TabStop = false;
             // 
             // pctMinimize
             // 
@@ -266,6 +254,16 @@
             this.pctClose.TabIndex = 20;
             this.pctClose.TabStop = false;
             this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pctLogo
+            // 
+            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
+            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctLogo.Location = new System.Drawing.Point(8, 8);
+            this.pctLogo.Name = "pctLogo";
+            this.pctLogo.Size = new System.Drawing.Size(45, 25);
+            this.pctLogo.TabIndex = 8026;
+            this.pctLogo.TabStop = false;
             // 
             // lblCotizador
             // 
@@ -296,7 +294,6 @@
             this.pnlContenedor.Controls.Add(this.label4);
             this.pnlContenedor.Controls.Add(this.lblpresupuesto);
             this.pnlContenedor.Controls.Add(this.lblCotiacion);
-            this.pnlContenedor.Controls.Add(this.dvgCotizaciones);
             this.pnlContenedor.Controls.Add(this.txtDescripcionMueble);
             this.pnlContenedor.Controls.Add(this.pnlPresupuesto);
             this.pnlContenedor.Controls.Add(this.groupBox4);
@@ -326,7 +323,7 @@
             this.lblpresupuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpresupuesto.ForeColor = System.Drawing.Color.White;
-            this.lblpresupuesto.Location = new System.Drawing.Point(1280, 334);
+            this.lblpresupuesto.Location = new System.Drawing.Point(1279, 252);
             this.lblpresupuesto.Name = "lblpresupuesto";
             this.lblpresupuesto.Size = new System.Drawing.Size(106, 25);
             this.lblpresupuesto.TabIndex = 8040;
@@ -337,20 +334,12 @@
             this.lblCotiacion.BackColor = System.Drawing.Color.Transparent;
             this.lblCotiacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCotiacion.ForeColor = System.Drawing.Color.White;
-            this.lblCotiacion.Location = new System.Drawing.Point(1163, 331);
+            this.lblCotiacion.Location = new System.Drawing.Point(1166, 250);
             this.lblCotiacion.Name = "lblCotiacion";
             this.lblCotiacion.Size = new System.Drawing.Size(123, 36);
             this.lblCotiacion.TabIndex = 8039;
             this.lblCotiacion.Text = "Cotización";
             this.lblCotiacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dvgCotizaciones
-            // 
-            this.dvgCotizaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgCotizaciones.Location = new System.Drawing.Point(682, 220);
-            this.dvgCotizaciones.Name = "dvgCotizaciones";
-            this.dvgCotizaciones.Size = new System.Drawing.Size(463, 145);
-            this.dvgCotizaciones.TabIndex = 8038;
             // 
             // txtDescripcionMueble
             // 
@@ -364,41 +353,43 @@
             // pnlPresupuesto
             // 
             this.pnlPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlPresupuesto.Controls.Add(this.btnCargarCotizacion);
-            this.pnlPresupuesto.Controls.Add(this.btncerrar);
+            this.pnlPresupuesto.Controls.Add(this.btnCotizaciones);
+            this.pnlPresupuesto.Controls.Add(this.btnCerrar);
             this.pnlPresupuesto.Controls.Add(this.btnCalcularCotizacion);
             this.pnlPresupuesto.Controls.Add(this.btnLimpiarCampos);
-            this.pnlPresupuesto.Controls.Add(this.btnGuardarPresupuesto);
+            this.pnlPresupuesto.Controls.Add(this.btnGuardarCotizacion);
             this.pnlPresupuesto.Location = new System.Drawing.Point(1178, 371);
             this.pnlPresupuesto.Name = "pnlPresupuesto";
             this.pnlPresupuesto.Size = new System.Drawing.Size(230, 238);
             this.pnlPresupuesto.TabIndex = 8037;
             // 
-            // btnCargarCotizacion
+            // btnCotizaciones
             // 
-            this.btnCargarCotizacion.BackColor = System.Drawing.Color.White;
-            this.btnCargarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarCotizacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarCotizacion.ForeColor = System.Drawing.Color.Black;
-            this.btnCargarCotizacion.Location = new System.Drawing.Point(20, 103);
-            this.btnCargarCotizacion.Name = "btnCargarCotizacion";
-            this.btnCargarCotizacion.Size = new System.Drawing.Size(188, 40);
-            this.btnCargarCotizacion.TabIndex = 7951;
-            this.btnCargarCotizacion.Text = "Cargar cotización";
-            this.btnCargarCotizacion.UseVisualStyleBackColor = false;
+            this.btnCotizaciones.BackColor = System.Drawing.Color.White;
+            this.btnCotizaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCotizaciones.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCotizaciones.ForeColor = System.Drawing.Color.Black;
+            this.btnCotizaciones.Location = new System.Drawing.Point(20, 103);
+            this.btnCotizaciones.Name = "btnCotizaciones";
+            this.btnCotizaciones.Size = new System.Drawing.Size(188, 40);
+            this.btnCotizaciones.TabIndex = 7951;
+            this.btnCotizaciones.Text = "Cotizaciones";
+            this.btnCotizaciones.UseVisualStyleBackColor = false;
+            this.btnCotizaciones.Click += new System.EventHandler(this.btnCotizaciones_Click);
             // 
-            // btncerrar
+            // btnCerrar
             // 
-            this.btncerrar.BackColor = System.Drawing.Color.White;
-            this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncerrar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncerrar.ForeColor = System.Drawing.Color.Black;
-            this.btncerrar.Location = new System.Drawing.Point(20, 190);
-            this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(188, 40);
-            this.btncerrar.TabIndex = 7950;
-            this.btncerrar.Text = "Cerrar";
-            this.btncerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.BackColor = System.Drawing.Color.White;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.Black;
+            this.btnCerrar.Location = new System.Drawing.Point(20, 190);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(188, 40);
+            this.btnCerrar.TabIndex = 7950;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnCalcularCotizacion
             // 
@@ -428,19 +419,19 @@
             this.btnLimpiarCampos.UseVisualStyleBackColor = false;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
-            // btnGuardarPresupuesto
+            // btnGuardarCotizacion
             // 
-            this.btnGuardarPresupuesto.BackColor = System.Drawing.Color.White;
-            this.btnGuardarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarPresupuesto.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardarPresupuesto.Location = new System.Drawing.Point(20, 61);
-            this.btnGuardarPresupuesto.Name = "btnGuardarPresupuesto";
-            this.btnGuardarPresupuesto.Size = new System.Drawing.Size(188, 40);
-            this.btnGuardarPresupuesto.TabIndex = 7949;
-            this.btnGuardarPresupuesto.Text = "Guardar cotización";
-            this.btnGuardarPresupuesto.UseVisualStyleBackColor = false;
-            this.btnGuardarPresupuesto.Click += new System.EventHandler(this.btnGuardarCotizacion_Click);
+            this.btnGuardarCotizacion.BackColor = System.Drawing.Color.White;
+            this.btnGuardarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarCotizacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarCotizacion.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarCotizacion.Location = new System.Drawing.Point(20, 61);
+            this.btnGuardarCotizacion.Name = "btnGuardarCotizacion";
+            this.btnGuardarCotizacion.Size = new System.Drawing.Size(188, 40);
+            this.btnGuardarCotizacion.TabIndex = 7949;
+            this.btnGuardarCotizacion.Text = "Guardar cotización";
+            this.btnGuardarCotizacion.UseVisualStyleBackColor = false;
+            this.btnGuardarCotizacion.Click += new System.EventHandler(this.btnGuardarCotizacion_Click);
             // 
             // groupBox4
             // 
@@ -1168,7 +1159,7 @@
             this.groupBox2.Controls.Add(this.cmbVidrio2);
             this.groupBox2.Controls.Add(this.cmbVidrio3);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(682, 29);
+            this.groupBox2.Location = new System.Drawing.Point(682, 48);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(726, 185);
             this.groupBox2.TabIndex = 8032;
@@ -1437,7 +1428,7 @@
             this.lblUnidadVidrio.Name = "lblUnidadVidrio";
             this.lblUnidadVidrio.Size = new System.Drawing.Size(75, 36);
             this.lblUnidadVidrio.TabIndex = 7983;
-            this.lblUnidadVidrio.Text = "Unidad";
+            this.lblUnidadVidrio.Text = "Precio x Unidad";
             this.lblUnidadVidrio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTotalVidrio
@@ -2111,7 +2102,6 @@
             this.lblpie5.Size = new System.Drawing.Size(75, 25);
             this.lblpie5.TabIndex = 7935;
             this.lblpie5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
             // 
             // txtespesorm3
             // 
@@ -2154,7 +2144,6 @@
             this.lblpie3.Size = new System.Drawing.Size(75, 25);
             this.lblpie3.TabIndex = 7933;
             this.lblpie3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
             // 
             // txtlargom3
             // 
@@ -2176,7 +2165,6 @@
             this.lblpie2.Size = new System.Drawing.Size(75, 25);
             this.lblpie2.TabIndex = 7932;
             this.lblpie2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
             // 
             // txtcantidad3
             // 
@@ -2198,7 +2186,6 @@
             this.lblpie1.Size = new System.Drawing.Size(75, 25);
             this.lblpie1.TabIndex = 7931;
             this.lblpie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
             // 
             // txtespesorm4
             // 
@@ -2337,12 +2324,11 @@
             this.Text = "CalculoPiesMuebles";
             this.Load += new System.EventHandler(this.frmCotizador_Load);
             this.pnlBorde.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlContenedor.ResumeLayout(false);
             this.pnlContenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).EndInit();
             this.pnlPresupuesto.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -2361,10 +2347,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Panel pnlPresupuesto;
-        private System.Windows.Forms.Button btncerrar;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnCalcularCotizacion;
         private System.Windows.Forms.Button btnLimpiarCampos;
-        private System.Windows.Forms.Button btnGuardarPresupuesto;
+        private System.Windows.Forms.Button btnGuardarCotizacion;
         private System.Windows.Forms.Label lblseleccionmaderas;
         private System.Windows.Forms.ComboBox cmbMaderas;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -2518,14 +2504,13 @@
         private System.Windows.Forms.TextBox txtDescMateriale2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox chkotrosmateriales2;
-        private System.Windows.Forms.Button btnCargarCotizacion;
+        private System.Windows.Forms.Button btnCotizaciones;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtMaterialPrecio2;
         private System.Windows.Forms.TextBox txtMaterialPrecio3;
         private System.Windows.Forms.TextBox txtMaterialPrecio1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtDescripcionMueble;
-        private System.Windows.Forms.DataGridView dvgCotizaciones;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Label lblcalculopies;
         private System.Windows.Forms.Label lblpresupuesto;
