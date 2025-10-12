@@ -48,6 +48,8 @@
     <Compile Include="DTOs\DtoConfiguracionContraseña.cs" />
     <Compile Include="DTOs\DtoCotizacion.cs" />
     <Compile Include="DTOs\DtoCotizacionDetalle.cs" />
+    <Compile Include="DTOs\DtoCotizacionDetalleVidrio.cs" />
+    <Compile Include="DTOs\DtoCotizacionMaterial.cs" />
     <Compile Include="DTOs\DtoDatosPersonalesPw.cs" />
     <Compile Include="DTOs\DtoDocumentoComercial.cs" />
     <Compile Include="DTOs\DtoFuncionalidad.cs" />

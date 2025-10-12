@@ -51,6 +51,7 @@ namespace Datos
 
             return idMaterial;
         }
+
         public bool EliminarMaterial(int id)
         {
             bool resultado = false;
@@ -77,6 +78,7 @@ namespace Datos
 
             return resultado;
         }
+
         public bool ActualizarMaterial(DtoMaterial material)
         {
             bool resultado = false;
@@ -240,37 +242,6 @@ namespace Datos
             return listaTipos;
         }
 
-        public List<DtoTipoMaterial> ListarTiposMaterialesVarios()
-        {
-            List<DtoTipoMaterial> listaTipos = new List<DtoTipoMaterial>();
-            SqlConnection conn = null;
-
-            try
-            {
-                conn = AbrirConexion();
-                SqlCommand cmd = new SqlCommand("SP_ListarTiposMaterialesVarios", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                using (SqlDataReader dr = cmd.ExecuteReader())
-                {
-                    while (dr.Read())
-                    {
-                        listaTipos.Add(MapearLectorATipoMaterialSeguro(dr));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al listar tipos de materiales varios: " + ex.Message, ex);
-            }
-            finally
-            {
-                CerrarConexion();
-            }
-
-            return listaTipos;
-        }
-
         public List<DtoMaterial> ListarMaderas()
         {
             List<DtoMaterial> maderas = new List<DtoMaterial>();
@@ -279,26 +250,14 @@ namespace Datos
             try
             {
                 conn = AbrirConexion();
-                
-                // Intentar primero con SP específico, si falla usar método alternativo
-                try
+                using (SqlCommand cmd = new SqlCommand("SP_ListarMadera", conn))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_ListarMaderas", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
-                        {
                             maderas.Add(MapearLectorAMaterialSeguro(dr));
-                        }
                     }
-                }
-                catch (SqlException)
-                {
-                    // Si el SP no existe, usar método alternativo
-                    CerrarConexion();
-                    return ListarMaderasAlternativo();
                 }
             }
             catch (Exception ex)
@@ -321,26 +280,14 @@ namespace Datos
             try
             {
                 conn = AbrirConexion();
-                
-                // Intentar primero con SP específico, si falla usar método alternativo
-                try
+                using (SqlCommand cmd = new SqlCommand("SP_ListarVidrios", conn))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_ListarVidrios", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
-                        {
                             vidrios.Add(MapearLectorAMaterialSeguro(dr));
-                        }
                     }
-                }
-                catch (SqlException)
-                {
-                    // Si el SP no existe, usar método alternativo
-                    CerrarConexion();
-                    return ListarVidriosAlternativo();
                 }
             }
             catch (Exception ex)
@@ -355,73 +302,36 @@ namespace Datos
             return vidrios;
         }
 
-        #region MÉTODOS ALTERNATIVOS
-
-        private List<DtoMaterial> ListarMaderasAlternativo()
+        public List<DtoTipoMaterial> ListarTiposMaterialesVarios()
         {
-            List<DtoMaterial> maderas = new List<DtoMaterial>();
+            List<DtoTipoMaterial> listaTipos = new List<DtoTipoMaterial>();
             SqlConnection conn = null;
 
             try
             {
                 conn = AbrirConexion();
-                SqlCommand cmd = new SqlCommand("SP_ListarMaterialesPorTipo", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdTipoMaterial", 1); // 1 = Maderas
-
-                using (SqlDataReader dr = cmd.ExecuteReader())
+                using (SqlCommand cmd = new SqlCommand("SP_ListarTiposMaterialesVarios", conn))
                 {
-                    while (dr.Read())
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        maderas.Add(MapearLectorAMaterialSeguro(dr));
+                        while (dr.Read())
+                            listaTipos.Add(MapearLectorATipoMaterialSeguro(dr));
                     }
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar maderas (método alternativo): " + ex.Message, ex);
+                throw new Exception("Error al listar tipos de materiales varios: " + ex.Message, ex);
             }
             finally
             {
                 CerrarConexion();
             }
 
-            return maderas;
+            return listaTipos;
         }
 
-        private List<DtoMaterial> ListarVidriosAlternativo()
-        {
-            List<DtoMaterial> vidrios = new List<DtoMaterial>();
-            SqlConnection conn = null;
-
-            try
-            {
-                conn = AbrirConexion();
-                SqlCommand cmd = new SqlCommand("SP_ListarMaterialesPorTipo", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdTipoMaterial", 2); // 2 = Vidrios
-
-                using (SqlDataReader dr = cmd.ExecuteReader())
-                {
-                    while (dr.Read())
-                    {
-                        vidrios.Add(MapearLectorAMaterialSeguro(dr));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al listar vidrios (método alternativo): " + ex.Message, ex);
-            }
-            finally
-            {
-                CerrarConexion();
-            }
-
-            return vidrios;
-        }
-
-        #endregion
 
         #region MAPEO SEGURO
 
@@ -431,19 +341,16 @@ namespace Datos
             {
                 var dtoMaterial = new DtoMaterial();
 
-                // Mapear campos básicos con verificación de existencia
                 dtoMaterial.IdMaterial = ObtenerValorSeguro<int>(dr, "Id_Material");
                 dtoMaterial.NombreMaterial = ObtenerValorSeguro<string>(dr, "NombreMaterial") ?? string.Empty;
                 dtoMaterial.Descripcion = ObtenerValorSeguro<string>(dr, "Descripcion") ?? string.Empty;
                 dtoMaterial.Unidad = ObtenerValorSeguro<string>(dr, "Unidad") ?? string.Empty;
-                
-                // Mapear campos nullable
+
                 dtoMaterial.PrecioUnitario = ObtenerValorNullableSeguro<decimal>(dr, "PrecioUnitario");
                 dtoMaterial.FechaActualizacion = ObtenerValorNullableSeguro<DateTime>(dr, "FechaActualizacion");
                 dtoMaterial.StockActual = ObtenerValorNullableSeguro<decimal>(dr, "StockActual");
                 dtoMaterial.StockMinimo = ObtenerValorNullableSeguro<decimal>(dr, "StockMinimo");
-                
-                // Mapear campo booleano
+
                 var activoValue = ObtenerValorSeguro<object>(dr, "Activo");
                 dtoMaterial.Activo = activoValue != null && (
                     (activoValue is bool && (bool)activoValue) ||
@@ -451,20 +358,18 @@ namespace Datos
                     (activoValue is string && ((string)activoValue).ToLower() == "true")
                 );
 
-                // Mapear TipoMaterial
                 dtoMaterial.TipoMaterial = new DtoTipoMaterial
                 {
                     IdTipoMaterial = ObtenerValorSeguro<int>(dr, "Id_TipoMaterial"),
                     NombreTipoMaterial = ObtenerValorSeguro<string>(dr, "NombreTipoMaterial") ?? string.Empty,
                     DescripcionTipoMaterial = ObtenerValorSeguro<string>(dr, "DescripcionTipoMaterial") ?? string.Empty,
-                    ActivoTipoMaterial = true // Por defecto activo si no se puede determinar
+                    ActivoTipoMaterial = true
                 };
 
-                // Intentar obtener ActivoTipoMaterial si existe
                 var activoTipoValue = ObtenerValorSeguro<object>(dr, "ActivoTipoMaterial");
                 if (activoTipoValue != null)
                 {
-                    dtoMaterial.TipoMaterial.ActivoTipoMaterial = 
+                    dtoMaterial.TipoMaterial.ActivoTipoMaterial =
                         (activoTipoValue is bool && (bool)activoTipoValue) ||
                         (activoTipoValue is int && (int)activoTipoValue == 1) ||
                         (activoTipoValue is string && ((string)activoTipoValue).ToLower() == "true");
@@ -500,7 +405,6 @@ namespace Datos
         {
             try
             {
-                // Verificar si la columna existe
                 for (int i = 0; i < dr.FieldCount; i++)
                 {
                     if (dr.GetName(i).Equals(nombreColumna, StringComparison.OrdinalIgnoreCase))
@@ -509,20 +413,18 @@ namespace Datos
                         {
                             return default(T);
                         }
-                        
+
                         var valor = dr.GetValue(i);
-                        
+
                         if (valor is T)
                         {
                             return (T)valor;
                         }
-                        
-                        // Intentar conversión
+
                         return (T)Convert.ChangeType(valor, typeof(T));
                     }
                 }
-                
-                // Columna no encontrada
+
                 return default(T);
             }
             catch
@@ -535,7 +437,6 @@ namespace Datos
         {
             try
             {
-                // Verificar si la columna existe
                 for (int i = 0; i < dr.FieldCount; i++)
                 {
                     if (dr.GetName(i).Equals(nombreColumna, StringComparison.OrdinalIgnoreCase))
@@ -544,20 +445,18 @@ namespace Datos
                         {
                             return null;
                         }
-                        
+
                         var valor = dr.GetValue(i);
-                        
+
                         if (valor is T)
                         {
                             return (T)valor;
                         }
-                        
-                        // Intentar conversión
+
                         return (T)Convert.ChangeType(valor, typeof(T));
                     }
                 }
-                
-                // Columna no encontrada
+
                 return null;
             }
             catch
@@ -566,36 +465,19 @@ namespace Datos
             }
         }
 
-
         private bool ConvertirABoolean(object valor)
         {
             if (valor == null) return false;
-            
+
             if (valor is bool) return (bool)valor;
             if (valor is int) return (int)valor != 0;
-            if (valor is string) 
+            if (valor is string)
             {
-                return ((string)valor).ToLower() == "true" || 
+                return ((string)valor).ToLower() == "true" ||
                        ((string)valor) == "1";
             }
-            
+
             return false;
-        }
-
-        #endregion
-
-        #region MÉTODOS ORIGINALES (MANTENER COMPATIBILIDAD)
-        
-        private DtoMaterial MapearLectorAMaterial(SqlDataReader dr)
-        {
-            // Usar el método seguro
-            return MapearLectorAMaterialSeguro(dr);
-        }
-
-        private DtoTipoMaterial MapearLectorATipoMaterial(SqlDataReader dr)
-        {
-            // Usar el método seguro
-            return MapearLectorATipoMaterialSeguro(dr);
         }
 
         #endregion

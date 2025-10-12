@@ -92,11 +92,28 @@ namespace Logica
         {
             try
             {
-                return daoMaterial.ListarMaterialesPorTipo(idTipoMaterial);
+                var directos = daoMaterial.ListarMaterialesPorTipo(idTipoMaterial);
+                if (directos != null && directos.Count > 0)
+                    return directos;
+            }
+            catch
+            {
+                // Silencioso: seguimos con fallback
+            }
+
+            try
+            {
+                var todos = daoMaterial.ListarMateriales() ?? new List<DtoMaterial>();
+                var filtrados = todos.Where(m =>
+                    (m.Id_TipoMaterial.HasValue && m.Id_TipoMaterial.Value == idTipoMaterial) ||
+                    (m.TipoMaterial != null && m.TipoMaterial.IdTipoMaterial == idTipoMaterial)
+                ).ToList();
+
+                return filtrados;
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error en la lógica de negocio al filtrar los materiales por tipo. " + ex.Message, ex);
+                throw new ApplicationException("Error al filtrar materiales por tipo en memoria. " + ex.Message, ex);
             }
         }
 
@@ -144,17 +161,40 @@ namespace Logica
 
         /// <summary>
         /// Obtiene tipos de materiales excluyendo maderas y vidrios para "Materiales Varios"
+        /// Tolerante a SP ausente/erróneo: si falla, toma todos los tipos y filtra por nombre.
         /// </summary>
         public List<DtoTipoMaterial> ListarTiposMaterialesVarios()
         {
             try
             {
-                return daoMaterial.ListarTiposMaterialesVarios();
+                var tipos = daoMaterial.ListarTiposMaterialesVarios();
+                if (tipos != null && tipos.Count > 0)
+                    return tipos;
+            }
+            catch
+            {
+                // Silencioso: seguimos con fallback
+            }
+
+            try
+            {
+                var todos = daoMaterial.ListarTiposMateriales() ?? new List<DtoTipoMaterial>();
+                var varios = todos.Where(t => !EsMaderaOVidrio(t)).ToList();
+                return varios;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la lógica de negocio al listar los tipos de materiales varios.", ex);
+                throw new Exception("Error en la lógica de negocio al filtrar tipos de materiales varios en memoria.", ex);
             }
+        }
+
+        private static bool EsMaderaOVidrio(DtoTipoMaterial t)
+        {
+            if (t == null || string.IsNullOrWhiteSpace(t.NombreTipoMaterial)) return false;
+            var nombre = t.NombreTipoMaterial.Trim().ToLowerInvariant();
+            // Ajusta palabras clave a tu catálogo real
+            return nombre.Contains("madera") || nombre.Contains("maderas") ||
+                   nombre.Contains("vidrio") || nombre.Contains("vidrios");
         }
 
         private void ValidarMaterial(DtoMaterial material)

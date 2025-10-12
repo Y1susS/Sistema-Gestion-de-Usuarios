@@ -21,18 +21,21 @@ namespace Datos
                 SqlCommand cmd = new SqlCommand("SP_InsertarCotizacion", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@NumeroCotizacion", cotizacion.NumeroCotizacion ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@Id_User", cotizacion.IdUser ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@DescripcionMueble", cotizacion.DescripcionMueble ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@Largo", cotizacion.Largo);
-                cmd.Parameters.AddWithValue("@Ancho", cotizacion.Ancho);
-                cmd.Parameters.AddWithValue("@Alto", cotizacion.Alto);
-                cmd.Parameters.AddWithValue("@UnidadMedida", cotizacion.UnidadMedida ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@NumeroCotizacion", (object)cotizacion.NumeroCotizacion ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Id_User", (object)cotizacion.IdUser ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@DescripcionMueble", (object)cotizacion.DescripcionMueble ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@FechaCreacion", cotizacion.FechaCreacion);
-                cmd.Parameters.AddWithValue("@MontoMateriales", cotizacion.MontoMateriales);
-                cmd.Parameters.AddWithValue("@MontoManoObra", cotizacion.MontoManoObra);
+
+                // Nombres exactos (sin typos)
+                cmd.Parameters.AddWithValue("@PorcentajeGanancia", cotizacion.PorcentajeGanancia);
+                cmd.Parameters.AddWithValue("@Id_Madera", (object)cotizacion.Id_Madera ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@PrecioPorPie", (object)cotizacion.PrecioPorPie ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@SubTotalMateriales", cotizacion.SubTotalMateriales);
+                cmd.Parameters.AddWithValue("@PorcentajeDesperdicio", cotizacion.PorcentajeDesperdicio);
+
                 cmd.Parameters.AddWithValue("@MontoTotal", cotizacion.MontoTotal);
-                cmd.Parameters.AddWithValue("@Observaciones", cotizacion.Observaciones ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@MontoFinal", cotizacion.MontoFinal);
+                cmd.Parameters.AddWithValue("@Observaciones", (object)cotizacion.Observaciones ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@Activo", cotizacion.Activo ? 1 : 0);
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
@@ -42,10 +45,6 @@ namespace Datos
                         idCotizacion = Convert.ToInt32(dr["Id_Cotizacion"]);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al agregar cotización: " + ex.Message, ex);
             }
             finally
             {
@@ -66,26 +65,25 @@ namespace Datos
                 SqlCommand cmd = new SqlCommand("SP_ActualizarCotizacion", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Id_Cotizacion", cotizacion.IdCotizacion);
-                cmd.Parameters.AddWithValue("@NumeroCotizacion", cotizacion.NumeroCotizacion ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@Id_User", cotizacion.IdUser ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@DescripcionMueble", cotizacion.DescripcionMueble ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@Largo", cotizacion.Largo);
-                cmd.Parameters.AddWithValue("@Ancho", cotizacion.Ancho);
-                cmd.Parameters.AddWithValue("@Alto", cotizacion.Alto);
-                cmd.Parameters.AddWithValue("@UnidadMedida", cotizacion.UnidadMedida ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@MontoMateriales", cotizacion.MontoMateriales);
-                cmd.Parameters.AddWithValue("@MontoManoObra", cotizacion.MontoManoObra);
+                cmd.Parameters.AddWithValue("@Id_Cotizacion", cotizacion.Id_Cotizacion);
+                cmd.Parameters.AddWithValue("@NumeroCotizacion", (object)cotizacion.NumeroCotizacion ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Id_User", (object)cotizacion.IdUser ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@DescripcionMueble", (object)cotizacion.DescripcionMueble ?? DBNull.Value);
+
+                // Nombres exactos (sin typos)
+                cmd.Parameters.AddWithValue("@PorcentajeGanancia", cotizacion.PorcentajeGanancia);
+                cmd.Parameters.AddWithValue("@Id_Madera", (object)cotizacion.Id_Madera ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@PrecioPorPie", (object)cotizacion.PrecioPorPie ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@SubTotalMateriales", cotizacion.SubTotalMateriales);
+                cmd.Parameters.AddWithValue("@PorcentajeDesperdicio", cotizacion.PorcentajeDesperdicio);
+
                 cmd.Parameters.AddWithValue("@MontoTotal", cotizacion.MontoTotal);
-                cmd.Parameters.AddWithValue("@Observaciones", cotizacion.Observaciones ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@MontoFinal", cotizacion.MontoFinal);
+                cmd.Parameters.AddWithValue("@Observaciones", (object)cotizacion.Observaciones ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@Activo", cotizacion.Activo ? 1 : 0);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 resultado = filasAfectadas > 0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al actualizar cotización: " + ex.Message, ex);
             }
             finally
             {
@@ -219,26 +217,88 @@ namespace Datos
 
         private DtoCotizacion MapearLectorACotizacion(SqlDataReader dr)
         {
-            return new DtoCotizacion
+            var cotizacion = new DtoCotizacion
             {
-                IdCotizacion = dr.GetInt32(dr.GetOrdinal("Id_Cotizacion")),
-                NumeroCotizacion = dr.IsDBNull(dr.GetOrdinal("NumeroCotizacion")) ? null : dr.GetString(dr.GetOrdinal("NumeroCotizacion")),
-                IdUser = dr.IsDBNull(dr.GetOrdinal("Id_User")) ? (int?)null : dr.GetInt32(dr.GetOrdinal("Id_User")),
-                DescripcionMueble = dr.IsDBNull(dr.GetOrdinal("DescripcionMueble")) ? null : dr.GetString(dr.GetOrdinal("DescripcionMueble")),
-                Largo = dr.GetDecimal(dr.GetOrdinal("Largo")),
-                Ancho = dr.GetDecimal(dr.GetOrdinal("Ancho")),
-                Alto = dr.GetDecimal(dr.GetOrdinal("Alto")),
-                UnidadMedida = dr.IsDBNull(dr.GetOrdinal("UnidadMedida")) ? null : dr.GetString(dr.GetOrdinal("UnidadMedida")),
-                FechaCreacion = dr.GetDateTime(dr.GetOrdinal("FechaCreacion")),
-                MontoMateriales = dr.GetDecimal(dr.GetOrdinal("MontoMateriales")),
-                MontoManoObra = dr.GetDecimal(dr.GetOrdinal("MontoManoObra")),
-                MontoTotal = dr.GetDecimal(dr.GetOrdinal("MontoTotal")),
-                Observaciones = dr.IsDBNull(dr.GetOrdinal("Observaciones")) ? null : dr.GetString(dr.GetOrdinal("Observaciones")),
-                Activo = dr.GetBoolean(dr.GetOrdinal("Activo")),
+                Id_Cotizacion       = GetInt(dr, "Id_Cotizacion"),
+                NumeroCotizacion    = GetStringOrNull(dr, "NumeroCotizacion"),
+                IdUser              = GetNullableInt(dr, "Id_User"),
+                DescripcionMueble   = GetStringOrNull(dr, "DescripcionMueble"),
+                FechaCreacion       = GetDateTimeOrNow(dr, "FechaCreacion"),
 
-                // Si tienes el campo de usuario en el JOIN
-                UsuarioNombre = dr.IsDBNull(dr.GetOrdinal("UsuarioNombre")) ? null : dr.GetString(dr.GetOrdinal("UsuarioNombre"))
+                SubTotalMateriales  = GetDecimalOrZero(dr, "SubTotalMateriales"),
+                MontoTotal          = GetDecimalOrZero(dr, "MontoTotal"),
+                MontoFinal          = GetDecimalOrZero(dr, "MontoFinal"),
+
+                PorcentajeGanancia    = GetDecimalOrZero(dr, "PorcentajeGanancia"),
+                // Fallback correcto al nombre antiguo si apareciera
+                PorcentajeDesperdicio = HasColumn(dr, "PorcentajeDesperdicio")
+                                        ? GetDecimalOrZero(dr, "PorcentajeDesperdicio")
+                                        : GetDecimalOrZero(dr, "PorcentajeDeperdicio"),
+
+                Id_Madera           = GetNullableInt(dr, "Id_Madera"),
+                PrecioPorPie        = GetNullableDecimal(dr, "PrecioPorPie"),
+
+                Observaciones       = GetStringOrNull(dr, "Observaciones"),
+                Activo              = GetBoolOrFalse(dr, "Activo"),
+                UsuarioNombre       = HasColumn(dr, "UsuarioNombre") ? GetStringOrNull(dr, "UsuarioNombre") : null,
+                NombreMadera        = HasColumn(dr, "NombreMadera") ? GetStringOrNull(dr, "NombreMadera") : null
             };
+
+            cotizacion.Id    = cotizacion.Id_Cotizacion;
+            cotizacion.Fecha = cotizacion.FechaCreacion;
+            cotizacion.Descuento = 0m;
+
+            return cotizacion;
+        }
+
+        // NUEVO helper nullable decimal
+        private static decimal? GetNullableDecimal(SqlDataReader r, string col)
+        {
+            int i = r.GetOrdinal(col);
+            return r.IsDBNull(i) ? (decimal?)null : r.GetDecimal(i);
+        }
+
+        // Helpers
+        private static int GetInt(SqlDataReader r, string col)
+        {
+            int i = r.GetOrdinal(col);
+            return r.IsDBNull(i) ? 0 : r.GetInt32(i);
+        }
+
+        private static int? GetNullableInt(SqlDataReader r, string col)
+        {
+            int i = r.GetOrdinal(col);
+            return r.IsDBNull(i) ? (int?)null : r.GetInt32(i);
+        }
+
+        private static decimal GetDecimalOrZero(SqlDataReader r, string col)
+        {
+            int i = r.GetOrdinal(col);
+            return r.IsDBNull(i) ? 0m : r.GetDecimal(i);
+        }
+
+        private static string GetStringOrNull(SqlDataReader r, string col)
+        {
+            int i = r.GetOrdinal(col);
+            return r.IsDBNull(i) ? null : r.GetString(i);
+        }
+
+        private static DateTime GetDateTimeOrNow(SqlDataReader r, string col)
+        {
+            int i = r.GetOrdinal(col);
+            return r.IsDBNull(i) ? DateTime.Now : r.GetDateTime(i);
+        }
+
+        private static bool GetBoolOrFalse(SqlDataReader r, string col)
+        {
+            int i = r.GetOrdinal(col);
+            return !r.IsDBNull(i) && r.GetBoolean(i);
+        }
+
+        private static bool HasColumn(SqlDataReader r, string name)
+        {
+            try { r.GetOrdinal(name); return true; }
+            catch (IndexOutOfRangeException) { return false; }
         }
     }
 }

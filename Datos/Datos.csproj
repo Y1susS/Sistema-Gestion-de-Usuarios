@@ -46,6 +46,9 @@
     <Compile Include="CD_DaoCliente.cs" />
     <Compile Include="CD_DaoConfiguracionContraseña.cs" />
     <Compile Include="CD_DaoCotizacion.cs" />
+    <Compile Include="CD_DaoCotizacionDetalleMadera.cs" />
+    <Compile Include="CD_DaoCotizacionDetalleVidrio.cs" />
+    <Compile Include="CD_DaoCotizacionMaterial.cs" />
     <Compile Include="CD_DaoGastosVarios.cs" />
     <Compile Include="CD_DaoLocalidad.cs" />
     <Compile Include="CD_DaoMateriales.cs" />
