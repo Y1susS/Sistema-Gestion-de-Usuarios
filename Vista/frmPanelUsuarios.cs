@@ -15,11 +15,29 @@ namespace Vista
 {
     public partial class frmPanelUsuarios : Form
     {
+        private FlowLayoutPanel subMenuPendiente = null;
+        private Timer animacionTimer = new Timer();
+        private FlowLayoutPanel subMenuAnimado = null;
+        private int alturaObjetivo = 0;
+        private bool expandiendo = false;
+        private bool animando = false;
+
+        private Button botonActivo = null;
+        private Button botonPadreActivo = null;
+        private Button botonHijoActivo = null;
+        private FlowLayoutPanel subMenuAbierto = null;
+
+        private Form formularioActual = null;
+
         private ClsArrastrarFormularios moverFormulario;
+
         private CL_Usuarios logicaUsuario = new CL_Usuarios();
         public frmPanelUsuarios()
         {
             InitializeComponent();
+
+            animacionTimer.Interval = 15; // velocidad de refresco (ms)
+            animacionTimer.Tick += AnimacionTimer_Tick;
 
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -30,7 +48,24 @@ namespace Vista
             moverFormulario.HabilitarMovimiento(lblTitulo);
         }
 
-        private FlowLayoutPanel subMenuAbierto = null;
+        private void SeleccionarBoton(Button boton)
+        {
+            if (boton == null)
+                return;
+
+            if (botonActivo != null && botonActivo != boton)
+            {
+                botonActivo.BackColor = Color.FromArgb(60, 60, 75);
+                botonActivo.ForeColor = Color.White;
+            }
+
+            botonActivo = boton;
+            botonActivo.BackColor = Color.FromArgb(0, 122, 204);
+            botonActivo.ForeColor = Color.White;
+
+            botonActivo.Refresh();
+            Application.DoEvents();
+        }
 
         private void OcultarTodosLosSubMenus()
         {
@@ -43,24 +78,102 @@ namespace Vista
 
         private void AlternarSubMenu(FlowLayoutPanel subMenu)
         {
-            if (subMenu == null)
-                return;
+            if (subMenu == null) return;
 
-            if (subMenuAbierto == subMenu)
+            if (animando)
             {
-                subMenu.Visible = false;
-                subMenuAbierto = null;
+                subMenuPendiente = subMenu;
                 return;
             }
 
-            if (subMenuAbierto != null)
-                subMenuAbierto.Visible = false;
+            // Si el submenú ya está abierto → cerrarlo
+            if (subMenuAbierto == subMenu)
+            {
+                expandiendo = false;
+                subMenuAnimado = subMenu;
+                animando = true;
+                animacionTimer.Start();
+                return;
+            }
 
+            // Si hay otro submenú abierto → cerrarlo primero
+            if (subMenuAbierto != null)
+            {
+                subMenuPendiente = subMenu;
+                expandiendo = false;
+                subMenuAnimado = subMenuAbierto;
+                animando = true;
+                animacionTimer.Start();
+                return;
+            }
+
+            // Primer apertura: forzar altura inicial 0
+            subMenu.Height = 0;               // <--- línea clave
             subMenu.Visible = true;
-            subMenuAbierto = subMenu;
+            alturaObjetivo = CalcularAlturaSubMenu(subMenu);
+            subMenuAnimado = subMenu;
+            expandiendo = true;
+            animando = true;
+            animacionTimer.Start();
         }
 
-        private Form formularioActual = null;
+        private int CalcularAlturaSubMenu(FlowLayoutPanel subMenu)
+        {
+            int altura = 0;
+            foreach (Control ctrl in subMenu.Controls)
+            {
+                altura += ctrl.Height; // solo la altura de los botones, sin márgenes
+            }
+            return altura;
+        }
+
+        private void AnimacionTimer_Tick(object sender, EventArgs e)
+        {
+            if (subMenuAnimado == null) return;
+
+            int paso = 14;
+
+            if (expandiendo)
+            {
+                subMenuAnimado.Height += paso;
+                if (subMenuAnimado.Height >= alturaObjetivo)
+                {
+                    subMenuAnimado.Height = alturaObjetivo;
+                    animacionTimer.Stop();
+                    animando = false;
+                    subMenuAbierto = subMenuAnimado;
+
+                    // Si hay un submenú pendiente, abrirlo
+                    if (subMenuPendiente != null && subMenuPendiente != subMenuAbierto)
+                    {
+                        FlowLayoutPanel pendiente = subMenuPendiente;
+                        subMenuPendiente = null;
+                        AlternarSubMenu(pendiente);
+                    }
+                }
+            }
+            else
+            {
+                subMenuAnimado.Height -= paso;
+                if (subMenuAnimado.Height <= 0)
+                {
+                    subMenuAnimado.Height = 0;
+                    subMenuAnimado.Visible = false;
+                    animacionTimer.Stop();
+                    animando = false;
+                    subMenuAbierto = null;
+
+                    // Si hay un submenú pendiente, abrirlo
+                    if (subMenuPendiente != null)
+                    {
+                        FlowLayoutPanel pendiente = subMenuPendiente;
+                        subMenuPendiente = null;
+                        AlternarSubMenu(pendiente);
+                    }
+                }
+            }
+        }
+
         private void AbrirFormHijo(object formhijo)
         {
             // Cerrar y liberar el formulario anterior, si existe
@@ -116,79 +229,6 @@ namespace Vista
             this.pctClose.Refresh();
         }
 
-
-
-        //private void AjustarTamañoFormulario()
-        //{
-        //    int cantBotonesVisibles = flwBotones.Controls.Cast<Control>()
-        //                          .Count(c => c.Visible);
-
-        //    switch (cantBotonesVisibles)
-        //    {
-        //        case 0:
-        //        case 1:
-        //            this.Height = 275;
-        //            break;
-        //        case 2:
-        //            this.Height = 325;
-        //            break;
-        //        case 3:
-        //            this.Height = 375;
-        //            break;
-        //        case 4:
-        //            this.Height = 425;
-        //            break;
-        //        case 5:
-        //            this.Height = 475;
-        //            break;
-        //        case 6:
-        //            this.Height = 525;
-        //            break;
-        //        case 7:
-        //            this.Height = 415;
-        //            break;
-        //        case 8:
-        //            this.Height = 415;
-        //            break;
-        //        case 9:
-        //            this.Height = 465;
-        //            break;
-        //        case 10:
-        //            this.Height = 465;
-        //            break;
-        //        default:
-        //            break;
-        //    }
-
-        //    if (cantBotonesVisibles <= 6)
-        //    {
-        //        flwBotones.Width = 185;
-        //        flwBotones.Height = 285;
-        //        flwBotones.Location = new Point(105, 175);
-        //    }
-        //}
-
-        //private void AjustarUltimoBoton()
-        //{
-        //    int cantBotonesVisibles = flwBotones.Controls.Cast<Control>().Count(c => c.Visible);
-
-        //    if (cantBotonesVisibles > 6)
-        //    {
-        //        int columnas = 2;
-        //        int botonesUltimaFila = cantBotonesVisibles % columnas;
-        //        if (botonesUltimaFila == 1)
-        //        {
-        //            var btnUltimo = flwBotones.Controls
-        //                              .OfType<Button>()
-        //                              .Where(b => b.Visible)
-        //                              .Last();
-
-        //            btnUltimo.Width = 362;
-        //            btnUltimo.Height = 35;
-        //        }
-        //    }
-        //}
-
         private void frmPanelUsuarios_Load(object sender, EventArgs e)
         {
             OcultarTodosLosSubMenus();
@@ -219,6 +259,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Usuarios"))
             {
+                SeleccionarBoton((Button)sender);
                 AbrirFormHijo(new frmAdminUserABM());
             }
         }
@@ -227,6 +268,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Permisos"))
             {
+                SeleccionarBoton((Button)sender);
                 AbrirFormHijo(new frmPermisos());
             }
         }
@@ -235,6 +277,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) 
             {
+                SeleccionarBoton((Button)sender);
                 AbrirFormHijo(new frmSegContraseña());
             }
         }
@@ -243,6 +286,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Registro de Clientes"))
             {
+                SeleccionarBoton((Button)sender);
                 AbrirFormHijo(new frmRegistroClientes());
             }
         }
@@ -251,6 +295,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("PreguntasSeguridad"))
             {
+                SeleccionarBoton((Button)sender);
                 AbrirFormHijo(new frmPreguntas());
             }
         }
@@ -259,6 +304,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Cambiar contraseña"))
             {
+                SeleccionarBoton((Button)sender);
                 AbrirFormHijo(new frmCambioPass());
             }
         }
@@ -360,26 +406,31 @@ namespace Vista
 
         private void btncotizador_Click(object sender, EventArgs e)
         {
+            SeleccionarBoton((Button)sender);
             AbrirFormHijo(new frmCotizador());
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
         {
+            SeleccionarBoton((Button)sender);
             AbrirFormHijo(new frmControlStock());
         }
 
         private void btnmetricas_Click(object sender, EventArgs e)
         {
+            SeleccionarBoton((Button)sender);
             AbrirFormHijo(new frmReportes());
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
         {
+            SeleccionarBoton((Button)sender);
             AbrirFormHijo(new frmBackUp());
         }
 
         private void btnEstadoVentas_Click(object sender, EventArgs e)
         {
+            SeleccionarBoton((Button)sender);
             AbrirFormHijo(new frmEstadosVentas());
         }
 
@@ -399,6 +450,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
             {
+                SeleccionarBoton((Button)sender);
                 AbrirFormHijo(new frmPresupuestador());
             }
         }
@@ -508,7 +560,12 @@ namespace Vista
 
         private void btnbitacora_Click(object sender, EventArgs e)
         {
+            SeleccionarBoton((Button)sender);
+        }
 
+        private void btnCotizaciones_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((Button)sender);
         }
     }
 }
