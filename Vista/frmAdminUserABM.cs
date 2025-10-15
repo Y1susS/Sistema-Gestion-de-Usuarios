@@ -36,10 +36,6 @@ namespace Vista
             cmbPartido.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
             moverFormulario = new ClsArrastrarFormularios(this);
-
-            moverFormulario.HabilitarMovimiento(pnlLogo);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
         private void frmAdministrador_Load(object sender, EventArgs e)
@@ -584,24 +580,9 @@ namespace Vista
             };
         }
 
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void pnlBuscar_Paint(object sender, PaintEventArgs e)
         {
-            using (Pen p = new Pen(Color.White, 1))
-            {
-                e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
-            }
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
         }
 
         private void frmAdminUserABM_Shown(object sender, EventArgs e)

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBackUp));
             this.btnGuardarrapido = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,25 +45,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.pctMinimize = new System.Windows.Forms.PictureBox();
-            this.pctClose = new System.Windows.Forms.PictureBox();
-            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.pnlBorde.SuspendLayout();
-            this.pnlLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardarrapido
             // 
+            this.btnGuardarrapido.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarrapido.Location = new System.Drawing.Point(287, 70);
             this.btnGuardarrapido.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarrapido.Name = "btnGuardarrapido";
@@ -150,7 +138,7 @@
             this.groupBox1.Controls.Add(this.btnGuardarrapido);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(15, 55);
+            this.groupBox1.Location = new System.Drawing.Point(15, 15);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -168,7 +156,7 @@
             this.groupBox2.Controls.Add(this.btnGuardarUbicacionSeleccionada);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(15, 230);
+            this.groupBox2.Location = new System.Drawing.Point(15, 190);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -186,7 +174,7 @@
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(15, 445);
+            this.groupBox3.Location = new System.Drawing.Point(15, 405);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
@@ -243,95 +231,12 @@
             this.button1.Text = "Examinar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // pnlBorde
-            // 
-            this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
-            this.pnlBorde.Controls.Add(this.pnlLogo);
-            this.pnlBorde.Controls.Add(this.pctMinimize);
-            this.pnlBorde.Controls.Add(this.pctClose);
-            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(855, 40);
-            this.pnlBorde.TabIndex = 27;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(80, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(695, 40);
-            this.lblTitulo.TabIndex = 8028;
-            this.lblTitulo.Text = "Back up";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlLogo
-            // 
-            this.pnlLogo.Controls.Add(this.pctLogo);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(80, 40);
-            this.pnlLogo.TabIndex = 8026;
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLogo.Location = new System.Drawing.Point(8, 8);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(45, 25);
-            this.pctLogo.TabIndex = 8025;
-            this.pctLogo.TabStop = false;
-            // 
-            // pctMinimize
-            // 
-            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(775, 0);
-            this.pctMinimize.Name = "pctMinimize";
-            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
-            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctMinimize.TabIndex = 22;
-            this.pctMinimize.TabStop = false;
-            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
-            // 
-            // pctClose
-            // 
-            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(815, 0);
-            this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(40, 40);
-            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctClose.TabIndex = 20;
-            this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-            // 
-            // pnlBordeInferior
-            // 
-            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 660);
-            this.pnlBordeInferior.Name = "pnlBordeInferior";
-            this.pnlBordeInferior.Size = new System.Drawing.Size(855, 20);
-            this.pnlBordeInferior.TabIndex = 28;
-            // 
             // frmBackUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(855, 680);
-            this.Controls.Add(this.pnlBordeInferior);
-            this.Controls.Add(this.pnlBorde);
+            this.ClientSize = new System.Drawing.Size(855, 620);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -347,11 +252,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.pnlBorde.ResumeLayout(false);
-            this.pnlLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -374,12 +274,5 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Panel pnlLogo;
-        private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.PictureBox pctMinimize;
-        private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Panel pnlBordeInferior;
     }
 }

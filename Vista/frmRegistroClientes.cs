@@ -30,9 +30,6 @@ namespace Vista
             this.ActiveControl = null;
             InitializeComponent();
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
-            moverFormulario.HabilitarMovimiento(pnlLogo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
         private void frmRegistroClientes_Load(object sender, EventArgs e)
@@ -536,18 +533,6 @@ namespace Vista
                     MessageBox.Show($"Error al eliminar cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void pctMinimize_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
         }
 
         private void pnlBuscar_Paint(object sender, PaintEventArgs e)

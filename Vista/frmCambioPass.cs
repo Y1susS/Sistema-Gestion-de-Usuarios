@@ -23,17 +23,29 @@ namespace Vista
         private readonly CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
         private ClsArrastrarFormularios moverFormulario;
 
+        public frmCambioPass()
+        {
+            InitializeComponent();
+            InicializarControles();
+            txtPassActual.Visible = true;
+            txtPassActual.BringToFront();
+        }
+
         public frmCambioPass(string usuario, Form formularioAnterior, bool requiereContraseñaActual = true)
         {
             InitializeComponent();
             this.AcceptButton = btnCambiar;
             DoubleBuffered = true;
-            pctFondo.Controls.Add(pctLogo);
-            pctLogo.BackColor = Color.Transparent;
             this.usuario = usuario;
             this.requiereContraseñaActual = requiereContraseñaActual;
             this._formularioAnterior = formularioAnterior;
-            txtPassActual.Visible = requiereContraseñaActual;
+            InicializarControles(requiereContraseñaActual);
+        }
+
+        private void InicializarControles(bool mostrarPassActual = true)
+        {
+            pctFondo.Controls.Add(pctLogo);
+            pctLogo.BackColor = Color.Transparent;
 
             ClsFondoTransparente.Aplicar(
                 pctFondo,
@@ -52,7 +64,12 @@ namespace Vista
             ClsMostrarOcultarClave.Configurar(txtNuevaPass, pctMostrar2, pctOcultar2, "Nueva contraseña");
             ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar3, pctOcultar3, "Confirmar contraseña");
 
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblUsuario);
+            moverFormulario.HabilitarMovimiento(pctLogo);
+            moverFormulario.HabilitarMovimiento(pctFondo);
         }
+
 
         private const string PASS_ACTUAL_PLACEHOLDER = "Contraseña actual";
         private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
@@ -70,8 +87,6 @@ namespace Vista
             this.ActiveControl = lblUsuario;
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
         private void MostrarRestriccionesContrasena()
         {
@@ -256,18 +271,6 @@ namespace Vista
             }
 
             return true;
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void frmCambioPass_Shown(object sender, EventArgs e)

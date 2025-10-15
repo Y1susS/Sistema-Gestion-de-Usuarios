@@ -219,9 +219,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Usuarios"))
             {
-                this.Close();
-                frmAdminUserABM frmAdminUserABM = new frmAdminUserABM();
-                frmAdminUserABM.Show();
+                AbrirFormHijo(new frmAdminUserABM());
             }
         }
 
@@ -229,9 +227,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Permisos"))
             {
-                this.Close();
-                frmPermisos frmPermisos = new frmPermisos(this); 
-                frmPermisos.Show();
+                AbrirFormHijo(new frmPermisos());
             }
         }
 
@@ -239,9 +235,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) 
             {
-                this.Close();
-                frmSegContraseña frmSegContraseña = new frmSegContraseña();
-                frmSegContraseña.Show();
+                AbrirFormHijo(new frmSegContraseña());
             }
         }
 
@@ -249,9 +243,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Registro de Clientes"))
             {
-                this.Close();
-                frmRegistroClientes frmRegistroClientes = new frmRegistroClientes();
-                frmRegistroClientes.Show();
+                AbrirFormHijo(new frmRegistroClientes());
             }
         }
 
@@ -259,9 +251,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("PreguntasSeguridad"))
             {
-                this.Close();
-                frmPreguntas frmPreguntas = new frmPreguntas(this);
-                frmPreguntas.Show();
+                AbrirFormHijo(new frmPreguntas());
             }
         }
 
@@ -269,10 +259,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Cambiar contraseña"))
             {
-                this.Close();
-                string usuario = ClsSesionActual.Usuario.User;
-                frmCambioPass frmCambioPass = new frmCambioPass(usuario, this, true);
-                frmCambioPass.Show();
+                AbrirFormHijo(new frmCambioPass());
             }
         }
 
@@ -373,37 +360,27 @@ namespace Vista
 
         private void btncotizador_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmCotizador frmCotizador = new frmCotizador();
-            frmCotizador.Show();
+            AbrirFormHijo(new frmCotizador());
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmControlStock frmControlStock = new frmControlStock();
-            frmControlStock.Show();
+            AbrirFormHijo(new frmControlStock());
         }
 
         private void btnmetricas_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmReportes frmReportes = new frmReportes();
-            frmReportes.Show();
+            AbrirFormHijo(new frmReportes());
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmBackUp frmBackUp = new frmBackUp();
-            frmBackUp.Show();
+            AbrirFormHijo(new frmBackUp());
         }
 
         private void btnEstadoVentas_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmEstadosVentas frmEstadosVentas = new frmEstadosVentas();
-            frmEstadosVentas.Show();
+            AbrirFormHijo(new frmEstadosVentas());
         }
 
         private void pctClose_Click(object sender, EventArgs e)
@@ -422,9 +399,7 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
             {
-                this.Close();
-                frmPresupuestador frmPresupuestador = new frmPresupuestador();
-                frmPresupuestador.Show();
+                AbrirFormHijo(new frmPresupuestador());
             }
         }
 
@@ -529,6 +504,11 @@ namespace Vista
         private void btnInformes_Paint(object sender, PaintEventArgs e)
         {
             ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void btnbitacora_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
@@ -53,23 +52,11 @@
             this.chkFiltrarCliente = new System.Windows.Forms.CheckBox();
             this.cboEstados = new System.Windows.Forms.ComboBox();
             this.chkFiltrarEstado = new System.Windows.Forms.CheckBox();
-            this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.pctMinimize = new System.Windows.Forms.PictureBox();
-            this.pctClose = new System.Windows.Forms.PictureBox();
-            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pnlFunciones = new System.Windows.Forms.Panel();
             this.lblEstado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).BeginInit();
-            this.pnlBorde.SuspendLayout();
-            this.pnlLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             this.pnlFunciones.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +66,7 @@
             this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
             this.dgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentas.Location = new System.Drawing.Point(14, 355);
+            this.dgvVentas.Location = new System.Drawing.Point(15, 317);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.ReadOnly = true;
             this.dgvVentas.RowHeadersWidth = 51;
@@ -212,18 +199,18 @@
             // 
             // chartVentas
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartVentas.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.chartVentas.ChartAreas.Add(chartArea3);
             this.chartVentas.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartVentas.Legends.Add(legend1);
+            legend3.Name = "Legend1";
+            this.chartVentas.Legends.Add(legend3);
             this.chartVentas.Location = new System.Drawing.Point(0, 0);
             this.chartVentas.Name = "chartVentas";
             this.chartVentas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartVentas.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartVentas.Series.Add(series3);
             this.chartVentas.Size = new System.Drawing.Size(555, 485);
             this.chartVentas.TabIndex = 15;
             this.chartVentas.Text = "chart1";
@@ -242,7 +229,7 @@
             // cboTipoGrafico
             // 
             this.cboTipoGrafico.FormattingEnabled = true;
-            this.cboTipoGrafico.Location = new System.Drawing.Point(562, 55);
+            this.cboTipoGrafico.Location = new System.Drawing.Point(562, 15);
             this.cboTipoGrafico.Name = "cboTipoGrafico";
             this.cboTipoGrafico.Size = new System.Drawing.Size(200, 26);
             this.cboTipoGrafico.TabIndex = 16;
@@ -285,88 +272,6 @@
             this.chkFiltrarEstado.Text = "Buscar por estado";
             this.chkFiltrarEstado.UseVisualStyleBackColor = true;
             // 
-            // pnlBorde
-            // 
-            this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
-            this.pnlBorde.Controls.Add(this.pnlLogo);
-            this.pnlBorde.Controls.Add(this.pctMinimize);
-            this.pnlBorde.Controls.Add(this.pctClose);
-            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(1325, 40);
-            this.pnlBorde.TabIndex = 27;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(80, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1165, 40);
-            this.lblTitulo.TabIndex = 23;
-            this.lblTitulo.Text = "Métricas";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlLogo
-            // 
-            this.pnlLogo.Controls.Add(this.pctLogo);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(80, 40);
-            this.pnlLogo.TabIndex = 8027;
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLogo.Location = new System.Drawing.Point(8, 8);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(45, 25);
-            this.pctLogo.TabIndex = 8025;
-            this.pctLogo.TabStop = false;
-            // 
-            // pctMinimize
-            // 
-            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(1245, 0);
-            this.pctMinimize.Name = "pctMinimize";
-            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
-            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctMinimize.TabIndex = 22;
-            this.pctMinimize.TabStop = false;
-            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
-            // 
-            // pctClose
-            // 
-            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(1285, 0);
-            this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(40, 40);
-            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctClose.TabIndex = 20;
-            this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-            // 
-            // pnlBordeInferior
-            // 
-            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 595);
-            this.pnlBordeInferior.Name = "pnlBordeInferior";
-            this.pnlBordeInferior.Size = new System.Drawing.Size(1325, 20);
-            this.pnlBordeInferior.TabIndex = 28;
-            // 
             // pnlFunciones
             // 
             this.pnlFunciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -390,7 +295,7 @@
             this.pnlFunciones.Controls.Add(this.btnLimpiar);
             this.pnlFunciones.Controls.Add(this.btnBuscar);
             this.pnlFunciones.ForeColor = System.Drawing.Color.White;
-            this.pnlFunciones.Location = new System.Drawing.Point(14, 95);
+            this.pnlFunciones.Location = new System.Drawing.Point(15, 57);
             this.pnlFunciones.Name = "pnlFunciones";
             this.pnlFunciones.Size = new System.Drawing.Size(725, 245);
             this.pnlFunciones.TabIndex = 29;
@@ -408,7 +313,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.chartVentas);
-            this.panel1.Location = new System.Drawing.Point(755, 95);
+            this.panel1.Location = new System.Drawing.Point(755, 57);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(555, 485);
             this.panel1.TabIndex = 30;
@@ -418,11 +323,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(1325, 615);
+            this.ClientSize = new System.Drawing.Size(1325, 557);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlFunciones);
-            this.Controls.Add(this.pnlBordeInferior);
-            this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.cboTipoGrafico);
             this.Controls.Add(this.dgvVentas);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -434,11 +337,6 @@
             this.Shown += new System.EventHandler(this.frmReportes_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).EndInit();
-            this.pnlBorde.ResumeLayout(false);
-            this.pnlLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             this.pnlFunciones.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -468,13 +366,6 @@
         private System.Windows.Forms.CheckBox chkFiltrarCliente;
         private System.Windows.Forms.ComboBox cboEstados;
         private System.Windows.Forms.CheckBox chkFiltrarEstado;
-        private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.PictureBox pctMinimize;
-        private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.Panel pnlBordeInferior;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Panel pnlLogo;
-        private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Panel pnlFunciones;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Panel panel1;
