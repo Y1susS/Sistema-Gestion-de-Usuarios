@@ -78,7 +78,7 @@
             // btnGestionUsuarios
             // 
             this.btnGestionUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnGestionUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnGestionUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionUsuarios.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
@@ -96,7 +96,7 @@
             // btnGestionPermisos
             // 
             this.btnGestionPermisos.FlatAppearance.BorderSize = 0;
-            this.btnGestionPermisos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnGestionPermisos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnGestionPermisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionPermisos.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionPermisos.ForeColor = System.Drawing.Color.White;
@@ -114,7 +114,7 @@
             // btnGestionValidaciones
             // 
             this.btnGestionValidaciones.FlatAppearance.BorderSize = 0;
-            this.btnGestionValidaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnGestionValidaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnGestionValidaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionValidaciones.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionValidaciones.ForeColor = System.Drawing.Color.White;
@@ -132,7 +132,7 @@
             // btnRegistroClientes
             // 
             this.btnRegistroClientes.FlatAppearance.BorderSize = 0;
-            this.btnRegistroClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnRegistroClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnRegistroClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistroClientes.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistroClientes.ForeColor = System.Drawing.Color.White;
@@ -150,7 +150,7 @@
             // btnPreguntas
             // 
             this.btnPreguntas.FlatAppearance.BorderSize = 0;
-            this.btnPreguntas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnPreguntas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnPreguntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPreguntas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPreguntas.ForeColor = System.Drawing.Color.White;
@@ -168,7 +168,7 @@
             // btnCambiarContrasena
             // 
             this.btnCambiarContrasena.FlatAppearance.BorderSize = 0;
-            this.btnCambiarContrasena.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnCambiarContrasena.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnCambiarContrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiarContrasena.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambiarContrasena.ForeColor = System.Drawing.Color.White;
@@ -216,7 +216,7 @@
             // btncotizador
             // 
             this.btncotizador.FlatAppearance.BorderSize = 0;
-            this.btncotizador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btncotizador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btncotizador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncotizador.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncotizador.ForeColor = System.Drawing.Color.White;
@@ -234,7 +234,7 @@
             // btnmetricas
             // 
             this.btnmetricas.FlatAppearance.BorderSize = 0;
-            this.btnmetricas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnmetricas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnmetricas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmetricas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmetricas.ForeColor = System.Drawing.Color.White;
@@ -252,7 +252,7 @@
             // btnbackup
             // 
             this.btnbackup.FlatAppearance.BorderSize = 0;
-            this.btnbackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnbackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnbackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbackup.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbackup.ForeColor = System.Drawing.Color.White;
@@ -270,7 +270,7 @@
             // btngestionstock
             // 
             this.btngestionstock.FlatAppearance.BorderSize = 0;
-            this.btngestionstock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btngestionstock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btngestionstock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btngestionstock.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btngestionstock.ForeColor = System.Drawing.Color.White;
@@ -288,7 +288,7 @@
             // btnbitacora
             // 
             this.btnbitacora.FlatAppearance.BorderSize = 0;
-            this.btnbitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnbitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnbitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbitacora.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbitacora.ForeColor = System.Drawing.Color.White;
@@ -306,7 +306,7 @@
             // btnEstadoVentas
             // 
             this.btnEstadoVentas.FlatAppearance.BorderSize = 0;
-            this.btnEstadoVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnEstadoVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnEstadoVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstadoVentas.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadoVentas.ForeColor = System.Drawing.Color.White;
@@ -328,6 +328,7 @@
             this.flwSeguridad.Controls.Add(this.btnCambiarContrasena);
             this.flwSeguridad.Dock = System.Windows.Forms.DockStyle.Top;
             this.flwSeguridad.Location = new System.Drawing.Point(0, 675);
+            this.flwSeguridad.Margin = new System.Windows.Forms.Padding(0);
             this.flwSeguridad.Name = "flwSeguridad";
             this.flwSeguridad.Size = new System.Drawing.Size(250, 75);
             this.flwSeguridad.TabIndex = 32;
@@ -336,7 +337,7 @@
             // btnPresupuestador
             // 
             this.btnPresupuestador.FlatAppearance.BorderSize = 0;
-            this.btnPresupuestador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnPresupuestador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnPresupuestador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPresupuestador.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPresupuestador.ForeColor = System.Drawing.Color.White;
@@ -450,7 +451,7 @@
             // 
             this.btnSeguridad.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSeguridad.FlatAppearance.BorderSize = 0;
-            this.btnSeguridad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnSeguridad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeguridad.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold);
             this.btnSeguridad.ForeColor = System.Drawing.Color.White;
@@ -471,6 +472,7 @@
             this.flwInformes.Controls.Add(this.btnmetricas);
             this.flwInformes.Dock = System.Windows.Forms.DockStyle.Top;
             this.flwInformes.Location = new System.Drawing.Point(0, 600);
+            this.flwInformes.Margin = new System.Windows.Forms.Padding(0);
             this.flwInformes.Name = "flwInformes";
             this.flwInformes.Size = new System.Drawing.Size(250, 40);
             this.flwInformes.TabIndex = 42;
@@ -480,7 +482,7 @@
             // 
             this.btnInformes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInformes.FlatAppearance.BorderSize = 0;
-            this.btnInformes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnInformes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnInformes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInformes.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold);
             this.btnInformes.ForeColor = System.Drawing.Color.White;
@@ -505,6 +507,7 @@
             this.flwGestionSistema.Controls.Add(this.btnbackup);
             this.flwGestionSistema.Dock = System.Windows.Forms.DockStyle.Top;
             this.flwGestionSistema.Location = new System.Drawing.Point(0, 385);
+            this.flwGestionSistema.Margin = new System.Windows.Forms.Padding(0);
             this.flwGestionSistema.Name = "flwGestionSistema";
             this.flwGestionSistema.Size = new System.Drawing.Size(250, 180);
             this.flwGestionSistema.TabIndex = 39;
@@ -514,7 +517,7 @@
             // 
             this.btnGestionSistema.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGestionSistema.FlatAppearance.BorderSize = 0;
-            this.btnGestionSistema.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnGestionSistema.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnGestionSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionSistema.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold);
             this.btnGestionSistema.ForeColor = System.Drawing.Color.White;
@@ -540,6 +543,7 @@
             this.flwGestionComercial.Controls.Add(this.btncotizador);
             this.flwGestionComercial.Dock = System.Windows.Forms.DockStyle.Top;
             this.flwGestionComercial.Location = new System.Drawing.Point(0, 135);
+            this.flwGestionComercial.Margin = new System.Windows.Forms.Padding(0);
             this.flwGestionComercial.Name = "flwGestionComercial";
             this.flwGestionComercial.Size = new System.Drawing.Size(250, 215);
             this.flwGestionComercial.TabIndex = 38;
@@ -548,7 +552,7 @@
             // btnCotizaciones
             // 
             this.btnCotizaciones.FlatAppearance.BorderSize = 0;
-            this.btnCotizaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnCotizaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnCotizaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCotizaciones.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCotizaciones.ForeColor = System.Drawing.Color.White;
@@ -561,12 +565,13 @@
             this.btnCotizaciones.Text = "Cotizaciones";
             this.btnCotizaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCotizaciones.UseVisualStyleBackColor = true;
+            this.btnCotizaciones.Click += new System.EventHandler(this.btnCotizaciones_Click);
             // 
             // btnGestionComercial
             // 
             this.btnGestionComercial.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGestionComercial.FlatAppearance.BorderSize = 0;
-            this.btnGestionComercial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.btnGestionComercial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnGestionComercial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionComercial.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold);
             this.btnGestionComercial.ForeColor = System.Drawing.Color.White;
@@ -596,6 +601,8 @@
             // pnlContenedor
             // 
             this.pnlContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlContenedor.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
+            this.pnlContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(250, 40);
             this.pnlContenedor.Name = "pnlContenedor";
