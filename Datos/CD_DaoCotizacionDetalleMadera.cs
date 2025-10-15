@@ -22,7 +22,7 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@Descripcion", (object)d.Descripcion ?? "");
                     cmd.Parameters.AddWithValue("@EspesorCm", d.EspesorCm);
                     cmd.Parameters.AddWithValue("@AnchoCm", d.AnchoCm);
-                    cmd.Parameters.AddWithValue("@LargoCm", d.LargoCm);
+                    cmd.Parameters.AddWithValue("@LargoMts", d.LargoMts);
                     cmd.Parameters.AddWithValue("@Cantidad", d.Cantidad);
                     cmd.Parameters.AddWithValue("@EspesorPulgadas", d.EspesorPulgadas);
                     cmd.Parameters.AddWithValue("@AnchoPulgadas", d.AnchoPulgadas);
@@ -68,7 +68,7 @@ namespace Datos
                                 Descripcion     = GetStringOrEmpty(dr, "Descripcion"),
                                 EspesorCm       = GetDecimal(dr, "EspesorCm"),
                                 AnchoCm         = GetDecimal(dr, "AnchoCm"),
-                                LargoCm         = GetDecimal(dr, "LargoCm"),
+                                LargoMts       = GetDecimal(dr, "LargoMts"),
                                 Cantidad        = GetInt(dr, "Cantidad"),
                                 EspesorPulgadas = GetDecimal(dr, "EspesorPulgadas"),
                                 AnchoPulgadas   = GetDecimal(dr, "AnchoPulgadas"),

@@ -589,7 +589,7 @@ namespace Vista
 
                         if (txtEspesor != null) txtEspesor.Text = d.EspesorCm.ToString("0.##");
                         if (txtAncho != null) txtAncho.Text = d.AnchoCm.ToString("0.##");
-                        if (txtLargo != null) txtLargo.Text = d.LargoCm.ToString("0.##");
+                        if (txtLargo != null) txtLargo.Text = d.LargoMts.ToString("0.##");
                         if (txtCant != null) txtCant.Text = d.Cantidad.ToString();
                         if (txtDesc != null) txtDesc.Text = d.Descripcion ?? $"Pieza {n}";
                         if (chk != null) chk.Checked = true;
