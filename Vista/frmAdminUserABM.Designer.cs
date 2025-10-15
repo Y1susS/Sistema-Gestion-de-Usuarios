@@ -62,23 +62,11 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pctClose = new System.Windows.Forms.PictureBox();
-            this.pctMinimize = new System.Windows.Forms.PictureBox();
-            this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
-            this.pnlBorde.SuspendLayout();
-            this.pnlLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,7 +134,7 @@
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.txtApellidos);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(10, 50);
+            this.groupBox1.Location = new System.Drawing.Point(15, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(830, 200);
             this.groupBox1.TabIndex = 3;
@@ -408,93 +396,12 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 310);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 285);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(830, 300);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // pctClose
-            // 
-            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(810, 0);
-            this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(40, 40);
-            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctClose.TabIndex = 20;
-            this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-            // 
-            // pctMinimize
-            // 
-            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(770, 0);
-            this.pctMinimize.Name = "pctMinimize";
-            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
-            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctMinimize.TabIndex = 22;
-            this.pctMinimize.TabStop = false;
-            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
-            // 
-            // pnlBorde
-            // 
-            this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
-            this.pnlBorde.Controls.Add(this.pnlLogo);
-            this.pnlBorde.Controls.Add(this.pctMinimize);
-            this.pnlBorde.Controls.Add(this.pctClose);
-            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(850, 40);
-            this.pnlBorde.TabIndex = 23;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(80, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(690, 40);
-            this.lblTitulo.TabIndex = 8028;
-            this.lblTitulo.Text = "ABM usuarios";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlLogo
-            // 
-            this.pnlLogo.Controls.Add(this.pctLogo);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(80, 40);
-            this.pnlLogo.TabIndex = 8027;
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLogo.Location = new System.Drawing.Point(8, 8);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(45, 25);
-            this.pctLogo.TabIndex = 8025;
-            this.pctLogo.TabStop = false;
-            // 
-            // pnlBordeInferior
-            // 
-            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 620);
-            this.pnlBordeInferior.Name = "pnlBordeInferior";
-            this.pnlBordeInferior.Size = new System.Drawing.Size(850, 20);
-            this.pnlBordeInferior.TabIndex = 24;
             // 
             // pnlBuscar
             // 
@@ -503,7 +410,7 @@
             this.pnlBuscar.Controls.Add(this.btnBuscar);
             this.pnlBuscar.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlBuscar.ForeColor = System.Drawing.Color.White;
-            this.pnlBuscar.Location = new System.Drawing.Point(10, 260);
+            this.pnlBuscar.Location = new System.Drawing.Point(15, 230);
             this.pnlBuscar.Name = "pnlBuscar";
             this.pnlBuscar.Size = new System.Drawing.Size(830, 40);
             this.pnlBuscar.TabIndex = 32;
@@ -540,10 +447,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(850, 640);
+            this.ClientSize = new System.Drawing.Size(860, 600);
             this.Controls.Add(this.pnlBuscar);
-            this.Controls.Add(this.pnlBordeInferior);
-            this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -557,11 +462,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
-            this.pnlBorde.ResumeLayout(false);
-            this.pnlLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
             this.ResumeLayout(false);
@@ -603,13 +503,6 @@
         private System.Windows.Forms.ComboBox cmbTipoDoc;
         private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.ComboBox cmbLocalidad;
-        private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.PictureBox pctMinimize;
-        private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Panel pnlBordeInferior;
-        private System.Windows.Forms.Panel pnlLogo;
-        private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;

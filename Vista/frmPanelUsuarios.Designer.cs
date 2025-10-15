@@ -301,6 +301,7 @@
             this.btnbitacora.Text = "Bitacora";
             this.btnbitacora.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnbitacora.UseVisualStyleBackColor = true;
+            this.btnbitacora.Click += new System.EventHandler(this.btnbitacora_Click);
             // 
             // btnEstadoVentas
             // 
@@ -417,6 +418,7 @@
             // 
             // pnlMenu
             // 
+            this.pnlMenu.AutoScroll = true;
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
             this.pnlMenu.Controls.Add(this.pnlDiasRestantes);
             this.pnlMenu.Controls.Add(this.flwSeguridad);

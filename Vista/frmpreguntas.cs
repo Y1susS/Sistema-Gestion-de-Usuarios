@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Entidades;
+using Entidades.DTOs;
+using Logica;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Logica;
-using Entidades;
-using Entidades.DTOs;
 
 namespace Vista
 {
@@ -18,25 +17,32 @@ namespace Vista
         private List<DtoPregunta> todasLasPreguntas;
         private ClsArrastrarFormularios moverFormulario;
 
+        public frmPreguntas()
+        {
+            InitializeComponent();
+            InicializarControles();
+        }
+
         public frmPreguntas(Form formularioAnterior)
         {
             InitializeComponent();
             _formularioAnterior = formularioAnterior;
             this.AcceptButton = btnSiguiente;
-            combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
-            txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
+            InicializarControles();
+            //combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
+            //txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
 
-            foreach (var txt in txtRespuestas)
-            {
-                txt.KeyPress += TxtRespuesta_KeyPress;
-            }
-            foreach (var combo in combosPreguntas)
-            {
-                combo.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
+            //foreach (var txt in txtRespuestas)
+            //{
+            //    txt.KeyPress += TxtRespuesta_KeyPress;
+            //}
+            //foreach (var combo in combosPreguntas)
+            //{
+            //    combo.DropDownStyle = ComboBoxStyle.DropDownList;
+            //}
 
-            moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+            //moverFormulario = new ClsArrastrarFormularios(this);
+            //moverFormulario.HabilitarMovimiento(lblTitulo);
         }
 
 
@@ -50,6 +56,27 @@ namespace Vista
 
             CargarPreguntas();
         }
+
+        private void InicializarControles()
+        {
+            combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
+            txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
+
+            foreach (TextBox txt in txtRespuestas)
+            {
+                txt.KeyPress += TxtRespuesta_KeyPress;
+            }
+
+            foreach (ComboBox combo in combosPreguntas)
+            {
+                combo.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
+        }
+
 
         private void CargarPreguntas()
         {

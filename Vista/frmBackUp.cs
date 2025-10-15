@@ -23,9 +23,6 @@ namespace Vista
             InitializeComponent();
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
-            moverFormulario.HabilitarMovimiento(pnlLogo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
 
             // 2. Suscribimos el evento de progreso en el constructor
             oCL_BackUp.ProgressChanged += OnBackupProgressChanged;
@@ -121,18 +118,6 @@ namespace Vista
             {
                 pgbGuardadoPersonalizado.Value = progress;
             }
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void frmBackUp_Shown(object sender, EventArgs e)

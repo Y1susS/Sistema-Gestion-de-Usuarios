@@ -37,8 +37,6 @@ namespace Vista
             ClsSoloNumeros.ConfigurarCulturaEspañola();
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lblCotizador);
         }
 
         private void frmCotizador_Load(object sender, EventArgs e)
@@ -713,27 +711,6 @@ namespace Vista
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-
-
-            this.WindowState = FormWindowState.Minimized;
-
-
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-
-
-             this.Close();
-             var frmPanelUsuarios = new frmPanelUsuarios();
-             frmPanelUsuarios.Show();
-
-
-        }
-
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {

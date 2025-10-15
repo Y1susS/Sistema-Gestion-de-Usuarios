@@ -33,14 +33,16 @@ namespace Sistema_Gestion_De_Usuarios
 
         // Este es el único constructor de mi formulario. Aquí inicializo los componentes
         // y recibo la referencia al formulario padre.
+        public frmPermisos()
+        {
+            InitializeComponent();
+        }
+
         public frmPermisos(frmPanelUsuarios panelUsuariosPadre)
         {
             InitializeComponent();
             this.AcceptButton = btnguardar;
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblpermisos);
-            moverFormulario.HabilitarMovimiento(pnlLogo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
 
             _frmPanelUsuariosPadre = panelUsuariosPadre; // Guarda la referencia al formulario padre
 
@@ -257,18 +259,6 @@ namespace Sistema_Gestion_De_Usuarios
         private void NombreUsuario(object sender, EventArgs e)
         {
 
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
         }
 
         private void frmPermisos_Shown(object sender, EventArgs e)

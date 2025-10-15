@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizador));
-            this.pnlBorde = new System.Windows.Forms.Panel();
-            this.pctMinimize = new System.Windows.Forms.PictureBox();
-            this.pctClose = new System.Windows.Forms.PictureBox();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.lblCotizador = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblpresupuesto = new System.Windows.Forms.Label();
@@ -205,87 +199,12 @@
             this.txtanchom5 = new System.Windows.Forms.TextBox();
             this.txtcantidad5 = new System.Windows.Forms.TextBox();
             this.txtlargom5 = new System.Windows.Forms.TextBox();
-            this.pnlBorde.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlContenedor.SuspendLayout();
             this.pnlPresupuesto.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlBorde
-            // 
-            this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.pctMinimize);
-            this.pnlBorde.Controls.Add(this.pctClose);
-            this.pnlBorde.Controls.Add(this.pctLogo);
-            this.pnlBorde.Controls.Add(this.lblCotizador);
-            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(1425, 40);
-            this.pnlBorde.TabIndex = 8022;
-            // 
-            // pctMinimize
-            // 
-            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(1345, 0);
-            this.pctMinimize.Name = "pctMinimize";
-            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
-            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctMinimize.TabIndex = 22;
-            this.pctMinimize.TabStop = false;
-            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
-            // 
-            // pctClose
-            // 
-            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(1385, 0);
-            this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(40, 40);
-            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctClose.TabIndex = 20;
-            this.pctClose.TabStop = false;
-            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLogo.Location = new System.Drawing.Point(8, 8);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(45, 25);
-            this.pctLogo.TabIndex = 8026;
-            this.pctLogo.TabStop = false;
-            // 
-            // lblCotizador
-            // 
-            this.lblCotizador.BackColor = System.Drawing.Color.Transparent;
-            this.lblCotizador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCotizador.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCotizador.ForeColor = System.Drawing.Color.White;
-            this.lblCotizador.Location = new System.Drawing.Point(0, 0);
-            this.lblCotizador.Name = "lblCotizador";
-            this.lblCotizador.Size = new System.Drawing.Size(1425, 40);
-            this.lblCotizador.TabIndex = 7965;
-            this.lblCotizador.Text = "Cotizador";
-            this.lblCotizador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 683);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1425, 20);
-            this.panel3.TabIndex = 8031;
             // 
             // pnlContenedor
             // 
@@ -300,9 +219,9 @@
             this.pnlContenedor.Controls.Add(this.groupBox2);
             this.pnlContenedor.Controls.Add(this.groupBox1);
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedor.Location = new System.Drawing.Point(0, 40);
+            this.pnlContenedor.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(1425, 643);
+            this.pnlContenedor.Size = new System.Drawing.Size(1425, 703);
             this.pnlContenedor.TabIndex = 8032;
             // 
             // label4
@@ -2314,8 +2233,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1425, 703);
             this.Controls.Add(this.pnlContenedor);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pnlBorde);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -2323,10 +2240,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalculoPiesMuebles";
             this.Load += new System.EventHandler(this.frmCotizador_Load);
-            this.pnlBorde.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlContenedor.ResumeLayout(false);
             this.pnlContenedor.PerformLayout();
             this.pnlPresupuesto.ResumeLayout(false);
@@ -2341,10 +2254,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.PictureBox pctMinimize;
-        private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Panel pnlPresupuesto;
         private System.Windows.Forms.Button btnCerrar;
@@ -2467,7 +2376,6 @@
         private System.Windows.Forms.TextBox txtanchom5;
         private System.Windows.Forms.TextBox txtcantidad5;
         private System.Windows.Forms.TextBox txtlargom5;
-        private System.Windows.Forms.Label lblCotizador;
         private System.Windows.Forms.ComboBox cmbMaterial1;
         private System.Windows.Forms.ComboBox cmbMaterial3;
         private System.Windows.Forms.CheckBox chkmaterial3;
@@ -2511,7 +2419,6 @@
         private System.Windows.Forms.TextBox txtMaterialPrecio1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtDescripcionMueble;
-        private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Label lblcalculopies;
         private System.Windows.Forms.Label lblpresupuesto;
         private System.Windows.Forms.Label lblCotiacion;

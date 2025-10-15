@@ -23,9 +23,6 @@ namespace Vista
 
             this.AcceptButton = btnGuardarCambios;
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(pnlLogo);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
         private void frmadmin_Load(object sender, EventArgs e)
@@ -110,18 +107,6 @@ namespace Vista
             {
                 MessageBox.Show($"Ocurrió un error inesperado al guardar la configuración: {ex.Message}\nPor favor, contacte a soporte.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void frmSegContraseña_Shown(object sender, EventArgs e)

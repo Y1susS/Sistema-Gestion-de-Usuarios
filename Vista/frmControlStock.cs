@@ -30,9 +30,6 @@ namespace Vista
             InitializeComponent();
             EstablecerEstadoInicial();
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
-            moverFormulario.HabilitarMovimiento(pnlLogo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
             dataGridView1.ForeColor = Color.Black;
         }
         private void EstablecerEstadoInicial()
@@ -408,18 +405,6 @@ namespace Vista
         {
             ClsSoloNumeros.ValidarNroDecimales(e, txtStockMinimo);
 
-        }
-
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void pnlBuscar_Paint(object sender, PaintEventArgs e)
