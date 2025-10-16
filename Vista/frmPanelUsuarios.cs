@@ -15,11 +15,29 @@ namespace Vista
 {
     public partial class frmPanelUsuarios : Form
     {
+        private FlowLayoutPanel subMenuPendiente = null;
+        private Timer animacionTimer = new Timer();
+        private FlowLayoutPanel subMenuAnimado = null;
+        private int alturaObjetivo = 0;
+        private bool expandiendo = false;
+        private bool animando = false;
+
+        private Button botonActivo = null;
+        private Button botonPadreActivo = null;
+        private Button botonHijoActivo = null;
+        private FlowLayoutPanel subMenuAbierto = null;
+
+        private Form formularioActual = null;
+
         private ClsArrastrarFormularios moverFormulario;
+
         private CL_Usuarios logicaUsuario = new CL_Usuarios();
         public frmPanelUsuarios()
         {
             InitializeComponent();
+
+            animacionTimer.Interval = 15; // velocidad de refresco (ms)
+            animacionTimer.Tick += AnimacionTimer_Tick;
 
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -27,81 +45,193 @@ namespace Vista
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lbltitulo);
-        }
-        private void AjustarTamañoFormulario()
-        {
-            int cantBotonesVisibles = flwBotones.Controls.Cast<Control>()
-                                  .Count(c => c.Visible);
-
-            switch (cantBotonesVisibles)
-            {
-                case 0:
-                case 1:
-                    this.Height = 275;
-                    break;
-                case 2:
-                    this.Height = 325;
-                    break;
-                case 3:
-                    this.Height = 375;
-                    break;
-                case 4:
-                    this.Height = 425;
-                    break;
-                case 5:
-                    this.Height = 475;
-                    break;
-                case 6:
-                    this.Height = 525;
-                    break;
-                case 7:
-                    this.Height = 415;
-                    break;
-                case 8:
-                    this.Height = 415;
-                    break;
-                case 9:
-                    this.Height = 465;
-                    break;
-                case 10:
-                    this.Height = 465;
-                    break;
-                default:
-                    break;
-            }
-
-            if (cantBotonesVisibles <= 6)
-            {
-                flwBotones.Width = 185;
-                flwBotones.Height = 285;
-                flwBotones.Location = new Point(105, 175);
-            }
+            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
 
-        private void AjustarUltimoBoton()
+        private void SeleccionarBoton(Button boton)
         {
-            int cantBotonesVisibles = flwBotones.Controls.Cast<Control>().Count(c => c.Visible);
+            if (boton == null)
+                return;
 
-            if (cantBotonesVisibles > 6)
+            if (botonActivo != null && botonActivo != boton)
             {
-                int columnas = 2;
-                int botonesUltimaFila = cantBotonesVisibles % columnas;
-                if (botonesUltimaFila == 1)
+                botonActivo.BackColor = Color.FromArgb(60, 60, 75);
+                botonActivo.ForeColor = Color.White;
+            }
+
+            botonActivo = boton;
+            botonActivo.BackColor = Color.FromArgb(0, 122, 204);
+            botonActivo.ForeColor = Color.White;
+
+            botonActivo.Refresh();
+            Application.DoEvents();
+        }
+
+        private void OcultarTodosLosSubMenus()
+        {
+            flwGestionComercial.Visible = false;
+            flwGestionSistema.Visible = false;
+            flwInformes.Visible = false;
+            flwSeguridad.Visible = false;
+            subMenuAbierto = null;
+        }
+
+        private void AlternarSubMenu(FlowLayoutPanel subMenu)
+        {
+            if (subMenu == null) return;
+
+            if (animando)
+            {
+                subMenuPendiente = subMenu;
+                return;
+            }
+
+            // Si el submenú ya está abierto → cerrarlo
+            if (subMenuAbierto == subMenu)
+            {
+                expandiendo = false;
+                subMenuAnimado = subMenu;
+                animando = true;
+                animacionTimer.Start();
+                return;
+            }
+
+            // Si hay otro submenú abierto → cerrarlo primero
+            if (subMenuAbierto != null)
+            {
+                subMenuPendiente = subMenu;
+                expandiendo = false;
+                subMenuAnimado = subMenuAbierto;
+                animando = true;
+                animacionTimer.Start();
+                return;
+            }
+
+            // Primer apertura: forzar altura inicial 0
+            subMenu.Height = 0;               // <--- línea clave
+            subMenu.Visible = true;
+            alturaObjetivo = CalcularAlturaSubMenu(subMenu);
+            subMenuAnimado = subMenu;
+            expandiendo = true;
+            animando = true;
+            animacionTimer.Start();
+        }
+
+        private int CalcularAlturaSubMenu(FlowLayoutPanel subMenu)
+        {
+            int altura = 0;
+            foreach (Control ctrl in subMenu.Controls)
+            {
+                altura += ctrl.Height; // solo la altura de los botones, sin márgenes
+            }
+            return altura;
+        }
+
+        private void AnimacionTimer_Tick(object sender, EventArgs e)
+        {
+            if (subMenuAnimado == null) return;
+
+            int paso = 14;
+
+            if (expandiendo)
+            {
+                subMenuAnimado.Height += paso;
+                if (subMenuAnimado.Height >= alturaObjetivo)
                 {
-                    var btnUltimo = flwBotones.Controls
-                                      .OfType<Button>()
-                                      .Where(b => b.Visible)
-                                      .Last();
+                    subMenuAnimado.Height = alturaObjetivo;
+                    animacionTimer.Stop();
+                    animando = false;
+                    subMenuAbierto = subMenuAnimado;
 
-                    btnUltimo.Width = 362;
-                    btnUltimo.Height = 35;
+                    // Si hay un submenú pendiente, abrirlo
+                    if (subMenuPendiente != null && subMenuPendiente != subMenuAbierto)
+                    {
+                        FlowLayoutPanel pendiente = subMenuPendiente;
+                        subMenuPendiente = null;
+                        AlternarSubMenu(pendiente);
+                    }
+                }
+            }
+            else
+            {
+                subMenuAnimado.Height -= paso;
+                if (subMenuAnimado.Height <= 0)
+                {
+                    subMenuAnimado.Height = 0;
+                    subMenuAnimado.Visible = false;
+                    animacionTimer.Stop();
+                    animando = false;
+                    subMenuAbierto = null;
+
+                    // Si hay un submenú pendiente, abrirlo
+                    if (subMenuPendiente != null)
+                    {
+                        FlowLayoutPanel pendiente = subMenuPendiente;
+                        subMenuPendiente = null;
+                        AlternarSubMenu(pendiente);
+                    }
                 }
             }
         }
 
+        private void AbrirFormHijo(object formhijo)
+        {
+            // Cerrar y liberar el formulario anterior, si existe
+            if (this.pnlContenedor.Controls.Count > 0)
+            {
+                Form formAnterior = this.pnlContenedor.Controls[0] as Form;
+                if (formAnterior != null)
+                {
+                    formAnterior.Close();
+                    formAnterior.Dispose();
+                }
+
+                // Verificar nuevamente antes de eliminar (por si el Close() ya lo quitó)
+                if (this.pnlContenedor.Controls.Count > 0)
+                {
+                    this.pnlContenedor.Controls.RemoveAt(0);
+                }
+            }
+
+            // Convertir el parámetro en formulario hijo
+            Form fh = formhijo as Form;
+            fh.TopLevel = false;
+            fh.FormBorderStyle = FormBorderStyle.None;
+            fh.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al contenedor
+            this.pnlContenedor.Controls.Add(fh);
+            this.pnlContenedor.Tag = fh;
+
+            // Medidas de los paneles existentes
+            int panelLateralAncho = pnlMenu?.Width ?? 0;
+            int panelSuperiorAlto = pnlBorde?.Height ?? 0;
+            int panelInferiorAlto = pnlBordeInferior?.Height ?? 0;
+
+            // Tamaños del borde del formulario padre
+            int bordeAncho = this.Width - this.ClientSize.Width;
+            int bordeAlto = this.Height - this.ClientSize.Height;
+
+            // Ajustar el tamaño del panel contenedor para que encaje con el hijo
+            this.pnlContenedor.Width = fh.Width;
+            this.pnlContenedor.Height = fh.Height;
+
+            // Ajustar el tamaño del formulario padre tomando en cuenta todo
+            this.Width = fh.Width + panelLateralAncho + bordeAncho;
+            this.Height = fh.Height + panelSuperiorAlto + panelInferiorAlto + bordeAlto;
+
+            // Posicionar el formulario hijo dentro del panel
+            fh.Location = new Point(0, 0);
+            fh.Show();
+
+            this.pnlBorde.Invalidate();
+            this.pnlBorde.Update();
+            this.pctClose.Refresh();
+        }
+
         private void frmPanelUsuarios_Load(object sender, EventArgs e)
         {
+            OcultarTodosLosSubMenus();
             this.BeginInvoke(new Action(() => this.ActiveControl = null));
 
             int diasRestantes = logicaUsuario.ObtenerDiasRestantesCambioContrasena(ClsSesionActual.Usuario.Id_user);
@@ -129,9 +259,8 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Usuarios"))
             {
-                this.Close();
-                frmAdminUserABM frmAdminUserABM = new frmAdminUserABM();
-                frmAdminUserABM.Show();
+                SeleccionarBoton((Button)sender);
+                AbrirFormHijo(new frmAdminUserABM());
             }
         }
 
@@ -139,9 +268,8 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Permisos"))
             {
-                this.Close();
-                frmPermisos frmPermisos = new frmPermisos(this); 
-                frmPermisos.Show();
+                SeleccionarBoton((Button)sender);
+                AbrirFormHijo(new frmPermisos());
             }
         }
 
@@ -149,9 +277,8 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) 
             {
-                this.Close();
-                frmSegContraseña frmSegContraseña = new frmSegContraseña();
-                frmSegContraseña.Show();
+                SeleccionarBoton((Button)sender);
+                AbrirFormHijo(new frmSegContraseña());
             }
         }
 
@@ -159,9 +286,8 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Registro de Clientes"))
             {
-                this.Close();
-                frmRegistroClientes frmRegistroClientes = new frmRegistroClientes();
-                frmRegistroClientes.Show();
+                SeleccionarBoton((Button)sender);
+                AbrirFormHijo(new frmRegistroClientes());
             }
         }
 
@@ -169,9 +295,9 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("PreguntasSeguridad"))
             {
-                this.Close();
-                frmPreguntas frmPreguntas = new frmPreguntas(this);
-                frmPreguntas.Show();
+                SeleccionarBoton((Button)sender);
+                frmPreguntas frmPreguntas = new frmPreguntas();
+                frmPreguntas.ShowDialog();
             }
         }
 
@@ -179,10 +305,9 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Cambiar contraseña"))
             {
-                this.Close();
-                string usuario = ClsSesionActual.Usuario.User;
-                frmCambioPass frmCambioPass = new frmCambioPass(usuario, this, true);
-                frmCambioPass.Show();
+                SeleccionarBoton((Button)sender);
+                frmCambioPass frmCambioPass = new frmCambioPass();
+                frmCambioPass.ShowDialog();
             }
         }
 
@@ -264,56 +389,53 @@ namespace Vista
                 switch (idRol)
                 {
                     case 1:
-                        lbltitulo.Text = "Menu Administrador";
+                        lblTitulo.Text = "Menu Administrador";
                         break;
                     case 2:
-                        lbltitulo.Text = "Menu Vendedor";
+                        lblTitulo.Text = "Menu Vendedor";
                         break;
                     default:
-                        lbltitulo.Text = "Menú Principal";
+                        lblTitulo.Text = "Menú Principal";
                         break;
                 }
             }
-            AjustarTamañoFormulario();
-            AjustarUltimoBoton();
-            this.flwBotones.PerformLayout();
+            //AjustarTamañoFormulario();
+            //AjustarUltimoBoton();
+            this.flwSeguridad.PerformLayout();
 
         }
 
 
         private void btncotizador_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SeleccionarBoton((Button)sender);
             frmCotizador frmCotizador = new frmCotizador();
-            frmCotizador.Show();
+            frmCotizador.ShowDialog();
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmControlStock frmControlStock = new frmControlStock();
-            frmControlStock.Show();
+            SeleccionarBoton((Button)sender);
+            AbrirFormHijo(new frmControlStock());
         }
 
         private void btnmetricas_Click(object sender, EventArgs e)
         {
-            this.Close();
+            SeleccionarBoton((Button)sender);
             frmReportes frmReportes = new frmReportes();
-            frmReportes.Show();
+            frmReportes.ShowDialog();
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmBackUp frmBackUp = new frmBackUp();
-            frmBackUp.Show();
+            SeleccionarBoton((Button)sender);
+            AbrirFormHijo(new frmBackUp());
         }
 
         private void btnEstadoVentas_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmEstadosVentas frmEstadosVentas = new frmEstadosVentas();
-            frmEstadosVentas.Show();
+            SeleccionarBoton((Button)sender);
+            AbrirFormHijo(new frmEstadosVentas());
         }
 
         private void pctClose_Click(object sender, EventArgs e)
@@ -332,15 +454,123 @@ namespace Vista
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
             {
-                this.Close();
-                frmPresupuestador frmPresupuestador = new frmPresupuestador();
-                frmPresupuestador.Show();
+                SeleccionarBoton((Button)sender);
+                AbrirFormHijo(new frmPresupuestador());
             }
         }
 
         private void frmPanelUsuarios_Shown(object sender, EventArgs e)
         {
             this.ActiveControl = null;
+        }
+
+        private void lblTitulo_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Inferior, Color.White, 1f);
+        }
+
+        private void pctMinimize_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Inferior, Color.White, 1f);
+        }
+
+        private void pctClose_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Inferior, Color.White, 1f);
+        }
+
+        private void pnlBordeInferior_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Superior, Color.White, 1f);
+        }
+
+        private void lblDiasRestantesContrasena_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Superior, Color.White, 1f);
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void pnlMenu_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Inferior, Color.White, 1f);
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void flwSeguridad_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void flwInformes_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void flwGestionSistema_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void flwGestionComercial_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void pnlLogo_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+
+        }
+
+        private void btnGestionComercial_Click(object sender, EventArgs e)
+        {
+            AlternarSubMenu(flwGestionComercial);
+        }
+
+        private void btnGestionSistema_Click(object sender, EventArgs e)
+        {
+            AlternarSubMenu(flwGestionSistema);
+        }
+
+        private void btnInformes_Click(object sender, EventArgs e)
+        {
+            AlternarSubMenu(flwInformes);
+        }
+
+        private void btnSeguridad_Click(object sender, EventArgs e)
+        {
+            AlternarSubMenu(flwSeguridad);
+        }
+
+        private void btnSeguridad_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void btnGestionComercial_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void btnGestionSistema_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void btnInformes_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarLinea(sender as Control, e, ClsDibujarBordes.Lado.Derecho, Color.White, 1f);
+        }
+
+        private void btnbitacora_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((Button)sender);
+        }
+
+        private void btnCotizaciones_Click(object sender, EventArgs e)
+        {
+            SeleccionarBoton((Button)sender);
+            AbrirFormHijo(new frmListarCotizaciones());
         }
     }
 }

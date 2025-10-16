@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsDibujarBordes.cs" />
     <Compile Include="ClsMensajeEmergente.cs" />
     <Compile Include="frmBackUp.cs">
       <SubType>Form</SubType>
@@ -90,7 +91,6 @@
     <Compile Include="frmCotizador.Designer.cs">
       <DependentUpon>frmCotizador.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClsAbrirForms.cs" />
     <Compile Include="ClsArrastrarFormularios.cs" />
     <Compile Include="ClsCerrarFormularios.cs" />
     <Compile Include="ClsFondoTransparente.cs" />

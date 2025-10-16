@@ -22,9 +22,6 @@ namespace Vista
             InitializeComponent();
             this.AcceptButton = btnActualizarEstado;
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
-            moverFormulario.HabilitarMovimiento(pnlLogo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
             _ventas = new CL_Ventas();
         }
 
@@ -176,22 +173,15 @@ namespace Vista
             }
         }
 
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void frmEstadosVentas_Shown(object sender, EventArgs e)
         {
             this.ActiveControl = null;
             this.AcceptButton = btnActualizarEstado;
+        }
+
+        private void pnlBuscar_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
         }
     }
 }
