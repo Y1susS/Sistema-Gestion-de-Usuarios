@@ -22,9 +22,6 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@Descripcion", gasto.Descripcion);
                 cmd.Parameters.AddWithValue("@Monto", gasto.Monto);
                 cmd.Parameters.AddWithValue("@Id_Cotizacion", gasto.IdCotizacion ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@Id_Presupuesto", gasto.IdPresupuesto ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@TipoGasto", gasto.TipoGasto ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@FechaCreacion", gasto.FechaCreacion);
                 cmd.Parameters.AddWithValue("@Activo", gasto.Activo);
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
@@ -87,9 +84,6 @@ namespace Datos
                 Descripcion = dr["Descripcion"].ToString(),
                 Monto = Convert.ToDecimal(dr["Monto"]),
                 IdCotizacion = dr["Id_Cotizacion"] as int?,
-                IdPresupuesto = dr["Id_Presupuesto"] as int?,
-                TipoGasto = dr["TipoGasto"].ToString(),
-                FechaCreacion = Convert.ToDateTime(dr["FechaCreacion"]),
                 Activo = Convert.ToBoolean(dr["Activo"])
             };
         }

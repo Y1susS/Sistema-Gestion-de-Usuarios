@@ -50,7 +50,7 @@ namespace Logica
                 {
                     EspesorCm = espesorCm,
                     AnchoCm = anchoCm,
-                    LargoCm = largoCm,
+                    LargoMts = largoCm,
                     Cantidad = cantidad,
                     Descripcion = descripcion
                 };
@@ -403,9 +403,7 @@ namespace Logica
                     {
                         Descripcion = !string.IsNullOrWhiteSpace(descripcionOtrosMateriales1) ? descripcionOtrosMateriales1 : "Otros materiales 1",
                         Monto = montoOtrosMateriales1,
-                        TipoGasto = "OtrosMateriales1",
                         IdCotizacion = idCotizacion,
-                        FechaCreacion = DateTime.Now,
                         Activo = true
                     });
                 }
@@ -416,9 +414,7 @@ namespace Logica
                     {
                         Descripcion = !string.IsNullOrWhiteSpace(descripcionOtrosMateriales2) ? descripcionOtrosMateriales2 : "Otros materiales 2",
                         Monto = montoOtrosMateriales2,
-                        TipoGasto = "OtrosMateriales2",
                         IdCotizacion = idCotizacion,
-                        FechaCreacion = DateTime.Now,
                         Activo = true
                     });
                 }
@@ -429,9 +425,7 @@ namespace Logica
                     {
                         Descripcion = !string.IsNullOrWhiteSpace(descripcionGastosVarios) ? descripcionGastosVarios : "Gastos varios",
                         Monto = montoGastosVarios,
-                        TipoGasto = "GastosVarios",
                         IdCotizacion = idCotizacion,
-                        FechaCreacion = DateTime.Now,
                         Activo = true
                     });
                 }

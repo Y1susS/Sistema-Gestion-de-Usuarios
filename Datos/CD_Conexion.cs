@@ -19,6 +19,7 @@ namespace Datos
                 return "Data Source=DESKTOP-JAKJ9H5\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;";
             }
         }
+
         private SqlConnection oConn;
 
         public CD_Conexion()
