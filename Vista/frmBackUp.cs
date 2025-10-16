@@ -51,7 +51,9 @@ namespace Vista
             btnGuardarUbicacionSeleccionada.Enabled = false;
 
             // Reiniciamos la otra barra para que no genere confusión
-            pgbGuardadoPersonalizado.Value = 0;
+            // Se asume que tienes un control llamado pgbGuardadoPersonalizado
+            // Se asume que tienes un control llamado pgbGuardadoRapido
+            if (pgbGuardadoPersonalizado != null) pgbGuardadoPersonalizado.Value = 0;
 
             Task.Run(() =>
             {
@@ -63,7 +65,7 @@ namespace Vista
                     MessageBox.Show(resultado, "Información de Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnGuardarrapido.Enabled = true;
                     btnGuardarUbicacionSeleccionada.Enabled = true;
-                    pgbGuardadoRapido.Value = 0; // Reiniciamos la barra
+                    if (pgbGuardadoRapido != null) pgbGuardadoRapido.Value = 0; // Reiniciamos la barra
                 }));
             });
         }
@@ -81,7 +83,7 @@ namespace Vista
             btnGuardarUbicacionSeleccionada.Enabled = false;
 
             // Reiniciamos la otra barra
-            pgbGuardadoRapido.Value = 0;
+            if (pgbGuardadoRapido != null) pgbGuardadoRapido.Value = 0;
 
             string rutaSeleccionada = txtRutaBackup.Text;
 
@@ -94,7 +96,7 @@ namespace Vista
                     MessageBox.Show(resultado, "Información de Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnGuardarrapido.Enabled = true;
                     btnGuardarUbicacionSeleccionada.Enabled = true;
-                    pgbGuardadoPersonalizado.Value = 0; // Reiniciamos la barra
+                    if (pgbGuardadoPersonalizado != null) pgbGuardadoPersonalizado.Value = 0; // Reiniciamos la barra
                 }));
             });
         }
@@ -110,11 +112,12 @@ namespace Vista
             }
 
             // Actualizamos la barra de progreso según el botón que esté deshabilitado.
-            if (!btnGuardarrapido.Enabled)
+            // Nota: Se asume que tienes pgbGuardadoRapido y pgbGuardadoPersonalizado
+            if (!btnGuardarrapido.Enabled && pgbGuardadoRapido != null)
             {
                 pgbGuardadoRapido.Value = progress;
             }
-            else if (!btnGuardarUbicacionSeleccionada.Enabled)
+            else if (!btnGuardarUbicacionSeleccionada.Enabled && pgbGuardadoPersonalizado != null)
             {
                 pgbGuardadoPersonalizado.Value = progress;
             }
@@ -123,6 +126,89 @@ namespace Vista
         private void frmBackUp_Shown(object sender, EventArgs e)
         {
             this.ActiveControl = null;
+        }
+
+
+        // ***************************************************************
+        // LÓGICA DE RESTAURACIÓN (USANDO SUFIJO _1)
+        // ***************************************************************
+
+        // Método para seleccionar el archivo .bak (Botón Examinar de Cargar Back Up)
+        private void btnExaminarBackup_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Usamos OpenFileDialog para seleccionar un archivo, no una carpeta
+                using (OpenFileDialog ofd = new OpenFileDialog())
+                {
+                    ofd.Filter = "Archivos de Backup SQL (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
+                    ofd.Title = "Seleccione el archivo de Backup para restaurar";
+
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        // Se asume que el TextBox de la ruta de Restore se llama txtExaminarBackup
+                        txtExaminarBackup.Text = ofd.FileName;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Este error ocurre si el control txtExaminarBackup no existe o no es accesible.
+                MessageBox.Show($"Error al intentar abrir el explorador de archivos. Verifique que el TextBox de ruta se llame 'txtExaminarBackup'. Detalles: {ex.Message}", "Error de Conexión de Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Método para iniciar la restauración (Botón Cargar Back Up)
+        private async void btnCargarBackup_Click_1(object sender, EventArgs e)
+        {
+            // Asume que el TextBox de la ruta de Restore se llama txtExaminarBackup
+            string rutaArchivoBackup = txtExaminarBackup.Text;
+
+            if (string.IsNullOrWhiteSpace(rutaArchivoBackup))
+            {
+                MessageBox.Show("Por favor, seleccione el archivo de backup (.bak) a restaurar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Advertencia crítica de seguridad: la restauración es destructiva.
+            DialogResult dialogResult = MessageBox.Show(
+                "ADVERTENCIA CRÍTICA: La base de datos actual será REEMPLAZADA por el archivo de backup seleccionado. Perderá todos los cambios realizados desde que se creó ese archivo. ¿Desea continuar?",
+                "Confirmar Restauración de Base de Datos",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
+
+            if (dialogResult == DialogResult.No)
+            {
+                return; // El usuario canceló la operación
+            }
+
+            // Deshabilitar controles para evitar interacción durante el proceso
+            // Se asume que los botones se llaman btnCargarBackup y btnExaminarBackup
+            btnCargarBackup.Enabled = false;
+            btnExaminarBackup.Enabled = false;
+
+            string resultado = string.Empty;
+
+            try
+            {
+                // Ejecutamos la operación pesada en un hilo de trabajo (Task.Run)
+                resultado = await Task.Run(() => oCL_BackUp.RealizarRestore(rutaArchivoBackup));
+            }
+            catch (Exception ex)
+            {
+                resultado = $"Error inesperado al intentar restaurar: {ex.Message}";
+            }
+
+            // Volvemos al hilo de la UI para mostrar el resultado y re-habilitar
+            MessageBox.Show(resultado,
+                            resultado.StartsWith("Error") ? "Error en Restauración" : "Restauración Exitosa",
+                            MessageBoxButtons.OK,
+                            resultado.StartsWith("Error") ? MessageBoxIcon.Error : MessageBoxIcon.Information);
+
+            // Re-habilitar botones
+            btnCargarBackup.Enabled = true;
+            btnExaminarBackup.Enabled = true;
         }
     }
 }
