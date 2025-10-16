@@ -22,6 +22,7 @@ namespace Vista
         private List<DtoCotizacionDetalle> detallesCotizacion = new List<DtoCotizacionDetalle>();
         private List<DtoCotizacionDetalleVidrio> detallesVidrio = new List<DtoCotizacionDetalleVidrio>(); // NUEVO
         private List<DtoCotizacionMaterial> materialesVarios = new List<DtoCotizacionMaterial>(); // NUEVO
+        private bool _cargandoEdicion = false; // Agregar este campo en la clase frmCotizador (por ejemplo junto a las listas privadas)
 
         // Clase auxiliar para mantener estado
         private static class ViewState
@@ -264,6 +265,8 @@ namespace Vista
         {
             try
             {
+                if (_cargandoEdicion) return; // evita sobreescribir el precio guardado
+
                 if (sender is ComboBox cmb && cmb.SelectedItem is DtoMaterial vidrioSeleccionado)
                 {
                     var lblPrecioM2 = this.Controls.Find($"lblvalorxmetro2{numeroCombo}", true).FirstOrDefault() as Label;
@@ -275,7 +278,6 @@ namespace Vista
                 }
                 else
                 {
-                    // Si no hay selección, limpiar el label
                     var lblPrecioM2 = this.Controls.Find($"lblvalorxmetro2{numeroCombo}", true).FirstOrDefault() as Label;
                     if (lblPrecioM2 != null)
                     {
@@ -520,12 +522,11 @@ namespace Vista
 
             try
             {
-                // Limpiar si existe el método
+                _cargandoEdicion = true;
 
+                // Limpiar si existe el método
                 var mi = GetType().GetMethod("LimpiarFormulario", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
                 if (mi != null) mi.Invoke(this, null);
-
-
 
                 // Asegurar combos cargados
                 CargarTodosLosCombos();
@@ -550,21 +551,14 @@ namespace Vista
 
                     if (cotizacion.Id_Madera.HasValue)
                     {
-                        // Intento por SelectedValue
                         cmbMaderas.SelectedValue = cotizacion.Id_Madera.Value;
-
-                        // Si no encontró el valor (SelectedValue queda null), buscar manualmente por lista
-                        if (cmbMaderas.SelectedValue == null)
+                        if (cmbMaderas.SelectedValue == null && cmbMaderas.DataSource is IEnumerable<DtoMaterial> ds)
                         {
-                            if (cmbMaderas.DataSource is IEnumerable<DtoMaterial> ds)
-                            {
-                                var item = ds.FirstOrDefault(x => x.IdMaterial == cotizacion.Id_Madera.Value);
-                                if (item != null) cmbMaderas.SelectedItem = item;
-                            }
+                            var item = ds.FirstOrDefault(x => x.IdMaterial == cotizacion.Id_Madera.Value);
+                            if (item != null) cmbMaderas.SelectedItem = item;
                         }
                     }
 
-                    // Mostrar SIEMPRE el precio guardado en la cotización (no el actual del material)
                     if (lblPrecio != null)
                     {
                         var precio = cotizacion.PrecioPorPie ?? 0m;
@@ -592,28 +586,171 @@ namespace Vista
 
                         if (txtEspesor != null) txtEspesor.Text = d.EspesorCm.ToString("0.##");
                         if (txtAncho != null) txtAncho.Text = d.AnchoCm.ToString("0.##");
-                        if (txtLargo != null) txtLargo.Text = d.LargoMts.ToString("0.##");
+                        if (txtLargo != null)
+                        {
+                            var largo = d.LargoMts > 0 ? d.LargoMts : (d.LargoMts > 0 ? d.LargoMts : 0);
+                            txtLargo.Text = largo.ToString("0.##");
+                        }
                         if (txtCant != null) txtCant.Text = d.Cantidad.ToString();
                         if (txtDesc != null) txtDesc.Text = d.Descripcion ?? $"Pieza {n}";
                         if (chk != null) chk.Checked = true;
                     }
                 }
 
+                // VIDRIOS
+                if (cotizacion.DetallesVidrio != null && cotizacion.DetallesVidrio.Count > 0)
+                {
+                    decimal totalVidrios = 0m;
+
+                    for (int i = 0; i < Math.Min(cotizacion.DetallesVidrio.Count, 3); i++)
+                    {
+                        var v = cotizacion.DetallesVidrio[i];
+                        int n = i + 1;
+
+                        var posiblesNombresCheckbox = new[] { $"chkvidrio{n}", $"chkVidrio{n}", $"checkBoxVidrio{n}" };
+                        CheckBox chkVidrio = null;
+                        foreach (var nombre in posiblesNombresCheckbox)
+                        {
+                            chkVidrio = this.Controls.Find(nombre, true).FirstOrDefault() as CheckBox;
+                            if (chkVidrio != null) break;
+                        }
+                        if (chkVidrio != null) chkVidrio.Checked = true;
+
+                        var cmbVidrio = this.Controls.Find($"cmbVidrio{n}", true).FirstOrDefault() as ComboBox;
+                        if (cmbVidrio != null)
+                        {
+                            cmbVidrio.SelectedValue = v.IdMaterial;
+                            if (cmbVidrio.SelectedValue == null && cmbVidrio.DataSource is IEnumerable<DtoMaterial> dsV)
+                            {
+                                var item = dsV.FirstOrDefault(x => x.IdMaterial == v.IdMaterial);
+                                if (item != null) cmbVidrio.SelectedItem = item;
+                            }
+                        }
+
+                        var txtLargoV = this.Controls.Find($"txtvidriolargo{n}", true).FirstOrDefault() as TextBox;
+                        var txtAnchoV = this.Controls.Find($"txtvidrioancho{n}", true).FirstOrDefault() as TextBox;
+                        var txtCantV = this.Controls.Find($"txtvidriocant{n}", true).FirstOrDefault() as TextBox;
+
+                        if (txtLargoV != null) txtLargoV.Text = v.LargoCm.ToString("0.##");
+                        if (txtAnchoV != null) txtAnchoV.Text = v.AnchoCm.ToString("0.##");
+                        if (txtCantV != null) txtCantV.Text = v.Piezas.ToString();
+
+                        var lblPrecioM2 = this.Controls.Find($"lblvalorxmetro2{n}", true).FirstOrDefault() as Label;
+                        if (lblPrecioM2 != null)
+                        {
+                            lblPrecioM2.Text = $"${v.PrecioPorM2:N2}";
+                            lblPrecioM2.Visible = true;
+                        }
+
+                        var lblUnidadV = this.Controls.Find($"lblvidriounidad{n}", true).FirstOrDefault() as Label;
+                        if (lblUnidadV != null)
+                        {
+                            lblUnidadV.Text = $"${v.PrecioPorUnidad:N2}";
+                            lblUnidadV.Visible = true;
+                        }
+
+                        var lblTotalLineaV = this.Controls.Find($"lblvidriototal{n}", true).FirstOrDefault() as Label;
+                        if (lblTotalLineaV != null)
+                        {
+                            lblTotalLineaV.Text = $"${v.Subtotal:N2}";
+                            lblTotalLineaV.Visible = true;
+                        }
+
+                        totalVidrios += v.Subtotal;
+                    }
+
+                    var lblTotalVidrios = this.Controls.Find("lbltotalvidrios", true).FirstOrDefault() as Label;
+                    if (lblTotalVidrios != null)
+                    {
+                        lblTotalVidrios.Text = $"${totalVidrios:N2}";
+                        lblTotalVidrios.Visible = true;
+                    }
+
+                    detallesVidrio = new List<DtoCotizacionDetalleVidrio>(cotizacion.DetallesVidrio);
+                }
+
+                // MATERIALES VARIOS (hasta 6 líneas)
+                if (cotizacion.MaterialesVarios != null && cotizacion.MaterialesVarios.Count > 0)
+                {
+                    decimal totalMateriales = 0m;
+
+                    for (int i = 0; i < Math.Min(cotizacion.MaterialesVarios.Count, 6); i++)
+                    {
+                        var mv = cotizacion.MaterialesVarios[i];
+                        int n = i + 1;
+
+                        var posiblesNombresCheckbox = new[] { $"chkmaterial{n}", $"chkMaterial{n}", $"checkBoxMaterial{n}", $"chkmat{n}" };
+                        CheckBox chkMaterial = null;
+                        foreach (var nombre in posiblesNombresCheckbox)
+                        {
+                            chkMaterial = this.Controls.Find(nombre, true).FirstOrDefault() as CheckBox;
+                            if (chkMaterial != null) break;
+                        }
+                        if (chkMaterial != null) chkMaterial.Checked = true;
+
+                        var material = logicaMateriales.ObtenerMaterial(mv.IdMaterial);
+
+                        var cmbTipo = this.Controls.Find($"cmbTipoMaterial{n}", true).FirstOrDefault() as ComboBox;
+                        if (cmbTipo != null && material?.TipoMaterial != null)
+                        {
+                            cmbTipo.SelectedValue = material.TipoMaterial.IdTipoMaterial;
+                            CargarMaterialesPorTipo(material.TipoMaterial.IdTipoMaterial, n);
+                        }
+
+                        var cmbMaterial = this.Controls.Find($"cmbMaterial{n}", true).FirstOrDefault() as ComboBox;
+                        if (cmbMaterial != null)
+                        {
+                            cmbMaterial.SelectedValue = mv.IdMaterial;
+                            if (cmbMaterial.SelectedValue == null && cmbMaterial.DataSource is IEnumerable<DtoMaterial> dsM)
+                            {
+                                var item = dsM.FirstOrDefault(x => x.IdMaterial == mv.IdMaterial);
+                                if (item != null) cmbMaterial.SelectedItem = item;
+                            }
+                        }
+
+                        var posiblesNombresCantidad = new[] {
+                            $"txtMaterialCantidad{n}", $"txtcantidadmaterial{n}",
+                            $"txtCantidadMaterial{n}", $"txtCantidad{n}", $"textBoxCantidad{n}"
+                        };
+                        TextBox txtCantidad = null;
+                        foreach (var nombreCant in posiblesNombresCantidad)
+                        {
+                            txtCantidad = this.Controls.Find(nombreCant, true).FirstOrDefault() as TextBox;
+                            if (txtCantidad != null) break;
+                        }
+                        if (txtCantidad != null) txtCantidad.Text = mv.Cantidad.ToString();
+
+                        var precioUnit = mv.PrecioUnitario ?? 0m;
+                        var nombreMat = !string.IsNullOrWhiteSpace(mv.NombreMaterial) ? mv.NombreMaterial : material?.NombreMaterial ?? "";
+                        var subtotal = precioUnit * mv.Cantidad;
+
+                        ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(this, n, precioUnit, nombreMat, mv.Cantidad, subtotal);
+                        totalMateriales += subtotal;
+                    }
+
+                    MostrarTotalGeneralMaterialesVarios(totalMateriales);
+                    materialesVarios = new List<DtoCotizacionMaterial>(cotizacion.MaterialesVarios);
+                }
+
+                // OTROS MATERIALES / GASTOS VARIOS
+                CargarGastosVariosDesdeCotizacion(cotizacion);
+
                 // Guardar en estado para actualizar/guardar
                 var btnGuardar = this.Controls.Find("btnGuardarCotizacion", true).FirstOrDefault() as Button;
                 if (btnGuardar != null) btnGuardar.Text = "Actualizar Cotización";
 
-
                 var field = GetType().GetNestedType("ViewState", System.Reflection.BindingFlags.NonPublic);
                 var prop = field?.GetProperty("CotizacionActual", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
                 prop?.SetValue(null, cotizacion, null);
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar cotización para edición: {ex.Message}", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                _cargandoEdicion = false;
             }
         }
 
@@ -824,6 +961,15 @@ namespace Vista
 
             for (int i = 1; i <= 3; i++)
             {
+                // Opcional: limpiar los labels de la línea antes de procesarla
+                var lblM2 = this.Controls.Find($"lblvalorxmetro2{i}", true).FirstOrDefault() as Label;
+                var lblUnidad = this.Controls.Find($"lblvidriounidad{i}", true).FirstOrDefault() as Label;
+                var lblTotalLinea = this.Controls.Find($"lblvidriototal{i}", true).FirstOrDefault() as Label;
+                if (lblM2 != null) { lblM2.Text = "$"; lblM2.Visible = false; }
+                if (lblUnidad != null) { lblUnidad.Text = "$"; lblUnidad.Visible = false; }
+                if (lblTotalLinea != null) { lblTotalLinea.Text = "$"; lblTotalLinea.Visible = false; }
+
+                // Checkbox de habilitación
                 var posiblesNombresCheckbox = new[] { $"chkvidrio{i}", $"chkVidrio{i}", $"checkBoxVidrio{i}" };
                 CheckBox chkVidrio = null;
                 foreach (var nombre in posiblesNombresCheckbox)
@@ -852,7 +998,12 @@ namespace Vista
 
                         totalVidrios += subtotal;
 
-                        // Agregar detalle para persistir
+                        // UI: mostrar precio x m2, precio por unidad y total de línea
+                        if (lblM2 != null) { lblM2.Text = $"${precioPorM2:N2}"; lblM2.Visible = true; }
+                        if (lblUnidad != null) { lblUnidad.Text = $"${precioPorUnidad:N2}"; lblUnidad.Visible = true; }
+                        if (lblTotalLinea != null) { lblTotalLinea.Text = $"${subtotal:N2}"; lblTotalLinea.Visible = true; }
+
+                        // Detalle para persistir
                         detallesVidrio.Add(new DtoCotizacionDetalleVidrio
                         {
                             NumeroLinea = i,
@@ -1097,6 +1248,85 @@ namespace Vista
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void CargarGastosVariosDesdeCotizacion(DtoCotizacion cotizacion)
+        {
+            try
+            {
+                if (cotizacion == null) return;
+
+                // Usar los que vienen; si no, intentar consultarlos
+                var gastos = cotizacion.GastosVarios ?? new List<DtoGastoVario>();
+                if (gastos.Count == 0 && cotizacion.Id_Cotizacion > 0)
+                {
+                    try
+                    {
+                        gastos = logicaCotizacion.ListarGastosPorCotizacion(cotizacion.Id_Cotizacion) ?? new List<DtoGastoVario>();
+                    }
+                    catch { gastos = new List<DtoGastoVario>(); }
+                }
+                if (gastos.Count == 0) return;
+
+                // Intentar mapear por descripción; fallback por orden
+                var sinAsignar = new List<DtoGastoVario>(gastos);
+
+                Func<string, DtoGastoVario> pickByDesc = (needle) =>
+                {
+                    var g = sinAsignar.FirstOrDefault(x =>
+                        !string.IsNullOrWhiteSpace(x.Descripcion) &&
+                        string.Equals(x.Descripcion.Trim(), needle, StringComparison.OrdinalIgnoreCase));
+                    if (g != null) sinAsignar.Remove(g);
+                    return g;
+                };
+
+                var g1 = pickByDesc("Otros materiales 1") ?? (sinAsignar.Count > 0 ? sinAsignar[0] : null);
+                if (g1 != null && sinAsignar.Contains(g1)) sinAsignar.Remove(g1);
+
+                var g2 = pickByDesc("Otros materiales 2") ?? (sinAsignar.Count > 0 ? sinAsignar[0] : null);
+                if (g2 != null && sinAsignar.Contains(g2)) sinAsignar.Remove(g2);
+
+                var g3 = pickByDesc("Gastos varios") ?? (sinAsignar.Count > 0 ? sinAsignar[0] : null);
+                if (g3 != null && sinAsignar.Contains(g3)) sinAsignar.Remove(g3);
+
+                decimal total = 0m;
+
+                Action<int, DtoGastoVario> cargarLinea = (n, g) =>
+                {
+                    if (g == null) return;
+
+                    var chk = this.Controls.Find($"chkotrosmateriales{n}", true).FirstOrDefault() as CheckBox;
+                    var txtPrecio = this.Controls.Find($"txtMaterialPrecio{n}", true).FirstOrDefault() as TextBox;
+                    var txtDesc = this.Controls.Find($"txtDescMateriale{n}", true).FirstOrDefault() as TextBox;
+
+                    if (chk != null) chk.Checked = true;
+                    if (txtDesc != null) txtDesc.Text = g.Descripcion ?? string.Empty;
+                    if (txtPrecio != null) txtPrecio.Text = ClsSoloNumeros.FormatearDecimal(g.Monto);
+
+                    total += g.Monto;
+                };
+
+                if (g1 != null) cargarLinea(1, g1);
+                if (g2 != null) cargarLinea(2, g2);
+                if (g3 != null) cargarLinea(3, g3);
+
+                var lblTotal = this.Controls.Find("lbltotalgastosadicionales", true).FirstOrDefault() as Label;
+                if (lblTotal != null)
+                {
+                    lblTotal.Text = $"${total:N2}";
+                    lblTotal.Visible = total > 0;
+                }
+
+                // Sincroniza estado
+                if (ViewState.CotizacionActual == null)
+                    ViewState.CotizacionActual = cotizacion;
+                ViewState.CotizacionActual.GastosVarios = gastos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar gastos varios: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
