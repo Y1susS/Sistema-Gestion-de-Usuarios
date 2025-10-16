@@ -114,6 +114,16 @@ namespace Vista
             this.AcceptButton = btnGuardarCambios;
             this.ActiveControl = null;
         }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
 
