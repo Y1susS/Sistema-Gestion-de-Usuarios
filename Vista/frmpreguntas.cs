@@ -207,8 +207,6 @@ namespace Vista
         private void pctClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
         }
 
         private void pctMinimize_Click(object sender, EventArgs e)

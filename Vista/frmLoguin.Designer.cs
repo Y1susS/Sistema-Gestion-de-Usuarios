@@ -35,7 +35,7 @@
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.pctFondo = new System.Windows.Forms.PictureBox();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.pctMostrar = new System.Windows.Forms.PictureBox();
             this.pctOcultar = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
@@ -127,18 +127,18 @@
             this.pctFondo.TabIndex = 14;
             this.pctFondo.TabStop = false;
             // 
-            // lblLogin
+            // lblTitulo
             // 
-            this.lblLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLogin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(40, 0);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(320, 40);
-            this.lblLogin.TabIndex = 15;
-            this.lblLogin.Text = "Login";
-            this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(320, 40);
+            this.lblTitulo.TabIndex = 15;
+            this.lblTitulo.Text = "Login";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMostrar
             // 
@@ -178,7 +178,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblLogin);
+            this.pnlBorde.Controls.Add(this.lblTitulo);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -263,7 +263,7 @@
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.PictureBox pctFondo;
-        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.PictureBox pctMostrar;
         private System.Windows.Forms.PictureBox pctOcultar;
         private System.Windows.Forms.Panel pnlBordeInferior;

@@ -443,6 +443,22 @@ namespace Vista
                 MessageBox.Show($"Error al abrir la cotización: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // Tamaño total del formulario hijo
+            int anchoTotal = this.Width;
+            int altoTotal = this.Height;
+
+            // Tamaño del área cliente (solo zona visible)
+            int anchoCliente = this.ClientSize.Width;
+            int altoCliente = this.ClientSize.Height;
+
+            MessageBox.Show(
+                $"Formulario hijo: {this.Name}\n" +
+                $"Tamaño total: {anchoTotal} x {altoTotal}\n" +
+                $"Área cliente: {anchoCliente} x {altoCliente}",
+                "Resolución del formulario hijo",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+               
         }
 
         private DtoCotizacion ObtenerCotizacionSeleccionada()
@@ -489,6 +505,11 @@ namespace Vista
             if (dtpDesde != null) dtpDesde.Enabled = usarRango;
             if (dtpHasta != null) dtpHasta.Enabled = usarRango;
             if (dtpFecha != null) dtpFecha.Enabled = habilitar && !usarRango;
+        }
+
+        private void frmListarCotizaciones_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

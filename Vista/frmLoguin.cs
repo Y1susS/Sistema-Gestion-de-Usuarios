@@ -26,7 +26,7 @@ namespace Vista
             
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lblLogin);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
 
             ClsFondoTransparente.Aplicar(
             pctFondo,

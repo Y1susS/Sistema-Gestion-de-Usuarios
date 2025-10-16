@@ -296,7 +296,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("PreguntasSeguridad"))
             {
                 SeleccionarBoton((Button)sender);
-                AbrirFormHijo(new frmPreguntas());
+                frmPreguntas frmPreguntas = new frmPreguntas();
+                frmPreguntas.ShowDialog();
             }
         }
 
@@ -305,7 +306,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Cambiar contraseña"))
             {
                 SeleccionarBoton((Button)sender);
-                AbrirFormHijo(new frmCambioPass());
+                frmCambioPass frmCambioPass = new frmCambioPass();
+                frmCambioPass.ShowDialog();
             }
         }
 
@@ -407,7 +409,8 @@ namespace Vista
         private void btncotizador_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
-            AbrirFormHijo(new frmCotizador());
+            frmCotizador frmCotizador = new frmCotizador();
+            frmCotizador.ShowDialog();
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
@@ -566,6 +569,7 @@ namespace Vista
         private void btnCotizaciones_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
+            AbrirFormHijo(new frmListarCotizaciones());
         }
     }
 }

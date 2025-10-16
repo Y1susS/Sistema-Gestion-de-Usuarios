@@ -37,6 +37,9 @@ namespace Vista
             ClsSoloNumeros.ConfigurarCulturaEspañola();
 
             moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+
         }
 
         private void frmCotizador_Load(object sender, EventArgs e)
@@ -731,13 +734,6 @@ namespace Vista
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
-        }
-
         // ========== Métodos de apoyo necesarios para los handlers ==========
 
         private void ProcesarLineaCalculo(
@@ -1093,14 +1089,14 @@ namespace Vista
             }
         }
 
-        private void btnCotizaciones_Click(object sender, EventArgs e)
+        private void pctClose_Click(object sender, EventArgs e)
         {
-
             this.Close();
-            var frmListar = new frmListarCotizaciones();
-            frmListar.Show(); // Abre el listado para seleccionar y editar cotizaciones guardadas
+        }
 
-
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
