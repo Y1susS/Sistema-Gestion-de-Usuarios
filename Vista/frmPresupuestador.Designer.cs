@@ -60,9 +60,7 @@
             this.lvlValorPresupuesto = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
-            this.btnEnviarMail = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.dtpVigencia = new System.Windows.Forms.DateTimePicker();
@@ -264,6 +262,7 @@
             this.btnSubtotal.TabIndex = 22;
             this.btnSubtotal.Text = "Subtotal";
             this.btnSubtotal.UseVisualStyleBackColor = true;
+            this.btnSubtotal.Click += new System.EventHandler(this.btnSubtotal_Click);
             // 
             // btnBorrarCotizacion
             // 
@@ -273,6 +272,7 @@
             this.btnBorrarCotizacion.TabIndex = 21;
             this.btnBorrarCotizacion.Text = "Borrar";
             this.btnBorrarCotizacion.UseVisualStyleBackColor = true;
+            this.btnBorrarCotizacion.Click += new System.EventHandler(this.btnBorrarCotizacion_Click);
             // 
             // btnEditarCotizacion
             // 
@@ -354,6 +354,7 @@
             this.btnDescuento.TabIndex = 25;
             this.btnDescuento.Text = "Aplicar";
             this.btnDescuento.UseVisualStyleBackColor = true;
+            this.btnDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
             // 
             // lvlValorPresupuesto
             // 
@@ -377,44 +378,26 @@
             // 
             // btnVenta
             // 
-            this.btnVenta.Location = new System.Drawing.Point(779, 660);
+            this.btnVenta.Location = new System.Drawing.Point(779, 678);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(109, 51);
             this.btnVenta.TabIndex = 21;
             this.btnVenta.Text = "Venta";
             this.btnVenta.UseVisualStyleBackColor = true;
             // 
-            // btnEnviarMail
-            // 
-            this.btnEnviarMail.Location = new System.Drawing.Point(611, 664);
-            this.btnEnviarMail.Name = "btnEnviarMail";
-            this.btnEnviarMail.Size = new System.Drawing.Size(73, 23);
-            this.btnEnviarMail.TabIndex = 28;
-            this.btnEnviarMail.Text = "Enviar";
-            this.btnEnviarMail.UseVisualStyleBackColor = true;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(763, 626);
+            this.label12.Location = new System.Drawing.Point(763, 580);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 16);
             this.label12.TabIndex = 29;
             this.label12.Text = "Finalizar Presupuesto";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(457, 667);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 16);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Enviar por Mail";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(437, 614);
+            this.label14.Location = new System.Drawing.Point(442, 626);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(133, 16);
             this.label14.TabIndex = 32;
@@ -422,7 +405,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(611, 611);
+            this.btnImprimir.Location = new System.Drawing.Point(616, 623);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(73, 23);
             this.btnImprimir.TabIndex = 31;
@@ -432,7 +415,7 @@
             // dtpVigencia
             // 
             this.dtpVigencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVigencia.Location = new System.Drawing.Point(488, 710);
+            this.dtpVigencia.Location = new System.Drawing.Point(602, 690);
             this.dtpVigencia.Name = "dtpVigencia";
             this.dtpVigencia.Size = new System.Drawing.Size(98, 22);
             this.dtpVigencia.TabIndex = 33;
@@ -440,7 +423,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(386, 713);
+            this.label15.Location = new System.Drawing.Point(456, 693);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 16);
             this.label15.TabIndex = 34;
@@ -468,12 +451,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(611, 709);
+            this.button1.Location = new System.Drawing.Point(779, 609);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 23);
+            this.button1.Size = new System.Drawing.Size(109, 51);
             this.button1.TabIndex = 37;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnBuscarPresupuesto
             // 
@@ -508,9 +492,7 @@
             this.Controls.Add(this.dtpVigencia);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btnImprimir);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.btnEnviarMail);
             this.Controls.Add(this.lvlValorPresupuesto);
             this.Controls.Add(this.btnVenta);
             this.Controls.Add(this.txtDescripcion);
@@ -563,9 +545,7 @@
         private System.Windows.Forms.Label lvlValorPresupuesto;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnVenta;
-        private System.Windows.Forms.Button btnEnviarMail;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnSubtotal;

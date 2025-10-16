@@ -101,7 +101,7 @@ namespace Datos
 
                             // Mapeo de Presupuesto
                             presupuesto.IdPresupuesto = presupuesto.Id;
-                            presupuesto.IdCliente = Convert.ToInt32(dr["Id_Cliente"]);
+                            presupuesto.Id_Cliente = Convert.ToInt32(dr["Id_Cliente"]);
                             presupuesto.IdUser = Convert.ToInt32(dr["Id_User"]);
                             presupuesto.FechaCreacion = Convert.ToDateTime(dr["FechaCreacion"]);
                             presupuesto.FechaValidez = dr.IsDBNull(dr.GetOrdinal("FechaValidez")) ? (DateTime?)null : Convert.ToDateTime(dr["FechaValidez"]);
@@ -143,7 +143,7 @@ namespace Datos
                             // Asumo que el SP trae 'Id_Cotizacion', 'Cantidad', 'PrecioUnitario' y 'DescripcionMueble'
                             detalle.IdCotizacion = Convert.ToInt32(dr["Id_Cotizacion"]);
                             detalle.NumeroCotizacion = dr["NumeroCotizacion"].ToString(); // Viene de la tabla Cotizacion
-                            detalle.DescripcionMueble = dr["DescripcionMueble"].ToString(); // Viene de la tabla Cotizacion
+                            detalle.Observaciones = dr["DescripcionMueble"].ToString(); // Viene de la tabla Cotizacion
                             detalle.PrecioUnitario = Convert.ToDecimal(dr["PrecioUnitario"]);
                             detalle.Cantidad = Convert.ToInt32(dr["Cantidad"]);
 
@@ -162,6 +162,89 @@ namespace Datos
             }
             return detalles;
         }
+
+        public int InsertarPresupuesto(Presupuesto presupuesto, List<DtoPresupuestoDetalle> detalles)
+        {
+            int idGenerado = 0;
+            string spName = "SP_Presupuesto_Insertar";
+
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(spName, conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // 1. Mapeo de Parámetros de la Cabecera
+                    cmd.Parameters.AddWithValue("@Id_Cliente", presupuesto.Id_Cliente);
+                    cmd.Parameters.AddWithValue("@Id_User", presupuesto.IdUser ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@FechaCreacion", presupuesto.FechaCreacion);
+
+                    // Manejo de la fecha de validez que puede ser NULL
+                    cmd.Parameters.AddWithValue("@FechaValidez", presupuesto.FechaValidez.HasValue ? (object)presupuesto.FechaValidez.Value : DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@MontoTotal", presupuesto.MontoTotal);
+
+                    // Asumo que 'Descuento' en el DTO Presupuesto es el MONTO de dinero descontado
+                    cmd.Parameters.AddWithValue("@Descuento", presupuesto.Descuento);
+
+                    cmd.Parameters.AddWithValue("@MontoFinal", presupuesto.MontoFinal);
+                    cmd.Parameters.AddWithValue("@Id_EstadoPresupuesto", presupuesto.IdEstadoPresupuesto);
+                    cmd.Parameters.AddWithValue("@Observaciones", string.IsNullOrEmpty(presupuesto.Observaciones) ? (object)DBNull.Value : presupuesto.Observaciones);
+
+                    // 2. Ejecutar y obtener el ID generado (SCOPE_IDENTITY())
+                    object resultado = cmd.ExecuteScalar();
+
+                    if (resultado != null && resultado != DBNull.Value)
+                    {
+                        idGenerado = Convert.ToInt32(resultado);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al insertar la cabecera del presupuesto.", ex);
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+            return idGenerado;
+        }
+        public void InsertarDetallePresupuesto(DtoPresupuestoDetalle detalle)
+        {
+            string spName = "SP_PresupuestoCotizacion_InsertarDetalle";
+
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(spName, conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // 1. Mapeo de Parámetros del Detalle
+                    cmd.Parameters.AddWithValue("@Id_Presupuesto", detalle.IdPresupuesto); // Clave Foránea
+                    cmd.Parameters.AddWithValue("@Id_Cotizacion", detalle.IdCotizacion);
+                    cmd.Parameters.AddWithValue("@Cantidad", detalle.Cantidad);
+                    cmd.Parameters.AddWithValue("@PrecioUnitario", detalle.PrecioUnitario);
+                    cmd.Parameters.AddWithValue("@Subtotal", detalle.Subtotal);
+
+                    // Manejo de Observaciones (puede ser NULL)
+                    cmd.Parameters.AddWithValue("@Observaciones", string.IsNullOrEmpty(detalle.Observaciones) ? (object)DBNull.Value : detalle.Observaciones);
+
+                    // 2. Ejecutar el comando (no devuelve filas ni ID)
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al insertar un detalle del presupuesto.", ex);
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+        }
     }
 }
 
@@ -170,6 +253,8 @@ namespace Datos
 
 
 
+
+// claudiooooooooooooio
     //    public int InsertarPresupuesto(Presupuesto presupuesto)
     //    {
     //        using (SqlConnection conn = AbrirConexion())
