@@ -361,5 +361,23 @@ namespace Vista
             this.Size = _formSizeInicial;
             this.ActiveControl = null;
         }
+
+        private void pnlGrafico_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen p = new Pen(Color.White, 1))
+            {
+                e.Graphics.DrawRectangle(p, 0, 0, pnlGrafico.Width - 1, pnlGrafico.Height - 1);
+            }
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

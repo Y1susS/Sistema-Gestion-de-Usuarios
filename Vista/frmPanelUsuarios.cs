@@ -422,7 +422,8 @@ namespace Vista
         private void btnmetricas_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
-            AbrirFormHijo(new frmReportes());
+            frmReportes frmReportes = new frmReportes();
+            frmReportes.ShowDialog();
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
