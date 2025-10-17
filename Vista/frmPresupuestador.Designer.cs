@@ -60,9 +60,7 @@
             this.lvlValorPresupuesto = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
-            this.btnEnviarMail = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.dtpVigencia = new System.Windows.Forms.DateTimePicker();
@@ -285,6 +283,7 @@
             this.btnSubtotal.TabIndex = 22;
             this.btnSubtotal.Text = "Subtotal";
             this.btnSubtotal.UseVisualStyleBackColor = true;
+            this.btnSubtotal.Click += new System.EventHandler(this.btnSubtotal_Click);
             // 
             // btnBorrarCotizacion
             // 
@@ -295,6 +294,7 @@
             this.btnBorrarCotizacion.TabIndex = 21;
             this.btnBorrarCotizacion.Text = "Borrar";
             this.btnBorrarCotizacion.UseVisualStyleBackColor = true;
+            this.btnBorrarCotizacion.Click += new System.EventHandler(this.btnBorrarCotizacion_Click);
             // 
             // btnEditarCotizacion
             // 
@@ -385,6 +385,7 @@
             this.btnDescuento.TabIndex = 25;
             this.btnDescuento.Text = "Aplicar";
             this.btnDescuento.UseVisualStyleBackColor = true;
+            this.btnDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
             // 
             // lvlValorPresupuesto
             // 
@@ -518,6 +519,7 @@
             this.button1.TabIndex = 37;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnBuscarPresupuesto
             // 
@@ -554,9 +556,7 @@
             this.Controls.Add(this.dtpVigencia);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btnImprimir);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.btnEnviarMail);
             this.Controls.Add(this.lvlValorPresupuesto);
             this.Controls.Add(this.btnVenta);
             this.Controls.Add(this.txtDescripcion);
@@ -612,9 +612,7 @@
         private System.Windows.Forms.Label lvlValorPresupuesto;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnVenta;
-        private System.Windows.Forms.Button btnEnviarMail;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnSubtotal;

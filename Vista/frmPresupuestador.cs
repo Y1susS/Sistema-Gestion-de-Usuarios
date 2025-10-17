@@ -1,5 +1,4 @@
-﻿using Datos;
-using Entidades;
+﻿using Entidades;
 using Entidades.DTOs;
 using Logica;
 using System;
@@ -24,11 +23,30 @@ namespace Vista
         }
 
         private CL_Clientes clCliente = new CL_Clientes();
-        private DtoCliente clienteActual = new DtoCliente();
+        private DtoCliente clienteActual;
         private CL_TipoDoc _logicaTipoDoc = new CL_TipoDoc();
         private CL_Presupuesto clPresupuesto = new CL_Presupuesto();
         private List<DtoPresupuestoDetalle> detallesCotizacion = new List<DtoPresupuestoDetalle>(); 
 
+        private void ConfigurarDatagrid()
+        {
+            dgvPresupuesto.ReadOnly = false; 
+
+            dgvPresupuesto.AllowUserToAddRows = false;
+            dgvPresupuesto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPresupuesto.MultiSelect = false;
+            dgvPresupuesto.RowHeadersVisible = false;
+
+            foreach (DataGridViewColumn col in dgvPresupuesto.Columns)
+            {
+                col.ReadOnly = true;
+
+                if (col.DataPropertyName != null && col.DataPropertyName.Equals("Cantidad", StringComparison.OrdinalIgnoreCase))
+                {
+                    col.ReadOnly = false; 
+                }
+            }
+        }
         private void ConfigurarControles()
         {
             // Configurar ComboBox de Tipo Documento
@@ -36,7 +54,7 @@ namespace Vista
             if (cmbDni != null) // Si tienes ComboBox para tipo documento
             {
                 cmbDni.DataSource = tiposDocumento;
-                cmbDni.DisplayMember = "Id_TipoDocumento"; // Cambiar para mostrar descripción
+                cmbDni.DisplayMember = "Id_TipoDocumento"; 
                 cmbDni.ValueMember = "Id_TipoDocumento";
                 cmbDni.SelectedIndex = -1;
             }
@@ -52,7 +70,6 @@ namespace Vista
             txtTelefonoCliente.BackColor = System.Drawing.SystemColors.Control;
             txtMailCliente.BackColor = System.Drawing.SystemColors.Control;
 
-            // Limpiar campos al inicio
             LimpiarCamposCliente();
         }
         private void CargarEventos()
@@ -141,7 +158,7 @@ namespace Vista
             txtApellidoCliente.Text = string.Empty;
             txtTelefonoCliente.Text = string.Empty;
             txtMailCliente.Text = string.Empty;
-            // Limpiar otras propiedades del cliente si es necesario
+            this.clienteActual = null;
         }
 
         private void btnBuscarPresupuesto_Click(object sender, EventArgs e)
@@ -196,13 +213,15 @@ namespace Vista
                 dtpVigencia.Value = p.FechaValidez.GetValueOrDefault(DateTime.Now);
 
                 // Cargar totales
-                lblValorSubtotal.Text = p.MontoTotal.ToString("C2");
-                txtDescuento.Text = p.Descuento.ToString("N2"); // Descuento sin símbolo de moneda
-                lvlValorPresupuesto.Text = p.MontoFinal.ToString("C2");
+                lblValorSubtotal.Text = "$ " + p.MontoTotal.ToString();
+                txtDescuento.Text = p.PorcentajeDescuento.ToString();
+                lvlValorPresupuesto.Text = "$ " + p.MontoFinal.ToString();
 
                 // Cargar DataGrid:
-                detallesCotizacion = clPresupuesto.ObtenerDetalles(p.IdPresupuesto);
                 ActualizarDataGridCotizaciones();
+                ConfigurarDatagrid();
+
+
 
                 MessageBox.Show($"Presupuesto N° {p.Numero} cargado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -218,26 +237,26 @@ namespace Vista
         }
         #endregion
 
-        //// PRESUPUESTADOR POR CLAUDIO
-        //public void AgregarCotizacion(int idCotizacion, string numeroCotizacion,
-        //                       string descripcion, decimal montoTotal)
-        //{
-        //    // Verificar que no esté ya agregada
-        //    foreach (DataGridViewRow row in dataGridView1.Rows)
-        //    {
-        //        if (Convert.ToInt32(row.Cells["Id_Cotizacion"].Value) == idCotizacion)
-        //        {
-        //            MessageBox.Show("Esta cotización ya está en el presupuesto.");
-        //            return;
-        //        }
-        //    }
+        // PRESUPUESTADOR POR CLAUDIO
+        public void AgregarCotizacion(int idCotizacion, string numeroCotizacion,
+                               string descripcion, decimal montoTotal)
+        {
+            // Verificar que no esté ya agregada
+            foreach (DataGridViewRow row in dgvPresupuesto.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["Id_Cotizacion"].Value) == idCotizacion)
+                {
+                    MessageBox.Show("Esta cotización ya está en el presupuesto.");
+                    return;
+                }
+            }
 
-        //    // Agregar nueva fila
-        //    dataGridView1.Rows.Add(idCotizacion, numeroCotizacion, descripcion, montoTotal);
-        //    CalcularSubtotal();
-        //}
+            // Agregar nueva fila
+            dgvPresupuesto.Rows.Add(idCotizacion, numeroCotizacion, descripcion, montoTotal);
+            CalcularSubtotal();
+        }
 
-        //// O mejor aún, recibir el objeto completo
+        // O mejor aún, recibir el objeto completo
         //public void AgregarCotizacion(Cotizacion cotizacion)
         //{
         //    AgregarCotizacion(cotizacion.Id_Cotizacion,
@@ -258,10 +277,10 @@ namespace Vista
         //        AgregarCotizacion(cotizacion);
         //    }
         //}
-        //private void btnBuscar_Click(object sender, EventArgs e)
+        //private void btnBuscarCotizacion_Click(object sender, EventArgs e)
         //{
         //    // Abrir formulario de búsqueda de cotizaciones
-        //    frmBuscarCotizacion frmBuscar = new frmBuscarCotizacion();
+        //    frmListarCotizaciones frmBuscar = new frmListarCotizaciones();
 
         //    if (frmBuscar.ShowDialog() == DialogResult.OK)
         //    {
@@ -271,13 +290,13 @@ namespace Vista
         //}
         //private void btnEditar_Click(object sender, EventArgs e)
         //{
-        //    if (dataGridView1.SelectedRows.Count == 0)
+        //    if (dgvPresupuesto.SelectedRows.Count == 0)
         //    {
         //        MessageBox.Show("Seleccione una cotización para editar.");
         //        return;
         //    }
 
-        //    int idCotizacion = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id_Cotizacion"].Value);
+        //    int idCotizacion = Convert.ToInt32(dgvPresupuesto.SelectedRows[0].Cells["Id_Cotizacion"].Value);
 
         //    // Abrir cotizador en modo edición
         //    frmCotizador frmCotizador = new frmCotizador(idCotizacion);
@@ -294,69 +313,114 @@ namespace Vista
         //        CalcularSubtotal();
         //    }
         //}
-        //private void btnBorrar_Click(object sender, EventArgs e)
-        //{
-        //    if (dataGridView1.SelectedRows.Count == 0)
-        //    {
-        //        MessageBox.Show("Seleccione una cotización para eliminar.");
-        //        return;
-        //    }
+        private void btnBorrarCotizacion_Click(object sender, EventArgs e)
+        {
+            if (dgvPresupuesto.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una cotización para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        //    DialogResult resultado = MessageBox.Show(
-        //        "¿Está seguro de eliminar esta cotización del presupuesto?",
-        //        "Confirmar eliminación",
-        //        MessageBoxButtons.YesNo,
-        //        MessageBoxIcon.Question
-        //    );
+            DataGridViewRow filaSeleccionada = dgvPresupuesto.SelectedRows[0];
+            int indiceFila = filaSeleccionada.Index;
 
-        //    if (resultado == DialogResult.Yes)
-        //    {
-        //        dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-        //        CalcularSubtotal();
-        //    }
-        //}
-        //private void btnSubtotal_Click(object sender, EventArgs e)
-        //{
-        //    CalcularSubtotal();
-        //}
+            DialogResult resultado = MessageBox.Show(
+                "¿Está seguro de eliminar esta cotización del presupuesto?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
-        //private void CalcularSubtotal()
-        //{
-        //    decimal subtotal = 0;
+            if (resultado == DialogResult.Yes)
+            {
+                DtoPresupuestoDetalle detalleParaBorrar = filaSeleccionada.DataBoundItem as DtoPresupuestoDetalle;
 
-        //    foreach (DataGridViewRow row in dataGridView1.Rows)
-        //    {
-        //        if (row.Cells["MontoTotal"].Value != null)
-        //        {
-        //            subtotal += Convert.ToDecimal(row.Cells["MontoTotal"].Value);
-        //        }
-        //    }
+                if (detalleParaBorrar != null)
+                {
+                    this.detallesCotizacion.Remove(detalleParaBorrar);
 
-        //    lblValorSubtotal.Text = subtotal.ToString("N2");
-        //    AplicarDescuento(); // Si ya hay descuento aplicado
-        //}
-        //private void btnAplicar_Click(object sender, EventArgs e)
-        //{
-        //    AplicarDescuento();
-        //}
+                    dgvPresupuesto.DataSource = null;
+                    dgvPresupuesto.DataSource = this.detallesCotizacion;
 
-        //private void AplicarDescuento()
-        //{
-        //    if (string.IsNullOrEmpty(lblValorSubtotal.Text)) return;
+                    CalcularSubtotal();
+                }
+                else
+                {
+                    dgvPresupuesto.Rows.RemoveAt(indiceFila);
+                    CalcularSubtotal();
+                }
+            }
+        }
+        private void btnSubtotal_Click(object sender, EventArgs e)
+        {
+            CalcularSubtotal();
+        }
 
-        //    decimal subtotal = Convert.ToDecimal(lblValorSubtotal.Text);
-        //    decimal porcentajeDescuento = 0;
+        private void CalcularSubtotal()
+        {
+            decimal subtotal = 0;
 
-        //    if (!string.IsNullOrEmpty(txtDescuento.Text))
-        //    {
-        //        porcentajeDescuento = Convert.ToDecimal(txtDescuento.Text);
-        //    }
+            foreach (DataGridViewRow row in dgvPresupuesto.Rows)
+            {
+                // ... (tu código de cálculo del subtotal) ...
+                if (row.Cells["Subtotal"].Value != null && decimal.TryParse(row.Cells["Subtotal"].Value.ToString(), out decimal monto))
+                {
+                    subtotal += monto;
+                }
+            }
 
-        //    decimal montoDescuento = subtotal * (porcentajeDescuento / 100);
-        //    decimal total = subtotal - montoDescuento;
+            lblValorSubtotal.Text = "$ " + subtotal.ToString();
 
-        //    lvlValorPresupuesto.Text = total.ToString("N2");
-        //}
+        }
+        private void btnDescuento_Click(object sender, EventArgs e)
+        {
+            AplicarDescuento();
+        }
+
+        private void AplicarDescuento()
+        {
+            decimal subtotal = 0;
+            decimal porcentajeDescuento = 0;
+
+            // --- 1. Obtener Subtotal y Limpiar (CRÍTICO) ---
+            string subtotalTexto = lblValorSubtotal.Text.Trim();
+
+            // 1a. Limpiar el símbolo '$' y el separador de miles (el punto en formato local: $ 21.450,00)
+            string subtotalLimpio = subtotalTexto
+                .Replace("$", "")
+                .Replace(" ", "")
+                .Replace(".", "") // Elimina el separador de miles (el punto)
+                .Replace(",", "."); // 🛑 Convierte el separador decimal (la coma) en punto
+
+            // 1b. Usamos TryParse con InvariantCulture (espera punto como decimal)
+            if (!decimal.TryParse(subtotalLimpio,
+                                  System.Globalization.NumberStyles.Any, // Acepta cualquier estilo de número
+                                  System.Globalization.CultureInfo.InvariantCulture, // Espera punto como decimal
+                                  out subtotal))
+            {
+                MessageBox.Show("Error de formato: El subtotal no pudo ser interpretado como número.", "Error de Cálculo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // --- 2. Obtener Porcentaje de Descuento de forma segura ---
+            if (!decimal.TryParse(txtDescuento.Text.Trim(), out porcentajeDescuento))
+            {
+                porcentajeDescuento = 0;
+            }
+            porcentajeDescuento = Math.Max(0, Math.Min(100, porcentajeDescuento));
+
+
+            // --- 3. Cálculo Final ---
+            decimal total = subtotal * (1 - (porcentajeDescuento / 100));
+
+            // --- 4. Asignación del Resultado ---
+            // Usamos InvariantCulture para la asignación para consistencia.
+            lvlValorPresupuesto.Text = "$ " + total.ToString("N2", System.Globalization.CultureInfo.CurrentCulture);
+        }
+
+
+
+
         //private void btnVenta_Click(object sender, EventArgs e)
         //{
         //    // Validaciones
@@ -366,7 +430,7 @@ namespace Vista
         //        return;
         //    }
 
-        //    if (dataGridView1.Rows.Count == 0)
+        //    if (dgvPresupuesto.Rows.Count == 0)
         //    {
         //        MessageBox.Show("Debe agregar al menos una cotización.");
         //        return;
@@ -388,8 +452,87 @@ namespace Vista
         //}
 
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int? idUsuarioActual = ClsSesionActual.ObtenerUsuario()?.Id_user; 
 
+            // 🛑 Nueva Validación: Usuario logueado (CRÍTICO)
+            if (idUsuarioActual == null || idUsuarioActual == 0)
+            {
+                MessageBox.Show("No se pudo identificar al usuario logueado. Cierre sesión y vuelva a iniciar.", "Error de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Validar datos básicos
+            if (this.clienteActual == null || this.clienteActual.Id_Cliente == 0)
+            {
+                MessageBox.Show("Debe buscar y seleccionar un cliente válido antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (this.detallesCotizacion.Count == 0)
+            {
+                MessageBox.Show("El presupuesto debe contener al menos una cotización.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            try
+            {
+                // 1. Obtener los valores numéricos del pie del presupuesto
+
+                // Usamos los métodos de TryParse robustos que ya implementamos
+                decimal.TryParse(txtDescuento.Text.Trim(), out decimal porcentajeDescuento);
+
+                // Usar los valores limpios de los labels (necesitan la limpieza si no están como decimales puros)
+                decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
+                decimal totalFinal = ObtenerDecimalDesdeLabel(lvlValorPresupuesto);
+
+                // 2. Crear el objeto Presupuesto de Entidades
+                Presupuesto nuevoPresupuesto = new Presupuesto()
+                {
+                    // Parámetros obligatorios
+                    IdUser = idUsuarioActual,
+                    FechaCreacion = DateTime.Now,
+                    FechaValidez = dtpVigencia.Value, // La fecha de vigencia del DateTimePicker
+                    Id_Cliente = clienteActual.Id_Cliente,
+                    // Totales (sin formato de moneda, solo el valor decimal)
+                    MontoTotal = subtotal,          // El subtotal (antes de descuento)
+                    Descuento = porcentajeDescuento, // El porcentaje de descuento
+                    MontoFinal = totalFinal,        // El monto final (aplicado el descuento)
+
+                    // Otros parámetros (si los tienes)
+                    Observaciones = txtDescripcion.Text.Trim(),
+                    IdEstadoPresupuesto = 1,
+                };
+
+                // 3. Almacenar el Presupuesto y sus Detalles en la Lógica
+                // La lista 'this.detallesCotizacion' ya está actualizada con todos los ítems.
+                int idPresupuestoCreado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
+
+                MessageBox.Show($"Presupuesto N° {idPresupuestoCreado} guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // 4. Limpiar el formulario para un nuevo presupuesto
+                // LimpiarFormulario(); 
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el presupuesto: " + ex.Message, "Error de Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Método auxiliar para obtener el decimal de los Labels con formato de moneda
+        private decimal ObtenerDecimalDesdeLabel(Label lbl)
+        {
+            string textoLimpio = lbl.Text
+                .Replace("$", "")
+                .Replace(" ", "")
+                .Replace(".", "") // Elimina el separador de miles (punto)
+                .Replace(",", "."); // Convierte el separador decimal (coma) a punto
+
+            decimal valor = 0;
+            decimal.TryParse(textoLimpio, System.Globalization.NumberStyles.Any,
+                             System.Globalization.CultureInfo.InvariantCulture, out valor);
+            return valor;
+        }
     }
 
 }

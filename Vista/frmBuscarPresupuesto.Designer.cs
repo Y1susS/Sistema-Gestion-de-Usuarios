@@ -46,35 +46,37 @@
             // 
             // btnBuscarPresup
             // 
-            this.btnBuscarPresup.Location = new System.Drawing.Point(607, 74);
+            this.btnBuscarPresup.Location = new System.Drawing.Point(648, 79);
             this.btnBuscarPresup.Name = "btnBuscarPresup";
             this.btnBuscarPresup.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarPresup.TabIndex = 0;
             this.btnBuscarPresup.Text = "Buscar";
             this.btnBuscarPresup.UseVisualStyleBackColor = true;
             this.btnBuscarPresup.Click += new System.EventHandler(this.btnBuscarPresup_Click);
+            this.btnBuscarPresup.Enter += new System.EventHandler(this.btnBuscarPresup_Click);
             // 
             // dgvPresupuestos
             // 
             this.dgvPresupuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPresupuestos.Location = new System.Drawing.Point(57, 202);
+            this.dgvPresupuestos.Location = new System.Drawing.Point(38, 202);
             this.dgvPresupuestos.Name = "dgvPresupuestos";
             this.dgvPresupuestos.RowHeadersWidth = 51;
             this.dgvPresupuestos.RowTemplate.Height = 24;
-            this.dgvPresupuestos.Size = new System.Drawing.Size(650, 236);
+            this.dgvPresupuestos.Size = new System.Drawing.Size(803, 236);
             this.dgvPresupuestos.TabIndex = 1;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(270, 55);
+            this.txtDescripcion.Location = new System.Drawing.Point(311, 60);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(233, 22);
             this.txtDescripcion.TabIndex = 2;
+            this.txtDescripcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescripcion_KeyDown);
             // 
             // lblDescripcionPresup
             // 
             this.lblDescripcionPresup.AutoSize = true;
-            this.lblDescripcionPresup.Location = new System.Drawing.Point(86, 61);
+            this.lblDescripcionPresup.Location = new System.Drawing.Point(127, 66);
             this.lblDescripcionPresup.Name = "lblDescripcionPresup";
             this.lblDescripcionPresup.Size = new System.Drawing.Size(79, 16);
             this.lblDescripcionPresup.TabIndex = 6;
@@ -83,7 +85,7 @@
             // lblFiltrarpor
             // 
             this.lblFiltrarpor.AutoSize = true;
-            this.lblFiltrarpor.Location = new System.Drawing.Point(54, 21);
+            this.lblFiltrarpor.Location = new System.Drawing.Point(95, 26);
             this.lblFiltrarpor.Name = "lblFiltrarpor";
             this.lblFiltrarpor.Size = new System.Drawing.Size(152, 16);
             this.lblFiltrarpor.TabIndex = 7;
@@ -92,7 +94,7 @@
             // lblFechaPresup
             // 
             this.lblFechaPresup.AutoSize = true;
-            this.lblFechaPresup.Location = new System.Drawing.Point(99, 95);
+            this.lblFechaPresup.Location = new System.Drawing.Point(140, 100);
             this.lblFechaPresup.Name = "lblFechaPresup";
             this.lblFechaPresup.Size = new System.Drawing.Size(45, 16);
             this.lblFechaPresup.TabIndex = 8;
@@ -101,7 +103,7 @@
             // lblVendedorPresup
             // 
             this.lblVendedorPresup.AutoSize = true;
-            this.lblVendedorPresup.Location = new System.Drawing.Point(86, 127);
+            this.lblVendedorPresup.Location = new System.Drawing.Point(127, 132);
             this.lblVendedorPresup.Name = "lblVendedorPresup";
             this.lblVendedorPresup.Size = new System.Drawing.Size(67, 16);
             this.lblVendedorPresup.TabIndex = 9;
@@ -110,21 +112,22 @@
             // dtpFecha
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(270, 88);
+            this.dtpFecha.Location = new System.Drawing.Point(311, 93);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(112, 22);
             this.dtpFecha.TabIndex = 10;
             // 
             // txtVendedor
             // 
-            this.txtVendedor.Location = new System.Drawing.Point(270, 127);
+            this.txtVendedor.Location = new System.Drawing.Point(311, 132);
             this.txtVendedor.Name = "txtVendedor";
             this.txtVendedor.Size = new System.Drawing.Size(233, 22);
             this.txtVendedor.TabIndex = 11;
+            this.txtVendedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVendedor_KeyDown);
             // 
             // btnSeleccionPresup
             // 
-            this.btnSeleccionPresup.Location = new System.Drawing.Point(607, 120);
+            this.btnSeleccionPresup.Location = new System.Drawing.Point(648, 125);
             this.btnSeleccionPresup.Name = "btnSeleccionPresup";
             this.btnSeleccionPresup.Size = new System.Drawing.Size(75, 23);
             this.btnSeleccionPresup.TabIndex = 12;
@@ -135,7 +138,7 @@
             // lblDocumentoPresup
             // 
             this.lblDocumentoPresup.AutoSize = true;
-            this.lblDocumentoPresup.Location = new System.Drawing.Point(86, 161);
+            this.lblDocumentoPresup.Location = new System.Drawing.Point(127, 166);
             this.lblDocumentoPresup.Name = "lblDocumentoPresup";
             this.lblDocumentoPresup.Size = new System.Drawing.Size(76, 16);
             this.lblDocumentoPresup.TabIndex = 13;
@@ -143,16 +146,17 @@
             // 
             // txtDocumento
             // 
-            this.txtDocumento.Location = new System.Drawing.Point(332, 158);
+            this.txtDocumento.Location = new System.Drawing.Point(373, 163);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(118, 22);
             this.txtDocumento.TabIndex = 14;
             this.txtDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDocumento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDocumento_KeyDown);
             // 
             // cmbTipoDni
             // 
             this.cmbTipoDni.FormattingEnabled = true;
-            this.cmbTipoDni.Location = new System.Drawing.Point(270, 158);
+            this.cmbTipoDni.Location = new System.Drawing.Point(311, 163);
             this.cmbTipoDni.Name = "cmbTipoDni";
             this.cmbTipoDni.Size = new System.Drawing.Size(56, 24);
             this.cmbTipoDni.TabIndex = 15;
@@ -161,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(876, 449);
             this.Controls.Add(this.cmbTipoDni);
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.lblDocumentoPresup);
