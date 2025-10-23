@@ -14,6 +14,7 @@ namespace Vista
 {
     public partial class frmBuscarPresupuesto : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private CL_Presupuesto clPresupuesto = new CL_Presupuesto();
         public DtoPresupuestoFiltro PresupuestoSeleccionado { get; private set; }
         private CL_TipoDoc _logicaTipoDoc = new CL_TipoDoc();
@@ -25,6 +26,10 @@ namespace Vista
             InitializeComponent();
             ConfigurarDataGrid();
             ConfigurarControles();
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
 
         private void ConfigurarControles()
@@ -184,6 +189,22 @@ namespace Vista
                 e.SuppressKeyPress = true;
                 btnBuscarPresup.PerformClick();
             }
+        }
+
+        private void pnlOpciones_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
