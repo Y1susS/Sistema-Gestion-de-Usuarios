@@ -601,6 +601,7 @@
             // pnlContenedor
             // 
             this.pnlContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlContenedor.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.pnlContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(250, 40);

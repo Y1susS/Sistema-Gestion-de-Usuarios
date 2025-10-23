@@ -192,6 +192,7 @@
             this.txtDescMateriale1 = new System.Windows.Forms.TextBox();
             this.chkotrosmateriales1 = new System.Windows.Forms.CheckBox();
             this.pnlPresupuesto = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblpresupuesto = new System.Windows.Forms.Label();
             this.btnCalcularCotizacion = new System.Windows.Forms.Button();
             this.lblCotiacion = new System.Windows.Forms.Label();
@@ -206,7 +207,6 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -2167,6 +2167,19 @@
             this.pnlPresupuesto.Size = new System.Drawing.Size(590, 120);
             this.pnlPresupuesto.TabIndex = 8037;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(25, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(166, 34);
+            this.button1.TabIndex = 8041;
+            this.button1.Text = "Cancelar cotización";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // lblpresupuesto
             // 
             this.lblpresupuesto.BackColor = System.Drawing.Color.Transparent;
@@ -2350,19 +2363,6 @@
             this.pctClose.TabIndex = 20;
             this.pctClose.TabStop = false;
             this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(25, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 34);
-            this.button1.TabIndex = 8041;
-            this.button1.Text = "Cancelar cotización";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // frmCotizador
             // 

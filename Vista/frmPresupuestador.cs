@@ -15,13 +15,19 @@ namespace Vista
 {
     public partial class frmPresupuestador : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         public frmPresupuestador()
         {
             InitializeComponent();
             ConfigurarControles();
             CargarEventos();
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
 
+        
         private CL_Clientes clCliente = new CL_Clientes();
         private DtoCliente clienteActual;
         private CL_TipoDoc _logicaTipoDoc = new CL_TipoDoc();
@@ -532,6 +538,37 @@ namespace Vista
             decimal.TryParse(textoLimpio, System.Globalization.NumberStyles.Any,
                              System.Globalization.CultureInfo.InvariantCulture, out valor);
             return valor;
+        }
+
+        private void frmPresupuestador_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlVigencia_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pnlTotales_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pnlPresupuesto_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 
