@@ -455,7 +455,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
             {
                 SeleccionarBoton((Button)sender);
-                AbrirFormHijo(new frmPresupuestador());
+                frmPresupuestador frmPresupuestador = new frmPresupuestador();
+                frmPresupuestador.ShowDialog();
             }
         }
 
