@@ -511,5 +511,15 @@ namespace Vista
         {
 
         }
+
+        private void pnlOpciones_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pnlFiltrarCotizaciones_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
     }
 }
