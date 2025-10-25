@@ -79,6 +79,12 @@
     <Compile Include="frmListarCotizaciones.Designer.cs">
       <DependentUpon>frmListarCotizaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLoguin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoguin.Designer.cs">
+      <DependentUpon>frmLoguin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,12 +118,6 @@
     </Compile>
     <Compile Include="frmAdminUserABM.Designer.cs">
       <DependentUpon>frmAdminUserABM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLoguin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLoguin.Designer.cs">
-      <DependentUpon>frmLoguin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPreguntas.cs">
       <SubType>Form</SubType>
@@ -186,14 +186,14 @@
     <EmbeddedResource Include="frmListarCotizaciones.resx">
       <DependentUpon>frmListarCotizaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLoguin.resx">
+      <DependentUpon>frmLoguin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPanelUsuarios.resx">
       <DependentUpon>frmPanelUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminUserABM.resx">
       <DependentUpon>frmAdminUserABM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLoguin.resx">
-      <DependentUpon>frmLoguin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPreguntas.resx">
       <DependentUpon>frmPreguntas.cs</DependentUpon>
