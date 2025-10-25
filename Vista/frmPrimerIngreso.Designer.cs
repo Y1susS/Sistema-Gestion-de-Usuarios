@@ -34,8 +34,8 @@
             this.txtNuevaPass = new System.Windows.Forms.TextBox();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
-            this.btnCambiar = new System.Windows.Forms.Button();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.btnCambiarcont = new System.Windows.Forms.Button();
+            this.lblUsuariocambiarcont = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.pctFondo = new System.Windows.Forms.PictureBox();
             this.lblPrimerIngreso = new System.Windows.Forms.Label();
@@ -121,30 +121,30 @@
             this.pctClose.TabStop = false;
             this.pctClose.Click += new System.EventHandler(this.pctClose_Click_1);
             // 
-            // btnCambiar
+            // btnCambiarcont
             // 
-            this.btnCambiar.BackColor = System.Drawing.Color.White;
-            this.btnCambiar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiar.ForeColor = System.Drawing.Color.Black;
-            this.btnCambiar.Location = new System.Drawing.Point(107, 318);
-            this.btnCambiar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCambiar.Name = "btnCambiar";
-            this.btnCambiar.Size = new System.Drawing.Size(185, 30);
-            this.btnCambiar.TabIndex = 3;
-            this.btnCambiar.Text = "Cambiar";
-            this.btnCambiar.UseVisualStyleBackColor = false;
-            this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
+            this.btnCambiarcont.BackColor = System.Drawing.Color.White;
+            this.btnCambiarcont.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarcont.ForeColor = System.Drawing.Color.Black;
+            this.btnCambiarcont.Location = new System.Drawing.Point(107, 318);
+            this.btnCambiarcont.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCambiarcont.Name = "btnCambiarcont";
+            this.btnCambiarcont.Size = new System.Drawing.Size(185, 30);
+            this.btnCambiarcont.TabIndex = 3;
+            this.btnCambiarcont.Text = "Cambiar";
+            this.btnCambiarcont.UseVisualStyleBackColor = false;
+            this.btnCambiarcont.Click += new System.EventHandler(this.btnCambiar_Click);
             // 
-            // lblUsuario
+            // lblUsuariocambiarcont
             // 
-            this.lblUsuario.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(0, 360);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(400, 18);
-            this.lblUsuario.TabIndex = 25;
-            this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuariocambiarcont.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuariocambiarcont.ForeColor = System.Drawing.Color.White;
+            this.lblUsuariocambiarcont.Location = new System.Drawing.Point(0, 360);
+            this.lblUsuariocambiarcont.Name = "lblUsuariocambiarcont";
+            this.lblUsuariocambiarcont.Size = new System.Drawing.Size(400, 18);
+            this.lblUsuariocambiarcont.TabIndex = 25;
+            this.lblUsuariocambiarcont.Text = "Usuario";
+            this.lblUsuariocambiarcont.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMensaje
             // 
@@ -267,13 +267,13 @@
             // 
             // frmPrimerIngreso
             // 
-            this.AcceptButton = this.btnCambiar;
+            this.AcceptButton = this.btnCambiarcont;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
-            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblUsuariocambiarcont);
             this.Controls.Add(this.pctValidaciones);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
@@ -285,7 +285,7 @@
             this.Controls.Add(this.txtConfirmaPass);
             this.Controls.Add(this.pctLogo);
             this.Controls.Add(this.txtNuevaPass);
-            this.Controls.Add(this.btnCambiar);
+            this.Controls.Add(this.btnCambiarcont);
             this.Controls.Add(this.pctFondo);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
@@ -320,8 +320,8 @@
         private System.Windows.Forms.TextBox txtNuevaPass;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.Button btnCambiar;
-        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Button btnCambiarcont;
+        private System.Windows.Forms.Label lblUsuariocambiarcont;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.Label lblPrimerIngreso;

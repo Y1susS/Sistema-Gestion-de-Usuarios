@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Entidades.DTOs;
+using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Logica;
-using Entidades.DTOs;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -19,6 +21,8 @@ namespace Vista
         public frmListarCotizaciones()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             this.Load -= frmListarCotizaciones_Load;
             this.Load += frmListarCotizaciones_Load;
         }

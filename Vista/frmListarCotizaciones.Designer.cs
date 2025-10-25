@@ -32,10 +32,10 @@
             this.btnEditarCotizacion = new System.Windows.Forms.Button();
             this.btnBuscarCotización = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblFiltrar = new System.Windows.Forms.Label();
+            this.lblFiltrarcot = new System.Windows.Forms.Label();
             this.lblVendedor = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.lblDecripcion = new System.Windows.Forms.Label();
+            this.lblFechafilt = new System.Windows.Forms.Label();
+            this.lblDecripcionmueble = new System.Windows.Forms.Label();
             this.txtVendedor = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnEliminarCotizacion = new System.Windows.Forms.Button();
@@ -91,14 +91,14 @@
             this.txtDescripcion.TabIndex = 8043;
             this.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblFiltrar
+            // lblFiltrarcot
             // 
-            this.lblFiltrar.AutoSize = true;
-            this.lblFiltrar.Location = new System.Drawing.Point(28, 9);
-            this.lblFiltrar.Name = "lblFiltrar";
-            this.lblFiltrar.Size = new System.Drawing.Size(115, 13);
-            this.lblFiltrar.TabIndex = 8044;
-            this.lblFiltrar.Text = "Filtrar cotizaciones por:";
+            this.lblFiltrarcot.AutoSize = true;
+            this.lblFiltrarcot.Location = new System.Drawing.Point(28, 9);
+            this.lblFiltrarcot.Name = "lblFiltrarcot";
+            this.lblFiltrarcot.Size = new System.Drawing.Size(115, 13);
+            this.lblFiltrarcot.TabIndex = 8044;
+            this.lblFiltrarcot.Text = "Filtrar cotizaciones por:";
             // 
             // lblVendedor
             // 
@@ -109,23 +109,23 @@
             this.lblVendedor.TabIndex = 8045;
             this.lblVendedor.Text = "Vendedor";
             // 
-            // lblFecha
+            // lblFechafilt
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(56, 69);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(37, 13);
-            this.lblFecha.TabIndex = 8046;
-            this.lblFecha.Text = "Fecha";
+            this.lblFechafilt.AutoSize = true;
+            this.lblFechafilt.Location = new System.Drawing.Point(56, 69);
+            this.lblFechafilt.Name = "lblFechafilt";
+            this.lblFechafilt.Size = new System.Drawing.Size(37, 13);
+            this.lblFechafilt.TabIndex = 8046;
+            this.lblFechafilt.Text = "Fecha";
             // 
-            // lblDecripcion
+            // lblDecripcionmueble
             // 
-            this.lblDecripcion.AutoSize = true;
-            this.lblDecripcion.Location = new System.Drawing.Point(56, 37);
-            this.lblDecripcion.Name = "lblDecripcion";
-            this.lblDecripcion.Size = new System.Drawing.Size(117, 13);
-            this.lblDecripcion.TabIndex = 8047;
-            this.lblDecripcion.Text = "Descripción del mueble";
+            this.lblDecripcionmueble.AutoSize = true;
+            this.lblDecripcionmueble.Location = new System.Drawing.Point(56, 37);
+            this.lblDecripcionmueble.Name = "lblDecripcionmueble";
+            this.lblDecripcionmueble.Size = new System.Drawing.Size(117, 13);
+            this.lblDecripcionmueble.TabIndex = 8047;
+            this.lblDecripcionmueble.Text = "Descripción del mueble";
             // 
             // txtVendedor
             // 
@@ -178,16 +178,16 @@
             this.Controls.Add(this.btnEliminarCotizacion);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtVendedor);
-            this.Controls.Add(this.lblDecripcion);
-            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.lblDecripcionmueble);
+            this.Controls.Add(this.lblFechafilt);
             this.Controls.Add(this.lblVendedor);
-            this.Controls.Add(this.lblFiltrar);
+            this.Controls.Add(this.lblFiltrarcot);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.btnBuscarCotización);
             this.Controls.Add(this.btnEditarCotizacion);
             this.Controls.Add(this.dvgCotizaciones);
             this.Name = "frmListarCotizaciones";
-            this.Text = "frmListarCotizaciones";
+            this.Text = "Listar Cotizaciones";
             ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,10 +200,10 @@
         private System.Windows.Forms.Button btnEditarCotizacion;
         private System.Windows.Forms.Button btnBuscarCotización;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.Label lblFiltrarcot;
         private System.Windows.Forms.Label lblVendedor;
-        private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Label lblDecripcion;
+        private System.Windows.Forms.Label lblFechafilt;
+        private System.Windows.Forms.Label lblDecripcionmueble;
         private System.Windows.Forms.TextBox txtVendedor;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnEliminarCotizacion;

@@ -29,125 +29,125 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroClientes));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblLocalidad = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.gpbregcli = new System.Windows.Forms.GroupBox();
+            this.lbldtocli = new System.Windows.Forms.Label();
+            this.lblpisocli = new System.Windows.Forms.Label();
+            this.lblLocalidadcli = new System.Windows.Forms.Label();
+            this.btnEliminarcliente = new System.Windows.Forms.Button();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
-            this.lblPartido = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.lblPartidocli = new System.Windows.Forms.Label();
+            this.btnModificarcliente = new System.Windows.Forms.Button();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnAgregarnuevocliente = new System.Windows.Forms.Button();
             this.lblDepart = new System.Windows.Forms.Label();
             this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.lblPiso = new System.Windows.Forms.Label();
             this.txtderpatamento = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblalturacli = new System.Windows.Forms.Label();
             this.txtpiso = new System.Windows.Forms.TextBox();
-            this.lblCalle = new System.Windows.Forms.Label();
+            this.lblCallecli = new System.Windows.Forms.Label();
             this.txtnumerocalle = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblEmailcli = new System.Windows.Forms.Label();
             this.txtemail = new System.Windows.Forms.TextBox();
-            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblTelefonocli = new System.Windows.Forms.Label();
             this.txtnumerodocumento = new System.Windows.Forms.TextBox();
-            this.lblNroDoc = new System.Windows.Forms.Label();
+            this.lblNroDoccli = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
-            this.lblTipoDoc = new System.Windows.Forms.Label();
+            this.lblTipoDoccli = new System.Windows.Forms.Label();
             this.txtcalle = new System.Windows.Forms.TextBox();
             this.txttelefono = new System.Windows.Forms.TextBox();
             this.txtapellido = new System.Windows.Forms.TextBox();
-            this.lblNombres = new System.Windows.Forms.Label();
-            this.lblApellidos = new System.Windows.Forms.Label();
+            this.lblNombrescli = new System.Windows.Forms.Label();
+            this.lblApellidoscli = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gpbregcli.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gpbregcli
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lblLocalidad);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.cmbTipoDoc);
-            this.groupBox1.Controls.Add(this.lblPartido);
-            this.groupBox1.Controls.Add(this.btnModificar);
-            this.groupBox1.Controls.Add(this.cmbLocalidad);
-            this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Controls.Add(this.lblDepart);
-            this.groupBox1.Controls.Add(this.cmbPartido);
-            this.groupBox1.Controls.Add(this.lblPiso);
-            this.groupBox1.Controls.Add(this.txtderpatamento);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtpiso);
-            this.groupBox1.Controls.Add(this.lblCalle);
-            this.groupBox1.Controls.Add(this.txtnumerocalle);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.txtemail);
-            this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.txtnumerodocumento);
-            this.groupBox1.Controls.Add(this.lblNroDoc);
-            this.groupBox1.Controls.Add(this.txtnombre);
-            this.groupBox1.Controls.Add(this.lblTipoDoc);
-            this.groupBox1.Controls.Add(this.txtcalle);
-            this.groupBox1.Controls.Add(this.txttelefono);
-            this.groupBox1.Controls.Add(this.txtapellido);
-            this.groupBox1.Controls.Add(this.lblNombres);
-            this.groupBox1.Controls.Add(this.lblApellidos);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(830, 175);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registro y Modificación de clientes";
+            this.gpbregcli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.gpbregcli.Controls.Add(this.lbldtocli);
+            this.gpbregcli.Controls.Add(this.lblpisocli);
+            this.gpbregcli.Controls.Add(this.lblLocalidadcli);
+            this.gpbregcli.Controls.Add(this.btnEliminarcliente);
+            this.gpbregcli.Controls.Add(this.cmbTipoDoc);
+            this.gpbregcli.Controls.Add(this.lblPartidocli);
+            this.gpbregcli.Controls.Add(this.btnModificarcliente);
+            this.gpbregcli.Controls.Add(this.cmbLocalidad);
+            this.gpbregcli.Controls.Add(this.btnAgregarnuevocliente);
+            this.gpbregcli.Controls.Add(this.lblDepart);
+            this.gpbregcli.Controls.Add(this.cmbPartido);
+            this.gpbregcli.Controls.Add(this.lblPiso);
+            this.gpbregcli.Controls.Add(this.txtderpatamento);
+            this.gpbregcli.Controls.Add(this.lblalturacli);
+            this.gpbregcli.Controls.Add(this.txtpiso);
+            this.gpbregcli.Controls.Add(this.lblCallecli);
+            this.gpbregcli.Controls.Add(this.txtnumerocalle);
+            this.gpbregcli.Controls.Add(this.lblEmailcli);
+            this.gpbregcli.Controls.Add(this.txtemail);
+            this.gpbregcli.Controls.Add(this.lblTelefonocli);
+            this.gpbregcli.Controls.Add(this.txtnumerodocumento);
+            this.gpbregcli.Controls.Add(this.lblNroDoccli);
+            this.gpbregcli.Controls.Add(this.txtnombre);
+            this.gpbregcli.Controls.Add(this.lblTipoDoccli);
+            this.gpbregcli.Controls.Add(this.txtcalle);
+            this.gpbregcli.Controls.Add(this.txttelefono);
+            this.gpbregcli.Controls.Add(this.txtapellido);
+            this.gpbregcli.Controls.Add(this.lblNombrescli);
+            this.gpbregcli.Controls.Add(this.lblApellidoscli);
+            this.gpbregcli.ForeColor = System.Drawing.Color.White;
+            this.gpbregcli.Location = new System.Drawing.Point(15, 15);
+            this.gpbregcli.Name = "gpbregcli";
+            this.gpbregcli.Size = new System.Drawing.Size(830, 175);
+            this.gpbregcli.TabIndex = 4;
+            this.gpbregcli.TabStop = false;
+            this.gpbregcli.Text = "Registro y Modificación de clientes";
             // 
-            // label1
+            // lbldtocli
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(588, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 18);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "Depto";
+            this.lbldtocli.AutoSize = true;
+            this.lbldtocli.Location = new System.Drawing.Point(588, 110);
+            this.lbldtocli.Name = "lbldtocli";
+            this.lbldtocli.Size = new System.Drawing.Size(47, 18);
+            this.lbldtocli.TabIndex = 49;
+            this.lbldtocli.Text = "Depto";
             // 
-            // label2
+            // lblpisocli
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(503, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 18);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Piso";
+            this.lblpisocli.AutoSize = true;
+            this.lblpisocli.Location = new System.Drawing.Point(503, 110);
+            this.lblpisocli.Name = "lblpisocli";
+            this.lblpisocli.Size = new System.Drawing.Size(37, 18);
+            this.lblpisocli.TabIndex = 48;
+            this.lblpisocli.Text = "Piso";
             // 
-            // lblLocalidad
+            // lblLocalidadcli
             // 
-            this.lblLocalidad.AutoSize = true;
-            this.lblLocalidad.Location = new System.Drawing.Point(347, 138);
-            this.lblLocalidad.Name = "lblLocalidad";
-            this.lblLocalidad.Size = new System.Drawing.Size(72, 18);
-            this.lblLocalidad.TabIndex = 47;
-            this.lblLocalidad.Text = "Localidad";
+            this.lblLocalidadcli.AutoSize = true;
+            this.lblLocalidadcli.Location = new System.Drawing.Point(347, 138);
+            this.lblLocalidadcli.Name = "lblLocalidadcli";
+            this.lblLocalidadcli.Size = new System.Drawing.Size(72, 18);
+            this.lblLocalidadcli.TabIndex = 47;
+            this.lblLocalidadcli.Text = "Localidad";
             // 
-            // btnEliminar
+            // btnEliminarcliente
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(689, 129);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 30);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar cliente";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminarcliente.BackColor = System.Drawing.Color.White;
+            this.btnEliminarcliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEliminarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarcliente.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarcliente.Location = new System.Drawing.Point(689, 129);
+            this.btnEliminarcliente.Name = "btnEliminarcliente";
+            this.btnEliminarcliente.Size = new System.Drawing.Size(130, 30);
+            this.btnEliminarcliente.TabIndex = 15;
+            this.btnEliminarcliente.Text = "Eliminar cliente";
+            this.btnEliminarcliente.UseVisualStyleBackColor = false;
+            this.btnEliminarcliente.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // cmbTipoDoc
             // 
@@ -159,28 +159,28 @@
             this.cmbTipoDoc.Size = new System.Drawing.Size(250, 26);
             this.cmbTipoDoc.TabIndex = 3;
             // 
-            // lblPartido
+            // lblPartidocli
             // 
-            this.lblPartido.AutoSize = true;
-            this.lblPartido.Location = new System.Drawing.Point(10, 138);
-            this.lblPartido.Name = "lblPartido";
-            this.lblPartido.Size = new System.Drawing.Size(56, 18);
-            this.lblPartido.TabIndex = 46;
-            this.lblPartido.Text = "Partido";
+            this.lblPartidocli.AutoSize = true;
+            this.lblPartidocli.Location = new System.Drawing.Point(10, 138);
+            this.lblPartidocli.Name = "lblPartidocli";
+            this.lblPartidocli.Size = new System.Drawing.Size(56, 18);
+            this.lblPartidocli.TabIndex = 46;
+            this.lblPartidocli.Text = "Partido";
             // 
-            // btnModificar
+            // btnModificarcliente
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.White;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(689, 76);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(130, 30);
-            this.btnModificar.TabIndex = 14;
-            this.btnModificar.Text = "Guardar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificarcliente.BackColor = System.Drawing.Color.White;
+            this.btnModificarcliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnModificarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarcliente.ForeColor = System.Drawing.Color.Black;
+            this.btnModificarcliente.Location = new System.Drawing.Point(689, 76);
+            this.btnModificarcliente.Name = "btnModificarcliente";
+            this.btnModificarcliente.Size = new System.Drawing.Size(130, 30);
+            this.btnModificarcliente.TabIndex = 14;
+            this.btnModificarcliente.Text = "Guardar";
+            this.btnModificarcliente.UseVisualStyleBackColor = false;
+            this.btnModificarcliente.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // cmbLocalidad
             // 
@@ -192,19 +192,19 @@
             this.cmbLocalidad.Size = new System.Drawing.Size(250, 26);
             this.cmbLocalidad.TabIndex = 12;
             // 
-            // btnAgregar
+            // btnAgregarnuevocliente
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.White;
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(689, 23);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(130, 30);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Nuevo cliente";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregarnuevocliente.BackColor = System.Drawing.Color.White;
+            this.btnAgregarnuevocliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAgregarnuevocliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarnuevocliente.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarnuevocliente.Location = new System.Drawing.Point(689, 23);
+            this.btnAgregarnuevocliente.Name = "btnAgregarnuevocliente";
+            this.btnAgregarnuevocliente.Size = new System.Drawing.Size(130, 30);
+            this.btnAgregarnuevocliente.TabIndex = 13;
+            this.btnAgregarnuevocliente.Text = "Nuevo cliente";
+            this.btnAgregarnuevocliente.UseVisualStyleBackColor = false;
+            this.btnAgregarnuevocliente.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblDepart
             // 
@@ -241,14 +241,14 @@
             this.txtderpatamento.Size = new System.Drawing.Size(40, 25);
             this.txtderpatamento.TabIndex = 10;
             // 
-            // label10
+            // lblalturacli
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(347, 110);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 18);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Altura";
+            this.lblalturacli.AutoSize = true;
+            this.lblalturacli.Location = new System.Drawing.Point(347, 110);
+            this.lblalturacli.Name = "lblalturacli";
+            this.lblalturacli.Size = new System.Drawing.Size(49, 18);
+            this.lblalturacli.TabIndex = 43;
+            this.lblalturacli.Text = "Altura";
             // 
             // txtpiso
             // 
@@ -257,14 +257,14 @@
             this.txtpiso.Size = new System.Drawing.Size(40, 25);
             this.txtpiso.TabIndex = 9;
             // 
-            // lblCalle
+            // lblCallecli
             // 
-            this.lblCalle.AutoSize = true;
-            this.lblCalle.Location = new System.Drawing.Point(10, 110);
-            this.lblCalle.Name = "lblCalle";
-            this.lblCalle.Size = new System.Drawing.Size(41, 18);
-            this.lblCalle.TabIndex = 42;
-            this.lblCalle.Text = "Calle";
+            this.lblCallecli.AutoSize = true;
+            this.lblCallecli.Location = new System.Drawing.Point(10, 110);
+            this.lblCallecli.Name = "lblCallecli";
+            this.lblCallecli.Size = new System.Drawing.Size(41, 18);
+            this.lblCallecli.TabIndex = 42;
+            this.lblCallecli.Text = "Calle";
             // 
             // txtnumerocalle
             // 
@@ -273,14 +273,14 @@
             this.txtnumerocalle.Size = new System.Drawing.Size(70, 25);
             this.txtnumerocalle.TabIndex = 8;
             // 
-            // lblEmail
+            // lblEmailcli
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(347, 82);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(53, 18);
-            this.lblEmail.TabIndex = 41;
-            this.lblEmail.Text = "E-mail";
+            this.lblEmailcli.AutoSize = true;
+            this.lblEmailcli.Location = new System.Drawing.Point(347, 82);
+            this.lblEmailcli.Name = "lblEmailcli";
+            this.lblEmailcli.Size = new System.Drawing.Size(53, 18);
+            this.lblEmailcli.TabIndex = 41;
+            this.lblEmailcli.Text = "E-mail";
             // 
             // txtemail
             // 
@@ -289,14 +289,14 @@
             this.txtemail.Size = new System.Drawing.Size(250, 25);
             this.txtemail.TabIndex = 6;
             // 
-            // lblTelefono
+            // lblTelefonocli
             // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(10, 82);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(63, 18);
-            this.lblTelefono.TabIndex = 40;
-            this.lblTelefono.Text = "Telefono";
+            this.lblTelefonocli.AutoSize = true;
+            this.lblTelefonocli.Location = new System.Drawing.Point(10, 82);
+            this.lblTelefonocli.Name = "lblTelefonocli";
+            this.lblTelefonocli.Size = new System.Drawing.Size(63, 18);
+            this.lblTelefonocli.TabIndex = 40;
+            this.lblTelefonocli.Text = "Telefono";
             // 
             // txtnumerodocumento
             // 
@@ -305,14 +305,14 @@
             this.txtnumerodocumento.Size = new System.Drawing.Size(250, 25);
             this.txtnumerodocumento.TabIndex = 4;
             // 
-            // lblNroDoc
+            // lblNroDoccli
             // 
-            this.lblNroDoc.AutoSize = true;
-            this.lblNroDoc.Location = new System.Drawing.Point(347, 53);
-            this.lblNroDoc.Name = "lblNroDoc";
-            this.lblNroDoc.Size = new System.Drawing.Size(62, 18);
-            this.lblNroDoc.TabIndex = 39;
-            this.lblNroDoc.Text = "Nro Doc";
+            this.lblNroDoccli.AutoSize = true;
+            this.lblNroDoccli.Location = new System.Drawing.Point(347, 53);
+            this.lblNroDoccli.Name = "lblNroDoccli";
+            this.lblNroDoccli.Size = new System.Drawing.Size(62, 18);
+            this.lblNroDoccli.TabIndex = 39;
+            this.lblNroDoccli.Text = "Nro Doc";
             // 
             // txtnombre
             // 
@@ -321,14 +321,14 @@
             this.txtnombre.Size = new System.Drawing.Size(250, 25);
             this.txtnombre.TabIndex = 2;
             // 
-            // lblTipoDoc
+            // lblTipoDoccli
             // 
-            this.lblTipoDoc.AutoSize = true;
-            this.lblTipoDoc.Location = new System.Drawing.Point(10, 52);
-            this.lblTipoDoc.Name = "lblTipoDoc";
-            this.lblTipoDoc.Size = new System.Drawing.Size(64, 18);
-            this.lblTipoDoc.TabIndex = 38;
-            this.lblTipoDoc.Text = "Tipo Doc";
+            this.lblTipoDoccli.AutoSize = true;
+            this.lblTipoDoccli.Location = new System.Drawing.Point(10, 52);
+            this.lblTipoDoccli.Name = "lblTipoDoccli";
+            this.lblTipoDoccli.Size = new System.Drawing.Size(64, 18);
+            this.lblTipoDoccli.TabIndex = 38;
+            this.lblTipoDoccli.Text = "Tipo Doc";
             // 
             // txtcalle
             // 
@@ -351,23 +351,23 @@
             this.txtapellido.Size = new System.Drawing.Size(250, 25);
             this.txtapellido.TabIndex = 1;
             // 
-            // lblNombres
+            // lblNombrescli
             // 
-            this.lblNombres.AutoSize = true;
-            this.lblNombres.Location = new System.Drawing.Point(347, 25);
-            this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(70, 18);
-            this.lblNombres.TabIndex = 34;
-            this.lblNombres.Text = "Nombres";
+            this.lblNombrescli.AutoSize = true;
+            this.lblNombrescli.Location = new System.Drawing.Point(347, 25);
+            this.lblNombrescli.Name = "lblNombrescli";
+            this.lblNombrescli.Size = new System.Drawing.Size(70, 18);
+            this.lblNombrescli.TabIndex = 34;
+            this.lblNombrescli.Text = "Nombres";
             // 
-            // lblApellidos
+            // lblApellidoscli
             // 
-            this.lblApellidos.AutoSize = true;
-            this.lblApellidos.Location = new System.Drawing.Point(10, 26);
-            this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(70, 18);
-            this.lblApellidos.TabIndex = 35;
-            this.lblApellidos.Text = "Apellidos";
+            this.lblApellidoscli.AutoSize = true;
+            this.lblApellidoscli.Location = new System.Drawing.Point(10, 26);
+            this.lblApellidoscli.Name = "lblApellidoscli";
+            this.lblApellidoscli.Size = new System.Drawing.Size(70, 18);
+            this.lblApellidoscli.TabIndex = 35;
+            this.lblApellidoscli.Text = "Apellidos";
             // 
             // dataGridView1
             // 
@@ -426,7 +426,7 @@
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.ClientSize = new System.Drawing.Size(860, 575);
             this.Controls.Add(this.pnlBuscar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbregcli);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -435,8 +435,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmRegistroClientes_Load);
             this.Shown += new System.EventHandler(this.frmRegistroClientes_Shown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gpbregcli.ResumeLayout(false);
+            this.gpbregcli.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
@@ -445,7 +445,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpbregcli;
         private System.Windows.Forms.TextBox txtderpatamento;
         private System.Windows.Forms.TextBox txtpiso;
         private System.Windows.Forms.TextBox txtnumerocalle;
@@ -455,27 +455,27 @@
         private System.Windows.Forms.TextBox txtcalle;
         private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.TextBox txtapellido;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificarcliente;
+        private System.Windows.Forms.Button btnAgregarnuevocliente;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminarcliente;
         private System.Windows.Forms.ComboBox cmbPartido;
         private System.Windows.Forms.ComboBox cmbLocalidad;
         private System.Windows.Forms.ComboBox cmbTipoDoc;
-        private System.Windows.Forms.Label lblLocalidad;
-        private System.Windows.Forms.Label lblPartido;
+        private System.Windows.Forms.Label lblLocalidadcli;
+        private System.Windows.Forms.Label lblPartidocli;
         private System.Windows.Forms.Label lblDepart;
         private System.Windows.Forms.Label lblPiso;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lblCalle;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.Label lblNroDoc;
-        private System.Windows.Forms.Label lblTipoDoc;
-        private System.Windows.Forms.Label lblNombres;
-        private System.Windows.Forms.Label lblApellidos;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblalturacli;
+        private System.Windows.Forms.Label lblCallecli;
+        private System.Windows.Forms.Label lblEmailcli;
+        private System.Windows.Forms.Label lblTelefonocli;
+        private System.Windows.Forms.Label lblNroDoccli;
+        private System.Windows.Forms.Label lblTipoDoccli;
+        private System.Windows.Forms.Label lblNombrescli;
+        private System.Windows.Forms.Label lblApellidoscli;
+        private System.Windows.Forms.Label lbldtocli;
+        private System.Windows.Forms.Label lblpisocli;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminUserABM));
             this.btnAgregarNuevo = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.cmbPartido = new System.Windows.Forms.ComboBox();
@@ -41,7 +41,7 @@
             this.lblPartido = new System.Windows.Forms.Label();
             this.lblDepart = new System.Windows.Forms.Label();
             this.lblPiso = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblAltura = new System.Windows.Forms.Label();
             this.lblCalle = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
@@ -85,19 +85,19 @@
             this.btnAgregarNuevo.UseVisualStyleBackColor = false;
             this.btnAgregarNuevo.Click += new System.EventHandler(this.btnAgregarNuevo_Click);
             // 
-            // button2
+            // btnGuardar
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(689, 88);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 35);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardar.Location = new System.Drawing.Point(689, 88);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(130, 35);
+            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
@@ -109,11 +109,11 @@
             this.groupBox1.Controls.Add(this.cmbRol);
             this.groupBox1.Controls.Add(this.lblLocalidad);
             this.groupBox1.Controls.Add(this.lblPartido);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.lblDepart);
             this.groupBox1.Controls.Add(this.btnAgregarNuevo);
             this.groupBox1.Controls.Add(this.lblPiso);
-            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.lblAltura);
             this.groupBox1.Controls.Add(this.lblCalle);
             this.groupBox1.Controls.Add(this.lblEmail);
             this.groupBox1.Controls.Add(this.lblTelefono);
@@ -232,14 +232,14 @@
             this.lblPiso.TabIndex = 30;
             this.lblPiso.Text = "Piso";
             // 
-            // label10
+            // lblAltura
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(347, 138);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 18);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Altura";
+            this.lblAltura.AutoSize = true;
+            this.lblAltura.Location = new System.Drawing.Point(347, 138);
+            this.lblAltura.Name = "lblAltura";
+            this.lblAltura.Size = new System.Drawing.Size(49, 18);
+            this.lblAltura.TabIndex = 29;
+            this.lblAltura.Text = "Altura";
             // 
             // lblCalle
             // 
@@ -471,7 +471,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnAgregarNuevo;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtNroCalle;
         private System.Windows.Forms.TextBox txtEmail;
@@ -490,7 +490,7 @@
         private System.Windows.Forms.Label lblPartido;
         private System.Windows.Forms.Label lblDepart;
         private System.Windows.Forms.Label lblPiso;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblAltura;
         private System.Windows.Forms.Label lblCalle;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblTelefono;

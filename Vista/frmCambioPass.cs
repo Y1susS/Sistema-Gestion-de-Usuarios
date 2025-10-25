@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Entidades.DTOs;
 using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -26,6 +28,8 @@ namespace Vista
         public frmCambioPass()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             InicializarControles();
             txtPassActual.Visible = true;
             txtPassActual.BringToFront();
@@ -50,7 +54,7 @@ namespace Vista
             ClsFondoTransparente.Aplicar(
                 pctFondo,
                 pctLogo,
-                lblUsuario,
+                lblUsuariocont,
                 pctValidaciones,
                 pctOcultar, pctOcultar2, pctOcultar3,
                 pctMostrar, pctMostrar2, pctMostrar3,
@@ -65,7 +69,7 @@ namespace Vista
             ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar3, pctOcultar3, "Confirmar contraseña");
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblUsuario);
+            moverFormulario.HabilitarMovimiento(lblUsuariocont);
             moverFormulario.HabilitarMovimiento(pctLogo);
             moverFormulario.HabilitarMovimiento(pctFondo);
         }
@@ -83,8 +87,8 @@ namespace Vista
             ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
             MostrarRestriccionesContrasena();
-            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
-            this.ActiveControl = lblUsuario;
+            lblUsuariocont.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
+            this.ActiveControl = lblUsuariocont;
 
             moverFormulario = new ClsArrastrarFormularios(this);
         }

@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPreguntas));
             this.lblInstrucciones = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblUsuariopregserg = new System.Windows.Forms.Label();
             this.txtRespuesta1 = new System.Windows.Forms.TextBox();
             this.txtRespuesta2 = new System.Windows.Forms.TextBox();
             this.txtRespuesta3 = new System.Windows.Forms.TextBox();
-            this.btnSiguiente = new System.Windows.Forms.Button();
-            this.txtrespuestas = new System.Windows.Forms.Label();
+            this.btnSiguientepregseg = new System.Windows.Forms.Button();
+            this.lblrespuestasseg = new System.Windows.Forms.Label();
             this.cmbPregunta1 = new System.Windows.Forms.ComboBox();
             this.cmbPregunta2 = new System.Windows.Forms.ComboBox();
             this.cmbPregunta3 = new System.Windows.Forms.ComboBox();
-            this.lblPreguntas = new System.Windows.Forms.Label();
+            this.lblPreguntasseg = new System.Windows.Forms.Label();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblTitulopreguntasseg = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.lblAdorno = new System.Windows.Forms.Label();
@@ -69,17 +69,17 @@
             this.lblInstrucciones.Text = "Instrucciones";
             this.lblInstrucciones.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblUsuario
+            // lblUsuariopregserg
             // 
-            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(0, 385);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(600, 20);
-            this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuariopregserg.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuariopregserg.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblUsuariopregserg.ForeColor = System.Drawing.Color.White;
+            this.lblUsuariopregserg.Location = new System.Drawing.Point(0, 385);
+            this.lblUsuariopregserg.Name = "lblUsuariopregserg";
+            this.lblUsuariopregserg.Size = new System.Drawing.Size(600, 20);
+            this.lblUsuariopregserg.TabIndex = 2;
+            this.lblUsuariopregserg.Text = "Usuario";
+            this.lblUsuariopregserg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtRespuesta1
             // 
@@ -105,25 +105,25 @@
             this.txtRespuesta3.TabIndex = 6;
             this.txtRespuesta3.TextChanged += new System.EventHandler(this.txtRespuesta3_TextChanged);
             // 
-            // btnSiguiente
+            // btnSiguientepregseg
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(152, 5);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(275, 30);
-            this.btnSiguiente.TabIndex = 7;
-            this.btnSiguiente.Text = "Siguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnsiguiente_Click);
+            this.btnSiguientepregseg.Location = new System.Drawing.Point(152, 5);
+            this.btnSiguientepregseg.Name = "btnSiguientepregseg";
+            this.btnSiguientepregseg.Size = new System.Drawing.Size(275, 30);
+            this.btnSiguientepregseg.TabIndex = 7;
+            this.btnSiguientepregseg.Text = "Siguiente";
+            this.btnSiguientepregseg.UseVisualStyleBackColor = true;
+            this.btnSiguientepregseg.Click += new System.EventHandler(this.btnsiguiente_Click);
             // 
-            // txtrespuestas
+            // lblrespuestasseg
             // 
-            this.txtrespuestas.ForeColor = System.Drawing.Color.White;
-            this.txtrespuestas.Location = new System.Drawing.Point(360, 0);
-            this.txtrespuestas.Name = "txtrespuestas";
-            this.txtrespuestas.Size = new System.Drawing.Size(225, 30);
-            this.txtrespuestas.TabIndex = 8;
-            this.txtrespuestas.Text = "Respuestas";
-            this.txtrespuestas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblrespuestasseg.ForeColor = System.Drawing.Color.White;
+            this.lblrespuestasseg.Location = new System.Drawing.Point(360, 0);
+            this.lblrespuestasseg.Name = "lblrespuestasseg";
+            this.lblrespuestasseg.Size = new System.Drawing.Size(225, 30);
+            this.lblrespuestasseg.TabIndex = 8;
+            this.lblrespuestasseg.Text = "Respuestas";
+            this.lblrespuestasseg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbPregunta1
             // 
@@ -149,20 +149,20 @@
             this.cmbPregunta3.Size = new System.Drawing.Size(330, 26);
             this.cmbPregunta3.TabIndex = 5;
             // 
-            // lblPreguntas
+            // lblPreguntasseg
             // 
-            this.lblPreguntas.ForeColor = System.Drawing.Color.White;
-            this.lblPreguntas.Location = new System.Drawing.Point(15, 0);
-            this.lblPreguntas.Name = "lblPreguntas";
-            this.lblPreguntas.Size = new System.Drawing.Size(330, 30);
-            this.lblPreguntas.TabIndex = 12;
-            this.lblPreguntas.Text = "Preguntas";
-            this.lblPreguntas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPreguntasseg.ForeColor = System.Drawing.Color.White;
+            this.lblPreguntasseg.Location = new System.Drawing.Point(15, 0);
+            this.lblPreguntasseg.Name = "lblPreguntasseg";
+            this.lblPreguntasseg.Size = new System.Drawing.Size(330, 30);
+            this.lblPreguntasseg.TabIndex = 12;
+            this.lblPreguntasseg.Text = "Preguntas";
+            this.lblPreguntasseg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblTitulopreguntasseg);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -171,17 +171,17 @@
             this.pnlBorde.Size = new System.Drawing.Size(600, 40);
             this.pnlBorde.TabIndex = 24;
             // 
-            // lblTitulo
+            // lblTitulopreguntasseg
             // 
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(520, 40);
-            this.lblTitulo.TabIndex = 8028;
-            this.lblTitulo.Text = "Preguntas de seguridad";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulopreguntasseg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulopreguntasseg.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulopreguntasseg.ForeColor = System.Drawing.Color.White;
+            this.lblTitulopreguntasseg.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulopreguntasseg.Name = "lblTitulopreguntasseg";
+            this.lblTitulopreguntasseg.Size = new System.Drawing.Size(520, 40);
+            this.lblTitulopreguntasseg.TabIndex = 8028;
+            this.lblTitulopreguntasseg.Text = "Preguntas de seguridad";
+            this.lblTitulopreguntasseg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -224,7 +224,7 @@
             // pnlBotones
             // 
             this.pnlBotones.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBotones.Controls.Add(this.btnSiguiente);
+            this.pnlBotones.Controls.Add(this.btnSiguientepregseg);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotones.Location = new System.Drawing.Point(0, 340);
             this.pnlBotones.Name = "pnlBotones";
@@ -234,8 +234,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.txtrespuestas);
-            this.panel3.Controls.Add(this.lblPreguntas);
+            this.panel3.Controls.Add(this.lblrespuestasseg);
+            this.panel3.Controls.Add(this.lblPreguntasseg);
             this.panel3.Controls.Add(this.txtRespuesta1);
             this.panel3.Controls.Add(this.txtRespuesta2);
             this.panel3.Controls.Add(this.cmbPregunta1);
@@ -282,7 +282,7 @@
             this.Controls.Add(this.lblAdorno);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.pnlBotones);
-            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblUsuariopregserg);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -304,16 +304,16 @@
 
         #endregion
         private System.Windows.Forms.Label lblInstrucciones;
-        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblUsuariopregserg;
         private System.Windows.Forms.TextBox txtRespuesta1;
         private System.Windows.Forms.TextBox txtRespuesta2;
         private System.Windows.Forms.TextBox txtRespuesta3;
-        private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.Label txtrespuestas;
+        private System.Windows.Forms.Button btnSiguientepregseg;
+        private System.Windows.Forms.Label lblrespuestasseg;
         private System.Windows.Forms.ComboBox cmbPregunta1;
         private System.Windows.Forms.ComboBox cmbPregunta2;
         private System.Windows.Forms.ComboBox cmbPregunta3;
-        private System.Windows.Forms.Label lblPreguntas;
+        private System.Windows.Forms.Label lblPreguntasseg;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
@@ -321,7 +321,7 @@
         private System.Windows.Forms.Panel pnlBotones;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblTitulopreguntasseg;
         private System.Windows.Forms.Panel panel2;
     }
 }

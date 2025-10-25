@@ -35,7 +35,7 @@
             this.btnCambiar = new System.Windows.Forms.Button();
             this.pctFondo = new System.Windows.Forms.PictureBox();
             this.txtConfirmaPass = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblUsuariocont = new System.Windows.Forms.Label();
             this.pctValidaciones = new System.Windows.Forms.PictureBox();
             this.pctMostrar2 = new System.Windows.Forms.PictureBox();
             this.pctOcultar2 = new System.Windows.Forms.PictureBox();
@@ -125,16 +125,16 @@
             this.txtConfirmaPass.Enter += new System.EventHandler(this.txtConfirmaPass_Enter);
             this.txtConfirmaPass.Leave += new System.EventHandler(this.txtConfirmaPass_Leave);
             // 
-            // lblUsuario
+            // lblUsuariocont
             // 
-            this.lblUsuario.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(0, 305);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(400, 20);
-            this.lblUsuario.TabIndex = 30;
-            this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuariocont.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuariocont.ForeColor = System.Drawing.Color.White;
+            this.lblUsuariocont.Location = new System.Drawing.Point(0, 305);
+            this.lblUsuariocont.Name = "lblUsuariocont";
+            this.lblUsuariocont.Size = new System.Drawing.Size(400, 20);
+            this.lblUsuariocont.TabIndex = 30;
+            this.lblUsuariocont.Text = "Usuario";
+            this.lblUsuariocont.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctValidaciones
             // 
@@ -240,7 +240,7 @@
             this.Controls.Add(this.pctOcultar2);
             this.Controls.Add(this.pctMostrar2);
             this.Controls.Add(this.pctValidaciones);
-            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblUsuariocont);
             this.Controls.Add(this.txtConfirmaPass);
             this.Controls.Add(this.txtNuevaPass);
             this.Controls.Add(this.pctLogo);
@@ -278,7 +278,7 @@
         private System.Windows.Forms.Button btnCambiar;
         private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.TextBox txtConfirmaPass;
-        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblUsuariocont;
         private System.Windows.Forms.PictureBox pctValidaciones;
         private System.Windows.Forms.PictureBox pctMostrar2;
         private System.Windows.Forms.PictureBox pctOcultar2;

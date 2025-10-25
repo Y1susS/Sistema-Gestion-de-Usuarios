@@ -1,6 +1,7 @@
 ﻿using Datos;       // Necesito esta referencia a mis clases de datos como CD_UsuarioGestion, CD_PermisoUsuarioViewModel
-using Logica;     // Necesito esta referencia a mi capa de lógica
+using Entidades; // Necesito esto para ClsSesionActual
 using Entidades.DTOs; // Necesito esto para DtoRol (si se usa, si no, puedes quitarlo)
+using Logica;     // Necesito esta referencia a mi capa de lógica
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,8 +11,10 @@ using System.Linq; // Muy importante para usar .OrderBy() y .ToList()
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Vista; // Asegúrate de que este using sea correcto para encontrar frmPanelUsuarios
-using Entidades; // Necesito esto para ClsSesionActual
+using Vista;
+using Sistema_Gestion_de_Usuarios.Vista;
+using Vista.Lenguajes;
+
 
 namespace Sistema_Gestion_De_Usuarios
 {
@@ -36,12 +39,14 @@ namespace Sistema_Gestion_De_Usuarios
         public frmPermisos()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
         }
 
         public frmPermisos(frmPanelUsuarios panelUsuariosPadre)
         {
             InitializeComponent();
-            this.AcceptButton = btnguardar;
+            this.AcceptButton = btnguardarpermiso;
             moverFormulario = new ClsArrastrarFormularios(this);
 
             _frmPanelUsuariosPadre = panelUsuariosPadre; // Guarda la referencia al formulario padre
@@ -263,7 +268,7 @@ namespace Sistema_Gestion_De_Usuarios
 
         private void frmPermisos_Shown(object sender, EventArgs e)
         {
-            this.AcceptButton = btnguardar;
+            this.AcceptButton = btnguardarpermiso;
             this.ActiveControl = null;
         }
     }

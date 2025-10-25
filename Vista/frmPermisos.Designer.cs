@@ -34,8 +34,8 @@
             this.colFuncionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHabilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnguardar = new System.Windows.Forms.Button();
-            this.lblUsuarios = new System.Windows.Forms.Label();
+            this.btnguardarpermiso = new System.Windows.Forms.Button();
+            this.lblUsuariospermiso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,26 +100,26 @@
             this.colHabilitado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colHabilitado.TrueValue = "True";
             // 
-            // btnguardar
+            // btnguardarpermiso
             // 
-            this.btnguardar.Location = new System.Drawing.Point(289, 412);
-            this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(200, 30);
-            this.btnguardar.TabIndex = 6;
-            this.btnguardar.Text = "Guardar";
-            this.btnguardar.UseVisualStyleBackColor = true;
-            this.btnguardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnguardarpermiso.Location = new System.Drawing.Point(289, 412);
+            this.btnguardarpermiso.Name = "btnguardarpermiso";
+            this.btnguardarpermiso.Size = new System.Drawing.Size(200, 30);
+            this.btnguardarpermiso.TabIndex = 6;
+            this.btnguardarpermiso.Text = "Guardar";
+            this.btnguardarpermiso.UseVisualStyleBackColor = true;
+            this.btnguardarpermiso.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // lblUsuarios
+            // lblUsuariospermiso
             // 
-            this.lblUsuarios.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsuarios.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarios.Location = new System.Drawing.Point(0, 15);
-            this.lblUsuarios.Name = "lblUsuarios";
-            this.lblUsuarios.Size = new System.Drawing.Size(775, 20);
-            this.lblUsuarios.TabIndex = 24;
-            this.lblUsuarios.Text = "Usuarios";
-            this.lblUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuariospermiso.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuariospermiso.ForeColor = System.Drawing.Color.White;
+            this.lblUsuariospermiso.Location = new System.Drawing.Point(0, 15);
+            this.lblUsuariospermiso.Name = "lblUsuariospermiso";
+            this.lblUsuariospermiso.Size = new System.Drawing.Size(775, 20);
+            this.lblUsuariospermiso.TabIndex = 24;
+            this.lblUsuariospermiso.Text = "Usuarios";
+            this.lblUsuariospermiso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmPermisos
             // 
@@ -127,8 +127,8 @@
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.ClientSize = new System.Drawing.Size(780, 459);
             this.Controls.Add(this.dgvPermisos);
-            this.Controls.Add(this.lblUsuarios);
-            this.Controls.Add(this.btnguardar);
+            this.Controls.Add(this.lblUsuariospermiso);
+            this.Controls.Add(this.btnguardarpermiso);
             this.Controls.Add(this.cmbUsuarios);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -145,8 +145,8 @@
         #endregion
         private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.DataGridView dgvPermisos;
-        private System.Windows.Forms.Button btnguardar;
-        private System.Windows.Forms.Label lblUsuarios;
+        private System.Windows.Forms.Button btnguardarpermiso;
+        private System.Windows.Forms.Label lblUsuariospermiso;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdPermiso;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFuncionalidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
