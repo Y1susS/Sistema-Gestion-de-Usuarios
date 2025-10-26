@@ -233,7 +233,8 @@ namespace Vista
                 {
                     ConfigurarEventoComboTipo(i);
                     ConfigurarEventoComboMaterial(i);
-                    ConfigurarEventoCantidadMaterial(i); // NUEVO: Configurar eventos de cantidad
+                    // Eliminado: no enganchar cantidad para evitar recálculo en vivo
+                    // ConfigurarEventoCantidadMaterial(i);
                 }
 
                 // FIX: Cambiar ConfigurarEventoComboVidrio por Configurar EventoVidrio
@@ -345,11 +346,8 @@ namespace Vista
             {
                 if (sender is ComboBox cmb && cmb.SelectedItem is DtoMaterial materialSeleccionado)
                 {
-                    // Mostrar precio unitario en el label correspondiente
+                    // Mostrar solo el precio unitario; sin recálculo en vivo del total de línea
                     MostrarPrecioMaterialVarios(numeroCombo, materialSeleccionado);
-
-                    // Recalcular el total si ya hay cantidad ingresada
-                    RecalcularTotalMaterialVarios(numeroCombo, materialSeleccionado);
                 }
                 else
                 {
@@ -405,38 +403,6 @@ namespace Vista
             }
         }
 
-        private void RecalcularTotalMaterialVarios(int numeroCombo, DtoMaterial material)
-        {
-            // Usar los nombres exactos del designer
-            var posiblesNombresCantidad = new[] {
-                $"txtMaterialCantidad{numeroCombo}",  // Nombre principal del designer
-                $"txtcantidadmaterial{numeroCombo}",
-                $"txtCantidadMaterial{numeroCombo}",
-                $"txtCantidad{numeroCombo}",
-                $"textBoxCantidad{numeroCombo}"
-            };
-
-            foreach (var nombreCantidad in posiblesNombresCantidad)
-            {
-                var txtCantidad = this.Controls.Find(nombreCantidad, true).FirstOrDefault() as TextBox;
-                if (txtCantidad != null && int.TryParse(txtCantidad.Text, out int cantidad) && cantidad > 0)
-                {
-                    decimal total = (material.PrecioUnitario ?? 0) * cantidad;
-
-                    // LLAMAR DIRECTAMENTE A ClsUtilidadesForms SIN MÉTODO INTERMEDIO
-                    ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(
-                        this,
-                        numeroCombo,
-                        material.PrecioUnitario ?? 0,
-                        material.NombreMaterial,
-                        cantidad,
-                        total
-                    );
-                    break;
-                }
-            }
-        }
-
         private void ConfigurarEventoComboTipo(int numeroCombo)
         {
             string nombreComboTipo = $"cmbTipoMaterial{numeroCombo}";
@@ -457,24 +423,6 @@ namespace Vista
             if (comboMaterial != null)
             {
                 comboMaterial.SelectedIndexChanged += (sender, e) => CmbMaterial_SelectedIndexChanged(sender, e, numeroCombo);
-            }
-        }
-
-        private void ConfigurarEventoCantidadMaterial(int numeroCombo)
-        {
-            // Usar los nombres exactos del designer
-            var posiblesNombresCantidad = new[] {
-                $"txtMaterialCantidad{numeroCombo}",  // Nombre principal del designer
-                $"txtcantidadmaterial{numeroCombo}",
-                $"txtCantidadMaterial{numeroCombo}",
-                $"txtCantidad{numeroCombo}",
-                $"textBoxCantidad{numeroCombo}"
-            };
-
-            foreach (var nombreCantidad in posiblesNombresCantidad)
-            {
-                var txtCantidad = this.Controls.Find(nombreCantidad, true).FirstOrDefault() as TextBox;
-
             }
         }
 
