@@ -446,6 +446,7 @@ namespace Datos
             {
                 try
                 {
+                    DtoUsuario dto = null;
                     SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarioPorNombre", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@User", usuario);
@@ -453,7 +454,7 @@ namespace Datos
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        return new DtoUsuario
+                        dto = new DtoUsuario
                         {
                             Id_user = dr.GetInt32(dr.GetOrdinal("Id_user")),
                             User = dr.GetString(dr.GetOrdinal("User")),
@@ -464,13 +465,35 @@ namespace Datos
                             FechaBaja = dr.IsDBNull(dr.GetOrdinal("FechaBaja")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaBaja"))
                         };
                     }
+                    dr.Close();
+
+                    if (dto != null)
+                    {
+                        // Obtener Intentos y FechaBloqueo mediante SP
+                        using (SqlCommand cmdExtra = new SqlCommand("sp_ObtenerIntentosYBloqueo", conn))
+                        {
+                            cmdExtra.CommandType = CommandType.StoredProcedure;
+                            cmdExtra.Parameters.AddWithValue("@Id_user", dto.Id_user);
+                            using (SqlDataReader drExtra = cmdExtra.ExecuteReader())
+                            {
+                                if (drExtra.Read())
+                                {
+                                    int ordinalIntentos = drExtra.GetOrdinal("Intentos");
+                                    int ordinalFechaBloqueo = drExtra.GetOrdinal("FechaBloqueo");
+                                    dto.Intentos = drExtra.IsDBNull(ordinalIntentos) ? 0 : drExtra.GetInt32(ordinalIntentos);
+                                    dto.FechaBloqueo = drExtra.IsDBNull(ordinalFechaBloqueo) ? (DateTime?)null : drExtra.GetDateTime(ordinalFechaBloqueo);
+                                }
+                            }
+                        }
+                    }
+
+                    return dto;
                 }
                 finally
                 {
                     CerrarConexion();
                 }
             }
-            return null;
         }
 
         public bool VerificarParametrosRecupero(string NroDocumento, int Id_Pregunta, string Respuesta)
@@ -648,6 +671,49 @@ namespace Datos
                 oConexion.CerrarConexion();
             }
             return permisos;
+        }
+
+        // NUEVO: registra intento fallido e inicia bloqueo si corresponde
+        public void RegistrarIntentoFallido(int idUsuario, int maxIntentos)
+        {
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_RegistrarIntentoFallido", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_user", idUsuario);
+                        cmd.Parameters.AddWithValue("@MaxIntentos", maxIntentos);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+        }
+
+        // NUEVO: reinicia intentos y desbloquea
+        public void ReiniciarIntentosYDesbloquear(int idUsuario)
+        {
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_ReiniciarIntentosYDesbloquear", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_user", idUsuario);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
         }
     }
 }

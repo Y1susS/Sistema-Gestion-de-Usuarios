@@ -28,7 +28,7 @@ namespace Vista
         private void frmadmin_Load(object sender, EventArgs e)
         {
             CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();
-            DtoConfiguracionContraseña config = logicaConfig.ObtenerConfiguracion();
+            DtoConfiguracionSeguridad config = logicaConfig.ObtenerConfiguracion();
             if (config == null)
             {
                 MessageBox.Show(
@@ -70,7 +70,7 @@ namespace Vista
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            DtoConfiguracionContraseña dto = new DtoConfiguracionContraseña()
+            DtoConfiguracionSeguridad dto = new DtoConfiguracionSeguridad()
             {
                 Id = 1, 
                 MinimoCaracteres = chkMinCarac.Checked ? (int)nudCaractMin.Value : 0,

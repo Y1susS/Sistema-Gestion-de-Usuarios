@@ -65,7 +65,7 @@ namespace Vista
             try
             {
                 CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
-                DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = configLogic.ObtenerConfiguracion();
 
                 if (config != null)
                 {
@@ -147,7 +147,7 @@ namespace Vista
                 }
 
                 CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();
-                DtoConfiguracionContraseña config = logicaConfig.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = logicaConfig.ObtenerConfiguracion();
 
                 if (config == null)
                 {
