@@ -125,55 +125,6 @@ namespace Logica
         }        //HAY NUEVO METODO que toma de la base
 
 
-       
-
-        // método privado para validar las políticas de seguridad de la contraseña.
-        private bool ValidarPoliticasSeguridad(string contraseña, string usuario, out string mensaje)
-        {
-            // Estas validaciones podrían venir de tabla Restriccion en BD
-            int minLength = 8;
-            bool requireUppercase = true;
-            bool requireNumbers = true;
-            bool requireSpecialChar = true;
-
-            // Validar longitud mínima
-            if (contraseña.Length < minLength)
-            {
-                mensaje = $"La contraseña debe tener al menos {minLength} caracteres";
-                return false;
-            }
-
-            // Validar mayúsculas
-            if (requireUppercase && !contraseña.Any(char.IsUpper))
-            {
-                mensaje = "La contraseña debe contener al menos una letra mayúscula";
-                return false;
-            }
-
-            // Validar números
-            if (requireNumbers && !contraseña.Any(char.IsDigit))
-            {
-                mensaje = "La contraseña debe contener al menos un número";
-                return false;
-            }
-
-            // Validar caracteres especiales
-            if (requireSpecialChar && contraseña.All(c => char.IsLetterOrDigit(c)))
-            {
-                mensaje = "La contraseña debe contener al menos un carácter especial";
-                return false;
-            }
-
-            // Validar que no contenga datos del usuario
-            if (contraseña.ToLower().Contains(usuario.ToLower()))
-            {
-                mensaje = "La contraseña no puede contener tu nombre de usuario";
-                return false;
-            }
-
-            mensaje = "Contraseña válida";
-            return true;
-        }
 
         // método para registrar un nuevo usuario en el sistema.
 
@@ -471,7 +422,7 @@ namespace Logica
         public bool UsuarioTienePreguntasDeSeguridad(string nombreUsuario)
         {
             // Llama al método de la capa de datos para verificar si el usuario tiene preguntas configuradas.
-            // Debes implementar este método en tu clase de datos (CD_DaoPregunta).
+            // Implementar este método en la clase de datos (CD_DaoPregunta).
             return daoPregunta.VerificarExistencia(nombreUsuario);
         }
 

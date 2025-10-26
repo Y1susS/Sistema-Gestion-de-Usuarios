@@ -16,11 +16,13 @@ namespace Vista
         private Form _formularioAnterior;
         private List<DtoPregunta> todasLasPreguntas;
         private ClsArrastrarFormularios moverFormulario;
+        private bool _configuracionCompletada = false; // Flag para impedir cierre
 
         public frmPreguntas()
         {
             InitializeComponent();
             InicializarControles();
+            this.FormClosing += FrmPreguntas_FormClosing;
         }
 
         public frmPreguntas(Form formularioAnterior)
@@ -29,6 +31,7 @@ namespace Vista
             _formularioAnterior = formularioAnterior;
             this.AcceptButton = btnSiguiente;
             InicializarControles();
+            this.FormClosing += FrmPreguntas_FormClosing;
             //combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
             //txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
 
@@ -147,6 +150,7 @@ namespace Vista
 
                 if (objPreguntas.RegistrarRespuestas(respuestas, out string mensaje))
                 {
+                    _configuracionCompletada = true; // permitir cierre
                     MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     frmPanelUsuarios frmAdmin = new frmPanelUsuarios();
@@ -204,8 +208,24 @@ namespace Vista
             }
         }
 
+        private void FrmPreguntas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_configuracionCompletada && e.CloseReason == CloseReason.UserClosing)
+            {
+                MessageBox.Show("Debe completar la configuración de preguntas de seguridad antes de cerrar esta ventana.",
+                    "Acción requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }
+        }
+
         private void pctClose_Click_1(object sender, EventArgs e)
         {
+            if (!_configuracionCompletada)
+            {
+                MessageBox.Show("Debe completar la configuración de preguntas de seguridad antes de cerrar esta ventana.",
+                    "Acción requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             this.Close();
         }
 
