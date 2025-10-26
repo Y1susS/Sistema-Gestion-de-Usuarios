@@ -237,7 +237,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(395, 40);
             this.lblTitulo.TabIndex = 15;
-            this.lblTitulo.Text = "Login";
+            this.lblTitulo.Text = "Validaciones";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize

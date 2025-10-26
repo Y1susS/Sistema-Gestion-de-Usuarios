@@ -409,10 +409,7 @@ namespace Vista
 
         private void pnlBuscar_Paint(object sender, PaintEventArgs e)
         {
-            using (Pen p = new Pen(Color.White, 1))
-            {
-                e.Graphics.DrawRectangle(p, 0, 0, pnlBuscar.Width - 1, pnlBuscar.Height - 1);
-            }
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

@@ -51,6 +51,10 @@ namespace Vista
 
         private void frmPreguntas_Load(object sender, EventArgs e)
         {
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
+
             this.AcceptButton = btnSiguiente;
             lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblInstrucciones.Text = "Por favor, seleccione 3 preguntas de seguridad y proporcione sus respuestas." +
@@ -74,10 +78,6 @@ namespace Vista
             {
                 combo.DropDownStyle = ComboBoxStyle.DropDownList;
             }
-
-            moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
-            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
 

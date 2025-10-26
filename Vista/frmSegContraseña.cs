@@ -23,6 +23,8 @@ namespace Vista
 
             this.AcceptButton = btnGuardarCambios;
             moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
 
         private void frmadmin_Load(object sender, EventArgs e)
