@@ -45,7 +45,7 @@
     <Compile Include="DTOs\DtoPresupuestoDetalle.cs" />
     <Compile Include="DTOs\DtoCliente.cs" />
     <Compile Include="DTOs\DtoClienteDetalle.cs" />
-    <Compile Include="DTOs\DtoConfiguracionContraseña.cs" />
+    <Compile Include="DTOs\DtoConfiguracionSeguridad.cs" />
     <Compile Include="DTOs\DtoCotizacion.cs" />
     <Compile Include="DTOs\DtoCotizacionDetalle.cs" />
     <Compile Include="DTOs\DtoCotizacionDetalleVidrio.cs" />

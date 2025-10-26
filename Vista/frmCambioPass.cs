@@ -93,7 +93,7 @@ namespace Vista
             try
             {
                 CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
-                DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = configLogic.ObtenerConfiguracion();
 
                 if (config != null)
                 {

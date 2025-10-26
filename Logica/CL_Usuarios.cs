@@ -42,7 +42,7 @@ namespace Logica
                 daoUsuario.ActualizarPrimeraClave(nombreUsuarioStr, false);
 
                 CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();
-                DtoConfiguracionContraseña config = logicaConfig.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = logicaConfig.ObtenerConfiguracion();
                 if (config != null)
                 {
                     daoUsuario.ActualizarCambiaCada(nombreUsuarioStr, config.DiasCambioPassword);
@@ -104,7 +104,7 @@ namespace Logica
                 daoPassUsada.AgregarPassUsada(usuarioCompleto.Id_user, hashNueva);
 
                 // Actualizar valor CambiaCada según configuración actual
-                DtoConfiguracionContraseña config = objConfigContra.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = objConfigContra.ObtenerConfiguracion();
                 if (config != null)
                 {
                     daoUsuario.ActualizarCambiaCada(usuarioStr, config.DiasCambioPassword);
@@ -312,7 +312,7 @@ namespace Logica
         
         {
             mensaje = "";
-            DtoConfiguracionContraseña config = objConfigContra.ObtenerConfiguracion();
+            DtoConfiguracionSeguridad config = objConfigContra.ObtenerConfiguracion();
 
             if (config == null)
             {

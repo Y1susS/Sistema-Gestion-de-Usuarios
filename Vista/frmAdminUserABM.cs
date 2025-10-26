@@ -567,7 +567,7 @@ namespace Vista
         private DtoUsuario CrearDtoUsuarioDesdeFormulario()
         {
             CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();
-            DtoConfiguracionContraseña config = logicaConfig.ObtenerConfiguracion();
+            DtoConfiguracionSeguridad config = logicaConfig.ObtenerConfiguracion();
 
 
             return new DtoUsuario
