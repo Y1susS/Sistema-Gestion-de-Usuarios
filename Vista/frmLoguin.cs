@@ -123,6 +123,19 @@ namespace Vista
                 }
                 else
                 {
+                    // Asegurar que las preguntas de seguridad estén configuradas antes de permitir el acceso
+                    CL_Usuarios objUsuarios = new CL_Usuarios();
+                    if (!objUsuarios.UsuarioTienePreguntasDeSeguridad(user))
+                    {
+                        MessageBox.Show("Debe configurar sus preguntas de seguridad antes de continuar.",
+                            "Configuración requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        frmPreguntas frm = new frmPreguntas(this);
+                        frm.Show();
+                        this.Hide();
+                        return;
+                    }
+
                     new frmPanelUsuarios().Show();
                     this.Hide();
                 }

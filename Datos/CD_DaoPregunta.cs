@@ -53,95 +53,37 @@ namespace Datos
             CerrarConexion();
             return tabla;
         }
-        public bool UsuarioYaConfiguroPreguntas(string nombreUsuario)
-        {
-            bool tienePreguntas = false;
 
-            // Consulta SQL para verificar si el usuario tiene una respuesta de seguridad registrada.
-            // Se realiza un JOIN con la tabla de usuarios para usar el 'nombreUsuario' como filtro.
-            string query = @"
-        SELECT COUNT(r.Id_Respuesta)
-        FROM dbo.Respuestas r
-        INNER JOIN dbo.Usuario u ON r.Id_User = u.Id_User
-        WHERE u.User = @nombreUsuario";
-
-            try
-            {
-                // Se utiliza tu objeto de conexión 'conexion' para abrir la conexión a la base de datos.
-                using (SqlConnection connection = AbrirConexion())
-                {
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        // Agrega el parámetro para evitar inyecciones SQL.
-                        command.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
-
-                        // ExecuteScalar devuelve el valor de la primera columna de la primera fila.
-                        object result = command.ExecuteScalar();
-
-                        // Verifica si el resultado es válido y lo convierte a entero.
-                        if (result != null && result != DBNull.Value)
-                        {
-                            int count = Convert.ToInt32(result);
-                            if (count > 0)
-                            {
-                                tienePreguntas = true;
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores en caso de fallo de conexión o consulta.
-                // Puedes registrar este error para depuración.
-                Console.WriteLine($"Error en UsuarioYaConfiguroPreguntas: {ex.Message}");
-            }
-            finally
-            {
-                // Asegúrate de que la conexión se cierre correctamente.
-                CerrarConexion();
-            }
-            return tienePreguntas;
-        }
-
-        //metodo para verificar si es primera contraseña
-
+        //metodo para verificar si el usuario ya configuró sus preguntas (requiere 3 preguntas con respuesta no vacía)
         public bool VerificarExistencia(string nombreUsuario)
         {
             bool tienePreguntas = false;
-            string query = @"
-        SELECT COUNT(r.Id_Respuesta)
-        FROM dbo.Respuestas r
-        INNER JOIN dbo.Usuario u ON r.Id_User = u.Id_User
-        WHERE u.User = @nombreUsuario";
 
             using (SqlConnection connection = AbrirConexion())
             {
                 try
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new SqlCommand("sp_VerificarExistenciaPreguntas", connection))
                     {
-                        command.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+
                         object result = command.ExecuteScalar();
-                        if (result != null && result != DBNull.Value)
-                        {
-                            int count = Convert.ToInt32(result);
-                            if (count > 0)
-                            {
-                                tienePreguntas = true;
-                            }
-                        }
+
+                        if (result != null && result != DBNull.Value) tienePreguntas = Convert.ToInt32(result) == 1;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    // Puedes registrar el error aquí
+                    // Log opcional
+                    tienePreguntas = false;
                 }
                 finally
                 {
                     CerrarConexion();
                 }
             }
+
             return tienePreguntas;
         }
     }
