@@ -45,9 +45,10 @@ namespace Vista
 
         private void frmCotizador_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(1190, 585);
+            this.StartPosition = FormStartPosition.CenterScreen;
             try
             {
-                ConfigurarFormulario();
                 CargarTodosLosCombos();
                 OcultarLabelsResultados();
                 ConfigurarValidacionesCampos();
@@ -58,17 +59,6 @@ namespace Vista
                 MessageBox.Show($"Error al cargar el formulario.", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void ConfigurarFormulario()
-        {
-            int maxWidth = Screen.PrimaryScreen.WorkingArea.Width;
-            int maxHeight = Screen.PrimaryScreen.WorkingArea.Height;
-
-            if (this.Width > maxWidth) this.Width = maxWidth;
-            if (this.Height > maxHeight) this.Height = maxHeight;
-
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // Método principal para cargar todos los ComboBoxes del formulario de forma segura
@@ -1327,6 +1317,16 @@ namespace Vista
                 MessageBox.Show($"Error al cargar gastos varios: {ex.Message}", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pnlPresupuesto_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pnlDescripcionMueble_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
         }
     }
 }

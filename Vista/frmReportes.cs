@@ -25,6 +25,8 @@ namespace Vista
             _formSizeInicial = this.Size;
             _ventas = new CL_Ventas();
             moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
         }
 
         private void frmReportes_Load(object sender, EventArgs e)
@@ -373,6 +375,7 @@ namespace Vista
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
 
         private void pctMinimize_Click(object sender, EventArgs e)

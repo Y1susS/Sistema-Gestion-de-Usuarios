@@ -238,26 +238,6 @@ namespace Vista
                     "Acción requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            bool NuevaPass = string.IsNullOrWhiteSpace(txtNuevaPass.Text) || txtNuevaPass.Text == NUEVA_PASS_PLACEHOLDER;
-            bool ConfirmaPass = string.IsNullOrWhiteSpace(txtConfirmaPass.Text) || txtConfirmaPass.Text == CONFIRMA_PASS_PLACEHOLDER;
-
-            if (NuevaPass && ConfirmaPass == true)
-            {
-                this.Close();
-                FrmLoguin FrmLoguin = new FrmLoguin();
-                FrmLoguin.Show();
-            }
-            else
-            {
-                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (opcion == DialogResult.Yes)
-                {
-                    this.Close();
-                    FrmLoguin FrmLoguin = new FrmLoguin();
-                    FrmLoguin.Show();
-                }
-            }
         }
 
         private void txtNuevaPass_Leave(object sender, EventArgs e)

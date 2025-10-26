@@ -147,51 +147,6 @@ namespace Vista
             }
         }
 
-
-        //private void btnLogin_Click(object sender, EventArgs e)
-        //{
-        //    bool usuarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
-        //    bool contraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
-
-        //    if (usuarioVacio || contraseniaVacia)
-        //    {
-        //        MessageBox.Show("Hay campos vacíos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        string user = txtUsuario.Text.Trim();
-        //        string pass = txtContrasenia.Text;
-        //        string hashCalculadoParaLogin = ClsSeguridad.SHA256(user + pass);
-
-        //        if (objCL.Autenticar(user, pass, out string msg))
-        //        {
-        //            // Verificar si es primera contraseña
-        //            if (ClsSesionActual.Usuario.PrimeraPass)
-        //            {
-        //                MessageBox.Show("Debe cambiar su contraseña por primera vez",
-        //                    "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //                frmPrimerIngreso frmPrimer = new frmPrimerIngreso();
-        //                frmPrimer.Show();
-        //                this.Hide();
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show(msg);
-        //                new frmPanelUsuarios().Show();
-        //                this.Hide();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            txtContrasenia.Clear();
-        //            txtContrasenia.Focus();
-        //        }
-        //    }
-        //}
-
         private void pctMinimize_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -199,21 +154,7 @@ namespace Vista
 
         private void pctClose_Click_1(object sender, EventArgs e)
         {
-            bool UsarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
-            bool ContraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
-
-            if (UsarioVacio && ContraseniaVacia == true)
-            {
                 Application.Exit();
-            }
-            else
-            {
-                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (opcion == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-            }
         }
 
         private void FrmLoguin_Shown(object sender, EventArgs e)

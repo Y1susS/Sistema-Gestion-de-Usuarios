@@ -33,8 +33,8 @@ namespace Datos
                                 config.EvitarDatosPersonales = Convert.ToBoolean(dr["EvitarDatosPersonales"]);
                                 config.DiasCambioPassword = dr["DiasCambioPassword"] != DBNull.Value ? Convert.ToInt32(dr["DiasCambioPassword"]) : 0;
                                 // nuevos
-                                config.MaxIntentosLogin = dr["MaxIntentosLogin"] != DBNull.Value ? Convert.ToInt32(dr["MaxIntentosLogin"]) : 3;
-                                config.MinutosBloqueoLogin = dr["MinutosBloqueoLogin"] != DBNull.Value ? Convert.ToInt32(dr["MinutosBloqueoLogin"]) : 60;
+                                //config.MaxIntentosLogin = dr["MaxIntentosLogin"] != DBNull.Value ? Convert.ToInt32(dr["MaxIntentosLogin"]) : 3;
+                                //config.MinutosBloqueoLogin = dr["MinutosBloqueoLogin"] != DBNull.Value ? Convert.ToInt32(dr["MinutosBloqueoLogin"]) : 60;
 
                                 listaConfiguraciones.Add(config);
                             }

@@ -200,7 +200,7 @@
             this.btnGuardarCotizacion = new System.Windows.Forms.Button();
             this.txtDescripcionMueble = new System.Windows.Forms.TextBox();
             this.lblDescripcionMueble = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDescripcionMueble = new System.Windows.Forms.Panel();
             this.grpExtras = new System.Windows.Forms.GroupBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
@@ -211,7 +211,7 @@
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.pnlPresupuesto.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlDescripcionMueble.SuspendLayout();
             this.grpExtras.SuspendLayout();
             this.pnlBorde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
@@ -2166,6 +2166,7 @@
             this.pnlPresupuesto.Name = "pnlPresupuesto";
             this.pnlPresupuesto.Size = new System.Drawing.Size(590, 120);
             this.pnlPresupuesto.TabIndex = 8037;
+            this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint);
             // 
             // button1
             // 
@@ -2268,15 +2269,16 @@
             this.lblDescripcionMueble.Text = "Descripción del mueble";
             this.lblDescripcionMueble.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // pnlDescripcionMueble
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.panel1.Controls.Add(this.txtDescripcionMueble);
-            this.panel1.Controls.Add(this.lblDescripcionMueble);
-            this.panel1.Location = new System.Drawing.Point(10, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(525, 35);
-            this.panel1.TabIndex = 8042;
+            this.pnlDescripcionMueble.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlDescripcionMueble.Controls.Add(this.txtDescripcionMueble);
+            this.pnlDescripcionMueble.Controls.Add(this.lblDescripcionMueble);
+            this.pnlDescripcionMueble.Location = new System.Drawing.Point(10, 50);
+            this.pnlDescripcionMueble.Name = "pnlDescripcionMueble";
+            this.pnlDescripcionMueble.Size = new System.Drawing.Size(525, 35);
+            this.pnlDescripcionMueble.TabIndex = 8042;
+            this.pnlDescripcionMueble.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDescripcionMueble_Paint);
             // 
             // grpExtras
             // 
@@ -2376,7 +2378,7 @@
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.grpExtras);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlDescripcionMueble);
             this.Controls.Add(this.pnlPresupuesto);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -2396,8 +2398,8 @@
             this.groupBox4.PerformLayout();
             this.pnlPresupuesto.ResumeLayout(false);
             this.pnlPresupuesto.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlDescripcionMueble.ResumeLayout(false);
+            this.pnlDescripcionMueble.PerformLayout();
             this.grpExtras.ResumeLayout(false);
             this.grpExtras.PerformLayout();
             this.pnlBorde.ResumeLayout(false);
@@ -2564,7 +2566,7 @@
         private System.Windows.Forms.Label lblCotiacion;
         private System.Windows.Forms.Label lblpresupuesto;
         private System.Windows.Forms.Label lblDescripcionMueble;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDescripcionMueble;
         private System.Windows.Forms.GroupBox grpExtras;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.CheckBox checkBox2;

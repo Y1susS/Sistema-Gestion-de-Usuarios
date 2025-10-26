@@ -207,7 +207,7 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(40, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1120, 40);
+            this.lblTitulo.Size = new System.Drawing.Size(1170, 40);
             this.lblTitulo.TabIndex = 3;
             this.lblTitulo.Text = "Menú de Administrador";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -361,7 +361,7 @@
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(1200, 40);
+            this.pnlBorde.Size = new System.Drawing.Size(1250, 40);
             this.pnlBorde.TabIndex = 33;
             // 
             // pctMinimize
@@ -385,7 +385,7 @@
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(1160, 0);
+            this.pctClose.Location = new System.Drawing.Point(1210, 0);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
             this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -400,7 +400,7 @@
             this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBordeInferior.Location = new System.Drawing.Point(0, 855);
             this.pnlBordeInferior.Name = "pnlBordeInferior";
-            this.pnlBordeInferior.Size = new System.Drawing.Size(1200, 20);
+            this.pnlBordeInferior.Size = new System.Drawing.Size(1250, 20);
             this.pnlBordeInferior.TabIndex = 34;
             this.pnlBordeInferior.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBordeInferior_Paint);
             // 
@@ -606,14 +606,14 @@
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(250, 40);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(950, 815);
+            this.pnlContenedor.Size = new System.Drawing.Size(1000, 815);
             this.pnlContenedor.TabIndex = 36;
             // 
             // frmPanelUsuarios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1200, 875);
+            this.ClientSize = new System.Drawing.Size(1250, 875);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlBordeInferior);
