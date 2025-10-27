@@ -507,10 +507,10 @@ namespace Vista
                     cmbMaderas.SelectedIndexChanged += CmbMaderas_SelectedIndexChanged;
                 }
 
-                // Rellenar hasta 6 líneas de madera
+                // Rellenar hasta 8 líneas de madera
                 if (cotizacion.Detalles != null && cotizacion.Detalles.Count > 0)
                 {
-                    for (int i = 0; i < Math.Min(cotizacion.Detalles.Count, 6); i++)
+                    for (int i = 0; i < Math.Min(cotizacion.Detalles.Count, 8); i++)
                     {
                         var d = cotizacion.Detalles[i];
                         int n = i + 1;
@@ -707,6 +707,8 @@ namespace Vista
                 ProcesarLineaCalculo(4, txtespesorm4, txtanchom4, txtlargom4, txtcantidad4, chk4, lblpie4, txtdescmad4);
                 ProcesarLineaCalculo(5, txtespesorm5, txtanchom5, txtlargom5, txtcantidad5, chk5, lblpie5, txtdescmad5);
                 ProcesarLineaCalculo(6, txtespesorm6, txtanchom6, txtlargom6, txtcantidad6, chk6, lblpie6, txtdescmad6);
+                ProcesarLineaCalculo(7, txtespesorm7, txtanchom7, txtlargom7, txtcantidad7, chk7, lblpie7, txtdescmad7);
+                ProcesarLineaCalculo(8, txtespesorm8, txtanchom8, txtlargom8, txtcantidad8, chk8, lblpie8, txtdescmad8);
 
                 // Total de pies para mostrar (solo informativo)
                 decimal totalPies = detallesCotizacion.Sum(d => d.Pies);
