@@ -31,22 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalPrecioXPie = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtdescmad8 = new System.Windows.Forms.TextBox();
+            this.chk8 = new System.Windows.Forms.CheckBox();
+            this.lblpie8 = new System.Windows.Forms.Label();
+            this.txtcantidad8 = new System.Windows.Forms.TextBox();
+            this.txtlargom8 = new System.Windows.Forms.TextBox();
+            this.txtanchom8 = new System.Windows.Forms.TextBox();
+            this.txtespesorm8 = new System.Windows.Forms.TextBox();
+            this.txtdescmad7 = new System.Windows.Forms.TextBox();
             this.lbldesperdicio = new System.Windows.Forms.Label();
             this.txtdesperdicio = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.chk7 = new System.Windows.Forms.CheckBox();
+            this.lblpie7 = new System.Windows.Forms.Label();
+            this.txtcantidad7 = new System.Windows.Forms.TextBox();
+            this.txtlargom7 = new System.Windows.Forms.TextBox();
+            this.txtanchom7 = new System.Windows.Forms.TextBox();
+            this.txtespesorm7 = new System.Windows.Forms.TextBox();
             this.lblPrecioPorPie = new System.Windows.Forms.Label();
             this.lblcalculopies = new System.Windows.Forms.Label();
             this.cmbMaderas = new System.Windows.Forms.ComboBox();
@@ -222,22 +222,22 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.groupBox1.Controls.Add(this.lblTotalPrecioXPie);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox10);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtdescmad8);
+            this.groupBox1.Controls.Add(this.chk8);
+            this.groupBox1.Controls.Add(this.lblpie8);
+            this.groupBox1.Controls.Add(this.txtcantidad8);
+            this.groupBox1.Controls.Add(this.txtlargom8);
+            this.groupBox1.Controls.Add(this.txtanchom8);
+            this.groupBox1.Controls.Add(this.txtespesorm8);
+            this.groupBox1.Controls.Add(this.txtdescmad7);
             this.groupBox1.Controls.Add(this.lbldesperdicio);
             this.groupBox1.Controls.Add(this.txtdesperdicio);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.chk7);
+            this.groupBox1.Controls.Add(this.lblpie7);
+            this.groupBox1.Controls.Add(this.txtcantidad7);
+            this.groupBox1.Controls.Add(this.txtlargom7);
+            this.groupBox1.Controls.Add(this.txtanchom7);
+            this.groupBox1.Controls.Add(this.txtespesorm7);
             this.groupBox1.Controls.Add(this.lblPrecioPorPie);
             this.groupBox1.Controls.Add(this.lblcalculopies);
             this.groupBox1.Controls.Add(this.cmbMaderas);
@@ -314,91 +314,91 @@
             this.lblTotalPrecioXPie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblTotalPrecioXPie.Visible = false;
             // 
-            // textBox6
+            // txtdescmad8
             // 
-            this.textBox6.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.Black;
-            this.textBox6.Location = new System.Drawing.Point(91, 262);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(145, 24);
-            this.textBox6.TabIndex = 7976;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtdescmad8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescmad8.ForeColor = System.Drawing.Color.Black;
+            this.txtdescmad8.Location = new System.Drawing.Point(91, 262);
+            this.txtdescmad8.Name = "txtdescmad8";
+            this.txtdescmad8.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad8.TabIndex = 7976;
+            this.txtdescmad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // checkBox2
+            // chk8
             // 
-            this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(5, 262);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(86, 24);
-            this.checkBox2.TabIndex = 7975;
-            this.checkBox2.Text = "Madera 8";
-            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.chk8.BackColor = System.Drawing.Color.Transparent;
+            this.chk8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk8.ForeColor = System.Drawing.Color.White;
+            this.chk8.Location = new System.Drawing.Point(5, 262);
+            this.chk8.Margin = new System.Windows.Forms.Padding(0);
+            this.chk8.Name = "chk8";
+            this.chk8.Size = new System.Drawing.Size(86, 24);
+            this.chk8.TabIndex = 7975;
+            this.chk8.Text = "Madera 8";
+            this.chk8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chk8.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // lblpie8
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(466, 262);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 24);
-            this.label6.TabIndex = 7982;
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblpie8.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblpie8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpie8.ForeColor = System.Drawing.Color.White;
+            this.lblpie8.Location = new System.Drawing.Point(466, 262);
+            this.lblpie8.Name = "lblpie8";
+            this.lblpie8.Size = new System.Drawing.Size(55, 24);
+            this.lblpie8.TabIndex = 7982;
+            this.lblpie8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox7
+            // txtcantidad8
             // 
-            this.textBox7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.Black;
-            this.textBox7.Location = new System.Drawing.Point(409, 262);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(55, 24);
-            this.textBox7.TabIndex = 7981;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtcantidad8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcantidad8.ForeColor = System.Drawing.Color.Black;
+            this.txtcantidad8.Location = new System.Drawing.Point(409, 262);
+            this.txtcantidad8.Name = "txtcantidad8";
+            this.txtcantidad8.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad8.TabIndex = 7981;
+            this.txtcantidad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // txtlargom8
             // 
-            this.textBox8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ForeColor = System.Drawing.Color.Black;
-            this.textBox8.Location = new System.Drawing.Point(352, 262);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(55, 24);
-            this.textBox8.TabIndex = 7979;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtlargom8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlargom8.ForeColor = System.Drawing.Color.Black;
+            this.txtlargom8.Location = new System.Drawing.Point(352, 262);
+            this.txtlargom8.Name = "txtlargom8";
+            this.txtlargom8.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom8.TabIndex = 7979;
+            this.txtlargom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox9
+            // txtanchom8
             // 
-            this.textBox9.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ForeColor = System.Drawing.Color.Black;
-            this.textBox9.Location = new System.Drawing.Point(295, 262);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(55, 24);
-            this.textBox9.TabIndex = 7978;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtanchom8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtanchom8.ForeColor = System.Drawing.Color.Black;
+            this.txtanchom8.Location = new System.Drawing.Point(295, 262);
+            this.txtanchom8.Name = "txtanchom8";
+            this.txtanchom8.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom8.TabIndex = 7978;
+            this.txtanchom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox10
+            // txtespesorm8
             // 
-            this.textBox10.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.ForeColor = System.Drawing.Color.Black;
-            this.textBox10.Location = new System.Drawing.Point(238, 262);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(55, 24);
-            this.textBox10.TabIndex = 7977;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtespesorm8.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtespesorm8.ForeColor = System.Drawing.Color.Black;
+            this.txtespesorm8.Location = new System.Drawing.Point(238, 262);
+            this.txtespesorm8.Name = "txtespesorm8";
+            this.txtespesorm8.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm8.TabIndex = 7977;
+            this.txtespesorm8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // txtdescmad7
             // 
-            this.textBox1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(91, 237);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 24);
-            this.textBox1.TabIndex = 7968;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtdescmad7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescmad7.ForeColor = System.Drawing.Color.Black;
+            this.txtdescmad7.Location = new System.Drawing.Point(91, 237);
+            this.txtdescmad7.Name = "txtdescmad7";
+            this.txtdescmad7.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad7.TabIndex = 7968;
+            this.txtdescmad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbldesperdicio
             // 
@@ -421,71 +421,71 @@
             this.txtdesperdicio.Size = new System.Drawing.Size(55, 24);
             this.txtdesperdicio.TabIndex = 7963;
             // 
-            // checkBox1
+            // chk7
             // 
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(5, 237);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 24);
-            this.checkBox1.TabIndex = 7967;
-            this.checkBox1.Text = "Madera 7";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.chk7.BackColor = System.Drawing.Color.Transparent;
+            this.chk7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk7.ForeColor = System.Drawing.Color.White;
+            this.chk7.Location = new System.Drawing.Point(5, 237);
+            this.chk7.Margin = new System.Windows.Forms.Padding(0);
+            this.chk7.Name = "chk7";
+            this.chk7.Size = new System.Drawing.Size(86, 24);
+            this.chk7.TabIndex = 7967;
+            this.chk7.Text = "Madera 7";
+            this.chk7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chk7.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // lblpie7
             // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(466, 237);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 24);
-            this.label5.TabIndex = 7974;
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblpie7.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblpie7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpie7.ForeColor = System.Drawing.Color.White;
+            this.lblpie7.Location = new System.Drawing.Point(466, 237);
+            this.lblpie7.Name = "lblpie7";
+            this.lblpie7.Size = new System.Drawing.Size(55, 24);
+            this.lblpie7.TabIndex = 7974;
+            this.lblpie7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // txtcantidad7
             // 
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(409, 237);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(55, 24);
-            this.textBox2.TabIndex = 7973;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtcantidad7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcantidad7.ForeColor = System.Drawing.Color.Black;
+            this.txtcantidad7.Location = new System.Drawing.Point(409, 237);
+            this.txtcantidad7.Name = "txtcantidad7";
+            this.txtcantidad7.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad7.TabIndex = 7973;
+            this.txtcantidad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // txtlargom7
             // 
-            this.textBox3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(352, 237);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(55, 24);
-            this.textBox3.TabIndex = 7971;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtlargom7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlargom7.ForeColor = System.Drawing.Color.Black;
+            this.txtlargom7.Location = new System.Drawing.Point(352, 237);
+            this.txtlargom7.Name = "txtlargom7";
+            this.txtlargom7.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom7.TabIndex = 7971;
+            this.txtlargom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
+            // txtanchom7
             // 
-            this.textBox4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(295, 237);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(55, 24);
-            this.textBox4.TabIndex = 7970;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtanchom7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtanchom7.ForeColor = System.Drawing.Color.Black;
+            this.txtanchom7.Location = new System.Drawing.Point(295, 237);
+            this.txtanchom7.Name = "txtanchom7";
+            this.txtanchom7.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom7.TabIndex = 7970;
+            this.txtanchom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox5
+            // txtespesorm7
             // 
-            this.textBox5.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.Black;
-            this.textBox5.Location = new System.Drawing.Point(238, 237);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(55, 24);
-            this.textBox5.TabIndex = 7969;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtespesorm7.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtespesorm7.ForeColor = System.Drawing.Color.Black;
+            this.txtespesorm7.Location = new System.Drawing.Point(238, 237);
+            this.txtespesorm7.Name = "txtespesorm7";
+            this.txtespesorm7.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm7.TabIndex = 7969;
+            this.txtespesorm7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblPrecioPorPie
             // 
@@ -2568,20 +2568,20 @@
         private System.Windows.Forms.Label lblDescripcionMueble;
         private System.Windows.Forms.Panel pnlDescripcionMueble;
         private System.Windows.Forms.GroupBox grpExtras;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtdescmad8;
+        private System.Windows.Forms.CheckBox chk8;
+        private System.Windows.Forms.Label lblpie8;
+        private System.Windows.Forms.TextBox txtcantidad8;
+        private System.Windows.Forms.TextBox txtlargom8;
+        private System.Windows.Forms.TextBox txtanchom8;
+        private System.Windows.Forms.TextBox txtespesorm8;
+        private System.Windows.Forms.TextBox txtdescmad7;
+        private System.Windows.Forms.CheckBox chk7;
+        private System.Windows.Forms.Label lblpie7;
+        private System.Windows.Forms.TextBox txtcantidad7;
+        private System.Windows.Forms.TextBox txtlargom7;
+        private System.Windows.Forms.TextBox txtanchom7;
+        private System.Windows.Forms.TextBox txtespesorm7;
         private System.Windows.Forms.Label lblTotalPrecioXPie;
         private System.Windows.Forms.Panel pnlBordeInferior;
         private System.Windows.Forms.Panel pnlBorde;

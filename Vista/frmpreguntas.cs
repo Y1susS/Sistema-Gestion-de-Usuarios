@@ -32,20 +32,6 @@ namespace Vista
             this.AcceptButton = btnSiguiente;
             InicializarControles();
             this.FormClosing += FrmPreguntas_FormClosing;
-            //combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
-            //txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
-
-            //foreach (var txt in txtRespuestas)
-            //{
-            //    txt.KeyPress += TxtRespuesta_KeyPress;
-            //}
-            //foreach (var combo in combosPreguntas)
-            //{
-            //    combo.DropDownStyle = ComboBoxStyle.DropDownList;
-            //}
-
-            //moverFormulario = new ClsArrastrarFormularios(this);
-            //moverFormulario.HabilitarMovimiento(lblTitulo);
         }
 
 
@@ -62,6 +48,23 @@ namespace Vista
                                   "Estas preguntas serán utilizadas para verificar su identidad si necesita recuperar su contraseña.";
 
             CargarPreguntas();
+
+            // Permitir cerrar el formulario solo si ya tiene preguntas configuradas
+            try
+            {
+                var usuariosSvc = new CL_Usuarios();
+                bool tienePreguntas = usuariosSvc.UsuarioTienePreguntasDeSeguridad(ClsSesionActual.Usuario.User);
+
+                if (tienePreguntas)
+                {
+                    _configuracionCompletada = true;
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"Error al cargar configuracion de preguntas: {ex.Message}", "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InicializarControles()
@@ -232,26 +235,6 @@ namespace Vista
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void txtRespuesta3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtRespuesta2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtRespuesta1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtrespuestas_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void frmPreguntas_Shown(object sender, EventArgs e)

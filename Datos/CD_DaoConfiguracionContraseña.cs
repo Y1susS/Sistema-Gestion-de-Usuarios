@@ -32,9 +32,9 @@ namespace Datos
                                 config.EvitarRepetidas = Convert.ToBoolean(dr["EvitarRepetidas"]);
                                 config.EvitarDatosPersonales = Convert.ToBoolean(dr["EvitarDatosPersonales"]);
                                 config.DiasCambioPassword = dr["DiasCambioPassword"] != DBNull.Value ? Convert.ToInt32(dr["DiasCambioPassword"]) : 0;
-                                // nuevos
-                                //config.MaxIntentosLogin = dr["MaxIntentosLogin"] != DBNull.Value ? Convert.ToInt32(dr["MaxIntentosLogin"]) : 3;
-                                //config.MinutosBloqueoLogin = dr["MinutosBloqueoLogin"] != DBNull.Value ? Convert.ToInt32(dr["MinutosBloqueoLogin"]) : 60;
+                                // nuevos: mapear correctamente desde el SP (ya devuelve ISNULL)
+                                config.MaxIntentosLogin = dr["MaxIntentosLogin"] != DBNull.Value ? Convert.ToInt32(dr["MaxIntentosLogin"]) : 3;
+                                config.MinutosBloqueoLogin = dr["MinutosBloqueoLogin"] != DBNull.Value ? Convert.ToInt32(dr["MinutosBloqueoLogin"]) : 60;
 
                                 listaConfiguraciones.Add(config);
                             }
