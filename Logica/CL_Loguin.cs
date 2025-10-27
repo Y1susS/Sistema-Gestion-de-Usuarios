@@ -22,7 +22,7 @@ namespace Logica
             var config = _configSvc.ObtenerConfiguracion();
             if (config == null)
             {
-                mensaje = "No hay configuración de seguridad. Contacte al administrador.";
+                mensaje = "No hay configuración de seguridad cargada.";
                 return false;
             }
 
