@@ -18,12 +18,13 @@ namespace Logica
 
         public bool Autenticar(string usuario, string passwordPlano, out string mensaje)
         {
-            // Obtener config desde BD (con fallback por si no hay registro)
-            var config = _configSvc.ObtenerConfiguracion() ?? new DtoConfiguracionSeguridad
+            // Obtener config desde BD (debe existir; si no, no se permite logueo)
+            var config = _configSvc.ObtenerConfiguracion();
+            if (config == null)
             {
-                MaxIntentosLogin = 3,
-                MinutosBloqueoLogin = 60
-            };
+                mensaje = "No hay configuración de seguridad. Contacte al administrador.";
+                return false;
+            }
 
             DtoUsuario dto = daoUsuario.ObtenerUsuarioPorNombre(usuario);
 
