@@ -777,4 +777,7 @@
   <data name="btnVenta" xml:space="preserve">
     <value>Venta</value>
   </data>
+  <data name="lblTitulo" xml:space="preserve">
+    <value>Inicio Sesion</value>
+  </data>
 </root>

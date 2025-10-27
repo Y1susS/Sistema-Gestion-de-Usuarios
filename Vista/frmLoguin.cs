@@ -6,14 +6,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization; // Asegúrate de tener este using aquí también para CultureInfo
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Vista.Lenguajes;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
@@ -21,80 +19,72 @@ namespace Vista
     {
         private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Loguin objCL = new CL_Loguin();
-
-        // Constantes para PlaceHolder (asegúrate de que estén aquí o sean accesibles)
-        private const string USER_PLACEHOLDER = "Usuario";
-        private const string PLACEHOLDER_PASS = "Contraseña";
-
+        private bool _inicializando = true;
         public FrmLoguin()
         {
-            Properties.Settings.Default.Reset();
             InitializeComponent();
-               
-            cboIdioma.DataSource = new BindingSource(Idioma.ObtenerIdiomasDisponibles(), null);
-            cboIdioma.DisplayMember = "Value";  // Lo que se muestra (ej: "English (United States)")
-            cboIdioma.ValueMember = "Key";      // Lo que se usa internamente (ej: "en-US")
+            cmbIdioma.DataSource = new BindingSource(Idioma.ObtenerIdiomasDisponibles(), null);
+            cmbIdioma.DisplayMember = "Value";  // Muestra el nombre completo
+            cmbIdioma.ValueMember = "Key";      // Usa el código de cultura ("es-AR")
             
-            Idioma.CargarIdiomaGuardado();
-            Idioma.AplicarTraduccion(this);
-
-            string idiomaActual = Properties.Settings.Default.Idioma;
-            if (!string.IsNullOrEmpty(idiomaActual) && cboIdioma.Items.Count > 0)
-            {
-                cboIdioma.SelectedValue = idiomaActual;
-            }
-            // Si el idioma no está guardado o no se encuentra, seleccionar el idioma actual de la app
-            else if (Idioma.CulturaActual != null)
-            {
-                cboIdioma.SelectedValue = Idioma.CulturaActual.Name;
-            }
-
-
-            // ** ASIGNACIÓN DEL EVENTO DEL COMBOBOX - CRÍTICO para CS1061 **
-            // DEBE ESTAR DESPUÉS de InitializeComponent() y la configuración del cboIdioma.
-            this.cboIdioma.SelectionChangeCommitted += new System.EventHandler(this.cboIdioma_SelectionChangeCommitted);
-
-            DoubleBuffered = true;
-
+            this.cmbIdioma.SelectedIndexChanged += new System.EventHandler(this.cmbIdioma_SelectedIndexChanged); DoubleBuffered = true;
+            
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
-            // Si lblTitulo no existe en tu formulario, elimina esta línea
-            // moverFormulario.HabilitarMovimiento(lblTitulo); 
+            moverFormulario.HabilitarMovimiento(lblTitulo);
 
-            // Revisa si ClsFondoTransparente.Aplicar necesita las imágenes aquí.
-            // Si es así, las imágenes deben haber sido cargadas por el diseñador o en FrmLoguin_Load.
             ClsFondoTransparente.Aplicar(
-                pctFondo,
-                pctLogo,
-                lnkRecuperar,
-                pctMostrar,
-                pctOcultar,
-                btnLogin);
+            pctFondo,
+            pctLogo,
+            lnkRecuperar,
+            pctMostrar,
+            pctOcultar,
+            btnLogin);
 
             ClsMostrarOcultarClave.Configurar(txtContrasenia, pctMostrar, pctOcultar, "Contraseña");
         }
 
+
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-            // --- 1. Inicialización de UI ---
-            this.BeginInvoke(new Action(() => this.ActiveControl = null)); // Evita que un TextBox tenga el foco inicial
+            // CARGAR Y ESTABLECER el idioma (Aquí se maneja la cultura, se guarda el valor, y se limpia el corrupto)
+            Idioma.CargarIdiomaGuardado();
+
+            // APLICAR la traducción a todos los controles (Usa la cultura establecida en el paso 1)
+            Idioma.AplicarTraduccion(this);
+
+            // SELECCIONAR el idioma cargado en el ComboBox (para que coincida con la UI)
+            string idiomaActual = Properties.Settings.Default.Idioma;
+
+            if (!string.IsNullOrEmpty(idiomaActual) && cmbIdioma.Items.Count > 0)
+            {
+                cmbIdioma.SelectedValue = idiomaActual;
+            }
+            else if (Idioma.CulturaActual != null)
+            {
+                // Si no hay valor guardado, usa la cultura que se estableció por defecto ("es-AR")
+                cmbIdioma.SelectedValue = Idioma.CulturaActual.Name;
+            }
+            _inicializando = false;
+
+            // LÓGICA DE FOCO Y PLACEHOLDERS (Tu código original)
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
             txtContrasenia.UseSystemPasswordChar = false;
             ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
             ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
-
-            // --- 2. CARGA DE IMÁGENES ELIMINADA ---
-            // Hemos eliminado todas las líneas que intentaban cargar imágenes de Vista.Lenguajes.Strings.
-            // Las imágenes DEBEN ser cargadas por el diseñador o desde Properties.Resources.
         }
+        
 
         private void lnkRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             this.ShowInTaskbar = false;
             frmRecupero frmRecupero = new frmRecupero();
-            Idioma.AplicarTraduccion(frmRecupero); // Aplica traducción al nuevo formulario
             frmRecupero.ShowDialog();
         }
+
+        private const string USER_PLACEHOLDER = "Usuario";
+        private const string PLACEHOLDER_PASS = "Contraseña";
 
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
@@ -129,25 +119,31 @@ namespace Vista
                 if (ClsSesionActual.Usuario.PrimeraPass)
                 {
                     // *** INICIO DE LA LÓGICA DE DISTINCIÓN ***
+                    // La instancia de CL_Usuarios debe ser utilizada aquí.
+                    // Si no la tienes, debes crearla:
                     CL_Usuarios objUsuarios = new CL_Usuarios();
 
+                    // Llama al método para verificar si el usuario ya tiene preguntas de seguridad.
+                    // Asegúrate de que el método UsuarioTienePreguntasDeSeguridad esté en la clase CL_Usuarios
                     if (objUsuarios.UsuarioTienePreguntasDeSeguridad(user))
                     {
+                        // Si el usuario ya configuró preguntas, es una recuperación de contraseña.
                         MessageBox.Show("Debe cambiar su contraseña.",
                             "Cambio de contraseña requerido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        // Redirigimos al formulario de cambio de contraseña que no requiere la contraseña actual.
                         frmCambioPass frmCambio = new frmCambioPass(user, this, false);
-                        Idioma.AplicarTraduccion(frmCambio); // Aplica traducción al nuevo formulario
                         frmCambio.Show();
                         this.Hide();
                     }
                     else
                     {
+                        // Si no tiene preguntas, es un usuario nuevo.
                         MessageBox.Show("Debe cambiar su contraseña por primera vez y configurar sus preguntas de seguridad.",
                             "Primer Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        // Redirigimos al formulario de primer ingreso que incluye la configuración de preguntas.
                         frmPrimerIngreso frmPrimer = new frmPrimerIngreso();
-                        Idioma.AplicarTraduccion(frmPrimer); // Aplica traducción al nuevo formulario
                         frmPrimer.Show();
                         this.Hide();
                     }
@@ -155,9 +151,7 @@ namespace Vista
                 }
                 else
                 {
-                    frmPanelUsuarios panel = new frmPanelUsuarios();
-                    Idioma.AplicarTraduccion(panel);
-                    panel.Show();
+                    new frmPanelUsuarios().Show();
                     this.Hide();
                 }
             }
@@ -197,19 +191,30 @@ namespace Vista
             this.AcceptButton = btnLogin;
         }
 
-        // ** MÉTODO DEL EVENTO DEL COMBOBOX - CRÍTICO para CS1061 **
-        private void cboIdioma_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Obtener el código de idioma seleccionado (ej: "es-AR" o "en-US")
-            string nuevoIdioma = cboIdioma.SelectedValue.ToString();
+            //Bloqueo de inicialización: Ignoramos la llamada si estamos inicializando
+            if (_inicializando)
+            {
+                return;
+            }
 
-            // Cambiar el idioma y guardar la preferencia
+            //Bloqueo de valor corrupto: Si el SelectedValue todavía contiene el error, lo ignoramos.
+            if (cmbIdioma.SelectedValue == null || cmbIdioma.SelectedValue.ToString().Contains(","))
+            {
+                return;
+            }
+
+            if (cmbIdioma.SelectedValue.ToString() == Idioma.CulturaActual.Name)
+            {
+                return;
+            }
+
+            string nuevoIdioma = cmbIdioma.SelectedValue.ToString(); // Esto debe ser "es-AR" o "en-US"
+
             Idioma.CambiarIdioma(nuevoIdioma);
-
-            // Aplicar la traducción al formulario actual
             Idioma.AplicarTraduccion(this);
-
-            // Como las imágenes se gestionan por el diseñador/Load, no necesitamos recargarlas aquí.
         }
     }
 }
+

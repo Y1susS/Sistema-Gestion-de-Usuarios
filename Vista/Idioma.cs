@@ -14,7 +14,8 @@ namespace Vista.Lenguajes // Asegúrate de que el namespace sea correcto
     {
         // CRÍTICO: ResourceManager estático con la RUTA CORRECTA a tu .resx base
         public static ResourceManager resManager = new ResourceManager(
-            "Sistema_Gestion_de_Usuarios.Vista.Lenguajes.Strings", // <--- RUTA COMPLETA DEL RECURSO BASE
+            //"Sistema_Gestion_de_Usuarios.Vista.Lenguajes.Strings", // <--- RUTA COMPLETA DEL RECURSO BASE
+            "Vista.Lenguajes.Strings",
             typeof(Idioma).Assembly);
 
         // ** LÍNEA CRÍTICA A AGREGAR **
@@ -38,6 +39,8 @@ namespace Vista.Lenguajes // Asegúrate de que el namespace sea correcto
 
         public static void CargarIdiomaGuardado()
         {
+            //Properties.Settings.Default.Reset();
+            //Properties.Settings.Default.Save();
             string idiomaGuardado = Properties.Settings.Default.Idioma;
 
             if (!string.IsNullOrEmpty(idiomaGuardado) && idiomaGuardado.Contains(","))
@@ -62,12 +65,21 @@ namespace Vista.Lenguajes // Asegúrate de que el namespace sea correcto
         // Ejemplo de CambiarIdioma (ajusta según tu implementación)
         public static void CambiarIdioma(string cultura)
         {
-            CultureInfo nuevaCultura = new CultureInfo(cultura);
-            Thread.CurrentThread.CurrentCulture = nuevaCultura;
-            Thread.CurrentThread.CurrentUICulture = nuevaCultura;
-            CulturaActual = nuevaCultura; // Actualiza la propiedad estática
-            Properties.Settings.Default.Idioma = cultura; // Guarda la preferencia
-            Properties.Settings.Default.Save();
+            try
+            {
+                CultureInfo nuevaCultura = new CultureInfo(cultura);
+                Thread.CurrentThread.CurrentCulture = nuevaCultura;
+                Thread.CurrentThread.CurrentUICulture = nuevaCultura;
+                CulturaActual = nuevaCultura; // Actualiza la propiedad estática
+                Properties.Settings.Default.Idioma = cultura; // Guarda la preferencia
+                Properties.Settings.Default.Save();
+            }
+            catch (System.Globalization.CultureNotFoundException ex)
+            {
+                MessageBox.Show($"ERROR CRÍTICO: El valor de cultura es '{cultura}'. Por favor, verifica el código que establece este valor. Mensaje: {ex.Message}");
+                CambiarIdioma("es-AR");
+
+            }
         }
 
         // Ejemplo de AplicarTraduccion (ajusta según tu implementación)
@@ -88,21 +100,24 @@ namespace Vista.Lenguajes // Asegúrate de que el namespace sea correcto
 
         private static void AplicarTraduccionControl(Control control)
         {
-            // Traduce el texto del control si tiene una clave en el .resx
-            string textoTraducido = resManager.GetString(control.Name + ".Text", CulturaActual);
-            if (!string.IsNullOrEmpty(textoTraducido))
+            // La clave de recurso es simplemente el Name del control (SIN ".Text").
+            string claveRecurso = control.Name;
+
+            // Solo intentamos traducir el texto si:
+            // 1. El control tiene un nombre asignado (no es string.IsNullOrEmpty).
+            // 2. NO es el ComboBox de idioma ("cmbIdioma").
+            if (!string.IsNullOrEmpty(claveRecurso) && claveRecurso != "cmbIdioma")
             {
-                control.Text = textoTraducido;
+                // La clave ahora será, por ejemplo, "btnLogin"
+                string textoTraducido = resManager.GetString(claveRecurso, CulturaActual);
+
+                if (!string.IsNullOrEmpty(textoTraducido))
+                {
+                    control.Text = textoTraducido;
+                }
             }
 
-            // Si es un ComboBox y tiene el nombre "cboIdioma", no lo traducimos, 
-            // ya que sus items ya están siendo gestionados con el DataSource
-            if (control is ComboBox comboBox && control.Name == "cboIdioma")
-            {
-                // No hacer nada, ya se carga en el constructor del FrmLoguin
-            }
-
-            // Traduce controles hijos
+            // La recursión se ejecuta SIEMPRE si hay hijos para traducir los subcontroles.
             if (control.HasChildren)
             {
                 foreach (Control subControl in control.Controls)
@@ -111,5 +126,6 @@ namespace Vista.Lenguajes // Asegúrate de que el namespace sea correcto
                 }
             }
         }
+
     }
 }

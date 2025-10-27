@@ -1,5 +1,4 @@
-﻿
-namespace Vista
+﻿namespace Vista
 {
     partial class FrmLoguin
     {
@@ -29,20 +28,21 @@ namespace Vista
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoguin));
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lnkRecuperar = new System.Windows.Forms.LinkLabel();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.pctFondo = new System.Windows.Forms.PictureBox();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.pctMostrar = new System.Windows.Forms.PictureBox();
             this.pctOcultar = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
-            this.cboIdioma = new System.Windows.Forms.ComboBox();
+            this.cmbIdioma = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMostrar)).BeginInit();
@@ -58,7 +58,7 @@ namespace Vista
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(107, 303);
+            this.btnLogin.Location = new System.Drawing.Point(107, 343);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(185, 30);
@@ -71,7 +71,7 @@ namespace Vista
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.White;
             this.txtUsuario.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(107, 166);
+            this.txtUsuario.Location = new System.Drawing.Point(108, 166);
             this.txtUsuario.MaxLength = 25;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(185, 25);
@@ -84,7 +84,7 @@ namespace Vista
             this.lnkRecuperar.BackColor = System.Drawing.Color.Transparent;
             this.lnkRecuperar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkRecuperar.LinkColor = System.Drawing.Color.White;
-            this.lnkRecuperar.Location = new System.Drawing.Point(0, 271);
+            this.lnkRecuperar.Location = new System.Drawing.Point(0, 261);
             this.lnkRecuperar.Name = "lnkRecuperar";
             this.lnkRecuperar.Size = new System.Drawing.Size(400, 18);
             this.lnkRecuperar.TabIndex = 4;
@@ -99,7 +99,8 @@ namespace Vista
             this.pctLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pctLogo.Location = new System.Drawing.Point(119, 46);
+            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
+            this.pctLogo.Location = new System.Drawing.Point(127, 46);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(150, 95);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,7 +110,7 @@ namespace Vista
             // txtContrasenia
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(107, 214);
+            this.txtContrasenia.Location = new System.Drawing.Point(108, 216);
             this.txtContrasenia.MaxLength = 25;
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(185, 25);
@@ -119,33 +120,34 @@ namespace Vista
             // 
             // pctFondo
             // 
+            this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
             this.pctFondo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pctFondo.Image = global::Vista.Properties.Resources.MaderaCelesteFrmPreguntas;
             this.pctFondo.Location = new System.Drawing.Point(0, 0);
             this.pctFondo.Name = "pctFondo";
             this.pctFondo.Size = new System.Drawing.Size(400, 400);
             this.pctFondo.TabIndex = 14;
             this.pctFondo.TabStop = false;
             // 
-            // lblLogin
+            // lblTitulo
             // 
-            this.lblLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLogin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(40, 0);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(320, 40);
-            this.lblLogin.TabIndex = 15;
-            this.lblLogin.Text = "Login";
-            this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(320, 40);
+            this.lblTitulo.TabIndex = 15;
+            this.lblTitulo.Text = "Inicio Sesion";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMostrar
             // 
             this.pctMostrar.BackColor = System.Drawing.Color.Transparent;
             this.pctMostrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMostrar.Location = new System.Drawing.Point(298, 214);
+            this.pctMostrar.Image = ((System.Drawing.Image)(resources.GetObject("pctMostrar.Image")));
+            this.pctMostrar.Location = new System.Drawing.Point(299, 210);
             this.pctMostrar.Name = "pctMostrar";
             this.pctMostrar.Size = new System.Drawing.Size(35, 35);
             this.pctMostrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -157,7 +159,8 @@ namespace Vista
             this.pctOcultar.BackColor = System.Drawing.Color.Transparent;
             this.pctOcultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctOcultar.Location = new System.Drawing.Point(298, 214);
+            this.pctOcultar.Image = ((System.Drawing.Image)(resources.GetObject("pctOcultar.Image")));
+            this.pctOcultar.Location = new System.Drawing.Point(300, 210);
             this.pctOcultar.Name = "pctOcultar";
             this.pctOcultar.Size = new System.Drawing.Size(35, 35);
             this.pctOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -176,7 +179,7 @@ namespace Vista
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblLogin);
+            this.pnlBorde.Controls.Add(this.lblTitulo);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -190,7 +193,7 @@ namespace Vista
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pctMinimize.Image = global::Vista.Properties.Resources.WhiteMinimize;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
             this.pctMinimize.Location = new System.Drawing.Point(0, 0);
             this.pctMinimize.Name = "pctMinimize";
             this.pctMinimize.Size = new System.Drawing.Size(40, 40);
@@ -204,7 +207,7 @@ namespace Vista
             this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctClose.Image = global::Vista.Properties.Resources.CircleX;
+            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
             this.pctClose.Location = new System.Drawing.Point(360, 0);
             this.pctClose.Name = "pctClose";
             this.pctClose.Size = new System.Drawing.Size(40, 40);
@@ -213,14 +216,15 @@ namespace Vista
             this.pctClose.TabStop = false;
             this.pctClose.Click += new System.EventHandler(this.pctClose_Click_1);
             // 
-            // cboIdioma
+            // cmbIdioma
             // 
-            this.cboIdioma.FormattingEnabled = true;
-            this.cboIdioma.Location = new System.Drawing.Point(107, 348);
-            this.cboIdioma.Name = "cboIdioma";
-            this.cboIdioma.Size = new System.Drawing.Size(185, 26);
-            this.cboIdioma.TabIndex = 27;
-            this.cboIdioma.SelectedIndexChanged += new System.EventHandler(this.cboIdioma_SelectionChangeCommitted);
+            this.cmbIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIdioma.FormattingEnabled = true;
+            this.cmbIdioma.Location = new System.Drawing.Point(108, 297);
+            this.cmbIdioma.Name = "cmbIdioma";
+            this.cmbIdioma.Size = new System.Drawing.Size(184, 26);
+            this.cmbIdioma.TabIndex = 27;
+            this.cmbIdioma.SelectedIndexChanged += new System.EventHandler(this.cmbIdioma_SelectedIndexChanged);
             // 
             // FrmLoguin
             // 
@@ -230,7 +234,7 @@ namespace Vista
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
-            this.Controls.Add(this.cboIdioma);
+            this.Controls.Add(this.cmbIdioma);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pctOcultar);
@@ -271,13 +275,14 @@ namespace Vista
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.PictureBox pctFondo;
-        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.PictureBox pctMostrar;
         private System.Windows.Forms.PictureBox pctOcultar;
         private System.Windows.Forms.Panel pnlBordeInferior;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.ComboBox cboIdioma;
+        private System.Windows.Forms.ComboBox cmbIdioma;
     }
 }
+
