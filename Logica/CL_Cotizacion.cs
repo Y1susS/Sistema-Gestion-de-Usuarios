@@ -50,7 +50,7 @@ namespace Logica
                 {
                     EspesorCm = espesorCm,
                     AnchoCm = anchoCm,
-                    LargoCm = largoCm,
+                    LargoMts = largoCm,
                     Cantidad = cantidad,
                     Descripcion = descripcion
                 };
@@ -183,20 +183,37 @@ namespace Logica
                 throw new ArgumentException("Los montos no pueden ser negativos.");
         }
 
+        private static string FormatearNumeroCotizacion(int id)
+        {
+            return "COT-" + id.ToString("D6");
+        }
+
         public int AltaCotizacion(DtoCotizacion cotizacion)
         {
             try
             {
                 ValidarCotizacion(cotizacion);
 
-                if (string.IsNullOrEmpty(cotizacion.NumeroCotizacion))
-                    cotizacion.NumeroCotizacion = $"COT-{DateTime.Now:yyyyMMddHHmmss}";
+                // Si no viene número, lo generaremos luego basado en el Id
+                bool generarNumeroLuego = string.IsNullOrWhiteSpace(cotizacion.NumeroCotizacion);
+                if (generarNumeroLuego)
+                {
+                    cotizacion.NumeroCotizacion = null;
+                }
 
                 cotizacion.FechaCreacion = DateTime.Now;
                 cotizacion.Activo = true;
 
                 int idCotizacion = daoCotizacion.InsertarCotizacion(cotizacion);
                 if (idCotizacion <= 0) return 0;
+
+                // Actualizar con número corto COT-000123
+                if (generarNumeroLuego)
+                {
+                    cotizacion.Id_Cotizacion = idCotizacion;
+                    cotizacion.NumeroCotizacion = FormatearNumeroCotizacion(idCotizacion);
+                    daoCotizacion.ActualizarCotizacion(cotizacion);
+                }
 
                 // Detalles madera
                 if (cotizacion.Detalles != null && cotizacion.Detalles.Any())
@@ -403,9 +420,7 @@ namespace Logica
                     {
                         Descripcion = !string.IsNullOrWhiteSpace(descripcionOtrosMateriales1) ? descripcionOtrosMateriales1 : "Otros materiales 1",
                         Monto = montoOtrosMateriales1,
-                        TipoGasto = "OtrosMateriales1",
                         IdCotizacion = idCotizacion,
-                        FechaCreacion = DateTime.Now,
                         Activo = true
                     });
                 }
@@ -416,9 +431,7 @@ namespace Logica
                     {
                         Descripcion = !string.IsNullOrWhiteSpace(descripcionOtrosMateriales2) ? descripcionOtrosMateriales2 : "Otros materiales 2",
                         Monto = montoOtrosMateriales2,
-                        TipoGasto = "OtrosMateriales2",
                         IdCotizacion = idCotizacion,
-                        FechaCreacion = DateTime.Now,
                         Activo = true
                     });
                 }
@@ -429,9 +442,7 @@ namespace Logica
                     {
                         Descripcion = !string.IsNullOrWhiteSpace(descripcionGastosVarios) ? descripcionGastosVarios : "Gastos varios",
                         Monto = montoGastosVarios,
-                        TipoGasto = "GastosVarios",
                         IdCotizacion = idCotizacion,
-                        FechaCreacion = DateTime.Now,
                         Activo = true
                     });
                 }

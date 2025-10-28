@@ -43,16 +43,16 @@
             this.dgvVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentas.Location = new System.Drawing.Point(15, 115);
+            this.dgvVentas.Location = new System.Drawing.Point(15, 70);
             this.dgvVentas.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentas.Size = new System.Drawing.Size(1000, 450);
+            this.dgvVentas.Size = new System.Drawing.Size(870, 470);
             this.dgvVentas.TabIndex = 0;
             // 
             // btnActualizarEstado
             // 
-            this.btnActualizarEstado.Location = new System.Drawing.Point(415, 15);
+            this.btnActualizarEstado.Location = new System.Drawing.Point(350, 555);
             this.btnActualizarEstado.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizarEstado.Name = "btnActualizarEstado";
             this.btnActualizarEstado.Size = new System.Drawing.Size(200, 30);
@@ -68,9 +68,9 @@
             this.pnlBuscar.Controls.Add(this.btnBuscar);
             this.pnlBuscar.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlBuscar.ForeColor = System.Drawing.Color.White;
-            this.pnlBuscar.Location = new System.Drawing.Point(90, 60);
+            this.pnlBuscar.Location = new System.Drawing.Point(15, 15);
             this.pnlBuscar.Name = "pnlBuscar";
-            this.pnlBuscar.Size = new System.Drawing.Size(830, 40);
+            this.pnlBuscar.Size = new System.Drawing.Size(870, 40);
             this.pnlBuscar.TabIndex = 34;
             this.pnlBuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBuscar_Paint);
             // 
@@ -79,7 +79,7 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(290, 6);
+            this.txtBuscar.Location = new System.Drawing.Point(310, 6);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 28);
@@ -94,7 +94,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.Location = new System.Drawing.Point(547, 6);
+            this.btnBuscar.Location = new System.Drawing.Point(567, 6);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(28, 28);
             this.btnBuscar.TabIndex = 30;
@@ -105,7 +105,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(1030, 580);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.btnActualizarEstado);
             this.Controls.Add(this.dgvVentas);

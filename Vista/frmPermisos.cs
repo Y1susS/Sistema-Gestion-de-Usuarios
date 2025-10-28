@@ -271,5 +271,10 @@ namespace Sistema_Gestion_De_Usuarios
             this.AcceptButton = btnguardarpermiso;
             this.ActiveControl = null;
         }
+
+        private void pnlEscogerUsuario_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
     }
 }

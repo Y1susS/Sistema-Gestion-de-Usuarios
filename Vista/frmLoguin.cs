@@ -151,6 +151,19 @@ namespace Vista
                 }
                 else
                 {
+                    // Asegurar que las preguntas de seguridad estén configuradas antes de permitir el acceso
+                    CL_Usuarios objUsuarios = new CL_Usuarios();
+                    if (!objUsuarios.UsuarioTienePreguntasDeSeguridad(user))
+                    {
+                        MessageBox.Show("Debe configurar sus preguntas de seguridad antes de continuar.",
+                            "Configuración requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        frmPreguntas frm = new frmPreguntas(this);
+                        frm.Show();
+                        this.Hide();
+                        return;
+                    }
+
                     new frmPanelUsuarios().Show();
                     this.Hide();
                 }
@@ -169,21 +182,7 @@ namespace Vista
 
         private void pctClose_Click_1(object sender, EventArgs e)
         {
-            bool UsarioVacio = string.IsNullOrWhiteSpace(txtUsuario.Text) || txtUsuario.Text == USER_PLACEHOLDER;
-            bool ContraseniaVacia = string.IsNullOrWhiteSpace(txtContrasenia.Text) || txtContrasenia.Text == PLACEHOLDER_PASS;
-
-            if (UsarioVacio && ContraseniaVacia == true)
-            {
                 Application.Exit();
-            }
-            else
-            {
-                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (opcion == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-            }
         }
 
         private void FrmLoguin_Shown(object sender, EventArgs e)

@@ -2,7 +2,7 @@
 
 namespace Entidades.DTOs
 {
-    public class DtoConfiguracionContraseña
+    public class DtoConfiguracionSeguridad
     {
         public int Id { get; set; }
         public int MinimoCaracteres { get; set; }
@@ -12,5 +12,9 @@ namespace Entidades.DTOs
         public bool EvitarRepetidas { get; set; }
         public bool EvitarDatosPersonales { get; set; }
         public int DiasCambioPassword { get; set; }
+
+        // Nuevos parámetros de seguridad para login
+        public int MaxIntentosLogin { get; set; }
+        public int MinutosBloqueoLogin { get; set; }
     }
 }

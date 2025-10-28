@@ -22,5 +22,9 @@ namespace Entidades.DTOs
             (DateTime.Now - FechaUltimoCambio).TotalDays > CambiaCada;
         public List<string> Permisos { get; set; }
 
+        // Nuevos campos para manejo de intentos y bloqueo
+        public int Intentos { get; set; }
+        public DateTime? FechaBloqueo { get; set; }
+
     }
 }

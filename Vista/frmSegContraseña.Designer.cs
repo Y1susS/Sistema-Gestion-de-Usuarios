@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSegContraseña));
             this.chkMinCarac = new System.Windows.Forms.CheckBox();
             this.chkNumyLet = new System.Windows.Forms.CheckBox();
             this.chkMayusyMin = new System.Windows.Forms.CheckBox();
@@ -42,11 +43,19 @@
             this.lblseguridad = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlBorde = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pnlBordeInferior = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudCaractMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDiasCambio)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnlBorde.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             this.SuspendLayout();
             // 
             // chkMinCarac
@@ -111,13 +120,14 @@
             // 
             // btnGuardarCambioscont
             // 
-            this.btnGuardarCambioscont.Location = new System.Drawing.Point(150, 365);
-            this.btnGuardarCambioscont.Name = "btnGuardarCambioscont";
-            this.btnGuardarCambioscont.Size = new System.Drawing.Size(175, 30);
-            this.btnGuardarCambioscont.TabIndex = 8;
-            this.btnGuardarCambioscont.Text = "Guardar cambios";
-            this.btnGuardarCambioscont.UseVisualStyleBackColor = true;
-            this.btnGuardarCambioscont.Click += new System.EventHandler(this.btnGuardar_Click);
+
+            this.btnGuardarCambios.Location = new System.Drawing.Point(150, 405);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(175, 30);
+            this.btnGuardarCambios.TabIndex = 8;
+            this.btnGuardarCambios.Text = "Guardar cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // nudCaractMin
             // 
@@ -173,7 +183,7 @@
             this.lblseguridad.BackColor = System.Drawing.Color.Transparent;
             this.lblseguridad.Font = new System.Drawing.Font("Bahnschrift", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblseguridad.ForeColor = System.Drawing.Color.White;
-            this.lblseguridad.Location = new System.Drawing.Point(0, 15);
+            this.lblseguridad.Location = new System.Drawing.Point(0, 55);
             this.lblseguridad.Name = "lblseguridad";
             this.lblseguridad.Size = new System.Drawing.Size(475, 45);
             this.lblseguridad.TabIndex = 16;
@@ -201,16 +211,80 @@
             this.panel3.Controls.Add(this.chkDatosPerson);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(75, 70);
+            this.panel3.Location = new System.Drawing.Point(75, 110);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(325, 285);
             this.panel3.TabIndex = 30;
+            // 
+            // pnlBorde
+            // 
+            this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.pctMinimize);
+            this.pnlBorde.Controls.Add(this.pctClose);
+            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
+            this.pnlBorde.Name = "pnlBorde";
+            this.pnlBorde.Size = new System.Drawing.Size(475, 40);
+            this.pnlBorde.TabIndex = 31;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(395, 40);
+            this.lblTitulo.TabIndex = 15;
+            this.lblTitulo.Text = "Validaciones";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pctMinimize
+            // 
+            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
+            this.pctMinimize.Location = new System.Drawing.Point(0, 0);
+            this.pctMinimize.Name = "pctMinimize";
+            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctMinimize.TabIndex = 22;
+            this.pctMinimize.TabStop = false;
+            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
+            // pctClose
+            // 
+            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
+            this.pctClose.Location = new System.Drawing.Point(435, 0);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctClose.TabIndex = 20;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pnlBordeInferior
+            // 
+            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 445);
+            this.pnlBordeInferior.Name = "pnlBordeInferior";
+            this.pnlBordeInferior.Size = new System.Drawing.Size(475, 20);
+            this.pnlBordeInferior.TabIndex = 32;
             // 
             // frmSegContraseña
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(475, 405);
+            this.ClientSize = new System.Drawing.Size(475, 465);
+            this.Controls.Add(this.pnlBordeInferior);
+            this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblseguridad);
             this.Controls.Add(this.btnGuardarCambioscont);
@@ -226,6 +300,9 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.pnlBorde.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,5 +323,10 @@
         private System.Windows.Forms.Label lblseguridad;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlBorde;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox pctMinimize;
+        private System.Windows.Forms.PictureBox pctClose;
+        private System.Windows.Forms.Panel pnlBordeInferior;
     }
 }

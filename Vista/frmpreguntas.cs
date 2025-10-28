@@ -18,13 +18,14 @@ namespace Vista
         private Form _formularioAnterior;
         private List<DtoPregunta> todasLasPreguntas;
         private ClsArrastrarFormularios moverFormulario;
+        private bool _configuracionCompletada = false; // Flag para impedir cierre
 
         public frmPreguntas()
         {
             InitializeComponent();
             InicializarControles();
-            Idioma.CargarIdiomaGuardado();
-            Idioma.AplicarTraduccion(this);
+
+            this.FormClosing += FrmPreguntas_FormClosing;
         }
 
         public frmPreguntas(Form formularioAnterior)
@@ -33,32 +34,41 @@ namespace Vista
             _formularioAnterior = formularioAnterior;
             this.AcceptButton = btnSiguientepregseg;
             InicializarControles();
-            //combosPreguntas = new List<ComboBox> { cmbPregunta1, cmbPregunta2, cmbPregunta3 };
-            //txtRespuestas = new List<TextBox> { txtRespuesta1, txtRespuesta2, txtRespuesta3 };
-
-            //foreach (var txt in txtRespuestas)
-            //{
-            //    txt.KeyPress += TxtRespuesta_KeyPress;
-            //}
-            //foreach (var combo in combosPreguntas)
-            //{
-            //    combo.DropDownStyle = ComboBoxStyle.DropDownList;
-            //}
-
-            //moverFormulario = new ClsArrastrarFormularios(this);
-            //moverFormulario.HabilitarMovimiento(lblTitulo);
+            this.FormClosing += FrmPreguntas_FormClosing;
         }
 
 
         private void frmPreguntas_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = btnSiguientepregseg;
-            lblUsuariopregserg.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(pctLogo);
+
+            this.AcceptButton = btnSiguiente;
+            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblInstrucciones.Text = "Por favor, seleccione 3 preguntas de seguridad y proporcione sus respuestas." +
                                   Environment.NewLine +
                                   "Estas preguntas serán utilizadas para verificar su identidad si necesita recuperar su contraseña.";
 
             CargarPreguntas();
+
+            // Permitir cerrar el formulario solo si ya tiene preguntas configuradas
+            try
+            {
+                var usuariosSvc = new CL_Usuarios();
+                bool tienePreguntas = usuariosSvc.UsuarioTienePreguntasDeSeguridad(ClsSesionActual.Usuario.User);
+
+                if (tienePreguntas)
+                {
+                    _configuracionCompletada = true;
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"Error al cargar configuracion de preguntas: {ex.Message}", "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InicializarControles()
@@ -76,9 +86,6 @@ namespace Vista
                 combo.DropDownStyle = ComboBoxStyle.DropDownList;
             }
 
-            moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulopreguntasseg);
-            moverFormulario.HabilitarMovimiento(pctLogo);
         }
 
 
@@ -151,6 +158,7 @@ namespace Vista
 
                 if (objPreguntas.RegistrarRespuestas(respuestas, out string mensaje))
                 {
+                    _configuracionCompletada = true; // permitir cierre
                     MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     frmPanelUsuarios frmAdmin = new frmPanelUsuarios();
@@ -208,36 +216,30 @@ namespace Vista
             }
         }
 
+        private void FrmPreguntas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_configuracionCompletada && e.CloseReason == CloseReason.UserClosing)
+            {
+                MessageBox.Show("Debe completar la configuración de preguntas de seguridad antes de cerrar esta ventana.",
+                    "Acción requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }
+        }
+
         private void pctClose_Click_1(object sender, EventArgs e)
         {
+            if (!_configuracionCompletada)
+            {
+                MessageBox.Show("Debe completar la configuración de preguntas de seguridad antes de cerrar esta ventana.",
+                    "Acción requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             this.Close();
-            frmPanelUsuarios frmPanelUsuarios = new frmPanelUsuarios();
-            frmPanelUsuarios.Show();
         }
 
         private void pctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void txtRespuesta3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtRespuesta2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtRespuesta1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtrespuestas_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void frmPreguntas_Shown(object sender, EventArgs e)

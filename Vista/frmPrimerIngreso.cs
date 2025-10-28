@@ -21,6 +21,9 @@ namespace Vista
         private ClsMensajeEmergente mensajes = new ClsMensajeEmergente();
         private readonly CL_Usuarios objUsuarios = new CL_Usuarios();
         private ClsArrastrarFormularios moverFormulario;
+        // Estado para bloquear cierre hasta completar
+        private bool _cambioContrasenaCompletado = false;
+
         public frmPrimerIngreso()
         {
             InitializeComponent();
@@ -47,6 +50,9 @@ namespace Vista
 
             ClsMostrarOcultarClave.Configurar(txtNuevaPass, pctMostrar, pctOcultar, "Nueva contraseña");
             ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar2, pctOcultar2, "Confirmar contraseña");
+
+            // Manejar cierre del formulario para impedir que lo cierren sin completar
+            this.FormClosing += FrmPrimerIngreso_FormClosing;
         }
 
         private const string NUEVA_PASS_PLACEHOLDER = "Nueva contraseña";
@@ -69,7 +75,7 @@ namespace Vista
             try
             {
                 CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
-                DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = configLogic.ObtenerConfiguracion();
 
                 if (config != null)
                 {
@@ -151,7 +157,7 @@ namespace Vista
                 }
 
                 CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();
-                DtoConfiguracionContraseña config = logicaConfig.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = logicaConfig.ObtenerConfiguracion();
 
                 if (config == null)
                 {
@@ -167,11 +173,13 @@ namespace Vista
 
                 if (objUsuarios.CambiarPrimeraContraseña(nombreUsuarioActual, nuevaContraseña, out string mensajeCambioPass))
                 {
+                    _cambioContrasenaCompletado = true; // permitirá cerrar este form
                     MessageBox.Show(mensajeCambioPass, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    // Redirigir obligatoriamente a configurar preguntas
                     frmPreguntas frmPreguntas = new frmPreguntas(this);
                     frmPreguntas.Show();
-                    this.Close();
+                    this.Hide();
                 }
                 else
                 {
@@ -214,26 +222,25 @@ namespace Vista
             return true;
         }
 
+        private void FrmPrimerIngreso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Bloquear el cierre si aún no se completó el cambio de contraseña
+            if (!_cambioContrasenaCompletado && e.CloseReason == CloseReason.UserClosing)
+            {
+                MessageBox.Show("Debe completar el cambio de contraseña antes de cerrar esta ventana.",
+                    "Acción requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }
+        }
+
         private void pctClose_Click_1(object sender, EventArgs e)
         {
-            bool NuevaPass = string.IsNullOrWhiteSpace(txtNuevaPass.Text) || txtNuevaPass.Text == NUEVA_PASS_PLACEHOLDER;
-            bool ConfirmaPass = string.IsNullOrWhiteSpace(txtConfirmaPass.Text) || txtConfirmaPass.Text == CONFIRMA_PASS_PLACEHOLDER;
-
-            if (NuevaPass && ConfirmaPass == true)
+            // Evitar que cierre la ventana si no completó el proceso
+            if (!_cambioContrasenaCompletado)
             {
-                this.Close();
-                FrmLoguin FrmLoguin = new FrmLoguin();
-                FrmLoguin.Show();
-            }
-            else
-            {
-                DialogResult opcion = MessageBox.Show("Si cierra esta ventana se perderán los datos ingresados \n ¿Seguro que quiere salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (opcion == DialogResult.Yes)
-                {
-                    this.Close();
-                    FrmLoguin FrmLoguin = new FrmLoguin();
-                    FrmLoguin.Show();
-                }
+                MessageBox.Show("Debe completar el cambio de contraseña antes de cerrar esta ventana.",
+                    "Acción requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
         }
 

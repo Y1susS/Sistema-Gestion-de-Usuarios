@@ -8,9 +8,9 @@ namespace Datos
 {
     public class CD_DaoConfiguracionSeguridad : CD_Conexion
     {
-        public List<DtoConfiguracionContraseña> ObtenerConfiguracionesContras()
+        public List<DtoConfiguracionSeguridad> ObtenerConfiguracionesContras()
         {
-            List<DtoConfiguracionContraseña> listaConfiguraciones = new List<DtoConfiguracionContraseña>();
+            List<DtoConfiguracionSeguridad> listaConfiguraciones = new List<DtoConfiguracionSeguridad>();
             using (SqlConnection conn = AbrirConexion())
             {
                 try
@@ -23,7 +23,7 @@ namespace Datos
                         {
                             while (dr.Read())
                             {
-                                DtoConfiguracionContraseña config = new DtoConfiguracionContraseña();
+                                DtoConfiguracionSeguridad config = new DtoConfiguracionSeguridad();
                                 config.Id = Convert.ToInt32(dr["Id"]);
                                 config.MinimoCaracteres = Convert.ToInt32(dr["MinimoCaracteres"]);
                                 config.RequiereMayusMinus = Convert.ToBoolean(dr["RequiereMayusMinus"]);
@@ -32,6 +32,9 @@ namespace Datos
                                 config.EvitarRepetidas = Convert.ToBoolean(dr["EvitarRepetidas"]);
                                 config.EvitarDatosPersonales = Convert.ToBoolean(dr["EvitarDatosPersonales"]);
                                 config.DiasCambioPassword = dr["DiasCambioPassword"] != DBNull.Value ? Convert.ToInt32(dr["DiasCambioPassword"]) : 0;
+                                // nuevos: mapear correctamente desde el SP (ya devuelve ISNULL)
+                                config.MaxIntentosLogin = dr["MaxIntentosLogin"] != DBNull.Value ? Convert.ToInt32(dr["MaxIntentosLogin"]) : 3;
+                                config.MinutosBloqueoLogin = dr["MinutosBloqueoLogin"] != DBNull.Value ? Convert.ToInt32(dr["MinutosBloqueoLogin"]) : 60;
 
                                 listaConfiguraciones.Add(config);
                             }
@@ -46,7 +49,7 @@ namespace Datos
 
             return listaConfiguraciones;
         }
-        public bool GuardarConfiguracionContras(DtoConfiguracionContraseña dto)
+        public bool GuardarConfiguracionContras(DtoConfiguracionSeguridad dto)
         {
             SqlConnection conn = null;
             try
@@ -64,6 +67,9 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@EvitarRepetidas", dto.EvitarRepetidas);
                     cmd.Parameters.AddWithValue("@EvitarDatosPersonales", dto.EvitarDatosPersonales);
                     cmd.Parameters.AddWithValue("@DiasCambioPassword", dto.DiasCambioPassword);
+                    // nuevos
+                    cmd.Parameters.AddWithValue("@MaxIntentosLogin", dto.MaxIntentosLogin);
+                    cmd.Parameters.AddWithValue("@MinutosBloqueoLogin", dto.MinutosBloqueoLogin);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

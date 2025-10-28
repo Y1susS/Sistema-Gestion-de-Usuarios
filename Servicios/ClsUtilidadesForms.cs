@@ -52,11 +52,16 @@ namespace Servicios
         {
             // Limpiar TextBoxes de medidas por nombre específico
             var camposMaderas = new[] {
-                "txtespesorm1", "txtespesorm2", "txtespesorm3", "txtespesorm4", "txtespesorm5", "txtespesorm6",
-                "txtanchom1", "txtanchom2", "txtanchom3", "txtanchom4", "txtanchom5", "txtanchom6",
-                "txtlargom1", "txtlargom2", "txtlargom3", "txtlargom4", "txtlargom5", "txtlargom6",
-                "txtcantidad1", "txtcantidad2", "txtcantidad3", "txtcantidad4", "txtcantidad5", "txtcantidad6",
-                "txtdescmad1", "txtdescmad2", "txtdescmad3", "txtdescmad4", "txtdescmad5", "txtdescmad6"
+                // Espesores
+                "txtespesorm1", "txtespesorm2", "txtespesorm3", "txtespesorm4", "txtespesorm5", "txtespesorm6", "txtespesorm7", "txtespesorm8",
+                // Anchos
+                "txtanchom1", "txtanchom2", "txtanchom3", "txtanchom4", "txtanchom5", "txtanchom6", "txtanchom7", "txtanchom8",
+                // Largos
+                "txtlargom1", "txtlargom2", "txtlargom3", "txtlargom4", "txtlargom5", "txtlargom6", "txtlargom7", "txtlargom8",
+                // Cantidades
+                "txtcantidad1", "txtcantidad2", "txtcantidad3", "txtcantidad4", "txtcantidad5", "txtcantidad6", "txtcantidad7", "txtcantidad8",
+                // Descripciones
+                "txtdescmad1", "txtdescmad2", "txtdescmad3", "txtdescmad4", "txtdescmad5", "txtdescmad6", "txtdescmad7", "txtdescmad8"
             };
 
             foreach (var nombreCampo in camposMaderas)
@@ -66,7 +71,7 @@ namespace Servicios
             }
 
             // Desmarcar CheckBoxes de maderas
-            var checksboxesMaderas = new[] { "chk1", "chk2", "chk3", "chk4", "chk5", "chk6" };
+            var checksboxesMaderas = new[] { "chk1", "chk2", "chk3", "chk4", "chk5", "chk6", "chk7", "chk8" };
             foreach (var nombreCheck in checksboxesMaderas)
             {
                 var checkBox = formulario.Controls.Find(nombreCheck, true).FirstOrDefault() as CheckBox;
@@ -182,7 +187,7 @@ namespace Servicios
         public static void OcultarLabelsResultados(Form formulario)
         {
             var labelsResultados = new[] {
-                "lblpie1", "lblpie2", "lblpie3", "lblpie4", "lblpie5", "lblpie6",
+                "lblpie1", "lblpie2", "lblpie3", "lblpie4", "lblpie5", "lblpie6", "lblpie7", "lblpie8",
                 "lblcalculopies", "lblpresupuesto"
             };
 
@@ -413,7 +418,7 @@ namespace Servicios
         public static void ConfigurarValidacionesNumericas(Form formulario)
         {
             // Configurar validaciones decimales para campos de dimensiones
-            for (int i = 1; i <= 6; i++)
+            for (int i = 1; i <= 8; i++)
             {
                 ConfigurarValidacionDecimal(formulario, $"txtespesorm{i}");
                 ConfigurarValidacionDecimal(formulario, $"txtanchom{i}");

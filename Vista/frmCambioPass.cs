@@ -68,10 +68,6 @@ namespace Vista
             ClsMostrarOcultarClave.Configurar(txtNuevaPass, pctMostrar2, pctOcultar2, "Nueva contraseña");
             ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar3, pctOcultar3, "Confirmar contraseña");
 
-            moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblUsuariocont);
-            moverFormulario.HabilitarMovimiento(pctLogo);
-            moverFormulario.HabilitarMovimiento(pctFondo);
         }
 
 
@@ -86,18 +82,21 @@ namespace Vista
 
             ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
+
             MostrarRestriccionesContrasena();
             lblUsuariocont.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             this.ActiveControl = lblUsuariocont;
 
             moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
         private void MostrarRestriccionesContrasena()
         {
             try
             {
                 CL_ConfiguracionContraseña configLogic = new CL_ConfiguracionContraseña();
-                DtoConfiguracionContraseña config = configLogic.ObtenerConfiguracion();
+                DtoConfiguracionSeguridad config = configLogic.ObtenerConfiguracion();
 
                 if (config != null)
                 {
@@ -280,7 +279,17 @@ namespace Vista
         private void frmCambioPass_Shown(object sender, EventArgs e)
         {
             this.AcceptButton = btnCambiar;
-            txtPassActual.Focus();
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

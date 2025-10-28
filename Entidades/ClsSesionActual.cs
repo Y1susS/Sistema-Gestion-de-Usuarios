@@ -33,9 +33,9 @@ namespace Entidades
         }
 
         //settea para todo el sistema la confid de pw
-        public static DtoConfiguracionContraseña ConfiguracionContraseña { get; private set; }
+        public static DtoConfiguracionSeguridad ConfiguracionContraseña { get; private set; }
 
-        public static void SetConfiguracionContrasena(DtoConfiguracionContraseña dto)
+        public static void SetConfiguracionContrasena(DtoConfiguracionSeguridad dto)
         {
             if (dto == null)
             {

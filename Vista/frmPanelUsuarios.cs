@@ -49,7 +49,11 @@ namespace Vista
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lblmenuadmin);
+
+            moverFormulario.HabilitarMovimiento(lblTitulo);
+
+            this.Size = new Size(1150, 660);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void SeleccionarBoton(Button boton)
@@ -212,18 +216,6 @@ namespace Vista
             int panelSuperiorAlto = pnlBorde?.Height ?? 0;
             int panelInferiorAlto = pnlBordeInferior?.Height ?? 0;
 
-            // Tamaños del borde del formulario padre
-            int bordeAncho = this.Width - this.ClientSize.Width;
-            int bordeAlto = this.Height - this.ClientSize.Height;
-
-            // Ajustar el tamaño del panel contenedor para que encaje con el hijo
-            this.pnlContenedor.Width = fh.Width;
-            this.pnlContenedor.Height = fh.Height;
-
-            // Ajustar el tamaño del formulario padre tomando en cuenta todo
-            this.Width = fh.Width + panelLateralAncho + bordeAncho;
-            this.Height = fh.Height + panelSuperiorAlto + panelInferiorAlto + bordeAlto;
-
             // Posicionar el formulario hijo dentro del panel
             fh.Location = new Point(0, 0);
             fh.Show();
@@ -282,7 +274,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) 
             {
                 SeleccionarBoton((Button)sender);
-                AbrirFormHijo(new frmSegContraseña());
+                frmSegContraseña frmSegContraseña = new frmSegContraseña();
+                frmSegContraseña.ShowDialog();
             }
         }
 
@@ -300,7 +293,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("PreguntasSeguridad"))
             {
                 SeleccionarBoton((Button)sender);
-                AbrirFormHijo(new frmPreguntas());
+                frmPreguntas frmPreguntas = new frmPreguntas();
+                frmPreguntas.ShowDialog();
             }
         }
 
@@ -309,7 +303,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Cambiar contraseña"))
             {
                 SeleccionarBoton((Button)sender);
-                AbrirFormHijo(new frmCambioPass());
+                frmCambioPass frmCambioPass = new frmCambioPass();
+                frmCambioPass.ShowDialog();
             }
         }
 
@@ -411,7 +406,8 @@ namespace Vista
         private void btncotizador_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
-            AbrirFormHijo(new frmCotizador());
+            frmCotizador frmCotizador = new frmCotizador();
+            frmCotizador.ShowDialog();
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
@@ -423,7 +419,8 @@ namespace Vista
         private void btnmetricas_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
-            AbrirFormHijo(new frmReportes());
+            frmReportes frmReportes = new frmReportes();
+            frmReportes.ShowDialog();
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
@@ -455,7 +452,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
             {
                 SeleccionarBoton((Button)sender);
-                AbrirFormHijo(new frmPresupuestador());
+                frmPresupuestador frmPresupuestador = new frmPresupuestador();
+                frmPresupuestador.ShowDialog();
             }
         }
 
@@ -570,6 +568,7 @@ namespace Vista
         private void btnCotizaciones_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
+            AbrirFormHijo(new frmListarCotizaciones());
         }
     }
 }

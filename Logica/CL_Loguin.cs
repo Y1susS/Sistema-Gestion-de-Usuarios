@@ -14,15 +14,65 @@ namespace Logica
     public class CL_Loguin
     {
         private readonly CD_DaoUsuario daoUsuario = new CD_DaoUsuario();
+        private readonly CL_ConfiguracionContraseña _configSvc = new CL_ConfiguracionContraseña();
 
         public bool Autenticar(string usuario, string passwordPlano, out string mensaje)
         {
+            // Obtener config desde BD (debe existir; si no, no se permite logueo)
+            var config = _configSvc.ObtenerConfiguracion();
+            if (config == null)
+            {
+                mensaje = "No hay configuración de seguridad cargada.";
+                return false;
+            }
 
             DtoUsuario dto = daoUsuario.ObtenerUsuarioPorNombre(usuario);
 
-            if (dto == null || dto.Password != ClsSeguridad.SHA256(usuario + passwordPlano))
+            // Usuario inexistente: no revelar existencia, devolver mensaje genérico
+            if (dto == null)
             {
                 mensaje = "Usuario o contraseña incorrectos.";
+                return false;
+            }
+
+            // Verificar bloqueo por intentos
+            if (dto.FechaBloqueo.HasValue)
+            {
+                DateTime finBloqueo = dto.FechaBloqueo.Value.Add(TimeSpan.FromMinutes(config.MinutosBloqueoLogin));
+                if (DateTime.Now < finBloqueo)
+                {
+                    TimeSpan resta = finBloqueo - DateTime.Now;
+                    mensaje = $"Cuenta bloqueada. Intente nuevamente en {Math.Ceiling(resta.TotalMinutes)} minutos.";
+                    return false;
+                }
+                else
+                {
+                    // Expiró el bloqueo, reiniciar contadores
+                    daoUsuario.ReiniciarIntentosYDesbloquear(dto.Id_user);
+                    dto.Intentos = 0;
+                    dto.FechaBloqueo = null;
+                }
+            }
+
+            // Validar contraseña
+            if (dto.Password != ClsSeguridad.SHA256(usuario + passwordPlano))
+            {
+                // registrar intento fallido
+                daoUsuario.RegistrarIntentoFallido(dto.Id_user, config.MaxIntentosLogin);
+
+                // Reconsultar para saber si ya quedó bloqueado
+                DtoUsuario after = daoUsuario.ObtenerUsuarioPorNombre(usuario);
+                if (after != null && after.FechaBloqueo.HasValue)
+                {
+                    mensaje = $"Cuenta bloqueada por múltiples intentos fallidos. Intente en {config.MinutosBloqueoLogin} minutos.";
+                }
+                else
+                {
+                    int restantes = Math.Max(0, config.MaxIntentosLogin - (after != null ? after.Intentos : dto.Intentos + 1));
+                    mensaje = restantes > 0
+                        ? $"Usuario o contraseña incorrectos. Intentos restantes: {restantes}."
+                        : "Usuario o contraseña incorrectos.";
+                }
                 return false;
             }
 
@@ -38,6 +88,9 @@ namespace Logica
                 mensaje = "Este usuario se encuentra inactivo. Contacte al administrador.";
                 return false;
             }
+
+            // Resetear intentos y desbloqueo al éxito
+            daoUsuario.ReiniciarIntentosYDesbloquear(dto.Id_user);
 
             // Cargar permisos del usuario antes de iniciar sesión
             dto.Permisos = daoUsuario.ObtenerPermisosPorUsuario(dto.Id_user) ?? new List<string>();

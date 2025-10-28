@@ -12,9 +12,9 @@ namespace Logica
     {
         CD_DaoConfiguracionSeguridad configContraseñaDao = new CD_DaoConfiguracionSeguridad();
 
-        public DtoConfiguracionContraseña ObtenerConfiguracion()
+        public DtoConfiguracionSeguridad ObtenerConfiguracion()
         {
-            List<DtoConfiguracionContraseña> configs = configContraseñaDao.ObtenerConfiguracionesContras();
+            List<DtoConfiguracionSeguridad> configs = configContraseñaDao.ObtenerConfiguracionesContras();
 
             // Si la lista es nula o está vacía, no hay configuración en la BD, devolvemos null
             if (configs == null || !configs.Any())
@@ -29,7 +29,7 @@ namespace Logica
         }
 
 
-        public bool GuardarConfiguracion(DtoConfiguracionContraseña dto)
+        public bool GuardarConfiguracion(DtoConfiguracionSeguridad dto)
         {
             // Validaciones de negocio antes de guardar. Agregar mas
             if (dto.MinimoCaracteres < 0)
@@ -40,6 +40,16 @@ namespace Logica
             if (dto.DiasCambioPassword < 0)
             {
                 throw new ApplicationException("La cantidad de días para cambio de contraseña no puede ser negativa.");
+            }
+
+            if (dto.MaxIntentosLogin < 0)
+            {
+                throw new ApplicationException("Los intentos máximos no pueden ser negativos.");
+            }
+
+            if (dto.MinutosBloqueoLogin < 0)
+            {
+                throw new ApplicationException("Los minutos de bloqueo no pueden ser negativos.");
             }
 
             return configContraseñaDao.GuardarConfiguracionContras(dto);

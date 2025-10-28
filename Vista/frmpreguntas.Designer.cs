@@ -87,7 +87,6 @@
             this.txtRespuesta1.Name = "txtRespuesta1";
             this.txtRespuesta1.Size = new System.Drawing.Size(225, 25);
             this.txtRespuesta1.TabIndex = 2;
-            this.txtRespuesta1.TextChanged += new System.EventHandler(this.txtRespuesta1_TextChanged);
             // 
             // txtRespuesta2
             // 
@@ -95,7 +94,7 @@
             this.txtRespuesta2.Name = "txtRespuesta2";
             this.txtRespuesta2.Size = new System.Drawing.Size(225, 25);
             this.txtRespuesta2.TabIndex = 4;
-            this.txtRespuesta2.TextChanged += new System.EventHandler(this.txtRespuesta2_TextChanged);
+
             // 
             // txtRespuesta3
             // 
@@ -103,7 +102,7 @@
             this.txtRespuesta3.Name = "txtRespuesta3";
             this.txtRespuesta3.Size = new System.Drawing.Size(225, 25);
             this.txtRespuesta3.TabIndex = 6;
-            this.txtRespuesta3.TextChanged += new System.EventHandler(this.txtRespuesta3_TextChanged);
+
             // 
             // btnSiguientepregseg
             // 

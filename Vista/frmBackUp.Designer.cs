@@ -53,7 +53,7 @@
             // btnGuardarrapido
             // 
             this.btnGuardarrapido.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardarrapido.Location = new System.Drawing.Point(287, 70);
+            this.btnGuardarrapido.Location = new System.Drawing.Point(315, 70);
             this.btnGuardarrapido.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarrapido.Name = "btnGuardarrapido";
             this.btnGuardarrapido.Size = new System.Drawing.Size(250, 30);
@@ -64,29 +64,31 @@
             // 
             // lblbkuppredeterminado
             // 
-            this.lblbkuppredeterminado.Location = new System.Drawing.Point(1, 35);
-            this.lblbkuppredeterminado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblbkuppredeterminado.Name = "lblbkuppredeterminado";
-            this.lblbkuppredeterminado.Size = new System.Drawing.Size(823, 18);
-            this.lblbkuppredeterminado.TabIndex = 2;
-            this.lblbkuppredeterminado.Text = "Se guardará una copia de la base de datos en la ubicación \"C:\\BackUps\" de su comp" +
+
+            this.label1.Location = new System.Drawing.Point(2, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(877, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Se guardará una copia de la base de datos en la ubicación \"C:\\BackUps\" de su comp" +
     "utadora";
             this.lblbkuppredeterminado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblbkuppersonalizado
             // 
-            this.lblbkuppersonalizado.Location = new System.Drawing.Point(1, 35);
-            this.lblbkuppersonalizado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblbkuppersonalizado.Name = "lblbkuppersonalizado";
-            this.lblbkuppersonalizado.Size = new System.Drawing.Size(823, 18);
-            this.lblbkuppersonalizado.TabIndex = 5;
-            this.lblbkuppersonalizado.Text = "Elija una ubicacion donde guardar la copia de seguridad";
-            this.lblbkuppersonalizado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            this.label2.Location = new System.Drawing.Point(2, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(877, 18);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Elija una ubicación donde guardar la copia de seguridad";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnGuardarUbicacionSeleccionada
             // 
             this.btnGuardarUbicacionSeleccionada.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardarUbicacionSeleccionada.Location = new System.Drawing.Point(287, 110);
+            this.btnGuardarUbicacionSeleccionada.Location = new System.Drawing.Point(315, 110);
             this.btnGuardarUbicacionSeleccionada.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarUbicacionSeleccionada.Name = "btnGuardarUbicacionSeleccionada";
             this.btnGuardarUbicacionSeleccionada.Size = new System.Drawing.Size(250, 30);
@@ -98,7 +100,7 @@
             // btnExaminar
             // 
             this.btnExaminar.ForeColor = System.Drawing.Color.Black;
-            this.btnExaminar.Location = new System.Drawing.Point(12, 68);
+            this.btnExaminar.Location = new System.Drawing.Point(15, 67);
             this.btnExaminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(125, 30);
@@ -109,44 +111,29 @@
             // 
             // txtRutaBackup
             // 
-            this.txtRutaBackup.Location = new System.Drawing.Point(147, 70);
+            this.txtRutaBackup.Location = new System.Drawing.Point(148, 70);
             this.txtRutaBackup.Margin = new System.Windows.Forms.Padding(4);
             this.txtRutaBackup.Name = "txtRutaBackup";
-            this.txtRutaBackup.Size = new System.Drawing.Size(665, 25);
+            this.txtRutaBackup.Size = new System.Drawing.Size(717, 25);
             this.txtRutaBackup.TabIndex = 8;
             // 
             // pgbGuardadoRapido
             // 
-            this.pgbGuardadoRapido.Location = new System.Drawing.Point(12, 115);
+            this.pgbGuardadoRapido.Location = new System.Drawing.Point(15, 115);
             this.pgbGuardadoRapido.Margin = new System.Windows.Forms.Padding(4);
             this.pgbGuardadoRapido.Name = "pgbGuardadoRapido";
-            this.pgbGuardadoRapido.Size = new System.Drawing.Size(800, 20);
+            this.pgbGuardadoRapido.Size = new System.Drawing.Size(850, 20);
             this.pgbGuardadoRapido.TabIndex = 9;
             // 
             // pgbGuardadoPersonalizado
             // 
-            this.pgbGuardadoPersonalizado.Location = new System.Drawing.Point(12, 155);
+            this.pgbGuardadoPersonalizado.Location = new System.Drawing.Point(15, 155);
             this.pgbGuardadoPersonalizado.Margin = new System.Windows.Forms.Padding(4);
             this.pgbGuardadoPersonalizado.Name = "pgbGuardadoPersonalizado";
-            this.pgbGuardadoPersonalizado.Size = new System.Drawing.Size(800, 20);
+            this.pgbGuardadoPersonalizado.Size = new System.Drawing.Size(850, 20);
             this.pgbGuardadoPersonalizado.TabIndex = 10;
             // 
-            // gpbupredeterminada
-            // 
-            this.gpbupredeterminada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.gpbupredeterminada.Controls.Add(this.pgbGuardadoRapido);
-            this.gpbupredeterminada.Controls.Add(this.btnGuardarrapido);
-            this.gpbupredeterminada.Controls.Add(this.lblbkuppredeterminado);
-            this.gpbupredeterminada.ForeColor = System.Drawing.Color.White;
-            this.gpbupredeterminada.Location = new System.Drawing.Point(15, 15);
-            this.gpbupredeterminada.Margin = new System.Windows.Forms.Padding(4);
-            this.gpbupredeterminada.Name = "gpbupredeterminada";
-            this.gpbupredeterminada.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbupredeterminada.Size = new System.Drawing.Size(825, 160);
-            this.gpbupredeterminada.TabIndex = 12;
-            this.gpbupredeterminada.TabStop = false;
-            this.gpbupredeterminada.Text = "Ubicación predeterminada";
-            this.gpbupredeterminada.Enter += new System.EventHandler(this.groupBox1_Enter);
+
             // 
             // gpbupersonalizada
             // 
@@ -183,29 +170,83 @@
             this.gpbrestore.TabIndex = 15;
             this.gpbrestore.TabStop = false;
             this.gpbrestore.Text = "Restaurar Back Up";
+
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.groupBox1.Controls.Add(this.pgbGuardadoRapido);
+            this.groupBox1.Controls.Add(this.btnGuardarrapido);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(10, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(880, 160);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Ubicación predeterminada";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.groupBox2.Controls.Add(this.pgbGuardadoPersonalizado);
+            this.groupBox2.Controls.Add(this.txtRutaBackup);
+            this.groupBox2.Controls.Add(this.btnExaminar);
+            this.groupBox2.Controls.Add(this.btnGuardarUbicacionSeleccionada);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(10, 180);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(880, 200);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ubicación personalizada";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.groupBox3.Controls.Add(this.progressBar1);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.btnCargarBackup);
+            this.groupBox3.Controls.Add(this.txtExaminarBackup);
+            this.groupBox3.Controls.Add(this.btnExaminarBackup);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(10, 390);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(880, 200);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Cargar Back Up";
+
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 155);
+            this.progressBar1.Location = new System.Drawing.Point(15, 155);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(803, 19);
+            this.progressBar1.Size = new System.Drawing.Size(850, 20);
             this.progressBar1.TabIndex = 11;
             // 
             // lblseleccionubicacion
             // 
-            this.lblseleccionubicacion.Location = new System.Drawing.Point(1, 35);
-            this.lblseleccionubicacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblseleccionubicacion.Name = "lblseleccionubicacion";
-            this.lblseleccionubicacion.Size = new System.Drawing.Size(823, 18);
-            this.lblseleccionubicacion.TabIndex = 11;
-            this.lblseleccionubicacion.Text = "Seleccione la ubicación del archivo Back Up";
-            this.lblseleccionubicacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            this.label3.Location = new System.Drawing.Point(2, 32);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(877, 18);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Seleccione la ubicación del archivo Back Up";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCargarBackup
             // 
             this.btnCargarBackup.ForeColor = System.Drawing.Color.Black;
-            this.btnCargarBackup.Location = new System.Drawing.Point(287, 110);
+            this.btnCargarBackup.Location = new System.Drawing.Point(315, 110);
             this.btnCargarBackup.Margin = new System.Windows.Forms.Padding(4);
             this.btnCargarBackup.Name = "btnCargarBackup";
             this.btnCargarBackup.Size = new System.Drawing.Size(250, 30);
@@ -216,16 +257,16 @@
             // 
             // txtExaminarBackup
             // 
-            this.txtExaminarBackup.Location = new System.Drawing.Point(147, 70);
+            this.txtExaminarBackup.Location = new System.Drawing.Point(148, 70);
             this.txtExaminarBackup.Margin = new System.Windows.Forms.Padding(4);
             this.txtExaminarBackup.Name = "txtExaminarBackup";
-            this.txtExaminarBackup.Size = new System.Drawing.Size(665, 25);
+            this.txtExaminarBackup.Size = new System.Drawing.Size(717, 25);
             this.txtExaminarBackup.TabIndex = 11;
             // 
             // btnExaminarBackup
             // 
             this.btnExaminarBackup.ForeColor = System.Drawing.Color.Black;
-            this.btnExaminarBackup.Location = new System.Drawing.Point(12, 68);
+            this.btnExaminarBackup.Location = new System.Drawing.Point(15, 67);
             this.btnExaminarBackup.Margin = new System.Windows.Forms.Padding(4);
             this.btnExaminarBackup.Name = "btnExaminarBackup";
             this.btnExaminarBackup.Size = new System.Drawing.Size(125, 30);
@@ -239,10 +280,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(855, 620);
-            this.Controls.Add(this.gpbrestore);
-            this.Controls.Add(this.gpbupersonalizada);
-            this.Controls.Add(this.gpbupredeterminada);
+
+            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);

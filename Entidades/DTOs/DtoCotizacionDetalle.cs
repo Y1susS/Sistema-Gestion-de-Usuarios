@@ -8,7 +8,7 @@ namespace Entidades.DTOs
         public int NumeroLinea { get; set; }
         public decimal EspesorCm { get; set; }
         public decimal AnchoCm { get; set; }
-        public decimal LargoCm { get; set; }
+        public decimal LargoMts { get; set; }
         public int Cantidad { get; set; }
         public string Descripcion { get; set; }
         

@@ -16,8 +16,11 @@ namespace Vista
 {
     public partial class frmBuscarPresupuesto : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private CL_Presupuesto clPresupuesto = new CL_Presupuesto();
         public DtoPresupuestoFiltro PresupuestoSeleccionado { get; private set; }
+        private CL_TipoDoc _logicaTipoDoc = new CL_TipoDoc();
+
 
 
         public frmBuscarPresupuesto()
@@ -26,13 +29,33 @@ namespace Vista
             Idioma.CargarIdiomaGuardado();
             Idioma.AplicarTraduccion(this);
             ConfigurarDataGrid();
+            ConfigurarControles();
+
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblTitulo);
         }
+
+        private void ConfigurarControles()
+        {
+            var tiposDocumento = _logicaTipoDoc.MostrarTiposDocumento();
+            if (cmbTipoDni != null) 
+            {
+                cmbTipoDni.DataSource = tiposDocumento;
+                cmbTipoDni.DisplayMember = "Id_TipoDocumento";
+                cmbTipoDni.ValueMember = "Id_TipoDocumento";
+                cmbTipoDni.SelectedIndex = -1;
+            }
+        }
+
 
         private void ConfigurarDataGrid()
         {
             dgvPresupuestos.AutoGenerateColumns = false;
             dgvPresupuestos.AllowUserToAddRows = false;
             dgvPresupuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPresupuestos.MultiSelect = false;
+            dgvPresupuestos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             dgvPresupuestos.Columns.Clear();
 
@@ -41,7 +64,6 @@ namespace Vista
             {
                 DataPropertyName = "NumeroPresupuesto",
                 HeaderText = "N° Presupuesto",
-                Width = 120,
                 ReadOnly = true
             });
 
@@ -50,7 +72,6 @@ namespace Vista
             {
                 DataPropertyName = "ClienteNombreCompleto",
                 HeaderText = "Cliente",
-                Width = 200,
                 ReadOnly = true
             });
 
@@ -59,7 +80,6 @@ namespace Vista
             {
                 DataPropertyName = "Observaciones",
                 HeaderText = "Observaciones",
-                Width = 150,
                 ReadOnly = true
             });
 
@@ -68,7 +88,6 @@ namespace Vista
             {
                 DataPropertyName = "FechaValidez",
                 HeaderText = "Vigencia",
-                Width = 100,
                 ReadOnly = true,
                 DefaultCellStyle = { Format = "dd/MM/yyyy" }
             });
@@ -78,9 +97,8 @@ namespace Vista
             {
                 DataPropertyName = "MontoFinal",
                 HeaderText = "Monto Final",
-                Width = 120,
                 ReadOnly = true,
-                DefaultCellStyle = { Format = "C2" }
+                DefaultCellStyle = { Format = "N2" }
             });
 
             // 6. Estado de presupuesto
@@ -88,7 +106,6 @@ namespace Vista
             {
                 DataPropertyName = "EstadoPresupuesto",
                 HeaderText = "Estado",
-                Width = 150,
                 ReadOnly = true
             });
         }
@@ -149,6 +166,49 @@ namespace Vista
             {
                 MessageBox.Show("Debe seleccionar un presupuesto de la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void txtDocumento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnBuscarPresup.PerformClick();
+            }
+        }
+
+        private void txtVendedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnBuscarPresup.PerformClick();
+            }
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnBuscarPresup.PerformClick();
+            }
+        }
+
+        private void pnlOpciones_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

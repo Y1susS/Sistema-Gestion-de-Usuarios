@@ -65,6 +65,42 @@ namespace Logica
                 throw new Exception("Error en la lógica de negocio al obtener los detalles de cotización.", ex);
             }
         }
+
+        public int GuardarNuevoPresupuesto(Presupuesto presupuesto, List<DtoPresupuestoDetalle> detalles)
+        {
+            int idPresupuesto = 0;
+            try
+            {
+                // 1. Insertar la Cabecera y Obtener el ID Generado
+                // cdPresupuesto.InsertarPresupuesto DEBE ser renombrado o modificado
+                // para *solo* insertar la cabecera y devolver el ID.
+                idPresupuesto = cdPresupuesto.InsertarPresupuesto(presupuesto, detalles);
+
+                if (idPresupuesto <= 0)
+                {
+                    throw new Exception("No se pudo obtener el ID de la cabecera del presupuesto.");
+                }
+
+                // 2. Insertar los Detalles uno por uno (SIN TRANSACCIÓN explícita)
+                foreach (var detalle in detalles)
+                {
+                    // Asignar el ID de la cabecera a cada detalle (Foreign Key)
+                    detalle.IdPresupuesto = idPresupuesto;
+
+                    // Llamar al método del DAO que inserta un solo detalle
+                    cdPresupuesto.InsertarDetallePresupuesto(detalle);
+                }
+
+                return idPresupuesto;
+            }
+            catch (Exception ex)
+            {
+                // Si el error ocurre en la cabecera, no se inserta nada.
+                // Si el error ocurre en un detalle, la cabecera y los detalles anteriores QUEDARÁN
+                // guardados en la base de datos (inconsistencia).
+                throw new Exception("Error al guardar el presupuesto (revisar si quedó incompleto en DB).", ex);
+            }
+        }        //CLAUDIOOIO
     }
     //    private PresupuestoDatos presupuestoDatos = new PresupuestoDatos();
     //    private PresupuestoCotizacionDatos pcDatos = new PresupuestoCotizacionDatos();

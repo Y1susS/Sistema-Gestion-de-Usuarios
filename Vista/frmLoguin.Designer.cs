@@ -138,7 +138,8 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(320, 40);
             this.lblTitulo.TabIndex = 15;
-            this.lblTitulo.Text = "Inicio Sesion";
+
+            this.lblTitulo.Text = "Login";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMostrar
