@@ -1,0 +1,54 @@
+@startuml
+' DTOs
+class DtoMaterial {
+  +IdMaterial : int
+  +NombreMaterial : string
+  +Descripcion : string
+  +Unidad : string
+  +PrecioUnitario : decimal?
+  +FechaActualizacion : DateTime
+  +StockActual : decimal?
+  +StockMinimo : decimal?
+  +Activo : bool
+}
+
+class DtoTipoMaterial {
+  +IdTipoMaterial : int
+  +NombreTipoMaterial : string
+}
+
+DtoTipoMaterial --|> DtoMaterial
+
+' Capa de Datos
+class CD_DaoMaterial {
+  +InsertarMaterial(DtoMaterial)
+  +ActualizarMaterial(DtoMaterial)
+  +EliminarMaterial(int id)
+  +ObtenerMaterial(int id)
+  +ListarMateriales()
+}
+
+' Capa de Lógica
+class CL_Materiales {
+  +AltaMaterial(DtoMaterial)
+  +EditarMaterial(DtoMaterial)
+  +EliminarMaterial(int id)
+  +GuardarMaterial(DtoMaterial)
+  +ListarMateriales()
+}
+
+' Vista
+class frmStockyValores {
+  +MostrarFormulario()
+  +ObtenerDatosFormulario()
+  +MostrarMensaje(string)
+  +ActualizarGrilla()
+}
+
+' Relaciones
+frmStockyValores --> CL_Materiales : llama
+CL_Materiales --> CD_DaoMaterial : utiliza
+CL_Materiales --> DtoMaterial : procesa
+CD_DaoMaterial --> DtoMaterial : persiste
+
+@enduml

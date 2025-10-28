@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using Datos;
+using Entidades.DTOs;
+
+namespace Logica
+{
+    public class CL_Partido
+    {
+        private readonly CD_DaoPartido daoPartido = new CD_DaoPartido();
+
+        public List<DtoPartido> MostrarPartidos()
+        {
+            try
+            {
+                return daoPartido.ListarPartidos();
+            }
+            catch (Exception)
+            {
+                return new List<DtoPartido>();
+            }
+        }
+    }
+}

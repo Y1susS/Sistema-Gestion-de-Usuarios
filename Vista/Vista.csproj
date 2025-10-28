@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,27 +47,192 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsDibujarBordes.cs" />
+    <Compile Include="ClsMensajeEmergente.cs" />
+    <Compile Include="frmBackUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackUp.Designer.cs">
+      <DependentUpon>frmBackUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarPresupuesto.Designer.cs">
+      <DependentUpon>frmBuscarPresupuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmControlStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmControlStock.Designer.cs">
+      <DependentUpon>frmControlStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEstadosVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadosVentas.Designer.cs">
+      <DependentUpon>frmEstadosVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListarCotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarCotizaciones.Designer.cs">
+      <DependentUpon>frmListarCotizaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoguin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLoguin.Designer.cs">
       <DependentUpon>frmLoguin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCotizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCotizador.Designer.cs">
+      <DependentUpon>frmCotizador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClsArrastrarFormularios.cs" />
+    <Compile Include="ClsCerrarFormularios.cs" />
+    <Compile Include="ClsFondoTransparente.cs" />
+    <Compile Include="ClsMostrarOcultarClave.cs" />
+    <Compile Include="frmCambioPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambioPass.Designer.cs">
+      <DependentUpon>frmCambioPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPanelUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPanelUsuarios.Designer.cs">
+      <DependentUpon>frmPanelUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminUserABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminUserABM.Designer.cs">
+      <DependentUpon>frmAdminUserABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreguntas.Designer.cs">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrimerIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrimerIngreso.Designer.cs">
+      <DependentUpon>frmPrimerIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecupero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecupero.Designer.cs">
+      <DependentUpon>frmRecupero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistroClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroClientes.Designer.cs">
+      <DependentUpon>frmRegistroClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPermisos.Designer.cs">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSegContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSegContraseña.Designer.cs">
+      <DependentUpon>frmSegContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClsPlaceHolder.cs" />
+    <Compile Include="frmPresupuestador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPresupuestador.Designer.cs">
+      <DependentUpon>frmPresupuestador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="frmBackUp.resx">
+      <DependentUpon>frmBackUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarPresupuesto.resx">
+      <DependentUpon>frmBuscarPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmControlStock.resx">
+      <DependentUpon>frmControlStock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="frmCotizador.resx">
+      <DependentUpon>frmCotizador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambioPass.resx">
+      <DependentUpon>frmCambioPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadosVentas.resx">
+      <DependentUpon>frmEstadosVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarCotizaciones.resx">
+      <DependentUpon>frmListarCotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoguin.resx">
+      <DependentUpon>frmLoguin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPanelUsuarios.resx">
+      <DependentUpon>frmPanelUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminUserABM.resx">
+      <DependentUpon>frmAdminUserABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreguntas.resx">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrimerIngreso.resx">
+      <DependentUpon>frmPrimerIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecupero.resx">
+      <DependentUpon>frmRecupero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroClientes.resx">
+      <DependentUpon>frmRegistroClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSegContraseña.resx">
+      <DependentUpon>frmSegContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPermisos.resx">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPresupuestador.resx">
+      <DependentUpon>frmPresupuestador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -80,6 +246,14 @@
     <Folder Include="Loguin\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{d733215d-d17f-4ec5-93ae-313fc0a23471}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{f5d73bb6-a291-414d-b997-93dd8e9e6016}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{396edb10-ef7b-4cb6-89b8-1605aa017232}</Project>
       <Name>Logica</Name>
@@ -92,6 +266,18 @@
       <Project>{7b0111b2-31ee-445a-a190-2ba08defb3b1}</Project>
       <Name>Sesion</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CircleX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WoodenPlank.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WoodenPlankCyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaderaCelesteFrmPreguntas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
