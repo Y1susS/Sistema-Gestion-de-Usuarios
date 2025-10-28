@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -37,19 +38,19 @@
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.cboUsuarios = new System.Windows.Forms.ComboBox();
             this.cboClientes = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnBuscarfiltro = new System.Windows.Forms.Button();
+            this.btnLimpiarfiltros = new System.Windows.Forms.Button();
             this.chkUsarFechas = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblusuarioreportes = new System.Windows.Forms.Label();
+            this.lblclientereportes = new System.Windows.Forms.Label();
+            this.lbldesdereportes = new System.Windows.Forms.Label();
+            this.lblhastareportes = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPromedio = new System.Windows.Forms.Label();
             this.lblTotalVentas = new System.Windows.Forms.Label();
             this.cboTipoGrafico = new System.Windows.Forms.ComboBox();
-            this.chkFiltrarUsuario = new System.Windows.Forms.CheckBox();
-            this.chkFiltrarCliente = new System.Windows.Forms.CheckBox();
+            this.chkFiltrarxvendedor = new System.Windows.Forms.CheckBox();
+            this.chkFiltrarxCliente = new System.Windows.Forms.CheckBox();
             this.cboEstados = new System.Windows.Forms.ComboBox();
             this.chkFiltrarEstado = new System.Windows.Forms.CheckBox();
             this.pnlFunciones = new System.Windows.Forms.Panel();
@@ -118,6 +119,7 @@
             this.cboClientes.Size = new System.Drawing.Size(150, 24);
             this.cboClientes.TabIndex = 4;
             // 
+
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.White;
@@ -159,8 +161,9 @@
             this.chkUsarFechas.UseVisualStyleBackColor = true;
             this.chkUsarFechas.CheckedChanged += new System.EventHandler(this.chkBuscarPorFecha_CheckedChanged);
             // 
-            // label1
+            // lblusuarioreportes
             // 
+
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(5, 5);
             this.label1.Name = "label1";
@@ -169,8 +172,9 @@
             this.label1.Text = "Usuario";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblclientereportes
             // 
+
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(5, 59);
             this.label2.Name = "label2";
@@ -179,8 +183,9 @@
             this.label2.Text = "Cliente";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbldesdereportes
             // 
+
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(5, 113);
             this.label3.Name = "label3";
@@ -189,8 +194,9 @@
             this.label3.Text = "Desde";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblhastareportes
             // 
+
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(5, 167);
             this.label4.Name = "label4";
@@ -219,6 +225,7 @@
             this.lblPromedio.Text = "Promedio";
             this.lblPromedio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+
             // lblTotalVentas
             // 
             this.lblTotalVentas.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,8 +246,9 @@
             this.cboTipoGrafico.TabIndex = 16;
             this.cboTipoGrafico.SelectedIndexChanged += new System.EventHandler(this.cboTipoGrafico_SelectedIndexChanged);
             // 
-            // chkFiltrarUsuario
+            // chkFiltrarxvendedor
             // 
+
             this.chkFiltrarUsuario.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFiltrarUsuario.Location = new System.Drawing.Point(157, 32);
             this.chkFiltrarUsuario.Name = "chkFiltrarUsuario";
@@ -249,8 +257,9 @@
             this.chkFiltrarUsuario.Text = "Buscar por vendedor";
             this.chkFiltrarUsuario.UseVisualStyleBackColor = true;
             // 
-            // chkFiltrarCliente
+            // chkFiltrarxCliente
             // 
+
             this.chkFiltrarCliente.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFiltrarCliente.Location = new System.Drawing.Point(157, 86);
             this.chkFiltrarCliente.Name = "chkFiltrarCliente";
@@ -286,22 +295,22 @@
             this.pnlFunciones.Controls.Add(this.lblEstado);
             this.pnlFunciones.Controls.Add(this.cboUsuarios);
             this.pnlFunciones.Controls.Add(this.cboClientes);
-            this.pnlFunciones.Controls.Add(this.label1);
+            this.pnlFunciones.Controls.Add(this.lblusuarioreportes);
             this.pnlFunciones.Controls.Add(this.chkFiltrarEstado);
             this.pnlFunciones.Controls.Add(this.lblTotalVentas);
             this.pnlFunciones.Controls.Add(this.cboEstados);
-            this.pnlFunciones.Controls.Add(this.label2);
+            this.pnlFunciones.Controls.Add(this.lblclientereportes);
             this.pnlFunciones.Controls.Add(this.lblPromedio);
-            this.pnlFunciones.Controls.Add(this.chkFiltrarUsuario);
+            this.pnlFunciones.Controls.Add(this.chkFiltrarxvendedor);
             this.pnlFunciones.Controls.Add(this.lblTotal);
-            this.pnlFunciones.Controls.Add(this.chkFiltrarCliente);
-            this.pnlFunciones.Controls.Add(this.label4);
-            this.pnlFunciones.Controls.Add(this.label3);
+            this.pnlFunciones.Controls.Add(this.chkFiltrarxCliente);
+            this.pnlFunciones.Controls.Add(this.lblhastareportes);
+            this.pnlFunciones.Controls.Add(this.lbldesdereportes);
             this.pnlFunciones.Controls.Add(this.dtpDesde);
             this.pnlFunciones.Controls.Add(this.chkUsarFechas);
             this.pnlFunciones.Controls.Add(this.dtpHasta);
-            this.pnlFunciones.Controls.Add(this.btnLimpiar);
-            this.pnlFunciones.Controls.Add(this.btnBuscar);
+            this.pnlFunciones.Controls.Add(this.btnLimpiarfiltros);
+            this.pnlFunciones.Controls.Add(this.btnBuscarfiltro);
             this.pnlFunciones.ForeColor = System.Drawing.Color.White;
             this.pnlFunciones.Location = new System.Drawing.Point(10, 85);
             this.pnlFunciones.Name = "pnlFunciones";
@@ -447,19 +456,19 @@
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.ComboBox cboUsuarios;
         private System.Windows.Forms.ComboBox cboClientes;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnBuscarfiltro;
+        private System.Windows.Forms.Button btnLimpiarfiltros;
         private System.Windows.Forms.CheckBox chkUsarFechas;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblusuarioreportes;
+        private System.Windows.Forms.Label lblclientereportes;
+        private System.Windows.Forms.Label lbldesdereportes;
+        private System.Windows.Forms.Label lblhastareportes;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblPromedio;
         private System.Windows.Forms.Label lblTotalVentas;
         private System.Windows.Forms.ComboBox cboTipoGrafico;
-        private System.Windows.Forms.CheckBox chkFiltrarUsuario;
-        private System.Windows.Forms.CheckBox chkFiltrarCliente;
+        private System.Windows.Forms.CheckBox chkFiltrarxvendedor;
+        private System.Windows.Forms.CheckBox chkFiltrarxCliente;
         private System.Windows.Forms.ComboBox cboEstados;
         private System.Windows.Forms.CheckBox chkFiltrarEstado;
         private System.Windows.Forms.Panel pnlFunciones;

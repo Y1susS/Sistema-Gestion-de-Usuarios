@@ -1,5 +1,6 @@
 ﻿using Entidades.DTOs;
 using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -24,6 +26,8 @@ namespace Vista
         public frmBuscarPresupuesto()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             ConfigurarDataGrid();
             ConfigurarControles();
 

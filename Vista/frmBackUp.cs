@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -21,7 +23,8 @@ namespace Vista
         public frmBackUp()
         {
             InitializeComponent();
-
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             moverFormulario = new ClsArrastrarFormularios(this);
 
             // 2. Suscribimos el evento de progreso en el constructor
@@ -209,6 +212,11 @@ namespace Vista
             // Re-habilitar botones
             btnCargarBackup.Enabled = true;
             btnExaminarBackup.Enabled = true;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

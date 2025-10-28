@@ -1,6 +1,6 @@
-﻿using Logica;
-using Entidades;
+﻿using Entidades;
 using Entidades.DTOs;
+using Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Lenguajes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -18,11 +19,15 @@ namespace Vista
     {
         private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Loguin objCL = new CL_Loguin();
+        private bool _inicializando = true;
         public FrmLoguin()
         {
             InitializeComponent();
-
-            DoubleBuffered = true;
+            cmbIdioma.DataSource = new BindingSource(Idioma.ObtenerIdiomasDisponibles(), null);
+            cmbIdioma.DisplayMember = "Value";  // Muestra el nombre completo
+            cmbIdioma.ValueMember = "Key";      // Usa el código de cultura ("es-AR")
+            
+            this.cmbIdioma.SelectedIndexChanged += new System.EventHandler(this.cmbIdioma_SelectedIndexChanged); DoubleBuffered = true;
             
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
@@ -39,13 +44,36 @@ namespace Vista
             ClsMostrarOcultarClave.Configurar(txtContrasenia, pctMostrar, pctOcultar, "Contraseña");
         }
 
+
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-            this.BeginInvoke(new Action(() => this.ActiveControl = null)); // Evita que un TextBox tenga el foco inicial
+            // CARGAR Y ESTABLECER el idioma (Aquí se maneja la cultura, se guarda el valor, y se limpia el corrupto)
+            Idioma.CargarIdiomaGuardado();
+
+            // APLICAR la traducción a todos los controles (Usa la cultura establecida en el paso 1)
+            Idioma.AplicarTraduccion(this);
+
+            // SELECCIONAR el idioma cargado en el ComboBox (para que coincida con la UI)
+            string idiomaActual = Properties.Settings.Default.Idioma;
+
+            if (!string.IsNullOrEmpty(idiomaActual) && cmbIdioma.Items.Count > 0)
+            {
+                cmbIdioma.SelectedValue = idiomaActual;
+            }
+            else if (Idioma.CulturaActual != null)
+            {
+                // Si no hay valor guardado, usa la cultura que se estableció por defecto ("es-AR")
+                cmbIdioma.SelectedValue = Idioma.CulturaActual.Name;
+            }
+            _inicializando = false;
+
+            // LÓGICA DE FOCO Y PLACEHOLDERS (Tu código original)
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
             txtContrasenia.UseSystemPasswordChar = false;
             ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
             ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
         }
+        
 
         private void lnkRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -160,6 +188,31 @@ namespace Vista
         private void FrmLoguin_Shown(object sender, EventArgs e)
         {
             this.AcceptButton = btnLogin;
+        }
+
+        private void cmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Bloqueo de inicialización: Ignoramos la llamada si estamos inicializando
+            if (_inicializando)
+            {
+                return;
+            }
+
+            //Bloqueo de valor corrupto: Si el SelectedValue todavía contiene el error, lo ignoramos.
+            if (cmbIdioma.SelectedValue == null || cmbIdioma.SelectedValue.ToString().Contains(","))
+            {
+                return;
+            }
+
+            if (cmbIdioma.SelectedValue.ToString() == Idioma.CulturaActual.Name)
+            {
+                return;
+            }
+
+            string nuevoIdioma = cmbIdioma.SelectedValue.ToString(); // Esto debe ser "es-AR" o "en-US"
+
+            Idioma.CambiarIdioma(nuevoIdioma);
+            Idioma.AplicarTraduccion(this);
         }
     }
 }

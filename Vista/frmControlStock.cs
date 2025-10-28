@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Entidades.DTOs;
+using Logica;
+using Servicios;
+using Sistema_Gestion_de_Usuarios.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Entidades.DTOs;
-using Servicios;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -28,6 +30,8 @@ namespace Vista
         public frmControlStock()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             EstablecerEstadoInicial();
             moverFormulario = new ClsArrastrarFormularios(this);
             dataGridView1.ForeColor = Color.Black;
@@ -43,8 +47,8 @@ namespace Vista
 
             // Habilitar solo los botones de acción iniciales
             btnNuevoMaterial.Enabled = true;
-            btnGestion.Enabled = true;
-            btnGuardar.Enabled = false;
+            btnGestionarstock.Enabled = true;
+            btnGuardarstock.Enabled = false;
             cmbMaterial.Enabled = false;
             cmbTipoMaterial.Enabled = false;
             cmbTipoMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -129,7 +133,7 @@ namespace Vista
                 HabilitarControlesDeEdicion(true);
                 MostrarDatosEnFormulario(materialSeleccionado);
 
-                btnGuardar.Enabled = true;
+                btnGuardarstock.Enabled = true;
                 cmbMaterial.Enabled = true;
 
             }
@@ -371,10 +375,10 @@ namespace Vista
 
             dataGridView1.Enabled = false;
             cmbTipoMaterial.Enabled = true;
-            btnGestion.Enabled = true;
+            btnGestionarstock.Enabled = true;
             cmbMaterial.DataSource = null;
 
-            btnGuardar.Enabled = true;
+            btnGuardarstock.Enabled = true;
 
         }
 
@@ -488,6 +492,11 @@ namespace Vista
         private void frmControlStock_Shown(object sender, EventArgs e)
         {
             this.ActiveControl = null;
+        }
+
+        private void grpStock_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

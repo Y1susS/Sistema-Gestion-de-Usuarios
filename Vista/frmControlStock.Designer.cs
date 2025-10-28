@@ -33,19 +33,19 @@
             this.cmbTipoMaterial = new System.Windows.Forms.ComboBox();
             this.cmbMaterial = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblstockactivo = new System.Windows.Forms.Label();
             this.cbxActivo = new System.Windows.Forms.CheckBox();
             this.btnNuevoMaterial = new System.Windows.Forms.Button();
-            this.btnGestion = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnGestionarstock = new System.Windows.Forms.Button();
+            this.btnGuardarstock = new System.Windows.Forms.Button();
             this.txtUnidad = new System.Windows.Forms.TextBox();
             this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
             this.txtStockMinimo = new System.Windows.Forms.TextBox();
             this.txtStockActual = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblstockunidad = new System.Windows.Forms.Label();
+            this.lblstockpreciou = new System.Windows.Forms.Label();
+            this.lblstockminimo = new System.Windows.Forms.Label();
+            this.lblstockactual = new System.Windows.Forms.Label();
             this.lblTipoMaterial = new System.Windows.Forms.Label();
             this.lblMaterial = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.grpStock = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEliminarstock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.grpStock.SuspendLayout();
@@ -108,8 +108,9 @@
             this.txtDescripcion.Size = new System.Drawing.Size(250, 25);
             this.txtDescripcion.TabIndex = 3;
             // 
-            // label1
+            // lblstockactivo
             // 
+
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Location = new System.Drawing.Point(15, 120);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -145,6 +146,7 @@
             this.btnNuevoMaterial.UseVisualStyleBackColor = false;
             this.btnNuevoMaterial.Click += new System.EventHandler(this.btnNuevoMaterial_Click);
             // 
+
             // btnGestion
             // 
             this.btnGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -224,6 +226,7 @@
             this.txtStockActual.TabIndex = 15;
             this.txtStockActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockActual_KeyPress);
             // 
+
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -344,16 +347,16 @@
             // grpStock
             // 
             this.grpStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.grpStock.Controls.Add(this.btnEliminar);
-            this.grpStock.Controls.Add(this.btnGestion);
-            this.grpStock.Controls.Add(this.btnGuardar);
+            this.grpStock.Controls.Add(this.btnEliminarstock);
+            this.grpStock.Controls.Add(this.btnGestionarstock);
+            this.grpStock.Controls.Add(this.btnGuardarstock);
             this.grpStock.Controls.Add(this.cbxActivo);
-            this.grpStock.Controls.Add(this.label4);
+            this.grpStock.Controls.Add(this.lblstockpreciou);
             this.grpStock.Controls.Add(this.btnNuevoMaterial);
-            this.grpStock.Controls.Add(this.label1);
-            this.grpStock.Controls.Add(this.label3);
-            this.grpStock.Controls.Add(this.label5);
-            this.grpStock.Controls.Add(this.label6);
+            this.grpStock.Controls.Add(this.lblstockactivo);
+            this.grpStock.Controls.Add(this.lblstockunidad);
+            this.grpStock.Controls.Add(this.lblstockminimo);
+            this.grpStock.Controls.Add(this.lblstockactual);
             this.grpStock.Controls.Add(this.txtStockMinimo);
             this.grpStock.Controls.Add(this.txtDescripcion);
             this.grpStock.Controls.Add(this.lblDescripcion);
@@ -371,6 +374,7 @@
             this.grpStock.TabIndex = 32;
             this.grpStock.TabStop = false;
             this.grpStock.Text = "Stock";
+
             // 
             // btnEliminar
             // 
@@ -420,19 +424,19 @@
         private System.Windows.Forms.ComboBox cmbTipoMaterial;
         private System.Windows.Forms.ComboBox cmbMaterial;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblstockactivo;
         private System.Windows.Forms.CheckBox cbxActivo;
         private System.Windows.Forms.Button btnNuevoMaterial;
-        private System.Windows.Forms.Button btnGestion;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnGestionarstock;
+        private System.Windows.Forms.Button btnGuardarstock;
         private System.Windows.Forms.TextBox txtUnidad;
         private System.Windows.Forms.TextBox txtPrecioUnitario;
         private System.Windows.Forms.TextBox txtStockMinimo;
         private System.Windows.Forms.TextBox txtStockActual;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblstockunidad;
+        private System.Windows.Forms.Label lblstockpreciou;
+        private System.Windows.Forms.Label lblstockminimo;
+        private System.Windows.Forms.Label lblstockactual;
         private System.Windows.Forms.Label lblTipoMaterial;
         private System.Windows.Forms.Label lblMaterial;
         private System.Windows.Forms.Label lblDescripcion;
@@ -440,6 +444,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.GroupBox grpStock;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminarstock;
     }
 }

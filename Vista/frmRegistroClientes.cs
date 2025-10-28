@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Entidades;
+using Entidades.DTOs;
+using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Entidades.DTOs;
-using Entidades;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -29,6 +31,8 @@ namespace Vista
         {
             this.ActiveControl = null;
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             moverFormulario = new ClsArrastrarFormularios(this);
         }
 
@@ -78,8 +82,8 @@ namespace Vista
             dataGridView1.CellClick += DataGridView1_CellClick;
 
             // Configurar botones inicialmente
-            btnModificar.Enabled = false;
-            btnEliminar.Enabled = false;
+            btnModificarcliente.Enabled = false;
+            btnEliminarcliente.Enabled = false;
         }
 
         private void MostrarClientes()
@@ -188,9 +192,9 @@ namespace Vista
         private void ActivarModoEdicion()
         {
             modoEdicion = true;
-            btnModificar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btnAgregar.Text = "Nuevo cliente";
+            btnModificarcliente.Enabled = true;
+            btnEliminarcliente.Enabled = true;
+            btnAgregarnuevocliente.Text = "Nuevo cliente";
         }
 
         private void CargarCombos()
@@ -423,9 +427,9 @@ namespace Vista
             // Resetea modo edición
             modoEdicion = false;
             idClienteSeleccionado = 0;
-            btnModificar.Enabled = false;
-            btnEliminar.Enabled = false;
-            btnAgregar.Text = "Nuevo cliente";
+            btnModificarcliente.Enabled = false;
+            btnEliminarcliente.Enabled = false;
+            btnAgregarnuevocliente.Text = "Nuevo cliente";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

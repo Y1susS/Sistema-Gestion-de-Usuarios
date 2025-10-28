@@ -120,6 +120,7 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pctMinimize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
+
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAAwBJREFUWEftl91u0zAUxzfGBReIrwGPgARXMPEwfFzwBowHgW28xh5omiZNbde0
         abs2TmIn8XESH3SSug0e2fqxVlzkL/3ktK7bX0+cON7ZadKkSZPtRyn1MUmSoyRJjgHgCACOE4ATADhJ

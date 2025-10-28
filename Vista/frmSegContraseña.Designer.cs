@@ -35,7 +35,7 @@
             this.chkDatosPerson = new System.Windows.Forms.CheckBox();
             this.chkReutContra = new System.Windows.Forms.CheckBox();
             this.chkCaractEsp = new System.Windows.Forms.CheckBox();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
+            this.btnGuardarCambioscont = new System.Windows.Forms.Button();
             this.nudCaractMin = new System.Windows.Forms.NumericUpDown();
             this.lblDiasCambio = new System.Windows.Forms.Label();
             this.nudDiasCambio = new System.Windows.Forms.NumericUpDown();
@@ -118,8 +118,9 @@
             this.chkCaractEsp.Text = "Debe contener al menos 1 caracter especial";
             this.chkCaractEsp.UseVisualStyleBackColor = true;
             // 
-            // btnGuardarCambios
+            // btnGuardarCambioscont
             // 
+
             this.btnGuardarCambios.Location = new System.Drawing.Point(150, 405);
             this.btnGuardarCambios.Name = "btnGuardarCambios";
             this.btnGuardarCambios.Size = new System.Drawing.Size(175, 30);
@@ -286,7 +287,7 @@
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblseguridad);
-            this.Controls.Add(this.btnGuardarCambios);
+            this.Controls.Add(this.btnGuardarCambioscont);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSegContraseña";
@@ -314,7 +315,7 @@
         private System.Windows.Forms.CheckBox chkDatosPerson;
         private System.Windows.Forms.CheckBox chkReutContra;
         private System.Windows.Forms.CheckBox chkCaractEsp;
-        private System.Windows.Forms.Button btnGuardarCambios;
+        private System.Windows.Forms.Button btnGuardarCambioscont;
         private System.Windows.Forms.NumericUpDown nudCaractMin;
         private System.Windows.Forms.Label lblDiasCambio;
         private System.Windows.Forms.NumericUpDown nudDiasCambio;

@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPresupuestador));
             this.gbxCliente = new System.Windows.Forms.GroupBox();
             this.txtMailCliente = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblemailclientepresupuesto = new System.Windows.Forms.Label();
             this.txtTelefonoCliente = new System.Windows.Forms.TextBox();
             this.txtApellidoCliente = new System.Windows.Forms.TextBox();
+
             this.label5 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblnombreclientepresupuesto = new System.Windows.Forms.Label();
             this.btnBuscarDni = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbldniclientepresupuesto = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.cmbDni = new System.Windows.Forms.ComboBox();
             this.gbxCotizaciones = new System.Windows.Forms.GroupBox();
+
             this.btnCotizar = new System.Windows.Forms.Button();
             this.btnBuscarCotizacion = new System.Windows.Forms.Button();
             this.btnSubtotal = new System.Windows.Forms.Button();
@@ -55,10 +58,11 @@
             this.btnVenta = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblsubtotal = new System.Windows.Forms.Label();
             this.lblValorSubtotal = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbldescuentopresupuesto = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
+
             this.btnDescuento = new System.Windows.Forms.Button();
             this.lvlValorPresupuesto = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -87,23 +91,26 @@
             this.pnlVigencia.SuspendLayout();
             this.SuspendLayout();
             // 
+
             // gbxCliente
             // 
             this.gbxCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.gbxCliente.Controls.Add(this.txtMailCliente);
-            this.gbxCliente.Controls.Add(this.label4);
+            this.gbxCliente.Controls.Add(this.lblemailclientepresupuesto);
             this.gbxCliente.Controls.Add(this.txtTelefonoCliente);
             this.gbxCliente.Controls.Add(this.txtApellidoCliente);
+
             this.gbxCliente.Controls.Add(this.label5);
             this.gbxCliente.Controls.Add(this.label17);
             this.gbxCliente.Controls.Add(this.label16);
             this.gbxCliente.Controls.Add(this.label3);
             this.gbxCliente.Controls.Add(this.txtNombreCliente);
-            this.gbxCliente.Controls.Add(this.label2);
+            this.gbxCliente.Controls.Add(this.lblnombreclientepresupuesto);
             this.gbxCliente.Controls.Add(this.btnBuscarDni);
-            this.gbxCliente.Controls.Add(this.label1);
+            this.gbxCliente.Controls.Add(this.lbldniclientepresupuesto);
             this.gbxCliente.Controls.Add(this.txtDni);
             this.gbxCliente.Controls.Add(this.cmbDni);
+
             this.gbxCliente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCliente.ForeColor = System.Drawing.Color.White;
             this.gbxCliente.Location = new System.Drawing.Point(10, 50);
@@ -117,6 +124,7 @@
             // 
             // txtMailCliente
             // 
+
             this.txtMailCliente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMailCliente.ForeColor = System.Drawing.Color.Black;
             this.txtMailCliente.Location = new System.Drawing.Point(140, 110);
@@ -125,8 +133,9 @@
             this.txtMailCliente.Size = new System.Drawing.Size(475, 25);
             this.txtMailCliente.TabIndex = 24;
             // 
-            // label4
+            // lblemailclientepresupuesto
             // 
+
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(10, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -148,6 +157,7 @@
             // 
             // txtApellidoCliente
             // 
+
             this.txtApellidoCliente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidoCliente.ForeColor = System.Drawing.Color.Black;
             this.txtApellidoCliente.Location = new System.Drawing.Point(295, 80);
@@ -156,8 +166,9 @@
             this.txtApellidoCliente.Size = new System.Drawing.Size(150, 25);
             this.txtApellidoCliente.TabIndex = 20;
             // 
-            // label5
+            // lbltelefonoclientepresupuesto
             // 
+
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(448, 80);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -210,8 +221,9 @@
             this.txtNombreCliente.Size = new System.Drawing.Size(150, 25);
             this.txtNombreCliente.TabIndex = 18;
             // 
-            // label2
+            // lblnombreclientepresupuesto
             // 
+
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 80);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -236,8 +248,9 @@
             this.btnBuscarDni.UseVisualStyleBackColor = false;
             this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
             // 
-            // label1
+            // lbldniclientepresupuesto
             // 
+
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(10, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -264,6 +277,7 @@
             this.cmbDni.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDni.ForeColor = System.Drawing.Color.Black;
             this.cmbDni.FormattingEnabled = true;
+
             this.cmbDni.Location = new System.Drawing.Point(46, 27);
             this.cmbDni.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDni.Name = "cmbDni";
@@ -272,6 +286,7 @@
             // 
             // gbxCotizaciones
             // 
+
             this.gbxCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.gbxCotizaciones.Controls.Add(this.btnCotizar);
             this.gbxCotizaciones.Controls.Add(this.btnBuscarCotizacion);
@@ -292,6 +307,7 @@
             this.gbxCotizaciones.TabStop = false;
             this.gbxCotizaciones.Text = "Cotizaciones";
             // 
+
             // btnCotizar
             // 
             this.btnCotizar.BackColor = System.Drawing.Color.White;
@@ -378,6 +394,7 @@
             // 
             this.dgvPresupuesto.BackgroundColor = System.Drawing.Color.White;
             this.dgvPresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             this.dgvPresupuesto.Location = new System.Drawing.Point(10, 20);
             this.dgvPresupuesto.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPresupuesto.Name = "dgvPresupuesto";
@@ -386,6 +403,7 @@
             this.dgvPresupuesto.Size = new System.Drawing.Size(985, 225);
             this.dgvPresupuesto.TabIndex = 16;
             // 
+
             // btnVenta
             // 
             this.btnVenta.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -419,8 +437,9 @@
             this.txtDescripcion.Size = new System.Drawing.Size(425, 25);
             this.txtDescripcion.TabIndex = 20;
             // 
-            // label8
+            // lblsubtotal
             // 
+
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(10, 10);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -442,8 +461,9 @@
             this.lblValorSubtotal.Text = "Valor subtotal";
             this.lblValorSubtotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // lbldescuentopresupuesto
             // 
+
             this.label9.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(10, 45);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -463,6 +483,7 @@
             this.txtDescuento.Size = new System.Drawing.Size(120, 25);
             this.txtDescuento.TabIndex = 24;
             // 
+
             // btnDescuento
             // 
             this.btnDescuento.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -530,6 +551,7 @@
             this.dtpVigencia.Size = new System.Drawing.Size(300, 25);
             this.dtpVigencia.TabIndex = 33;
             // 
+
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -554,8 +576,9 @@
             this.btnBuscarPresupuesto.UseVisualStyleBackColor = false;
             this.btnBuscarPresupuesto.Click += new System.EventHandler(this.btnBuscarPresupuesto_Click);
             // 
-            // label10
+            // lblcargarpresupuestoexistente
             // 
+
             this.label10.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(185, 45);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -677,6 +700,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.ClientSize = new System.Drawing.Size(1025, 620);
@@ -712,31 +736,33 @@
         }
 
         #endregion
+
         private System.Windows.Forms.GroupBox gbxCliente;
         private System.Windows.Forms.TextBox txtMailCliente;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblemailclientepresupuesto;
         private System.Windows.Forms.TextBox txtTelefonoCliente;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbltelefonoclientepresupuesto;
         private System.Windows.Forms.TextBox txtApellidoCliente;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblapellidoclientepresupuesto;
         private System.Windows.Forms.TextBox txtNombreCliente;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblnombreclientepresupuesto;
         private System.Windows.Forms.Button btnBuscarDni;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbldniclientepresupuesto;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.ComboBox cmbDni;
         private System.Windows.Forms.GroupBox gbxCotizaciones;
         private System.Windows.Forms.DataGridView dgvPresupuesto;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbldescpresupuesto;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblsubtotal;
         private System.Windows.Forms.Label lblValorSubtotal;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbldescuentopresupuesto;
         private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.Button btnDescuento;
-        private System.Windows.Forms.Label lvlValorPresupuesto;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnaplicarDescuento;
+        private System.Windows.Forms.Label lblValorPresupuesto;
+        private System.Windows.Forms.Label lbltotalpresupuesto;
         private System.Windows.Forms.Button btnVenta;
+
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button btnSubtotal;

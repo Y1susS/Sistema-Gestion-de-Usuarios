@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Entidades.DTOs;
 using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -19,6 +21,8 @@ namespace Vista
         public frmPresupuestador()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             ConfigurarControles();
             CargarEventos();
 
@@ -219,6 +223,7 @@ namespace Vista
                 dtpVigencia.Value = p.FechaValidez.GetValueOrDefault(DateTime.Now);
 
                 // Cargar totales
+
                 lblValorSubtotal.Text = "$ " + p.MontoTotal.ToString();
                 txtDescuento.Text = p.PorcentajeDescuento.ToString();
                 lvlValorPresupuesto.Text = "$ " + p.MontoFinal.ToString();

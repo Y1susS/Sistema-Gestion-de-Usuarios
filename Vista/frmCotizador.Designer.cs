@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizador));
+
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalPrecioXPie = new System.Windows.Forms.Label();
             this.txtdescmad8 = new System.Windows.Forms.TextBox();
@@ -51,6 +52,7 @@
             this.lblcalculopies = new System.Windows.Forms.Label();
             this.cmbMaderas = new System.Windows.Forms.ComboBox();
             this.lblseleccionmaderas = new System.Windows.Forms.Label();
+
             this.label20 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,7 +63,7 @@
             this.txtanchom1 = new System.Windows.Forms.TextBox();
             this.txtlargom1 = new System.Windows.Forms.TextBox();
             this.txtdescmad6 = new System.Windows.Forms.TextBox();
-            this.lblcantidad = new System.Windows.Forms.Label();
+            this.lblcantidadm = new System.Windows.Forms.Label();
             this.txtdescmad5 = new System.Windows.Forms.TextBox();
             this.txtcantidad1 = new System.Windows.Forms.TextBox();
             this.txtdescmad4 = new System.Windows.Forms.TextBox();
@@ -89,7 +91,7 @@
             this.txtcantidad3 = new System.Windows.Forms.TextBox();
             this.lblpie1 = new System.Windows.Forms.Label();
             this.txtespesorm4 = new System.Windows.Forms.TextBox();
-            this.lblpie = new System.Windows.Forms.Label();
+            this.lblpiesm = new System.Windows.Forms.Label();
             this.txtanchom4 = new System.Windows.Forms.TextBox();
             this.txtcantidad6 = new System.Windows.Forms.TextBox();
             this.txtlargom4 = new System.Windows.Forms.TextBox();
@@ -101,6 +103,7 @@
             this.txtanchom5 = new System.Windows.Forms.TextBox();
             this.txtcantidad5 = new System.Windows.Forms.TextBox();
             this.txtlargom5 = new System.Windows.Forms.TextBox();
+
             this.txtganancia = new System.Windows.Forms.TextBox();
             this.lblganancia = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -400,6 +403,7 @@
             this.txtdescmad7.TabIndex = 7968;
             this.txtdescmad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+
             // lbldesperdicio
             // 
             this.lbldesperdicio.BackColor = System.Drawing.Color.Transparent;
@@ -421,6 +425,7 @@
             this.txtdesperdicio.Size = new System.Drawing.Size(55, 24);
             this.txtdesperdicio.TabIndex = 7963;
             // 
+
             // chk7
             // 
             this.chk7.BackColor = System.Drawing.Color.Transparent;
@@ -523,6 +528,7 @@
             // 
             // lblseleccionmaderas
             // 
+
             this.lblseleccionmaderas.BackColor = System.Drawing.Color.Transparent;
             this.lblseleccionmaderas.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblseleccionmaderas.ForeColor = System.Drawing.Color.White;
@@ -620,6 +626,7 @@
             // 
             // txtanchom1
             // 
+
             this.txtanchom1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtanchom1.ForeColor = System.Drawing.Color.Black;
             this.txtanchom1.Location = new System.Drawing.Point(295, 87);
@@ -640,6 +647,7 @@
             // 
             // txtdescmad6
             // 
+
             this.txtdescmad6.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescmad6.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad6.Location = new System.Drawing.Point(91, 212);
@@ -1000,6 +1008,7 @@
             // 
             // txtlargom4
             // 
+
             this.txtlargom4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom4.ForeColor = System.Drawing.Color.Black;
             this.txtlargom4.Location = new System.Drawing.Point(352, 162);
@@ -1080,6 +1089,7 @@
             // 
             // txtlargom5
             // 
+
             this.txtlargom5.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtlargom5.ForeColor = System.Drawing.Color.Black;
             this.txtlargom5.Location = new System.Drawing.Point(352, 187);
@@ -1109,6 +1119,7 @@
             this.lblganancia.Text = "Ganancia %";
             this.lblganancia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -1216,6 +1227,7 @@
             this.chkvidrio2.Text = "Vidrio 2";
             this.chkvidrio2.UseVisualStyleBackColor = false;
             // 
+
             // lblmetros2
             // 
             this.lblmetros2.BackColor = System.Drawing.Color.Transparent;
@@ -1510,6 +1522,7 @@
             this.cmbVidrio3.Size = new System.Drawing.Size(135, 24);
             this.cmbVidrio3.TabIndex = 7995;
             // 
+
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -1574,6 +1587,7 @@
             // 
             // chkmaterial6
             // 
+
             this.chkmaterial6.BackColor = System.Drawing.Color.Transparent;
             this.chkmaterial6.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkmaterial6.ForeColor = System.Drawing.Color.Black;
@@ -1595,6 +1609,7 @@
             // 
             // lblMaterialUnidad6
             // 
+
             this.lblMaterialUnidad6.BackColor = System.Drawing.Color.Transparent;
             this.lblMaterialUnidad6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblMaterialUnidad6.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1621,6 +1636,7 @@
             // 
             // cmbTipoMaterial6
             // 
+
             this.cmbTipoMaterial6.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoMaterial6.ForeColor = System.Drawing.Color.Black;
             this.cmbTipoMaterial6.FormattingEnabled = true;
@@ -1643,6 +1659,7 @@
             // 
             // lblTipoMaterial
             // 
+
             this.lblTipoMaterial.BackColor = System.Drawing.Color.Transparent;
             this.lblTipoMaterial.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoMaterial.ForeColor = System.Drawing.Color.White;
@@ -1722,6 +1739,7 @@
             // 
             // cmbMaterial4
             // 
+
             this.cmbMaterial4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMaterial4.ForeColor = System.Drawing.Color.Black;
             this.cmbMaterial4.FormattingEnabled = true;
@@ -2103,6 +2121,7 @@
             this.chkotrosmateriales2.Text = "Otro material 1";
             this.chkotrosmateriales2.UseVisualStyleBackColor = true;
             // 
+
             // lblTotalGastosMat
             // 
             this.lblTotalGastosMat.BackColor = System.Drawing.Color.Transparent;
@@ -2372,6 +2391,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
+
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1190, 585);
@@ -2390,6 +2410,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalculoPiesMuebles";
             this.Load += new System.EventHandler(this.frmCotizador_Load);
+
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -2411,26 +2432,27 @@
 
         #endregion
 
+
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblPrecioPorPie;
         private System.Windows.Forms.Label lblcalculopies;
         private System.Windows.Forms.ComboBox cmbMaderas;
         private System.Windows.Forms.Label lblseleccionmaderas;
         private System.Windows.Forms.TextBox txtganancia;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblDescMadera;
         private System.Windows.Forms.TextBox txtdesperdicio;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblespesorm;
         private System.Windows.Forms.Label lblganancia;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblanchom;
         private System.Windows.Forms.Label lbldesperdicio;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblpies1;
+        private System.Windows.Forms.Label lbllargom;
+        private System.Windows.Forms.Label lbltotalpies;
         private System.Windows.Forms.TextBox txtespesorm1;
         private System.Windows.Forms.Button btnCalcularPies;
         private System.Windows.Forms.TextBox txtanchom1;
         private System.Windows.Forms.TextBox txtlargom1;
         private System.Windows.Forms.TextBox txtdescmad6;
-        private System.Windows.Forms.Label lblcantidad;
+        private System.Windows.Forms.Label lblcantidadm;
         private System.Windows.Forms.TextBox txtdescmad5;
         private System.Windows.Forms.TextBox txtcantidad1;
         private System.Windows.Forms.TextBox txtdescmad4;
@@ -2458,7 +2480,7 @@
         private System.Windows.Forms.TextBox txtcantidad3;
         private System.Windows.Forms.Label lblpie1;
         private System.Windows.Forms.TextBox txtespesorm4;
-        private System.Windows.Forms.Label lblpie;
+        private System.Windows.Forms.Label lblpiesm;
         private System.Windows.Forms.TextBox txtanchom4;
         private System.Windows.Forms.TextBox txtcantidad6;
         private System.Windows.Forms.TextBox txtlargom4;
@@ -2532,6 +2554,7 @@
         private System.Windows.Forms.Label lblMaterialUnidad4;
         private System.Windows.Forms.Label lblMateriaTotal4;
         private System.Windows.Forms.ComboBox cmbTipoMaterial4;
+
         private System.Windows.Forms.ComboBox cmbMaterial3;
         private System.Windows.Forms.CheckBox chkmaterial3;
         private System.Windows.Forms.TextBox txtMaterialCantidad3;
@@ -2564,6 +2587,7 @@
         private System.Windows.Forms.Button btnGuardarCotizacion;
         private System.Windows.Forms.TextBox txtDescripcionMueble;
         private System.Windows.Forms.Label lblCotiacion;
+
         private System.Windows.Forms.Label lblpresupuesto;
         private System.Windows.Forms.Label lblDescripcionMueble;
         private System.Windows.Forms.Panel pnlDescripcionMueble;

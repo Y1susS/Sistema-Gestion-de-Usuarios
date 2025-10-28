@@ -1,6 +1,7 @@
-﻿using Logica;
-using Entidades;
+﻿using Entidades;
 using Entidades.DTOs;
+using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -20,8 +22,10 @@ namespace Vista
         public frmSegContraseña()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
 
-            this.AcceptButton = btnGuardarCambios;
+            this.AcceptButton = btnGuardarCambioscont;
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblTitulo);
@@ -113,7 +117,7 @@ namespace Vista
 
         private void frmSegContraseña_Shown(object sender, EventArgs e)
         {
-            this.AcceptButton = btnGuardarCambios;
+            this.AcceptButton = btnGuardarCambioscont;
             this.ActiveControl = null;
         }
 
