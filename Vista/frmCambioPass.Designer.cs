@@ -126,14 +126,14 @@
             // lblUsuariocont
             // 
 
-            this.lblUsuario.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(0, 345);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(400, 20);
-            this.lblUsuario.TabIndex = 30;
-            this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuariocont.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuariocont.ForeColor = System.Drawing.Color.White;
+            this.lblUsuariocont.Location = new System.Drawing.Point(0, 345);
+            this.lblUsuariocont.Name = "lblUsuario";
+            this.lblUsuariocont.Size = new System.Drawing.Size(400, 20);
+            this.lblUsuariocont.TabIndex = 30;
+            this.lblUsuariocont.Text = "Usuario";
+            this.lblUsuariocont.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctValidaciones
             // 
@@ -304,7 +304,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 385);
             this.ControlBox = false;
-            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblUsuariocont);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.pctOcultar);

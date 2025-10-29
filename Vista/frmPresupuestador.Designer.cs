@@ -36,10 +36,10 @@
             this.txtTelefonoCliente = new System.Windows.Forms.TextBox();
             this.txtApellidoCliente = new System.Windows.Forms.TextBox();
 
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbltelefonoclientepresupuesto = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblapellidoclientepresupuesto = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.lblnombreclientepresupuesto = new System.Windows.Forms.Label();
             this.btnBuscarDni = new System.Windows.Forms.Button();
@@ -56,16 +56,16 @@
             this.btnEditarCotizacion = new System.Windows.Forms.Button();
             this.dgvPresupuesto = new System.Windows.Forms.DataGridView();
             this.btnVenta = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbldescpresupuesto = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblsubtotal = new System.Windows.Forms.Label();
             this.lblValorSubtotal = new System.Windows.Forms.Label();
             this.lbldescuentopresupuesto = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
 
-            this.btnDescuento = new System.Windows.Forms.Button();
-            this.lvlValorPresupuesto = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.btnaplicarDescuento = new System.Windows.Forms.Button();
+            this.lblValorPresupuesto = new System.Windows.Forms.Label();
+            this.lbltotalpresupuesto = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
             this.dtpVigencia = new System.Windows.Forms.DateTimePicker();
@@ -100,10 +100,10 @@
             this.gbxCliente.Controls.Add(this.txtTelefonoCliente);
             this.gbxCliente.Controls.Add(this.txtApellidoCliente);
 
-            this.gbxCliente.Controls.Add(this.label5);
+            this.gbxCliente.Controls.Add(this.lbltelefonoclientepresupuesto);
             this.gbxCliente.Controls.Add(this.label17);
             this.gbxCliente.Controls.Add(this.label16);
-            this.gbxCliente.Controls.Add(this.label3);
+            this.gbxCliente.Controls.Add(this.lblapellidoclientepresupuesto);
             this.gbxCliente.Controls.Add(this.txtNombreCliente);
             this.gbxCliente.Controls.Add(this.lblnombreclientepresupuesto);
             this.gbxCliente.Controls.Add(this.btnBuscarDni);
@@ -136,14 +136,14 @@
             // lblemailclientepresupuesto
             // 
 
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 110);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 25);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Correo electrónico";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblemailclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblemailclientepresupuesto.Location = new System.Drawing.Point(10, 110);
+            this.lblemailclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblemailclientepresupuesto.Name = "label4";
+            this.lblemailclientepresupuesto.Size = new System.Drawing.Size(130, 25);
+            this.lblemailclientepresupuesto.TabIndex = 23;
+            this.lblemailclientepresupuesto.Text = "Correo electrónico";
+            this.lblemailclientepresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtTelefonoCliente
             // 
@@ -169,14 +169,14 @@
             // lbltelefonoclientepresupuesto
             // 
 
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(448, 80);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 25);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Teléfono";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltelefonoclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltelefonoclientepresupuesto.Location = new System.Drawing.Point(448, 80);
+            this.lbltelefonoclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltelefonoclientepresupuesto.Name = "label5";
+            this.lbltelefonoclientepresupuesto.Size = new System.Drawing.Size(65, 25);
+            this.lbltelefonoclientepresupuesto.TabIndex = 21;
+            this.lbltelefonoclientepresupuesto.Text = "Teléfono";
+            this.lbltelefonoclientepresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
@@ -202,14 +202,14 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(228, 80);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 25);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Apellido";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblapellidoclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapellidoclientepresupuesto.Location = new System.Drawing.Point(228, 80);
+            this.lblapellidoclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblapellidoclientepresupuesto.Name = "label3";
+            this.lblapellidoclientepresupuesto.Size = new System.Drawing.Size(65, 25);
+            this.lblapellidoclientepresupuesto.TabIndex = 19;
+            this.lblapellidoclientepresupuesto.Text = "Apellido";
+            this.lblapellidoclientepresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtNombreCliente
             // 
@@ -224,14 +224,14 @@
             // lblnombreclientepresupuesto
             // 
 
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 80);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 25);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Nombre";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblnombreclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnombreclientepresupuesto.Location = new System.Drawing.Point(10, 80);
+            this.lblnombreclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblnombreclientepresupuesto.Name = "label2";
+            this.lblnombreclientepresupuesto.Size = new System.Drawing.Size(65, 25);
+            this.lblnombreclientepresupuesto.TabIndex = 17;
+            this.lblnombreclientepresupuesto.Text = "Nombre";
+            this.lblnombreclientepresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBuscarDni
             // 
@@ -251,14 +251,14 @@
             // lbldniclientepresupuesto
             // 
 
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 25);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "DNI";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbldniclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldniclientepresupuesto.Location = new System.Drawing.Point(10, 27);
+            this.lbldniclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbldniclientepresupuesto.Name = "label1";
+            this.lbldniclientepresupuesto.Size = new System.Drawing.Size(35, 25);
+            this.lbldniclientepresupuesto.TabIndex = 15;
+            this.lbldniclientepresupuesto.Text = "DNI";
+            this.lbldniclientepresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtDni
             // 
@@ -418,14 +418,14 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 10);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 25);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Descripción presupuesto";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblapellidoclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapellidoclientepresupuesto.Location = new System.Drawing.Point(10, 10);
+            this.lblapellidoclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblapellidoclientepresupuesto.Name = "label7";
+            this.lblapellidoclientepresupuesto.Size = new System.Drawing.Size(175, 25);
+            this.lblapellidoclientepresupuesto.TabIndex = 19;
+            this.lblapellidoclientepresupuesto.Text = "Descripción presupuesto";
+            this.lblapellidoclientepresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtDescripcion
             // 
@@ -440,14 +440,14 @@
             // lblsubtotal
             // 
 
-            this.label8.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(10, 10);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 25);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Subtotal:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblsubtotal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubtotal.Location = new System.Drawing.Point(10, 10);
+            this.lblsubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblsubtotal.Name = "label8";
+            this.lblsubtotal.Size = new System.Drawing.Size(70, 25);
+            this.lblsubtotal.TabIndex = 21;
+            this.lblsubtotal.Text = "Subtotal:";
+            this.lblsubtotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblValorSubtotal
             // 
@@ -464,14 +464,14 @@
             // lbldescuentopresupuesto
             // 
 
-            this.label9.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 45);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 25);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Descuento %";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbldescuentopresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldescuentopresupuesto.Location = new System.Drawing.Point(10, 45);
+            this.lbldescuentopresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbldescuentopresupuesto.Name = "label9";
+            this.lbldescuentopresupuesto.Size = new System.Drawing.Size(95, 25);
+            this.lbldescuentopresupuesto.TabIndex = 23;
+            this.lbldescuentopresupuesto.Text = "Descuento %";
+            this.lbldescuentopresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtDescuento
             // 
@@ -486,39 +486,39 @@
 
             // btnDescuento
             // 
-            this.btnDescuento.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescuento.ForeColor = System.Drawing.Color.Black;
-            this.btnDescuento.Location = new System.Drawing.Point(235, 42);
-            this.btnDescuento.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDescuento.Name = "btnDescuento";
-            this.btnDescuento.Size = new System.Drawing.Size(120, 30);
-            this.btnDescuento.TabIndex = 25;
-            this.btnDescuento.Text = "Aplicar";
-            this.btnDescuento.UseVisualStyleBackColor = true;
-            this.btnDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
+            this.btnaplicarDescuento.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaplicarDescuento.ForeColor = System.Drawing.Color.Black;
+            this.btnaplicarDescuento.Location = new System.Drawing.Point(235, 42);
+            this.btnaplicarDescuento.Margin = new System.Windows.Forms.Padding(2);
+            this.btnaplicarDescuento.Name = "btnDescuento";
+            this.btnaplicarDescuento.Size = new System.Drawing.Size(120, 30);
+            this.btnaplicarDescuento.TabIndex = 25;
+            this.btnaplicarDescuento.Text = "Aplicar";
+            this.btnaplicarDescuento.UseVisualStyleBackColor = true;
+            this.btnaplicarDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
             // 
             // lvlValorPresupuesto
             // 
-            this.lvlValorPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvlValorPresupuesto.Location = new System.Drawing.Point(145, 80);
-            this.lvlValorPresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lvlValorPresupuesto.Name = "lvlValorPresupuesto";
-            this.lvlValorPresupuesto.Size = new System.Drawing.Size(210, 25);
-            this.lvlValorPresupuesto.TabIndex = 27;
-            this.lvlValorPresupuesto.Tag = "";
-            this.lvlValorPresupuesto.Text = "Valor presupuesto";
-            this.lvlValorPresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblValorPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorPresupuesto.Location = new System.Drawing.Point(145, 80);
+            this.lblValorPresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblValorPresupuesto.Name = "lvlValorPresupuesto";
+            this.lblValorPresupuesto.Size = new System.Drawing.Size(210, 25);
+            this.lblValorPresupuesto.TabIndex = 27;
+            this.lblValorPresupuesto.Tag = "";
+            this.lblValorPresupuesto.Text = "Valor presupuesto";
+            this.lblValorPresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
-            this.label11.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 80);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(130, 25);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "Total presupuesto:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltotalpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalpresupuesto.Location = new System.Drawing.Point(10, 80);
+            this.lbltotalpresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbltotalpresupuesto.Name = "label11";
+            this.lbltotalpresupuesto.Size = new System.Drawing.Size(130, 25);
+            this.lbltotalpresupuesto.TabIndex = 26;
+            this.lbltotalpresupuesto.Text = "Total presupuesto:";
+            this.lbltotalpresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
@@ -655,7 +655,7 @@
             // 
             this.pnlPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlPresupuesto.Controls.Add(this.btnBuscarPresupuesto);
-            this.pnlPresupuesto.Controls.Add(this.label7);
+            this.pnlPresupuesto.Controls.Add(this.lbldescpresupuesto);
             this.pnlPresupuesto.Controls.Add(this.txtDescripcion);
             this.pnlPresupuesto.Controls.Add(this.label10);
             this.pnlPresupuesto.ForeColor = System.Drawing.Color.White;
@@ -668,13 +668,13 @@
             // pnlTotales
             // 
             this.pnlTotales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlTotales.Controls.Add(this.label9);
+            this.pnlTotales.Controls.Add(this.lbldescuentopresupuesto);
             this.pnlTotales.Controls.Add(this.lblValorSubtotal);
-            this.pnlTotales.Controls.Add(this.label8);
+            this.pnlTotales.Controls.Add(this.lblsubtotal);
             this.pnlTotales.Controls.Add(this.txtDescuento);
-            this.pnlTotales.Controls.Add(this.btnDescuento);
-            this.pnlTotales.Controls.Add(this.label11);
-            this.pnlTotales.Controls.Add(this.lvlValorPresupuesto);
+            this.pnlTotales.Controls.Add(this.btnaplicarDescuento);
+            this.pnlTotales.Controls.Add(this.lbltotalpresupuesto);
+            this.pnlTotales.Controls.Add(this.lblValorPresupuesto);
             this.pnlTotales.Controls.Add(this.label14);
             this.pnlTotales.Controls.Add(this.btnExportar);
             this.pnlTotales.ForeColor = System.Drawing.Color.White;

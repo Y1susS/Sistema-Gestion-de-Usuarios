@@ -202,17 +202,17 @@
             // lblmenuadmin
             // 
 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1170, 40);
-            this.lblTitulo.TabIndex = 3;
-            this.lblTitulo.Text = "Menú de Administrador";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.lblTitulo_Paint);
+            this.lblmenuadmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblmenuadmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblmenuadmin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmenuadmin.ForeColor = System.Drawing.Color.White;
+            this.lblmenuadmin.Location = new System.Drawing.Point(40, 0);
+            this.lblmenuadmin.Name = "lblTitulo";
+            this.lblmenuadmin.Size = new System.Drawing.Size(1170, 40);
+            this.lblmenuadmin.TabIndex = 3;
+            this.lblmenuadmin.Text = "Menú de Administrador";
+            this.lblmenuadmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblmenuadmin.Paint += new System.Windows.Forms.PaintEventHandler(this.lblTitulo_Paint);
             // 
             // btncotizador
             // 

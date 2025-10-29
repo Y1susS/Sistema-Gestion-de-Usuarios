@@ -104,15 +104,15 @@
             // lblFiltrarcot
             // 
 
-            this.lblFiltrar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltrar.ForeColor = System.Drawing.Color.White;
-            this.lblFiltrar.Location = new System.Drawing.Point(1, 7);
-            this.lblFiltrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFiltrar.Name = "lblFiltrar";
-            this.lblFiltrar.Size = new System.Drawing.Size(733, 25);
-            this.lblFiltrar.TabIndex = 8044;
-            this.lblFiltrar.Text = "Filtrar cotizaciones por :";
-            this.lblFiltrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFiltrarcot.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrarcot.ForeColor = System.Drawing.Color.White;
+            this.lblFiltrarcot.Location = new System.Drawing.Point(1, 7);
+            this.lblFiltrarcot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiltrarcot.Name = "lblFiltrar";
+            this.lblFiltrarcot.Size = new System.Drawing.Size(733, 25);
+            this.lblFiltrarcot.TabIndex = 8044;
+            this.lblFiltrarcot.Text = "Filtrar cotizaciones por :";
+            this.lblFiltrarcot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblVendedor
             // 
@@ -210,7 +210,7 @@
             // pnlFiltrarCotizaciones
             // 
             this.pnlFiltrarCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlFiltrarCotizaciones.Controls.Add(this.lblFiltrar);
+            this.pnlFiltrarCotizaciones.Controls.Add(this.lblFiltrarcot);
             this.pnlFiltrarCotizaciones.Location = new System.Drawing.Point(82, 10);
             this.pnlFiltrarCotizaciones.Name = "pnlFiltrarCotizaciones";
             this.pnlFiltrarCotizaciones.Size = new System.Drawing.Size(735, 40);

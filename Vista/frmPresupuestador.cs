@@ -226,7 +226,7 @@ namespace Vista
 
                 lblValorSubtotal.Text = "$ " + p.MontoTotal.ToString();
                 txtDescuento.Text = p.PorcentajeDescuento.ToString();
-                lvlValorPresupuesto.Text = "$ " + p.MontoFinal.ToString();
+                lblValorPresupuesto.Text = "$ " + p.MontoFinal.ToString();
 
                 // Cargar DataGrid:
                 ActualizarDataGridCotizaciones();
@@ -426,7 +426,7 @@ namespace Vista
 
             // --- 4. Asignación del Resultado ---
             // Usamos InvariantCulture para la asignación para consistencia.
-            lvlValorPresupuesto.Text = "$ " + total.ToString("N2", System.Globalization.CultureInfo.CurrentCulture);
+            lblValorPresupuesto.Text = "$ " + total.ToString("N2", System.Globalization.CultureInfo.CurrentCulture);
         }
 
 
@@ -494,7 +494,7 @@ namespace Vista
 
                 // Usar los valores limpios de los labels (necesitan la limpieza si no están como decimales puros)
                 decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
-                decimal totalFinal = ObtenerDecimalDesdeLabel(lvlValorPresupuesto);
+                decimal totalFinal = ObtenerDecimalDesdeLabel(lblValorPresupuesto);
 
                 // 2. Crear el objeto Presupuesto de Entidades
                 Presupuesto nuevoPresupuesto = new Presupuesto()
