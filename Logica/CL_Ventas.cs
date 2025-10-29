@@ -35,6 +35,21 @@ namespace Logica
 
         public void GuardarEstadoVenta(int idVenta, int idEstadoVenta)
     => _dao.ActualizarEstadoVenta(idVenta, idEstadoVenta);
+
+
+        public int RegistrarNuevaVenta(DtoVenta venta)
+        {
+            if (venta == null)
+            {
+                throw new ArgumentNullException("El objeto Venta no puede ser nulo.");
+            }
+            if (venta.IdPresupuesto == null || venta.IdPresupuesto == 0)
+            {
+                throw new ArgumentException("La venta debe estar asociada a un IdPresupuesto válido.");
+            }
+
+            return _dao.InsertarVenta(venta);
+        }
     }
 
 
