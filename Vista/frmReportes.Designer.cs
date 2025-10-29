@@ -122,33 +122,33 @@
 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.White;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Location = new System.Drawing.Point(486, 194);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(140, 30);
-            this.btnBuscar.TabIndex = 5;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscarfiltro.BackColor = System.Drawing.Color.White;
+            this.btnBuscarfiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnBuscarfiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarfiltro.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarfiltro.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarfiltro.Location = new System.Drawing.Point(486, 194);
+            this.btnBuscarfiltro.Name = "btnBuscar";
+            this.btnBuscarfiltro.Size = new System.Drawing.Size(140, 30);
+            this.btnBuscarfiltro.TabIndex = 5;
+            this.btnBuscarfiltro.Text = "Buscar";
+            this.btnBuscarfiltro.UseVisualStyleBackColor = false;
+            this.btnBuscarfiltro.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.White;
-            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(340, 194);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(140, 30);
-            this.btnLimpiar.TabIndex = 6;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.btnLimpiarfiltros.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarfiltros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLimpiarfiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarfiltros.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarfiltros.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarfiltros.Location = new System.Drawing.Point(340, 194);
+            this.btnLimpiarfiltros.Name = "btnLimpiar";
+            this.btnLimpiarfiltros.Size = new System.Drawing.Size(140, 30);
+            this.btnLimpiarfiltros.TabIndex = 6;
+            this.btnLimpiarfiltros.Text = "Limpiar";
+            this.btnLimpiarfiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarfiltros.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // chkUsarFechas
             // 
@@ -164,46 +164,46 @@
             // lblusuarioreportes
             // 
 
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 24);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Usuario";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuarioreportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuarioreportes.Location = new System.Drawing.Point(5, 5);
+            this.lblusuarioreportes.Name = "label1";
+            this.lblusuarioreportes.Size = new System.Drawing.Size(154, 24);
+            this.lblusuarioreportes.TabIndex = 8;
+            this.lblusuarioreportes.Text = "Usuario";
+            this.lblusuarioreportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblclientereportes
             // 
 
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 24);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Cliente";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblclientereportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblclientereportes.Location = new System.Drawing.Point(5, 59);
+            this.lblclientereportes.Name = "label2";
+            this.lblclientereportes.Size = new System.Drawing.Size(154, 24);
+            this.lblclientereportes.TabIndex = 9;
+            this.lblclientereportes.Text = "Cliente";
+            this.lblclientereportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbldesdereportes
             // 
 
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 24);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Desde";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbldesdereportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldesdereportes.Location = new System.Drawing.Point(5, 113);
+            this.lbldesdereportes.Name = "label3";
+            this.lbldesdereportes.Size = new System.Drawing.Size(150, 24);
+            this.lbldesdereportes.TabIndex = 10;
+            this.lbldesdereportes.Text = "Desde";
+            this.lbldesdereportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblhastareportes
             // 
 
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 167);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 24);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Hasta";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblhastareportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhastareportes.Location = new System.Drawing.Point(5, 167);
+            this.lblhastareportes.Name = "label4";
+            this.lblhastareportes.Size = new System.Drawing.Size(150, 24);
+            this.lblhastareportes.TabIndex = 11;
+            this.lblhastareportes.Text = "Hasta";
+            this.lblhastareportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTotal
             // 
@@ -249,24 +249,24 @@
             // chkFiltrarxvendedor
             // 
 
-            this.chkFiltrarUsuario.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFiltrarUsuario.Location = new System.Drawing.Point(157, 32);
-            this.chkFiltrarUsuario.Name = "chkFiltrarUsuario";
-            this.chkFiltrarUsuario.Size = new System.Drawing.Size(162, 24);
-            this.chkFiltrarUsuario.TabIndex = 17;
-            this.chkFiltrarUsuario.Text = "Buscar por vendedor";
-            this.chkFiltrarUsuario.UseVisualStyleBackColor = true;
+            this.chkFiltrarxvendedor.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFiltrarxvendedor.Location = new System.Drawing.Point(157, 32);
+            this.chkFiltrarxvendedor.Name = "chkFiltrarUsuario";
+            this.chkFiltrarxvendedor.Size = new System.Drawing.Size(162, 24);
+            this.chkFiltrarxvendedor.TabIndex = 17;
+            this.chkFiltrarxvendedor.Text = "Buscar por vendedor";
+            this.chkFiltrarxvendedor.UseVisualStyleBackColor = true;
             // 
             // chkFiltrarxCliente
             // 
 
-            this.chkFiltrarCliente.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFiltrarCliente.Location = new System.Drawing.Point(157, 86);
-            this.chkFiltrarCliente.Name = "chkFiltrarCliente";
-            this.chkFiltrarCliente.Size = new System.Drawing.Size(145, 24);
-            this.chkFiltrarCliente.TabIndex = 18;
-            this.chkFiltrarCliente.Text = "Buscar por cliente";
-            this.chkFiltrarCliente.UseVisualStyleBackColor = true;
+            this.chkFiltrarxCliente.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFiltrarxCliente.Location = new System.Drawing.Point(157, 86);
+            this.chkFiltrarxCliente.Name = "chkFiltrarCliente";
+            this.chkFiltrarxCliente.Size = new System.Drawing.Size(145, 24);
+            this.chkFiltrarxCliente.TabIndex = 18;
+            this.chkFiltrarxCliente.Text = "Buscar por cliente";
+            this.chkFiltrarxCliente.UseVisualStyleBackColor = true;
             // 
             // cboEstados
             // 

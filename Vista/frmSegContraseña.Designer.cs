@@ -121,13 +121,13 @@
             // btnGuardarCambioscont
             // 
 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(150, 405);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(175, 30);
-            this.btnGuardarCambios.TabIndex = 8;
-            this.btnGuardarCambios.Text = "Guardar cambios";
-            this.btnGuardarCambios.UseVisualStyleBackColor = true;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardarCambioscont.Location = new System.Drawing.Point(150, 405);
+            this.btnGuardarCambioscont.Name = "btnGuardarCambios";
+            this.btnGuardarCambioscont.Size = new System.Drawing.Size(175, 30);
+            this.btnGuardarCambioscont.TabIndex = 8;
+            this.btnGuardarCambioscont.Text = "Guardar cambios";
+            this.btnGuardarCambioscont.UseVisualStyleBackColor = true;
+            this.btnGuardarCambioscont.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // nudCaractMin
             // 

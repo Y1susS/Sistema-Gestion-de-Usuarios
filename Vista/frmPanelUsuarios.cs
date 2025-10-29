@@ -50,7 +50,7 @@ namespace Vista
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
 
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(lblmenuadmin);
 
             this.Size = new Size(1150, 660);
             this.StartPosition = FormStartPosition.CenterScreen;

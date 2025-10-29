@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroClientes));
 
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblLocalidad = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.gpbregcli = new System.Windows.Forms.GroupBox();
+            this.lblLocalidadcli = new System.Windows.Forms.Label();
+            this.btnEliminarcliente = new System.Windows.Forms.Button();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.lblPartidocli = new System.Windows.Forms.Label();
             this.btnModificarcliente = new System.Windows.Forms.Button();
@@ -42,22 +42,22 @@
             this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.lblPiso = new System.Windows.Forms.Label();
             this.txtderpatamento = new System.Windows.Forms.TextBox();
-            this.lblalturacli = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtpiso = new System.Windows.Forms.TextBox();
-            this.lblCallecli = new System.Windows.Forms.Label();
+            this.lblCalle = new System.Windows.Forms.Label();
             this.txtnumerocalle = new System.Windows.Forms.TextBox();
-            this.lblEmailcli = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.txtemail = new System.Windows.Forms.TextBox();
-            this.lblTelefonocli = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
             this.txtnumerodocumento = new System.Windows.Forms.TextBox();
-            this.lblNroDoccli = new System.Windows.Forms.Label();
+            this.lblNroDoc = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
-            this.lblTipoDoccli = new System.Windows.Forms.Label();
+            this.lblTipoDoc = new System.Windows.Forms.Label();
             this.txtcalle = new System.Windows.Forms.TextBox();
             this.txttelefono = new System.Windows.Forms.TextBox();
             this.txtapellido = new System.Windows.Forms.TextBox();
-            this.lblNombrescli = new System.Windows.Forms.Label();
-            this.lblApellidoscli = new System.Windows.Forms.Label();
+            this.lblNombres = new System.Windows.Forms.Label();
+            this.lblApellidos = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -70,64 +70,64 @@
 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox1.Controls.Add(this.lblLocalidad);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.cmbLocalidad);
-            this.groupBox1.Controls.Add(this.cmbTipoDoc);
-            this.groupBox1.Controls.Add(this.lblPartido);
-            this.groupBox1.Controls.Add(this.btnModificar);
-            this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Controls.Add(this.lblDepart);
-            this.groupBox1.Controls.Add(this.cmbPartido);
-            this.groupBox1.Controls.Add(this.lblPiso);
-            this.groupBox1.Controls.Add(this.txtderpatamento);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtpiso);
-            this.groupBox1.Controls.Add(this.lblCalle);
-            this.groupBox1.Controls.Add(this.txtnumerocalle);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.txtemail);
-            this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.txtnumerodocumento);
-            this.groupBox1.Controls.Add(this.lblNroDoc);
-            this.groupBox1.Controls.Add(this.txtnombre);
-            this.groupBox1.Controls.Add(this.lblTipoDoc);
-            this.groupBox1.Controls.Add(this.txtcalle);
-            this.groupBox1.Controls.Add(this.txttelefono);
-            this.groupBox1.Controls.Add(this.txtapellido);
-            this.groupBox1.Controls.Add(this.lblNombres);
-            this.groupBox1.Controls.Add(this.lblApellidos);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(870, 175);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registro y Modificación de clientes";
+            this.gpbregcli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.gpbregcli.Controls.Add(this.lblLocalidadcli);
+            this.gpbregcli.Controls.Add(this.btnEliminarcliente);
+            this.gpbregcli.Controls.Add(this.cmbLocalidad);
+            this.gpbregcli.Controls.Add(this.cmbTipoDoc);
+            this.gpbregcli.Controls.Add(this.lblPartidocli);
+            this.gpbregcli.Controls.Add(this.btnModificarcliente);
+            this.gpbregcli.Controls.Add(this.btnAgregarnuevocliente);
+            this.gpbregcli.Controls.Add(this.lblDepart);
+            this.gpbregcli.Controls.Add(this.cmbPartido);
+            this.gpbregcli.Controls.Add(this.lblPiso);
+            this.gpbregcli.Controls.Add(this.txtderpatamento);
+            this.gpbregcli.Controls.Add(this.label10);
+            this.gpbregcli.Controls.Add(this.txtpiso);
+            this.gpbregcli.Controls.Add(this.lblCalle);
+            this.gpbregcli.Controls.Add(this.txtnumerocalle);
+            this.gpbregcli.Controls.Add(this.lblEmail);
+            this.gpbregcli.Controls.Add(this.txtemail);
+            this.gpbregcli.Controls.Add(this.lblTelefono);
+            this.gpbregcli.Controls.Add(this.txtnumerodocumento);
+            this.gpbregcli.Controls.Add(this.lblNroDoc);
+            this.gpbregcli.Controls.Add(this.txtnombre);
+            this.gpbregcli.Controls.Add(this.lblTipoDoc);
+            this.gpbregcli.Controls.Add(this.txtcalle);
+            this.gpbregcli.Controls.Add(this.txttelefono);
+            this.gpbregcli.Controls.Add(this.txtapellido);
+            this.gpbregcli.Controls.Add(this.lblNombres);
+            this.gpbregcli.Controls.Add(this.lblApellidos);
+            this.gpbregcli.ForeColor = System.Drawing.Color.White;
+            this.gpbregcli.Location = new System.Drawing.Point(15, 15);
+            this.gpbregcli.Name = "groupBox1";
+            this.gpbregcli.Size = new System.Drawing.Size(870, 175);
+            this.gpbregcli.TabIndex = 4;
+            this.gpbregcli.TabStop = false;
+            this.gpbregcli.Text = "Registro y Modificación de clientes";
             // 
             // lblLocalidad
             // 
-            this.lblLocalidad.Location = new System.Drawing.Point(355, 142);
-            this.lblLocalidad.Name = "lblLocalidad";
-            this.lblLocalidad.Size = new System.Drawing.Size(72, 25);
-            this.lblLocalidad.TabIndex = 47;
-            this.lblLocalidad.Text = "Localidad";
-            this.lblLocalidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblLocalidadcli.Location = new System.Drawing.Point(355, 142);
+            this.lblLocalidadcli.Name = "lblLocalidad";
+            this.lblLocalidadcli.Size = new System.Drawing.Size(72, 25);
+            this.lblLocalidadcli.TabIndex = 47;
+            this.lblLocalidadcli.Text = "Localidad";
+            this.lblLocalidadcli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(700, 129);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(153, 35);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar cliente";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminarcliente.BackColor = System.Drawing.Color.White;
+            this.btnEliminarcliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEliminarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarcliente.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarcliente.Location = new System.Drawing.Point(700, 129);
+            this.btnEliminarcliente.Name = "btnEliminar";
+            this.btnEliminarcliente.Size = new System.Drawing.Size(153, 35);
+            this.btnEliminarcliente.TabIndex = 15;
+            this.btnEliminarcliente.Text = "Eliminar cliente";
+            this.btnEliminarcliente.UseVisualStyleBackColor = false;
+            this.btnEliminarcliente.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // cmbTipoDoc
             // 
@@ -142,26 +142,26 @@
 
             // lblPartido
             // 
-            this.lblPartido.Location = new System.Drawing.Point(15, 139);
-            this.lblPartido.Name = "lblPartido";
-            this.lblPartido.Size = new System.Drawing.Size(72, 25);
-            this.lblPartido.TabIndex = 46;
-            this.lblPartido.Text = "Partido";
-            this.lblPartido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPartidocli.Location = new System.Drawing.Point(15, 139);
+            this.lblPartidocli.Name = "lblPartido";
+            this.lblPartidocli.Size = new System.Drawing.Size(72, 25);
+            this.lblPartidocli.TabIndex = 46;
+            this.lblPartidocli.Text = "Partido";
+            this.lblPartidocli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.White;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(700, 78);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(153, 35);
-            this.btnModificar.TabIndex = 14;
-            this.btnModificar.Text = "Guardar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificarcliente.BackColor = System.Drawing.Color.White;
+            this.btnModificarcliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnModificarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarcliente.ForeColor = System.Drawing.Color.Black;
+            this.btnModificarcliente.Location = new System.Drawing.Point(700, 78);
+            this.btnModificarcliente.Name = "btnModificar";
+            this.btnModificarcliente.Size = new System.Drawing.Size(153, 35);
+            this.btnModificarcliente.TabIndex = 14;
+            this.btnModificarcliente.Text = "Guardar";
+            this.btnModificarcliente.UseVisualStyleBackColor = false;
+            this.btnModificarcliente.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // cmbLocalidad
             // 
@@ -176,17 +176,17 @@
             // btnAgregarnuevocliente
             // 
 
-            this.btnAgregar.BackColor = System.Drawing.Color.White;
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(700, 26);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(153, 35);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Nuevo cliente";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregarnuevocliente.BackColor = System.Drawing.Color.White;
+            this.btnAgregarnuevocliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAgregarnuevocliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarnuevocliente.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarnuevocliente.Location = new System.Drawing.Point(700, 26);
+            this.btnAgregarnuevocliente.Name = "btnAgregar";
+            this.btnAgregarnuevocliente.Size = new System.Drawing.Size(153, 35);
+            this.btnAgregarnuevocliente.TabIndex = 13;
+            this.btnAgregarnuevocliente.Text = "Nuevo cliente";
+            this.btnAgregarnuevocliente.UseVisualStyleBackColor = false;
+            this.btnAgregarnuevocliente.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblDepart
             // 

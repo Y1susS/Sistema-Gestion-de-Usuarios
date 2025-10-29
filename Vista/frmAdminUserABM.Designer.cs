@@ -88,17 +88,17 @@
             // btnGuardar
             // 
 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(700, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 35);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardar.Location = new System.Drawing.Point(700, 91);
+            this.btnGuardar.Name = "button2";
+            this.btnGuardar.Size = new System.Drawing.Size(153, 35);
+            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
@@ -238,12 +238,12 @@
             // lblAltura
             // 
 
-            this.label10.Location = new System.Drawing.Point(355, 137);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 25);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Altura";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAltura.Location = new System.Drawing.Point(355, 137);
+            this.lblAltura.Name = "label10";
+            this.lblAltura.Size = new System.Drawing.Size(72, 25);
+            this.lblAltura.TabIndex = 29;
+            this.lblAltura.Text = "Altura";
+            this.lblAltura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblCalle
             // 
