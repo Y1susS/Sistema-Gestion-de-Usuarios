@@ -324,7 +324,7 @@
             this.txtdescmad8.Location = new System.Drawing.Point(91, 262);
             this.txtdescmad8.Name = "txtdescmad8";
             this.txtdescmad8.Size = new System.Drawing.Size(145, 24);
-            this.txtdescmad8.TabIndex = 7976;
+            this.txtdescmad8.TabIndex = 7936;
             this.txtdescmad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // chk8
@@ -336,7 +336,7 @@
             this.chk8.Margin = new System.Windows.Forms.Padding(0);
             this.chk8.Name = "chk8";
             this.chk8.Size = new System.Drawing.Size(86, 24);
-            this.chk8.TabIndex = 7975;
+            this.chk8.TabIndex = 7935;
             this.chk8.Text = "Madera 8";
             this.chk8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk8.UseVisualStyleBackColor = false;
@@ -360,7 +360,7 @@
             this.txtcantidad8.Location = new System.Drawing.Point(409, 262);
             this.txtcantidad8.Name = "txtcantidad8";
             this.txtcantidad8.Size = new System.Drawing.Size(55, 24);
-            this.txtcantidad8.TabIndex = 7981;
+            this.txtcantidad8.TabIndex = 7940;
             this.txtcantidad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtlargom8
@@ -370,7 +370,7 @@
             this.txtlargom8.Location = new System.Drawing.Point(352, 262);
             this.txtlargom8.Name = "txtlargom8";
             this.txtlargom8.Size = new System.Drawing.Size(55, 24);
-            this.txtlargom8.TabIndex = 7979;
+            this.txtlargom8.TabIndex = 7939;
             this.txtlargom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtanchom8
@@ -380,7 +380,7 @@
             this.txtanchom8.Location = new System.Drawing.Point(295, 262);
             this.txtanchom8.Name = "txtanchom8";
             this.txtanchom8.Size = new System.Drawing.Size(55, 24);
-            this.txtanchom8.TabIndex = 7978;
+            this.txtanchom8.TabIndex = 7938;
             this.txtanchom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtespesorm8
@@ -390,7 +390,7 @@
             this.txtespesorm8.Location = new System.Drawing.Point(238, 262);
             this.txtespesorm8.Name = "txtespesorm8";
             this.txtespesorm8.Size = new System.Drawing.Size(55, 24);
-            this.txtespesorm8.TabIndex = 7977;
+            this.txtespesorm8.TabIndex = 7937;
             this.txtespesorm8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtdescmad7
@@ -400,7 +400,7 @@
             this.txtdescmad7.Location = new System.Drawing.Point(91, 237);
             this.txtdescmad7.Name = "txtdescmad7";
             this.txtdescmad7.Size = new System.Drawing.Size(145, 24);
-            this.txtdescmad7.TabIndex = 7968;
+            this.txtdescmad7.TabIndex = 7930;
             this.txtdescmad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
 
@@ -423,7 +423,7 @@
             this.txtdesperdicio.Location = new System.Drawing.Point(92, 297);
             this.txtdesperdicio.Name = "txtdesperdicio";
             this.txtdesperdicio.Size = new System.Drawing.Size(55, 24);
-            this.txtdesperdicio.TabIndex = 7963;
+            this.txtdesperdicio.TabIndex = 7941;
             // 
 
             // chk7
@@ -435,7 +435,7 @@
             this.chk7.Margin = new System.Windows.Forms.Padding(0);
             this.chk7.Name = "chk7";
             this.chk7.Size = new System.Drawing.Size(86, 24);
-            this.chk7.TabIndex = 7967;
+            this.chk7.TabIndex = 7929;
             this.chk7.Text = "Madera 7";
             this.chk7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk7.UseVisualStyleBackColor = false;
@@ -459,7 +459,7 @@
             this.txtcantidad7.Location = new System.Drawing.Point(409, 237);
             this.txtcantidad7.Name = "txtcantidad7";
             this.txtcantidad7.Size = new System.Drawing.Size(55, 24);
-            this.txtcantidad7.TabIndex = 7973;
+            this.txtcantidad7.TabIndex = 7934;
             this.txtcantidad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtlargom7
@@ -469,7 +469,7 @@
             this.txtlargom7.Location = new System.Drawing.Point(352, 237);
             this.txtlargom7.Name = "txtlargom7";
             this.txtlargom7.Size = new System.Drawing.Size(55, 24);
-            this.txtlargom7.TabIndex = 7971;
+            this.txtlargom7.TabIndex = 7933;
             this.txtlargom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtanchom7
@@ -479,7 +479,7 @@
             this.txtanchom7.Location = new System.Drawing.Point(295, 237);
             this.txtanchom7.Name = "txtanchom7";
             this.txtanchom7.Size = new System.Drawing.Size(55, 24);
-            this.txtanchom7.TabIndex = 7970;
+            this.txtanchom7.TabIndex = 7932;
             this.txtanchom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtespesorm7
@@ -489,7 +489,7 @@
             this.txtespesorm7.Location = new System.Drawing.Point(238, 237);
             this.txtespesorm7.Name = "txtespesorm7";
             this.txtespesorm7.Size = new System.Drawing.Size(55, 24);
-            this.txtespesorm7.TabIndex = 7969;
+            this.txtespesorm7.TabIndex = 7931;
             this.txtespesorm7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblPrecioPorPie
@@ -619,7 +619,7 @@
             this.btnCalcularPies.Margin = new System.Windows.Forms.Padding(0);
             this.btnCalcularPies.Name = "btnCalcularPies";
             this.btnCalcularPies.Size = new System.Drawing.Size(112, 34);
-            this.btnCalcularPies.TabIndex = 7941;
+            this.btnCalcularPies.TabIndex = 7942;
             this.btnCalcularPies.Text = "Calcular pies";
             this.btnCalcularPies.UseVisualStyleBackColor = false;
             this.btnCalcularPies.Click += new System.EventHandler(this.btnCalcularPies_Click);
@@ -1502,7 +1502,7 @@
             this.cmbVidrio1.Location = new System.Drawing.Point(81, 46);
             this.cmbVidrio1.Name = "cmbVidrio1";
             this.cmbVidrio1.Size = new System.Drawing.Size(135, 24);
-            this.cmbVidrio1.TabIndex = 7993;
+            this.cmbVidrio1.TabIndex = 7966;
             // 
             // cmbVidrio2
             // 
@@ -1511,7 +1511,7 @@
             this.cmbVidrio2.Location = new System.Drawing.Point(81, 71);
             this.cmbVidrio2.Name = "cmbVidrio2";
             this.cmbVidrio2.Size = new System.Drawing.Size(135, 24);
-            this.cmbVidrio2.TabIndex = 7994;
+            this.cmbVidrio2.TabIndex = 7971;
             // 
             // cmbVidrio3
             // 
@@ -1520,7 +1520,7 @@
             this.cmbVidrio3.Location = new System.Drawing.Point(81, 96);
             this.cmbVidrio3.Name = "cmbVidrio3";
             this.cmbVidrio3.Size = new System.Drawing.Size(135, 24);
-            this.cmbVidrio3.TabIndex = 7995;
+            this.cmbVidrio3.TabIndex = 7976;
             // 
 
             // groupBox4
@@ -1583,7 +1583,7 @@
             this.cmbMaterial6.Location = new System.Drawing.Point(203, 172);
             this.cmbMaterial6.Name = "cmbMaterial6";
             this.cmbMaterial6.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial6.TabIndex = 8064;
+            this.cmbMaterial6.TabIndex = 8023;
             // 
             // chkmaterial6
             // 
@@ -1594,7 +1594,7 @@
             this.chkmaterial6.Location = new System.Drawing.Point(5, 172);
             this.chkmaterial6.Name = "chkmaterial6";
             this.chkmaterial6.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial6.TabIndex = 8059;
+            this.chkmaterial6.TabIndex = 8021;
             this.chkmaterial6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial6.UseVisualStyleBackColor = false;
             // 
@@ -1605,7 +1605,7 @@
             this.txtMaterialCantidad6.Location = new System.Drawing.Point(385, 172);
             this.txtMaterialCantidad6.Name = "txtMaterialCantidad6";
             this.txtMaterialCantidad6.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad6.TabIndex = 8060;
+            this.txtMaterialCantidad6.TabIndex = 8024;
             // 
             // lblMaterialUnidad6
             // 
@@ -1643,7 +1643,7 @@
             this.cmbTipoMaterial6.Location = new System.Drawing.Point(22, 172);
             this.cmbTipoMaterial6.Name = "cmbTipoMaterial6";
             this.cmbTipoMaterial6.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial6.TabIndex = 8063;
+            this.cmbTipoMaterial6.TabIndex = 8022;
             // 
             // lblMaterial
             // 
@@ -1678,7 +1678,7 @@
             this.cmbMaterial5.Location = new System.Drawing.Point(203, 147);
             this.cmbMaterial5.Name = "cmbMaterial5";
             this.cmbMaterial5.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial5.TabIndex = 8052;
+            this.cmbMaterial5.TabIndex = 8019;
             // 
             // chkmaterial5
             // 
@@ -1688,7 +1688,7 @@
             this.chkmaterial5.Location = new System.Drawing.Point(5, 147);
             this.chkmaterial5.Name = "chkmaterial5";
             this.chkmaterial5.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial5.TabIndex = 8047;
+            this.chkmaterial5.TabIndex = 8017;
             this.chkmaterial5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial5.UseVisualStyleBackColor = false;
             // 
@@ -1699,7 +1699,7 @@
             this.txtMaterialCantidad5.Location = new System.Drawing.Point(385, 147);
             this.txtMaterialCantidad5.Name = "txtMaterialCantidad5";
             this.txtMaterialCantidad5.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad5.TabIndex = 8048;
+            this.txtMaterialCantidad5.TabIndex = 8020;
             // 
             // lblMaterialUnidad5
             // 
@@ -1735,7 +1735,7 @@
             this.cmbTipoMaterial5.Location = new System.Drawing.Point(22, 147);
             this.cmbTipoMaterial5.Name = "cmbTipoMaterial5";
             this.cmbTipoMaterial5.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial5.TabIndex = 8051;
+            this.cmbTipoMaterial5.TabIndex = 8018;
             // 
             // cmbMaterial4
             // 
@@ -1746,7 +1746,7 @@
             this.cmbMaterial4.Location = new System.Drawing.Point(203, 122);
             this.cmbMaterial4.Name = "cmbMaterial4";
             this.cmbMaterial4.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial4.TabIndex = 8046;
+            this.cmbMaterial4.TabIndex = 8015;
             // 
             // chkmaterial4
             // 
@@ -1756,7 +1756,7 @@
             this.chkmaterial4.Location = new System.Drawing.Point(5, 122);
             this.chkmaterial4.Name = "chkmaterial4";
             this.chkmaterial4.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial4.TabIndex = 8041;
+            this.chkmaterial4.TabIndex = 8013;
             this.chkmaterial4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial4.UseVisualStyleBackColor = false;
             // 
@@ -1767,7 +1767,7 @@
             this.txtMaterialCantidad4.Location = new System.Drawing.Point(385, 122);
             this.txtMaterialCantidad4.Name = "txtMaterialCantidad4";
             this.txtMaterialCantidad4.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad4.TabIndex = 8042;
+            this.txtMaterialCantidad4.TabIndex = 8016;
             // 
             // lblMaterialUnidad4
             // 
@@ -1803,7 +1803,7 @@
             this.cmbTipoMaterial4.Location = new System.Drawing.Point(22, 122);
             this.cmbTipoMaterial4.Name = "cmbTipoMaterial4";
             this.cmbTipoMaterial4.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial4.TabIndex = 8045;
+            this.cmbTipoMaterial4.TabIndex = 8014;
             // 
             // cmbMaterial3
             // 
@@ -1813,7 +1813,7 @@
             this.cmbMaterial3.Location = new System.Drawing.Point(203, 97);
             this.cmbMaterial3.Name = "cmbMaterial3";
             this.cmbMaterial3.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial3.TabIndex = 8040;
+            this.cmbMaterial3.TabIndex = 8011;
             // 
             // chkmaterial3
             // 
@@ -1823,7 +1823,7 @@
             this.chkmaterial3.Location = new System.Drawing.Point(5, 97);
             this.chkmaterial3.Name = "chkmaterial3";
             this.chkmaterial3.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial3.TabIndex = 8032;
+            this.chkmaterial3.TabIndex = 8009;
             this.chkmaterial3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial3.UseVisualStyleBackColor = false;
             // 
@@ -1834,7 +1834,7 @@
             this.txtMaterialCantidad3.Location = new System.Drawing.Point(385, 97);
             this.txtMaterialCantidad3.Name = "txtMaterialCantidad3";
             this.txtMaterialCantidad3.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad3.TabIndex = 8033;
+            this.txtMaterialCantidad3.TabIndex = 8012;
             // 
             // lblMaterialUnidad3
             // 
@@ -1870,7 +1870,7 @@
             this.cmbTipoMaterial3.Location = new System.Drawing.Point(22, 97);
             this.cmbTipoMaterial3.Name = "cmbTipoMaterial3";
             this.cmbTipoMaterial3.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial3.TabIndex = 8036;
+            this.cmbTipoMaterial3.TabIndex = 8010;
             // 
             // cmbMaterial2
             // 
@@ -1880,7 +1880,7 @@
             this.cmbMaterial2.Location = new System.Drawing.Point(203, 72);
             this.cmbMaterial2.Name = "cmbMaterial2";
             this.cmbMaterial2.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial2.TabIndex = 8031;
+            this.cmbMaterial2.TabIndex = 8007;
             // 
             // chkmaterial2
             // 
@@ -1890,7 +1890,7 @@
             this.chkmaterial2.Location = new System.Drawing.Point(5, 72);
             this.chkmaterial2.Name = "chkmaterial2";
             this.chkmaterial2.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial2.TabIndex = 8023;
+            this.chkmaterial2.TabIndex = 8006;
             this.chkmaterial2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial2.UseVisualStyleBackColor = false;
             // 
@@ -1901,7 +1901,7 @@
             this.txtMaterialCantidad2.Location = new System.Drawing.Point(385, 72);
             this.txtMaterialCantidad2.Name = "txtMaterialCantidad2";
             this.txtMaterialCantidad2.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad2.TabIndex = 8024;
+            this.txtMaterialCantidad2.TabIndex = 8008;
             // 
             // lblMaterialUnidad2
             // 
@@ -1937,7 +1937,7 @@
             this.cmbTipoMaterial2.Location = new System.Drawing.Point(22, 72);
             this.cmbTipoMaterial2.Name = "cmbTipoMaterial2";
             this.cmbTipoMaterial2.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial2.TabIndex = 8027;
+            this.cmbTipoMaterial2.TabIndex = 8006;
             // 
             // cmbMaterial1
             // 
@@ -1947,7 +1947,7 @@
             this.cmbMaterial1.Location = new System.Drawing.Point(203, 47);
             this.cmbMaterial1.Name = "cmbMaterial1";
             this.cmbMaterial1.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial1.TabIndex = 8022;
+            this.cmbMaterial1.TabIndex = 8004;
             // 
             // chkmaterial1
             // 
@@ -1968,7 +1968,7 @@
             this.txtMaterialCantidad1.Location = new System.Drawing.Point(385, 47);
             this.txtMaterialCantidad1.Name = "txtMaterialCantidad1";
             this.txtMaterialCantidad1.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad1.TabIndex = 8003;
+            this.txtMaterialCantidad1.TabIndex = 8005;
             // 
             // lblMaterialUnidad1
             // 
@@ -2004,7 +2004,7 @@
             this.cmbTipoMaterial1.Location = new System.Drawing.Point(22, 47);
             this.cmbTipoMaterial1.Name = "cmbTipoMaterial1";
             this.cmbTipoMaterial1.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial1.TabIndex = 8006;
+            this.cmbTipoMaterial1.TabIndex = 8003;
             // 
             // lblCantBisagras
             // 
@@ -2073,7 +2073,7 @@
             this.txtMaterialPrecio2.Location = new System.Drawing.Point(288, 60);
             this.txtMaterialPrecio2.Name = "txtMaterialPrecio2";
             this.txtMaterialPrecio2.Size = new System.Drawing.Size(100, 24);
-            this.txtMaterialPrecio2.TabIndex = 8068;
+            this.txtMaterialPrecio2.TabIndex = 8030;
             // 
             // txtMaterialPrecio3
             // 
@@ -2081,7 +2081,7 @@
             this.txtMaterialPrecio3.Location = new System.Drawing.Point(288, 85);
             this.txtMaterialPrecio3.Name = "txtMaterialPrecio3";
             this.txtMaterialPrecio3.Size = new System.Drawing.Size(100, 24);
-            this.txtMaterialPrecio3.TabIndex = 8067;
+            this.txtMaterialPrecio3.TabIndex = 8033;
             // 
             // txtMaterialPrecio1
             // 
@@ -2089,7 +2089,7 @@
             this.txtMaterialPrecio1.Location = new System.Drawing.Point(288, 35);
             this.txtMaterialPrecio1.Name = "txtMaterialPrecio1";
             this.txtMaterialPrecio1.Size = new System.Drawing.Size(100, 24);
-            this.txtMaterialPrecio1.TabIndex = 8066;
+            this.txtMaterialPrecio1.TabIndex = 8027;
             // 
             // label16
             // 
@@ -2109,7 +2109,7 @@
             this.txtDescMateriale2.Location = new System.Drawing.Point(126, 60);
             this.txtDescMateriale2.Name = "txtDescMateriale2";
             this.txtDescMateriale2.Size = new System.Drawing.Size(160, 24);
-            this.txtDescMateriale2.TabIndex = 8056;
+            this.txtDescMateriale2.TabIndex = 8029;
             // 
             // chkotrosmateriales2
             // 
@@ -2117,7 +2117,7 @@
             this.chkotrosmateriales2.Location = new System.Drawing.Point(5, 59);
             this.chkotrosmateriales2.Name = "chkotrosmateriales2";
             this.chkotrosmateriales2.Size = new System.Drawing.Size(121, 22);
-            this.chkotrosmateriales2.TabIndex = 8055;
+            this.chkotrosmateriales2.TabIndex = 8028;
             this.chkotrosmateriales2.Text = "Otro material 1";
             this.chkotrosmateriales2.UseVisualStyleBackColor = true;
             // 
@@ -2140,7 +2140,7 @@
             this.txtDescMateriale3.Location = new System.Drawing.Point(126, 85);
             this.txtDescMateriale3.Name = "txtDescMateriale3";
             this.txtDescMateriale3.Size = new System.Drawing.Size(160, 24);
-            this.txtDescMateriale3.TabIndex = 8014;
+            this.txtDescMateriale3.TabIndex = 8032;
             // 
             // chkotrosmateriales3
             // 
@@ -2148,7 +2148,7 @@
             this.chkotrosmateriales3.Location = new System.Drawing.Point(5, 83);
             this.chkotrosmateriales3.Name = "chkotrosmateriales3";
             this.chkotrosmateriales3.Size = new System.Drawing.Size(121, 22);
-            this.chkotrosmateriales3.TabIndex = 8013;
+            this.chkotrosmateriales3.TabIndex = 8031;
             this.chkotrosmateriales3.Text = "Gastos varios";
             this.chkotrosmateriales3.UseVisualStyleBackColor = true;
             // 
@@ -2158,7 +2158,7 @@
             this.txtDescMateriale1.Location = new System.Drawing.Point(126, 35);
             this.txtDescMateriale1.Name = "txtDescMateriale1";
             this.txtDescMateriale1.Size = new System.Drawing.Size(160, 24);
-            this.txtDescMateriale1.TabIndex = 8012;
+            this.txtDescMateriale1.TabIndex = 8026;
             // 
             // chkotrosmateriales1
             // 
@@ -2166,7 +2166,7 @@
             this.chkotrosmateriales1.Location = new System.Drawing.Point(5, 35);
             this.chkotrosmateriales1.Name = "chkotrosmateriales1";
             this.chkotrosmateriales1.Size = new System.Drawing.Size(121, 22);
-            this.chkotrosmateriales1.TabIndex = 8011;
+            this.chkotrosmateriales1.TabIndex = 8025;
             this.chkotrosmateriales1.Text = "Otro material 1";
             this.chkotrosmateriales1.UseVisualStyleBackColor = true;
             // 
