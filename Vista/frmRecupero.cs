@@ -1,4 +1,10 @@
-﻿using System;
+﻿using Entidades;
+using Entidades.DTOs;
+using Logica;
+using Servicios;
+using Sesion;
+using Sistema_Gestion_de_Usuarios.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Logica;
-using Entidades;
-using Entidades.DTOs;
-using Servicios;
-using Sesion;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -27,8 +29,10 @@ namespace Vista
         public frmRecupero()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
 
-            this.AcceptButton = btnSiguiente;
+            this.AcceptButton = btnSiguienterecupero;
 
             DoubleBuffered = true;
 
@@ -39,8 +43,8 @@ namespace Vista
             ClsFondoTransparente.Aplicar(
             pctFondo,
             pctLogo,
-            lblPregunta,
-            btnSiguiente);
+            lblPreguntarecupero,
+            btnSiguienterecupero);
         }
 
         private const string DNI_PLACEHOLDER = "Ingrese DNI";
@@ -502,7 +506,7 @@ namespace Vista
 
         private void frmRecupero_Shown(object sender, EventArgs e)
         {
-            this.AcceptButton = btnSiguiente;
+            this.AcceptButton = btnSiguienterecupero;
             txtdni.Focus();
         }
     }

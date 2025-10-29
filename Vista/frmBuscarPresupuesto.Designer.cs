@@ -56,6 +56,7 @@
             // 
             // btnBuscarPresup
             // 
+
             this.btnBuscarPresup.Location = new System.Drawing.Point(65, 150);
             this.btnBuscarPresup.Name = "btnBuscarPresup";
             this.btnBuscarPresup.Size = new System.Drawing.Size(139, 30);
@@ -69,6 +70,7 @@
             // 
             this.dgvPresupuestos.BackgroundColor = System.Drawing.Color.White;
             this.dgvPresupuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             this.dgvPresupuestos.Location = new System.Drawing.Point(10, 245);
             this.dgvPresupuestos.Name = "dgvPresupuestos";
             this.dgvPresupuestos.RowHeadersWidth = 51;
@@ -78,6 +80,7 @@
             // 
             // txtDescripcion
             // 
+
             this.txtDescripcion.Location = new System.Drawing.Point(5, 30);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(400, 25);
@@ -86,6 +89,7 @@
             // 
             // lblDescripcionPresup
             // 
+
             this.lblDescripcionPresup.ForeColor = System.Drawing.Color.White;
             this.lblDescripcionPresup.Location = new System.Drawing.Point(160, 5);
             this.lblDescripcionPresup.Name = "lblDescripcionPresup";
@@ -106,6 +110,7 @@
             // 
             // lblVendedorPresup
             // 
+
             this.lblVendedorPresup.ForeColor = System.Drawing.Color.White;
             this.lblVendedorPresup.Location = new System.Drawing.Point(77, 90);
             this.lblVendedorPresup.Name = "lblVendedorPresup";
@@ -117,6 +122,7 @@
             // dtpFecha
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+
             this.dtpFecha.Location = new System.Drawing.Point(151, 60);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(155, 25);
@@ -124,6 +130,7 @@
             // 
             // txtVendedor
             // 
+
             this.txtVendedor.Location = new System.Drawing.Point(151, 90);
             this.txtVendedor.Name = "txtVendedor";
             this.txtVendedor.Size = new System.Drawing.Size(175, 25);
@@ -132,6 +139,7 @@
             // 
             // btnSeleccionPresup
             // 
+
             this.btnSeleccionPresup.Location = new System.Drawing.Point(208, 150);
             this.btnSeleccionPresup.Name = "btnSeleccionPresup";
             this.btnSeleccionPresup.Size = new System.Drawing.Size(139, 30);
@@ -142,6 +150,7 @@
             // 
             // lblDocumentoPresup
             // 
+
             this.lblDocumentoPresup.ForeColor = System.Drawing.Color.White;
             this.lblDocumentoPresup.Location = new System.Drawing.Point(64, 120);
             this.lblDocumentoPresup.Name = "lblDocumentoPresup";
@@ -152,6 +161,7 @@
             // 
             // txtDocumento
             // 
+
             this.txtDocumento.Location = new System.Drawing.Point(222, 120);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(125, 25);
@@ -162,6 +172,7 @@
             // cmbTipoDni
             // 
             this.cmbTipoDni.FormattingEnabled = true;
+
             this.cmbTipoDni.Location = new System.Drawing.Point(151, 120);
             this.cmbTipoDni.Name = "cmbTipoDni";
             this.cmbTipoDni.Size = new System.Drawing.Size(65, 26);
@@ -251,6 +262,7 @@
             // 
             // frmBuscarPresupuesto
             // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;

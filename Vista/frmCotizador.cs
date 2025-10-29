@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Entidades;
+using Entidades.DTOs;
+using Logica;
+using Servicios; // Agregar using para Servicios
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Entidades.DTOs;
-using Entidades;
-using Servicios; // Agregar using para Servicios
+using Sistema_Gestion_de_Usuarios.Vista;
+using Vista.Lenguajes;
+
 
 namespace Vista
 {
@@ -33,6 +36,8 @@ namespace Vista
         public frmCotizador()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
 
             // CONFIGURAR FORMATO ESPAÑOL PARA DECIMALES
             ClsSoloNumeros.ConfigurarCulturaEspañola();

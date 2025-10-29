@@ -81,7 +81,6 @@ namespace Datos
 
                     masterConn.Open();
 
-                    // Asegurarse de que la conexión de la aplicación esté cerrada antes de cambiar el modo
                     oConexion.CerrarConexion();
 
                     // 2. Poner la BD en modo SINGLE_USER para liberar todos los locks

@@ -2,12 +2,14 @@
 using Entidades;
 using Entidades.DTOs;
 using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using Sistema_Gestion_De_Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
+using Vista.Lenguajes;
 
 
 
@@ -35,6 +37,8 @@ namespace Vista
         public frmPanelUsuarios()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
 
             animacionTimer.Interval = 15; // velocidad de refresco (ms)
             animacionTimer.Tick += AnimacionTimer_Tick;
@@ -45,7 +49,8 @@ namespace Vista
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+
+            moverFormulario.HabilitarMovimiento(lblmenuadmin);
 
             this.Size = new Size(1150, 660);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -381,13 +386,13 @@ namespace Vista
                 switch (idRol)
                 {
                     case 1:
-                        lblTitulo.Text = "Menu Administrador";
+                        lblmenuadmin.Text = "Menu Administrador";
                         break;
                     case 2:
-                        lblTitulo.Text = "Menu Vendedor";
+                        lblmenuadmin.Text = "Menu Vendedor";
                         break;
                     default:
-                        lblTitulo.Text = "Menú Principal";
+                        lblmenuadmin.Text = "Menú Principal";
                         break;
                 }
             }

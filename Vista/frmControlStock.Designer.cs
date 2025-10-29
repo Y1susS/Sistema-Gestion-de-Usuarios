@@ -33,19 +33,19 @@
             this.cmbTipoMaterial = new System.Windows.Forms.ComboBox();
             this.cmbMaterial = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblstockactivo = new System.Windows.Forms.Label();
             this.cbxActivo = new System.Windows.Forms.CheckBox();
             this.btnNuevoMaterial = new System.Windows.Forms.Button();
-            this.btnGestion = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnGestionarstock = new System.Windows.Forms.Button();
+            this.btnGuardarstock = new System.Windows.Forms.Button();
             this.txtUnidad = new System.Windows.Forms.TextBox();
             this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
             this.txtStockMinimo = new System.Windows.Forms.TextBox();
             this.txtStockActual = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblstockunidad = new System.Windows.Forms.Label();
+            this.lblstockpreciou = new System.Windows.Forms.Label();
+            this.lblstockminimo = new System.Windows.Forms.Label();
+            this.lblstockactual = new System.Windows.Forms.Label();
             this.lblTipoMaterial = new System.Windows.Forms.Label();
             this.lblMaterial = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.grpStock = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEliminarstock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.grpStock.SuspendLayout();
@@ -108,16 +108,17 @@
             this.txtDescripcion.Size = new System.Drawing.Size(250, 25);
             this.txtDescripcion.TabIndex = 3;
             // 
-            // label1
+            // lblstockactivo
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Location = new System.Drawing.Point(15, 120);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Activo";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+
+            this.lblstockactivo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblstockactivo.Location = new System.Drawing.Point(15, 120);
+            this.lblstockactivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblstockactivo.Name = "label1";
+            this.lblstockactivo.Size = new System.Drawing.Size(95, 25);
+            this.lblstockactivo.TabIndex = 4;
+            this.lblstockactivo.Text = "Activo";
+            this.lblstockactivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbxActivo
             // 
@@ -145,37 +146,38 @@
             this.btnNuevoMaterial.UseVisualStyleBackColor = false;
             this.btnNuevoMaterial.Click += new System.EventHandler(this.btnNuevoMaterial_Click);
             // 
+
             // btnGestion
             // 
-            this.btnGestion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGestion.BackColor = System.Drawing.Color.White;
-            this.btnGestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestion.ForeColor = System.Drawing.Color.Black;
-            this.btnGestion.Location = new System.Drawing.Point(705, 53);
-            this.btnGestion.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnGestion.Name = "btnGestion";
-            this.btnGestion.Size = new System.Drawing.Size(150, 30);
-            this.btnGestion.TabIndex = 9;
-            this.btnGestion.Text = "Gestionar";
-            this.btnGestion.UseVisualStyleBackColor = false;
-            this.btnGestion.Click += new System.EventHandler(this.btnGestion_Click);
+            this.btnGestionarstock.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGestionarstock.BackColor = System.Drawing.Color.White;
+            this.btnGestionarstock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnGestionarstock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionarstock.ForeColor = System.Drawing.Color.Black;
+            this.btnGestionarstock.Location = new System.Drawing.Point(705, 53);
+            this.btnGestionarstock.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnGestionarstock.Name = "btnGestion";
+            this.btnGestionarstock.Size = new System.Drawing.Size(150, 30);
+            this.btnGestionarstock.TabIndex = 9;
+            this.btnGestionarstock.Text = "Gestionar";
+            this.btnGestionarstock.UseVisualStyleBackColor = false;
+            this.btnGestionarstock.Click += new System.EventHandler(this.btnGestion_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGuardar.BackColor = System.Drawing.Color.White;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(705, 85);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(150, 30);
-            this.btnGuardar.TabIndex = 10;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardarstock.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGuardarstock.BackColor = System.Drawing.Color.White;
+            this.btnGuardarstock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnGuardarstock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarstock.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarstock.Location = new System.Drawing.Point(705, 85);
+            this.btnGuardarstock.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnGuardarstock.Name = "btnGuardar";
+            this.btnGuardarstock.Size = new System.Drawing.Size(150, 30);
+            this.btnGuardarstock.TabIndex = 10;
+            this.btnGuardarstock.Text = "Guardar";
+            this.btnGuardarstock.UseVisualStyleBackColor = false;
+            this.btnGuardarstock.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtUnidad
             // 
@@ -224,49 +226,50 @@
             this.txtStockActual.TabIndex = 15;
             this.txtStockActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockActual_KeyPress);
             // 
+
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.Location = new System.Drawing.Point(405, 30);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 25);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Unidad";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblstockunidad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblstockunidad.Location = new System.Drawing.Point(405, 30);
+            this.lblstockunidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblstockunidad.Name = "label3";
+            this.lblstockunidad.Size = new System.Drawing.Size(105, 25);
+            this.lblstockunidad.TabIndex = 17;
+            this.lblstockunidad.Text = "Unidad";
+            this.lblstockunidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.Location = new System.Drawing.Point(405, 58);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 25);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Precio unitario";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblstockpreciou.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblstockpreciou.Location = new System.Drawing.Point(405, 58);
+            this.lblstockpreciou.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblstockpreciou.Name = "label4";
+            this.lblstockpreciou.Size = new System.Drawing.Size(105, 25);
+            this.lblstockpreciou.TabIndex = 18;
+            this.lblstockpreciou.Text = "Precio unitario";
+            this.lblstockpreciou.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.Location = new System.Drawing.Point(405, 114);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 25);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Stock mínimo";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblstockminimo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblstockminimo.Location = new System.Drawing.Point(405, 114);
+            this.lblstockminimo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblstockminimo.Name = "label5";
+            this.lblstockminimo.Size = new System.Drawing.Size(105, 25);
+            this.lblstockminimo.TabIndex = 20;
+            this.lblstockminimo.Text = "Stock mínimo";
+            this.lblstockminimo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.Location = new System.Drawing.Point(405, 86);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 25);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Stock actual";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblstockactual.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblstockactual.Location = new System.Drawing.Point(405, 86);
+            this.lblstockactual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblstockactual.Name = "label6";
+            this.lblstockactual.Size = new System.Drawing.Size(105, 25);
+            this.lblstockactual.TabIndex = 19;
+            this.lblstockactual.Text = "Stock actual";
+            this.lblstockactual.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTipoMaterial
             // 
@@ -344,16 +347,16 @@
             // grpStock
             // 
             this.grpStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.grpStock.Controls.Add(this.btnEliminar);
-            this.grpStock.Controls.Add(this.btnGestion);
-            this.grpStock.Controls.Add(this.btnGuardar);
+            this.grpStock.Controls.Add(this.btnEliminarstock);
+            this.grpStock.Controls.Add(this.btnGestionarstock);
+            this.grpStock.Controls.Add(this.btnGuardarstock);
             this.grpStock.Controls.Add(this.cbxActivo);
-            this.grpStock.Controls.Add(this.label4);
+            this.grpStock.Controls.Add(this.lblstockpreciou);
             this.grpStock.Controls.Add(this.btnNuevoMaterial);
-            this.grpStock.Controls.Add(this.label1);
-            this.grpStock.Controls.Add(this.label3);
-            this.grpStock.Controls.Add(this.label5);
-            this.grpStock.Controls.Add(this.label6);
+            this.grpStock.Controls.Add(this.lblstockactivo);
+            this.grpStock.Controls.Add(this.lblstockunidad);
+            this.grpStock.Controls.Add(this.lblstockminimo);
+            this.grpStock.Controls.Add(this.lblstockactual);
             this.grpStock.Controls.Add(this.txtStockMinimo);
             this.grpStock.Controls.Add(this.txtDescripcion);
             this.grpStock.Controls.Add(this.lblDescripcion);
@@ -371,22 +374,23 @@
             this.grpStock.TabIndex = 32;
             this.grpStock.TabStop = false;
             this.grpStock.Text = "Stock";
+
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(705, 117);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(150, 30);
-            this.btnEliminar.TabIndex = 24;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminarstock.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminarstock.BackColor = System.Drawing.Color.White;
+            this.btnEliminarstock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEliminarstock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarstock.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarstock.Location = new System.Drawing.Point(705, 117);
+            this.btnEliminarstock.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnEliminarstock.Name = "btnEliminar";
+            this.btnEliminarstock.Size = new System.Drawing.Size(150, 30);
+            this.btnEliminarstock.TabIndex = 24;
+            this.btnEliminarstock.Text = "Eliminar";
+            this.btnEliminarstock.UseVisualStyleBackColor = false;
+            this.btnEliminarstock.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmControlStock
             // 
@@ -420,19 +424,19 @@
         private System.Windows.Forms.ComboBox cmbTipoMaterial;
         private System.Windows.Forms.ComboBox cmbMaterial;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblstockactivo;
         private System.Windows.Forms.CheckBox cbxActivo;
         private System.Windows.Forms.Button btnNuevoMaterial;
-        private System.Windows.Forms.Button btnGestion;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnGestionarstock;
+        private System.Windows.Forms.Button btnGuardarstock;
         private System.Windows.Forms.TextBox txtUnidad;
         private System.Windows.Forms.TextBox txtPrecioUnitario;
         private System.Windows.Forms.TextBox txtStockMinimo;
         private System.Windows.Forms.TextBox txtStockActual;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblstockunidad;
+        private System.Windows.Forms.Label lblstockpreciou;
+        private System.Windows.Forms.Label lblstockminimo;
+        private System.Windows.Forms.Label lblstockactual;
         private System.Windows.Forms.Label lblTipoMaterial;
         private System.Windows.Forms.Label lblMaterial;
         private System.Windows.Forms.Label lblDescripcion;
@@ -440,6 +444,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.GroupBox grpStock;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminarstock;
     }
 }

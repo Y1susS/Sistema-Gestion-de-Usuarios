@@ -1,10 +1,12 @@
 ﻿using Entidades;
 using Entidades.DTOs;
 using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -22,6 +24,7 @@ namespace Vista
         {
             InitializeComponent();
             InicializarControles();
+
             this.FormClosing += FrmPreguntas_FormClosing;
         }
 
@@ -29,7 +32,7 @@ namespace Vista
         {
             InitializeComponent();
             _formularioAnterior = formularioAnterior;
-            this.AcceptButton = btnSiguiente;
+            this.AcceptButton = btnSiguientepregseg;
             InicializarControles();
             this.FormClosing += FrmPreguntas_FormClosing;
         }
@@ -37,12 +40,13 @@ namespace Vista
 
         private void frmPreguntas_Load(object sender, EventArgs e)
         {
+
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(lblTitulopreguntasseg);
             moverFormulario.HabilitarMovimiento(pctLogo);
 
-            this.AcceptButton = btnSiguiente;
-            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
+            this.AcceptButton = btnSiguientepregseg;
+            lblUsuariopregserg.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblInstrucciones.Text = "Por favor, seleccione 3 preguntas de seguridad y proporcione sus respuestas." +
                                   Environment.NewLine +
                                   "Estas preguntas serán utilizadas para verificar su identidad si necesita recuperar su contraseña.";
@@ -81,6 +85,7 @@ namespace Vista
             {
                 combo.DropDownStyle = ComboBoxStyle.DropDownList;
             }
+
         }
 
 
@@ -239,7 +244,7 @@ namespace Vista
 
         private void frmPreguntas_Shown(object sender, EventArgs e)
         {
-            this.AcceptButton = btnSiguiente;
+            this.AcceptButton = btnSiguientepregseg;
             cmbPregunta1.Focus();
 
         }
