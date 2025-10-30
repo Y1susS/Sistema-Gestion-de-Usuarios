@@ -409,7 +409,7 @@ namespace Vista
 
             decimal total = subtotal * (1 - (porcentajeDescuento / 100));
 
-            lvlValorPresupuesto.Text = "$ " + total.ToString("N2", System.Globalization.CultureInfo.CurrentCulture);
+            lblValorPresupuesto.Text = "$ " + total.ToString("N2", System.Globalization.CultureInfo.CurrentCulture);
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -520,7 +520,7 @@ namespace Vista
             this.detallesCotizacion.Clear();
             ActualizarDataGridCotizaciones();
             lblValorSubtotal.Text = "$ 0,00";
-            lvlValorPresupuesto.Text = "$ 0,00";
+            lblValorPresupuesto.Text = "$ 0,00";
 
             dtpVigencia.Value = DateTime.Now;
         }
@@ -549,7 +549,7 @@ namespace Vista
             {
                 decimal.TryParse(txtDescuento.Text.Trim(), out decimal porcentajeDescuento);
                 decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
-                decimal totalFinal = ObtenerDecimalDesdeLabel(lvlValorPresupuesto);
+                decimal totalFinal = ObtenerDecimalDesdeLabel(lblValorPresupuesto);
 
                 Presupuesto nuevoPresupuesto = new Presupuesto()
                 {
