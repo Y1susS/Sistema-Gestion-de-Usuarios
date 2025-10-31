@@ -19,6 +19,7 @@ namespace Vista
         private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Ventas _ventas;
         private List<DtoEstadoVenta> _estadosVenta;
+        private List<DtoVenta> _todaslasventas;
         public frmEstadosVentas()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace Vista
         private void frmEstadosVentas_Load(object sender, EventArgs e)
         {
             _estadosVenta = _ventas.ObtenerEstadosVenta();
-            
+
             dgvVentas.AutoGenerateColumns = false;
             dgvVentas.Columns.Clear();
 
@@ -107,12 +108,18 @@ namespace Vista
             });
 
 
-
-
-
-            List<DtoVenta> listaCompleta = _ventas.ObtenerTodasLasVentas();
-            dgvVentas.DataSource = listaCompleta;
             
+            _todaslasventas = _ventas.ObtenerTodasLasVentas();
+            dgvVentas.DataSource = _todaslasventas;
+
+
+            //List<DtoVenta> listaCompleta = _ventas.ObtenerTodasLasVentas();
+            //dgvVentas.DataSource = listaCompleta;
+
+
+
+            
+
         }
 
         private void btnActualizarEstado_Click(object sender, EventArgs e)
@@ -167,11 +174,11 @@ namespace Vista
         {
             try
             {
-                List<DtoVenta> listaCompleta = _ventas.ObtenerTodasLasVentas();
-                dgvVentas.DataSource = null; // Limpiar antes de reasignar
-                dgvVentas.DataSource = listaCompleta;
+                _todaslasventas = _ventas.ObtenerTodasLasVentas();
+                dgvVentas.DataSource = null;
+                dgvVentas.DataSource = _todaslasventas;
             }
-            catch (Exception ex)
+            catch (Exception ex)    
             {
                 MessageBox.Show("Error al recargar la lista de ventas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -187,5 +194,33 @@ namespace Vista
         {
             ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarPorCliente();
+        }
+
+        private void FiltrarPorCliente()
+        {
+            if (_todaslasventas == null) return;
+
+            string texto = txtBuscar.Text.Trim().ToLower();
+
+            // Si el cuadro está vacío, mostramos todo
+            if (string.IsNullOrEmpty(texto))
+            {
+                dgvVentas.DataSource = _todaslasventas;
+                return;
+            }
+
+            // Filtramos por coincidencia parcial en el nombre del cliente
+            var filtradas = _todaslasventas
+                .Where(v => !string.IsNullOrEmpty(v.ClienteNombre) &&
+                            v.ClienteNombre.ToLower().Contains(texto))
+                .ToList();
+
+            dgvVentas.DataSource = filtradas;
+        }
+
     }
 }
