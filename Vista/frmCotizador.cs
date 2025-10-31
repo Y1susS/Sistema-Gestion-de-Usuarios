@@ -706,10 +706,10 @@ namespace Vista
                 OcultarLabelsResultados();
 
                 // Procesar cada línea de cálculo
-                ProcesarLineaCalculo(1, txtespesorm1, txtanchom1, txtlargom1, txtcantidad1, chk1, lblpie11, txtdescmad1);
+                ProcesarLineaCalculo(1, txtespesorm1, txtanchom1, txtlargom1, txtcantidad1, chk1, lblpie1, txtdescmad1);
                 ProcesarLineaCalculo(2, txtespesorm2, txtanchom2, txtlargom2, txtcantidad2, chk2, lblpie2, txtdescmad2);
                 ProcesarLineaCalculo(3, txtespesorm3, txtanchom3, txtlargom3, txtcantidad3, chk3, lblpie3, txtdescmad3);
-                ProcesarLineaCalculo(4, txtespesorm44, txtanchom4, txtlargom4, txtcantidad4, chk4, lblpie4, txtdescmad4);
+                ProcesarLineaCalculo(4, txtespesorm4, txtanchom4, txtlargom4, txtcantidad4, chk4, lblpie4, txtdescmad4);
                 ProcesarLineaCalculo(5, txtespesorm5, txtanchom5, txtlargom5, txtcantidad5, chk5, lblpie5, txtdescmad5);
                 ProcesarLineaCalculo(6, txtespesorm6, txtanchom6, txtlargom6, txtcantidad6, chk6, lblpie6, txtdescmad6);
                 ProcesarLineaCalculo(7, txtespesorm7, txtanchom7, txtlargom7, txtcantidad7, chk7, lblpie7, txtdescmad7);
@@ -786,6 +786,9 @@ namespace Vista
                 lblpresupuesto.Visible = true;
 
                 ViewState.CotizacionActual = cotizacion;
+
+                // ALERTA DE STOCK: Bisagras, Manijas y Correderas
+                AlertarStockHerrajesSiCorresponde();
 
                 MessageBox.Show("Cotización calculada exitosamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1282,6 +1285,102 @@ namespace Vista
         private void pnlDescripcionMueble_Paint(object sender, PaintEventArgs e)
         {
             ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        // === Alerta de stock para Bisagras, Manijas y Correderas ===
+        private void AlertarStockHerrajesSiCorresponde()
+        {
+            try
+            {
+                // 1) Obtener de BD los tipos objetivo (Bisagras, Manijas y Correderas)
+                var tipos = logicaMateriales.ListarTiposMateriales() ?? new List<DtoTipoMaterial>();
+                var idsTiposObjetivo = new HashSet<int>(
+                    tipos.Where(t =>
+                        !string.IsNullOrWhiteSpace(t.NombreTipoMaterial) &&
+                        new[] { "bisagra", "bisagras", "manija", "manijas", "corredera", "correderas" }
+                            .Any(k => t.NombreTipoMaterial.Trim().ToLower().Contains(k)))
+                         .Select(t => t.IdTipoMaterial)
+                );
+
+                if (idsTiposObjetivo.Count == 0)
+                {
+                    // No hay tipos detectados en BD; no hacer nada
+                    return;
+                }
+
+                var advertencias = new List<string>();
+
+                for (int i = 1; i <= 6; i++)
+                {
+                    // Verificar si la línea está habilitada
+                    var posiblesNombresCheckbox = new[] { $"chkmaterial{i}", $"chkMaterial{i}", $"checkBoxMaterial{i}", $"chkmat{i}" };
+                    CheckBox chkMaterial = null;
+                    foreach (var nombre in posiblesNombresCheckbox)
+                    {
+                        chkMaterial = this.Controls.Find(nombre, true).FirstOrDefault() as CheckBox;
+                        if (chkMaterial != null) break;
+                    }
+                    if (chkMaterial == null || !chkMaterial.Checked) continue;
+
+                    // Material seleccionado
+                    var cmbMaterial = this.Controls.Find($"cmbMaterial{i}", true).FirstOrDefault() as ComboBox;
+                    if (!(cmbMaterial?.SelectedItem is DtoMaterial materialSel)) continue;
+
+                    // Asegurar material completo (incluye TipoMaterial, StockActual, StockMinimo)
+                    if (materialSel.IdMaterial > 0)
+                    {
+                        var completo = logicaMateriales.ObtenerMaterial(materialSel.IdMaterial);
+                        if (completo != null) materialSel = completo;
+                    }
+
+                    // ¿Pertenece a los tipos objetivo?
+                    var idTipo = materialSel?.TipoMaterial?.IdTipoMaterial ?? 0;
+                    if (!idsTiposObjetivo.Contains(idTipo)) continue;
+
+                    // Cantidad solicitada
+                    var posiblesNombresCantidad = new[] {
+                        $"txtMaterialCantidad{i}", $"txtcantidadmaterial{i}",
+                        $"txtCantidadMaterial{i}", $"txtCantidad{i}", $"textBoxCantidad{i}"
+                    };
+                    TextBox txtCantidad = null;
+                    foreach (var nombreCantidad in posiblesNombresCantidad)
+                    {
+                        txtCantidad = this.Controls.Find(nombreCantidad, true).FirstOrDefault() as TextBox;
+                        if (txtCantidad != null) break;
+                    }
+                    if (txtCantidad == null || !int.TryParse(txtCantidad.Text, out int cantSolicitada) || cantSolicitada <= 0)
+                        continue;
+
+                    // Evaluar stock contra DB: Actual y Mínimo
+                    decimal stockActual = materialSel.StockActual ?? 0m;
+                    decimal stockMinimo = materialSel.StockMinimo ?? 0m;
+                    decimal restante = stockActual - cantSolicitada;
+
+                    if (stockActual <= 0 || restante < 0)
+                    {
+                        advertencias.Add($"Sin stock suficiente: {materialSel.NombreMaterial} (Disp: {stockActual}, Requerido: {cantSolicitada})");
+                    }
+                    else if (stockActual <= stockMinimo || restante < stockMinimo)
+                    {
+                        advertencias.Add($"Stock bajo: {materialSel.NombreMaterial} (Actual: {stockActual}, Mínimo: {stockMinimo})");
+                    }
+                }
+
+                if (advertencias.Count > 0)
+                {
+                    var mensaje = string.Join(Environment.NewLine, advertencias.Take(10));
+                    MessageBox.Show(
+                        $"Atención: Revisión de stock:{Environment.NewLine}{mensaje}",
+                        "Stock de herrajes",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+            }
+            catch
+            {
+                // Silencioso para no interrumpir el cálculo
+            }
         }
     }
 }
