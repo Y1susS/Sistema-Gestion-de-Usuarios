@@ -490,14 +490,6 @@ namespace Vista
             // Tamaño del área cliente (solo zona visible)
             int anchoCliente = this.ClientSize.Width;
             int altoCliente = this.ClientSize.Height;
-
-            MessageBox.Show(
-                $"Formulario hijo: {this.Name}\n" +
-                $"Tamaño total: {anchoTotal} x {altoTotal}\n" +
-                $"Área cliente: {anchoCliente} x {altoCliente}",
-                "Resolución del formulario hijo",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
                
         }
 

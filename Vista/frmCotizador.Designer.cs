@@ -318,7 +318,7 @@
             this.txtespesorm4.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm4.Location = new System.Drawing.Point(238, 162);
             this.txtespesorm4.Name = "txtespesorm4";
-            this.txtespesorm4.Size = new System.Drawing.Size(55, 28);
+            this.txtespesorm4.Size = new System.Drawing.Size(55, 24);
             this.txtespesorm4.TabIndex = 7984;
             this.txtespesorm4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2098,9 +2098,9 @@
             this.chkotrosmateriales2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkotrosmateriales2.Location = new System.Drawing.Point(5, 59);
             this.chkotrosmateriales2.Name = "chkotrosmateriales2";
-            this.chkotrosmateriales2.Size = new System.Drawing.Size(121, 22);
+            this.chkotrosmateriales2.Size = new System.Drawing.Size(132, 22);
             this.chkotrosmateriales2.TabIndex = 8028;
-            this.chkotrosmateriales2.Text = "Otro material 1";
+            this.chkotrosmateriales2.Text = "Otro material 2\r\n";
             this.chkotrosmateriales2.UseVisualStyleBackColor = true;
             // 
             // lblTotalGastosMat
@@ -2283,6 +2283,7 @@
             // grpExtras
             // 
             this.grpExtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.grpExtras.Controls.Add(this.txtDescMateriale2);
             this.grpExtras.Controls.Add(this.lbltotalgastosadicionales);
             this.grpExtras.Controls.Add(this.label16);
             this.grpExtras.Controls.Add(this.label17);
@@ -2295,7 +2296,6 @@
             this.grpExtras.Controls.Add(this.txtDescMateriale3);
             this.grpExtras.Controls.Add(this.lblTotalGastosMat);
             this.grpExtras.Controls.Add(this.chkotrosmateriales2);
-            this.grpExtras.Controls.Add(this.txtDescMateriale2);
             this.grpExtras.ForeColor = System.Drawing.Color.White;
             this.grpExtras.Location = new System.Drawing.Point(610, 435);
             this.grpExtras.Name = "grpExtras";
