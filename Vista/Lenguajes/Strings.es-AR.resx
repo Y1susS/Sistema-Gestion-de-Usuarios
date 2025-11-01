@@ -780,4 +780,10 @@
   <data name="lblTitulo" xml:space="preserve">
     <value>Inicio Sesion</value>
   </data>
+  <data name="lblTituloCambioPass" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="frmCambioPass.lblTituloCambioPass" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
 </root>

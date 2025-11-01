@@ -233,7 +233,9 @@
     <EmbeddedResource Include="frmPresupuestador.resx">
       <DependentUpon>frmPresupuestador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lenguajes\Strings.en-US.resx" />
+    <EmbeddedResource Include="Lenguajes\Strings.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lenguajes\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings1.Designer.cs</LastGenOutput>
