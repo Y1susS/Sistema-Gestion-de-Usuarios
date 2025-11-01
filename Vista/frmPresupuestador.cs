@@ -58,6 +58,23 @@ namespace Vista
                     col.ReadOnly = false;
                 }
             }
+            if (dgvPresupuesto.Rows.Count > 0)
+            {
+                dgvPresupuesto.ClearSelection();
+
+                dgvPresupuesto.Rows[0].Selected = true;
+
+                dgvPresupuesto.CurrentCell = dgvPresupuesto.Rows[0].Cells[0];
+            }
+
+            if (dgvPresupuesto.Columns.Contains("Idpresupuesto"))
+            {
+                dgvPresupuesto.Columns["Idpresupuesto"].Visible = false;
+            }
+            if (dgvPresupuesto.Columns.Contains("Idcotizacion"))
+            {
+                dgvPresupuesto.Columns["Idcotizacion"].Visible = false;
+            }
         }
         private void ConfigurarControles()
         {
@@ -209,25 +226,7 @@ namespace Vista
                 ActualizarDataGridCotizaciones();
 
                 ConfigurarDatagrid();
-
-                if (dgvPresupuesto.Rows.Count > 0)
-                {
-                    dgvPresupuesto.ClearSelection();
-
-                    dgvPresupuesto.Rows[0].Selected = true;
-
-                    dgvPresupuesto.CurrentCell = dgvPresupuesto.Rows[0].Cells[0];
-                }
-
-                if (dgvPresupuesto.Columns.Contains("Idpresupuesto"))
-                {
-                    dgvPresupuesto.Columns["Idpresupuesto"].Visible = false;
-                }
-                if (dgvPresupuesto.Columns.Contains("Idcotizacion"))
-                {
-                    dgvPresupuesto.Columns["Idcotizacion"].Visible = false;
-                }
-
+             
                 MessageBox.Show($"Presupuesto N° {p.Numero} cargado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -521,8 +520,10 @@ namespace Vista
             ActualizarDataGridCotizaciones();
             lblValorSubtotal.Text = "$ 0,00";
             lblValorPresupuesto.Text = "$ 0,00";
+            dgvPresupuesto.DataSource = null;
 
-            dtpVigencia.Value = DateTime.Now;
+            dtpVigencia.CustomFormat = " ";     
+            dtpVigencia.Format = DateTimePickerFormat.Custom;
         }
 
         private void btnVenta_Click(object sender, EventArgs e)
@@ -590,6 +591,51 @@ namespace Vista
             {
                 MessageBox.Show("Error al registrar la venta. Por favor, revise la conexión y los datos.\nDetalle: " + ex.Message, "Error de Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnBuscarCotizacion_Click(object sender, EventArgs e)
+        {
+            using (frmListarCotizaciones frmBuscar = new frmListarCotizaciones(true))
+            {
+                if (frmBuscar.ShowDialog() == DialogResult.OK)
+                {
+                    if (frmBuscar.CotizacionesSeleccionadas != null && frmBuscar.CotizacionesSeleccionadas.Count > 0)
+                    {
+                        foreach (var detalle in frmBuscar.CotizacionesSeleccionadas)
+                        {
+                            AgregarDetalleCotizacion(detalle); 
+                        }
+
+                        ActualizarDataGridCotizaciones();
+                        ConfigurarDatagrid();
+                        CalcularSubtotal();
+                    }
+                }
+            }
+        }
+        private void AgregarDetalleCotizacion(DtoPresupuestoDetalle nuevoDetalle)
+        {
+            // Verificar si la cotización ya existe
+            var existe = this.detallesCotizacion.Any(d => d.IdCotizacion == nuevoDetalle.IdCotizacion);
+
+            if (existe)
+            {
+                MessageBox.Show($"La cotización N° {nuevoDetalle.NumeroCotizacion} ya fue agregada al presupuesto.", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Asignar cantidad por defecto si no viene
+            if (nuevoDetalle.Cantidad <= 0)
+            {
+                nuevoDetalle.Cantidad = 1;
+            }
+
+            this.detallesCotizacion.Add(nuevoDetalle);
+        }
+
+        private void btnEditarCotizacion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

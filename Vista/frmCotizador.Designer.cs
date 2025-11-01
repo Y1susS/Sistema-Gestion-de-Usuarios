@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtespesorm44 = new System.Windows.Forms.TextBox();
+            this.lblpie1 = new System.Windows.Forms.Label();
+            this.txtespesorm4 = new System.Windows.Forms.TextBox();
             this.lblTotalPrecioXPie = new System.Windows.Forms.Label();
             this.txtdescmad8 = new System.Windows.Forms.TextBox();
             this.chk8 = new System.Windows.Forms.CheckBox();
@@ -221,8 +221,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtespesorm44);
+            this.groupBox1.Controls.Add(this.lblpie1);
+            this.groupBox1.Controls.Add(this.txtespesorm4);
             this.groupBox1.Controls.Add(this.lblTotalPrecioXPie);
             this.groupBox1.Controls.Add(this.txtdescmad8);
             this.groupBox1.Controls.Add(this.chk8);
@@ -300,27 +300,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Maderas";
             // 
-            // label11
+            // lblpie1
             // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(466, 87);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 24);
-            this.label11.TabIndex = 7985;
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblpie1.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblpie1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpie1.ForeColor = System.Drawing.Color.White;
+            this.lblpie1.Location = new System.Drawing.Point(466, 87);
+            this.lblpie1.Name = "lblpie1";
+            this.lblpie1.Size = new System.Drawing.Size(55, 24);
+            this.lblpie1.TabIndex = 7985;
+            this.lblpie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtespesorm44
+            // txtespesorm4
             // 
-            this.txtespesorm44.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtespesorm44.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm44.Location = new System.Drawing.Point(238, 162);
-            this.txtespesorm44.Name = "txtespesorm44";
-            this.txtespesorm44.Size = new System.Drawing.Size(55, 24);
-            this.txtespesorm44.TabIndex = 7984;
-            this.txtespesorm44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtespesorm4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtespesorm4.ForeColor = System.Drawing.Color.Black;
+            this.txtespesorm4.Location = new System.Drawing.Point(238, 162);
+            this.txtespesorm4.Name = "txtespesorm4";
+            this.txtespesorm4.Size = new System.Drawing.Size(55, 28);
+            this.txtespesorm4.TabIndex = 7984;
+            this.txtespesorm4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTotalPrecioXPie
             // 
@@ -342,7 +342,7 @@
             this.txtdescmad8.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad8.Location = new System.Drawing.Point(91, 262);
             this.txtdescmad8.Name = "txtdescmad8";
-            this.txtdescmad8.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad8.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad8.TabIndex = 7936;
             this.txtdescmad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -378,7 +378,7 @@
             this.txtcantidad8.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad8.Location = new System.Drawing.Point(409, 262);
             this.txtcantidad8.Name = "txtcantidad8";
-            this.txtcantidad8.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad8.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad8.TabIndex = 7940;
             this.txtcantidad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -388,7 +388,7 @@
             this.txtlargom8.ForeColor = System.Drawing.Color.Black;
             this.txtlargom8.Location = new System.Drawing.Point(352, 262);
             this.txtlargom8.Name = "txtlargom8";
-            this.txtlargom8.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom8.Size = new System.Drawing.Size(55, 28);
             this.txtlargom8.TabIndex = 7939;
             this.txtlargom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -398,7 +398,7 @@
             this.txtanchom8.ForeColor = System.Drawing.Color.Black;
             this.txtanchom8.Location = new System.Drawing.Point(295, 262);
             this.txtanchom8.Name = "txtanchom8";
-            this.txtanchom8.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom8.Size = new System.Drawing.Size(55, 28);
             this.txtanchom8.TabIndex = 7938;
             this.txtanchom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -408,7 +408,7 @@
             this.txtespesorm8.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm8.Location = new System.Drawing.Point(238, 262);
             this.txtespesorm8.Name = "txtespesorm8";
-            this.txtespesorm8.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm8.Size = new System.Drawing.Size(55, 28);
             this.txtespesorm8.TabIndex = 7937;
             this.txtespesorm8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -418,7 +418,7 @@
             this.txtdescmad7.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad7.Location = new System.Drawing.Point(91, 237);
             this.txtdescmad7.Name = "txtdescmad7";
-            this.txtdescmad7.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad7.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad7.TabIndex = 7930;
             this.txtdescmad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -440,7 +440,7 @@
             this.txtdesperdicio.ForeColor = System.Drawing.Color.Black;
             this.txtdesperdicio.Location = new System.Drawing.Point(92, 297);
             this.txtdesperdicio.Name = "txtdesperdicio";
-            this.txtdesperdicio.Size = new System.Drawing.Size(55, 24);
+            this.txtdesperdicio.Size = new System.Drawing.Size(55, 28);
             this.txtdesperdicio.TabIndex = 7941;
             // 
             // chk7
@@ -475,7 +475,7 @@
             this.txtcantidad7.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad7.Location = new System.Drawing.Point(409, 237);
             this.txtcantidad7.Name = "txtcantidad7";
-            this.txtcantidad7.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad7.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad7.TabIndex = 7934;
             this.txtcantidad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -485,7 +485,7 @@
             this.txtlargom7.ForeColor = System.Drawing.Color.Black;
             this.txtlargom7.Location = new System.Drawing.Point(352, 237);
             this.txtlargom7.Name = "txtlargom7";
-            this.txtlargom7.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom7.Size = new System.Drawing.Size(55, 28);
             this.txtlargom7.TabIndex = 7933;
             this.txtlargom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -495,7 +495,7 @@
             this.txtanchom7.ForeColor = System.Drawing.Color.Black;
             this.txtanchom7.Location = new System.Drawing.Point(295, 237);
             this.txtanchom7.Name = "txtanchom7";
-            this.txtanchom7.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom7.Size = new System.Drawing.Size(55, 28);
             this.txtanchom7.TabIndex = 7932;
             this.txtanchom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -505,7 +505,7 @@
             this.txtespesorm7.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm7.Location = new System.Drawing.Point(238, 237);
             this.txtespesorm7.Name = "txtespesorm7";
-            this.txtespesorm7.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm7.Size = new System.Drawing.Size(55, 28);
             this.txtespesorm7.TabIndex = 7931;
             this.txtespesorm7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -540,7 +540,7 @@
             this.cmbMaderas.FormattingEnabled = true;
             this.cmbMaderas.Location = new System.Drawing.Point(238, 16);
             this.cmbMaderas.Name = "cmbMaderas";
-            this.cmbMaderas.Size = new System.Drawing.Size(112, 24);
+            this.cmbMaderas.Size = new System.Drawing.Size(112, 29);
             this.cmbMaderas.TabIndex = 7929;
             // 
             // lblseleccionmaderas
@@ -609,7 +609,7 @@
             this.txtespesorm1.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm1.Location = new System.Drawing.Point(238, 87);
             this.txtespesorm1.Name = "txtespesorm1";
-            this.txtespesorm1.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm1.Size = new System.Drawing.Size(55, 28);
             this.txtespesorm1.TabIndex = 7883;
             this.txtespesorm1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -634,7 +634,7 @@
             this.txtanchom1.ForeColor = System.Drawing.Color.Black;
             this.txtanchom1.Location = new System.Drawing.Point(295, 87);
             this.txtanchom1.Name = "txtanchom1";
-            this.txtanchom1.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom1.Size = new System.Drawing.Size(55, 28);
             this.txtanchom1.TabIndex = 7885;
             this.txtanchom1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -644,7 +644,7 @@
             this.txtlargom1.ForeColor = System.Drawing.Color.Black;
             this.txtlargom1.Location = new System.Drawing.Point(352, 87);
             this.txtlargom1.Name = "txtlargom1";
-            this.txtlargom1.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom1.Size = new System.Drawing.Size(55, 28);
             this.txtlargom1.TabIndex = 7886;
             this.txtlargom1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -654,7 +654,7 @@
             this.txtdescmad6.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad6.Location = new System.Drawing.Point(91, 212);
             this.txtdescmad6.Name = "txtdescmad6";
-            this.txtdescmad6.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad6.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad6.TabIndex = 7919;
             this.txtdescmad6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -676,7 +676,7 @@
             this.txtdescmad5.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad5.Location = new System.Drawing.Point(91, 187);
             this.txtdescmad5.Name = "txtdescmad5";
-            this.txtdescmad5.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad5.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad5.TabIndex = 7909;
             this.txtdescmad5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -686,7 +686,7 @@
             this.txtcantidad1.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad1.Location = new System.Drawing.Point(409, 87);
             this.txtcantidad1.Name = "txtcantidad1";
-            this.txtcantidad1.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad1.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad1.TabIndex = 7887;
             this.txtcantidad1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -696,7 +696,7 @@
             this.txtdescmad4.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad4.Location = new System.Drawing.Point(91, 162);
             this.txtdescmad4.Name = "txtdescmad4";
-            this.txtdescmad4.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad4.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad4.TabIndex = 7902;
             this.txtdescmad4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -706,7 +706,7 @@
             this.txtdescmad3.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad3.Location = new System.Drawing.Point(91, 137);
             this.txtdescmad3.Name = "txtdescmad3";
-            this.txtdescmad3.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad3.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad3.TabIndex = 7896;
             this.txtdescmad3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -716,7 +716,7 @@
             this.txtdescmad2.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad2.Location = new System.Drawing.Point(91, 112);
             this.txtdescmad2.Name = "txtdescmad2";
-            this.txtdescmad2.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad2.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad2.TabIndex = 7889;
             this.txtdescmad2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -726,7 +726,7 @@
             this.txtdescmad1.ForeColor = System.Drawing.Color.Black;
             this.txtdescmad1.Location = new System.Drawing.Point(91, 87);
             this.txtdescmad1.Name = "txtdescmad1";
-            this.txtdescmad1.Size = new System.Drawing.Size(145, 24);
+            this.txtdescmad1.Size = new System.Drawing.Size(145, 28);
             this.txtdescmad1.TabIndex = 7881;
             this.txtdescmad1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -792,7 +792,7 @@
             this.txtespesorm2.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm2.Location = new System.Drawing.Point(238, 112);
             this.txtespesorm2.Name = "txtespesorm2";
-            this.txtespesorm2.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm2.Size = new System.Drawing.Size(55, 28);
             this.txtespesorm2.TabIndex = 7890;
             this.txtespesorm2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -816,7 +816,7 @@
             this.txtanchom2.ForeColor = System.Drawing.Color.Black;
             this.txtanchom2.Location = new System.Drawing.Point(295, 112);
             this.txtanchom2.Name = "txtanchom2";
-            this.txtanchom2.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom2.Size = new System.Drawing.Size(55, 28);
             this.txtanchom2.TabIndex = 7891;
             this.txtanchom2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -840,7 +840,7 @@
             this.txtlargom2.ForeColor = System.Drawing.Color.Black;
             this.txtlargom2.Location = new System.Drawing.Point(352, 112);
             this.txtlargom2.Name = "txtlargom2";
-            this.txtlargom2.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom2.Size = new System.Drawing.Size(55, 28);
             this.txtlargom2.TabIndex = 7892;
             this.txtlargom2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -862,7 +862,7 @@
             this.txtcantidad2.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad2.Location = new System.Drawing.Point(409, 112);
             this.txtcantidad2.Name = "txtcantidad2";
-            this.txtcantidad2.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad2.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad2.TabIndex = 7893;
             this.txtcantidad2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -884,7 +884,7 @@
             this.txtespesorm3.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm3.Location = new System.Drawing.Point(238, 137);
             this.txtespesorm3.Name = "txtespesorm3";
-            this.txtespesorm3.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm3.Size = new System.Drawing.Size(55, 28);
             this.txtespesorm3.TabIndex = 7897;
             this.txtespesorm3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -906,7 +906,7 @@
             this.txtanchom3.ForeColor = System.Drawing.Color.Black;
             this.txtanchom3.Location = new System.Drawing.Point(295, 137);
             this.txtanchom3.Name = "txtanchom3";
-            this.txtanchom3.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom3.Size = new System.Drawing.Size(55, 28);
             this.txtanchom3.TabIndex = 7898;
             this.txtanchom3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -928,7 +928,7 @@
             this.txtlargom3.ForeColor = System.Drawing.Color.Black;
             this.txtlargom3.Location = new System.Drawing.Point(352, 137);
             this.txtlargom3.Name = "txtlargom3";
-            this.txtlargom3.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom3.Size = new System.Drawing.Size(55, 28);
             this.txtlargom3.TabIndex = 7899;
             this.txtlargom3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -950,11 +950,11 @@
             this.txtcantidad3.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad3.Location = new System.Drawing.Point(409, 137);
             this.txtcantidad3.Name = "txtcantidad3";
-            this.txtcantidad3.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad3.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad3.TabIndex = 7900;
             this.txtcantidad3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblpie1
+            // lblpie11
             // 
             this.lblpie11.BackColor = System.Drawing.Color.Transparent;
             this.lblpie11.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -984,7 +984,7 @@
             this.txtanchom4.ForeColor = System.Drawing.Color.Black;
             this.txtanchom4.Location = new System.Drawing.Point(295, 162);
             this.txtanchom4.Name = "txtanchom4";
-            this.txtanchom4.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom4.Size = new System.Drawing.Size(55, 28);
             this.txtanchom4.TabIndex = 7904;
             this.txtanchom4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -994,7 +994,7 @@
             this.txtcantidad6.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad6.Location = new System.Drawing.Point(409, 212);
             this.txtcantidad6.Name = "txtcantidad6";
-            this.txtcantidad6.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad6.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad6.TabIndex = 7928;
             this.txtcantidad6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1004,7 +1004,7 @@
             this.txtlargom4.ForeColor = System.Drawing.Color.Black;
             this.txtlargom4.Location = new System.Drawing.Point(352, 162);
             this.txtlargom4.Name = "txtlargom4";
-            this.txtlargom4.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom4.Size = new System.Drawing.Size(55, 28);
             this.txtlargom4.TabIndex = 7906;
             this.txtlargom4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1014,7 +1014,7 @@
             this.txtlargom6.ForeColor = System.Drawing.Color.Black;
             this.txtlargom6.Location = new System.Drawing.Point(352, 212);
             this.txtlargom6.Name = "txtlargom6";
-            this.txtlargom6.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom6.Size = new System.Drawing.Size(55, 28);
             this.txtlargom6.TabIndex = 7926;
             this.txtlargom6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1024,7 +1024,7 @@
             this.txtcantidad4.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad4.Location = new System.Drawing.Point(409, 162);
             this.txtcantidad4.Name = "txtcantidad4";
-            this.txtcantidad4.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad4.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad4.TabIndex = 7907;
             this.txtcantidad4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1034,7 +1034,7 @@
             this.txtanchom6.ForeColor = System.Drawing.Color.Black;
             this.txtanchom6.Location = new System.Drawing.Point(295, 212);
             this.txtanchom6.Name = "txtanchom6";
-            this.txtanchom6.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom6.Size = new System.Drawing.Size(55, 28);
             this.txtanchom6.TabIndex = 7923;
             this.txtanchom6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1044,7 +1044,7 @@
             this.txtespesorm5.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm5.Location = new System.Drawing.Point(238, 187);
             this.txtespesorm5.Name = "txtespesorm5";
-            this.txtespesorm5.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm5.Size = new System.Drawing.Size(55, 28);
             this.txtespesorm5.TabIndex = 7911;
             this.txtespesorm5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1054,7 +1054,7 @@
             this.txtespesorm6.ForeColor = System.Drawing.Color.Black;
             this.txtespesorm6.Location = new System.Drawing.Point(238, 212);
             this.txtespesorm6.Name = "txtespesorm6";
-            this.txtespesorm6.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm6.Size = new System.Drawing.Size(55, 28);
             this.txtespesorm6.TabIndex = 7922;
             this.txtespesorm6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1064,7 +1064,7 @@
             this.txtanchom5.ForeColor = System.Drawing.Color.Black;
             this.txtanchom5.Location = new System.Drawing.Point(295, 187);
             this.txtanchom5.Name = "txtanchom5";
-            this.txtanchom5.Size = new System.Drawing.Size(55, 24);
+            this.txtanchom5.Size = new System.Drawing.Size(55, 28);
             this.txtanchom5.TabIndex = 7912;
             this.txtanchom5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1074,7 +1074,7 @@
             this.txtcantidad5.ForeColor = System.Drawing.Color.Black;
             this.txtcantidad5.Location = new System.Drawing.Point(409, 187);
             this.txtcantidad5.Name = "txtcantidad5";
-            this.txtcantidad5.Size = new System.Drawing.Size(55, 24);
+            this.txtcantidad5.Size = new System.Drawing.Size(55, 28);
             this.txtcantidad5.TabIndex = 7915;
             this.txtcantidad5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1084,10 +1084,9 @@
             this.txtlargom5.ForeColor = System.Drawing.Color.Black;
             this.txtlargom5.Location = new System.Drawing.Point(352, 187);
             this.txtlargom5.Name = "txtlargom5";
-            this.txtlargom5.Size = new System.Drawing.Size(55, 24);
+            this.txtlargom5.Size = new System.Drawing.Size(55, 28);
             this.txtlargom5.TabIndex = 7914;
             this.txtlargom5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            
             // 
             // txtganancia
             // 
@@ -1095,7 +1094,7 @@
             this.txtganancia.ForeColor = System.Drawing.Color.Black;
             this.txtganancia.Location = new System.Drawing.Point(490, 19);
             this.txtganancia.Name = "txtganancia";
-            this.txtganancia.Size = new System.Drawing.Size(55, 24);
+            this.txtganancia.Size = new System.Drawing.Size(55, 28);
             this.txtganancia.TabIndex = 7964;
             // 
             // lblganancia
@@ -1184,7 +1183,7 @@
             this.txtvidriolargo1.ForeColor = System.Drawing.Color.Black;
             this.txtvidriolargo1.Location = new System.Drawing.Point(299, 47);
             this.txtvidriolargo1.Name = "txtvidriolargo1";
-            this.txtvidriolargo1.Size = new System.Drawing.Size(55, 24);
+            this.txtvidriolargo1.Size = new System.Drawing.Size(55, 28);
             this.txtvidriolargo1.TabIndex = 7967;
             // 
             // txtvidrioancho1
@@ -1193,7 +1192,7 @@
             this.txtvidrioancho1.ForeColor = System.Drawing.Color.Black;
             this.txtvidrioancho1.Location = new System.Drawing.Point(356, 47);
             this.txtvidrioancho1.Name = "txtvidrioancho1";
-            this.txtvidrioancho1.Size = new System.Drawing.Size(55, 24);
+            this.txtvidrioancho1.Size = new System.Drawing.Size(55, 28);
             this.txtvidrioancho1.TabIndex = 7968;
             // 
             // txtvidriocant1
@@ -1202,7 +1201,7 @@
             this.txtvidriocant1.ForeColor = System.Drawing.Color.Black;
             this.txtvidriocant1.Location = new System.Drawing.Point(413, 47);
             this.txtvidriocant1.Name = "txtvidriocant1";
-            this.txtvidriocant1.Size = new System.Drawing.Size(55, 24);
+            this.txtvidriocant1.Size = new System.Drawing.Size(55, 28);
             this.txtvidriocant1.TabIndex = 7969;
             // 
             // chkvidrio2
@@ -1248,7 +1247,7 @@
             this.txtvidriolargo2.ForeColor = System.Drawing.Color.Black;
             this.txtvidriolargo2.Location = new System.Drawing.Point(299, 72);
             this.txtvidriolargo2.Name = "txtvidriolargo2";
-            this.txtvidriolargo2.Size = new System.Drawing.Size(55, 24);
+            this.txtvidriolargo2.Size = new System.Drawing.Size(55, 28);
             this.txtvidriolargo2.TabIndex = 7972;
             // 
             // lblvalorxmetro22
@@ -1270,7 +1269,7 @@
             this.txtvidrioancho2.ForeColor = System.Drawing.Color.Black;
             this.txtvidrioancho2.Location = new System.Drawing.Point(356, 72);
             this.txtvidrioancho2.Name = "txtvidrioancho2";
-            this.txtvidrioancho2.Size = new System.Drawing.Size(55, 24);
+            this.txtvidrioancho2.Size = new System.Drawing.Size(55, 28);
             this.txtvidrioancho2.TabIndex = 7973;
             // 
             // lblvalorxmetro23
@@ -1292,7 +1291,7 @@
             this.txtvidriocant2.ForeColor = System.Drawing.Color.Black;
             this.txtvidriocant2.Location = new System.Drawing.Point(413, 72);
             this.txtvidriocant2.Name = "txtvidriocant2";
-            this.txtvidriocant2.Size = new System.Drawing.Size(55, 24);
+            this.txtvidriocant2.Size = new System.Drawing.Size(55, 28);
             this.txtvidriocant2.TabIndex = 7974;
             // 
             // chkvidrio3
@@ -1313,7 +1312,7 @@
             this.txtvidriolargo3.ForeColor = System.Drawing.Color.Black;
             this.txtvidriolargo3.Location = new System.Drawing.Point(299, 97);
             this.txtvidriolargo3.Name = "txtvidriolargo3";
-            this.txtvidriolargo3.Size = new System.Drawing.Size(55, 24);
+            this.txtvidriolargo3.Size = new System.Drawing.Size(55, 28);
             this.txtvidriolargo3.TabIndex = 7977;
             // 
             // txtvidrioancho3
@@ -1322,7 +1321,7 @@
             this.txtvidrioancho3.ForeColor = System.Drawing.Color.Black;
             this.txtvidrioancho3.Location = new System.Drawing.Point(356, 97);
             this.txtvidrioancho3.Name = "txtvidrioancho3";
-            this.txtvidrioancho3.Size = new System.Drawing.Size(55, 24);
+            this.txtvidrioancho3.Size = new System.Drawing.Size(55, 28);
             this.txtvidrioancho3.TabIndex = 7978;
             // 
             // txtvidriocant3
@@ -1331,7 +1330,7 @@
             this.txtvidriocant3.ForeColor = System.Drawing.Color.Black;
             this.txtvidriocant3.Location = new System.Drawing.Point(413, 97);
             this.txtvidriocant3.Name = "txtvidriocant3";
-            this.txtvidriocant3.Size = new System.Drawing.Size(55, 24);
+            this.txtvidriocant3.Size = new System.Drawing.Size(55, 28);
             this.txtvidriocant3.TabIndex = 7979;
             // 
             // lblLargoVidrio
@@ -1490,7 +1489,7 @@
             this.cmbVidrio1.FormattingEnabled = true;
             this.cmbVidrio1.Location = new System.Drawing.Point(81, 46);
             this.cmbVidrio1.Name = "cmbVidrio1";
-            this.cmbVidrio1.Size = new System.Drawing.Size(135, 24);
+            this.cmbVidrio1.Size = new System.Drawing.Size(135, 29);
             this.cmbVidrio1.TabIndex = 7966;
             // 
             // cmbVidrio2
@@ -1499,7 +1498,7 @@
             this.cmbVidrio2.FormattingEnabled = true;
             this.cmbVidrio2.Location = new System.Drawing.Point(81, 71);
             this.cmbVidrio2.Name = "cmbVidrio2";
-            this.cmbVidrio2.Size = new System.Drawing.Size(135, 24);
+            this.cmbVidrio2.Size = new System.Drawing.Size(135, 29);
             this.cmbVidrio2.TabIndex = 7971;
             // 
             // cmbVidrio3
@@ -1508,7 +1507,7 @@
             this.cmbVidrio3.FormattingEnabled = true;
             this.cmbVidrio3.Location = new System.Drawing.Point(81, 96);
             this.cmbVidrio3.Name = "cmbVidrio3";
-            this.cmbVidrio3.Size = new System.Drawing.Size(135, 24);
+            this.cmbVidrio3.Size = new System.Drawing.Size(135, 29);
             this.cmbVidrio3.TabIndex = 7976;
             // 
             // groupBox4
@@ -1570,7 +1569,7 @@
             this.cmbMaterial6.FormattingEnabled = true;
             this.cmbMaterial6.Location = new System.Drawing.Point(203, 172);
             this.cmbMaterial6.Name = "cmbMaterial6";
-            this.cmbMaterial6.Size = new System.Drawing.Size(180, 24);
+            this.cmbMaterial6.Size = new System.Drawing.Size(180, 29);
             this.cmbMaterial6.TabIndex = 8023;
             // 
             // chkmaterial6
@@ -1591,7 +1590,7 @@
             this.txtMaterialCantidad6.ForeColor = System.Drawing.Color.Black;
             this.txtMaterialCantidad6.Location = new System.Drawing.Point(385, 172);
             this.txtMaterialCantidad6.Name = "txtMaterialCantidad6";
-            this.txtMaterialCantidad6.Size = new System.Drawing.Size(55, 24);
+            this.txtMaterialCantidad6.Size = new System.Drawing.Size(55, 28);
             this.txtMaterialCantidad6.TabIndex = 8024;
             // 
             // lblMaterialUnidad6
@@ -1627,7 +1626,7 @@
             this.cmbTipoMaterial6.FormattingEnabled = true;
             this.cmbTipoMaterial6.Location = new System.Drawing.Point(22, 172);
             this.cmbTipoMaterial6.Name = "cmbTipoMaterial6";
-            this.cmbTipoMaterial6.Size = new System.Drawing.Size(180, 24);
+            this.cmbTipoMaterial6.Size = new System.Drawing.Size(180, 29);
             this.cmbTipoMaterial6.TabIndex = 8022;
             // 
             // lblMaterial
@@ -1661,7 +1660,7 @@
             this.cmbMaterial5.FormattingEnabled = true;
             this.cmbMaterial5.Location = new System.Drawing.Point(203, 147);
             this.cmbMaterial5.Name = "cmbMaterial5";
-            this.cmbMaterial5.Size = new System.Drawing.Size(180, 24);
+            this.cmbMaterial5.Size = new System.Drawing.Size(180, 29);
             this.cmbMaterial5.TabIndex = 8019;
             // 
             // chkmaterial5
@@ -1682,7 +1681,7 @@
             this.txtMaterialCantidad5.ForeColor = System.Drawing.Color.Black;
             this.txtMaterialCantidad5.Location = new System.Drawing.Point(385, 147);
             this.txtMaterialCantidad5.Name = "txtMaterialCantidad5";
-            this.txtMaterialCantidad5.Size = new System.Drawing.Size(55, 24);
+            this.txtMaterialCantidad5.Size = new System.Drawing.Size(55, 28);
             this.txtMaterialCantidad5.TabIndex = 8020;
             // 
             // lblMaterialUnidad5
@@ -1718,7 +1717,7 @@
             this.cmbTipoMaterial5.FormattingEnabled = true;
             this.cmbTipoMaterial5.Location = new System.Drawing.Point(22, 147);
             this.cmbTipoMaterial5.Name = "cmbTipoMaterial5";
-            this.cmbTipoMaterial5.Size = new System.Drawing.Size(180, 24);
+            this.cmbTipoMaterial5.Size = new System.Drawing.Size(180, 29);
             this.cmbTipoMaterial5.TabIndex = 8018;
             // 
             // cmbMaterial4
@@ -1728,7 +1727,7 @@
             this.cmbMaterial4.FormattingEnabled = true;
             this.cmbMaterial4.Location = new System.Drawing.Point(203, 122);
             this.cmbMaterial4.Name = "cmbMaterial4";
-            this.cmbMaterial4.Size = new System.Drawing.Size(180, 24);
+            this.cmbMaterial4.Size = new System.Drawing.Size(180, 29);
             this.cmbMaterial4.TabIndex = 8015;
             // 
             // chkmaterial4
@@ -1749,7 +1748,7 @@
             this.txtMaterialCantidad4.ForeColor = System.Drawing.Color.Black;
             this.txtMaterialCantidad4.Location = new System.Drawing.Point(385, 122);
             this.txtMaterialCantidad4.Name = "txtMaterialCantidad4";
-            this.txtMaterialCantidad4.Size = new System.Drawing.Size(55, 24);
+            this.txtMaterialCantidad4.Size = new System.Drawing.Size(55, 28);
             this.txtMaterialCantidad4.TabIndex = 8016;
             // 
             // lblMaterialUnidad4
@@ -1785,7 +1784,7 @@
             this.cmbTipoMaterial4.FormattingEnabled = true;
             this.cmbTipoMaterial4.Location = new System.Drawing.Point(22, 122);
             this.cmbTipoMaterial4.Name = "cmbTipoMaterial4";
-            this.cmbTipoMaterial4.Size = new System.Drawing.Size(180, 24);
+            this.cmbTipoMaterial4.Size = new System.Drawing.Size(180, 29);
             this.cmbTipoMaterial4.TabIndex = 8014;
             // 
             // cmbMaterial3
@@ -1795,7 +1794,7 @@
             this.cmbMaterial3.FormattingEnabled = true;
             this.cmbMaterial3.Location = new System.Drawing.Point(203, 97);
             this.cmbMaterial3.Name = "cmbMaterial3";
-            this.cmbMaterial3.Size = new System.Drawing.Size(180, 24);
+            this.cmbMaterial3.Size = new System.Drawing.Size(180, 29);
             this.cmbMaterial3.TabIndex = 8011;
             // 
             // chkmaterial3
@@ -1816,7 +1815,7 @@
             this.txtMaterialCantidad3.ForeColor = System.Drawing.Color.Black;
             this.txtMaterialCantidad3.Location = new System.Drawing.Point(385, 97);
             this.txtMaterialCantidad3.Name = "txtMaterialCantidad3";
-            this.txtMaterialCantidad3.Size = new System.Drawing.Size(55, 24);
+            this.txtMaterialCantidad3.Size = new System.Drawing.Size(55, 28);
             this.txtMaterialCantidad3.TabIndex = 8012;
             // 
             // lblMaterialUnidad3
@@ -1852,7 +1851,7 @@
             this.cmbTipoMaterial3.FormattingEnabled = true;
             this.cmbTipoMaterial3.Location = new System.Drawing.Point(22, 97);
             this.cmbTipoMaterial3.Name = "cmbTipoMaterial3";
-            this.cmbTipoMaterial3.Size = new System.Drawing.Size(180, 24);
+            this.cmbTipoMaterial3.Size = new System.Drawing.Size(180, 29);
             this.cmbTipoMaterial3.TabIndex = 8010;
             // 
             // cmbMaterial2
@@ -1862,7 +1861,7 @@
             this.cmbMaterial2.FormattingEnabled = true;
             this.cmbMaterial2.Location = new System.Drawing.Point(203, 72);
             this.cmbMaterial2.Name = "cmbMaterial2";
-            this.cmbMaterial2.Size = new System.Drawing.Size(180, 24);
+            this.cmbMaterial2.Size = new System.Drawing.Size(180, 29);
             this.cmbMaterial2.TabIndex = 8007;
             // 
             // chkmaterial2
@@ -1883,7 +1882,7 @@
             this.txtMaterialCantidad2.ForeColor = System.Drawing.Color.Black;
             this.txtMaterialCantidad2.Location = new System.Drawing.Point(385, 72);
             this.txtMaterialCantidad2.Name = "txtMaterialCantidad2";
-            this.txtMaterialCantidad2.Size = new System.Drawing.Size(55, 24);
+            this.txtMaterialCantidad2.Size = new System.Drawing.Size(55, 28);
             this.txtMaterialCantidad2.TabIndex = 8008;
             // 
             // lblMaterialUnidad2
@@ -1919,7 +1918,7 @@
             this.cmbTipoMaterial2.FormattingEnabled = true;
             this.cmbTipoMaterial2.Location = new System.Drawing.Point(22, 72);
             this.cmbTipoMaterial2.Name = "cmbTipoMaterial2";
-            this.cmbTipoMaterial2.Size = new System.Drawing.Size(180, 24);
+            this.cmbTipoMaterial2.Size = new System.Drawing.Size(180, 29);
             this.cmbTipoMaterial2.TabIndex = 8006;
             // 
             // cmbMaterial1
@@ -1929,7 +1928,7 @@
             this.cmbMaterial1.FormattingEnabled = true;
             this.cmbMaterial1.Location = new System.Drawing.Point(203, 47);
             this.cmbMaterial1.Name = "cmbMaterial1";
-            this.cmbMaterial1.Size = new System.Drawing.Size(180, 24);
+            this.cmbMaterial1.Size = new System.Drawing.Size(180, 29);
             this.cmbMaterial1.TabIndex = 8004;
             // 
             // chkmaterial1
@@ -1950,7 +1949,7 @@
             this.txtMaterialCantidad1.ForeColor = System.Drawing.Color.Black;
             this.txtMaterialCantidad1.Location = new System.Drawing.Point(385, 47);
             this.txtMaterialCantidad1.Name = "txtMaterialCantidad1";
-            this.txtMaterialCantidad1.Size = new System.Drawing.Size(55, 24);
+            this.txtMaterialCantidad1.Size = new System.Drawing.Size(55, 28);
             this.txtMaterialCantidad1.TabIndex = 8005;
             // 
             // lblMaterialUnidad1
@@ -1986,7 +1985,7 @@
             this.cmbTipoMaterial1.FormattingEnabled = true;
             this.cmbTipoMaterial1.Location = new System.Drawing.Point(22, 47);
             this.cmbTipoMaterial1.Name = "cmbTipoMaterial1";
-            this.cmbTipoMaterial1.Size = new System.Drawing.Size(180, 24);
+            this.cmbTipoMaterial1.Size = new System.Drawing.Size(180, 29);
             this.cmbTipoMaterial1.TabIndex = 8003;
             // 
             // lblCantBisagras
@@ -2055,7 +2054,7 @@
             this.txtMaterialPrecio2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterialPrecio2.Location = new System.Drawing.Point(288, 60);
             this.txtMaterialPrecio2.Name = "txtMaterialPrecio2";
-            this.txtMaterialPrecio2.Size = new System.Drawing.Size(100, 24);
+            this.txtMaterialPrecio2.Size = new System.Drawing.Size(100, 28);
             this.txtMaterialPrecio2.TabIndex = 8030;
             // 
             // txtMaterialPrecio3
@@ -2063,7 +2062,7 @@
             this.txtMaterialPrecio3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterialPrecio3.Location = new System.Drawing.Point(288, 85);
             this.txtMaterialPrecio3.Name = "txtMaterialPrecio3";
-            this.txtMaterialPrecio3.Size = new System.Drawing.Size(100, 24);
+            this.txtMaterialPrecio3.Size = new System.Drawing.Size(100, 28);
             this.txtMaterialPrecio3.TabIndex = 8033;
             // 
             // txtMaterialPrecio1
@@ -2071,7 +2070,7 @@
             this.txtMaterialPrecio1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterialPrecio1.Location = new System.Drawing.Point(288, 35);
             this.txtMaterialPrecio1.Name = "txtMaterialPrecio1";
-            this.txtMaterialPrecio1.Size = new System.Drawing.Size(100, 24);
+            this.txtMaterialPrecio1.Size = new System.Drawing.Size(100, 28);
             this.txtMaterialPrecio1.TabIndex = 8027;
             // 
             // label16
@@ -2091,7 +2090,7 @@
             this.txtDescMateriale2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescMateriale2.Location = new System.Drawing.Point(126, 60);
             this.txtDescMateriale2.Name = "txtDescMateriale2";
-            this.txtDescMateriale2.Size = new System.Drawing.Size(160, 24);
+            this.txtDescMateriale2.Size = new System.Drawing.Size(160, 28);
             this.txtDescMateriale2.TabIndex = 8029;
             // 
             // chkotrosmateriales2
@@ -2121,7 +2120,7 @@
             this.txtDescMateriale3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescMateriale3.Location = new System.Drawing.Point(126, 85);
             this.txtDescMateriale3.Name = "txtDescMateriale3";
-            this.txtDescMateriale3.Size = new System.Drawing.Size(160, 24);
+            this.txtDescMateriale3.Size = new System.Drawing.Size(160, 28);
             this.txtDescMateriale3.TabIndex = 8032;
             // 
             // chkotrosmateriales3
@@ -2139,7 +2138,7 @@
             this.txtDescMateriale1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescMateriale1.Location = new System.Drawing.Point(126, 35);
             this.txtDescMateriale1.Name = "txtDescMateriale1";
-            this.txtDescMateriale1.Size = new System.Drawing.Size(160, 24);
+            this.txtDescMateriale1.Size = new System.Drawing.Size(160, 28);
             this.txtDescMateriale1.TabIndex = 8026;
             // 
             // chkotrosmateriales1
@@ -2255,7 +2254,7 @@
             this.txtDescripcionMueble.ForeColor = System.Drawing.Color.Black;
             this.txtDescripcionMueble.Location = new System.Drawing.Point(119, 6);
             this.txtDescripcionMueble.Name = "txtDescripcionMueble";
-            this.txtDescripcionMueble.Size = new System.Drawing.Size(400, 24);
+            this.txtDescripcionMueble.Size = new System.Drawing.Size(400, 28);
             this.txtDescripcionMueble.TabIndex = 7965;
             // 
             // lblDescripcionMueble
@@ -2369,7 +2368,7 @@
             // 
             // frmCotizador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
@@ -2459,7 +2458,7 @@
         private System.Windows.Forms.Label lblpie2;
         private System.Windows.Forms.TextBox txtcantidad3;
         private System.Windows.Forms.Label lblpie11;
-        private System.Windows.Forms.TextBox txtespesorm44;
+        private System.Windows.Forms.TextBox txtespesorm4;
         private System.Windows.Forms.Label lblpiesm;
         private System.Windows.Forms.TextBox txtanchom4;
         private System.Windows.Forms.TextBox txtcantidad6;
@@ -2593,6 +2592,6 @@
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblpie1;
     }
 }

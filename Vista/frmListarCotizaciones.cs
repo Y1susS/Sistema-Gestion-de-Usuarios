@@ -1,4 +1,5 @@
-﻿using Entidades.DTOs;
+﻿using Entidades;
+using Entidades.DTOs;
 using Logica;
 using Sistema_Gestion_de_Usuarios.Vista;
 using System;
@@ -18,9 +19,22 @@ namespace Vista
         private List<DtoCotizacion> cotizaciones = new List<DtoCotizacion>();
         private List<DtoCotizacion> vistaFiltrada = new List<DtoCotizacion>(); // lista mostrada
 
+        private bool esModoSeleccion; //para presupuestador
+        public List<DtoPresupuestoDetalle> CotizacionesSeleccionadas { get; private set; } //para presupuestador
+
         public frmListarCotizaciones()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
+            this.Load -= frmListarCotizaciones_Load;
+            this.Load += frmListarCotizaciones_Load;
+        }
+
+        public frmListarCotizaciones(bool modoSeleccion = false)
+        {
+            InitializeComponent();
+            this.esModoSeleccion = modoSeleccion;
             Idioma.CargarIdiomaGuardado();
             Idioma.AplicarTraduccion(this);
             this.Load -= frmListarCotizaciones_Load;
@@ -32,6 +46,7 @@ namespace Vista
             try
             {
                 ConfigurarDataGridView();
+                ConfigurarUI(); // para prespuestador
                 ConfigurarEventosBusqueda();
                 CargarCotizaciones();
             }
@@ -48,7 +63,6 @@ namespace Vista
             dvgCotizaciones.AllowUserToAddRows = false;
             dvgCotizaciones.AllowUserToDeleteRows = false;
             dvgCotizaciones.ReadOnly = true;
-            dvgCotizaciones.MultiSelect = false;
             dvgCotizaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dvgCotizaciones.RowHeadersVisible = false;
 
@@ -116,6 +130,14 @@ namespace Vista
 
             dvgCotizaciones.KeyDown -= dvgCotizaciones_KeyDown;
             dvgCotizaciones.KeyDown += dvgCotizaciones_KeyDown;
+
+            //parapresupestador
+            var btnSeleccionar = Controls.Find("btnSeleccionarCotizacion", true).FirstOrDefault() as Button;
+            if (btnSeleccionar != null)
+            {
+                btnSeleccionar.Click -= btnSeleccionarCotizacion_Click;
+                btnSeleccionar.Click += btnSeleccionarCotizacion_Click;
+            }
         }
 
         private void CargarCotizaciones()
@@ -314,7 +336,21 @@ namespace Vista
             var fila = dvgCotizaciones.Rows[e.RowIndex].DataBoundItem as DtoCotizacion;
             if (fila == null) return;
 
-            EditarCotizacion(fila);
+            //presupuestador
+            if (this.esModoSeleccion)
+            {
+                // Selecciona solo esta fila (MultiSelect puede estar activo, pero solo actuamos sobre esta)
+                dvgCotizaciones.ClearSelection();
+                dvgCotizaciones.Rows[e.RowIndex].Selected = true;
+
+                // Llamar a la lógica de selección
+                btnSeleccionarCotizacion_Click(sender, e);
+            }
+            else
+            {
+                // Si no, doble clic = editar
+                EditarCotizacion(fila);
+            }
         }
 
         private void dvgCotizaciones_KeyDown(object sender, KeyEventArgs e)
@@ -524,6 +560,70 @@ namespace Vista
         private void pnlFiltrarCotizaciones_Paint(object sender, PaintEventArgs e)
         {
             ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        // presupuestador
+
+        private void ConfigurarUI()
+        {
+            var btnSeleccionar = Controls.Find("btnSeleccionarCotizacion", true).FirstOrDefault() as Button;
+            var btnEditar = Controls.Find("btnEditarCotizacion", true).FirstOrDefault() as Button;
+            var btnEliminar = Controls.Find("btnEliminarCotizacion", true).FirstOrDefault() as Button;
+
+            if (this.esModoSeleccion)
+            {
+                // Modo Presupuestador (Selección Múltiple)
+                dvgCotizaciones.MultiSelect = true;
+                dvgCotizaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Asegurar selección completa
+
+                if (btnSeleccionar != null) btnSeleccionar.Visible = true;
+                if (btnEditar != null) btnEditar.Visible = false;
+                if (btnEliminar != null) btnEliminar.Visible = false;
+            }
+            else
+            {
+                // Modo Normal (Gestión / Edición)
+                dvgCotizaciones.MultiSelect = false;
+
+                if (btnSeleccionar != null) btnSeleccionar.Visible = false;
+                // Dejar visibles los botones de Editar/Eliminar existentes
+                if (btnEditar != null) btnEditar.Visible = true;
+                if (btnEliminar != null) btnEliminar.Visible = true;
+            }
+        }
+
+        private void btnSeleccionarCotizacion_Click(object sender, EventArgs e)
+        {
+            if (dvgCotizaciones.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos una cotización.", "Advertencia",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            this.CotizacionesSeleccionadas = new List<DtoPresupuestoDetalle>();
+
+            foreach (DataGridViewRow row in dvgCotizaciones.SelectedRows)
+            {
+                var cotizacionOriginal = row.DataBoundItem as DtoCotizacion;
+
+                if (cotizacionOriginal != null)
+                {
+                    DtoPresupuestoDetalle detalle = new DtoPresupuestoDetalle
+                    {
+                        IdCotizacion = cotizacionOriginal.Id_Cotizacion,
+                        NumeroCotizacion = cotizacionOriginal.NumeroCotizacion,
+                        PrecioUnitario = cotizacionOriginal.MontoFinal , 
+                        Observaciones = cotizacionOriginal.DescripcionMueble,
+                        Cantidad = 1, 
+                    };
+
+                    this.CotizacionesSeleccionadas.Add(detalle);
+                }
+            }
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

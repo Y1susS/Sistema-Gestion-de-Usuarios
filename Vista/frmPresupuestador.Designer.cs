@@ -43,11 +43,9 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.cmbDni = new System.Windows.Forms.ComboBox();
             this.gbxCotizaciones = new System.Windows.Forms.GroupBox();
-            this.btnCotizar = new System.Windows.Forms.Button();
             this.btnBuscarCotizacion = new System.Windows.Forms.Button();
             this.btnSubtotal = new System.Windows.Forms.Button();
             this.btnBorrarCotizacion = new System.Windows.Forms.Button();
-            this.btnEditarCotizacion = new System.Windows.Forms.Button();
             this.dgvPresupuesto = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
@@ -73,6 +71,7 @@
             this.pnlPresupuesto = new System.Windows.Forms.Panel();
             this.pnlTotales = new System.Windows.Forms.Panel();
             this.pnlVigencia = new System.Windows.Forms.Panel();
+            this.btnEditarCotizacion = new System.Windows.Forms.Button();
             this.gbxCliente.SuspendLayout();
             this.gbxCotizaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPresupuesto)).BeginInit();
@@ -117,7 +116,7 @@
             this.txtMailCliente.Location = new System.Drawing.Point(398, 89);
             this.txtMailCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtMailCliente.Name = "txtMailCliente";
-            this.txtMailCliente.Size = new System.Drawing.Size(202, 25);
+            this.txtMailCliente.Size = new System.Drawing.Size(202, 30);
             this.txtMailCliente.TabIndex = 24;
             // 
             // lblemailclientepresupuesto
@@ -138,7 +137,7 @@
             this.txtTelefonoCliente.Location = new System.Drawing.Point(714, 81);
             this.txtTelefonoCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
-            this.txtTelefonoCliente.Size = new System.Drawing.Size(100, 25);
+            this.txtTelefonoCliente.Size = new System.Drawing.Size(100, 30);
             this.txtTelefonoCliente.TabIndex = 22;
             // 
             // txtApellidoCliente
@@ -148,7 +147,7 @@
             this.txtApellidoCliente.Location = new System.Drawing.Point(664, 47);
             this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.Size = new System.Drawing.Size(150, 25);
+            this.txtApellidoCliente.Size = new System.Drawing.Size(150, 30);
             this.txtApellidoCliente.TabIndex = 20;
             // 
             // lbltelefonoclientepresupuesto
@@ -180,7 +179,7 @@
             this.txtNombreCliente.Location = new System.Drawing.Point(398, 47);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(150, 25);
+            this.txtNombreCliente.Size = new System.Drawing.Size(150, 30);
             this.txtNombreCliente.TabIndex = 18;
             // 
             // lblnombreclientepresupuesto
@@ -227,7 +226,7 @@
             this.txtDni.Location = new System.Drawing.Point(100, 63);
             this.txtDni.Margin = new System.Windows.Forms.Padding(2);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 25);
+            this.txtDni.Size = new System.Drawing.Size(100, 30);
             this.txtDni.TabIndex = 14;
             this.txtDni.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDni_KeyDown);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_Keypress);
@@ -240,13 +239,12 @@
             this.cmbDni.Location = new System.Drawing.Point(42, 62);
             this.cmbDni.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDni.Name = "cmbDni";
-            this.cmbDni.Size = new System.Drawing.Size(54, 26);
+            this.cmbDni.Size = new System.Drawing.Size(54, 30);
             this.cmbDni.TabIndex = 13;
             // 
             // gbxCotizaciones
             // 
             this.gbxCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.gbxCotizaciones.Controls.Add(this.btnCotizar);
             this.gbxCotizaciones.Controls.Add(this.btnBuscarCotizacion);
             this.gbxCotizaciones.Controls.Add(this.btnSubtotal);
             this.gbxCotizaciones.Controls.Add(this.btnBorrarCotizacion);
@@ -263,20 +261,6 @@
             this.gbxCotizaciones.TabStop = false;
             this.gbxCotizaciones.Text = "Cotizaciones";
             // 
-            // btnCotizar
-            // 
-            this.btnCotizar.BackColor = System.Drawing.Color.White;
-            this.btnCotizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCotizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCotizar.ForeColor = System.Drawing.Color.Black;
-            this.btnCotizar.Location = new System.Drawing.Point(730, 41);
-            this.btnCotizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCotizar.Name = "btnCotizar";
-            this.btnCotizar.Size = new System.Drawing.Size(100, 30);
-            this.btnCotizar.TabIndex = 25;
-            this.btnCotizar.Text = "Cotizar";
-            this.btnCotizar.UseVisualStyleBackColor = false;
-            // 
             // btnBuscarCotizacion
             // 
             this.btnBuscarCotizacion.ForeColor = System.Drawing.Color.Black;
@@ -287,6 +271,7 @@
             this.btnBuscarCotizacion.TabIndex = 24;
             this.btnBuscarCotizacion.Text = "Buscar cotización existente";
             this.btnBuscarCotizacion.UseVisualStyleBackColor = true;
+            this.btnBuscarCotizacion.Click += new System.EventHandler(this.btnBuscarCotizacion_Click);
             // 
             // btnSubtotal
             // 
@@ -309,7 +294,7 @@
             this.btnBorrarCotizacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnBorrarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarCotizacion.ForeColor = System.Drawing.Color.Black;
-            this.btnBorrarCotizacion.Location = new System.Drawing.Point(730, 136);
+            this.btnBorrarCotizacion.Location = new System.Drawing.Point(730, 126);
             this.btnBorrarCotizacion.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrarCotizacion.Name = "btnBorrarCotizacion";
             this.btnBorrarCotizacion.Size = new System.Drawing.Size(100, 30);
@@ -317,20 +302,6 @@
             this.btnBorrarCotizacion.Text = "Borrar";
             this.btnBorrarCotizacion.UseVisualStyleBackColor = false;
             this.btnBorrarCotizacion.Click += new System.EventHandler(this.btnBorrarCotizacion_Click);
-            // 
-            // btnEditarCotizacion
-            // 
-            this.btnEditarCotizacion.BackColor = System.Drawing.Color.White;
-            this.btnEditarCotizacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnEditarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarCotizacion.ForeColor = System.Drawing.Color.Black;
-            this.btnEditarCotizacion.Location = new System.Drawing.Point(730, 85);
-            this.btnEditarCotizacion.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEditarCotizacion.Name = "btnEditarCotizacion";
-            this.btnEditarCotizacion.Size = new System.Drawing.Size(100, 30);
-            this.btnEditarCotizacion.TabIndex = 20;
-            this.btnEditarCotizacion.Text = "Editar";
-            this.btnEditarCotizacion.UseVisualStyleBackColor = false;
             // 
             // dgvPresupuesto
             // 
@@ -353,7 +324,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 30);
             this.button1.TabIndex = 37;
-            this.button1.Text = "Guardar cotización";
+            this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -385,13 +356,13 @@
             this.txtDescripcion.Location = new System.Drawing.Point(140, 9);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(319, 25);
+            this.txtDescripcion.Size = new System.Drawing.Size(319, 30);
             this.txtDescripcion.TabIndex = 20;
             // 
             // lblsubtotal
             // 
             this.lblsubtotal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsubtotal.Location = new System.Drawing.Point(10, 10);
+            this.lblsubtotal.Location = new System.Drawing.Point(38, 12);
             this.lblsubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblsubtotal.Name = "lblsubtotal";
             this.lblsubtotal.Size = new System.Drawing.Size(70, 25);
@@ -402,7 +373,7 @@
             // lblValorSubtotal
             // 
             this.lblValorSubtotal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorSubtotal.Location = new System.Drawing.Point(172, 10);
+            this.lblValorSubtotal.Location = new System.Drawing.Point(176, 12);
             this.lblValorSubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValorSubtotal.Name = "lblValorSubtotal";
             this.lblValorSubtotal.Size = new System.Drawing.Size(135, 25);
@@ -414,7 +385,7 @@
             // lbldescuentopresupuesto
             // 
             this.lbldescuentopresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescuentopresupuesto.Location = new System.Drawing.Point(10, 45);
+            this.lbldescuentopresupuesto.Location = new System.Drawing.Point(10, 52);
             this.lbldescuentopresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbldescuentopresupuesto.Name = "lbldescuentopresupuesto";
             this.lbldescuentopresupuesto.Size = new System.Drawing.Size(95, 25);
@@ -426,17 +397,17 @@
             // 
             this.txtDescuento.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescuento.ForeColor = System.Drawing.Color.Black;
-            this.txtDescuento.Location = new System.Drawing.Point(149, 46);
+            this.txtDescuento.Location = new System.Drawing.Point(149, 53);
             this.txtDescuento.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(63, 25);
+            this.txtDescuento.Size = new System.Drawing.Size(63, 30);
             this.txtDescuento.TabIndex = 24;
             // 
             // btnaplicarDescuento
             // 
             this.btnaplicarDescuento.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnaplicarDescuento.ForeColor = System.Drawing.Color.Black;
-            this.btnaplicarDescuento.Location = new System.Drawing.Point(235, 42);
+            this.btnaplicarDescuento.Location = new System.Drawing.Point(235, 49);
             this.btnaplicarDescuento.Margin = new System.Windows.Forms.Padding(2);
             this.btnaplicarDescuento.Name = "btnaplicarDescuento";
             this.btnaplicarDescuento.Size = new System.Drawing.Size(120, 30);
@@ -448,7 +419,7 @@
             // lblValorPresupuesto
             // 
             this.lblValorPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorPresupuesto.Location = new System.Drawing.Point(145, 80);
+            this.lblValorPresupuesto.Location = new System.Drawing.Point(145, 95);
             this.lblValorPresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValorPresupuesto.Name = "lblValorPresupuesto";
             this.lblValorPresupuesto.Size = new System.Drawing.Size(210, 25);
@@ -460,7 +431,7 @@
             // lbltotalpresupuesto
             // 
             this.lbltotalpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalpresupuesto.Location = new System.Drawing.Point(10, 80);
+            this.lbltotalpresupuesto.Location = new System.Drawing.Point(10, 95);
             this.lbltotalpresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbltotalpresupuesto.Name = "lbltotalpresupuesto";
             this.lbltotalpresupuesto.Size = new System.Drawing.Size(130, 25);
@@ -484,10 +455,10 @@
             // 
             this.dtpVigencia.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpVigencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVigencia.Location = new System.Drawing.Point(42, 77);
+            this.dtpVigencia.Location = new System.Drawing.Point(39, 77);
             this.dtpVigencia.Margin = new System.Windows.Forms.Padding(2);
             this.dtpVigencia.Name = "dtpVigencia";
-            this.dtpVigencia.Size = new System.Drawing.Size(135, 25);
+            this.dtpVigencia.Size = new System.Drawing.Size(138, 30);
             this.dtpVigencia.TabIndex = 33;
             // 
             // label15
@@ -598,7 +569,7 @@
             this.pnlPresupuesto.ForeColor = System.Drawing.Color.White;
             this.pnlPresupuesto.Location = new System.Drawing.Point(10, 210);
             this.pnlPresupuesto.Name = "pnlPresupuesto";
-            this.pnlPresupuesto.Size = new System.Drawing.Size(830, 52);
+            this.pnlPresupuesto.Size = new System.Drawing.Size(840, 52);
             this.pnlPresupuesto.TabIndex = 8048;
             this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint);
             // 
@@ -631,9 +602,24 @@
             this.pnlVigencia.TabIndex = 8050;
             this.pnlVigencia.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlVigencia_Paint);
             // 
+            // btnEditarCotizacion
+            // 
+            this.btnEditarCotizacion.BackColor = System.Drawing.Color.White;
+            this.btnEditarCotizacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEditarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarCotizacion.ForeColor = System.Drawing.Color.Black;
+            this.btnEditarCotizacion.Location = new System.Drawing.Point(730, 67);
+            this.btnEditarCotizacion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditarCotizacion.Name = "btnEditarCotizacion";
+            this.btnEditarCotizacion.Size = new System.Drawing.Size(100, 30);
+            this.btnEditarCotizacion.TabIndex = 20;
+            this.btnEditarCotizacion.Text = "Editar";
+            this.btnEditarCotizacion.UseVisualStyleBackColor = false;
+            this.btnEditarCotizacion.Click += new System.EventHandler(this.btnEditarCotizacion_Click);
+            // 
             // frmPresupuestador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
@@ -702,12 +688,10 @@
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button btnSubtotal;
         private System.Windows.Forms.Button btnBorrarCotizacion;
-        private System.Windows.Forms.Button btnEditarCotizacion;
         private System.Windows.Forms.DateTimePicker dtpVigencia;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnBuscarCotizacion;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnCotizar;
         private System.Windows.Forms.Button btnBuscarPresupuesto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnlBorde;
@@ -718,5 +702,6 @@
         private System.Windows.Forms.Panel pnlPresupuesto;
         private System.Windows.Forms.Panel pnlTotales;
         private System.Windows.Forms.Panel pnlVigencia;
+        private System.Windows.Forms.Button btnEditarCotizacion;
     }
 }

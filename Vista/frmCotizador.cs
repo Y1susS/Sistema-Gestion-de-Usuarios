@@ -706,10 +706,10 @@ namespace Vista
                 OcultarLabelsResultados();
 
                 // Procesar cada línea de cálculo
-                ProcesarLineaCalculo(1, txtespesorm1, txtanchom1, txtlargom1, txtcantidad1, chk1, lblpie11, txtdescmad1);
+                ProcesarLineaCalculo(1, txtespesorm1, txtanchom1, txtlargom1, txtcantidad1, chk1, lblpie1, txtdescmad1);
                 ProcesarLineaCalculo(2, txtespesorm2, txtanchom2, txtlargom2, txtcantidad2, chk2, lblpie2, txtdescmad2);
                 ProcesarLineaCalculo(3, txtespesorm3, txtanchom3, txtlargom3, txtcantidad3, chk3, lblpie3, txtdescmad3);
-                ProcesarLineaCalculo(4, txtespesorm44, txtanchom4, txtlargom4, txtcantidad4, chk4, lblpie4, txtdescmad4);
+                ProcesarLineaCalculo(4, txtespesorm4, txtanchom4, txtlargom4, txtcantidad4, chk4, lblpie4, txtdescmad4);
                 ProcesarLineaCalculo(5, txtespesorm5, txtanchom5, txtlargom5, txtcantidad5, chk5, lblpie5, txtdescmad5);
                 ProcesarLineaCalculo(6, txtespesorm6, txtanchom6, txtlargom6, txtcantidad6, chk6, lblpie6, txtdescmad6);
                 ProcesarLineaCalculo(7, txtespesorm7, txtanchom7, txtlargom7, txtcantidad7, chk7, lblpie7, txtdescmad7);
