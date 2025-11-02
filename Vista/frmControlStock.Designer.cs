@@ -54,6 +54,8 @@
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.grpStock = new System.Windows.Forms.GroupBox();
             this.btnEliminarstock = new System.Windows.Forms.Button();
+            this.cbxStockCritico = new System.Windows.Forms.CheckBox();
+            this.lblStockCritico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.grpStock.SuspendLayout();
@@ -63,7 +65,7 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 245);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 249);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -110,11 +112,10 @@
             // 
             // lblstockactivo
             // 
-
             this.lblstockactivo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblstockactivo.Location = new System.Drawing.Point(15, 120);
             this.lblstockactivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblstockactivo.Name = "label1";
+            this.lblstockactivo.Name = "lblstockactivo";
             this.lblstockactivo.Size = new System.Drawing.Size(95, 25);
             this.lblstockactivo.TabIndex = 4;
             this.lblstockactivo.Text = "Activo";
@@ -146,8 +147,7 @@
             this.btnNuevoMaterial.UseVisualStyleBackColor = false;
             this.btnNuevoMaterial.Click += new System.EventHandler(this.btnNuevoMaterial_Click);
             // 
-
-            // btnGestion
+            // btnGestionarstock
             // 
             this.btnGestionarstock.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGestionarstock.BackColor = System.Drawing.Color.White;
@@ -156,14 +156,14 @@
             this.btnGestionarstock.ForeColor = System.Drawing.Color.Black;
             this.btnGestionarstock.Location = new System.Drawing.Point(705, 53);
             this.btnGestionarstock.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnGestionarstock.Name = "btnGestion";
+            this.btnGestionarstock.Name = "btnGestionarstock";
             this.btnGestionarstock.Size = new System.Drawing.Size(150, 30);
             this.btnGestionarstock.TabIndex = 9;
             this.btnGestionarstock.Text = "Gestionar";
             this.btnGestionarstock.UseVisualStyleBackColor = false;
             this.btnGestionarstock.Click += new System.EventHandler(this.btnGestion_Click);
             // 
-            // btnGuardar
+            // btnGuardarstock
             // 
             this.btnGuardarstock.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGuardarstock.BackColor = System.Drawing.Color.White;
@@ -172,7 +172,7 @@
             this.btnGuardarstock.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarstock.Location = new System.Drawing.Point(705, 85);
             this.btnGuardarstock.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnGuardarstock.Name = "btnGuardar";
+            this.btnGuardarstock.Name = "btnGuardarstock";
             this.btnGuardarstock.Size = new System.Drawing.Size(150, 30);
             this.btnGuardarstock.TabIndex = 10;
             this.btnGuardarstock.Text = "Guardar";
@@ -226,46 +226,45 @@
             this.txtStockActual.TabIndex = 15;
             this.txtStockActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockActual_KeyPress);
             // 
-
-            // label3
+            // lblstockunidad
             // 
             this.lblstockunidad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblstockunidad.Location = new System.Drawing.Point(405, 30);
             this.lblstockunidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblstockunidad.Name = "label3";
+            this.lblstockunidad.Name = "lblstockunidad";
             this.lblstockunidad.Size = new System.Drawing.Size(105, 25);
             this.lblstockunidad.TabIndex = 17;
             this.lblstockunidad.Text = "Unidad";
             this.lblstockunidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // lblstockpreciou
             // 
             this.lblstockpreciou.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblstockpreciou.Location = new System.Drawing.Point(405, 58);
             this.lblstockpreciou.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblstockpreciou.Name = "label4";
+            this.lblstockpreciou.Name = "lblstockpreciou";
             this.lblstockpreciou.Size = new System.Drawing.Size(105, 25);
             this.lblstockpreciou.TabIndex = 18;
             this.lblstockpreciou.Text = "Precio unitario";
             this.lblstockpreciou.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // lblstockminimo
             // 
             this.lblstockminimo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblstockminimo.Location = new System.Drawing.Point(405, 114);
             this.lblstockminimo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblstockminimo.Name = "label5";
+            this.lblstockminimo.Name = "lblstockminimo";
             this.lblstockminimo.Size = new System.Drawing.Size(105, 25);
             this.lblstockminimo.TabIndex = 20;
             this.lblstockminimo.Text = "Stock mínimo";
             this.lblstockminimo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label6
+            // lblstockactual
             // 
             this.lblstockactual.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblstockactual.Location = new System.Drawing.Point(405, 86);
             this.lblstockactual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblstockactual.Name = "label6";
+            this.lblstockactual.Name = "lblstockactual";
             this.lblstockactual.Size = new System.Drawing.Size(105, 25);
             this.lblstockactual.TabIndex = 19;
             this.lblstockactual.Text = "Stock actual";
@@ -347,6 +346,8 @@
             // grpStock
             // 
             this.grpStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.grpStock.Controls.Add(this.lblStockCritico);
+            this.grpStock.Controls.Add(this.cbxStockCritico);
             this.grpStock.Controls.Add(this.btnEliminarstock);
             this.grpStock.Controls.Add(this.btnGestionarstock);
             this.grpStock.Controls.Add(this.btnGuardarstock);
@@ -374,9 +375,8 @@
             this.grpStock.TabIndex = 32;
             this.grpStock.TabStop = false;
             this.grpStock.Text = "Stock";
-
             // 
-            // btnEliminar
+            // btnEliminarstock
             // 
             this.btnEliminarstock.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEliminarstock.BackColor = System.Drawing.Color.White;
@@ -385,12 +385,31 @@
             this.btnEliminarstock.ForeColor = System.Drawing.Color.Black;
             this.btnEliminarstock.Location = new System.Drawing.Point(705, 117);
             this.btnEliminarstock.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnEliminarstock.Name = "btnEliminar";
+            this.btnEliminarstock.Name = "btnEliminarstock";
             this.btnEliminarstock.Size = new System.Drawing.Size(150, 30);
             this.btnEliminarstock.TabIndex = 24;
             this.btnEliminarstock.Text = "Eliminar";
             this.btnEliminarstock.UseVisualStyleBackColor = false;
             this.btnEliminarstock.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // cbxStockCritico
+            // 
+            this.cbxStockCritico.AutoSize = true;
+            this.cbxStockCritico.Location = new System.Drawing.Point(263, 126);
+            this.cbxStockCritico.Name = "cbxStockCritico";
+            this.cbxStockCritico.Size = new System.Drawing.Size(15, 14);
+            this.cbxStockCritico.TabIndex = 25;
+            this.cbxStockCritico.UseVisualStyleBackColor = true;
+            this.cbxStockCritico.CheckedChanged += new System.EventHandler(this.cbxStockCritico_CheckedChanged);
+            // 
+            // lblStockCritico
+            // 
+            this.lblStockCritico.AutoSize = true;
+            this.lblStockCritico.Location = new System.Drawing.Point(167, 123);
+            this.lblStockCritico.Name = "lblStockCritico";
+            this.lblStockCritico.Size = new System.Drawing.Size(90, 18);
+            this.lblStockCritico.TabIndex = 26;
+            this.lblStockCritico.Text = "Stock critico";
             // 
             // frmControlStock
             // 
@@ -445,5 +464,7 @@
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.GroupBox grpStock;
         private System.Windows.Forms.Button btnEliminarstock;
+        private System.Windows.Forms.Label lblStockCritico;
+        private System.Windows.Forms.CheckBox cbxStockCritico;
     }
 }

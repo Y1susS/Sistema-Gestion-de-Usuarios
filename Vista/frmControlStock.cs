@@ -205,24 +205,38 @@ namespace Vista
             if (cmbTipoMaterial.SelectedValue == null || !(cmbTipoMaterial.SelectedValue is int))
                 return;
 
+            if (modoNuevo)
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.Enabled = false;
+                return;
+            }
+
             try
             {
                 int idTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue);
 
                 List<DtoMaterial> materialesFiltrados = logicaMaterial.ListarMaterialesPorTipo(idTipoMaterial);
-
                 materialesCompletosPorTipo = materialesFiltrados;
-
-                dataGridView1.DataSource = materialesCompletosPorTipo;
-                CargarGrillaDeMateriales();
+                cbxStockCritico_CheckedChanged(cbxStockCritico, EventArgs.Empty);
                 LlenarCmbMaterialConFiltro(materialesCompletosPorTipo);
-
-                if (modoNuevo)
-                {
-                    dataGridView1.DataSource = null;
-                    return;
-                }
                 dataGridView1.Enabled = true;
+
+                //if (modoGestion && cbxStockCritico.Checked)
+                //{
+                //    var materialesCriticos = materialesCompletosPorTipo
+                //        .Where(m => m.StockActual.GetValueOrDefault() <= m.StockMinimo.GetValueOrDefault())
+                //        .ToList();
+                //    dataGridView1.DataSource = materialesCriticos;
+                //}         
+                //else 
+                //{
+                //    dataGridView1.DataSource = materialesCompletosPorTipo;
+                //}
+                //CargarGrillaDeMateriales();
+                //LlenarCmbMaterialConFiltro(materialesCompletosPorTipo);
+                //ColorearFilasCriticas();
+                //dataGridView1.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -254,8 +268,9 @@ namespace Vista
                     {
                         int idTipoMaterial = Convert.ToInt32(cmbTipoMaterial.SelectedValue);
                         List<DtoMaterial> materialesFiltrados = logicaMaterial.ListarMaterialesPorTipo(idTipoMaterial);
-                        dataGridView1.DataSource = materialesFiltrados;
-                        CargarGrillaDeMateriales();
+                        materialesCompletosPorTipo = materialesFiltrados;
+                        cbxStockCritico_CheckedChanged(cbxStockCritico, EventArgs.Empty);
+
                     }
                 }
                 catch (ApplicationException ex)
@@ -498,6 +513,63 @@ namespace Vista
         {
 
         }
+
+        //pintar fila segun stock
+
+        private void ColorearFilasCriticas()
+        {
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                if (decimal.TryParse(fila.Cells["StockActual"].Value?.ToString(), out decimal stockActual) &&
+                    decimal.TryParse(fila.Cells["StockMinimo"].Value?.ToString(), out decimal stockMinimo))
+                {
+                    if (stockActual <= stockMinimo)
+                        fila.DefaultCellStyle.BackColor = Color.LightCoral;
+                    else
+                        fila.DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+        }
+
+        private void cbxStockCritico_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (!modoGestion || materialesCompletosPorTipo == null)
+            {
+
+                return;
+            }
+
+            List<DtoMaterial> materialesParaMostrar;
+
+            if (cbxStockCritico.Checked)
+            {
+
+                materialesParaMostrar = materialesCompletosPorTipo
+                    .Where(m => m.StockActual.GetValueOrDefault() <= m.StockMinimo.GetValueOrDefault())
+                    .ToList();
+            }
+            else
+            {
+
+                materialesParaMostrar = materialesCompletosPorTipo;
+            }
+
+
+            dataGridView1.DataSource = materialesParaMostrar;
+
+
+            CargarGrillaDeMateriales();
+
+
+            ColorearFilasCriticas();
+
+
+            dataGridView1.Refresh();
+        }
+
     }
 }
 
