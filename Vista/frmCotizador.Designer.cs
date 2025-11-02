@@ -192,7 +192,6 @@
             this.txtDescMateriale1 = new System.Windows.Forms.TextBox();
             this.chkotrosmateriales1 = new System.Windows.Forms.CheckBox();
             this.pnlPresupuesto = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblpresupuesto = new System.Windows.Forms.Label();
             this.btnCalcularCotizacion = new System.Windows.Forms.Button();
             this.lblCotiacion = new System.Windows.Forms.Label();
@@ -1092,7 +1091,7 @@
             // 
             this.txtganancia.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtganancia.ForeColor = System.Drawing.Color.Black;
-            this.txtganancia.Location = new System.Drawing.Point(490, 19);
+            this.txtganancia.Location = new System.Drawing.Point(133, 30);
             this.txtganancia.Name = "txtganancia";
             this.txtganancia.Size = new System.Drawing.Size(55, 24);
             this.txtganancia.TabIndex = 7964;
@@ -1102,7 +1101,7 @@
             this.lblganancia.BackColor = System.Drawing.Color.Transparent;
             this.lblganancia.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblganancia.ForeColor = System.Drawing.Color.White;
-            this.lblganancia.Location = new System.Drawing.Point(408, 19);
+            this.lblganancia.Location = new System.Drawing.Point(51, 30);
             this.lblganancia.Name = "lblganancia";
             this.lblganancia.Size = new System.Drawing.Size(79, 24);
             this.lblganancia.TabIndex = 7962;
@@ -2154,7 +2153,6 @@
             // pnlPresupuesto
             // 
             this.pnlPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlPresupuesto.Controls.Add(this.button1);
             this.pnlPresupuesto.Controls.Add(this.lblpresupuesto);
             this.pnlPresupuesto.Controls.Add(this.btnCalcularCotizacion);
             this.pnlPresupuesto.Controls.Add(this.lblCotiacion);
@@ -2162,24 +2160,11 @@
             this.pnlPresupuesto.Controls.Add(this.btnGuardarCotizacion);
             this.pnlPresupuesto.Controls.Add(this.txtganancia);
             this.pnlPresupuesto.Controls.Add(this.lblganancia);
-            this.pnlPresupuesto.Location = new System.Drawing.Point(10, 435);
+            this.pnlPresupuesto.Location = new System.Drawing.Point(590, 431);
             this.pnlPresupuesto.Name = "pnlPresupuesto";
             this.pnlPresupuesto.Size = new System.Drawing.Size(590, 120);
             this.pnlPresupuesto.TabIndex = 8037;
             this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(25, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 34);
-            this.button1.TabIndex = 8041;
-            this.button1.Text = "Cancelar cotización";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // lblpresupuesto
             // 
@@ -2187,7 +2172,7 @@
             this.lblpresupuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpresupuesto.ForeColor = System.Drawing.Color.White;
-            this.lblpresupuesto.Location = new System.Drawing.Point(389, 81);
+            this.lblpresupuesto.Location = new System.Drawing.Point(385, 62);
             this.lblpresupuesto.Name = "lblpresupuesto";
             this.lblpresupuesto.Size = new System.Drawing.Size(175, 24);
             this.lblpresupuesto.TabIndex = 8040;
@@ -2213,7 +2198,7 @@
             this.lblCotiacion.BackColor = System.Drawing.Color.Transparent;
             this.lblCotiacion.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCotiacion.ForeColor = System.Drawing.Color.White;
-            this.lblCotiacion.Location = new System.Drawing.Point(389, 54);
+            this.lblCotiacion.Location = new System.Drawing.Point(385, 35);
             this.lblCotiacion.Name = "lblCotiacion";
             this.lblCotiacion.Size = new System.Drawing.Size(175, 24);
             this.lblCotiacion.TabIndex = 8039;
@@ -2226,7 +2211,7 @@
             this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarCampos.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(25, 25);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(24, 63);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(166, 34);
             this.btnLimpiarCampos.TabIndex = 7948;
@@ -2297,7 +2282,7 @@
             this.grpExtras.Controls.Add(this.lblTotalGastosMat);
             this.grpExtras.Controls.Add(this.chkotrosmateriales2);
             this.grpExtras.ForeColor = System.Drawing.Color.White;
-            this.grpExtras.Location = new System.Drawing.Point(610, 435);
+            this.grpExtras.Location = new System.Drawing.Point(10, 431);
             this.grpExtras.Name = "grpExtras";
             this.grpExtras.Size = new System.Drawing.Size(570, 120);
             this.grpExtras.TabIndex = 8043;
@@ -2591,7 +2576,6 @@
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Label lblTitulocotizador;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblpie1;
     }
 }
