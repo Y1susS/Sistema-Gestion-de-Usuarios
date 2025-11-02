@@ -47,6 +47,8 @@ namespace Vista
         private CL_Ventas clVenta = new CL_Ventas();
         private CL_Cotizacion clCotizacion = new CL_Cotizacion();
 
+        private int idPresupuestoGuardado = 0;
+
         private void frmPresupuestador_Load(object sender, EventArgs e)
         {
         }
@@ -181,6 +183,14 @@ namespace Vista
             dtpVigencia.CustomFormat = " ";
             dtpVigencia.Format = DateTimePickerFormat.Custom;
             numeroPresupuestoActual = string.Empty;
+            if (lblValorNumeroPresupuesto != null)
+            {
+                lblValorNumeroPresupuesto.Text = string.Empty;
+                lblValorNumeroPresupuesto.Visible = false;
+                lblTituloNumeroPresupuesto.Visible = false;
+            }
+            idPresupuestoGuardado = 0;
+
         }
 
         #endregion
@@ -309,24 +319,35 @@ namespace Vista
                 dtpVigencia.Value = p.FechaValidez.GetValueOrDefault(DateTime.Now);
 
                 // Cargar totales
-                lblValorSubtotal.Text = "$ " + p.MontoTotal.ToString();
+                lblValorSubtotal.Text = "$ " + p.MontoTotal.ToString("N2"); 
                 txtDescuento.Text = p.Descuento.ToString();
-                lblValorPresupuesto.Text = "$ " + p.MontoFinal.ToString();
+                lblValorPresupuesto.Text = "$ " + p.MontoFinal.ToString("N2"); 
 
-                // Cargar número
-                numeroPresupuestoActual = !string.IsNullOrWhiteSpace(p.Numero) ? p.Numero : p.NumeroPresupuesto;
-                if (!string.IsNullOrWhiteSpace(numeroPresupuestoActual))
+                if (p.IdPresupuesto > 0)
                 {
-                    lblValorNumeroPresupuesto.Text = numeroPresupuestoActual;
-                    lblTituloNumeroPresupuesto.Visible = true;
-                    lblValorNumeroPresupuesto.Visible = true;
+                    this.idPresupuestoGuardado = p.IdPresupuesto;
+
+                    string parteNumericaFormateada = p.IdPresupuesto.ToString("D6");
+                    string numeroPresupuestoFormateado = "P00-" + parteNumericaFormateada;
+
+                    if (lblValorNumeroPresupuesto != null) // <-- AGREGAR ESTA VERIFICACIÓN
+                    {
+                        lblValorNumeroPresupuesto.Text = numeroPresupuestoFormateado;
+                        lblTituloNumeroPresupuesto.Visible = true;
+                        lblValorNumeroPresupuesto.Visible = true;
+                        numeroPresupuestoActual = numeroPresupuestoFormateado;
+                    }
+                }
+                else
+                {
+                    this.idPresupuestoGuardado = 0;
                 }
 
-                // Cargar DataGrid:
                 ActualizarDataGridCotizaciones();
                 ConfigurarDatagrid();
 
-                MessageBox.Show($"Presupuesto N° {p.Numero} cargado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Presupuesto N° {this.numeroPresupuestoActual} cargado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.presupuestoExportado = false; // Resetear estado de exportación
             }
         }
 
@@ -691,14 +712,18 @@ namespace Vista
                 };
 
                 int idPresupuestoCreado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
+                this.idPresupuestoGuardado = idPresupuestoCreado;
 
                 string parteNumericaFormateada = idPresupuestoCreado.ToString("D6");
                 string numeroPresupuestoFormateado = "P00-" + parteNumericaFormateada;
 
-                lblValorNumeroPresupuesto.Text = numeroPresupuestoFormateado;
-                lblTituloNumeroPresupuesto.Visible = true;
-                lblValorNumeroPresupuesto.Visible = true;
-                numeroPresupuestoActual = numeroPresupuestoFormateado;
+                if (lblValorNumeroPresupuesto != null) // <-- AGREGAR ESTA VERIFICACIÓN
+                {
+                    lblValorNumeroPresupuesto.Text = numeroPresupuestoFormateado;
+                    lblTituloNumeroPresupuesto.Visible = true;
+                    lblValorNumeroPresupuesto.Visible = true;
+                    numeroPresupuestoActual = numeroPresupuestoFormateado;
+                }
 
                 MessageBox.Show($"Presupuesto N° {idPresupuestoCreado} guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -712,6 +737,11 @@ namespace Vista
         {
             int? idUsuarioActual = ClsSesionActual.ObtenerUsuario()?.Id_user;
 
+            if (this.idPresupuestoGuardado == 0)
+            {
+                MessageBox.Show("Debe guardar el presupuesto antes de registrar la venta. Por favor, presione el botón 'Guardar'.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (idUsuarioActual == null || idUsuarioActual == 0)
             {
                 MessageBox.Show("No se pudo identificar al usuario logueado.", "Error de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -741,21 +771,6 @@ namespace Vista
                 decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
                 decimal totalFinal = ObtenerDecimalDesdeLabel(lblValorPresupuesto);
 
-                Presupuesto nuevoPresupuesto = new Presupuesto()
-                {
-                    IdUser = idUsuarioActual,
-                    FechaCreacion = DateTime.Now,
-                    FechaValidez = dtpVigencia.Value,
-                    Id_Cliente = clienteActual.Id_Cliente,
-                    MontoTotal = subtotal,
-                    Descuento = porcentajeDescuento,
-                    MontoFinal = totalFinal,
-                    Observaciones = txtDescripcion.Text.Trim(),
-                    IdEstadoPresupuesto = 1, // Estado inicial del nuevo Presupuesto
-                };
-
-                int idPresupuestoAsociado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
-
                 DtoVenta nuevaVenta = new DtoVenta()
                 {
                     MontoTotal = subtotal,
@@ -763,7 +778,7 @@ namespace Vista
                     MontoFinal = totalFinal,
                     Observaciones = txtDescripcion.Text.Trim(),
                     Activo = true,
-                    IdPresupuesto = idPresupuestoAsociado,
+                    IdPresupuesto = this.idPresupuestoGuardado,
                     IdVendedor = idUsuarioActual,
                     IdEstadoVenta = 1,
                     FechaVenta = DateTime.Now,
@@ -785,7 +800,7 @@ namespace Vista
                     }
                 }
 
-                MessageBox.Show($"Venta N° {idVentaCreada} registrada exitosamente. Presupuesto N° {idPresupuestoAsociado} asociado.", "Éxito de Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Venta N° {idVentaCreada} registrada exitosamente. Presupuesto N° {this.idPresupuestoGuardado} asociado.", "Éxito de Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarFormulario();
             }
             catch (Exception ex)
