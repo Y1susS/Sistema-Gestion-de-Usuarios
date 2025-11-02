@@ -53,9 +53,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.grpStock = new System.Windows.Forms.GroupBox();
-            this.btnEliminarstock = new System.Windows.Forms.Button();
-            this.cbxStockCritico = new System.Windows.Forms.CheckBox();
             this.lblStockCritico = new System.Windows.Forms.Label();
+            this.cbxStockCritico = new System.Windows.Forms.CheckBox();
+            this.btnEliminarstock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.grpStock.SuspendLayout();
@@ -376,6 +376,25 @@
             this.grpStock.TabStop = false;
             this.grpStock.Text = "Stock";
             // 
+            // lblStockCritico
+            // 
+            this.lblStockCritico.AutoSize = true;
+            this.lblStockCritico.Location = new System.Drawing.Point(167, 123);
+            this.lblStockCritico.Name = "lblStockCritico";
+            this.lblStockCritico.Size = new System.Drawing.Size(90, 18);
+            this.lblStockCritico.TabIndex = 26;
+            this.lblStockCritico.Text = "Stock critico";
+            // 
+            // cbxStockCritico
+            // 
+            this.cbxStockCritico.AutoSize = true;
+            this.cbxStockCritico.Location = new System.Drawing.Point(263, 126);
+            this.cbxStockCritico.Name = "cbxStockCritico";
+            this.cbxStockCritico.Size = new System.Drawing.Size(15, 14);
+            this.cbxStockCritico.TabIndex = 25;
+            this.cbxStockCritico.UseVisualStyleBackColor = true;
+            this.cbxStockCritico.CheckedChanged += new System.EventHandler(this.cbxStockCritico_CheckedChanged);
+            // 
             // btnEliminarstock
             // 
             this.btnEliminarstock.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -392,25 +411,6 @@
             this.btnEliminarstock.UseVisualStyleBackColor = false;
             this.btnEliminarstock.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // cbxStockCritico
-            // 
-            this.cbxStockCritico.AutoSize = true;
-            this.cbxStockCritico.Location = new System.Drawing.Point(263, 126);
-            this.cbxStockCritico.Name = "cbxStockCritico";
-            this.cbxStockCritico.Size = new System.Drawing.Size(15, 14);
-            this.cbxStockCritico.TabIndex = 25;
-            this.cbxStockCritico.UseVisualStyleBackColor = true;
-            this.cbxStockCritico.CheckedChanged += new System.EventHandler(this.cbxStockCritico_CheckedChanged);
-            // 
-            // lblStockCritico
-            // 
-            this.lblStockCritico.AutoSize = true;
-            this.lblStockCritico.Location = new System.Drawing.Point(167, 123);
-            this.lblStockCritico.Name = "lblStockCritico";
-            this.lblStockCritico.Size = new System.Drawing.Size(90, 18);
-            this.lblStockCritico.TabIndex = 26;
-            this.lblStockCritico.Text = "Stock critico";
-            // 
             // frmControlStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -422,6 +422,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "frmControlStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

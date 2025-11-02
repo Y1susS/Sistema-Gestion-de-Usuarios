@@ -19,6 +19,7 @@ namespace Vista
 {
     public partial class frmCotizador : Form
     {
+        #region Campos y estado
         private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Cotizacion logicaCotizacion = new CL_Cotizacion();
         private readonly CL_Materiales logicaMateriales = new CL_Materiales();
@@ -32,7 +33,9 @@ namespace Vista
         {
             public static DtoCotizacion CotizacionActual { get; set; }
         }
+        #endregion
 
+        #region Inicialización
         public frmCotizador()
         {
             InitializeComponent();
@@ -45,7 +48,6 @@ namespace Vista
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblTitulocotizador);
-
         }
 
         private void frmCotizador_Load(object sender, EventArgs e)
@@ -61,21 +63,20 @@ namespace Vista
             }
             catch
             {
-                MessageBox.Show($"Error al cargar el formulario.", "Error",
+                MessageBox.Show("Error al cargar el formulario.", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
-        // Método principal para cargar todos los ComboBoxes del formulario de forma segura
+        #region Carga de combos y datos
         private void CargarTodosLosCombos()
         {
             try
             {
-                // Cargar combos usando métodos específicos
                 CargarComboMaderas();
                 CargarComboVidrios();
                 CargarCombosTiposMateriales();
-
             }
             catch (Exception ex)
             {
@@ -84,7 +85,6 @@ namespace Vista
             }
         }
 
-        // Carga maderas de forma segura con manejo de errores
         private void CargarComboMaderas()
         {
             try
@@ -99,14 +99,11 @@ namespace Vista
             }
         }
 
-
-        // Carga vidrios de forma segura with error handling
         private void CargarComboVidrios()
         {
             try
             {
                 var vidrios = logicaMateriales.ListarVidrios();
-
                 var nombresComboVidrios = new[] { "cmbVidrio1", "cmbVidrio2", "cmbVidrio3" };
 
                 foreach (var nombreCombo in nombresComboVidrios)
@@ -121,13 +118,11 @@ namespace Vista
             }
         }
 
-        // Carga tipos de materiales de forma segura
         private void CargarCombosTiposMateriales()
         {
             try
             {
                 var tiposMateriales = logicaMateriales.ListarTiposMaterialesVarios();
-
                 var nombresCombosTypesMateriales = new[]
                 {
                     "cmbTipoMaterial1", "cmbTipoMaterial2", "cmbTipoMaterial3",
@@ -146,8 +141,6 @@ namespace Vista
             }
         }
 
-
-        // Método auxiliar para asignar datos a un ComboBox de forma segura
         private void AsignarDatosACombo(string nombreCombo, object dataSource, string displayMember, string valueMember)
         {
             var combo = this.Controls.Find(nombreCombo, true).FirstOrDefault() as ComboBox;
@@ -160,13 +153,9 @@ namespace Vista
                 combo.SelectedIndex = -1;
             }
         }
+        #endregion
 
-      
-
-        #region CARGA DE MATERIALES POR TIPO
-
-
-        // Carga los materiales específicos en el ComboBox correspondiente según el tipo seleccionado
+        #region Carga de materiales por tipo
         private void CargarMaterialesPorTipo(int idTipoMaterial, int numeroCombo)
         {
             try
@@ -187,13 +176,12 @@ namespace Vista
                     combo.Enabled = materiales.Count > 0;
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                // Mantener manejo de error sin traza
+                // Silenciar errores de carga por tipo
             }
         }
 
-        // Limpia el ComboBox de materiales correspondiente
         private void LimpiarComboMateriales(int numeroCombo)
         {
             string nombreComboMaterial = $"cmbMaterial{numeroCombo}";
@@ -206,36 +194,28 @@ namespace Vista
                 combo.Enabled = false;
             }
         }
-
         #endregion
 
-        #region EVENTOS DE COMBOS
-
-        // Configura los eventos de los ComboBoxes de forma segura
+        #region Eventos de combos
         private void ConfigurarEventosCombos()
         {
             try
             {
-                // Evento para mostrar precio cuando se selecciona una madera
                 var cmbMaderas = this.Controls.Find("cmbMaderas", true).FirstOrDefault() as ComboBox;
                 if (cmbMaderas != null)
                 {
                     cmbMaderas.SelectedIndexChanged += CmbMaderas_SelectedIndexChanged;
                 }
 
-                // Eventos para cargar materiales cuando se selecciona un tipo (múltiples combos)
                 for (int i = 1; i <= 6; i++)
                 {
                     ConfigurarEventoComboTipo(i);
                     ConfigurarEventoComboMaterial(i);
-                    // Eliminado: no enganchar cantidad para evitar recálculo en vivo
-                    // ConfigurarEventoCantidadMaterial(i);
                 }
 
-                // FIX: Cambiar ConfigurarEventoComboVidrio por Configurar EventoVidrio
                 for (int i = 1; i <= 3; i++)
                 {
-                    ConfigurarEventoVidrio(i); // CORREGIDO: usar el nombre correcto del método
+                    ConfigurarEventoVidrio(i);
                 }
             }
             catch (Exception ex)
@@ -252,7 +232,6 @@ namespace Vista
 
             if (comboVidrio != null)
             {
-                // Usar closure para capturar el número de combo correctamente
                 comboVidrio.SelectedIndexChanged += (sender, e) => CmbVidrio_SelectedIndexChanged(sender, e, numeroCombo);
             }
         }
@@ -261,7 +240,7 @@ namespace Vista
         {
             try
             {
-                if (_cargandoEdicion) return; // evita sobreescribir el precio guardado
+                if (_cargandoEdicion) return;
 
                 if (sender is ComboBox cmb && cmb.SelectedItem is DtoMaterial vidrioSeleccionado)
                 {
@@ -285,7 +264,7 @@ namespace Vista
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al mostrar precio del vidrio {numeroCombo}: {ex.Message}", "Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -305,13 +284,13 @@ namespace Vista
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al mostrar precio: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al mostrar precio: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void CmbTipoMaterial_SelectedIndexChanged(object sender, EventArgs e, int numeroCombo)
         {
-
             var cmb = sender as ComboBox;
             if (cmb == null) return;
 
@@ -332,7 +311,6 @@ namespace Vista
             }
 
             LimpiarComboMateriales(numeroCombo);
-
         }
 
         private void CmbMaterial_SelectedIndexChanged(object sender, EventArgs e, int numeroCombo)
@@ -341,31 +319,30 @@ namespace Vista
             {
                 if (sender is ComboBox cmb && cmb.SelectedItem is DtoMaterial materialSeleccionado)
                 {
-                    // Mostrar solo el precio unitario; sin recálculo en vivo del total de línea
                     MostrarPrecioMaterialVarios(numeroCombo, materialSeleccionado);
                 }
                 else
                 {
-                    // Si no hay selección, limpiar los labels
                     ClsUtilidadesForms.LimpiarLabelsMaterialesVarios(this, numeroCombo);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al mostrar precio del material {numeroCombo}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al mostrar precio del material {numeroCombo}: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void MostrarPrecioMaterialVarios(int numeroCombo, DtoMaterial material)
         {
-            // Mostrar precio unitario en el label de unidad
-            var posiblesNombresUnidad = new[] {
+            var posiblesNombresUnidad = new[]
+            {
                 $"lblMaterialUnidad{numeroCombo}",
                 $"lblPrecioMaterial{numeroCombo}",
                 $"lblpreciomaterial{numeroCombo}",
                 $"lblPrecioUnidad{numeroCombo}",
                 $"lblValorUnidad{numeroCombo}",
-                $"lblUnidadBisagras" // Para el caso específico de bisagras
+                "lblUnidadBisagras"
             };
 
             foreach (var nombreUnidad in posiblesNombresUnidad)
@@ -373,19 +350,13 @@ namespace Vista
                 var lblUnidad = this.Controls.Find(nombreUnidad, true).FirstOrDefault() as Label;
                 if (lblUnidad != null)
                 {
-                    // Mostrar precio con unidad
                     lblUnidad.Text = $"${material.PrecioUnitario:N2}";
                     lblUnidad.Visible = true;
                     break;
                 }
             }
 
-            // También mostrar solo el precio en otro label si existe
-            var posiblesNombresPrecio = new[] {
-                $"lblPrecioSolo{numeroCombo}",
-                $"lblValorSolo{numeroCombo}"
-            };
-
+            var posiblesNombresPrecio = new[] { $"lblPrecioSolo{numeroCombo}", $"lblValorSolo{numeroCombo}" };
             foreach (var nombrePrecio in posiblesNombresPrecio)
             {
                 var lblPrecio = this.Controls.Find(nombrePrecio, true).FirstOrDefault() as Label;
@@ -420,8 +391,20 @@ namespace Vista
                 comboMaterial.SelectedIndexChanged += (sender, e) => CmbMaterial_SelectedIndexChanged(sender, e, numeroCombo);
             }
         }
+        #endregion
 
+        #region Utilidades locales
+        private void OcultarLabelsResultados()
+        {
+            ClsUtilidadesForms.OcultarLabelsResultados(this);
+        }
 
+        private void ConfigurarValidacionesCampos()
+        {
+            ClsUtilidadesForms.ConfigurarValidacionesNumericas(this);
+        }
+
+        // NUEVO: helper para mostrar total de Materiales Varios en distintos labels posibles
         private void MostrarTotalGeneralMaterialesVarios(decimal total)
         {
             var posiblesNombresTotalGeneral = new[] {
@@ -445,20 +428,7 @@ namespace Vista
         }
         #endregion
 
-        // Utilidades locales (wrappers)
-        private void OcultarLabelsResultados()
-        {
-            ClsUtilidadesForms.OcultarLabelsResultados(this);
-        }
-
-        private void ConfigurarValidacionesCampos()
-        {
-
-            ClsUtilidadesForms.ConfigurarValidacionesNumericas(this);
-
-           
-        }
-
+        #region Edición de cotización
         public void CargarCotizacionParaEdicion(DtoCotizacion cotizacion)
         {
             if (cotizacion == null) return;
@@ -467,16 +437,13 @@ namespace Vista
             {
                 _cargandoEdicion = true;
 
-                // Limpiar si existe el método
                 var mi = GetType().GetMethod("LimpiarFormulario", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
                 if (mi != null) mi.Invoke(this, null);
 
-                // Asegurar combos cargados
                 CargarTodosLosCombos();
 
-                // Datos básicos
                 var txtDescripcion = this.Controls.Find("txtDescripcionMueble", true).FirstOrDefault() as TextBox;
-                if (txtDescripcion != null) txtDescripcion.Text = cotizacion.DescripcionMueble ?? "";
+                if (txtDescripcion != null) txtDescripcion.Text = cotizacion.DescripcionMueble ?? string.Empty;
 
                 var txtDesperdicio = this.Controls.Find("txtdesperdicio", true).FirstOrDefault() as TextBox;
                 if (txtDesperdicio != null) txtDesperdicio.Text = cotizacion.PorcentajeDesperdicio.ToString();
@@ -484,7 +451,6 @@ namespace Vista
                 var txtGanancia = this.Controls.Find("txtganancia", true).FirstOrDefault() as TextBox;
                 if (txtGanancia != null) txtGanancia.Text = cotizacion.PorcentajeGanancia.ToString();
 
-                // Seleccionar madera sin disparar el evento y forzar el precio guardado
                 var cmbMaderas = this.Controls.Find("cmbMaderas", true).FirstOrDefault() as ComboBox;
                 var lblPrecio = this.Controls.Find("lblPrecioPorPie", true).FirstOrDefault() as Label;
 
@@ -512,7 +478,6 @@ namespace Vista
                     cmbMaderas.SelectedIndexChanged += CmbMaderas_SelectedIndexChanged;
                 }
 
-                // Rellenar hasta 8 líneas de madera
                 if (cotizacion.Detalles != null && cotizacion.Detalles.Count > 0)
                 {
                     for (int i = 0; i < Math.Min(cotizacion.Detalles.Count, 8); i++)
@@ -531,7 +496,7 @@ namespace Vista
                         if (txtAncho != null) txtAncho.Text = d.AnchoCm.ToString("0.##");
                         if (txtLargo != null)
                         {
-                            var largo = d.LargoMts > 0 ? d.LargoMts : (d.LargoMts > 0 ? d.LargoMts : 0);
+                            var largo = d.LargoMts > 0 ? d.LargoMts : 0;
                             txtLargo.Text = largo.ToString("0.##");
                         }
                         if (txtCant != null) txtCant.Text = d.Cantidad.ToString();
@@ -540,7 +505,6 @@ namespace Vista
                     }
                 }
 
-                // VIDRIOS
                 if (cotizacion.DetallesVidrio != null && cotizacion.DetallesVidrio.Count > 0)
                 {
                     decimal totalVidrios = 0m;
@@ -612,7 +576,6 @@ namespace Vista
                     detallesVidrio = new List<DtoCotizacionDetalleVidrio>(cotizacion.DetallesVidrio);
                 }
 
-                // MATERIALES VARIOS (hasta 6 líneas)
                 if (cotizacion.MaterialesVarios != null && cotizacion.MaterialesVarios.Count > 0)
                 {
                     decimal totalMateriales = 0m;
@@ -651,7 +614,8 @@ namespace Vista
                             }
                         }
 
-                        var posiblesNombresCantidad = new[] {
+                        var posiblesNombresCantidad = new[]
+                        {
                             $"txtMaterialCantidad{n}", $"txtcantidadmaterial{n}",
                             $"txtCantidadMaterial{n}", $"txtCantidad{n}", $"textBoxCantidad{n}"
                         };
@@ -664,7 +628,7 @@ namespace Vista
                         if (txtCantidad != null) txtCantidad.Text = mv.Cantidad.ToString();
 
                         var precioUnit = mv.PrecioUnitario ?? 0m;
-                        var nombreMat = !string.IsNullOrWhiteSpace(mv.NombreMaterial) ? mv.NombreMaterial : material?.NombreMaterial ?? "";
+                        var nombreMat = !string.IsNullOrWhiteSpace(mv.NombreMaterial) ? mv.NombreMaterial : material?.NombreMaterial ?? string.Empty;
                         var subtotal = precioUnit * mv.Cantidad;
 
                         ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(this, n, precioUnit, nombreMat, mv.Cantidad, subtotal);
@@ -675,10 +639,8 @@ namespace Vista
                     materialesVarios = new List<DtoCotizacionMaterial>(cotizacion.MaterialesVarios);
                 }
 
-                // OTROS MATERIALES / GASTOS VARIOS
                 CargarGastosVariosDesdeCotizacion(cotizacion);
 
-                // Guardar en estado para actualizar/guardar
                 var btnGuardar = this.Controls.Find("btnGuardarCotizacion", true).FirstOrDefault() as Button;
                 if (btnGuardar != null) btnGuardar.Text = "Actualizar Cotización";
 
@@ -696,16 +658,16 @@ namespace Vista
                 _cargandoEdicion = false;
             }
         }
+        #endregion
 
+        #region Cálculo y presupuesto
         private void btnCalcularPies_Click(object sender, EventArgs e)
         {
             try
             {
-                // Limpiar cálculos anteriores pero mantener los datos ingresados
                 detallesCotizacion.Clear();
                 OcultarLabelsResultados();
 
-                // Procesar cada línea de cálculo
                 ProcesarLineaCalculo(1, txtespesorm1, txtanchom1, txtlargom1, txtcantidad1, chk1, lblpie1, txtdescmad1);
                 ProcesarLineaCalculo(2, txtespesorm2, txtanchom2, txtlargom2, txtcantidad2, chk2, lblpie2, txtdescmad2);
                 ProcesarLineaCalculo(3, txtespesorm3, txtanchom3, txtlargom3, txtcantidad3, chk3, lblpie3, txtdescmad3);
@@ -715,7 +677,6 @@ namespace Vista
                 ProcesarLineaCalculo(7, txtespesorm7, txtanchom7, txtlargom7, txtcantidad7, chk7, lblpie7, txtdescmad7);
                 ProcesarLineaCalculo(8, txtespesorm8, txtanchom8, txtlargom8, txtcantidad8, chk8, lblpie8, txtdescmad8);
 
-                // Total de pies para mostrar (solo informativo)
                 decimal totalPies = detallesCotizacion.Sum(d => d.Pies);
 
                 if (ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desperdicio) && desperdicio > 0)
@@ -728,12 +689,12 @@ namespace Vista
                 lblcalculopies.Visible = true;
 
                 MessageBox.Show("Cálculo de pies completado.", "Información",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al calcular pies: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -744,7 +705,7 @@ namespace Vista
                 if (detallesCotizacion.Count == 0)
                 {
                     MessageBox.Show("Primero debe calcular los pies.", "Advertencia",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -754,7 +715,7 @@ namespace Vista
                 if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal porcentajeGanancia))
                 {
                     MessageBox.Show("El porcentaje de ganancia no es válido.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -774,7 +735,6 @@ namespace Vista
                 cotizacion.DetallesVidrio = new List<DtoCotizacionDetalleVidrio>(detallesVidrio);
                 cotizacion.MaterialesVarios = new List<DtoCotizacionMaterial>(materialesVarios);
 
-                // Sumar costos adicionales (vidrios + materiales varios)
                 cotizacion.SubTotalMateriales += costoVidrios + costoMaterialesVarios;
 
                 decimal totalSinGanancia = cotizacion.SubTotalMateriales;
@@ -787,39 +747,17 @@ namespace Vista
 
                 ViewState.CotizacionActual = cotizacion;
 
-                // ALERTA DE STOCK: Bisagras, Manijas y Correderas
                 AlertarStockHerrajesSiCorresponde();
 
                 MessageBox.Show("Cotización calculada exitosamente.", "Éxito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al calcular presupuesto: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnLimpiarCampos_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("¿Está seguro que desea limpiar todos los campos?",
-                    "Confirmar Limpieza", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    LimpiarFormulario();
-                    MessageBox.Show("Formulario limpiado correctamente.", "Información",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al limpiar formulario: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // ========== Métodos de apoyo necesarios para los handlers ==========
 
         private void ProcesarLineaCalculo(
             int numeroLinea,
@@ -836,14 +774,14 @@ namespace Vista
                     !ClsSoloNumeros.TryParseInt(txtCantidad.Text, out int cantidad))
                 {
                     MessageBox.Show($"Línea {numeroLinea}: valores numéricos inválidos.",
-                        "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!logicaCotizacion.ValidarDimensiones(espesor, ancho, largo, cantidad, out string msg))
                 {
                     MessageBox.Show($"Línea {numeroLinea}: {msg}", "Error de Validación",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -860,7 +798,7 @@ namespace Vista
             catch (Exception ex)
             {
                 MessageBox.Show($"Error en línea {numeroLinea}: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -869,7 +807,7 @@ namespace Vista
             if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal ganancia) || ganancia <= 0)
             {
                 MessageBox.Show("Debe ingresar un porcentaje de ganancia válido mayor a cero.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtganancia.Focus();
                 return false;
             }
@@ -878,7 +816,7 @@ namespace Vista
             if (cmbMaderas != null && cmbMaderas.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar una madera para calcular el presupuesto.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbMaderas.Focus();
                 return false;
             }
@@ -909,7 +847,6 @@ namespace Vista
 
             for (int i = 1; i <= 3; i++)
             {
-                // Opcional: limpiar los labels de la línea antes de procesarla
                 var lblM2 = this.Controls.Find($"lblvalorxmetro2{i}", true).FirstOrDefault() as Label;
                 var lblUnidad = this.Controls.Find($"lblvidriounidad{i}", true).FirstOrDefault() as Label;
                 var lblTotalLinea = this.Controls.Find($"lblvidriototal{i}", true).FirstOrDefault() as Label;
@@ -917,7 +854,6 @@ namespace Vista
                 if (lblUnidad != null) { lblUnidad.Text = "$"; lblUnidad.Visible = false; }
                 if (lblTotalLinea != null) { lblTotalLinea.Text = "$"; lblTotalLinea.Visible = false; }
 
-                // Checkbox de habilitación
                 var posiblesNombresCheckbox = new[] { $"chkvidrio{i}", $"chkVidrio{i}", $"checkBoxVidrio{i}" };
                 CheckBox chkVidrio = null;
                 foreach (var nombre in posiblesNombresCheckbox)
@@ -936,8 +872,7 @@ namespace Vista
                     if (cmbVidrio?.SelectedItem is DtoMaterial vidrio &&
                         ClsSoloNumeros.TryParseDecimal(txtLargo?.Text, out decimal largo) &&
                         ClsSoloNumeros.TryParseDecimal(txtAncho?.Text, out decimal ancho) &&
-                        int.TryParse(txtCantidad?.Text, out int cantidad) &&
-                        cantidad > 0)
+                        int.TryParse(txtCantidad?.Text, out int cantidad) && cantidad > 0)
                     {
                         decimal m2PorPieza = (largo / 100m) * (ancho / 100m);
                         decimal precioPorM2 = vidrio.PrecioUnitario ?? 0m;
@@ -946,12 +881,10 @@ namespace Vista
 
                         totalVidrios += subtotal;
 
-                        // UI: mostrar precio x m2, precio por unidad y total de línea
                         if (lblM2 != null) { lblM2.Text = $"${precioPorM2:N2}"; lblM2.Visible = true; }
                         if (lblUnidad != null) { lblUnidad.Text = $"${precioPorUnidad:N2}"; lblUnidad.Visible = true; }
                         if (lblTotalLinea != null) { lblTotalLinea.Text = $"${subtotal:N2}"; lblTotalLinea.Visible = true; }
 
-                        // Detalle para persistir
                         detallesVidrio.Add(new DtoCotizacionDetalleVidrio
                         {
                             NumeroLinea = i,
@@ -960,10 +893,8 @@ namespace Vista
                             LargoCm = largo,
                             AnchoCm = ancho,
                             Piezas = cantidad,
-                            M2PorPieza = Math.Round(m2PorPieza, 4),
                             PrecioPorM2 = precioPorM2,
-                            PrecioPorUnidad = Math.Round(precioPorUnidad, 2),
-                            Subtotal = Math.Round(subtotal, 2)
+                            PrecioPorUnidad = Math.Round(precioPorUnidad, 2)
                         });
                     }
                 }
@@ -986,7 +917,6 @@ namespace Vista
 
             for (int i = 1; i <= 6; i++)
             {
-                // Checkbox
                 var posiblesNombresCheckbox = new[] { $"chkmaterial{i}", $"chkMaterial{i}", $"checkBoxMaterial{i}", $"chkmat{i}" };
                 CheckBox chkMaterial = null;
                 foreach (var nombre in posiblesNombresCheckbox)
@@ -999,7 +929,8 @@ namespace Vista
                 {
                     var cmbMaterial = this.Controls.Find($"cmbMaterial{i}", true).FirstOrDefault() as ComboBox;
 
-                    var posiblesNombresCantidad = new[] {
+                    var posiblesNombresCantidad = new[]
+                    {
                         $"txtMaterialCantidad{i}", $"txtcantidadmaterial{i}",
                         $"txtCantidadMaterial{i}", $"txtCantidad{i}", $"textBoxCantidad{i}"
                     };
@@ -1018,11 +949,8 @@ namespace Vista
                         decimal costoTotal = precioUnitario * cantidad;
                         totalMateriales += costoTotal;
 
-                        // Actualizar UI
-                        ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(
-                            this, i, precioUnitario, material.NombreMaterial, cantidad, costoTotal);
+                        ClsUtilidadesForms.ActualizarLabelsMaterialesVarios(this, i, precioUnitario, material.NombreMaterial, cantidad, costoTotal);
 
-                        // Para persistir
                         materialesVarios.Add(new DtoCotizacionMaterial
                         {
                             IdMaterial = material.IdMaterial,
@@ -1080,7 +1008,6 @@ namespace Vista
                     ViewState.CotizacionActual = new DtoCotizacion();
                 ViewState.CotizacionActual.GastosVarios = gastosVarios;
 
-                // Mostrar total adicional general
                 var lblTotalGastos = this.Controls.Find("lbltotalgastosadicionales", true).FirstOrDefault() as Label;
                 if (lblTotalGastos != null)
                 {
@@ -1103,10 +1030,11 @@ namespace Vista
                 return materialSeleccionado.IdMaterial;
             return null;
         }
+        #endregion
 
+        #region Limpieza y guardado
         private void LimpiarFormulario()
         {
-
             ClsUtilidadesForms.LimpiarControlesMaderas(this);
             ClsUtilidadesForms.LimpiarControlesVidrios(this);
             ClsUtilidadesForms.LimpiarControlesMaterialesVarios(this);
@@ -1120,8 +1048,25 @@ namespace Vista
             ViewState.CotizacionActual = null;
 
             ClsUtilidadesForms.EnfocarPrimerCampo(this);
+        }
 
-
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("¿Está seguro que desea limpiar todos los campos?",
+                    "Confirmar Limpieza", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    LimpiarFormulario();
+                    MessageBox.Show("Formulario limpiado correctamente.", "Información",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al limpiar formulario: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGuardarCotizacion_Click(object sender, EventArgs e)
@@ -1131,56 +1076,47 @@ namespace Vista
                 if (ViewState.CotizacionActual == null)
                 {
                     MessageBox.Show("Debe calcular el presupuesto antes de guardar.", "Advertencia",
-                                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 int idInicial = ViewState.CotizacionActual.Id_Cotizacion;
                 var esActualizacion = idInicial > 0;
 
-                //Confirmación de guardado
-                var mensaje = esActualizacion
-                    ? "¿Desea actualizar esta cotización?"
-                    : "¿Desea guardar esta cotización?";
-
+                var mensaje = esActualizacion ? "¿Desea actualizar esta cotización?" : "¿Desea guardar esta cotización?";
                 var result = MessageBox.Show(mensaje, "Confirmar Guardado",
                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
                 if (result != DialogResult.Yes) return;
 
                 btnCalcularCotizacion_Click(null, EventArgs.Empty);
 
-                // Ejecución del Guardado
                 bool exito = false;
-                int idGenerado = idInicial; 
+                int idGenerado = idInicial;
 
                 if (esActualizacion)
                 {
                     exito = logicaCotizacion.ActualizarCotizacion(ViewState.CotizacionActual);
                 }
-                else // Incluye el flujo normal de Alta y el Modo Presupuestador
+                else
                 {
                     idGenerado = logicaCotizacion.AltaCotizacion(ViewState.CotizacionActual);
                     exito = idGenerado > 0;
                     if (exito)
                     {
-                        // Asignar el nuevo ID
                         ViewState.CotizacionActual.Id_Cotizacion = idGenerado;
                     }
                 }
 
                 if (exito)
                 {
-                    
                     if (_esModoPresupuestador)
                     {
-                        this.IdCotizacionGuardada = idGenerado; 
-                        this.DialogResult = DialogResult.OK;    
+                        this.IdCotizacionGuardada = idGenerado;
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                     else
                     {
-                        // FLUJO NORMAL Guardar/Actualizar en el Cotizador
                         var btnGuardar = sender as Button;
                         if (btnGuardar != null) btnGuardar.Text = "Actualizar Cotización";
 
@@ -1196,9 +1132,8 @@ namespace Vista
                 {
                     var accion = esActualizacion ? "actualizar" : "guardar";
                     MessageBox.Show($"Error al {accion} la cotización.", "Error",
-                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    // Si falló en modo presupuestador, asegurar que el resultado no sea OK
                     if (_esModoPresupuestador)
                     {
                         this.DialogResult = DialogResult.None;
@@ -1208,32 +1143,23 @@ namespace Vista
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al procesar cotización: {ex.Message}", "Error",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Si hay una excepción en modo presupuestador, asegurar que el resultado no sea OK
                 if (_esModoPresupuestador)
                 {
                     this.DialogResult = DialogResult.None;
                 }
             }
         }
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #endregion
 
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
+        #region Gastos varios
         private void CargarGastosVariosDesdeCotizacion(DtoCotizacion cotizacion)
         {
             try
             {
                 if (cotizacion == null) return;
 
-                // Usar los que vienen; si no, intentar consultarlos
                 var gastos = cotizacion.GastosVarios ?? new List<DtoGastoVario>();
                 if (gastos.Count == 0 && cotizacion.Id_Cotizacion > 0)
                 {
@@ -1245,7 +1171,6 @@ namespace Vista
                 }
                 if (gastos.Count == 0) return;
 
-                // Intentar mapear por descripción; fallback por orden
                 var sinAsignar = new List<DtoGastoVario>(gastos);
 
                 Func<string, DtoGastoVario> pickByDesc = (needle) =>
@@ -1294,7 +1219,6 @@ namespace Vista
                     lblTotal.Visible = total > 0;
                 }
 
-                // Sincroniza estado
                 if (ViewState.CotizacionActual == null)
                     ViewState.CotizacionActual = cotizacion;
                 ViewState.CotizacionActual.GastosVarios = gastos;
@@ -1305,7 +1229,21 @@ namespace Vista
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
+        #region Eventos de ventana
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        #endregion
+
+        #region UI
         private void pnlPresupuesto_Paint(object sender, PaintEventArgs e)
         {
             ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
@@ -1315,13 +1253,13 @@ namespace Vista
         {
             ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
         }
+        #endregion
 
-        // === Alerta de stock para Bisagras, Manijas y Correderas ===
+        #region Alertas de stock
         private void AlertarStockHerrajesSiCorresponde()
         {
             try
             {
-                // 1) Obtener de BD los tipos objetivo (Bisagras, Manijas y Correderas)
                 var tipos = logicaMateriales.ListarTiposMateriales() ?? new List<DtoTipoMaterial>();
                 var idsTiposObjetivo = new HashSet<int>(
                     tipos.Where(t =>
@@ -1408,24 +1346,25 @@ namespace Vista
             }
             catch
             {
-                // Silencioso para no interrumpir el cálculo
+                // Silenciar errores de alerta de stock
             }
         }
+        #endregion
 
-        //presupuestador
-
+        #region Modo Presupuestador
         private bool _esModoPresupuestador = false;
         public int IdCotizacionGuardada { get; private set; } = 0;
 
         public void InicializarModoPresupuestador(DtoCotizacion cotizacionOriginal)
         {
-            _esModoPresupuestador= true;
+            _esModoPresupuestador = true;
             DtoCotizacion cotizacionPlantilla = cotizacionOriginal;
-            cotizacionPlantilla.Id_Cotizacion = 0; 
+            cotizacionPlantilla.Id_Cotizacion = 0;
 
             CargarCotizacionParaEdicion(cotizacionPlantilla);
 
             this.Text = $"Cotizador - Editando Plantilla de: {cotizacionOriginal.NumeroCotizacion}";
         }
+        #endregion
     }
 }
