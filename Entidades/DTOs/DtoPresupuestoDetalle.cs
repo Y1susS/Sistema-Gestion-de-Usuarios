@@ -27,6 +27,7 @@ namespace Entidades
         // Propiedad calculada para el DataGrid (Subtotal de la línea)
         public decimal Subtotal
         {
+            set { }
             get { return Cantidad * PrecioUnitario; }
         }
 

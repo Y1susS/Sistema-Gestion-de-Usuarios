@@ -25,10 +25,13 @@ namespace Vista
             Idioma.AplicarTraduccion(this);
             ConfigurarControles();
             CargarEventos();
+            clPresupuesto.ActualizarEstadosVencidos();
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
             moverFormulario.HabilitarMovimiento(lblTitulo);
+            lblTituloNumeroPresupuesto.Visible = false; 
+            lblValorNumeroPresupuesto.Visible = false;
         }
 
 
@@ -38,6 +41,9 @@ namespace Vista
         private CL_Presupuesto clPresupuesto = new CL_Presupuesto();
         private List<DtoPresupuestoDetalle> detallesCotizacion = new List<DtoPresupuestoDetalle>();
         private CL_Ventas clVenta = new CL_Ventas();
+        private CL_Cotizacion clCotizacion =new CL_Cotizacion();
+
+        private bool presupuestoExportado = false;
 
         private void ConfigurarDatagrid()
         {
@@ -85,6 +91,7 @@ namespace Vista
                 cmbDni.DisplayMember = "Id_TipoDocumento";
                 cmbDni.ValueMember = "Id_TipoDocumento";
                 cmbDni.SelectedIndex = -1;
+                cmbDni.DropDownStyle = ComboBoxStyle.DropDownList;
             }
             txtNombreCliente.ReadOnly = true;
             txtApellidoCliente.ReadOnly = true;
@@ -107,6 +114,12 @@ namespace Vista
         #region Seccion Cliente
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
+            if (cmbDni.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un Tipo de Documento.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LimpiarCamposCliente();
+                return;
+            }
             string tipoDoc = cmbDni.SelectedValue.ToString();
             string dni = txtDni.Text.Trim();
 
@@ -192,8 +205,20 @@ namespace Vista
 
                             this.detallesCotizacion = clPresupuesto.ObtenerDetalles(filtroSeleccionado.IdPresupuesto);
 
-                            CargarPresupuestoEnFormulario(presupuestoCompleto);
+                            if (presupuestoCompleto.Id_Cliente.HasValue)
+                            {
+                                // Reemplaza el 0 si el método de CL_Clientes es diferente
+                                clienteActual = clCliente.ObtenerClientePorId(presupuestoCompleto.Id_Cliente.Value);
+                                presupuestoCompleto.Cliente = clienteActual; // Opcional: para consistencia si agregas la propiedad Cliente en Presupuesto.
+                            }
+                            else
+                            {
+                                // Limpiar campos si no hay cliente.
+                                clienteActual = null;
+                            }
 
+                            CargarPresupuestoEnFormulario(presupuestoCompleto);
+                            CargarDatosClienteEnFormulario(presupuestoCompleto);
                         }
                         catch (Exception ex)
                         {
@@ -202,6 +227,7 @@ namespace Vista
                     }
                 }
             }
+
         }
 
 
@@ -209,6 +235,15 @@ namespace Vista
         {
             if (p != null)
             {
+                const int ESTADO_VENCIDO = 2; 
+
+                if (p.IdEstadoPresupuesto == ESTADO_VENCIDO)
+                {
+                    MessageBox.Show("¡Advertencia! Este presupuesto se encuentra en estado VENCIDO y puede que necesite una revisión de precios.",
+                                    "Presupuesto Vencido",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
+                }
 
                 // Cargar Datos del Presupuesto:
 
@@ -233,6 +268,43 @@ namespace Vista
 
 
         }
+        private void CargarDatosClienteEnFormulario(Presupuesto p)
+        {
+            // Verifica que tanto el presupuesto como el objeto Cliente dentro del presupuesto no sean nulos.
+            if (p != null && p.Cliente != null)
+            {
+                this.clienteActual = p.Cliente;
+
+                // 2. Llenar los TextBoxes de Cliente
+                txtNombreCliente.Text = clienteActual.Nombre;
+                txtApellidoCliente.Text = clienteActual.Apellido;
+                txtTelefonoCliente.Text = clienteActual.Telefono;
+                txtMailCliente.Text = clienteActual.Email;
+
+                // 3. Llenar DNI (TextBox y ComboBox)
+                txtDni.Text = clienteActual.NroDocumento;
+                int idTipoDocumento = 0;
+                int.TryParse(clienteActual.Id_TipoDocumento, out idTipoDocumento);
+
+                if (cmbDni.DataSource != null && !string.IsNullOrEmpty(clienteActual.Id_TipoDocumento))
+                {
+                    // Seleccionar el item en el ComboBox usando el Id_TipoDocumento
+                    cmbDni.SelectedValue = clienteActual.Id_TipoDocumento;
+                }
+                else
+                {
+                    cmbDni.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                // Si el cliente no está asociado o es nulo, limpiamos los campos del cliente.
+                LimpiarCamposCliente();
+                MessageBox.Show("Advertencia: El presupuesto cargado no tiene datos de cliente asociados.",
+                                "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void ActualizarDataGridCotizaciones()
         {
             dgvPresupuesto.DataSource = null;
@@ -240,80 +312,24 @@ namespace Vista
         }
         #endregion
 
-        public void AgregarCotizacion(int idCotizacion, string numeroCotizacion,
-                               string descripcion, decimal montoTotal)
-        {
-            // Verificar que no esté ya agregada
-            foreach (DataGridViewRow row in dgvPresupuesto.Rows)
-            {
-                if (Convert.ToInt32(row.Cells["Id_Cotizacion"].Value) == idCotizacion)
-                {
-                    MessageBox.Show("Esta cotización ya está en el presupuesto.");
-                    return;
-                }
-            }
-
-            dgvPresupuesto.Rows.Add(idCotizacion, numeroCotizacion, descripcion, montoTotal);
-            CalcularSubtotal();
-        }
-
-        // O mejor aún, recibir el objeto completo
-        //public void AgregarCotizacion(Cotizacion cotizacion)
+        //public void AgregarCotizacion(int idCotizacion, string numeroCotizacion,
+        //                       string descripcion, decimal montoTotal)
         //{
-        //    AgregarCotizacion(cotizacion.Id_Cotizacion,
-        //                     cotizacion.NumeroCotizacion,
-        //                     cotizacion.DescripcionMueble,
-        //                     cotizacion.MontoTotal);
-        //}
-        //private void btnCotizar_Click(object sender, EventArgs e)
-        //{
-        //    // Abrir el formulario de cotización en modo "nuevo"
-        //    frmCotizador frmCotizador = new frmCotizador();
-
-        //    // Cuando se cierre y haya guardado, agregar al presupuesto
-        //    if (frmCotizador.ShowDialog() == DialogResult.OK)
+        //    // Verificar que no esté ya agregada
+        //    foreach (DataGridViewRow row in dgvPresupuesto.Rows)
         //    {
-        //        // La cotización se guardó exitosamente
-        //        var cotizacion = frmCotizador.CotizacionCreada;
-        //        AgregarCotizacion(cotizacion);
-        //    }
-        //}
-        //private void btnBuscarCotizacion_Click(object sender, EventArgs e)
-        //{
-        //    // Abrir formulario de búsqueda de cotizaciones
-        //    frmListarCotizaciones frmBuscar = new frmListarCotizaciones();
-
-        //    if (frmBuscar.ShowDialog() == DialogResult.OK)
-        //    {
-        //        var cotizacion = frmBuscar.CotizacionSeleccionada;
-        //        AgregarCotizacion(cotizacion);
-        //    }
-        //}
-        //private void btnEditar_Click(object sender, EventArgs e)
-        //{
-        //    if (dgvPresupuesto.SelectedRows.Count == 0)
-        //    {
-        //        MessageBox.Show("Seleccione una cotización para editar.");
-        //        return;
+        //        if (Convert.ToInt32(row.Cells["Id_Cotizacion"].Value) == idCotizacion)
+        //        {
+        //            MessageBox.Show("Esta cotización ya está en el presupuesto.");
+        //            return;
+        //        }
         //    }
 
-        //    int idCotizacion = Convert.ToInt32(dgvPresupuesto.SelectedRows[0].Cells["Id_Cotizacion"].Value);
-
-        //    // Abrir cotizador en modo edición
-        //    frmCotizador frmCotizador = new frmCotizador(idCotizacion);
-
-        //    if (frmCotizador.ShowDialog() == DialogResult.OK)
-        //    {
-        //        // Actualizar la fila en el DataGridView con los nuevos valores
-        //        var cotizacion = frmCotizador.CotizacionEditada;
-        //        var row = dataGridView1.SelectedRows[0];
-        //        row.Cells["NumeroCotizacion"].Value = cotizacion.NumeroCotizacion;
-        //        row.Cells["DescripcionMueble"].Value = cotizacion.DescripcionMueble;
-        //        row.Cells["MontoTotal"].Value = cotizacion.MontoTotal;
-
-        //        CalcularSubtotal();
-        //    }
+        //    dgvPresupuesto.Rows.Add(idCotizacion, numeroCotizacion, descripcion, montoTotal);
+        //    CalcularSubtotal();
         //}
+
+
         private void btnBorrarCotizacion_Click(object sender, EventArgs e)
         {
             if (dgvPresupuesto.SelectedRows.Count == 0)
@@ -429,6 +445,13 @@ namespace Vista
                 MessageBox.Show("El presupuesto debe contener al menos una cotización.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar una descripción u observación para el presupuesto.",
+                                "Campo Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDescripcion.Focus(); 
+                return; 
+            }
 
             try
             {
@@ -453,9 +476,14 @@ namespace Vista
 
                 int idPresupuestoCreado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
 
-                MessageBox.Show($"Presupuesto N° {idPresupuestoCreado} guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string parteNumericaFormateada = idPresupuestoCreado.ToString("D6"); 
+                string numeroPresupuestoFormateado = "P00-" + parteNumericaFormateada;
 
-                LimpiarFormulario();
+                lblValorNumeroPresupuesto.Text = numeroPresupuestoFormateado;
+                lblTituloNumeroPresupuesto.Visible = true;
+                lblValorNumeroPresupuesto.Visible = true;
+
+                MessageBox.Show($"Presupuesto N° {idPresupuestoCreado} guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
@@ -545,6 +573,13 @@ namespace Vista
                 MessageBox.Show("La venta debe contener al menos una cotización.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar una descripción u observación para la venta.",
+                                "Campo Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDescripcion.Focus(); 
+                return; 
+            }
 
             try
             {
@@ -582,6 +617,20 @@ namespace Vista
                 };
 
                 int idVentaCreada = clVenta.RegistrarNuevaVenta(nuevaVenta);
+
+                if (this.presupuestoExportado == false)
+                {
+                    DialogResult result = MessageBox.Show(
+                        "El presupuesto no ha sido exportado. ¿Desea registrar la venta sin exportar el documento?",
+                        "Confirmar Venta",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.No)
+                    {
+                        return; 
+                    }
+                }
 
                 MessageBox.Show($"Venta N° {idVentaCreada} registrada exitosamente. Presupuesto N° {idPresupuestoAsociado} asociado.", "Éxito de Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -635,8 +684,165 @@ namespace Vista
 
         private void btnEditarCotizacion_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var dgvPresupuesto = this.Controls.Find("dgvPresupuesto", true).FirstOrDefault() as DataGridView;
 
+                if (dgvPresupuesto == null || dgvPresupuesto.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Debe seleccionar una cotización de la lista.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var filaSeleccionada = dgvPresupuesto.SelectedRows[0];
+                var detalleOriginal = filaSeleccionada.DataBoundItem as DtoPresupuestoDetalle;
+
+                var listaDetalles = detallesCotizacion;
+
+                if (detalleOriginal == null || detalleOriginal.IdCotizacion <= 0 || listaDetalles == null)
+                {
+                    MessageBox.Show("La cotización seleccionada no es válida o la lista de datos es inaccesible.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Guardar datos importantes antes de editar
+                int indiceOriginal = listaDetalles.IndexOf(detalleOriginal);
+                int cantidadOriginal = detalleOriginal.Cantidad;
+
+                // Obtener la cotización completa desde la base de datos (plantilla)
+                var cotizacionCompleta = clCotizacion.ObtenerCotizacion(detalleOriginal.IdCotizacion);
+
+                if (cotizacionCompleta == null)
+                {
+                    MessageBox.Show("No se pudo cargar la cotización desde la base de datos.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Abrir formulario de cotización para editar
+                using (var frmCotizador = new frmCotizador())
+                {
+                    EventHandler onLoad = null;
+                    onLoad = (s, ev) =>
+                    {
+                        frmCotizador.Load -= onLoad;
+                        frmCotizador.InicializarModoPresupuestador(cotizacionCompleta);
+                    };
+                    frmCotizador.Load += onLoad;
+
+                    var resultado = frmCotizador.ShowDialog(this);
+
+                    if (resultado == DialogResult.OK)
+                    {
+                        int idGuardado = frmCotizador.IdCotizacionGuardada;
+
+                        if (idGuardado > 0)
+                        {
+                            var nuevaCotizacionDB = clCotizacion.ObtenerCotizacion(idGuardado);
+
+                            if (nuevaCotizacionDB != null)
+                            {
+                                var nuevoDetalle = new DtoPresupuestoDetalle
+                                {
+                                    IdPresupuesto = detalleOriginal.IdPresupuesto,
+
+                                    // Datos de la nueva cotización
+                                    IdCotizacion = nuevaCotizacionDB.Id_Cotizacion, 
+                                    NumeroCotizacion = nuevaCotizacionDB.NumeroCotizacion,
+                                    Observaciones = nuevaCotizacionDB.DescripcionMueble,
+                                    PrecioUnitario = nuevaCotizacionDB.MontoFinal,
+
+                                    Cantidad = cantidadOriginal
+                                };
+
+                                dgvPresupuesto.EndEdit();
+
+                                // Eliminar el detalle anterior
+                                listaDetalles.Remove(detalleOriginal);
+
+                                // Insertar el nuevo en la posición original
+                                if (indiceOriginal >= 0 && indiceOriginal <= listaDetalles.Count)
+                                {
+                                    listaDetalles.Insert(indiceOriginal, nuevoDetalle);
+                                }
+                                else
+                                {
+                                    listaDetalles.Add(nuevoDetalle);
+                                    indiceOriginal = listaDetalles.Count - 1; 
+                                }
+
+                                dgvPresupuesto.Refresh();
+
+                                MessageBox.Show($"Cotización reemplazada exitosamente con nuevo ID: {nuevoDetalle.IdCotizacion}",
+                                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Se generó un nuevo ID pero no se pudo cargar la cotización actualizada.",
+                                                "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("La cotización se actualizó/guardó, pero no se pudo recuperar el ID generado.",
+                                            "Error de ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else if (resultado == DialogResult.Cancel)
+                    {
+                        MessageBox.Show("Edición cancelada. No se realizaron cambios.",
+                            "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al editar la cotización: {ex.Message}\n\n{ex.StackTrace}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
+        //PARA EXPORTAR ??
+
+        //private void btnExportar_Click(object sender, EventArgs e)
+        //{
+        //    // 1. Validaciones básicas antes de exportar
+        //    if (this.detallesCotizacion.Count == 0)
+        //    {
+        //        MessageBox.Show("El presupuesto debe contener al menos una cotización para ser exportado.",
+        //                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return;
+        //    }
+
+        //    try
+        //    {
+        //        // 2. Lógica de Exportación (Ejemplo: Abrir SaveFileDialog y generar el documento)
+        //        using (SaveFileDialog saveDialog = new SaveFileDialog())
+        //        {
+        //            saveDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+        //            saveDialog.FileName = $"Presupuesto_{DateTime.Now:yyyyMMdd_HHmm}.pdf";
+
+        //            if (saveDialog.ShowDialog() == DialogResult.OK)
+        //            {
+        //                // **Aquí llamarías a la lógica real de generación de PDF/Documento**
+        //                // clPresupuesto.GenerarPDF(this.detallesCotizacion, this.clienteActual, saveDialog.FileName);
+
+        //                MessageBox.Show("Presupuesto exportado exitosamente.", "Exportación Completa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //                // 3. Establecer la bandera a true
+        //                this.presupuestoExportado = true;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al exportar el presupuesto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        this.presupuestoExportado = false; // Asegurar que la bandera se mantenga en false si falla
+        //    }
+        //}
     }
 
 }

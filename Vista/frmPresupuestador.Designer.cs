@@ -46,8 +46,9 @@
             this.btnBuscarCotizacion = new System.Windows.Forms.Button();
             this.btnSubtotal = new System.Windows.Forms.Button();
             this.btnBorrarCotizacion = new System.Windows.Forms.Button();
+            this.btnEditarCotizacion = new System.Windows.Forms.Button();
             this.dgvPresupuesto = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardarPresupuesto = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
             this.lbldescpresupuesto = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -71,7 +72,9 @@
             this.pnlPresupuesto = new System.Windows.Forms.Panel();
             this.pnlTotales = new System.Windows.Forms.Panel();
             this.pnlVigencia = new System.Windows.Forms.Panel();
-            this.btnEditarCotizacion = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblValorNumeroPresupuesto = new System.Windows.Forms.Label();
+            this.lblTituloNumeroPresupuesto = new System.Windows.Forms.Label();
             this.gbxCliente.SuspendLayout();
             this.gbxCotizaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPresupuesto)).BeginInit();
@@ -81,6 +84,7 @@
             this.pnlPresupuesto.SuspendLayout();
             this.pnlTotales.SuspendLayout();
             this.pnlVigencia.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxCliente
@@ -100,11 +104,11 @@
             this.gbxCliente.Controls.Add(this.cmbDni);
             this.gbxCliente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCliente.ForeColor = System.Drawing.Color.White;
-            this.gbxCliente.Location = new System.Drawing.Point(10, 50);
+            this.gbxCliente.Location = new System.Drawing.Point(11, 44);
             this.gbxCliente.Margin = new System.Windows.Forms.Padding(2);
             this.gbxCliente.Name = "gbxCliente";
             this.gbxCliente.Padding = new System.Windows.Forms.Padding(2);
-            this.gbxCliente.Size = new System.Drawing.Size(841, 150);
+            this.gbxCliente.Size = new System.Drawing.Size(841, 137);
             this.gbxCliente.TabIndex = 17;
             this.gbxCliente.TabStop = false;
             this.gbxCliente.Text = "Cliente";
@@ -122,10 +126,10 @@
             // lblemailclientepresupuesto
             // 
             this.lblemailclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblemailclientepresupuesto.Location = new System.Drawing.Point(289, 81);
+            this.lblemailclientepresupuesto.Location = new System.Drawing.Point(301, 81);
             this.lblemailclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblemailclientepresupuesto.Name = "lblemailclientepresupuesto";
-            this.lblemailclientepresupuesto.Size = new System.Drawing.Size(105, 41);
+            this.lblemailclientepresupuesto.Size = new System.Drawing.Size(93, 41);
             this.lblemailclientepresupuesto.TabIndex = 23;
             this.lblemailclientepresupuesto.Text = "Correo electrónico";
             this.lblemailclientepresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,7 +138,7 @@
             // 
             this.txtTelefonoCliente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefonoCliente.ForeColor = System.Drawing.Color.Black;
-            this.txtTelefonoCliente.Location = new System.Drawing.Point(714, 81);
+            this.txtTelefonoCliente.Location = new System.Drawing.Point(714, 88);
             this.txtTelefonoCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.Size = new System.Drawing.Size(100, 30);
@@ -153,7 +157,7 @@
             // lbltelefonoclientepresupuesto
             // 
             this.lbltelefonoclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltelefonoclientepresupuesto.Location = new System.Drawing.Point(645, 81);
+            this.lbltelefonoclientepresupuesto.Location = new System.Drawing.Point(645, 88);
             this.lbltelefonoclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbltelefonoclientepresupuesto.Name = "lbltelefonoclientepresupuesto";
             this.lbltelefonoclientepresupuesto.Size = new System.Drawing.Size(65, 25);
@@ -199,7 +203,7 @@
             this.btnBuscarDni.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBuscarDni.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarDni.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscarDni.Location = new System.Drawing.Point(204, 63);
+            this.btnBuscarDni.Location = new System.Drawing.Point(216, 69);
             this.btnBuscarDni.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarDni.Name = "btnBuscarDni";
             this.btnBuscarDni.Size = new System.Drawing.Size(81, 30);
@@ -211,7 +215,7 @@
             // lbldniclientepresupuesto
             // 
             this.lbldniclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldniclientepresupuesto.Location = new System.Drawing.Point(4, 63);
+            this.lbldniclientepresupuesto.Location = new System.Drawing.Point(16, 69);
             this.lbldniclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbldniclientepresupuesto.Name = "lbldniclientepresupuesto";
             this.lbldniclientepresupuesto.Size = new System.Drawing.Size(35, 25);
@@ -223,7 +227,7 @@
             // 
             this.txtDni.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.ForeColor = System.Drawing.Color.Black;
-            this.txtDni.Location = new System.Drawing.Point(100, 63);
+            this.txtDni.Location = new System.Drawing.Point(112, 69);
             this.txtDni.Margin = new System.Windows.Forms.Padding(2);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 30);
@@ -236,7 +240,7 @@
             this.cmbDni.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDni.ForeColor = System.Drawing.Color.Black;
             this.cmbDni.FormattingEnabled = true;
-            this.cmbDni.Location = new System.Drawing.Point(42, 62);
+            this.cmbDni.Location = new System.Drawing.Point(54, 68);
             this.cmbDni.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDni.Name = "cmbDni";
             this.cmbDni.Size = new System.Drawing.Size(54, 30);
@@ -252,7 +256,7 @@
             this.gbxCotizaciones.Controls.Add(this.dgvPresupuesto);
             this.gbxCotizaciones.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxCotizaciones.ForeColor = System.Drawing.Color.White;
-            this.gbxCotizaciones.Location = new System.Drawing.Point(10, 267);
+            this.gbxCotizaciones.Location = new System.Drawing.Point(11, 285);
             this.gbxCotizaciones.Margin = new System.Windows.Forms.Padding(2);
             this.gbxCotizaciones.Name = "gbxCotizaciones";
             this.gbxCotizaciones.Padding = new System.Windows.Forms.Padding(2);
@@ -303,6 +307,21 @@
             this.btnBorrarCotizacion.UseVisualStyleBackColor = false;
             this.btnBorrarCotizacion.Click += new System.EventHandler(this.btnBorrarCotizacion_Click);
             // 
+            // btnEditarCotizacion
+            // 
+            this.btnEditarCotizacion.BackColor = System.Drawing.Color.White;
+            this.btnEditarCotizacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEditarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarCotizacion.ForeColor = System.Drawing.Color.Black;
+            this.btnEditarCotizacion.Location = new System.Drawing.Point(730, 67);
+            this.btnEditarCotizacion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditarCotizacion.Name = "btnEditarCotizacion";
+            this.btnEditarCotizacion.Size = new System.Drawing.Size(100, 30);
+            this.btnEditarCotizacion.TabIndex = 20;
+            this.btnEditarCotizacion.Text = "Editar";
+            this.btnEditarCotizacion.UseVisualStyleBackColor = false;
+            this.btnEditarCotizacion.Click += new System.EventHandler(this.btnEditarCotizacion_Click);
+            // 
             // dgvPresupuesto
             // 
             this.dgvPresupuesto.BackgroundColor = System.Drawing.Color.White;
@@ -315,18 +334,18 @@
             this.dgvPresupuesto.Size = new System.Drawing.Size(712, 225);
             this.dgvPresupuesto.TabIndex = 16;
             // 
-            // button1
+            // btnGuardarPresupuesto
             // 
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(690, 620);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 30);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardarPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarPresupuesto.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarPresupuesto.Location = new System.Drawing.Point(690, 589);
+            this.btnGuardarPresupuesto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardarPresupuesto.Name = "btnGuardarPresupuesto";
+            this.btnGuardarPresupuesto.Size = new System.Drawing.Size(150, 30);
+            this.btnGuardarPresupuesto.TabIndex = 37;
+            this.btnGuardarPresupuesto.Text = "Guardar";
+            this.btnGuardarPresupuesto.UseVisualStyleBackColor = true;
+            this.btnGuardarPresupuesto.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnVenta
             // 
@@ -343,7 +362,7 @@
             // 
             // lbldescpresupuesto
             // 
-            this.lbldescpresupuesto.Location = new System.Drawing.Point(10, 11);
+            this.lbldescpresupuesto.Location = new System.Drawing.Point(15, 54);
             this.lbldescpresupuesto.Name = "lbldescpresupuesto";
             this.lbldescpresupuesto.Size = new System.Drawing.Size(100, 23);
             this.lbldescpresupuesto.TabIndex = 40;
@@ -353,16 +372,16 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.txtDescripcion.Location = new System.Drawing.Point(140, 9);
+            this.txtDescripcion.Location = new System.Drawing.Point(145, 52);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(319, 30);
+            this.txtDescripcion.Size = new System.Drawing.Size(374, 30);
             this.txtDescripcion.TabIndex = 20;
             // 
             // lblsubtotal
             // 
             this.lblsubtotal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsubtotal.Location = new System.Drawing.Point(38, 12);
+            this.lblsubtotal.Location = new System.Drawing.Point(46, 14);
             this.lblsubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblsubtotal.Name = "lblsubtotal";
             this.lblsubtotal.Size = new System.Drawing.Size(70, 25);
@@ -373,7 +392,7 @@
             // lblValorSubtotal
             // 
             this.lblValorSubtotal.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorSubtotal.Location = new System.Drawing.Point(176, 12);
+            this.lblValorSubtotal.Location = new System.Drawing.Point(184, 14);
             this.lblValorSubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValorSubtotal.Name = "lblValorSubtotal";
             this.lblValorSubtotal.Size = new System.Drawing.Size(135, 25);
@@ -385,7 +404,7 @@
             // lbldescuentopresupuesto
             // 
             this.lbldescuentopresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescuentopresupuesto.Location = new System.Drawing.Point(10, 52);
+            this.lbldescuentopresupuesto.Location = new System.Drawing.Point(18, 54);
             this.lbldescuentopresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbldescuentopresupuesto.Name = "lbldescuentopresupuesto";
             this.lbldescuentopresupuesto.Size = new System.Drawing.Size(95, 25);
@@ -397,7 +416,7 @@
             // 
             this.txtDescuento.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescuento.ForeColor = System.Drawing.Color.Black;
-            this.txtDescuento.Location = new System.Drawing.Point(149, 53);
+            this.txtDescuento.Location = new System.Drawing.Point(157, 55);
             this.txtDescuento.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(63, 30);
@@ -407,7 +426,7 @@
             // 
             this.btnaplicarDescuento.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnaplicarDescuento.ForeColor = System.Drawing.Color.Black;
-            this.btnaplicarDescuento.Location = new System.Drawing.Point(235, 49);
+            this.btnaplicarDescuento.Location = new System.Drawing.Point(243, 51);
             this.btnaplicarDescuento.Margin = new System.Windows.Forms.Padding(2);
             this.btnaplicarDescuento.Name = "btnaplicarDescuento";
             this.btnaplicarDescuento.Size = new System.Drawing.Size(120, 30);
@@ -419,7 +438,7 @@
             // lblValorPresupuesto
             // 
             this.lblValorPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorPresupuesto.Location = new System.Drawing.Point(145, 95);
+            this.lblValorPresupuesto.Location = new System.Drawing.Point(153, 97);
             this.lblValorPresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValorPresupuesto.Name = "lblValorPresupuesto";
             this.lblValorPresupuesto.Size = new System.Drawing.Size(210, 25);
@@ -431,7 +450,7 @@
             // lbltotalpresupuesto
             // 
             this.lbltotalpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalpresupuesto.Location = new System.Drawing.Point(10, 95);
+            this.lbltotalpresupuesto.Location = new System.Drawing.Point(18, 97);
             this.lbltotalpresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbltotalpresupuesto.Name = "lbltotalpresupuesto";
             this.lbltotalpresupuesto.Size = new System.Drawing.Size(130, 25);
@@ -443,7 +462,7 @@
             // 
             this.btnExportar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportar.ForeColor = System.Drawing.Color.Black;
-            this.btnExportar.Location = new System.Drawing.Point(690, 569);
+            this.btnExportar.Location = new System.Drawing.Point(690, 629);
             this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(150, 30);
@@ -455,7 +474,7 @@
             // 
             this.dtpVigencia.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpVigencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVigencia.Location = new System.Drawing.Point(39, 77);
+            this.dtpVigencia.Location = new System.Drawing.Point(47, 64);
             this.dtpVigencia.Margin = new System.Windows.Forms.Padding(2);
             this.dtpVigencia.Name = "dtpVigencia";
             this.dtpVigencia.Size = new System.Drawing.Size(138, 30);
@@ -464,7 +483,7 @@
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(57, 31);
+            this.label15.Location = new System.Drawing.Point(65, 18);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(105, 25);
@@ -476,7 +495,7 @@
             this.btnBuscarPresupuesto.BackColor = System.Drawing.Color.White;
             this.btnBuscarPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarPresupuesto.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscarPresupuesto.Location = new System.Drawing.Point(714, 11);
+            this.btnBuscarPresupuesto.Location = new System.Drawing.Point(278, 13);
             this.btnBuscarPresupuesto.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarPresupuesto.Name = "btnBuscarPresupuesto";
             this.btnBuscarPresupuesto.Size = new System.Drawing.Size(105, 30);
@@ -488,7 +507,7 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(480, 11);
+            this.label10.Location = new System.Drawing.Point(12, 15);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(230, 25);
@@ -567,9 +586,9 @@
             this.pnlPresupuesto.Controls.Add(this.txtDescripcion);
             this.pnlPresupuesto.Controls.Add(this.label10);
             this.pnlPresupuesto.ForeColor = System.Drawing.Color.White;
-            this.pnlPresupuesto.Location = new System.Drawing.Point(10, 210);
+            this.pnlPresupuesto.Location = new System.Drawing.Point(10, 186);
             this.pnlPresupuesto.Name = "pnlPresupuesto";
-            this.pnlPresupuesto.Size = new System.Drawing.Size(840, 52);
+            this.pnlPresupuesto.Size = new System.Drawing.Size(541, 94);
             this.pnlPresupuesto.TabIndex = 8048;
             this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint);
             // 
@@ -584,9 +603,9 @@
             this.pnlTotales.Controls.Add(this.lbltotalpresupuesto);
             this.pnlTotales.Controls.Add(this.lblValorPresupuesto);
             this.pnlTotales.ForeColor = System.Drawing.Color.White;
-            this.pnlTotales.Location = new System.Drawing.Point(10, 562);
+            this.pnlTotales.Location = new System.Drawing.Point(10, 580);
             this.pnlTotales.Name = "pnlTotales";
-            this.pnlTotales.Size = new System.Drawing.Size(398, 150);
+            this.pnlTotales.Size = new System.Drawing.Size(398, 132);
             this.pnlTotales.TabIndex = 8049;
             this.pnlTotales.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTotales_Paint);
             // 
@@ -596,26 +615,46 @@
             this.pnlVigencia.Controls.Add(this.label15);
             this.pnlVigencia.Controls.Add(this.dtpVigencia);
             this.pnlVigencia.ForeColor = System.Drawing.Color.White;
-            this.pnlVigencia.Location = new System.Drawing.Point(414, 562);
+            this.pnlVigencia.Location = new System.Drawing.Point(414, 580);
             this.pnlVigencia.Name = "pnlVigencia";
-            this.pnlVigencia.Size = new System.Drawing.Size(229, 150);
+            this.pnlVigencia.Size = new System.Drawing.Size(229, 132);
             this.pnlVigencia.TabIndex = 8050;
             this.pnlVigencia.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlVigencia_Paint);
             // 
-            // btnEditarCotizacion
+            // panel1
             // 
-            this.btnEditarCotizacion.BackColor = System.Drawing.Color.White;
-            this.btnEditarCotizacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnEditarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarCotizacion.ForeColor = System.Drawing.Color.Black;
-            this.btnEditarCotizacion.Location = new System.Drawing.Point(730, 67);
-            this.btnEditarCotizacion.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEditarCotizacion.Name = "btnEditarCotizacion";
-            this.btnEditarCotizacion.Size = new System.Drawing.Size(100, 30);
-            this.btnEditarCotizacion.TabIndex = 20;
-            this.btnEditarCotizacion.Text = "Editar";
-            this.btnEditarCotizacion.UseVisualStyleBackColor = false;
-            this.btnEditarCotizacion.Click += new System.EventHandler(this.btnEditarCotizacion_Click);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.lblTituloNumeroPresupuesto);
+            this.panel1.Controls.Add(this.lblValorNumeroPresupuesto);
+            this.panel1.ForeColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(557, 186);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(295, 94);
+            this.panel1.TabIndex = 8051;
+            // 
+            // lblValorNumeroPresupuesto
+            // 
+            this.lblValorNumeroPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorNumeroPresupuesto.Location = new System.Drawing.Point(80, 52);
+            this.lblValorNumeroPresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblValorNumeroPresupuesto.Name = "lblValorNumeroPresupuesto";
+            this.lblValorNumeroPresupuesto.Size = new System.Drawing.Size(203, 25);
+            this.lblValorNumeroPresupuesto.TabIndex = 23;
+            this.lblValorNumeroPresupuesto.Tag = "";
+            this.lblValorNumeroPresupuesto.Text = "El numero";
+            this.lblValorNumeroPresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTituloNumeroPresupuesto
+            // 
+            this.lblTituloNumeroPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloNumeroPresupuesto.Location = new System.Drawing.Point(52, 13);
+            this.lblTituloNumeroPresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTituloNumeroPresupuesto.Name = "lblTituloNumeroPresupuesto";
+            this.lblTituloNumeroPresupuesto.Size = new System.Drawing.Size(216, 25);
+            this.lblTituloNumeroPresupuesto.TabIndex = 24;
+            this.lblTituloNumeroPresupuesto.Tag = "";
+            this.lblTituloNumeroPresupuesto.Text = "Numero de Presupuesto";
+            this.lblTituloNumeroPresupuesto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmPresupuestador
             // 
@@ -624,10 +663,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.ClientSize = new System.Drawing.Size(862, 738);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlVigencia);
             this.Controls.Add(this.pnlTotales);
             this.Controls.Add(this.pnlPresupuesto);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardarPresupuesto);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.btnVenta);
@@ -654,6 +694,7 @@
             this.pnlTotales.ResumeLayout(false);
             this.pnlTotales.PerformLayout();
             this.pnlVigencia.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -691,7 +732,7 @@
         private System.Windows.Forms.DateTimePicker dtpVigencia;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnBuscarCotizacion;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardarPresupuesto;
         private System.Windows.Forms.Button btnBuscarPresupuesto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnlBorde;
@@ -703,5 +744,8 @@
         private System.Windows.Forms.Panel pnlTotales;
         private System.Windows.Forms.Panel pnlVigencia;
         private System.Windows.Forms.Button btnEditarCotizacion;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblValorNumeroPresupuesto;
+        private System.Windows.Forms.Label lblTituloNumeroPresupuesto;
     }
 }

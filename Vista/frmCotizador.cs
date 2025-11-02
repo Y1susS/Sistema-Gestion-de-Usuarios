@@ -1131,12 +1131,14 @@ namespace Vista
                 if (ViewState.CotizacionActual == null)
                 {
                     MessageBox.Show("Debe calcular el presupuesto antes de guardar.", "Advertencia",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                var esActualizacion = ViewState.CotizacionActual.Id_Cotizacion > 0;
+                int idInicial = ViewState.CotizacionActual.Id_Cotizacion;
+                var esActualizacion = idInicial > 0;
 
+                //Confirmación de guardado
                 var mensaje = esActualizacion
                     ? "¿Desea actualizar esta cotización?"
                     : "¿Desea guardar esta cotización?";
@@ -1146,48 +1148,75 @@ namespace Vista
 
                 if (result != DialogResult.Yes) return;
 
-                // Recalcular SIEMPRE antes de guardar para asegurar consistencia
                 btnCalcularCotizacion_Click(null, EventArgs.Empty);
 
-                bool exito;
+                // Ejecución del Guardado
+                bool exito = false;
+                int idGenerado = idInicial; 
+
                 if (esActualizacion)
                 {
                     exito = logicaCotizacion.ActualizarCotizacion(ViewState.CotizacionActual);
-                    if (exito)
-                        MessageBox.Show("Cotización actualizada exitosamente.", "Éxito",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                else // Incluye el flujo normal de Alta y el Modo Presupuestador
                 {
-                    int idCotizacion = logicaCotizacion.AltaCotizacion(ViewState.CotizacionActual);
-                    exito = idCotizacion > 0;
+                    idGenerado = logicaCotizacion.AltaCotizacion(ViewState.CotizacionActual);
+                    exito = idGenerado > 0;
                     if (exito)
                     {
-                        ViewState.CotizacionActual.Id_Cotizacion = idCotizacion;
-                        MessageBox.Show($"Cotización guardada exitosamente con ID: {idCotizacion}", "Éxito",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Asignar el nuevo ID
+                        ViewState.CotizacionActual.Id_Cotizacion = idGenerado;
                     }
                 }
 
                 if (exito)
                 {
-                    var btnGuardar = sender as Button;
-                    if (btnGuardar != null) btnGuardar.Text = "Actualizar Cotización";
+                    
+                    if (_esModoPresupuestador)
+                    {
+                        this.IdCotizacionGuardada = idGenerado; 
+                        this.DialogResult = DialogResult.OK;    
+                        this.Close();
+                    }
+                    else
+                    {
+                        // FLUJO NORMAL Guardar/Actualizar en el Cotizador
+                        var btnGuardar = sender as Button;
+                        if (btnGuardar != null) btnGuardar.Text = "Actualizar Cotización";
+
+                        var mensajeFinal = esActualizacion
+                            ? "Cotización actualizada exitosamente."
+                            : $"Cotización guardada exitosamente con ID: {idGenerado}";
+
+                        MessageBox.Show(mensajeFinal, "Éxito",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
                     var accion = esActualizacion ? "actualizar" : "guardar";
                     MessageBox.Show($"Error al {accion} la cotización.", "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Si falló en modo presupuestador, asegurar que el resultado no sea OK
+                    if (_esModoPresupuestador)
+                    {
+                        this.DialogResult = DialogResult.None;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al procesar cotización: {ex.Message}", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Si hay una excepción en modo presupuestador, asegurar que el resultado no sea OK
+                if (_esModoPresupuestador)
+                {
+                    this.DialogResult = DialogResult.None;
+                }
             }
         }
-
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -1381,6 +1410,22 @@ namespace Vista
             {
                 // Silencioso para no interrumpir el cálculo
             }
+        }
+
+        //presupuestador
+
+        private bool _esModoPresupuestador = false;
+        public int IdCotizacionGuardada { get; private set; } = 0;
+
+        public void InicializarModoPresupuestador(DtoCotizacion cotizacionOriginal)
+        {
+            _esModoPresupuestador= true;
+            DtoCotizacion cotizacionPlantilla = cotizacionOriginal;
+            cotizacionPlantilla.Id_Cotizacion = 0; 
+
+            CargarCotizacionParaEdicion(cotizacionPlantilla);
+
+            this.Text = $"Cotizador - Editando Plantilla de: {cotizacionOriginal.NumeroCotizacion}";
         }
     }
 }

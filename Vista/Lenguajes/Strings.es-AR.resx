@@ -786,4 +786,7 @@
   <data name="frmCambioPass.lblTituloCambioPass" xml:space="preserve">
     <value>Cambiar contraseña</value>
   </data>
+  <data name="lblPresupuestador" xml:space="preserve">
+    <value>Presupuestador</value>
+  </data>
 </root>
