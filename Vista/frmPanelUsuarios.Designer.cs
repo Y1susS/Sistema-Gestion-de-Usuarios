@@ -35,7 +35,7 @@
             this.btnRegistroClientes = new System.Windows.Forms.Button();
             this.btnPreguntas = new System.Windows.Forms.Button();
             this.btnCambiarContrasena = new System.Windows.Forms.Button();
-            this.lblDiasRestantesContrasena = new System.Windows.Forms.Label();
+            this.lbldiasrestantes = new System.Windows.Forms.Label();
             this.lblmenuadmin = new System.Windows.Forms.Label();
             this.btncotizador = new System.Windows.Forms.Button();
             this.btnmetricas = new System.Windows.Forms.Button();
@@ -183,21 +183,21 @@
             this.btnCambiarContrasena.UseVisualStyleBackColor = true;
             this.btnCambiarContrasena.Click += new System.EventHandler(this.btnCambiarContrasena_Click);
             // 
-            // lblDiasRestantesContrasena
+            // lbldiasrestantes
             // 
-            this.lblDiasRestantesContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
-            this.lblDiasRestantesContrasena.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDiasRestantesContrasena.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiasRestantesContrasena.ForeColor = System.Drawing.Color.White;
-            this.lblDiasRestantesContrasena.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblDiasRestantesContrasena.Location = new System.Drawing.Point(0, 0);
-            this.lblDiasRestantesContrasena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDiasRestantesContrasena.Name = "lblDiasRestantesContrasena";
-            this.lblDiasRestantesContrasena.Size = new System.Drawing.Size(250, 45);
-            this.lblDiasRestantesContrasena.TabIndex = 8;
-            this.lblDiasRestantesContrasena.Text = "Dias Restantes";
-            this.lblDiasRestantesContrasena.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDiasRestantesContrasena.Paint += new System.Windows.Forms.PaintEventHandler(this.lblDiasRestantesContrasena_Paint);
+            this.lbldiasrestantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
+            this.lbldiasrestantes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbldiasrestantes.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldiasrestantes.ForeColor = System.Drawing.Color.White;
+            this.lbldiasrestantes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbldiasrestantes.Location = new System.Drawing.Point(0, 0);
+            this.lbldiasrestantes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbldiasrestantes.Name = "lbldiasrestantes";
+            this.lbldiasrestantes.Size = new System.Drawing.Size(233, 45);
+            this.lbldiasrestantes.TabIndex = 8;
+            this.lbldiasrestantes.Text = "Dias Restantes";
+            this.lbldiasrestantes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbldiasrestantes.Paint += new System.Windows.Forms.PaintEventHandler(this.lblDiasRestantesContrasena_Paint);
             // 
             // lblmenuadmin
             // 
@@ -440,7 +440,7 @@
             // 
             // pnlDiasRestantes
             // 
-            this.pnlDiasRestantes.Controls.Add(this.lblDiasRestantesContrasena);
+            this.pnlDiasRestantes.Controls.Add(this.lbldiasrestantes);
             this.pnlDiasRestantes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlDiasRestantes.Location = new System.Drawing.Point(0, 770);
             this.pnlDiasRestantes.Name = "pnlDiasRestantes";
@@ -606,14 +606,22 @@
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(250, 40);
             this.pnlContenedor.Name = "pnlContenedor";
+<<<<<<< HEAD
+            this.pnlContenedor.Size = new System.Drawing.Size(1000, 689);
+=======
             this.pnlContenedor.Size = new System.Drawing.Size(1000, 815);
+>>>>>>> master
             this.pnlContenedor.TabIndex = 36;
             // 
             // frmPanelUsuarios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(1250, 749);
+=======
             this.ClientSize = new System.Drawing.Size(1250, 875);
+>>>>>>> master
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlBordeInferior);
@@ -649,7 +657,7 @@
         private System.Windows.Forms.Button btnRegistroClientes;
         private System.Windows.Forms.Button btnPreguntas;
         private System.Windows.Forms.Button btnCambiarContrasena;
-        private System.Windows.Forms.Label lblDiasRestantesContrasena;
+        private System.Windows.Forms.Label lbldiasrestantes;
         private System.Windows.Forms.Label lblmenuadmin;
         private System.Windows.Forms.Button btncotizador;
         private System.Windows.Forms.Button btnmetricas;

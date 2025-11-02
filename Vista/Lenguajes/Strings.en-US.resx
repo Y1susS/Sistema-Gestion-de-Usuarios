@@ -339,7 +339,7 @@
   <data name="lbltotalpies" xml:space="preserve">
     <value>Total Feet</value>
   </data>
-  <data name="gpbvidrios" xml:space="preserve">
+  <data name="gpbvid" xml:space="preserve">
     <value>Glass</value>
   </data>
   <data name="lblVidrio1" xml:space="preserve">
@@ -369,7 +369,7 @@
   <data name="lblTotalVidrio" xml:space="preserve">
     <value>Total</value>
   </data>
-  <data name="lblTotalVidrios2" xml:space="preserve">
+  <data name="lblTotalVid" xml:space="preserve">
     <value>Total Glass</value>
   </data>
   <data name="gpvmatvarios" xml:space="preserve">
@@ -516,18 +516,6 @@
   <data name="btnguardarpermiso" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="lblPreguntasseg" xml:space="preserve">
-    <value>questions</value>
-  </data>
-  <data name="lblrespuestasseg" xml:space="preserve">
-    <value>Answers</value>
-  </data>
-  <data name="btnSiguientepregseg" xml:space="preserve">
-    <value>Next</value>
-  </data>
-  <data name="lblTitulopreguntasseg" xml:space="preserve">
-    <value>Security Questions</value>
-  </data>
   <data name="lblInstrucciones" xml:space="preserve">
     <value>Instructions</value>
   </data>
@@ -667,7 +655,7 @@
     <value>Combination of uppercase and lowercase</value>
   </data>
   <data name="lblDiasCambio" xml:space="preserve">
-    <value>  Days until password change</value>
+    <value>Days until password change</value>
   </data>
   <data name="btnGuardarCambioscont" xml:space="preserve">
     <value>Save changes</value>
@@ -702,7 +690,7 @@
   <data name="btnBuscarDni" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="lbldescpresupuesto" xml:space="preserve">
+  <data name="lbldescpres" xml:space="preserve">
     <value>Description Quote</value>
   </data>
   <data name="lblcargarpresupuestoexistente" xml:space="preserve">
@@ -765,7 +753,7 @@
   <data name="btnEnviarxMail" xml:space="preserve">
     <value>Send</value>
   </data>
-  <data name="btnguardarpresupuesto" xml:space="preserve">
+  <data name="btnGuardarPresu" xml:space="preserve">
     <value>Save</value>
   </data>
   <data name="lblfinalizarpresupuesto" xml:space="preserve">
@@ -794,5 +782,131 @@
   </data>
   <data name="lblreportes" xml:space="preserve">
     <value>reports</value>
+  </data>
+  <data name="lbldiasrestantes" xml:space="preserve">
+    <value>days remaining to change password</value>
+  </data>
+  <data name="btnnuevocliente" xml:space="preserve">
+    <value>new client</value>
+  </data>
+  <data name="lblStockCritico" xml:space="preserve">
+    <value>critical stock</value>
+  </data>
+  <data name="lblpresupuestosexistentes" xml:space="preserve">
+    <value>Existing budgets</value>
+  </data>
+  <data name="btnBuscarCotizacion" xml:space="preserve">
+    <value>Search existing quote</value>
+  </data>
+  <data name="btnBorrarCotizacion" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="lblvigenciahasta" xml:space="preserve">
+    <value>Valid until</value>
+  </data>
+  <data name="btnExportar" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="lblDescripcionMueble" xml:space="preserve">
+    <value>Furniture description</value>
+  </data>
+  <data name="chk1" xml:space="preserve">
+    <value>Wood 1</value>
+  </data>
+  <data name="chk2" xml:space="preserve">
+    <value>Wood 2</value>
+  </data>
+  <data name="chk3" xml:space="preserve">
+    <value>Wood 3</value>
+  </data>
+  <data name="chk4" xml:space="preserve">
+    <value>Wood 4</value>
+  </data>
+  <data name="chk5" xml:space="preserve">
+    <value>Wood 5</value>
+  </data>
+  <data name="chk6" xml:space="preserve">
+    <value>Wood 6</value>
+  </data>
+  <data name="chk7" xml:space="preserve">
+    <value>Wood 7</value>
+  </data>
+  <data name="chk8" xml:space="preserve">
+    <value>Wood 8</value>
+  </data>
+  <data name="lblpies" xml:space="preserve">
+    <value>Total feet</value>
+  </data>
+  <data name="gpbmaderascot" xml:space="preserve">
+    <value>Woods</value>
+  </data>
+  <data name="grpExtras" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="lbldescripcionextras" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="lblprecioextras" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="chkotrosmateriales1" xml:space="preserve">
+    <value>Other materials 1</value>
+  </data>
+  <data name="chkotrosmateriales2" xml:space="preserve">
+    <value>Other materials 2</value>
+  </data>
+  <data name="chkotrosmateriales3" xml:space="preserve">
+    <value>Miscellaneous expenses</value>
+  </data>
+  <data name="lblmetros2" xml:space="preserve">
+    <value>Value per square meter</value>
+  </data>
+  <data name="chkvidrio1" xml:space="preserve">
+    <value>Glass 1</value>
+  </data>
+  <data name="chkvidrio2" xml:space="preserve">
+    <value>Glass 2</value>
+  </data>
+  <data name="chkvidrio3" xml:space="preserve">
+    <value>Glass 3</value>
+  </data>
+  <data name="gpbmaterialesvarios" xml:space="preserve">
+    <value>Various materials</value>
+  </data>
+  <data name="lblcantmatvar" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lblunidadmatvar" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="lblCotiacion" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="lblUsuarioper" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="lblTitulovalidaciones" xml:space="preserve">
+    <value>Password validations</value>
+  </data>
+  <data name="btnsigpregseg" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="lbltitpregsegu" xml:space="preserve">
+    <value>Security questions</value>
+  </data>
+  <data name="btnNuevoUsuario" xml:space="preserve">
+    <value>New user</value>
+  </data>
+  <data name="btnGuardarUusario" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btnEliminarUsuario" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="lblPreguntasseg" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="lblRespuestasseg" xml:space="preserve">
+    <value>Answers</value>
   </data>
 </root>

@@ -20,13 +20,13 @@ namespace Datos
                     cmd.Parameters.AddWithValue("@Id_Cotizacion", idCotizacion);
                     cmd.Parameters.AddWithValue("@Id_Material", d.IdMaterial);
                     cmd.Parameters.AddWithValue("@Cantidad", d.Cantidad);
-                    cmd.Parameters.AddWithValue("@Unidad", (object)(d.Unidad ?? (object)DBNull.Value) ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@PrecioUnitario", (object)(d.PrecioUnitario ?? (object)DBNull.Value) ?? DBNull.Value);
+                    // Manejo correcto de nulos
+                    cmd.Parameters.AddWithValue("@Unidad", (object)d.Unidad ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@PrecioUnitario", (object)d.PrecioUnitario ?? DBNull.Value);
 
-                    using (var dr = cmd.ExecuteReader())
-                    {
-                        return dr.Read() ? Convert.ToInt32(dr[0]) : 0;
-                    }
+                    // El SP devuelve SCOPE_IDENTITY()
+                    var result = cmd.ExecuteScalar();
+                    return result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
                 }
             }
             catch (Exception ex)
