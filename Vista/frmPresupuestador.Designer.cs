@@ -65,7 +65,7 @@
             this.btnBuscarPresupuesto = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblPresupuestador = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
@@ -519,7 +519,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblPresupuestador);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -528,18 +528,18 @@
             this.pnlBorde.Size = new System.Drawing.Size(862, 40);
             this.pnlBorde.TabIndex = 8046;
             // 
-            // lblTitulo
+            // lblPresupuestador
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(782, 40);
-            this.lblTitulo.TabIndex = 23;
-            this.lblTitulo.Text = "Presupuestador";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPresupuestador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblPresupuestador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPresupuestador.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPresupuestador.ForeColor = System.Drawing.Color.White;
+            this.lblPresupuestador.Location = new System.Drawing.Point(40, 0);
+            this.lblPresupuestador.Name = "lblPresupuestador";
+            this.lblPresupuestador.Size = new System.Drawing.Size(782, 40);
+            this.lblPresupuestador.TabIndex = 23;
+            this.lblPresupuestador.Text = "Presupuestador";
+            this.lblPresupuestador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -737,7 +737,7 @@
         private System.Windows.Forms.Button btnBuscarPresupuesto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblPresupuestador;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;

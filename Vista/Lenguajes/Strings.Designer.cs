@@ -714,7 +714,7 @@ namespace Vista.Lenguajes {
         /// <summary>
         ///   Busca una cadena traducida similar a Registro y Modificación de clientes.
         /// </summary>
-        internal static string gpbregcli {
+        internal static string gpbAbmClientes {
             get {
                 return ResourceManager.GetString("gpbregcli", resourceCulture);
             }

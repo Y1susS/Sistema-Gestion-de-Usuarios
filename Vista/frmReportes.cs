@@ -29,7 +29,7 @@ namespace Vista
             _formSizeInicial = this.Size;
             _ventas = new CL_Ventas();
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(lblreportes);
             moverFormulario.HabilitarMovimiento(pnlBorde);
         }
 
