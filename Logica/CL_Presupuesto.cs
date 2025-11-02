@@ -31,33 +31,21 @@ namespace Logica
         }
         public Presupuesto CargarPresupuestoCompleto(int idPresupuesto)
         {
-            // 1. Obtener el encabezado (la parte principal)
             Presupuesto presupuesto = cdPresupuesto.ObtenerEncabezado(idPresupuesto);
 
             if (presupuesto != null)
             {
-                // 2. Obtener los detalles de cotización (las filas del DataGrid)
                 List<DtoPresupuestoDetalle> detalles = cdPresupuesto.ObtenerDetalles(idPresupuesto);
-
-                // 3. Crear una propiedad o un método para adjuntar los detalles al presupuesto.
-                // Como no tengo tu DTO Presupuesto completo, lo devolveremos separado,
-                // pero idealmente deberías tener una propiedad:
-                // presupuesto.DetallesCotizacion = detalles;
-
-                // Para fines prácticos, podemos devolver el objeto Presupuesto (encabezado)
-                // y gestionar los detalles en la capa de la Vista.
 
                 return presupuesto;
             }
 
-            // Devolver null si no se encontró el encabezado.
             return null;
         }
         public List<DtoPresupuestoDetalle> ObtenerDetalles(int idPresupuesto)
         {
             try
             {
-                // Aquí es donde llamas al método implementado en la Capa de Datos (CD)
                 return cdPresupuesto.ObtenerDetalles(idPresupuesto);
             }
             catch (Exception ex)
@@ -71,9 +59,7 @@ namespace Logica
             int idPresupuesto = 0;
             try
             {
-                // 1. Insertar la Cabecera y Obtener el ID Generado
-                // cdPresupuesto.InsertarPresupuesto DEBE ser renombrado o modificado
-                // para *solo* insertar la cabecera y devolver el ID.
+
                 idPresupuesto = cdPresupuesto.InsertarPresupuesto(presupuesto, detalles);
 
                 if (idPresupuesto <= 0)
@@ -81,13 +67,10 @@ namespace Logica
                     throw new Exception("No se pudo obtener el ID de la cabecera del presupuesto.");
                 }
 
-                // 2. Insertar los Detalles uno por uno (SIN TRANSACCIÓN explícita)
                 foreach (var detalle in detalles)
                 {
-                    // Asignar el ID de la cabecera a cada detalle (Foreign Key)
                     detalle.IdPresupuesto = idPresupuesto;
 
-                    // Llamar al método del DAO que inserta un solo detalle
                     cdPresupuesto.InsertarDetallePresupuesto(detalle);
                 }
 
@@ -95,10 +78,8 @@ namespace Logica
             }
             catch (Exception ex)
             {
-                // Si el error ocurre en la cabecera, no se inserta nada.
-                // Si el error ocurre en un detalle, la cabecera y los detalles anteriores QUEDARÁN
-                // guardados en la base de datos (inconsistencia).
-                throw new Exception("Error al guardar el presupuesto (revisar si quedó incompleto en DB).", ex);
+
+                throw new Exception("Error al guardar el presupuesto (Pudo haber quedado incompleto en DB).", ex);
             }
         }
         public void ActualizarEstadosVencidos()

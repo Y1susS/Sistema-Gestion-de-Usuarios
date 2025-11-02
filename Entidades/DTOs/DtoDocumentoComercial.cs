@@ -17,15 +17,5 @@ namespace Entidades.DTOs
         public string Observaciones { get; set; }
         public bool Activo { get; set; }
 
-        public decimal PorcentajeDescuento
-        {
-            get
-            {
-                if (MontoTotal == 0) return 0M; // Evita división por cero
-
-                // Suponiendo que 'Descuento' es el MONTO de dinero
-                return Descuento / MontoTotal;
-            }
-        }
     }
 }

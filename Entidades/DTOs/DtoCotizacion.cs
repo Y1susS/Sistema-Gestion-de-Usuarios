@@ -46,11 +46,5 @@ namespace Entidades.DTOs
 
         }
 
-        //para edicion por presupuestador
-
-        public DtoCotizacion Clone()
-        {
-            return (DtoCotizacion)this.MemberwiseClone();
-        }
     }
 }
