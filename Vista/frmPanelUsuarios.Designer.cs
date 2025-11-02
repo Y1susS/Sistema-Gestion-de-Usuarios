@@ -606,22 +606,17 @@
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(250, 40);
             this.pnlContenedor.Name = "pnlContenedor";
-<<<<<<< HEAD
-            this.pnlContenedor.Size = new System.Drawing.Size(1000, 689);
-=======
+
             this.pnlContenedor.Size = new System.Drawing.Size(1000, 815);
->>>>>>> master
+
             this.pnlContenedor.TabIndex = 36;
             // 
             // frmPanelUsuarios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1250, 749);
-=======
+
             this.ClientSize = new System.Drawing.Size(1250, 875);
->>>>>>> master
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlBordeInferior);
