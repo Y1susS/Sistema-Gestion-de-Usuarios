@@ -20,6 +20,7 @@ namespace Vista
     {
         private ClsArrastrarFormularios moverFormulario;
         private string numeroPresupuestoActual; // Número del presupuesto actual (cargado o recién guardado)
+        private bool presupuestoExportado = false;
         public frmPresupuestador()
         {
             InitializeComponent();
@@ -46,8 +47,16 @@ namespace Vista
         private CL_Ventas clVenta = new CL_Ventas();
         private CL_Cotizacion clCotizacion = new CL_Cotizacion();
 
-        private bool presupuestoExportado = false;
+        private void frmPresupuestador_Load(object sender, EventArgs e)
+        {
+        }
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
 
+        #region Configuraciones y Utilidades
         private void ConfigurarDatagrid()
         {
             dgvPresupuesto.ReadOnly = false;
@@ -82,6 +91,22 @@ namespace Vista
             {
                 dgvPresupuesto.Columns["Idcotizacion"].Visible = false;
             }
+
+            System.Globalization.CultureInfo culturaArg = new System.Globalization.CultureInfo("es-AR");
+
+            if (dgvPresupuesto.Columns.Contains("Subtotal"))
+            {
+                dgvPresupuesto.Columns["Subtotal"].DefaultCellStyle.Format = "N2"; 
+                dgvPresupuesto.Columns["Subtotal"].DefaultCellStyle.FormatProvider = culturaArg;
+                dgvPresupuesto.Columns["Subtotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
+
+            if (dgvPresupuesto.Columns.Contains("PrecioUnitario")) 
+            {
+                dgvPresupuesto.Columns["PrecioUnitario"].DefaultCellStyle.Format = "N2";
+                dgvPresupuesto.Columns["PrecioUnitario"].DefaultCellStyle.FormatProvider = culturaArg;
+                dgvPresupuesto.Columns["PrecioUnitario"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
         }
 
         private void ConfigurarControles()
@@ -114,7 +139,53 @@ namespace Vista
             txtDni.KeyDown += txtDni_KeyDown;
         }
 
-        #region Seccion Cliente
+        private void LimpiarCamposCliente()
+        {
+            txtNombreCliente.Text = string.Empty;
+            txtApellidoCliente.Text = string.Empty;
+            txtTelefonoCliente.Text = string.Empty;
+            txtMailCliente.Text = string.Empty;
+            this.clienteActual = null;
+        }
+        private void ActualizarDataGridCotizaciones()
+        {
+            dgvPresupuesto.DataSource = null;
+            dgvPresupuesto.DataSource = this.detallesCotizacion;
+        }
+
+        private decimal ObtenerDecimalDesdeLabel(Label lbl)
+        {
+            string textoLimpio = lbl.Text
+                .Replace("$", "")
+                .Replace(" ", "")
+                .Replace(".", "")
+                .Replace(",", ".");
+
+            decimal valor = 0;
+            decimal.TryParse(textoLimpio, System.Globalization.NumberStyles.Any,
+                             System.Globalization.CultureInfo.InvariantCulture, out valor);
+            return valor;
+        }
+
+        private void LimpiarFormulario()
+        {
+            Servicios.ClsUtilidadesForms.LimpiarControles(this);
+            LimpiarCamposCliente();
+
+            this.detallesCotizacion.Clear();
+            ActualizarDataGridCotizaciones();
+            lblValorSubtotal.Text = "$ 0,00";
+            lblValorPresupuesto.Text = "$ 0,00";
+            dgvPresupuesto.DataSource = null;
+
+            dtpVigencia.CustomFormat = " ";
+            dtpVigencia.Format = DateTimePickerFormat.Custom;
+            numeroPresupuestoActual = string.Empty;
+        }
+
+        #endregion
+
+        #region Cliente
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
             if (cmbDni.SelectedValue == null)
@@ -179,15 +250,9 @@ namespace Vista
             }
         }
 
-        private void LimpiarCamposCliente()
-        {
-            txtNombreCliente.Text = string.Empty;
-            txtApellidoCliente.Text = string.Empty;
-            txtTelefonoCliente.Text = string.Empty;
-            txtMailCliente.Text = string.Empty;
-            this.clienteActual = null;
-        }
+        #endregion
 
+        #region Seleccion Presupuesto
         private void btnBuscarPresupuesto_Click(object sender, EventArgs e)
         {
             using (frmBuscarPresupuesto frmBusqueda = new frmBuscarPresupuesto())
@@ -245,7 +310,7 @@ namespace Vista
 
                 // Cargar totales
                 lblValorSubtotal.Text = "$ " + p.MontoTotal.ToString();
-                txtDescuento.Text = p.PorcentajeDescuento.ToString();
+                txtDescuento.Text = p.Descuento.ToString();
                 lblValorPresupuesto.Text = "$ " + p.MontoFinal.ToString();
 
                 // Cargar número
@@ -301,72 +366,16 @@ namespace Vista
                                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        private void ActualizarDataGridCotizaciones()
-        {
-            dgvPresupuesto.DataSource = null;
-            dgvPresupuesto.DataSource = this.detallesCotizacion;
-        }
         #endregion
 
-        //public void AgregarCotizacion(int idCotizacion, string numeroCotizacion,
-        //                       string descripcion, decimal montoTotal)
-        //{
-        //    // Verificar que no esté ya agregada
-        //    foreach (DataGridViewRow row in dgvPresupuesto.Rows)
-        //    {
-        //        if (Convert.ToInt32(row.Cells["Id_Cotizacion"].Value) == idCotizacion)
-        //        {
-        //            MessageBox.Show("Esta cotización ya está en el presupuesto.");
-        //            return;
-        //        }
-        //    }
-
-        //    dgvPresupuesto.Rows.Add(idCotizacion, numeroCotizacion, descripcion, montoTotal);
-        //    CalcularSubtotal();
-        //}
+        #region Calculos para Total
 
 
-        private void btnBorrarCotizacion_Click(object sender, EventArgs e)
-        {
-            if (dgvPresupuesto.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione una cotización para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DataGridViewRow filaSeleccionada = dgvPresupuesto.SelectedRows[0];
-            int indiceFila = filaSeleccionada.Index;
-
-            DialogResult resultado = MessageBox.Show(
-                "¿Está seguro de eliminar esta cotización del presupuesto?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (resultado == DialogResult.Yes)
-            {
-                DtoPresupuestoDetalle detalleParaBorrar = filaSeleccionada.DataBoundItem as DtoPresupuestoDetalle;
-
-                if (detalleParaBorrar != null)
-                {
-                    this.detallesCotizacion.Remove(detalleParaBorrar);
-                    dgvPresupuesto.DataSource = null;
-                    dgvPresupuesto.DataSource = this.detallesCotizacion;
-                    CalcularSubtotal();
-                }
-                else
-                {
-                    dgvPresupuesto.Rows.RemoveAt(indiceFila);
-                    CalcularSubtotal();
-                }
-            }
-        }
 
         private void btnSubtotal_Click(object sender, EventArgs e)
         {
             CalcularSubtotal();
+            AplicarDescuento();
         }
 
         private void CalcularSubtotal()
@@ -379,7 +388,7 @@ namespace Vista
                     subtotal += monto;
                 }
             }
-            lblValorSubtotal.Text = "$ " + subtotal.ToString();
+            lblValorSubtotal.Text = "$ " + subtotal.ToString("N2", System.Globalization.CultureInfo.CurrentCulture);
         }
 
         private void btnDescuento_Click(object sender, EventArgs e)
@@ -417,220 +426,9 @@ namespace Vista
             decimal total = subtotal * (1 - (porcentajeDescuento / 100));
             lblValorPresupuesto.Text = "$ " + total.ToString("N2", System.Globalization.CultureInfo.CurrentCulture);
         }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            int? idUsuarioActual = ClsSesionActual.ObtenerUsuario()?.Id_user;
-
-            if (idUsuarioActual == null || idUsuarioActual == 0)
-            {
-                MessageBox.Show("No se pudo identificar al usuario logueado. Cierre sesión y vuelva a iniciar.", "Error de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (this.clienteActual == null || this.clienteActual.Id_Cliente == 0)
-            {
-                MessageBox.Show("Debe buscar y seleccionar un cliente válido antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (this.detallesCotizacion.Count == 0)
-            {
-                MessageBox.Show("El presupuesto debe contener al menos una cotización.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
-            {
-                MessageBox.Show("Debe ingresar una descripción u observación para el presupuesto.",
-                                "Campo Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtDescripcion.Focus();
-                return;
-            }
-
-            try
-            {
-                decimal.TryParse(txtDescuento.Text.Trim(), out decimal porcentajeDescuento);
-
-                decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
-                decimal totalFinal = ObtenerDecimalDesdeLabel(lblValorPresupuesto);
-
-                Presupuesto nuevoPresupuesto = new Presupuesto()
-                {
-                    IdUser = idUsuarioActual,
-                    FechaCreacion = DateTime.Now,
-                    FechaValidez = dtpVigencia.Value,
-                    Id_Cliente = clienteActual.Id_Cliente,
-                    MontoTotal = subtotal,
-                    Descuento = porcentajeDescuento,
-                    MontoFinal = totalFinal,
-                    Observaciones = txtDescripcion.Text.Trim(),
-                    IdEstadoPresupuesto = 1,
-                };
-
-                int idPresupuestoCreado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
-
-                string parteNumericaFormateada = idPresupuestoCreado.ToString("D6");
-                string numeroPresupuestoFormateado = "P00-" + parteNumericaFormateada;
-
-                lblValorNumeroPresupuesto.Text = numeroPresupuestoFormateado;
-                lblTituloNumeroPresupuesto.Visible = true;
-                lblValorNumeroPresupuesto.Visible = true;
-                numeroPresupuestoActual = numeroPresupuestoFormateado;
-
-                MessageBox.Show($"Presupuesto N° {idPresupuestoCreado} guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar el presupuesto: " + ex.Message, "Error de Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private decimal ObtenerDecimalDesdeLabel(Label lbl)
-        {
-            string textoLimpio = lbl.Text
-                .Replace("$", "")
-                .Replace(" ", "")
-                .Replace(".", "")
-                .Replace(",", ".");
-
-            decimal valor = 0;
-            decimal.TryParse(textoLimpio, System.Globalization.NumberStyles.Any,
-                             System.Globalization.CultureInfo.InvariantCulture, out valor);
-            return valor;
-        }
-
-        private void frmPresupuestador_Load(object sender, EventArgs e)
-        {
-        }
-
-        #region Estetica Form
-        private void pnlVigencia_Paint(object sender, PaintEventArgs e)
-        {
-            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
-        }
-
-        private void pnlTotales_Paint(object sender, PaintEventArgs e)
-        {
-            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
-        }
-
-        private void pnlPresupuesto_Paint(object sender, PaintEventArgs e)
-        {
-            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
-        }
-
-        private void pctMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
         #endregion
 
-        private void pctClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
-
-        private void LimpiarFormulario()
-        {
-            Servicios.ClsUtilidadesForms.LimpiarControles(this);
-            LimpiarCamposCliente();
-
-            this.detallesCotizacion.Clear();
-            ActualizarDataGridCotizaciones();
-            lblValorSubtotal.Text = "$ 0,00";
-            lblValorPresupuesto.Text = "$ 0,00";
-            dgvPresupuesto.DataSource = null;
-
-            dtpVigencia.CustomFormat = " ";
-            dtpVigencia.Format = DateTimePickerFormat.Custom;
-            numeroPresupuestoActual = string.Empty;
-        }
-
-        private void btnVenta_Click(object sender, EventArgs e)
-        {
-            int? idUsuarioActual = ClsSesionActual.ObtenerUsuario()?.Id_user;
-
-            if (idUsuarioActual == null || idUsuarioActual == 0)
-            {
-                MessageBox.Show("No se pudo identificar al usuario logueado.", "Error de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (this.clienteActual == null || this.clienteActual.Id_Cliente == 0)
-            {
-                MessageBox.Show("Debe buscar y seleccionar un cliente válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (this.detallesCotizacion.Count == 0)
-            {
-                MessageBox.Show("La venta debe contener al menos una cotización.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
-            {
-                MessageBox.Show("Debe ingresar una descripción u observación para la venta.",
-                                "Campo Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtDescripcion.Focus();
-                return;
-            }
-
-            try
-            {
-                decimal.TryParse(txtDescuento.Text.Trim(), out decimal porcentajeDescuento);
-                decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
-                decimal totalFinal = ObtenerDecimalDesdeLabel(lblValorPresupuesto);
-
-                Presupuesto nuevoPresupuesto = new Presupuesto()
-                {
-                    IdUser = idUsuarioActual,
-                    FechaCreacion = DateTime.Now,
-                    FechaValidez = dtpVigencia.Value,
-                    Id_Cliente = clienteActual.Id_Cliente,
-                    MontoTotal = subtotal,
-                    Descuento = porcentajeDescuento,
-                    MontoFinal = totalFinal,
-                    Observaciones = txtDescripcion.Text.Trim(),
-                    IdEstadoPresupuesto = 1, // Estado inicial del nuevo Presupuesto
-                };
-
-                int idPresupuestoAsociado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
-
-                DtoVenta nuevaVenta = new DtoVenta()
-                {
-                    MontoTotal = subtotal,
-                    Descuento = porcentajeDescuento,
-                    MontoFinal = totalFinal,
-                    Observaciones = txtDescripcion.Text.Trim(),
-                    Activo = true,
-                    IdPresupuesto = idPresupuestoAsociado,
-                    IdVendedor = idUsuarioActual,
-                    IdEstadoVenta = 1,
-                    FechaVenta = DateTime.Now,
-                };
-
-                int idVentaCreada = clVenta.RegistrarNuevaVenta(nuevaVenta);
-
-                if (this.presupuestoExportado == false)
-                {
-                    DialogResult result = MessageBox.Show(
-                        "El presupuesto no ha sido exportado. ¿Desea registrar la venta sin exportar el documento?",
-                        "Confirmar Venta",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.No)
-                    {
-                        return;
-                    }
-                }
-
-                MessageBox.Show($"Venta N° {idVentaCreada} registrada exitosamente. Presupuesto N° {idPresupuestoAsociado} asociado.", "Éxito de Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarFormulario();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al registrar la venta. Por favor, revise la conexión y los datos.\nDetalle: " + ex.Message, "Error de Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        #region Manejo de Cotizaciones
         private void btnBuscarCotizacion_Click(object sender, EventArgs e)
         {
             using (frmListarCotizaciones frmBuscar = new frmListarCotizaciones(true))
@@ -647,6 +445,7 @@ namespace Vista
                         ActualizarDataGridCotizaciones();
                         ConfigurarDatagrid();
                         CalcularSubtotal();
+                        AplicarDescuento();
                     }
                 }
             }
@@ -748,7 +547,7 @@ namespace Vista
                                 else
                                 {
                                     listaDetalles.Add(nuevoDetalle);
-                                    indiceOriginal = listaDetalles.Count - 1; 
+                                    indiceOriginal = listaDetalles.Count - 1;
                                 }
 
                                 dgvPresupuesto.Refresh();
@@ -779,6 +578,219 @@ namespace Vista
             {
                 MessageBox.Show($"Error al editar la cotización: {ex.Message}\n\n{ex.StackTrace}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnBorrarCotizacion_Click(object sender, EventArgs e)
+        {
+            if (dgvPresupuesto.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una cotización para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow filaSeleccionada = dgvPresupuesto.SelectedRows[0];
+            int indiceFila = filaSeleccionada.Index;
+
+            DialogResult resultado = MessageBox.Show(
+                "¿Está seguro de eliminar esta cotización del presupuesto?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                DtoPresupuestoDetalle detalleParaBorrar = filaSeleccionada.DataBoundItem as DtoPresupuestoDetalle;
+
+                if (detalleParaBorrar != null)
+                {
+                    this.detallesCotizacion.Remove(detalleParaBorrar);
+                    dgvPresupuesto.DataSource = null;
+                    dgvPresupuesto.DataSource = this.detallesCotizacion;
+                }
+                else
+                {
+                    dgvPresupuesto.Rows.RemoveAt(indiceFila);
+                }
+                CalcularSubtotal();
+                AplicarDescuento();
+                ConfigurarDatagrid();
+                ActualizarDataGridCotizaciones();
+            }
+        }
+
+
+        #endregion
+
+        #region Estetica Form
+        private void pnlVigencia_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pnlTotales_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pnlPresupuesto_Paint(object sender, PaintEventArgs e)
+        {
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        #endregion
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int? idUsuarioActual = ClsSesionActual.ObtenerUsuario()?.Id_user;
+
+            if (idUsuarioActual == null || idUsuarioActual == 0)
+            {
+                MessageBox.Show("No se pudo identificar al usuario logueado. Cierre sesión y vuelva a iniciar.", "Error de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (this.clienteActual == null || this.clienteActual.Id_Cliente == 0)
+            {
+                MessageBox.Show("Debe buscar y seleccionar un cliente válido antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (this.detallesCotizacion.Count == 0)
+            {
+                MessageBox.Show("El presupuesto debe contener al menos una cotización.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar una descripción u observación para el presupuesto.",
+                                "Campo Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDescripcion.Focus();
+                return;
+            }
+
+            try
+            {
+                decimal.TryParse(txtDescuento.Text.Trim(), out decimal porcentajeDescuento);
+
+                decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
+                decimal totalFinal = ObtenerDecimalDesdeLabel(lblValorPresupuesto);
+
+                Presupuesto nuevoPresupuesto = new Presupuesto()
+                {
+                    IdUser = idUsuarioActual,
+                    FechaCreacion = DateTime.Now,
+                    FechaValidez = dtpVigencia.Value,
+                    Id_Cliente = clienteActual.Id_Cliente,
+                    MontoTotal = subtotal,
+                    Descuento = porcentajeDescuento,
+                    MontoFinal = totalFinal,
+                    Observaciones = txtDescripcion.Text.Trim(),
+                    IdEstadoPresupuesto = 1,
+                };
+
+                int idPresupuestoCreado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
+
+                string parteNumericaFormateada = idPresupuestoCreado.ToString("D6");
+                string numeroPresupuestoFormateado = "P00-" + parteNumericaFormateada;
+
+                lblValorNumeroPresupuesto.Text = numeroPresupuestoFormateado;
+                lblTituloNumeroPresupuesto.Visible = true;
+                lblValorNumeroPresupuesto.Visible = true;
+                numeroPresupuestoActual = numeroPresupuestoFormateado;
+
+                MessageBox.Show($"Presupuesto N° {idPresupuestoCreado} guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el presupuesto: " + ex.Message, "Error de Guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            int? idUsuarioActual = ClsSesionActual.ObtenerUsuario()?.Id_user;
+
+            if (idUsuarioActual == null || idUsuarioActual == 0)
+            {
+                MessageBox.Show("No se pudo identificar al usuario logueado.", "Error de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (this.clienteActual == null || this.clienteActual.Id_Cliente == 0)
+            {
+                MessageBox.Show("Debe buscar y seleccionar un cliente válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (this.detallesCotizacion.Count == 0)
+            {
+                MessageBox.Show("La venta debe contener al menos una cotización.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar una descripción u observación para la venta.",
+                                "Campo Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDescripcion.Focus();
+                return;
+            }
+
+            try
+            {
+                decimal.TryParse(txtDescuento.Text.Trim(), out decimal porcentajeDescuento);
+                decimal subtotal = ObtenerDecimalDesdeLabel(lblValorSubtotal);
+                decimal totalFinal = ObtenerDecimalDesdeLabel(lblValorPresupuesto);
+
+                Presupuesto nuevoPresupuesto = new Presupuesto()
+                {
+                    IdUser = idUsuarioActual,
+                    FechaCreacion = DateTime.Now,
+                    FechaValidez = dtpVigencia.Value,
+                    Id_Cliente = clienteActual.Id_Cliente,
+                    MontoTotal = subtotal,
+                    Descuento = porcentajeDescuento,
+                    MontoFinal = totalFinal,
+                    Observaciones = txtDescripcion.Text.Trim(),
+                    IdEstadoPresupuesto = 1, // Estado inicial del nuevo Presupuesto
+                };
+
+                int idPresupuestoAsociado = clPresupuesto.GuardarNuevoPresupuesto(nuevoPresupuesto, this.detallesCotizacion);
+
+                DtoVenta nuevaVenta = new DtoVenta()
+                {
+                    MontoTotal = subtotal,
+                    Descuento = porcentajeDescuento,
+                    MontoFinal = totalFinal,
+                    Observaciones = txtDescripcion.Text.Trim(),
+                    Activo = true,
+                    IdPresupuesto = idPresupuestoAsociado,
+                    IdVendedor = idUsuarioActual,
+                    IdEstadoVenta = 1,
+                    FechaVenta = DateTime.Now,
+                };
+
+                int idVentaCreada = clVenta.RegistrarNuevaVenta(nuevaVenta);
+
+                if (this.presupuestoExportado == false)
+                {
+                    DialogResult result = MessageBox.Show(
+                        "El presupuesto no ha sido exportado. ¿Desea registrar la venta sin exportar el documento?",
+                        "Confirmar Venta",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
+                MessageBox.Show($"Venta N° {idVentaCreada} registrada exitosamente. Presupuesto N° {idPresupuestoAsociado} asociado.", "Éxito de Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarFormulario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar la venta. Por favor, revise la conexión y los datos.\nDetalle: " + ex.Message, "Error de Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1016,6 +1028,5 @@ namespace Vista
             }
         }
 
-        //PARA EXPORTAR ??
     }
 }
