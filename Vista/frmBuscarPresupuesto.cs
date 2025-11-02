@@ -22,7 +22,6 @@ namespace Vista
         private CL_TipoDoc _logicaTipoDoc = new CL_TipoDoc();
 
 
-
         public frmBuscarPresupuesto()
         {
             InitializeComponent();
@@ -30,6 +29,7 @@ namespace Vista
             Idioma.AplicarTraduccion(this);
             ConfigurarDataGrid();
             ConfigurarControles();
+            clPresupuesto.ActualizarEstadosVencidos();
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);

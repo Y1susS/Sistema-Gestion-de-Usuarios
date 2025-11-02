@@ -23,6 +23,7 @@ namespace Entidades.DTOs
             FechaCreacion = DateTime.Now;
             IdEstadoPresupuesto = 1; // Estado inicial
         }
+        public DtoCliente Cliente { get; set; } 
 
     }
 }
