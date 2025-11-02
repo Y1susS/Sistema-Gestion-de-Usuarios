@@ -126,7 +126,7 @@
   <data name="lblLogin" xml:space="preserve">
     <value>Login</value>
   </data>
-  <data name="groupBox1" xml:space="preserve">
+  <data name="gpbAbmUsuarios" xml:space="preserve">
     <value>User Creation and Modification</value>
   </data>
   <data name="lblApellidos" xml:space="preserve">
@@ -179,9 +179,6 @@
   </data>
   <data name="btneliminar" xml:space="preserve">
     <value>Delete user</value>
-  </data>
-  <data name="gpbupredeterminada" xml:space="preserve">
-    <value>Default Location</value>
   </data>
   <data name="gpbupersonalizada" xml:space="preserve">
     <value>Custom Location</value>
@@ -558,7 +555,7 @@
   <data name="btnSiguienterecupero" xml:space="preserve">
     <value>Next</value>
   </data>
-  <data name="gpbregcli" xml:space="preserve">
+  <data name="gpbAbmClientes" xml:space="preserve">
     <value>Client Registration and Modification</value>
   </data>
   <data name="lblApellidoscli" xml:space="preserve">
@@ -785,5 +782,17 @@
   </data>
   <data name="frmCambioPass.lblTituloCambioPass" xml:space="preserve">
     <value>Change Password</value>
+  </data>
+  <data name="lblTitulocotizador" xml:space="preserve">
+    <value>quoter</value>
+  </data>
+  <data name="gpbubicacionpre" xml:space="preserve">
+    <value>default location</value>
+  </data>
+  <data name="lblPresupuestador" xml:space="preserve">
+    <value>budgeter</value>
+  </data>
+  <data name="lblreportes" xml:space="preserve">
+    <value>reports</value>
   </data>
 </root>

@@ -78,7 +78,7 @@ namespace Vista
                 dataGridView1.Columns.Add("Activo", "Activo");
             }
 
-            ClsUtilidadesForms.BloquearControles(groupBox1);
+            ClsUtilidadesForms.BloquearControles(gpbAbmUsuarios);
 
             btnAgregarNuevo.Text = "Nuevo usuario";
             btnGuardar.Text = "Guardar";
@@ -170,7 +170,7 @@ namespace Vista
         private void btnAgregarNuevo_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
-            ClsUtilidadesForms.DesbloquearControles(groupBox1);
+            ClsUtilidadesForms.DesbloquearControles(gpbAbmUsuarios);
 
             modoEdicion = false;
             idUsuarioSeleccionado = 0;
@@ -457,8 +457,8 @@ namespace Vista
 
         private void LimpiarFormulario()
         {
-            ClsUtilidadesForms.LimpiarControles(groupBox1);
-            ClsUtilidadesForms.BloquearControles(groupBox1);
+            ClsUtilidadesForms.LimpiarControles(gpbAbmUsuarios);
+            ClsUtilidadesForms.BloquearControles(gpbAbmUsuarios);
 
             cmbPartido.SelectedIndex = -1;
             cmbRol.SelectedIndex = -1;
@@ -490,7 +490,7 @@ namespace Vista
         private void CargarDatosUsuarioEnFormulario(DtoUsuarioDetalle usuario)
         {
             // DESBLOQUEAR controles para permitir edición
-            ClsUtilidadesForms.DesbloquearControles(groupBox1);
+            ClsUtilidadesForms.DesbloquearControles(gpbAbmUsuarios);
 
             // CARGAR datos básicos
             txtNombres.Text = usuario.Nombre;
