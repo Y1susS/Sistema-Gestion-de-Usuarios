@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminUserABM));
             this.btnAgregarNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gpbabmusuarios = new System.Windows.Forms.GroupBox();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
@@ -65,7 +65,7 @@
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gpbabmusuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.SuspendLayout();
@@ -87,60 +87,59 @@
             // 
             // btnGuardar
             // 
-
             this.btnGuardar.BackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
             this.btnGuardar.Location = new System.Drawing.Point(700, 91);
-            this.btnGuardar.Name = "button2";
+            this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(153, 35);
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // groupBox1
+            // gpbabmusuarios
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox1.Controls.Add(this.cmbLocalidad);
-            this.groupBox1.Controls.Add(this.cmbPartido);
-            this.groupBox1.Controls.Add(this.cmbTipoDoc);
-            this.groupBox1.Controls.Add(this.btneliminar);
-            this.groupBox1.Controls.Add(this.cmbRol);
-            this.groupBox1.Controls.Add(this.lblLocalidad);
-            this.groupBox1.Controls.Add(this.lblPartido);
-            this.groupBox1.Controls.Add(this.btnGuardar);
-            this.groupBox1.Controls.Add(this.lblDepart);
-            this.groupBox1.Controls.Add(this.btnAgregarNuevo);
-            this.groupBox1.Controls.Add(this.lblPiso);
-            this.groupBox1.Controls.Add(this.lblAltura);
-            this.groupBox1.Controls.Add(this.lblCalle);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.lblNroDoc);
-            this.groupBox1.Controls.Add(this.lblTipoDoc);
-            this.groupBox1.Controls.Add(this.lblRol);
-            this.groupBox1.Controls.Add(this.lblUsuario);
-            this.groupBox1.Controls.Add(this.txtUsuario);
-            this.groupBox1.Controls.Add(this.lblNombres);
-            this.groupBox1.Controls.Add(this.lblApellidos);
-            this.groupBox1.Controls.Add(this.txtDepart);
-            this.groupBox1.Controls.Add(this.txtPiso);
-            this.groupBox1.Controls.Add(this.txtNroCalle);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.txtNroDoc);
-            this.groupBox1.Controls.Add(this.txtNombres);
-            this.groupBox1.Controls.Add(this.txtCalle);
-            this.groupBox1.Controls.Add(this.txtTelefono);
-            this.groupBox1.Controls.Add(this.txtApellidos);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(870, 205);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Alta y modificación de usuarios";
+            this.gpbabmusuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.gpbabmusuarios.Controls.Add(this.cmbLocalidad);
+            this.gpbabmusuarios.Controls.Add(this.cmbPartido);
+            this.gpbabmusuarios.Controls.Add(this.cmbTipoDoc);
+            this.gpbabmusuarios.Controls.Add(this.btneliminar);
+            this.gpbabmusuarios.Controls.Add(this.cmbRol);
+            this.gpbabmusuarios.Controls.Add(this.lblLocalidad);
+            this.gpbabmusuarios.Controls.Add(this.lblPartido);
+            this.gpbabmusuarios.Controls.Add(this.btnGuardar);
+            this.gpbabmusuarios.Controls.Add(this.lblDepart);
+            this.gpbabmusuarios.Controls.Add(this.btnAgregarNuevo);
+            this.gpbabmusuarios.Controls.Add(this.lblPiso);
+            this.gpbabmusuarios.Controls.Add(this.lblAltura);
+            this.gpbabmusuarios.Controls.Add(this.lblCalle);
+            this.gpbabmusuarios.Controls.Add(this.lblEmail);
+            this.gpbabmusuarios.Controls.Add(this.lblTelefono);
+            this.gpbabmusuarios.Controls.Add(this.lblNroDoc);
+            this.gpbabmusuarios.Controls.Add(this.lblTipoDoc);
+            this.gpbabmusuarios.Controls.Add(this.lblRol);
+            this.gpbabmusuarios.Controls.Add(this.lblUsuario);
+            this.gpbabmusuarios.Controls.Add(this.txtUsuario);
+            this.gpbabmusuarios.Controls.Add(this.lblNombres);
+            this.gpbabmusuarios.Controls.Add(this.lblApellidos);
+            this.gpbabmusuarios.Controls.Add(this.txtDepart);
+            this.gpbabmusuarios.Controls.Add(this.txtPiso);
+            this.gpbabmusuarios.Controls.Add(this.txtNroCalle);
+            this.gpbabmusuarios.Controls.Add(this.txtEmail);
+            this.gpbabmusuarios.Controls.Add(this.txtNroDoc);
+            this.gpbabmusuarios.Controls.Add(this.txtNombres);
+            this.gpbabmusuarios.Controls.Add(this.txtCalle);
+            this.gpbabmusuarios.Controls.Add(this.txtTelefono);
+            this.gpbabmusuarios.Controls.Add(this.txtApellidos);
+            this.gpbabmusuarios.ForeColor = System.Drawing.Color.White;
+            this.gpbabmusuarios.Location = new System.Drawing.Point(15, 15);
+            this.gpbabmusuarios.Name = "gpbabmusuarios";
+            this.gpbabmusuarios.Size = new System.Drawing.Size(870, 205);
+            this.gpbabmusuarios.TabIndex = 3;
+            this.gpbabmusuarios.TabStop = false;
+            this.gpbabmusuarios.Text = "Alta y modificación de usuarios";
             // 
             // cmbLocalidad
             // 
@@ -237,9 +236,8 @@
             // 
             // lblAltura
             // 
-
             this.lblAltura.Location = new System.Drawing.Point(355, 137);
-            this.lblAltura.Name = "label10";
+            this.lblAltura.Name = "lblAltura";
             this.lblAltura.Size = new System.Drawing.Size(72, 25);
             this.lblAltura.TabIndex = 29;
             this.lblAltura.Text = "Altura";
@@ -454,7 +452,7 @@
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbabmusuarios);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -463,8 +461,8 @@
             this.Text = "frmAdministrador";
             this.Load += new System.EventHandler(this.frmAdministrador_Load);
             this.Shown += new System.EventHandler(this.frmAdminUserABM_Shown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gpbabmusuarios.ResumeLayout(false);
+            this.gpbabmusuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
@@ -476,7 +474,7 @@
 
         private System.Windows.Forms.Button btnAgregarNuevo;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpbabmusuarios;
         private System.Windows.Forms.TextBox txtNroCalle;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtNroDoc;

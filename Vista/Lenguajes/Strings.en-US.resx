@@ -126,7 +126,7 @@
   <data name="lblLogin" xml:space="preserve">
     <value>Login</value>
   </data>
-  <data name="groupBox1" xml:space="preserve">
+  <data name="gpbabmusuarios" xml:space="preserve">
     <value>User Creation and Modification</value>
   </data>
   <data name="lblApellidos" xml:space="preserve">
@@ -785,5 +785,20 @@
   </data>
   <data name="frmCambioPass.lblTituloCambioPass" xml:space="preserve">
     <value>Change Password</value>
+  </data>
+  <data name="lblTitulocotizador" xml:space="preserve">
+    <value>Quoter</value>
+  </data>
+  <data name="lblTitulovalidacions" xml:space="preserve">
+    <value>validations</value>
+  </data>
+  <data name="lblTitulometricas" xml:space="preserve">
+    <value>metrics</value>
+  </data>
+  <data name="gpbubicacionpre" xml:space="preserve">
+    <value>Default Location</value>
+  </data>
+  <data name="lblTitulopresupuestador" xml:space="preserve">
+    <value>budgeter</value>
   </data>
 </root>

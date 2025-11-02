@@ -44,7 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblTitulovalidacions = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
@@ -120,9 +120,8 @@
             // 
             // btnGuardarCambioscont
             // 
-
             this.btnGuardarCambioscont.Location = new System.Drawing.Point(150, 405);
-            this.btnGuardarCambioscont.Name = "btnGuardarCambios";
+            this.btnGuardarCambioscont.Name = "btnGuardarCambioscont";
             this.btnGuardarCambioscont.Size = new System.Drawing.Size(175, 30);
             this.btnGuardarCambioscont.TabIndex = 8;
             this.btnGuardarCambioscont.Text = "Guardar cambios";
@@ -219,7 +218,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblTitulovalidacions);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -228,18 +227,18 @@
             this.pnlBorde.Size = new System.Drawing.Size(475, 40);
             this.pnlBorde.TabIndex = 31;
             // 
-            // lblTitulo
+            // lblTitulovalidacions
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(395, 40);
-            this.lblTitulo.TabIndex = 15;
-            this.lblTitulo.Text = "Validaciones";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulovalidacions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulovalidacions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulovalidacions.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulovalidacions.ForeColor = System.Drawing.Color.White;
+            this.lblTitulovalidacions.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulovalidacions.Name = "lblTitulovalidacions";
+            this.lblTitulovalidacions.Size = new System.Drawing.Size(395, 40);
+            this.lblTitulovalidacions.TabIndex = 15;
+            this.lblTitulovalidacions.Text = "Validaciones";
+            this.lblTitulovalidacions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -324,7 +323,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblTitulovalidacions;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;

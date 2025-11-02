@@ -57,7 +57,7 @@
             this.pnlGrafico = new System.Windows.Forms.Panel();
             this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblTitulometricas = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
@@ -350,7 +350,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblTitulometricas);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -359,18 +359,18 @@
             this.pnlBorde.Size = new System.Drawing.Size(1090, 40);
             this.pnlBorde.TabIndex = 8047;
             // 
-            // lblTitulo
+            // lblTitulometricas
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1010, 40);
-            this.lblTitulo.TabIndex = 23;
-            this.lblTitulo.Text = "Reportes";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulometricas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulometricas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulometricas.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulometricas.ForeColor = System.Drawing.Color.White;
+            this.lblTitulometricas.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulometricas.Name = "lblTitulometricas";
+            this.lblTitulometricas.Size = new System.Drawing.Size(1010, 40);
+            this.lblTitulometricas.TabIndex = 23;
+            this.lblTitulometricas.Text = "Metricas";
+            this.lblTitulometricas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -467,7 +467,7 @@
         private System.Windows.Forms.Panel pnlGrafico;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartVentas;
         private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblTitulometricas;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;

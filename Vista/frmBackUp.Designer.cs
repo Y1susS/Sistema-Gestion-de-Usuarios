@@ -37,7 +37,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pgbGuardadoRapido = new System.Windows.Forms.ProgressBar();
             this.pgbGuardadoPersonalizado = new System.Windows.Forms.ProgressBar();
-            this.gpbupredeterminada = new System.Windows.Forms.GroupBox();
+            this.gpbubicacionpre = new System.Windows.Forms.GroupBox();
             this.gpbupersonalizada = new System.Windows.Forms.GroupBox();
             this.gpbrestore = new System.Windows.Forms.GroupBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -45,7 +45,7 @@
             this.btnCargarBackup = new System.Windows.Forms.Button();
             this.txtExaminarBackup = new System.Windows.Forms.TextBox();
             this.btnExaminarBackup = new System.Windows.Forms.Button();
-            this.gpbupredeterminada.SuspendLayout();
+            this.gpbubicacionpre.SuspendLayout();
             this.gpbupersonalizada.SuspendLayout();
             this.gpbrestore.SuspendLayout();
             this.SuspendLayout();
@@ -64,10 +64,9 @@
             // 
             // lblbkuppredeterminado
             // 
-
             this.lblbkuppredeterminado.Location = new System.Drawing.Point(2, 35);
             this.lblbkuppredeterminado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblbkuppredeterminado.Name = "label1";
+            this.lblbkuppredeterminado.Name = "lblbkuppredeterminado";
             this.lblbkuppredeterminado.Size = new System.Drawing.Size(877, 18);
             this.lblbkuppredeterminado.TabIndex = 2;
             this.lblbkuppredeterminado.Text = "Se guardará una copia de la base de datos en la ubicación \"C:\\BackUps\" de su comp" +
@@ -76,10 +75,9 @@
             // 
             // lblbkuppersonalizado
             // 
-
             this.lblbkuppersonalizado.Location = new System.Drawing.Point(2, 32);
             this.lblbkuppersonalizado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblbkuppersonalizado.Name = "label2";
+            this.lblbkuppersonalizado.Name = "lblbkuppersonalizado";
             this.lblbkuppersonalizado.Size = new System.Drawing.Size(877, 18);
             this.lblbkuppersonalizado.TabIndex = 5;
             this.lblbkuppersonalizado.Text = "Elija una ubicación donde guardar la copia de seguridad";
@@ -133,7 +131,21 @@
             this.pgbGuardadoPersonalizado.Size = new System.Drawing.Size(850, 20);
             this.pgbGuardadoPersonalizado.TabIndex = 10;
             // 
-
+            // gpbubicacionpre
+            // 
+            this.gpbubicacionpre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.gpbubicacionpre.Controls.Add(this.pgbGuardadoRapido);
+            this.gpbubicacionpre.Controls.Add(this.btnGuardarrapido);
+            this.gpbubicacionpre.Controls.Add(this.lblbkuppredeterminado);
+            this.gpbubicacionpre.ForeColor = System.Drawing.Color.White;
+            this.gpbubicacionpre.Location = new System.Drawing.Point(10, 10);
+            this.gpbubicacionpre.Margin = new System.Windows.Forms.Padding(4);
+            this.gpbubicacionpre.Name = "gpbubicacionpre";
+            this.gpbubicacionpre.Padding = new System.Windows.Forms.Padding(4);
+            this.gpbubicacionpre.Size = new System.Drawing.Size(880, 160);
+            this.gpbubicacionpre.TabIndex = 12;
+            this.gpbubicacionpre.TabStop = false;
+            this.gpbubicacionpre.Text = "Ubicación predeterminada";
             // 
             // gpbupersonalizada
             // 
@@ -144,11 +156,11 @@
             this.gpbupersonalizada.Controls.Add(this.btnGuardarUbicacionSeleccionada);
             this.gpbupersonalizada.Controls.Add(this.lblbkuppersonalizado);
             this.gpbupersonalizada.ForeColor = System.Drawing.Color.White;
-            this.gpbupersonalizada.Location = new System.Drawing.Point(15, 190);
+            this.gpbupersonalizada.Location = new System.Drawing.Point(10, 180);
             this.gpbupersonalizada.Margin = new System.Windows.Forms.Padding(4);
             this.gpbupersonalizada.Name = "gpbupersonalizada";
             this.gpbupersonalizada.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbupersonalizada.Size = new System.Drawing.Size(825, 200);
+            this.gpbupersonalizada.Size = new System.Drawing.Size(880, 200);
             this.gpbupersonalizada.TabIndex = 13;
             this.gpbupersonalizada.TabStop = false;
             this.gpbupersonalizada.Text = "Ubicación personalizada";
@@ -162,67 +174,14 @@
             this.gpbrestore.Controls.Add(this.txtExaminarBackup);
             this.gpbrestore.Controls.Add(this.btnExaminarBackup);
             this.gpbrestore.ForeColor = System.Drawing.Color.White;
-            this.gpbrestore.Location = new System.Drawing.Point(15, 405);
-            this.gpbrestore.Margin = new System.Windows.Forms.Padding(4);
-            this.gpbrestore.Name = "gpbrestore";
-            this.gpbrestore.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbrestore.Size = new System.Drawing.Size(825, 200);
-            this.gpbrestore.TabIndex = 15;
-            this.gpbrestore.TabStop = false;
-            this.gpbrestore.Text = "Restaurar Back Up";
-
-            // groupBox1
-            // 
-            this.gpbupredeterminada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.gpbupredeterminada.Controls.Add(this.pgbGuardadoRapido);
-            this.gpbupredeterminada.Controls.Add(this.btnGuardarrapido);
-            this.gpbupredeterminada.Controls.Add(this.lblbkuppredeterminado);
-            this.gpbupredeterminada.ForeColor = System.Drawing.Color.White;
-            this.gpbupredeterminada.Location = new System.Drawing.Point(10, 10);
-            this.gpbupredeterminada.Margin = new System.Windows.Forms.Padding(4);
-            this.gpbupredeterminada.Name = "groupBox1";
-            this.gpbupredeterminada.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbupredeterminada.Size = new System.Drawing.Size(880, 160);
-            this.gpbupredeterminada.TabIndex = 12;
-            this.gpbupredeterminada.TabStop = false;
-            this.gpbupredeterminada.Text = "Ubicación predeterminada";
-            // 
-            // groupBox2
-            // 
-            this.gpbupersonalizada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.gpbupersonalizada.Controls.Add(this.pgbGuardadoPersonalizado);
-            this.gpbupersonalizada.Controls.Add(this.txtRutaBackup);
-            this.gpbupersonalizada.Controls.Add(this.btnExaminar);
-            this.gpbupersonalizada.Controls.Add(this.btnGuardarUbicacionSeleccionada);
-            this.gpbupersonalizada.Controls.Add(this.lblbkuppersonalizado);
-            this.gpbupersonalizada.ForeColor = System.Drawing.Color.White;
-            this.gpbupersonalizada.Location = new System.Drawing.Point(10, 180);
-            this.gpbupersonalizada.Margin = new System.Windows.Forms.Padding(4);
-            this.gpbupersonalizada.Name = "groupBox2";
-            this.gpbupersonalizada.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbupersonalizada.Size = new System.Drawing.Size(880, 200);
-            this.gpbupersonalizada.TabIndex = 13;
-            this.gpbupersonalizada.TabStop = false;
-            this.gpbupersonalizada.Text = "Ubicación personalizada";
-            // 
-            // groupBox3
-            // 
-            this.gpbrestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.gpbrestore.Controls.Add(this.progressBar1);
-            this.gpbrestore.Controls.Add(this.lblseleccionubicacion);
-            this.gpbrestore.Controls.Add(this.btnCargarBackup);
-            this.gpbrestore.Controls.Add(this.txtExaminarBackup);
-            this.gpbrestore.Controls.Add(this.btnExaminarBackup);
-            this.gpbrestore.ForeColor = System.Drawing.Color.White;
             this.gpbrestore.Location = new System.Drawing.Point(10, 390);
             this.gpbrestore.Margin = new System.Windows.Forms.Padding(4);
-            this.gpbrestore.Name = "groupBox3";
+            this.gpbrestore.Name = "gpbrestore";
             this.gpbrestore.Padding = new System.Windows.Forms.Padding(4);
             this.gpbrestore.Size = new System.Drawing.Size(880, 200);
             this.gpbrestore.TabIndex = 15;
             this.gpbrestore.TabStop = false;
             this.gpbrestore.Text = "Cargar Back Up";
-
             // 
             // progressBar1
             // 
@@ -234,10 +193,9 @@
             // 
             // lblseleccionubicacion
             // 
-
             this.lblseleccionubicacion.Location = new System.Drawing.Point(2, 32);
             this.lblseleccionubicacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblseleccionubicacion.Name = "label3";
+            this.lblseleccionubicacion.Name = "lblseleccionubicacion";
             this.lblseleccionubicacion.Size = new System.Drawing.Size(877, 18);
             this.lblseleccionubicacion.TabIndex = 11;
             this.lblseleccionubicacion.Text = "Seleccione la ubicación del archivo Back Up";
@@ -280,11 +238,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.gpbrestore);
             this.Controls.Add(this.gpbupersonalizada);
-            this.Controls.Add(this.gpbupredeterminada);
+            this.Controls.Add(this.gpbubicacionpre);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -292,7 +249,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmbackup";
             this.Shown += new System.EventHandler(this.frmBackUp_Shown);
-            this.gpbupredeterminada.ResumeLayout(false);
+            this.gpbubicacionpre.ResumeLayout(false);
             this.gpbupersonalizada.ResumeLayout(false);
             this.gpbupersonalizada.PerformLayout();
             this.gpbrestore.ResumeLayout(false);
@@ -311,7 +268,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ProgressBar pgbGuardadoRapido;
         private System.Windows.Forms.ProgressBar pgbGuardadoPersonalizado;
-        private System.Windows.Forms.GroupBox gpbupredeterminada;
+        private System.Windows.Forms.GroupBox gpbubicacionpre;
         private System.Windows.Forms.GroupBox gpbupersonalizada;
         private System.Windows.Forms.TextBox txtExaminarBackup;
         private System.Windows.Forms.GroupBox gpbrestore;
