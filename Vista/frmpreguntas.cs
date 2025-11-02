@@ -32,7 +32,7 @@ namespace Vista
         {
             InitializeComponent();
             _formularioAnterior = formularioAnterior;
-            this.AcceptButton = btnSiguientepregseg;
+            this.AcceptButton = btnsigpregseg;
             InicializarControles();
             this.FormClosing += FrmPreguntas_FormClosing;
         }
@@ -42,10 +42,10 @@ namespace Vista
         {
 
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulopreguntasseg);
+            moverFormulario.HabilitarMovimiento(lbltitpregsegu);
             moverFormulario.HabilitarMovimiento(pctLogo);
 
-            this.AcceptButton = btnSiguientepregseg;
+            this.AcceptButton = btnsigpregseg;
             lblUsuariopregserg.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblInstrucciones.Text = "Por favor, seleccione 3 preguntas de seguridad y proporcione sus respuestas." +
                                   Environment.NewLine +
@@ -244,7 +244,7 @@ namespace Vista
 
         private void frmPreguntas_Shown(object sender, EventArgs e)
         {
-            this.AcceptButton = btnSiguientepregseg;
+            this.AcceptButton = btnsigpregseg;
             cmbPregunta1.Focus();
 
         }

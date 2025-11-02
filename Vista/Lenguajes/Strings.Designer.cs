@@ -750,7 +750,7 @@ namespace Vista.Lenguajes {
         /// <summary>
         ///   Busca una cadena traducida similar a Vidrios.
         /// </summary>
-        internal static string gpbvidrios {
+        internal static string gpbvid {
             get {
                 return ResourceManager.GetString("gpbvidrios", resourceCulture);
             }
@@ -984,7 +984,7 @@ namespace Vista.Lenguajes {
         /// <summary>
         ///   Busca una cadena traducida similar a Descripcion Presupuesto.
         /// </summary>
-        internal static string lbldescpresupuesto {
+        internal static string lbldescpres {
             get {
                 return ResourceManager.GetString("lbldescpresupuesto", resourceCulture);
             }
@@ -1517,7 +1517,7 @@ namespace Vista.Lenguajes {
         /// </summary>
         internal static string lblrespuestasseg {
             get {
-                return ResourceManager.GetString("lblrespuestasseg", resourceCulture);
+                return ResourceManager.GetString("lblRespuestasseg", resourceCulture);
             }
         }
         
@@ -1741,7 +1741,7 @@ namespace Vista.Lenguajes {
         /// <summary>
         ///   Busca una cadena traducida similar a Total vidrios.
         /// </summary>
-        internal static string lblTotalVidrios2 {
+        internal static string lblTotalVid {
             get {
                 return ResourceManager.GetString("lblTotalVidrios2", resourceCulture);
             }

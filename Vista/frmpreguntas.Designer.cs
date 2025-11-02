@@ -34,14 +34,14 @@
             this.txtRespuesta1 = new System.Windows.Forms.TextBox();
             this.txtRespuesta2 = new System.Windows.Forms.TextBox();
             this.txtRespuesta3 = new System.Windows.Forms.TextBox();
-            this.btnSiguientepregseg = new System.Windows.Forms.Button();
-            this.lblrespuestasseg = new System.Windows.Forms.Label();
+            this.btnsigpregseg = new System.Windows.Forms.Button();
+            this.lblRespuestasseg = new System.Windows.Forms.Label();
             this.cmbPregunta1 = new System.Windows.Forms.ComboBox();
             this.cmbPregunta2 = new System.Windows.Forms.ComboBox();
             this.cmbPregunta3 = new System.Windows.Forms.ComboBox();
             this.lblPreguntasseg = new System.Windows.Forms.Label();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulopreguntasseg = new System.Windows.Forms.Label();
+            this.lbltitpregsegu = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.lblAdorno = new System.Windows.Forms.Label();
@@ -102,25 +102,25 @@
             this.txtRespuesta3.Size = new System.Drawing.Size(225, 25);
             this.txtRespuesta3.TabIndex = 6;
             // 
-            // btnSiguientepregseg
+            // btnsigpregseg
             // 
-            this.btnSiguientepregseg.Location = new System.Drawing.Point(152, 5);
-            this.btnSiguientepregseg.Name = "btnSiguientepregseg";
-            this.btnSiguientepregseg.Size = new System.Drawing.Size(275, 30);
-            this.btnSiguientepregseg.TabIndex = 7;
-            this.btnSiguientepregseg.Text = "Siguiente";
-            this.btnSiguientepregseg.UseVisualStyleBackColor = true;
-            this.btnSiguientepregseg.Click += new System.EventHandler(this.btnsiguiente_Click);
+            this.btnsigpregseg.Location = new System.Drawing.Point(152, 5);
+            this.btnsigpregseg.Name = "btnsigpregseg";
+            this.btnsigpregseg.Size = new System.Drawing.Size(275, 30);
+            this.btnsigpregseg.TabIndex = 7;
+            this.btnsigpregseg.Text = "Siguiente";
+            this.btnsigpregseg.UseVisualStyleBackColor = true;
+            this.btnsigpregseg.Click += new System.EventHandler(this.btnsiguiente_Click);
             // 
-            // lblrespuestasseg
+            // lblRespuestasseg
             // 
-            this.lblrespuestasseg.ForeColor = System.Drawing.Color.White;
-            this.lblrespuestasseg.Location = new System.Drawing.Point(360, 0);
-            this.lblrespuestasseg.Name = "lblrespuestasseg";
-            this.lblrespuestasseg.Size = new System.Drawing.Size(225, 30);
-            this.lblrespuestasseg.TabIndex = 8;
-            this.lblrespuestasseg.Text = "Respuestas";
-            this.lblrespuestasseg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblRespuestasseg.ForeColor = System.Drawing.Color.White;
+            this.lblRespuestasseg.Location = new System.Drawing.Point(360, 0);
+            this.lblRespuestasseg.Name = "lblRespuestasseg";
+            this.lblRespuestasseg.Size = new System.Drawing.Size(225, 30);
+            this.lblRespuestasseg.TabIndex = 8;
+            this.lblRespuestasseg.Text = "Respuestas";
+            this.lblRespuestasseg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbPregunta1
             // 
@@ -159,7 +159,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulopreguntasseg);
+            this.pnlBorde.Controls.Add(this.lbltitpregsegu);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -168,17 +168,17 @@
             this.pnlBorde.Size = new System.Drawing.Size(600, 40);
             this.pnlBorde.TabIndex = 24;
             // 
-            // lblTitulopreguntasseg
+            // lbltitpregsegu
             // 
-            this.lblTitulopreguntasseg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulopreguntasseg.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulopreguntasseg.ForeColor = System.Drawing.Color.White;
-            this.lblTitulopreguntasseg.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulopreguntasseg.Name = "lblTitulopreguntasseg";
-            this.lblTitulopreguntasseg.Size = new System.Drawing.Size(520, 40);
-            this.lblTitulopreguntasseg.TabIndex = 8028;
-            this.lblTitulopreguntasseg.Text = "Preguntas de seguridad";
-            this.lblTitulopreguntasseg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltitpregsegu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbltitpregsegu.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltitpregsegu.ForeColor = System.Drawing.Color.White;
+            this.lbltitpregsegu.Location = new System.Drawing.Point(40, 0);
+            this.lbltitpregsegu.Name = "lbltitpregsegu";
+            this.lbltitpregsegu.Size = new System.Drawing.Size(520, 40);
+            this.lbltitpregsegu.TabIndex = 8028;
+            this.lbltitpregsegu.Text = "Preguntas de seguridad";
+            this.lbltitpregsegu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -221,7 +221,7 @@
             // pnlBotones
             // 
             this.pnlBotones.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBotones.Controls.Add(this.btnSiguientepregseg);
+            this.pnlBotones.Controls.Add(this.btnsigpregseg);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotones.Location = new System.Drawing.Point(0, 340);
             this.pnlBotones.Name = "pnlBotones";
@@ -231,7 +231,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.lblrespuestasseg);
+            this.panel3.Controls.Add(this.lblRespuestasseg);
             this.panel3.Controls.Add(this.lblPreguntasseg);
             this.panel3.Controls.Add(this.txtRespuesta1);
             this.panel3.Controls.Add(this.txtRespuesta2);
@@ -306,8 +306,8 @@
         private System.Windows.Forms.TextBox txtRespuesta1;
         private System.Windows.Forms.TextBox txtRespuesta2;
         private System.Windows.Forms.TextBox txtRespuesta3;
-        private System.Windows.Forms.Button btnSiguientepregseg;
-        private System.Windows.Forms.Label lblrespuestasseg;
+        private System.Windows.Forms.Button btnsigpregseg;
+        private System.Windows.Forms.Label lblRespuestasseg;
         private System.Windows.Forms.ComboBox cmbPregunta1;
         private System.Windows.Forms.ComboBox cmbPregunta2;
         private System.Windows.Forms.ComboBox cmbPregunta3;
@@ -319,7 +319,7 @@
         private System.Windows.Forms.Panel pnlBotones;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.Label lblTitulopreguntasseg;
+        private System.Windows.Forms.Label lbltitpregsegu;
         private System.Windows.Forms.Panel panel2;
     }
 }

@@ -48,7 +48,7 @@
             this.btnBorrarCotizacion = new System.Windows.Forms.Button();
             this.btnEditarCotizacion = new System.Windows.Forms.Button();
             this.dgvPresupuesto = new System.Windows.Forms.DataGridView();
-            this.btnGuardarPresupuesto = new System.Windows.Forms.Button();
+            this.btnGuardarPresu = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
             this.lbldescpresupuesto = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -61,9 +61,9 @@
             this.lbltotalpresupuesto = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
             this.dtpVigencia = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblvigenciahasta = new System.Windows.Forms.Label();
             this.btnBuscarPresupuesto = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblpresupuestosexistentes = new System.Windows.Forms.Label();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.lblPresupuestador = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
@@ -334,18 +334,18 @@
             this.dgvPresupuesto.Size = new System.Drawing.Size(712, 225);
             this.dgvPresupuesto.TabIndex = 16;
             // 
-            // btnGuardarPresupuesto
+            // btnGuardarPresu
             // 
-            this.btnGuardarPresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarPresupuesto.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardarPresupuesto.Location = new System.Drawing.Point(690, 589);
-            this.btnGuardarPresupuesto.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGuardarPresupuesto.Name = "btnGuardarPresupuesto";
-            this.btnGuardarPresupuesto.Size = new System.Drawing.Size(150, 30);
-            this.btnGuardarPresupuesto.TabIndex = 37;
-            this.btnGuardarPresupuesto.Text = "Guardar";
-            this.btnGuardarPresupuesto.UseVisualStyleBackColor = true;
-            this.btnGuardarPresupuesto.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardarPresu.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarPresu.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarPresu.Location = new System.Drawing.Point(690, 589);
+            this.btnGuardarPresu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardarPresu.Name = "btnGuardarPresu";
+            this.btnGuardarPresu.Size = new System.Drawing.Size(150, 30);
+            this.btnGuardarPresu.TabIndex = 37;
+            this.btnGuardarPresu.Text = "Guardar";
+            this.btnGuardarPresu.UseVisualStyleBackColor = true;
+            this.btnGuardarPresu.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnVenta
             // 
@@ -481,15 +481,15 @@
             this.dtpVigencia.Size = new System.Drawing.Size(138, 25);
             this.dtpVigencia.TabIndex = 33;
             // 
-            // label15
+            // lblvigenciahasta
             // 
-            this.label15.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(65, 18);
-            this.label15.Margin = new System.Windows.Forms.Padding(0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(105, 25);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "Vigencia hasta";
+            this.lblvigenciahasta.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblvigenciahasta.Location = new System.Drawing.Point(65, 18);
+            this.lblvigenciahasta.Margin = new System.Windows.Forms.Padding(0);
+            this.lblvigenciahasta.Name = "lblvigenciahasta";
+            this.lblvigenciahasta.Size = new System.Drawing.Size(105, 25);
+            this.lblvigenciahasta.TabIndex = 34;
+            this.lblvigenciahasta.Text = "Vigencia hasta";
             // 
             // btnBuscarPresupuesto
             // 
@@ -505,16 +505,16 @@
             this.btnBuscarPresupuesto.UseVisualStyleBackColor = false;
             this.btnBuscarPresupuesto.Click += new System.EventHandler(this.btnBuscarPresupuesto_Click);
             // 
-            // label10
+            // lblpresupuestosexistentes
             // 
-            this.label10.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 15);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(230, 25);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Presupuestos existentes";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblpresupuestosexistentes.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpresupuestosexistentes.Location = new System.Drawing.Point(12, 15);
+            this.lblpresupuestosexistentes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblpresupuestosexistentes.Name = "lblpresupuestosexistentes";
+            this.lblpresupuestosexistentes.Size = new System.Drawing.Size(230, 25);
+            this.lblpresupuestosexistentes.TabIndex = 38;
+            this.lblpresupuestosexistentes.Text = "Presupuestos existentes";
+            this.lblpresupuestosexistentes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBorde
             // 
@@ -585,7 +585,7 @@
             this.pnlPresupuesto.Controls.Add(this.btnBuscarPresupuesto);
             this.pnlPresupuesto.Controls.Add(this.lbldescpresupuesto);
             this.pnlPresupuesto.Controls.Add(this.txtDescripcion);
-            this.pnlPresupuesto.Controls.Add(this.label10);
+            this.pnlPresupuesto.Controls.Add(this.lblpresupuestosexistentes);
             this.pnlPresupuesto.ForeColor = System.Drawing.Color.White;
             this.pnlPresupuesto.Location = new System.Drawing.Point(10, 186);
             this.pnlPresupuesto.Name = "pnlPresupuesto";
@@ -613,7 +613,7 @@
             // pnlVigencia
             // 
             this.pnlVigencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlVigencia.Controls.Add(this.label15);
+            this.pnlVigencia.Controls.Add(this.lblvigenciahasta);
             this.pnlVigencia.Controls.Add(this.dtpVigencia);
             this.pnlVigencia.ForeColor = System.Drawing.Color.White;
             this.pnlVigencia.Location = new System.Drawing.Point(414, 580);
@@ -668,7 +668,7 @@
             this.Controls.Add(this.pnlVigencia);
             this.Controls.Add(this.pnlTotales);
             this.Controls.Add(this.pnlPresupuesto);
-            this.Controls.Add(this.btnGuardarPresupuesto);
+            this.Controls.Add(this.btnGuardarPresu);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.btnVenta);
@@ -732,11 +732,11 @@
         private System.Windows.Forms.Button btnSubtotal;
         private System.Windows.Forms.Button btnBorrarCotizacion;
         private System.Windows.Forms.DateTimePicker dtpVigencia;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblvigenciahasta;
         private System.Windows.Forms.Button btnBuscarCotizacion;
-        private System.Windows.Forms.Button btnGuardarPresupuesto;
+        private System.Windows.Forms.Button btnGuardarPresu;
         private System.Windows.Forms.Button btnBuscarPresupuesto;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblpresupuestosexistentes;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.Label lblPresupuestador;
         private System.Windows.Forms.PictureBox pctMinimize;

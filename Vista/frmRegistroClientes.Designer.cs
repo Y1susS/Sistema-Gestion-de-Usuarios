@@ -36,7 +36,7 @@
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.lblPartidocli = new System.Windows.Forms.Label();
             this.btnModificarcliente = new System.Windows.Forms.Button();
-            this.btnAgregarnuevocliente = new System.Windows.Forms.Button();
+            this.btnnuevocliente = new System.Windows.Forms.Button();
             this.lblDepart = new System.Windows.Forms.Label();
             this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.lblPiso = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.gpbAbmClientes.Controls.Add(this.cmbTipoDoc);
             this.gpbAbmClientes.Controls.Add(this.lblPartidocli);
             this.gpbAbmClientes.Controls.Add(this.btnModificarcliente);
-            this.gpbAbmClientes.Controls.Add(this.btnAgregarnuevocliente);
+            this.gpbAbmClientes.Controls.Add(this.btnnuevocliente);
             this.gpbAbmClientes.Controls.Add(this.lblDepart);
             this.gpbAbmClientes.Controls.Add(this.cmbPartido);
             this.gpbAbmClientes.Controls.Add(this.lblPiso);
@@ -170,19 +170,19 @@
             this.btnModificarcliente.UseVisualStyleBackColor = false;
             this.btnModificarcliente.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnAgregarnuevocliente
+            // btnnuevocliente
             // 
-            this.btnAgregarnuevocliente.BackColor = System.Drawing.Color.White;
-            this.btnAgregarnuevocliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAgregarnuevocliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarnuevocliente.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarnuevocliente.Location = new System.Drawing.Point(700, 26);
-            this.btnAgregarnuevocliente.Name = "btnAgregarnuevocliente";
-            this.btnAgregarnuevocliente.Size = new System.Drawing.Size(153, 35);
-            this.btnAgregarnuevocliente.TabIndex = 13;
-            this.btnAgregarnuevocliente.Text = "Nuevo cliente";
-            this.btnAgregarnuevocliente.UseVisualStyleBackColor = false;
-            this.btnAgregarnuevocliente.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnnuevocliente.BackColor = System.Drawing.Color.White;
+            this.btnnuevocliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnnuevocliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnuevocliente.ForeColor = System.Drawing.Color.Black;
+            this.btnnuevocliente.Location = new System.Drawing.Point(700, 26);
+            this.btnnuevocliente.Name = "btnnuevocliente";
+            this.btnnuevocliente.Size = new System.Drawing.Size(153, 35);
+            this.btnnuevocliente.TabIndex = 13;
+            this.btnnuevocliente.Text = "Nuevo cliente";
+            this.btnnuevocliente.UseVisualStyleBackColor = false;
+            this.btnnuevocliente.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblDepart
             // 
@@ -435,7 +435,7 @@
         private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.TextBox txtapellido;
         private System.Windows.Forms.Button btnModificarcliente;
-        private System.Windows.Forms.Button btnAgregarnuevocliente;
+        private System.Windows.Forms.Button btnnuevocliente;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnEliminarcliente;
         private System.Windows.Forms.ComboBox cmbPartido;

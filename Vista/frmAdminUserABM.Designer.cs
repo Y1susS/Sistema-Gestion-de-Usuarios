@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminUserABM));
-            this.btnAgregarNuevo = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnNuevoUsuario = new System.Windows.Forms.Button();
+            this.btnGuardarUusario = new System.Windows.Forms.Button();
             this.gpbAbmUsuarios = new System.Windows.Forms.GroupBox();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
-            this.btneliminar = new System.Windows.Forms.Button();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.cmbRol = new System.Windows.Forms.ComboBox();
             this.lblLocalidad = new System.Windows.Forms.Label();
             this.lblPartido = new System.Windows.Forms.Label();
@@ -70,34 +70,34 @@
             this.pnlBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAgregarNuevo
+            // btnNuevoUsuario
             // 
-            this.btnAgregarNuevo.AutoSize = true;
-            this.btnAgregarNuevo.BackColor = System.Drawing.Color.White;
-            this.btnAgregarNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAgregarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarNuevo.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarNuevo.Location = new System.Drawing.Point(700, 25);
-            this.btnAgregarNuevo.Name = "btnAgregarNuevo";
-            this.btnAgregarNuevo.Size = new System.Drawing.Size(153, 35);
-            this.btnAgregarNuevo.TabIndex = 15;
-            this.btnAgregarNuevo.Text = "Nuevo usuario";
-            this.btnAgregarNuevo.UseVisualStyleBackColor = false;
-            this.btnAgregarNuevo.Click += new System.EventHandler(this.btnAgregarNuevo_Click);
+            this.btnNuevoUsuario.AutoSize = true;
+            this.btnNuevoUsuario.BackColor = System.Drawing.Color.White;
+            this.btnNuevoUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoUsuario.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(700, 25);
+            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
+            this.btnNuevoUsuario.Size = new System.Drawing.Size(153, 35);
+            this.btnNuevoUsuario.TabIndex = 15;
+            this.btnNuevoUsuario.Text = "Nuevo usuario";
+            this.btnNuevoUsuario.UseVisualStyleBackColor = false;
+            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnAgregarNuevo_Click);
             // 
-            // btnGuardar
+            // btnGuardarUusario
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.White;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(700, 91);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(153, 35);
-            this.btnGuardar.TabIndex = 16;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
+            this.btnGuardarUusario.BackColor = System.Drawing.Color.White;
+            this.btnGuardarUusario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnGuardarUusario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarUusario.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarUusario.Location = new System.Drawing.Point(700, 91);
+            this.btnGuardarUusario.Name = "btnGuardarUusario";
+            this.btnGuardarUusario.Size = new System.Drawing.Size(153, 35);
+            this.btnGuardarUusario.TabIndex = 16;
+            this.btnGuardarUusario.Text = "Guardar";
+            this.btnGuardarUusario.UseVisualStyleBackColor = false;
+            this.btnGuardarUusario.Click += new System.EventHandler(this.button2_Click);
             // 
             // gpbAbmUsuarios
             // 
@@ -105,13 +105,13 @@
             this.gpbAbmUsuarios.Controls.Add(this.cmbLocalidad);
             this.gpbAbmUsuarios.Controls.Add(this.cmbPartido);
             this.gpbAbmUsuarios.Controls.Add(this.cmbTipoDoc);
-            this.gpbAbmUsuarios.Controls.Add(this.btneliminar);
+            this.gpbAbmUsuarios.Controls.Add(this.btnEliminarUsuario);
             this.gpbAbmUsuarios.Controls.Add(this.cmbRol);
             this.gpbAbmUsuarios.Controls.Add(this.lblLocalidad);
             this.gpbAbmUsuarios.Controls.Add(this.lblPartido);
-            this.gpbAbmUsuarios.Controls.Add(this.btnGuardar);
+            this.gpbAbmUsuarios.Controls.Add(this.btnGuardarUusario);
             this.gpbAbmUsuarios.Controls.Add(this.lblDepart);
-            this.gpbAbmUsuarios.Controls.Add(this.btnAgregarNuevo);
+            this.gpbAbmUsuarios.Controls.Add(this.btnNuevoUsuario);
             this.gpbAbmUsuarios.Controls.Add(this.lblPiso);
             this.gpbAbmUsuarios.Controls.Add(this.lblAltura);
             this.gpbAbmUsuarios.Controls.Add(this.lblCalle);
@@ -172,19 +172,19 @@
             this.cmbTipoDoc.Size = new System.Drawing.Size(250, 26);
             this.cmbTipoDoc.TabIndex = 5;
             // 
-            // btneliminar
+            // btnEliminarUsuario
             // 
-            this.btneliminar.BackColor = System.Drawing.Color.White;
-            this.btneliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btneliminar.ForeColor = System.Drawing.Color.Black;
-            this.btneliminar.Location = new System.Drawing.Point(700, 156);
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(153, 35);
-            this.btneliminar.TabIndex = 17;
-            this.btneliminar.Text = "Eliminar usuario";
-            this.btneliminar.UseVisualStyleBackColor = false;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
+            this.btnEliminarUsuario.BackColor = System.Drawing.Color.White;
+            this.btnEliminarUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarUsuario.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(700, 156);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(153, 35);
+            this.btnEliminarUsuario.TabIndex = 17;
+            this.btnEliminarUsuario.Text = "Eliminar usuario";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = false;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // cmbRol
             // 
@@ -473,8 +473,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAgregarNuevo;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnNuevoUsuario;
+        private System.Windows.Forms.Button btnGuardarUusario;
         private System.Windows.Forms.GroupBox gpbAbmUsuarios;
         private System.Windows.Forms.TextBox txtNroCalle;
         private System.Windows.Forms.TextBox txtEmail;
@@ -486,7 +486,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtDepart;
         private System.Windows.Forms.TextBox txtPiso;
-        private System.Windows.Forms.Button btneliminar;
+        private System.Windows.Forms.Button btnEliminarUsuario;
         private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Label lblLocalidad;

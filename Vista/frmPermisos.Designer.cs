@@ -36,7 +36,7 @@
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHabilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnguardarpermiso = new System.Windows.Forms.Button();
-            this.lblUsuariospermiso = new System.Windows.Forms.Label();
+            this.lblUsuarioper = new System.Windows.Forms.Label();
             this.pnlEscogerUsuario = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             this.pnlEscogerUsuario.SuspendLayout();
@@ -113,21 +113,21 @@
             this.btnguardarpermiso.UseVisualStyleBackColor = true;
             this.btnguardarpermiso.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // lblUsuariospermiso
+            // lblUsuarioper
             // 
-            this.lblUsuariospermiso.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsuariospermiso.ForeColor = System.Drawing.Color.White;
-            this.lblUsuariospermiso.Location = new System.Drawing.Point(1, 12);
-            this.lblUsuariospermiso.Name = "lblUsuariospermiso";
-            this.lblUsuariospermiso.Size = new System.Drawing.Size(868, 20);
-            this.lblUsuariospermiso.TabIndex = 24;
-            this.lblUsuariospermiso.Text = "Usuarios";
-            this.lblUsuariospermiso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuarioper.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuarioper.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioper.Location = new System.Drawing.Point(1, 12);
+            this.lblUsuarioper.Name = "lblUsuarioper";
+            this.lblUsuarioper.Size = new System.Drawing.Size(868, 20);
+            this.lblUsuarioper.TabIndex = 24;
+            this.lblUsuarioper.Text = "Usuarios";
+            this.lblUsuarioper.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlEscogerUsuario
             // 
             this.pnlEscogerUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlEscogerUsuario.Controls.Add(this.lblUsuariospermiso);
+            this.pnlEscogerUsuario.Controls.Add(this.lblUsuarioper);
             this.pnlEscogerUsuario.Controls.Add(this.cmbUsuarios);
             this.pnlEscogerUsuario.Location = new System.Drawing.Point(15, 15);
             this.pnlEscogerUsuario.Name = "pnlEscogerUsuario";
@@ -161,7 +161,7 @@
         private System.Windows.Forms.ComboBox cmbUsuarios;
         private System.Windows.Forms.DataGridView dgvPermisos;
         private System.Windows.Forms.Button btnguardarpermiso;
-        private System.Windows.Forms.Label lblUsuariospermiso;
+        private System.Windows.Forms.Label lblUsuarioper;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdPermiso;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFuncionalidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
