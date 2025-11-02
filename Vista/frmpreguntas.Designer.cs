@@ -94,7 +94,6 @@
             this.txtRespuesta2.Name = "txtRespuesta2";
             this.txtRespuesta2.Size = new System.Drawing.Size(225, 25);
             this.txtRespuesta2.TabIndex = 4;
-
             // 
             // txtRespuesta3
             // 
@@ -102,7 +101,6 @@
             this.txtRespuesta3.Name = "txtRespuesta3";
             this.txtRespuesta3.Size = new System.Drawing.Size(225, 25);
             this.txtRespuesta3.TabIndex = 6;
-
             // 
             // btnSiguientepregseg
             // 
@@ -285,6 +283,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPreguntas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preguntas de seguridad";
