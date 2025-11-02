@@ -234,19 +234,19 @@ namespace Vista
 
             if (diasRestantes == -1)
             {
-                lblDiasRestantesContrasena.Visible = false;
+                lbldiasrestantes.Visible = false;
             }
             else if (diasRestantes > 0)
             {
-                lblDiasRestantesContrasena.Text = $"Faltan {diasRestantes} días para cambiar su contraseña";
-                lblDiasRestantesContrasena.ForeColor = Color.White;
-                lblDiasRestantesContrasena.Visible = true;
+                lbldiasrestantes.Text = $"Faltan {diasRestantes} días para cambiar su contraseña";
+                lbldiasrestantes.ForeColor = Color.White;
+                lbldiasrestantes.Visible = true;
             }
             else 
             {
-                lblDiasRestantesContrasena.Text = "Su contraseña ha expirado o debe cambiarla. ¡ACTUALICE AHORA!";
-                lblDiasRestantesContrasena.ForeColor = Color.Red;
-                lblDiasRestantesContrasena.Visible = true;
+                lbldiasrestantes.Text = "Su contraseña ha expirado o debe cambiarla. ¡ACTUALICE AHORA!";
+                lbldiasrestantes.ForeColor = Color.Red;
+                lbldiasrestantes.Visible = true;
             }
             AjustarInterfazPorPermisos();
         }

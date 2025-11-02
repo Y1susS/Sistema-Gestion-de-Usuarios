@@ -194,7 +194,7 @@ namespace Vista
             modoEdicion = true;
             btnModificarcliente.Enabled = true;
             btnEliminarcliente.Enabled = true;
-            btnAgregarnuevocliente.Text = "Nuevo cliente";
+            btnnuevocliente.Text = "Nuevo cliente";
         }
 
         private void CargarCombos()
@@ -429,7 +429,7 @@ namespace Vista
             idClienteSeleccionado = 0;
             btnModificarcliente.Enabled = false;
             btnEliminarcliente.Enabled = false;
-            btnAgregarnuevocliente.Text = "Nuevo cliente";
+            btnnuevocliente.Text = "Nuevo cliente";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

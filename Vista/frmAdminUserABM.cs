@@ -80,11 +80,11 @@ namespace Vista
 
             ClsUtilidadesForms.BloquearControles(gpbAbmUsuarios);
 
-            btnAgregarNuevo.Text = "Nuevo usuario";
-            btnGuardar.Text = "Guardar";
-            btnGuardar.Enabled = false;
-            btneliminar.Text = "Eliminar usuario";
-            btneliminar.Enabled = false;
+            btnNuevoUsuario.Text = "Nuevo usuario";
+            btnGuardarUusario.Text = "Guardar";
+            btnGuardarUusario.Enabled = false;
+            btnEliminarUsuario.Text = "Eliminar usuario";
+            btnEliminarUsuario.Enabled = false;
             dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
@@ -175,8 +175,8 @@ namespace Vista
             modoEdicion = false;
             idUsuarioSeleccionado = 0;
 
-            btnGuardar.Enabled = true;
-            btneliminar.Enabled = false;
+            btnGuardarUusario.Enabled = true;
+            btnEliminarUsuario.Enabled = false;
 
             txtApellidos.Focus();
         }
@@ -465,8 +465,8 @@ namespace Vista
             cmbTipoDoc.SelectedIndex = -1;
             cmbLocalidad.DataSource = null;
 
-            btnGuardar.Enabled = false;
-            btneliminar.Enabled = false;
+            btnGuardarUusario.Enabled = false;
+            btnEliminarUsuario.Enabled = false;
             modoEdicion = false;
             idUsuarioSeleccionado = 0;
         }
@@ -515,8 +515,8 @@ namespace Vista
         private void ActivarModoEdicion()
         {
             modoEdicion = true;
-            btnGuardar.Enabled = true;       // Habilitar botón Guardar
-            btneliminar.Enabled = true;   // Habilitar botón Eliminar
+            btnGuardarUusario.Enabled = true;       // Habilitar botón Guardar
+            btnEliminarUsuario.Enabled = true;   // Habilitar botón Eliminar
             txtApellidos.Focus();           // Enfocar primer campo
         }
 
