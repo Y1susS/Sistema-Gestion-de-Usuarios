@@ -1,4 +1,10 @@
-﻿using System;
+﻿using Entidades;
+using Entidades.DTOs;
+using Logica;
+using Servicios;
+using Sesion;
+using Sistema_Gestion_de_Usuarios.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Servicios;
-using Entidades.DTOs;
-using Entidades;
-using Sesion;
+using Vista.Lenguajes;
 
 
 namespace Vista
@@ -36,6 +38,8 @@ namespace Vista
             cmbPartido.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
             moverFormulario = new ClsArrastrarFormularios(this);
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
         }
 
         private void frmAdministrador_Load(object sender, EventArgs e)
@@ -74,11 +78,11 @@ namespace Vista
                 dataGridView1.Columns.Add("Activo", "Activo");
             }
 
-            ClsUtilidadesForms.BloquearControles(groupBox1);
+            ClsUtilidadesForms.BloquearControles(gpbAbmUsuarios);
 
             btnAgregarNuevo.Text = "Nuevo usuario";
-            button2.Text = "Guardar";
-            button2.Enabled = false;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.Enabled = false;
             btneliminar.Text = "Eliminar usuario";
             btneliminar.Enabled = false;
             dataGridView1.CellClick += dataGridView1_CellClick;
@@ -166,12 +170,12 @@ namespace Vista
         private void btnAgregarNuevo_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
-            ClsUtilidadesForms.DesbloquearControles(groupBox1);
+            ClsUtilidadesForms.DesbloquearControles(gpbAbmUsuarios);
 
             modoEdicion = false;
             idUsuarioSeleccionado = 0;
 
-            button2.Enabled = true;
+            btnGuardar.Enabled = true;
             btneliminar.Enabled = false;
 
             txtApellidos.Focus();
@@ -453,15 +457,15 @@ namespace Vista
 
         private void LimpiarFormulario()
         {
-            ClsUtilidadesForms.LimpiarControles(groupBox1);
-            ClsUtilidadesForms.BloquearControles(groupBox1);
+            ClsUtilidadesForms.LimpiarControles(gpbAbmUsuarios);
+            ClsUtilidadesForms.BloquearControles(gpbAbmUsuarios);
 
             cmbPartido.SelectedIndex = -1;
             cmbRol.SelectedIndex = -1;
             cmbTipoDoc.SelectedIndex = -1;
             cmbLocalidad.DataSource = null;
 
-            button2.Enabled = false;
+            btnGuardar.Enabled = false;
             btneliminar.Enabled = false;
             modoEdicion = false;
             idUsuarioSeleccionado = 0;
@@ -486,7 +490,7 @@ namespace Vista
         private void CargarDatosUsuarioEnFormulario(DtoUsuarioDetalle usuario)
         {
             // DESBLOQUEAR controles para permitir edición
-            ClsUtilidadesForms.DesbloquearControles(groupBox1);
+            ClsUtilidadesForms.DesbloquearControles(gpbAbmUsuarios);
 
             // CARGAR datos básicos
             txtNombres.Text = usuario.Nombre;
@@ -511,7 +515,7 @@ namespace Vista
         private void ActivarModoEdicion()
         {
             modoEdicion = true;
-            button2.Enabled = true;       // Habilitar botón Guardar
+            btnGuardar.Enabled = true;       // Habilitar botón Guardar
             btneliminar.Enabled = true;   // Habilitar botón Eliminar
             txtApellidos.Focus();           // Enfocar primer campo
         }

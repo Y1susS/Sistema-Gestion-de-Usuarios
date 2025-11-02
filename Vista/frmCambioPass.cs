@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Entidades.DTOs;
 using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -26,7 +28,13 @@ namespace Vista
         public frmCambioPass()
         {
             InitializeComponent();
-            InicializarControles();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
+            // Aseguramos usuario y requerimos contraseña actual cuando se usa el ctor por defecto
+            usuario = ClsSesionActual.Usuario != null ? ClsSesionActual.Usuario.User : null;
+            requiereContraseñaActual = true;
+            InicializarControles(true);
+            this.AcceptButton = btnCambiar;
             txtPassActual.Visible = true;
             txtPassActual.BringToFront();
         }
@@ -50,7 +58,7 @@ namespace Vista
             ClsFondoTransparente.Aplicar(
                 pctFondo,
                 pctLogo,
-                lblUsuario,
+                lblUsuariocont,
                 pctValidaciones,
                 pctOcultar, pctOcultar2, pctOcultar3,
                 pctMostrar, pctMostrar2, pctMostrar3,
@@ -63,6 +71,7 @@ namespace Vista
             ClsMostrarOcultarClave.Configurar(txtPassActual, pctMostrar, pctOcultar, "Contraseña actual");
             ClsMostrarOcultarClave.Configurar(txtNuevaPass, pctMostrar2, pctOcultar2, "Nueva contraseña");
             ClsMostrarOcultarClave.Configurar(txtConfirmaPass, pctMostrar3, pctOcultar3, "Confirmar contraseña");
+
         }
 
 
@@ -79,12 +88,12 @@ namespace Vista
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
 
             MostrarRestriccionesContrasena();
-            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
-            this.ActiveControl = lblUsuario;
+            lblUsuariocont.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
+            this.ActiveControl = lblUsuariocont;
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(lblTituloCambioPass);
         }
         private void MostrarRestriccionesContrasena()
         {
@@ -183,8 +192,11 @@ namespace Vista
                         {
                             // Si se requirió la contraseña actual, es un cambio normal.
                             // Se asume que el usuario ya estaba logueado.
-                            // Se vuelve al formulario anterior (en este caso, frmPanelUsuarios).
-                            _formularioAnterior.Show();
+                            // Volver al formulario anterior (si corresponde) y cerrar.
+                            if (_formularioAnterior != null)
+                            {
+                                _formularioAnterior.Show();
+                            }
                             this.Close();
                         }
                     }

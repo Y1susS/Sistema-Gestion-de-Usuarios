@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Entidades.DTOs;
+using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,9 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Entidades.DTOs;
-using Logica;
 using static System.Collections.Specialized.BitVector32;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -22,10 +24,12 @@ namespace Vista
         public frmReportes()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
             _formSizeInicial = this.Size;
             _ventas = new CL_Ventas();
             moverFormulario = new ClsArrastrarFormularios(this);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(lblreportes);
             moverFormulario.HabilitarMovimiento(pnlBorde);
         }
 
@@ -45,21 +49,21 @@ namespace Vista
             cboClientes.Enabled = false;
 
             // ---- CheckBoxes ----
-            chkFiltrarUsuario.Checked = false;
-            chkFiltrarCliente.Checked = false;
+            chkFiltrarxvendedor.Checked = false;
+            chkFiltrarxCliente.Checked = false;
 
 
-            chkFiltrarUsuario.CheckedChanged += (s, ev) =>
+            chkFiltrarxvendedor.CheckedChanged += (s, ev) =>
             {
-                cboUsuarios.Enabled = chkFiltrarUsuario.Checked;
-                if (!chkFiltrarUsuario.Checked)
+                cboUsuarios.Enabled = chkFiltrarxvendedor.Checked;
+                if (!chkFiltrarxvendedor.Checked)
                     cboUsuarios.SelectedIndex = -1; // resetea selección
             };
 
-            chkFiltrarCliente.CheckedChanged += (s, ev) =>
+            chkFiltrarxCliente.CheckedChanged += (s, ev) =>
             {
-                cboClientes.Enabled = chkFiltrarCliente.Checked;
-                if (!chkFiltrarCliente.Checked)
+                cboClientes.Enabled = chkFiltrarxCliente.Checked;
+                if (!chkFiltrarxCliente.Checked)
                     cboClientes.SelectedIndex = -1; // resetea selección
             };
 
@@ -143,11 +147,11 @@ namespace Vista
                 hasta = dtpHasta.Value.Date;
             }
 
-            int? idUser = (chkFiltrarUsuario.Checked && cboUsuarios.SelectedIndex >= 0)
+            int? idUser = (chkFiltrarxvendedor.Checked && cboUsuarios.SelectedIndex >= 0)
                 ? (int?)Convert.ToInt32(cboUsuarios.SelectedValue)
                 : null;
 
-            int? idCliente = (chkFiltrarCliente.Checked && cboClientes.SelectedIndex >= 0)
+            int? idCliente = (chkFiltrarxCliente.Checked && cboClientes.SelectedIndex >= 0)
                 ? (int?)Convert.ToInt32(cboClientes.SelectedValue)
                 : null;
 
@@ -175,8 +179,8 @@ namespace Vista
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             // Limpiar combos
-            chkFiltrarUsuario.Checked = false;
-            chkFiltrarCliente.Checked = false;
+            chkFiltrarxvendedor.Checked = false;
+            chkFiltrarxCliente.Checked = false;
             chkFiltrarEstado.Checked = false;
 
             // Limpiar check y fechas

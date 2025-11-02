@@ -37,19 +37,19 @@
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.cboUsuarios = new System.Windows.Forms.ComboBox();
             this.cboClientes = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnBuscarfiltro = new System.Windows.Forms.Button();
+            this.btnLimpiarfiltros = new System.Windows.Forms.Button();
             this.chkUsarFechas = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblusuarioreportes = new System.Windows.Forms.Label();
+            this.lblclientereportes = new System.Windows.Forms.Label();
+            this.lbldesdereportes = new System.Windows.Forms.Label();
+            this.lblhastareportes = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPromedio = new System.Windows.Forms.Label();
             this.lblTotalVentas = new System.Windows.Forms.Label();
             this.cboTipoGrafico = new System.Windows.Forms.ComboBox();
-            this.chkFiltrarUsuario = new System.Windows.Forms.CheckBox();
-            this.chkFiltrarCliente = new System.Windows.Forms.CheckBox();
+            this.chkFiltrarxvendedor = new System.Windows.Forms.CheckBox();
+            this.chkFiltrarxCliente = new System.Windows.Forms.CheckBox();
             this.cboEstados = new System.Windows.Forms.ComboBox();
             this.chkFiltrarEstado = new System.Windows.Forms.CheckBox();
             this.pnlFunciones = new System.Windows.Forms.Panel();
@@ -57,7 +57,7 @@
             this.pnlGrafico = new System.Windows.Forms.Panel();
             this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblreportes = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
@@ -118,35 +118,35 @@
             this.cboClientes.Size = new System.Drawing.Size(150, 24);
             this.cboClientes.TabIndex = 4;
             // 
-            // btnBuscar
+            // btnBuscarfiltro
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.White;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Location = new System.Drawing.Point(486, 194);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(140, 30);
-            this.btnBuscar.TabIndex = 5;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscarfiltro.BackColor = System.Drawing.Color.White;
+            this.btnBuscarfiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnBuscarfiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarfiltro.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarfiltro.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarfiltro.Location = new System.Drawing.Point(486, 194);
+            this.btnBuscarfiltro.Name = "btnBuscarfiltro";
+            this.btnBuscarfiltro.Size = new System.Drawing.Size(140, 30);
+            this.btnBuscarfiltro.TabIndex = 5;
+            this.btnBuscarfiltro.Text = "Buscar";
+            this.btnBuscarfiltro.UseVisualStyleBackColor = false;
+            this.btnBuscarfiltro.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnLimpiar
+            // btnLimpiarfiltros
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.White;
-            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(340, 194);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(140, 30);
-            this.btnLimpiar.TabIndex = 6;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.btnLimpiarfiltros.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarfiltros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLimpiarfiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarfiltros.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarfiltros.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarfiltros.Location = new System.Drawing.Point(340, 194);
+            this.btnLimpiarfiltros.Name = "btnLimpiarfiltros";
+            this.btnLimpiarfiltros.Size = new System.Drawing.Size(140, 30);
+            this.btnLimpiarfiltros.TabIndex = 6;
+            this.btnLimpiarfiltros.Text = "Limpiar";
+            this.btnLimpiarfiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarfiltros.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // chkUsarFechas
             // 
@@ -159,45 +159,45 @@
             this.chkUsarFechas.UseVisualStyleBackColor = true;
             this.chkUsarFechas.CheckedChanged += new System.EventHandler(this.chkBuscarPorFecha_CheckedChanged);
             // 
-            // label1
+            // lblusuarioreportes
             // 
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 24);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Usuario";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuarioreportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuarioreportes.Location = new System.Drawing.Point(5, 5);
+            this.lblusuarioreportes.Name = "lblusuarioreportes";
+            this.lblusuarioreportes.Size = new System.Drawing.Size(154, 24);
+            this.lblusuarioreportes.TabIndex = 8;
+            this.lblusuarioreportes.Text = "Usuario";
+            this.lblusuarioreportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblclientereportes
             // 
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 24);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Cliente";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblclientereportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblclientereportes.Location = new System.Drawing.Point(5, 59);
+            this.lblclientereportes.Name = "lblclientereportes";
+            this.lblclientereportes.Size = new System.Drawing.Size(154, 24);
+            this.lblclientereportes.TabIndex = 9;
+            this.lblclientereportes.Text = "Cliente";
+            this.lblclientereportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbldesdereportes
             // 
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 24);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Desde";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbldesdereportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldesdereportes.Location = new System.Drawing.Point(5, 113);
+            this.lbldesdereportes.Name = "lbldesdereportes";
+            this.lbldesdereportes.Size = new System.Drawing.Size(150, 24);
+            this.lbldesdereportes.TabIndex = 10;
+            this.lbldesdereportes.Text = "Desde";
+            this.lbldesdereportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblhastareportes
             // 
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 167);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 24);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Hasta";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblhastareportes.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblhastareportes.Location = new System.Drawing.Point(5, 167);
+            this.lblhastareportes.Name = "lblhastareportes";
+            this.lblhastareportes.Size = new System.Drawing.Size(150, 24);
+            this.lblhastareportes.TabIndex = 11;
+            this.lblhastareportes.Text = "Hasta";
+            this.lblhastareportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTotal
             // 
@@ -239,25 +239,25 @@
             this.cboTipoGrafico.TabIndex = 16;
             this.cboTipoGrafico.SelectedIndexChanged += new System.EventHandler(this.cboTipoGrafico_SelectedIndexChanged);
             // 
-            // chkFiltrarUsuario
+            // chkFiltrarxvendedor
             // 
-            this.chkFiltrarUsuario.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFiltrarUsuario.Location = new System.Drawing.Point(157, 32);
-            this.chkFiltrarUsuario.Name = "chkFiltrarUsuario";
-            this.chkFiltrarUsuario.Size = new System.Drawing.Size(162, 24);
-            this.chkFiltrarUsuario.TabIndex = 17;
-            this.chkFiltrarUsuario.Text = "Buscar por vendedor";
-            this.chkFiltrarUsuario.UseVisualStyleBackColor = true;
+            this.chkFiltrarxvendedor.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFiltrarxvendedor.Location = new System.Drawing.Point(157, 32);
+            this.chkFiltrarxvendedor.Name = "chkFiltrarxvendedor";
+            this.chkFiltrarxvendedor.Size = new System.Drawing.Size(162, 24);
+            this.chkFiltrarxvendedor.TabIndex = 17;
+            this.chkFiltrarxvendedor.Text = "Buscar por vendedor";
+            this.chkFiltrarxvendedor.UseVisualStyleBackColor = true;
             // 
-            // chkFiltrarCliente
+            // chkFiltrarxCliente
             // 
-            this.chkFiltrarCliente.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFiltrarCliente.Location = new System.Drawing.Point(157, 86);
-            this.chkFiltrarCliente.Name = "chkFiltrarCliente";
-            this.chkFiltrarCliente.Size = new System.Drawing.Size(145, 24);
-            this.chkFiltrarCliente.TabIndex = 18;
-            this.chkFiltrarCliente.Text = "Buscar por cliente";
-            this.chkFiltrarCliente.UseVisualStyleBackColor = true;
+            this.chkFiltrarxCliente.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFiltrarxCliente.Location = new System.Drawing.Point(157, 86);
+            this.chkFiltrarxCliente.Name = "chkFiltrarxCliente";
+            this.chkFiltrarxCliente.Size = new System.Drawing.Size(145, 24);
+            this.chkFiltrarxCliente.TabIndex = 18;
+            this.chkFiltrarxCliente.Text = "Buscar por cliente";
+            this.chkFiltrarxCliente.UseVisualStyleBackColor = true;
             // 
             // cboEstados
             // 
@@ -286,22 +286,22 @@
             this.pnlFunciones.Controls.Add(this.lblEstado);
             this.pnlFunciones.Controls.Add(this.cboUsuarios);
             this.pnlFunciones.Controls.Add(this.cboClientes);
-            this.pnlFunciones.Controls.Add(this.label1);
+            this.pnlFunciones.Controls.Add(this.lblusuarioreportes);
             this.pnlFunciones.Controls.Add(this.chkFiltrarEstado);
             this.pnlFunciones.Controls.Add(this.lblTotalVentas);
             this.pnlFunciones.Controls.Add(this.cboEstados);
-            this.pnlFunciones.Controls.Add(this.label2);
+            this.pnlFunciones.Controls.Add(this.lblclientereportes);
             this.pnlFunciones.Controls.Add(this.lblPromedio);
-            this.pnlFunciones.Controls.Add(this.chkFiltrarUsuario);
+            this.pnlFunciones.Controls.Add(this.chkFiltrarxvendedor);
             this.pnlFunciones.Controls.Add(this.lblTotal);
-            this.pnlFunciones.Controls.Add(this.chkFiltrarCliente);
-            this.pnlFunciones.Controls.Add(this.label4);
-            this.pnlFunciones.Controls.Add(this.label3);
+            this.pnlFunciones.Controls.Add(this.chkFiltrarxCliente);
+            this.pnlFunciones.Controls.Add(this.lblhastareportes);
+            this.pnlFunciones.Controls.Add(this.lbldesdereportes);
             this.pnlFunciones.Controls.Add(this.dtpDesde);
             this.pnlFunciones.Controls.Add(this.chkUsarFechas);
             this.pnlFunciones.Controls.Add(this.dtpHasta);
-            this.pnlFunciones.Controls.Add(this.btnLimpiar);
-            this.pnlFunciones.Controls.Add(this.btnBuscar);
+            this.pnlFunciones.Controls.Add(this.btnLimpiarfiltros);
+            this.pnlFunciones.Controls.Add(this.btnBuscarfiltro);
             this.pnlFunciones.ForeColor = System.Drawing.Color.White;
             this.pnlFunciones.Location = new System.Drawing.Point(10, 85);
             this.pnlFunciones.Name = "pnlFunciones";
@@ -350,7 +350,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblreportes);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -359,18 +359,18 @@
             this.pnlBorde.Size = new System.Drawing.Size(1090, 40);
             this.pnlBorde.TabIndex = 8047;
             // 
-            // lblTitulo
+            // lblreportes
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1010, 40);
-            this.lblTitulo.TabIndex = 23;
-            this.lblTitulo.Text = "Cotizador";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblreportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblreportes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblreportes.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblreportes.ForeColor = System.Drawing.Color.White;
+            this.lblreportes.Location = new System.Drawing.Point(40, 0);
+            this.lblreportes.Name = "lblreportes";
+            this.lblreportes.Size = new System.Drawing.Size(1010, 40);
+            this.lblreportes.TabIndex = 23;
+            this.lblreportes.Text = "Reportes";
+            this.lblreportes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -424,6 +424,7 @@
             this.Controls.Add(this.dgvVentas);
             this.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReportes";
@@ -447,19 +448,19 @@
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.ComboBox cboUsuarios;
         private System.Windows.Forms.ComboBox cboClientes;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnBuscarfiltro;
+        private System.Windows.Forms.Button btnLimpiarfiltros;
         private System.Windows.Forms.CheckBox chkUsarFechas;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblusuarioreportes;
+        private System.Windows.Forms.Label lblclientereportes;
+        private System.Windows.Forms.Label lbldesdereportes;
+        private System.Windows.Forms.Label lblhastareportes;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblPromedio;
         private System.Windows.Forms.Label lblTotalVentas;
         private System.Windows.Forms.ComboBox cboTipoGrafico;
-        private System.Windows.Forms.CheckBox chkFiltrarUsuario;
-        private System.Windows.Forms.CheckBox chkFiltrarCliente;
+        private System.Windows.Forms.CheckBox chkFiltrarxvendedor;
+        private System.Windows.Forms.CheckBox chkFiltrarxCliente;
         private System.Windows.Forms.ComboBox cboEstados;
         private System.Windows.Forms.CheckBox chkFiltrarEstado;
         private System.Windows.Forms.Panel pnlFunciones;
@@ -467,7 +468,7 @@
         private System.Windows.Forms.Panel pnlGrafico;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartVentas;
         private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblreportes;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;

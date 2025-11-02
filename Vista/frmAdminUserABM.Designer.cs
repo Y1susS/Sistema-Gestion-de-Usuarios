@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminUserABM));
             this.btnAgregarNuevo = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.gpbAbmUsuarios = new System.Windows.Forms.GroupBox();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
@@ -41,7 +41,7 @@
             this.lblPartido = new System.Windows.Forms.Label();
             this.lblDepart = new System.Windows.Forms.Label();
             this.lblPiso = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblAltura = new System.Windows.Forms.Label();
             this.lblCalle = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gpbAbmUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.SuspendLayout();
@@ -85,61 +85,61 @@
             this.btnAgregarNuevo.UseVisualStyleBackColor = false;
             this.btnAgregarNuevo.Click += new System.EventHandler(this.btnAgregarNuevo_Click);
             // 
-            // button2
+            // btnGuardar
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(700, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 35);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardar.Location = new System.Drawing.Point(700, 91);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(153, 35);
+            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // groupBox1
+            // gpbAbmUsuarios
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox1.Controls.Add(this.cmbLocalidad);
-            this.groupBox1.Controls.Add(this.cmbPartido);
-            this.groupBox1.Controls.Add(this.cmbTipoDoc);
-            this.groupBox1.Controls.Add(this.btneliminar);
-            this.groupBox1.Controls.Add(this.cmbRol);
-            this.groupBox1.Controls.Add(this.lblLocalidad);
-            this.groupBox1.Controls.Add(this.lblPartido);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.lblDepart);
-            this.groupBox1.Controls.Add(this.btnAgregarNuevo);
-            this.groupBox1.Controls.Add(this.lblPiso);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.lblCalle);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.lblNroDoc);
-            this.groupBox1.Controls.Add(this.lblTipoDoc);
-            this.groupBox1.Controls.Add(this.lblRol);
-            this.groupBox1.Controls.Add(this.lblUsuario);
-            this.groupBox1.Controls.Add(this.txtUsuario);
-            this.groupBox1.Controls.Add(this.lblNombres);
-            this.groupBox1.Controls.Add(this.lblApellidos);
-            this.groupBox1.Controls.Add(this.txtDepart);
-            this.groupBox1.Controls.Add(this.txtPiso);
-            this.groupBox1.Controls.Add(this.txtNroCalle);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.txtNroDoc);
-            this.groupBox1.Controls.Add(this.txtNombres);
-            this.groupBox1.Controls.Add(this.txtCalle);
-            this.groupBox1.Controls.Add(this.txtTelefono);
-            this.groupBox1.Controls.Add(this.txtApellidos);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(870, 205);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Alta y modificación de usuarios";
+            this.gpbAbmUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.gpbAbmUsuarios.Controls.Add(this.cmbLocalidad);
+            this.gpbAbmUsuarios.Controls.Add(this.cmbPartido);
+            this.gpbAbmUsuarios.Controls.Add(this.cmbTipoDoc);
+            this.gpbAbmUsuarios.Controls.Add(this.btneliminar);
+            this.gpbAbmUsuarios.Controls.Add(this.cmbRol);
+            this.gpbAbmUsuarios.Controls.Add(this.lblLocalidad);
+            this.gpbAbmUsuarios.Controls.Add(this.lblPartido);
+            this.gpbAbmUsuarios.Controls.Add(this.btnGuardar);
+            this.gpbAbmUsuarios.Controls.Add(this.lblDepart);
+            this.gpbAbmUsuarios.Controls.Add(this.btnAgregarNuevo);
+            this.gpbAbmUsuarios.Controls.Add(this.lblPiso);
+            this.gpbAbmUsuarios.Controls.Add(this.lblAltura);
+            this.gpbAbmUsuarios.Controls.Add(this.lblCalle);
+            this.gpbAbmUsuarios.Controls.Add(this.lblEmail);
+            this.gpbAbmUsuarios.Controls.Add(this.lblTelefono);
+            this.gpbAbmUsuarios.Controls.Add(this.lblNroDoc);
+            this.gpbAbmUsuarios.Controls.Add(this.lblTipoDoc);
+            this.gpbAbmUsuarios.Controls.Add(this.lblRol);
+            this.gpbAbmUsuarios.Controls.Add(this.lblUsuario);
+            this.gpbAbmUsuarios.Controls.Add(this.txtUsuario);
+            this.gpbAbmUsuarios.Controls.Add(this.lblNombres);
+            this.gpbAbmUsuarios.Controls.Add(this.lblApellidos);
+            this.gpbAbmUsuarios.Controls.Add(this.txtDepart);
+            this.gpbAbmUsuarios.Controls.Add(this.txtPiso);
+            this.gpbAbmUsuarios.Controls.Add(this.txtNroCalle);
+            this.gpbAbmUsuarios.Controls.Add(this.txtEmail);
+            this.gpbAbmUsuarios.Controls.Add(this.txtNroDoc);
+            this.gpbAbmUsuarios.Controls.Add(this.txtNombres);
+            this.gpbAbmUsuarios.Controls.Add(this.txtCalle);
+            this.gpbAbmUsuarios.Controls.Add(this.txtTelefono);
+            this.gpbAbmUsuarios.Controls.Add(this.txtApellidos);
+            this.gpbAbmUsuarios.ForeColor = System.Drawing.Color.White;
+            this.gpbAbmUsuarios.Location = new System.Drawing.Point(15, 15);
+            this.gpbAbmUsuarios.Name = "gpbAbmUsuarios";
+            this.gpbAbmUsuarios.Size = new System.Drawing.Size(870, 205);
+            this.gpbAbmUsuarios.TabIndex = 3;
+            this.gpbAbmUsuarios.TabStop = false;
+            this.gpbAbmUsuarios.Text = "Alta y modificación de usuarios";
             // 
             // cmbLocalidad
             // 
@@ -234,14 +234,14 @@
             this.lblPiso.Text = "Piso";
             this.lblPiso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // lblAltura
             // 
-            this.label10.Location = new System.Drawing.Point(355, 137);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 25);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Altura";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAltura.Location = new System.Drawing.Point(355, 137);
+            this.lblAltura.Name = "lblAltura";
+            this.lblAltura.Size = new System.Drawing.Size(72, 25);
+            this.lblAltura.TabIndex = 29;
+            this.lblAltura.Text = "Altura";
+            this.lblAltura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblCalle
             // 
@@ -452,17 +452,18 @@
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbAbmUsuarios);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdminUserABM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdministrador";
             this.Load += new System.EventHandler(this.frmAdministrador_Load);
             this.Shown += new System.EventHandler(this.frmAdminUserABM_Shown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gpbAbmUsuarios.ResumeLayout(false);
+            this.gpbAbmUsuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
@@ -473,8 +474,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnAgregarNuevo;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.GroupBox gpbAbmUsuarios;
         private System.Windows.Forms.TextBox txtNroCalle;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtNroDoc;
@@ -492,7 +493,7 @@
         private System.Windows.Forms.Label lblPartido;
         private System.Windows.Forms.Label lblDepart;
         private System.Windows.Forms.Label lblPiso;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblAltura;
         private System.Windows.Forms.Label lblCalle;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblTelefono;

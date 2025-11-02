@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCotizador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblpie1 = new System.Windows.Forms.Label();
+            this.txtespesorm4 = new System.Windows.Forms.TextBox();
             this.lblTotalPrecioXPie = new System.Windows.Forms.Label();
             this.txtdescmad8 = new System.Windows.Forms.TextBox();
             this.chk8 = new System.Windows.Forms.CheckBox();
@@ -51,17 +53,16 @@
             this.lblcalculopies = new System.Windows.Forms.Label();
             this.cmbMaderas = new System.Windows.Forms.ComboBox();
             this.lblseleccionmaderas = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblpies1 = new System.Windows.Forms.Label();
+            this.lblDescMadera = new System.Windows.Forms.Label();
+            this.lblespesorm = new System.Windows.Forms.Label();
+            this.lblanchom = new System.Windows.Forms.Label();
+            this.lbllargom = new System.Windows.Forms.Label();
             this.txtespesorm1 = new System.Windows.Forms.TextBox();
             this.btnCalcularPies = new System.Windows.Forms.Button();
             this.txtanchom1 = new System.Windows.Forms.TextBox();
             this.txtlargom1 = new System.Windows.Forms.TextBox();
             this.txtdescmad6 = new System.Windows.Forms.TextBox();
-            this.lblcantidad = new System.Windows.Forms.Label();
+            this.lblcantidadm = new System.Windows.Forms.Label();
             this.txtdescmad5 = new System.Windows.Forms.TextBox();
             this.txtcantidad1 = new System.Windows.Forms.TextBox();
             this.txtdescmad4 = new System.Windows.Forms.TextBox();
@@ -87,9 +88,8 @@
             this.txtlargom3 = new System.Windows.Forms.TextBox();
             this.lblpie2 = new System.Windows.Forms.Label();
             this.txtcantidad3 = new System.Windows.Forms.TextBox();
-            this.lblpie1 = new System.Windows.Forms.Label();
-            this.txtespesorm4 = new System.Windows.Forms.TextBox();
-            this.lblpie = new System.Windows.Forms.Label();
+            this.lblpie11 = new System.Windows.Forms.Label();
+            this.lblpiesm = new System.Windows.Forms.Label();
             this.txtanchom4 = new System.Windows.Forms.TextBox();
             this.txtcantidad6 = new System.Windows.Forms.TextBox();
             this.txtlargom4 = new System.Windows.Forms.TextBox();
@@ -192,7 +192,6 @@
             this.txtDescMateriale1 = new System.Windows.Forms.TextBox();
             this.chkotrosmateriales1 = new System.Windows.Forms.CheckBox();
             this.pnlPresupuesto = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblpresupuesto = new System.Windows.Forms.Label();
             this.btnCalcularCotizacion = new System.Windows.Forms.Button();
             this.lblCotiacion = new System.Windows.Forms.Label();
@@ -204,7 +203,7 @@
             this.grpExtras = new System.Windows.Forms.GroupBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblTitulocotizador = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -221,6 +220,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.groupBox1.Controls.Add(this.lblpie1);
+            this.groupBox1.Controls.Add(this.txtespesorm4);
             this.groupBox1.Controls.Add(this.lblTotalPrecioXPie);
             this.groupBox1.Controls.Add(this.txtdescmad8);
             this.groupBox1.Controls.Add(this.chk8);
@@ -242,17 +243,16 @@
             this.groupBox1.Controls.Add(this.lblcalculopies);
             this.groupBox1.Controls.Add(this.cmbMaderas);
             this.groupBox1.Controls.Add(this.lblseleccionmaderas);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblpies1);
+            this.groupBox1.Controls.Add(this.lblDescMadera);
+            this.groupBox1.Controls.Add(this.lblespesorm);
+            this.groupBox1.Controls.Add(this.lblanchom);
+            this.groupBox1.Controls.Add(this.lbllargom);
             this.groupBox1.Controls.Add(this.txtespesorm1);
             this.groupBox1.Controls.Add(this.btnCalcularPies);
             this.groupBox1.Controls.Add(this.txtanchom1);
             this.groupBox1.Controls.Add(this.txtlargom1);
             this.groupBox1.Controls.Add(this.txtdescmad6);
-            this.groupBox1.Controls.Add(this.lblcantidad);
+            this.groupBox1.Controls.Add(this.lblcantidadm);
             this.groupBox1.Controls.Add(this.txtdescmad5);
             this.groupBox1.Controls.Add(this.txtcantidad1);
             this.groupBox1.Controls.Add(this.txtdescmad4);
@@ -278,9 +278,8 @@
             this.groupBox1.Controls.Add(this.txtlargom3);
             this.groupBox1.Controls.Add(this.lblpie2);
             this.groupBox1.Controls.Add(this.txtcantidad3);
-            this.groupBox1.Controls.Add(this.lblpie1);
-            this.groupBox1.Controls.Add(this.txtespesorm4);
-            this.groupBox1.Controls.Add(this.lblpie);
+            this.groupBox1.Controls.Add(this.lblpie11);
+            this.groupBox1.Controls.Add(this.lblpiesm);
             this.groupBox1.Controls.Add(this.txtanchom4);
             this.groupBox1.Controls.Add(this.txtcantidad6);
             this.groupBox1.Controls.Add(this.txtlargom4);
@@ -299,6 +298,28 @@
             this.groupBox1.TabIndex = 8031;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Maderas";
+            // 
+            // lblpie1
+            // 
+            this.lblpie1.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblpie1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpie1.ForeColor = System.Drawing.Color.White;
+            this.lblpie1.Location = new System.Drawing.Point(466, 87);
+            this.lblpie1.Name = "lblpie1";
+            this.lblpie1.Size = new System.Drawing.Size(55, 24);
+            this.lblpie1.TabIndex = 7985;
+            this.lblpie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtespesorm4
+            // 
+            this.txtespesorm4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtespesorm4.ForeColor = System.Drawing.Color.Black;
+            this.txtespesorm4.Location = new System.Drawing.Point(238, 162);
+            this.txtespesorm4.Name = "txtespesorm4";
+            this.txtespesorm4.Size = new System.Drawing.Size(55, 24);
+            this.txtespesorm4.TabIndex = 7984;
+            this.txtespesorm4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTotalPrecioXPie
             // 
@@ -321,7 +342,7 @@
             this.txtdescmad8.Location = new System.Drawing.Point(91, 262);
             this.txtdescmad8.Name = "txtdescmad8";
             this.txtdescmad8.Size = new System.Drawing.Size(145, 24);
-            this.txtdescmad8.TabIndex = 7976;
+            this.txtdescmad8.TabIndex = 7936;
             this.txtdescmad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // chk8
@@ -333,7 +354,7 @@
             this.chk8.Margin = new System.Windows.Forms.Padding(0);
             this.chk8.Name = "chk8";
             this.chk8.Size = new System.Drawing.Size(86, 24);
-            this.chk8.TabIndex = 7975;
+            this.chk8.TabIndex = 7935;
             this.chk8.Text = "Madera 8";
             this.chk8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk8.UseVisualStyleBackColor = false;
@@ -357,7 +378,7 @@
             this.txtcantidad8.Location = new System.Drawing.Point(409, 262);
             this.txtcantidad8.Name = "txtcantidad8";
             this.txtcantidad8.Size = new System.Drawing.Size(55, 24);
-            this.txtcantidad8.TabIndex = 7981;
+            this.txtcantidad8.TabIndex = 7940;
             this.txtcantidad8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtlargom8
@@ -367,7 +388,7 @@
             this.txtlargom8.Location = new System.Drawing.Point(352, 262);
             this.txtlargom8.Name = "txtlargom8";
             this.txtlargom8.Size = new System.Drawing.Size(55, 24);
-            this.txtlargom8.TabIndex = 7979;
+            this.txtlargom8.TabIndex = 7939;
             this.txtlargom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtanchom8
@@ -377,7 +398,7 @@
             this.txtanchom8.Location = new System.Drawing.Point(295, 262);
             this.txtanchom8.Name = "txtanchom8";
             this.txtanchom8.Size = new System.Drawing.Size(55, 24);
-            this.txtanchom8.TabIndex = 7978;
+            this.txtanchom8.TabIndex = 7938;
             this.txtanchom8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtespesorm8
@@ -387,7 +408,7 @@
             this.txtespesorm8.Location = new System.Drawing.Point(238, 262);
             this.txtespesorm8.Name = "txtespesorm8";
             this.txtespesorm8.Size = new System.Drawing.Size(55, 24);
-            this.txtespesorm8.TabIndex = 7977;
+            this.txtespesorm8.TabIndex = 7937;
             this.txtespesorm8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtdescmad7
@@ -397,7 +418,7 @@
             this.txtdescmad7.Location = new System.Drawing.Point(91, 237);
             this.txtdescmad7.Name = "txtdescmad7";
             this.txtdescmad7.Size = new System.Drawing.Size(145, 24);
-            this.txtdescmad7.TabIndex = 7968;
+            this.txtdescmad7.TabIndex = 7930;
             this.txtdescmad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbldesperdicio
@@ -419,7 +440,7 @@
             this.txtdesperdicio.Location = new System.Drawing.Point(92, 297);
             this.txtdesperdicio.Name = "txtdesperdicio";
             this.txtdesperdicio.Size = new System.Drawing.Size(55, 24);
-            this.txtdesperdicio.TabIndex = 7963;
+            this.txtdesperdicio.TabIndex = 7941;
             // 
             // chk7
             // 
@@ -430,7 +451,7 @@
             this.chk7.Margin = new System.Windows.Forms.Padding(0);
             this.chk7.Name = "chk7";
             this.chk7.Size = new System.Drawing.Size(86, 24);
-            this.chk7.TabIndex = 7967;
+            this.chk7.TabIndex = 7929;
             this.chk7.Text = "Madera 7";
             this.chk7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk7.UseVisualStyleBackColor = false;
@@ -454,7 +475,7 @@
             this.txtcantidad7.Location = new System.Drawing.Point(409, 237);
             this.txtcantidad7.Name = "txtcantidad7";
             this.txtcantidad7.Size = new System.Drawing.Size(55, 24);
-            this.txtcantidad7.TabIndex = 7973;
+            this.txtcantidad7.TabIndex = 7934;
             this.txtcantidad7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtlargom7
@@ -464,7 +485,7 @@
             this.txtlargom7.Location = new System.Drawing.Point(352, 237);
             this.txtlargom7.Name = "txtlargom7";
             this.txtlargom7.Size = new System.Drawing.Size(55, 24);
-            this.txtlargom7.TabIndex = 7971;
+            this.txtlargom7.TabIndex = 7933;
             this.txtlargom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtanchom7
@@ -474,7 +495,7 @@
             this.txtanchom7.Location = new System.Drawing.Point(295, 237);
             this.txtanchom7.Name = "txtanchom7";
             this.txtanchom7.Size = new System.Drawing.Size(55, 24);
-            this.txtanchom7.TabIndex = 7970;
+            this.txtanchom7.TabIndex = 7932;
             this.txtanchom7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtespesorm7
@@ -484,7 +505,7 @@
             this.txtespesorm7.Location = new System.Drawing.Point(238, 237);
             this.txtespesorm7.Name = "txtespesorm7";
             this.txtespesorm7.Size = new System.Drawing.Size(55, 24);
-            this.txtespesorm7.TabIndex = 7969;
+            this.txtespesorm7.TabIndex = 7931;
             this.txtespesorm7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblPrecioPorPie
@@ -533,65 +554,53 @@
             this.lblseleccionmaderas.Text = "Selección de maderas";
             this.lblseleccionmaderas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label20
+            // lblDescMadera
             // 
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(92, 50);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(144, 34);
-            this.label20.TabIndex = 7937;
-            this.label20.Text = "Descripción madera";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDescMadera.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescMadera.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescMadera.ForeColor = System.Drawing.Color.White;
+            this.lblDescMadera.Location = new System.Drawing.Point(92, 50);
+            this.lblDescMadera.Name = "lblDescMadera";
+            this.lblDescMadera.Size = new System.Drawing.Size(144, 34);
+            this.lblDescMadera.TabIndex = 7937;
+            this.lblDescMadera.Text = "Descripción madera";
+            this.lblDescMadera.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lblespesorm
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(235, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 34);
-            this.label1.TabIndex = 7879;
-            this.label1.Text = "Espesor (cm)";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblespesorm.BackColor = System.Drawing.Color.Transparent;
+            this.lblespesorm.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblespesorm.ForeColor = System.Drawing.Color.White;
+            this.lblespesorm.Location = new System.Drawing.Point(235, 50);
+            this.lblespesorm.Name = "lblespesorm";
+            this.lblespesorm.Size = new System.Drawing.Size(60, 34);
+            this.lblespesorm.TabIndex = 7879;
+            this.lblespesorm.Text = "Espesor (cm)";
+            this.lblespesorm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblanchom
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(295, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 34);
-            this.label2.TabIndex = 7882;
-            this.label2.Text = "Ancho (cm)";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblanchom.BackColor = System.Drawing.Color.Transparent;
+            this.lblanchom.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblanchom.ForeColor = System.Drawing.Color.White;
+            this.lblanchom.Location = new System.Drawing.Point(295, 50);
+            this.lblanchom.Name = "lblanchom";
+            this.lblanchom.Size = new System.Drawing.Size(55, 34);
+            this.lblanchom.TabIndex = 7882;
+            this.lblanchom.Text = "Ancho (cm)";
+            this.lblanchom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lbllargom
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(352, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 34);
-            this.label3.TabIndex = 7884;
-            this.label3.Text = "Largo (mts)";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblpies1
-            // 
-            this.lblpies1.BackColor = System.Drawing.Color.Transparent;
-            this.lblpies1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpies1.ForeColor = System.Drawing.Color.White;
-            this.lblpies1.Location = new System.Drawing.Point(409, 290);
-            this.lblpies1.Name = "lblpies1";
-            this.lblpies1.Size = new System.Drawing.Size(55, 34);
-            this.lblpies1.TabIndex = 7938;
-            this.lblpies1.Text = "Total pies";
-            this.lblpies1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbllargom.BackColor = System.Drawing.Color.Transparent;
+            this.lbllargom.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllargom.ForeColor = System.Drawing.Color.White;
+            this.lbllargom.Location = new System.Drawing.Point(352, 50);
+            this.lbllargom.Name = "lbllargom";
+            this.lbllargom.Size = new System.Drawing.Size(55, 34);
+            this.lbllargom.TabIndex = 7884;
+            this.lbllargom.Text = "Largo (mts)";
+            this.lbllargom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtespesorm1
             // 
@@ -613,7 +622,7 @@
             this.btnCalcularPies.Margin = new System.Windows.Forms.Padding(0);
             this.btnCalcularPies.Name = "btnCalcularPies";
             this.btnCalcularPies.Size = new System.Drawing.Size(112, 34);
-            this.btnCalcularPies.TabIndex = 7941;
+            this.btnCalcularPies.TabIndex = 7942;
             this.btnCalcularPies.Text = "Calcular pies";
             this.btnCalcularPies.UseVisualStyleBackColor = false;
             this.btnCalcularPies.Click += new System.EventHandler(this.btnCalcularPies_Click);
@@ -648,17 +657,17 @@
             this.txtdescmad6.TabIndex = 7919;
             this.txtdescmad6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblcantidad
+            // lblcantidadm
             // 
-            this.lblcantidad.BackColor = System.Drawing.Color.Transparent;
-            this.lblcantidad.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcantidad.ForeColor = System.Drawing.Color.White;
-            this.lblcantidad.Location = new System.Drawing.Point(406, 50);
-            this.lblcantidad.Name = "lblcantidad";
-            this.lblcantidad.Size = new System.Drawing.Size(64, 34);
-            this.lblcantidad.TabIndex = 7913;
-            this.lblcantidad.Text = "Cantidad";
-            this.lblcantidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblcantidadm.BackColor = System.Drawing.Color.Transparent;
+            this.lblcantidadm.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcantidadm.ForeColor = System.Drawing.Color.White;
+            this.lblcantidadm.Location = new System.Drawing.Point(406, 50);
+            this.lblcantidadm.Name = "lblcantidadm";
+            this.lblcantidadm.Size = new System.Drawing.Size(64, 34);
+            this.lblcantidadm.TabIndex = 7913;
+            this.lblcantidadm.Text = "Cantidad";
+            this.lblcantidadm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtdescmad5
             // 
@@ -944,39 +953,29 @@
             this.txtcantidad3.TabIndex = 7900;
             this.txtcantidad3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblpie1
+            // lblpie11
             // 
-            this.lblpie1.BackColor = System.Drawing.Color.Transparent;
-            this.lblpie1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblpie1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpie1.ForeColor = System.Drawing.Color.White;
-            this.lblpie1.Location = new System.Drawing.Point(466, 87);
-            this.lblpie1.Name = "lblpie1";
-            this.lblpie1.Size = new System.Drawing.Size(55, 24);
-            this.lblpie1.TabIndex = 7931;
-            this.lblpie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblpie11.BackColor = System.Drawing.Color.Transparent;
+            this.lblpie11.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpie11.ForeColor = System.Drawing.Color.White;
+            this.lblpie11.Location = new System.Drawing.Point(409, 290);
+            this.lblpie11.Name = "lblpie11";
+            this.lblpie11.Size = new System.Drawing.Size(55, 34);
+            this.lblpie11.TabIndex = 7938;
+            this.lblpie11.Text = "Total pies";
+            this.lblpie11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtespesorm4
+            // lblpiesm
             // 
-            this.txtespesorm4.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtespesorm4.ForeColor = System.Drawing.Color.Black;
-            this.txtespesorm4.Location = new System.Drawing.Point(238, 162);
-            this.txtespesorm4.Name = "txtespesorm4";
-            this.txtespesorm4.Size = new System.Drawing.Size(55, 24);
-            this.txtespesorm4.TabIndex = 7903;
-            this.txtespesorm4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblpie
-            // 
-            this.lblpie.BackColor = System.Drawing.Color.Transparent;
-            this.lblpie.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpie.ForeColor = System.Drawing.Color.White;
-            this.lblpie.Location = new System.Drawing.Point(466, 50);
-            this.lblpie.Name = "lblpie";
-            this.lblpie.Size = new System.Drawing.Size(55, 34);
-            this.lblpie.TabIndex = 7930;
-            this.lblpie.Text = "Pies";
-            this.lblpie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblpiesm.BackColor = System.Drawing.Color.Transparent;
+            this.lblpiesm.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpiesm.ForeColor = System.Drawing.Color.White;
+            this.lblpiesm.Location = new System.Drawing.Point(466, 50);
+            this.lblpiesm.Name = "lblpiesm";
+            this.lblpiesm.Size = new System.Drawing.Size(55, 34);
+            this.lblpiesm.TabIndex = 7930;
+            this.lblpiesm.Text = "Pies";
+            this.lblpiesm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtanchom4
             // 
@@ -1092,7 +1091,7 @@
             // 
             this.txtganancia.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtganancia.ForeColor = System.Drawing.Color.Black;
-            this.txtganancia.Location = new System.Drawing.Point(490, 19);
+            this.txtganancia.Location = new System.Drawing.Point(133, 30);
             this.txtganancia.Name = "txtganancia";
             this.txtganancia.Size = new System.Drawing.Size(55, 24);
             this.txtganancia.TabIndex = 7964;
@@ -1102,7 +1101,7 @@
             this.lblganancia.BackColor = System.Drawing.Color.Transparent;
             this.lblganancia.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblganancia.ForeColor = System.Drawing.Color.White;
-            this.lblganancia.Location = new System.Drawing.Point(408, 19);
+            this.lblganancia.Location = new System.Drawing.Point(51, 30);
             this.lblganancia.Name = "lblganancia";
             this.lblganancia.Size = new System.Drawing.Size(79, 24);
             this.lblganancia.TabIndex = 7962;
@@ -1490,7 +1489,7 @@
             this.cmbVidrio1.Location = new System.Drawing.Point(81, 46);
             this.cmbVidrio1.Name = "cmbVidrio1";
             this.cmbVidrio1.Size = new System.Drawing.Size(135, 24);
-            this.cmbVidrio1.TabIndex = 7993;
+            this.cmbVidrio1.TabIndex = 7966;
             // 
             // cmbVidrio2
             // 
@@ -1499,7 +1498,7 @@
             this.cmbVidrio2.Location = new System.Drawing.Point(81, 71);
             this.cmbVidrio2.Name = "cmbVidrio2";
             this.cmbVidrio2.Size = new System.Drawing.Size(135, 24);
-            this.cmbVidrio2.TabIndex = 7994;
+            this.cmbVidrio2.TabIndex = 7971;
             // 
             // cmbVidrio3
             // 
@@ -1508,7 +1507,7 @@
             this.cmbVidrio3.Location = new System.Drawing.Point(81, 96);
             this.cmbVidrio3.Name = "cmbVidrio3";
             this.cmbVidrio3.Size = new System.Drawing.Size(135, 24);
-            this.cmbVidrio3.TabIndex = 7995;
+            this.cmbVidrio3.TabIndex = 7976;
             // 
             // groupBox4
             // 
@@ -1570,7 +1569,7 @@
             this.cmbMaterial6.Location = new System.Drawing.Point(203, 172);
             this.cmbMaterial6.Name = "cmbMaterial6";
             this.cmbMaterial6.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial6.TabIndex = 8064;
+            this.cmbMaterial6.TabIndex = 8023;
             // 
             // chkmaterial6
             // 
@@ -1580,7 +1579,7 @@
             this.chkmaterial6.Location = new System.Drawing.Point(5, 172);
             this.chkmaterial6.Name = "chkmaterial6";
             this.chkmaterial6.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial6.TabIndex = 8059;
+            this.chkmaterial6.TabIndex = 8021;
             this.chkmaterial6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial6.UseVisualStyleBackColor = false;
             // 
@@ -1591,7 +1590,7 @@
             this.txtMaterialCantidad6.Location = new System.Drawing.Point(385, 172);
             this.txtMaterialCantidad6.Name = "txtMaterialCantidad6";
             this.txtMaterialCantidad6.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad6.TabIndex = 8060;
+            this.txtMaterialCantidad6.TabIndex = 8024;
             // 
             // lblMaterialUnidad6
             // 
@@ -1627,7 +1626,7 @@
             this.cmbTipoMaterial6.Location = new System.Drawing.Point(22, 172);
             this.cmbTipoMaterial6.Name = "cmbTipoMaterial6";
             this.cmbTipoMaterial6.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial6.TabIndex = 8063;
+            this.cmbTipoMaterial6.TabIndex = 8022;
             // 
             // lblMaterial
             // 
@@ -1661,7 +1660,7 @@
             this.cmbMaterial5.Location = new System.Drawing.Point(203, 147);
             this.cmbMaterial5.Name = "cmbMaterial5";
             this.cmbMaterial5.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial5.TabIndex = 8052;
+            this.cmbMaterial5.TabIndex = 8019;
             // 
             // chkmaterial5
             // 
@@ -1671,7 +1670,7 @@
             this.chkmaterial5.Location = new System.Drawing.Point(5, 147);
             this.chkmaterial5.Name = "chkmaterial5";
             this.chkmaterial5.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial5.TabIndex = 8047;
+            this.chkmaterial5.TabIndex = 8017;
             this.chkmaterial5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial5.UseVisualStyleBackColor = false;
             // 
@@ -1682,7 +1681,7 @@
             this.txtMaterialCantidad5.Location = new System.Drawing.Point(385, 147);
             this.txtMaterialCantidad5.Name = "txtMaterialCantidad5";
             this.txtMaterialCantidad5.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad5.TabIndex = 8048;
+            this.txtMaterialCantidad5.TabIndex = 8020;
             // 
             // lblMaterialUnidad5
             // 
@@ -1718,7 +1717,7 @@
             this.cmbTipoMaterial5.Location = new System.Drawing.Point(22, 147);
             this.cmbTipoMaterial5.Name = "cmbTipoMaterial5";
             this.cmbTipoMaterial5.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial5.TabIndex = 8051;
+            this.cmbTipoMaterial5.TabIndex = 8018;
             // 
             // cmbMaterial4
             // 
@@ -1728,7 +1727,7 @@
             this.cmbMaterial4.Location = new System.Drawing.Point(203, 122);
             this.cmbMaterial4.Name = "cmbMaterial4";
             this.cmbMaterial4.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial4.TabIndex = 8046;
+            this.cmbMaterial4.TabIndex = 8015;
             // 
             // chkmaterial4
             // 
@@ -1738,7 +1737,7 @@
             this.chkmaterial4.Location = new System.Drawing.Point(5, 122);
             this.chkmaterial4.Name = "chkmaterial4";
             this.chkmaterial4.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial4.TabIndex = 8041;
+            this.chkmaterial4.TabIndex = 8013;
             this.chkmaterial4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial4.UseVisualStyleBackColor = false;
             // 
@@ -1749,7 +1748,7 @@
             this.txtMaterialCantidad4.Location = new System.Drawing.Point(385, 122);
             this.txtMaterialCantidad4.Name = "txtMaterialCantidad4";
             this.txtMaterialCantidad4.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad4.TabIndex = 8042;
+            this.txtMaterialCantidad4.TabIndex = 8016;
             // 
             // lblMaterialUnidad4
             // 
@@ -1785,7 +1784,7 @@
             this.cmbTipoMaterial4.Location = new System.Drawing.Point(22, 122);
             this.cmbTipoMaterial4.Name = "cmbTipoMaterial4";
             this.cmbTipoMaterial4.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial4.TabIndex = 8045;
+            this.cmbTipoMaterial4.TabIndex = 8014;
             // 
             // cmbMaterial3
             // 
@@ -1795,7 +1794,7 @@
             this.cmbMaterial3.Location = new System.Drawing.Point(203, 97);
             this.cmbMaterial3.Name = "cmbMaterial3";
             this.cmbMaterial3.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial3.TabIndex = 8040;
+            this.cmbMaterial3.TabIndex = 8011;
             // 
             // chkmaterial3
             // 
@@ -1805,7 +1804,7 @@
             this.chkmaterial3.Location = new System.Drawing.Point(5, 97);
             this.chkmaterial3.Name = "chkmaterial3";
             this.chkmaterial3.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial3.TabIndex = 8032;
+            this.chkmaterial3.TabIndex = 8009;
             this.chkmaterial3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial3.UseVisualStyleBackColor = false;
             // 
@@ -1816,7 +1815,7 @@
             this.txtMaterialCantidad3.Location = new System.Drawing.Point(385, 97);
             this.txtMaterialCantidad3.Name = "txtMaterialCantidad3";
             this.txtMaterialCantidad3.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad3.TabIndex = 8033;
+            this.txtMaterialCantidad3.TabIndex = 8012;
             // 
             // lblMaterialUnidad3
             // 
@@ -1852,7 +1851,7 @@
             this.cmbTipoMaterial3.Location = new System.Drawing.Point(22, 97);
             this.cmbTipoMaterial3.Name = "cmbTipoMaterial3";
             this.cmbTipoMaterial3.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial3.TabIndex = 8036;
+            this.cmbTipoMaterial3.TabIndex = 8010;
             // 
             // cmbMaterial2
             // 
@@ -1862,7 +1861,7 @@
             this.cmbMaterial2.Location = new System.Drawing.Point(203, 72);
             this.cmbMaterial2.Name = "cmbMaterial2";
             this.cmbMaterial2.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial2.TabIndex = 8031;
+            this.cmbMaterial2.TabIndex = 8007;
             // 
             // chkmaterial2
             // 
@@ -1872,7 +1871,7 @@
             this.chkmaterial2.Location = new System.Drawing.Point(5, 72);
             this.chkmaterial2.Name = "chkmaterial2";
             this.chkmaterial2.Size = new System.Drawing.Size(13, 23);
-            this.chkmaterial2.TabIndex = 8023;
+            this.chkmaterial2.TabIndex = 8006;
             this.chkmaterial2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkmaterial2.UseVisualStyleBackColor = false;
             // 
@@ -1883,7 +1882,7 @@
             this.txtMaterialCantidad2.Location = new System.Drawing.Point(385, 72);
             this.txtMaterialCantidad2.Name = "txtMaterialCantidad2";
             this.txtMaterialCantidad2.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad2.TabIndex = 8024;
+            this.txtMaterialCantidad2.TabIndex = 8008;
             // 
             // lblMaterialUnidad2
             // 
@@ -1919,7 +1918,7 @@
             this.cmbTipoMaterial2.Location = new System.Drawing.Point(22, 72);
             this.cmbTipoMaterial2.Name = "cmbTipoMaterial2";
             this.cmbTipoMaterial2.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial2.TabIndex = 8027;
+            this.cmbTipoMaterial2.TabIndex = 8006;
             // 
             // cmbMaterial1
             // 
@@ -1929,7 +1928,7 @@
             this.cmbMaterial1.Location = new System.Drawing.Point(203, 47);
             this.cmbMaterial1.Name = "cmbMaterial1";
             this.cmbMaterial1.Size = new System.Drawing.Size(180, 24);
-            this.cmbMaterial1.TabIndex = 8022;
+            this.cmbMaterial1.TabIndex = 8004;
             // 
             // chkmaterial1
             // 
@@ -1950,7 +1949,7 @@
             this.txtMaterialCantidad1.Location = new System.Drawing.Point(385, 47);
             this.txtMaterialCantidad1.Name = "txtMaterialCantidad1";
             this.txtMaterialCantidad1.Size = new System.Drawing.Size(55, 24);
-            this.txtMaterialCantidad1.TabIndex = 8003;
+            this.txtMaterialCantidad1.TabIndex = 8005;
             // 
             // lblMaterialUnidad1
             // 
@@ -1986,7 +1985,7 @@
             this.cmbTipoMaterial1.Location = new System.Drawing.Point(22, 47);
             this.cmbTipoMaterial1.Name = "cmbTipoMaterial1";
             this.cmbTipoMaterial1.Size = new System.Drawing.Size(180, 24);
-            this.cmbTipoMaterial1.TabIndex = 8006;
+            this.cmbTipoMaterial1.TabIndex = 8003;
             // 
             // lblCantBisagras
             // 
@@ -2055,7 +2054,7 @@
             this.txtMaterialPrecio2.Location = new System.Drawing.Point(288, 60);
             this.txtMaterialPrecio2.Name = "txtMaterialPrecio2";
             this.txtMaterialPrecio2.Size = new System.Drawing.Size(100, 24);
-            this.txtMaterialPrecio2.TabIndex = 8068;
+            this.txtMaterialPrecio2.TabIndex = 8030;
             // 
             // txtMaterialPrecio3
             // 
@@ -2063,7 +2062,7 @@
             this.txtMaterialPrecio3.Location = new System.Drawing.Point(288, 85);
             this.txtMaterialPrecio3.Name = "txtMaterialPrecio3";
             this.txtMaterialPrecio3.Size = new System.Drawing.Size(100, 24);
-            this.txtMaterialPrecio3.TabIndex = 8067;
+            this.txtMaterialPrecio3.TabIndex = 8033;
             // 
             // txtMaterialPrecio1
             // 
@@ -2071,7 +2070,7 @@
             this.txtMaterialPrecio1.Location = new System.Drawing.Point(288, 35);
             this.txtMaterialPrecio1.Name = "txtMaterialPrecio1";
             this.txtMaterialPrecio1.Size = new System.Drawing.Size(100, 24);
-            this.txtMaterialPrecio1.TabIndex = 8066;
+            this.txtMaterialPrecio1.TabIndex = 8027;
             // 
             // label16
             // 
@@ -2091,16 +2090,16 @@
             this.txtDescMateriale2.Location = new System.Drawing.Point(126, 60);
             this.txtDescMateriale2.Name = "txtDescMateriale2";
             this.txtDescMateriale2.Size = new System.Drawing.Size(160, 24);
-            this.txtDescMateriale2.TabIndex = 8056;
+            this.txtDescMateriale2.TabIndex = 8029;
             // 
             // chkotrosmateriales2
             // 
             this.chkotrosmateriales2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkotrosmateriales2.Location = new System.Drawing.Point(5, 59);
             this.chkotrosmateriales2.Name = "chkotrosmateriales2";
-            this.chkotrosmateriales2.Size = new System.Drawing.Size(121, 22);
-            this.chkotrosmateriales2.TabIndex = 8055;
-            this.chkotrosmateriales2.Text = "Otro material 1";
+            this.chkotrosmateriales2.Size = new System.Drawing.Size(132, 22);
+            this.chkotrosmateriales2.TabIndex = 8028;
+            this.chkotrosmateriales2.Text = "Otro material 2\r\n";
             this.chkotrosmateriales2.UseVisualStyleBackColor = true;
             // 
             // lblTotalGastosMat
@@ -2121,7 +2120,7 @@
             this.txtDescMateriale3.Location = new System.Drawing.Point(126, 85);
             this.txtDescMateriale3.Name = "txtDescMateriale3";
             this.txtDescMateriale3.Size = new System.Drawing.Size(160, 24);
-            this.txtDescMateriale3.TabIndex = 8014;
+            this.txtDescMateriale3.TabIndex = 8032;
             // 
             // chkotrosmateriales3
             // 
@@ -2129,7 +2128,7 @@
             this.chkotrosmateriales3.Location = new System.Drawing.Point(5, 83);
             this.chkotrosmateriales3.Name = "chkotrosmateriales3";
             this.chkotrosmateriales3.Size = new System.Drawing.Size(121, 22);
-            this.chkotrosmateriales3.TabIndex = 8013;
+            this.chkotrosmateriales3.TabIndex = 8031;
             this.chkotrosmateriales3.Text = "Gastos varios";
             this.chkotrosmateriales3.UseVisualStyleBackColor = true;
             // 
@@ -2139,7 +2138,7 @@
             this.txtDescMateriale1.Location = new System.Drawing.Point(126, 35);
             this.txtDescMateriale1.Name = "txtDescMateriale1";
             this.txtDescMateriale1.Size = new System.Drawing.Size(160, 24);
-            this.txtDescMateriale1.TabIndex = 8012;
+            this.txtDescMateriale1.TabIndex = 8026;
             // 
             // chkotrosmateriales1
             // 
@@ -2147,14 +2146,13 @@
             this.chkotrosmateriales1.Location = new System.Drawing.Point(5, 35);
             this.chkotrosmateriales1.Name = "chkotrosmateriales1";
             this.chkotrosmateriales1.Size = new System.Drawing.Size(121, 22);
-            this.chkotrosmateriales1.TabIndex = 8011;
+            this.chkotrosmateriales1.TabIndex = 8025;
             this.chkotrosmateriales1.Text = "Otro material 1";
             this.chkotrosmateriales1.UseVisualStyleBackColor = true;
             // 
             // pnlPresupuesto
             // 
             this.pnlPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlPresupuesto.Controls.Add(this.button1);
             this.pnlPresupuesto.Controls.Add(this.lblpresupuesto);
             this.pnlPresupuesto.Controls.Add(this.btnCalcularCotizacion);
             this.pnlPresupuesto.Controls.Add(this.lblCotiacion);
@@ -2162,24 +2160,11 @@
             this.pnlPresupuesto.Controls.Add(this.btnGuardarCotizacion);
             this.pnlPresupuesto.Controls.Add(this.txtganancia);
             this.pnlPresupuesto.Controls.Add(this.lblganancia);
-            this.pnlPresupuesto.Location = new System.Drawing.Point(10, 435);
+            this.pnlPresupuesto.Location = new System.Drawing.Point(590, 431);
             this.pnlPresupuesto.Name = "pnlPresupuesto";
             this.pnlPresupuesto.Size = new System.Drawing.Size(590, 120);
             this.pnlPresupuesto.TabIndex = 8037;
             this.pnlPresupuesto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPresupuesto_Paint);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(25, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 34);
-            this.button1.TabIndex = 8041;
-            this.button1.Text = "Cancelar cotización";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // lblpresupuesto
             // 
@@ -2187,7 +2172,7 @@
             this.lblpresupuesto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblpresupuesto.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpresupuesto.ForeColor = System.Drawing.Color.White;
-            this.lblpresupuesto.Location = new System.Drawing.Point(389, 81);
+            this.lblpresupuesto.Location = new System.Drawing.Point(385, 62);
             this.lblpresupuesto.Name = "lblpresupuesto";
             this.lblpresupuesto.Size = new System.Drawing.Size(175, 24);
             this.lblpresupuesto.TabIndex = 8040;
@@ -2213,7 +2198,7 @@
             this.lblCotiacion.BackColor = System.Drawing.Color.Transparent;
             this.lblCotiacion.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCotiacion.ForeColor = System.Drawing.Color.White;
-            this.lblCotiacion.Location = new System.Drawing.Point(389, 54);
+            this.lblCotiacion.Location = new System.Drawing.Point(385, 35);
             this.lblCotiacion.Name = "lblCotiacion";
             this.lblCotiacion.Size = new System.Drawing.Size(175, 24);
             this.lblCotiacion.TabIndex = 8039;
@@ -2226,7 +2211,7 @@
             this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarCampos.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(25, 25);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(24, 63);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(166, 34);
             this.btnLimpiarCampos.TabIndex = 7948;
@@ -2283,6 +2268,7 @@
             // grpExtras
             // 
             this.grpExtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.grpExtras.Controls.Add(this.txtDescMateriale2);
             this.grpExtras.Controls.Add(this.lbltotalgastosadicionales);
             this.grpExtras.Controls.Add(this.label16);
             this.grpExtras.Controls.Add(this.label17);
@@ -2295,9 +2281,8 @@
             this.grpExtras.Controls.Add(this.txtDescMateriale3);
             this.grpExtras.Controls.Add(this.lblTotalGastosMat);
             this.grpExtras.Controls.Add(this.chkotrosmateriales2);
-            this.grpExtras.Controls.Add(this.txtDescMateriale2);
             this.grpExtras.ForeColor = System.Drawing.Color.White;
-            this.grpExtras.Location = new System.Drawing.Point(610, 435);
+            this.grpExtras.Location = new System.Drawing.Point(10, 431);
             this.grpExtras.Name = "grpExtras";
             this.grpExtras.Size = new System.Drawing.Size(570, 120);
             this.grpExtras.TabIndex = 8043;
@@ -2316,7 +2301,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblTitulocotizador);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2325,18 +2310,18 @@
             this.pnlBorde.Size = new System.Drawing.Size(1190, 40);
             this.pnlBorde.TabIndex = 8045;
             // 
-            // lblTitulo
+            // lblTitulocotizador
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1110, 40);
-            this.lblTitulo.TabIndex = 23;
-            this.lblTitulo.Text = "Cotizador";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulocotizador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulocotizador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulocotizador.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulocotizador.ForeColor = System.Drawing.Color.White;
+            this.lblTitulocotizador.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulocotizador.Name = "lblTitulocotizador";
+            this.lblTitulocotizador.Size = new System.Drawing.Size(1110, 40);
+            this.lblTitulocotizador.TabIndex = 23;
+            this.lblTitulocotizador.Text = "Cotizador";
+            this.lblTitulocotizador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -2386,6 +2371,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCotizador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalculoPiesMuebles";
@@ -2411,26 +2397,27 @@
 
         #endregion
 
+
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblPrecioPorPie;
         private System.Windows.Forms.Label lblcalculopies;
         private System.Windows.Forms.ComboBox cmbMaderas;
         private System.Windows.Forms.Label lblseleccionmaderas;
         private System.Windows.Forms.TextBox txtganancia;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblDescMadera;
         private System.Windows.Forms.TextBox txtdesperdicio;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblespesorm;
         private System.Windows.Forms.Label lblganancia;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblanchom;
         private System.Windows.Forms.Label lbldesperdicio;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblpies1;
+        private System.Windows.Forms.Label lbllargom;
+        private System.Windows.Forms.Label lbltotalpies;
         private System.Windows.Forms.TextBox txtespesorm1;
         private System.Windows.Forms.Button btnCalcularPies;
         private System.Windows.Forms.TextBox txtanchom1;
         private System.Windows.Forms.TextBox txtlargom1;
         private System.Windows.Forms.TextBox txtdescmad6;
-        private System.Windows.Forms.Label lblcantidad;
+        private System.Windows.Forms.Label lblcantidadm;
         private System.Windows.Forms.TextBox txtdescmad5;
         private System.Windows.Forms.TextBox txtcantidad1;
         private System.Windows.Forms.TextBox txtdescmad4;
@@ -2456,9 +2443,9 @@
         private System.Windows.Forms.TextBox txtlargom3;
         private System.Windows.Forms.Label lblpie2;
         private System.Windows.Forms.TextBox txtcantidad3;
-        private System.Windows.Forms.Label lblpie1;
+        private System.Windows.Forms.Label lblpie11;
         private System.Windows.Forms.TextBox txtespesorm4;
-        private System.Windows.Forms.Label lblpie;
+        private System.Windows.Forms.Label lblpiesm;
         private System.Windows.Forms.TextBox txtanchom4;
         private System.Windows.Forms.TextBox txtcantidad6;
         private System.Windows.Forms.TextBox txtlargom4;
@@ -2532,6 +2519,7 @@
         private System.Windows.Forms.Label lblMaterialUnidad4;
         private System.Windows.Forms.Label lblMateriaTotal4;
         private System.Windows.Forms.ComboBox cmbTipoMaterial4;
+
         private System.Windows.Forms.ComboBox cmbMaterial3;
         private System.Windows.Forms.CheckBox chkmaterial3;
         private System.Windows.Forms.TextBox txtMaterialCantidad3;
@@ -2564,6 +2552,7 @@
         private System.Windows.Forms.Button btnGuardarCotizacion;
         private System.Windows.Forms.TextBox txtDescripcionMueble;
         private System.Windows.Forms.Label lblCotiacion;
+
         private System.Windows.Forms.Label lblpresupuesto;
         private System.Windows.Forms.Label lblDescripcionMueble;
         private System.Windows.Forms.Panel pnlDescripcionMueble;
@@ -2587,7 +2576,7 @@
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblTitulocotizador;
+        private System.Windows.Forms.Label lblpie1;
     }
 }

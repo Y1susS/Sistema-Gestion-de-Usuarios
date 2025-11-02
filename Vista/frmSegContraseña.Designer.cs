@@ -35,7 +35,7 @@
             this.chkDatosPerson = new System.Windows.Forms.CheckBox();
             this.chkReutContra = new System.Windows.Forms.CheckBox();
             this.chkCaractEsp = new System.Windows.Forms.CheckBox();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
+            this.btnGuardarCambioscont = new System.Windows.Forms.Button();
             this.nudCaractMin = new System.Windows.Forms.NumericUpDown();
             this.lblDiasCambio = new System.Windows.Forms.Label();
             this.nudDiasCambio = new System.Windows.Forms.NumericUpDown();
@@ -44,7 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblTitulovalidaciones = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
@@ -118,15 +118,15 @@
             this.chkCaractEsp.Text = "Debe contener al menos 1 caracter especial";
             this.chkCaractEsp.UseVisualStyleBackColor = true;
             // 
-            // btnGuardarCambios
+            // btnGuardarCambioscont
             // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(150, 405);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(175, 30);
-            this.btnGuardarCambios.TabIndex = 8;
-            this.btnGuardarCambios.Text = "Guardar cambios";
-            this.btnGuardarCambios.UseVisualStyleBackColor = true;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardarCambioscont.Location = new System.Drawing.Point(150, 405);
+            this.btnGuardarCambioscont.Name = "btnGuardarCambioscont";
+            this.btnGuardarCambioscont.Size = new System.Drawing.Size(175, 30);
+            this.btnGuardarCambioscont.TabIndex = 8;
+            this.btnGuardarCambioscont.Text = "Guardar cambios";
+            this.btnGuardarCambioscont.UseVisualStyleBackColor = true;
+            this.btnGuardarCambioscont.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // nudCaractMin
             // 
@@ -218,7 +218,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblTitulovalidaciones);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -227,18 +227,18 @@
             this.pnlBorde.Size = new System.Drawing.Size(475, 40);
             this.pnlBorde.TabIndex = 31;
             // 
-            // lblTitulo
+            // lblTitulovalidaciones
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(395, 40);
-            this.lblTitulo.TabIndex = 15;
-            this.lblTitulo.Text = "Validaciones";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulovalidaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTitulovalidaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitulovalidaciones.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulovalidaciones.ForeColor = System.Drawing.Color.White;
+            this.lblTitulovalidaciones.Location = new System.Drawing.Point(40, 0);
+            this.lblTitulovalidaciones.Name = "lblTitulovalidaciones";
+            this.lblTitulovalidaciones.Size = new System.Drawing.Size(395, 40);
+            this.lblTitulovalidaciones.TabIndex = 15;
+            this.lblTitulovalidaciones.Text = "Validaciones";
+            this.lblTitulovalidaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -286,9 +286,10 @@
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblseguridad);
-            this.Controls.Add(this.btnGuardarCambios);
+            this.Controls.Add(this.btnGuardarCambioscont);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSegContraseña";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
@@ -314,7 +315,7 @@
         private System.Windows.Forms.CheckBox chkDatosPerson;
         private System.Windows.Forms.CheckBox chkReutContra;
         private System.Windows.Forms.CheckBox chkCaractEsp;
-        private System.Windows.Forms.Button btnGuardarCambios;
+        private System.Windows.Forms.Button btnGuardarCambioscont;
         private System.Windows.Forms.NumericUpDown nudCaractMin;
         private System.Windows.Forms.Label lblDiasCambio;
         private System.Windows.Forms.NumericUpDown nudDiasCambio;
@@ -323,7 +324,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblTitulovalidaciones;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;

@@ -32,14 +32,14 @@ namespace Vista
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecupero));
             this.txtdni = new System.Windows.Forms.TextBox();
-            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.btnSiguienterecupero = new System.Windows.Forms.Button();
             this.txtrespuesta = new System.Windows.Forms.TextBox();
             this.cmbpreguntasseg = new System.Windows.Forms.ComboBox();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pctFondo = new System.Windows.Forms.PictureBox();
             this.lblRecuperacion = new System.Windows.Forms.Label();
-            this.lblPregunta = new System.Windows.Forms.Label();
+            this.lblPreguntarecupero = new System.Windows.Forms.Label();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
@@ -66,19 +66,19 @@ namespace Vista
             this.txtdni.Enter += new System.EventHandler(this.txtdni_Enter);
             this.txtdni.Leave += new System.EventHandler(this.txtdni_Leave);
             // 
-            // btnSiguiente
+            // btnSiguienterecupero
             // 
-            this.btnSiguiente.BackColor = System.Drawing.Color.White;
-            this.btnSiguiente.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.ForeColor = System.Drawing.Color.Black;
-            this.btnSiguiente.Location = new System.Drawing.Point(107, 335);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(185, 30);
-            this.btnSiguiente.TabIndex = 18;
-            this.btnSiguiente.Text = "Siguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = false;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            this.btnSiguienterecupero.BackColor = System.Drawing.Color.White;
+            this.btnSiguienterecupero.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguienterecupero.ForeColor = System.Drawing.Color.Black;
+            this.btnSiguienterecupero.Location = new System.Drawing.Point(107, 335);
+            this.btnSiguienterecupero.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSiguienterecupero.Name = "btnSiguienterecupero";
+            this.btnSiguienterecupero.Size = new System.Drawing.Size(185, 30);
+            this.btnSiguienterecupero.TabIndex = 18;
+            this.btnSiguienterecupero.Text = "Siguiente";
+            this.btnSiguienterecupero.UseVisualStyleBackColor = false;
+            this.btnSiguienterecupero.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // txtrespuesta
             // 
@@ -145,17 +145,17 @@ namespace Vista
             this.lblRecuperacion.Text = "Recuperación";
             this.lblRecuperacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblPregunta
+            // lblPreguntarecupero
             // 
-            this.lblPregunta.BackColor = System.Drawing.Color.Transparent;
-            this.lblPregunta.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPregunta.ForeColor = System.Drawing.Color.White;
-            this.lblPregunta.Location = new System.Drawing.Point(0, 209);
-            this.lblPregunta.Name = "lblPregunta";
-            this.lblPregunta.Size = new System.Drawing.Size(400, 18);
-            this.lblPregunta.TabIndex = 33;
-            this.lblPregunta.Text = "Ingrese una pregunta";
-            this.lblPregunta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPreguntarecupero.BackColor = System.Drawing.Color.Transparent;
+            this.lblPreguntarecupero.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreguntarecupero.ForeColor = System.Drawing.Color.White;
+            this.lblPreguntarecupero.Location = new System.Drawing.Point(0, 209);
+            this.lblPreguntarecupero.Name = "lblPreguntarecupero";
+            this.lblPreguntarecupero.Size = new System.Drawing.Size(400, 18);
+            this.lblPreguntarecupero.TabIndex = 33;
+            this.lblPreguntarecupero.Text = "Ingrese una pregunta";
+            this.lblPreguntarecupero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBorde
             // 
@@ -208,22 +208,23 @@ namespace Vista
             // 
             // frmRecupero
             // 
-            this.AcceptButton = this.btnSiguiente;
+            this.AcceptButton = this.btnSiguienterecupero;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 400);
             this.ControlBox = false;
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
-            this.Controls.Add(this.lblPregunta);
+            this.Controls.Add(this.lblPreguntarecupero);
             this.Controls.Add(this.cmbpreguntasseg);
             this.Controls.Add(this.txtrespuesta);
             this.Controls.Add(this.pctLogo);
             this.Controls.Add(this.txtdni);
-            this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.btnSiguienterecupero);
             this.Controls.Add(this.pctFondo);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -253,13 +254,13 @@ namespace Vista
         #endregion
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.TextBox txtdni;
-        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnSiguienterecupero;
         private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.TextBox txtrespuesta;
         private System.Windows.Forms.ComboBox cmbpreguntasseg;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Label lblRecuperacion;
-        private System.Windows.Forms.Label lblPregunta;
+        private System.Windows.Forms.Label lblPreguntarecupero;
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;

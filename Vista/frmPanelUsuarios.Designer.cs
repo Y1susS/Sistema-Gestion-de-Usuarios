@@ -36,7 +36,7 @@
             this.btnPreguntas = new System.Windows.Forms.Button();
             this.btnCambiarContrasena = new System.Windows.Forms.Button();
             this.lblDiasRestantesContrasena = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblmenuadmin = new System.Windows.Forms.Label();
             this.btncotizador = new System.Windows.Forms.Button();
             this.btnmetricas = new System.Windows.Forms.Button();
             this.btnbackup = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             this.flwGestionSistema = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGestionSistema = new System.Windows.Forms.Button();
             this.flwGestionComercial = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCotizaciones = new System.Windows.Forms.Button();
+            this.btnCotizacionespaneladmin = new System.Windows.Forms.Button();
             this.btnGestionComercial = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
@@ -199,19 +199,19 @@
             this.lblDiasRestantesContrasena.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDiasRestantesContrasena.Paint += new System.Windows.Forms.PaintEventHandler(this.lblDiasRestantesContrasena_Paint);
             // 
-            // lblTitulo
+            // lblmenuadmin
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1170, 40);
-            this.lblTitulo.TabIndex = 3;
-            this.lblTitulo.Text = "Menú de Administrador";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.lblTitulo_Paint);
+            this.lblmenuadmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblmenuadmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblmenuadmin.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmenuadmin.ForeColor = System.Drawing.Color.White;
+            this.lblmenuadmin.Location = new System.Drawing.Point(40, 0);
+            this.lblmenuadmin.Name = "lblmenuadmin";
+            this.lblmenuadmin.Size = new System.Drawing.Size(1170, 40);
+            this.lblmenuadmin.TabIndex = 3;
+            this.lblmenuadmin.Text = "Menú de Administrador";
+            this.lblmenuadmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblmenuadmin.Paint += new System.Windows.Forms.PaintEventHandler(this.lblTitulo_Paint);
             // 
             // btncotizador
             // 
@@ -262,7 +262,7 @@
             this.btnbackup.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnbackup.Size = new System.Drawing.Size(249, 35);
             this.btnbackup.TabIndex = 27;
-            this.btnbackup.Text = "Back up";
+            this.btnbackup.Text = "Back up / restore";
             this.btnbackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnbackup.UseVisualStyleBackColor = true;
             this.btnbackup.Click += new System.EventHandler(this.btnbackup_Click);
@@ -355,7 +355,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblmenuadmin);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -536,7 +536,7 @@
             // flwGestionComercial
             // 
             this.flwGestionComercial.Controls.Add(this.btnRegistroClientes);
-            this.flwGestionComercial.Controls.Add(this.btnCotizaciones);
+            this.flwGestionComercial.Controls.Add(this.btnCotizacionespaneladmin);
             this.flwGestionComercial.Controls.Add(this.btngestionstock);
             this.flwGestionComercial.Controls.Add(this.btnPresupuestador);
             this.flwGestionComercial.Controls.Add(this.btnEstadoVentas);
@@ -549,23 +549,23 @@
             this.flwGestionComercial.TabIndex = 38;
             this.flwGestionComercial.Paint += new System.Windows.Forms.PaintEventHandler(this.flwGestionComercial_Paint);
             // 
-            // btnCotizaciones
+            // btnCotizacionespaneladmin
             // 
-            this.btnCotizaciones.FlatAppearance.BorderSize = 0;
-            this.btnCotizaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnCotizaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCotizaciones.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCotizaciones.ForeColor = System.Drawing.Color.White;
-            this.btnCotizaciones.Location = new System.Drawing.Point(0, 35);
-            this.btnCotizaciones.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCotizaciones.Name = "btnCotizaciones";
-            this.btnCotizaciones.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCotizaciones.Size = new System.Drawing.Size(249, 35);
-            this.btnCotizaciones.TabIndex = 5;
-            this.btnCotizaciones.Text = "Cotizaciones";
-            this.btnCotizaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCotizaciones.UseVisualStyleBackColor = true;
-            this.btnCotizaciones.Click += new System.EventHandler(this.btnCotizaciones_Click);
+            this.btnCotizacionespaneladmin.FlatAppearance.BorderSize = 0;
+            this.btnCotizacionespaneladmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnCotizacionespaneladmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCotizacionespaneladmin.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCotizacionespaneladmin.ForeColor = System.Drawing.Color.White;
+            this.btnCotizacionespaneladmin.Location = new System.Drawing.Point(0, 35);
+            this.btnCotizacionespaneladmin.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCotizacionespaneladmin.Name = "btnCotizacionespaneladmin";
+            this.btnCotizacionespaneladmin.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCotizacionespaneladmin.Size = new System.Drawing.Size(249, 35);
+            this.btnCotizacionespaneladmin.TabIndex = 5;
+            this.btnCotizacionespaneladmin.Text = "Cotizaciones";
+            this.btnCotizacionespaneladmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCotizacionespaneladmin.UseVisualStyleBackColor = true;
+            this.btnCotizacionespaneladmin.Click += new System.EventHandler(this.btnCotizaciones_Click);
             // 
             // btnGestionComercial
             // 
@@ -620,6 +620,7 @@
             this.Controls.Add(this.pnlBorde);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPanelUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -649,7 +650,7 @@
         private System.Windows.Forms.Button btnPreguntas;
         private System.Windows.Forms.Button btnCambiarContrasena;
         private System.Windows.Forms.Label lblDiasRestantesContrasena;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblmenuadmin;
         private System.Windows.Forms.Button btncotizador;
         private System.Windows.Forms.Button btnmetricas;
         private System.Windows.Forms.Button btnbackup;
@@ -668,7 +669,7 @@
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel pnlDiasRestantes;
         private System.Windows.Forms.FlowLayoutPanel flwGestionComercial;
-        private System.Windows.Forms.Button btnCotizaciones;
+        private System.Windows.Forms.Button btnCotizacionespaneladmin;
         private System.Windows.Forms.Button btnGestionSistema;
         private System.Windows.Forms.FlowLayoutPanel flwGestionSistema;
         private System.Windows.Forms.Button btnInformes;

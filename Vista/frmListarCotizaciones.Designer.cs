@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarCotizaciones));
             this.dvgCotizaciones = new System.Windows.Forms.DataGridView();
             this.btnEditarCotizacion = new System.Windows.Forms.Button();
             this.btnBuscarCotización = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblFiltrar = new System.Windows.Forms.Label();
+            this.lblFiltrarcot = new System.Windows.Forms.Label();
             this.lblVendedor = new System.Windows.Forms.Label();
             this.lblDecripcion = new System.Windows.Forms.Label();
             this.txtVendedor = new System.Windows.Forms.TextBox();
@@ -40,6 +41,7 @@
             this.btnEliminarCotizacion = new System.Windows.Forms.Button();
             this.chkFechaActivo = new System.Windows.Forms.CheckBox();
             this.pnlOpciones = new System.Windows.Forms.Panel();
+            this.btnSeleccionarCotizacion = new System.Windows.Forms.Button();
             this.pnlFiltrarCotizaciones = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).BeginInit();
             this.pnlOpciones.SuspendLayout();
@@ -51,8 +53,9 @@
             this.dvgCotizaciones.BackgroundColor = System.Drawing.Color.White;
             this.dvgCotizaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgCotizaciones.Location = new System.Drawing.Point(10, 220);
-            this.dvgCotizaciones.Margin = new System.Windows.Forms.Padding(4);
+            this.dvgCotizaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dvgCotizaciones.Name = "dvgCotizaciones";
+            this.dvgCotizaciones.RowHeadersWidth = 51;
             this.dvgCotizaciones.Size = new System.Drawing.Size(880, 370);
             this.dvgCotizaciones.TabIndex = 8039;
             // 
@@ -64,7 +67,7 @@
             this.btnEditarCotizacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarCotizacion.ForeColor = System.Drawing.Color.Black;
             this.btnEditarCotizacion.Location = new System.Drawing.Point(558, 59);
-            this.btnEditarCotizacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditarCotizacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarCotizacion.Name = "btnEditarCotizacion";
             this.btnEditarCotizacion.Size = new System.Drawing.Size(158, 33);
             this.btnEditarCotizacion.TabIndex = 8040;
@@ -80,7 +83,7 @@
             this.btnBuscarCotización.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCotización.ForeColor = System.Drawing.Color.Black;
             this.btnBuscarCotización.Location = new System.Drawing.Point(558, 21);
-            this.btnBuscarCotización.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCotización.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscarCotización.Name = "btnBuscarCotización";
             this.btnBuscarCotización.Size = new System.Drawing.Size(158, 33);
             this.btnBuscarCotización.TabIndex = 8042;
@@ -100,17 +103,17 @@
             this.txtDescripcion.TabIndex = 8043;
             this.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblFiltrar
+            // lblFiltrarcot
             // 
-            this.lblFiltrar.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltrar.ForeColor = System.Drawing.Color.White;
-            this.lblFiltrar.Location = new System.Drawing.Point(1, 7);
-            this.lblFiltrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFiltrar.Name = "lblFiltrar";
-            this.lblFiltrar.Size = new System.Drawing.Size(733, 25);
-            this.lblFiltrar.TabIndex = 8044;
-            this.lblFiltrar.Text = "Filtrar cotizaciones por :";
-            this.lblFiltrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFiltrarcot.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrarcot.ForeColor = System.Drawing.Color.White;
+            this.lblFiltrarcot.Location = new System.Drawing.Point(1, 7);
+            this.lblFiltrarcot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiltrarcot.Name = "lblFiltrarcot";
+            this.lblFiltrarcot.Size = new System.Drawing.Size(733, 25);
+            this.lblFiltrarcot.TabIndex = 8044;
+            this.lblFiltrarcot.Text = "Filtrar cotizaciones por :";
+            this.lblFiltrarcot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblVendedor
             // 
@@ -152,7 +155,7 @@
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(185, 65);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 25);
             this.dateTimePicker1.TabIndex = 8050;
@@ -165,7 +168,7 @@
             this.btnEliminarCotizacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarCotizacion.ForeColor = System.Drawing.Color.Black;
             this.btnEliminarCotizacion.Location = new System.Drawing.Point(558, 100);
-            this.btnEliminarCotizacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarCotizacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminarCotizacion.Name = "btnEliminarCotizacion";
             this.btnEliminarCotizacion.Size = new System.Drawing.Size(158, 33);
             this.btnEliminarCotizacion.TabIndex = 8051;
@@ -178,7 +181,7 @@
             this.chkFechaActivo.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFechaActivo.ForeColor = System.Drawing.Color.White;
             this.chkFechaActivo.Location = new System.Drawing.Point(111, 65);
-            this.chkFechaActivo.Margin = new System.Windows.Forms.Padding(4);
+            this.chkFechaActivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkFechaActivo.Name = "chkFechaActivo";
             this.chkFechaActivo.Size = new System.Drawing.Size(66, 25);
             this.chkFechaActivo.TabIndex = 8052;
@@ -188,6 +191,7 @@
             // pnlOpciones
             // 
             this.pnlOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlOpciones.Controls.Add(this.btnSeleccionarCotizacion);
             this.pnlOpciones.Controls.Add(this.btnEliminarCotizacion);
             this.pnlOpciones.Controls.Add(this.btnEditarCotizacion);
             this.pnlOpciones.Controls.Add(this.btnBuscarCotización);
@@ -203,10 +207,26 @@
             this.pnlOpciones.TabIndex = 8055;
             this.pnlOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlOpciones_Paint);
             // 
+            // btnSeleccionarCotizacion
+            // 
+            this.btnSeleccionarCotizacion.BackColor = System.Drawing.Color.White;
+            this.btnSeleccionarCotizacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnSeleccionarCotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarCotizacion.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarCotizacion.ForeColor = System.Drawing.Color.Black;
+            this.btnSeleccionarCotizacion.Location = new System.Drawing.Point(558, 78);
+            this.btnSeleccionarCotizacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSeleccionarCotizacion.Name = "btnSeleccionarCotizacion";
+            this.btnSeleccionarCotizacion.Size = new System.Drawing.Size(158, 33);
+            this.btnSeleccionarCotizacion.TabIndex = 8053;
+            this.btnSeleccionarCotizacion.Text = "Seleccionar cotización";
+            this.btnSeleccionarCotizacion.UseVisualStyleBackColor = false;
+            this.btnSeleccionarCotizacion.Click += new System.EventHandler(this.btnSeleccionarCotizacion_Click);
+            // 
             // pnlFiltrarCotizaciones
             // 
             this.pnlFiltrarCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlFiltrarCotizaciones.Controls.Add(this.lblFiltrar);
+            this.pnlFiltrarCotizaciones.Controls.Add(this.lblFiltrarcot);
             this.pnlFiltrarCotizaciones.Location = new System.Drawing.Point(82, 10);
             this.pnlFiltrarCotizaciones.Name = "pnlFiltrarCotizaciones";
             this.pnlFiltrarCotizaciones.Size = new System.Drawing.Size(735, 40);
@@ -224,7 +244,8 @@
             this.Controls.Add(this.dvgCotizaciones);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmListarCotizaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListarCotizaciones";
@@ -243,8 +264,9 @@
         private System.Windows.Forms.Button btnEditarCotizacion;
         private System.Windows.Forms.Button btnBuscarCotización;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.Label lblFiltrarcot;
         private System.Windows.Forms.Label lblVendedor;
+
         private System.Windows.Forms.Label lblDecripcion;
         private System.Windows.Forms.TextBox txtVendedor;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -252,5 +274,6 @@
         private System.Windows.Forms.CheckBox chkFechaActivo;
         private System.Windows.Forms.Panel pnlOpciones;
         private System.Windows.Forms.Panel pnlFiltrarCotizaciones;
+        private System.Windows.Forms.Button btnSeleccionarCotizacion;
     }
 }

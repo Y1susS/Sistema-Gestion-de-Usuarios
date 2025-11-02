@@ -1,22 +1,24 @@
-﻿using System;
-using System.Globalization;
-using System.Threading;
+﻿using Sistema_Gestion_de_Usuarios.Vista; // Tu namespace principal
+using System;
 using System.Windows.Forms;
-using Servicios;
+using Vista;
+using Vista.Lenguajes;
 
-namespace Vista
+namespace Sistema_Gestion_de_Usuarios.Vista
 {
     internal static class Program
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            ClsSoloNumeros.ConfigurarCulturaEspañola();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // --- PASO CLAVE ---
+            // 1. Cargar el idioma guardado antes de abrir cualquier formulario.
+            Idioma.CargarIdiomaGuardado();
+
+            // 2. Ejecutar tu formulario de Login.
             Application.Run(new FrmLoguin());
         }
     }

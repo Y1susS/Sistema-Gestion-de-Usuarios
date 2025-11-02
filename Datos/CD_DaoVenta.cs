@@ -161,7 +161,6 @@ namespace Datos
             return lista;
         }
 
-        // Helper
         private DtoVenta MapearDtoVenta(SqlDataReader r)
         {
             return new DtoVenta
@@ -198,9 +197,8 @@ namespace Datos
             {
                 try
                 {
-                    // CAMBIO: Llamada al Stored Procedure
                     SqlCommand cmd = new SqlCommand("dbo.sp_ListarEstadosVenta", conn);
-                    cmd.CommandType = CommandType.StoredProcedure; // Establecer tipo StoredProcedure
+                    cmd.CommandType = CommandType.StoredProcedure; 
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -216,7 +214,6 @@ namespace Datos
                 }
                 catch (Exception ex)
                 {
-                    // Se propaga la excepción, permitiendo que la capa superior la capture.
                     throw new Exception("Error al listar estados de venta: " + ex.Message, ex);
                 }
                 finally
@@ -245,7 +242,6 @@ namespace Datos
                 }
                 catch (SqlException ex)
                 {
-                    // Manejar errores específicos lanzados por el RAISERROR del SP
                     throw new Exception("Error SQL al actualizar estado: " + ex.Message, ex);
                 }
                 catch (Exception ex)
@@ -257,6 +253,52 @@ namespace Datos
                     CerrarConexion();
                 }
             }
+        }
+
+
+        public int InsertarVenta(DtoVenta venta)
+        {
+            int idVenta = 0;
+            SqlConnection conn = null;
+
+            try
+            {
+                conn = AbrirConexion();
+                SqlCommand cmd = new SqlCommand("SP_InsertarVenta", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_Presupuesto", (object)venta.IdPresupuesto ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Id_User", (object)venta.IdVendedor ?? DBNull.Value); 
+                cmd.Parameters.AddWithValue("@Id_EstadoVenta", (object)venta.IdEstadoVenta ?? 1); 
+                cmd.Parameters.AddWithValue("@NumeroVenta", (object)venta.NumeroVenta ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FechaVenta", (object)venta.FechaVenta ?? DateTime.Now);
+                cmd.Parameters.AddWithValue("@MontoTotal", venta.MontoTotal);
+                cmd.Parameters.AddWithValue("@Descuento", venta.Descuento);
+                cmd.Parameters.AddWithValue("@MontoFinal", venta.MontoFinal);
+                cmd.Parameters.AddWithValue("@Observaciones", (object)venta.Observaciones ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Activo", venta.Activo ? 1 : 0);
+
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        idVenta = Convert.ToInt32(dr["Id_Venta"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar la Venta en la base de datos.", ex);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    CerrarConexion();
+                }
+            }
+
+            return idVenta;
         }
 
 

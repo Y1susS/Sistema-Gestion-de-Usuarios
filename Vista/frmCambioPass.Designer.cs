@@ -34,7 +34,7 @@
             this.txtPassActual = new System.Windows.Forms.TextBox();
             this.btnCambiar = new System.Windows.Forms.Button();
             this.txtConfirmaPass = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblUsuariocont = new System.Windows.Forms.Label();
             this.pctValidaciones = new System.Windows.Forms.PictureBox();
             this.pctMostrar2 = new System.Windows.Forms.PictureBox();
             this.pctOcultar2 = new System.Windows.Forms.PictureBox();
@@ -43,7 +43,7 @@
             this.pctOcultar = new System.Windows.Forms.PictureBox();
             this.pctMostrar = new System.Windows.Forms.PictureBox();
             this.pnlBorde = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblTituloCambioPass = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
@@ -123,16 +123,16 @@
             this.txtConfirmaPass.Enter += new System.EventHandler(this.txtConfirmaPass_Enter);
             this.txtConfirmaPass.Leave += new System.EventHandler(this.txtConfirmaPass_Leave);
             // 
-            // lblUsuario
+            // lblUsuariocont
             // 
-            this.lblUsuario.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(0, 345);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(400, 20);
-            this.lblUsuario.TabIndex = 30;
-            this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUsuariocont.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuariocont.ForeColor = System.Drawing.Color.White;
+            this.lblUsuariocont.Location = new System.Drawing.Point(0, 345);
+            this.lblUsuariocont.Name = "lblUsuariocont";
+            this.lblUsuariocont.Size = new System.Drawing.Size(400, 20);
+            this.lblUsuariocont.TabIndex = 30;
+            this.lblUsuariocont.Text = "Usuario";
+            this.lblUsuariocont.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctValidaciones
             // 
@@ -228,7 +228,7 @@
             // pnlBorde
             // 
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.pnlBorde.Controls.Add(this.lblTitulo);
+            this.pnlBorde.Controls.Add(this.lblTituloCambioPass);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
             this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
@@ -237,18 +237,18 @@
             this.pnlBorde.Size = new System.Drawing.Size(400, 40);
             this.pnlBorde.TabIndex = 48;
             // 
-            // lblTitulo
+            // lblTituloCambioPass
             // 
-            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(40, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(320, 40);
-            this.lblTitulo.TabIndex = 15;
-            this.lblTitulo.Text = "Cambiar contraseña";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloCambioPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblTituloCambioPass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTituloCambioPass.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCambioPass.ForeColor = System.Drawing.Color.White;
+            this.lblTituloCambioPass.Location = new System.Drawing.Point(40, 0);
+            this.lblTituloCambioPass.Name = "lblTituloCambioPass";
+            this.lblTituloCambioPass.Size = new System.Drawing.Size(320, 40);
+            this.lblTituloCambioPass.TabIndex = 15;
+            this.lblTituloCambioPass.Text = "Cambiar contraseña";
+            this.lblTituloCambioPass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
@@ -303,7 +303,6 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(400, 385);
             this.ControlBox = false;
-            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.pctOcultar);
@@ -313,6 +312,7 @@
             this.Controls.Add(this.pctOcultar2);
             this.Controls.Add(this.pctMostrar2);
             this.Controls.Add(this.pctValidaciones);
+            this.Controls.Add(this.lblUsuariocont);
             this.Controls.Add(this.txtConfirmaPass);
             this.Controls.Add(this.txtNuevaPass);
             this.Controls.Add(this.pctLogo);
@@ -321,6 +321,7 @@
             this.Controls.Add(this.pctFondo);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -352,7 +353,7 @@
         private System.Windows.Forms.TextBox txtPassActual;
         private System.Windows.Forms.Button btnCambiar;
         private System.Windows.Forms.TextBox txtConfirmaPass;
-        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblUsuariocont;
         private System.Windows.Forms.PictureBox pctValidaciones;
         private System.Windows.Forms.PictureBox pctMostrar2;
         private System.Windows.Forms.PictureBox pctOcultar2;
@@ -361,7 +362,7 @@
         private System.Windows.Forms.PictureBox pctOcultar;
         private System.Windows.Forms.PictureBox pctMostrar;
         private System.Windows.Forms.Panel pnlBorde;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblTituloCambioPass;
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;

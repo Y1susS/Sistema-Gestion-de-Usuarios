@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroClientes));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblLocalidad = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
-            this.lblPartido = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.gpbAbmClientes = new System.Windows.Forms.GroupBox();
+            this.lblLocalidadcli = new System.Windows.Forms.Label();
+            this.btnEliminarcliente = new System.Windows.Forms.Button();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
+            this.lblPartidocli = new System.Windows.Forms.Label();
+            this.btnModificarcliente = new System.Windows.Forms.Button();
+            this.btnAgregarnuevocliente = new System.Windows.Forms.Button();
             this.lblDepart = new System.Windows.Forms.Label();
             this.cmbPartido = new System.Windows.Forms.ComboBox();
             this.lblPiso = new System.Windows.Forms.Label();
@@ -61,104 +61,71 @@
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gpbAbmClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gpbAbmClientes
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.groupBox1.Controls.Add(this.lblLocalidad);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.cmbLocalidad);
-            this.groupBox1.Controls.Add(this.cmbTipoDoc);
-            this.groupBox1.Controls.Add(this.lblPartido);
-            this.groupBox1.Controls.Add(this.btnModificar);
-            this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Controls.Add(this.lblDepart);
-            this.groupBox1.Controls.Add(this.cmbPartido);
-            this.groupBox1.Controls.Add(this.lblPiso);
-            this.groupBox1.Controls.Add(this.txtderpatamento);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtpiso);
-            this.groupBox1.Controls.Add(this.lblCalle);
-            this.groupBox1.Controls.Add(this.txtnumerocalle);
-            this.groupBox1.Controls.Add(this.lblEmail);
-            this.groupBox1.Controls.Add(this.txtemail);
-            this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.txtnumerodocumento);
-            this.groupBox1.Controls.Add(this.lblNroDoc);
-            this.groupBox1.Controls.Add(this.txtnombre);
-            this.groupBox1.Controls.Add(this.lblTipoDoc);
-            this.groupBox1.Controls.Add(this.txtcalle);
-            this.groupBox1.Controls.Add(this.txttelefono);
-            this.groupBox1.Controls.Add(this.txtapellido);
-            this.groupBox1.Controls.Add(this.lblNombres);
-            this.groupBox1.Controls.Add(this.lblApellidos);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(870, 175);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registro y Modificación de clientes";
+            this.gpbAbmClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.gpbAbmClientes.Controls.Add(this.lblLocalidadcli);
+            this.gpbAbmClientes.Controls.Add(this.btnEliminarcliente);
+            this.gpbAbmClientes.Controls.Add(this.cmbLocalidad);
+            this.gpbAbmClientes.Controls.Add(this.cmbTipoDoc);
+            this.gpbAbmClientes.Controls.Add(this.lblPartidocli);
+            this.gpbAbmClientes.Controls.Add(this.btnModificarcliente);
+            this.gpbAbmClientes.Controls.Add(this.btnAgregarnuevocliente);
+            this.gpbAbmClientes.Controls.Add(this.lblDepart);
+            this.gpbAbmClientes.Controls.Add(this.cmbPartido);
+            this.gpbAbmClientes.Controls.Add(this.lblPiso);
+            this.gpbAbmClientes.Controls.Add(this.txtderpatamento);
+            this.gpbAbmClientes.Controls.Add(this.label10);
+            this.gpbAbmClientes.Controls.Add(this.txtpiso);
+            this.gpbAbmClientes.Controls.Add(this.lblCalle);
+            this.gpbAbmClientes.Controls.Add(this.txtnumerocalle);
+            this.gpbAbmClientes.Controls.Add(this.lblEmail);
+            this.gpbAbmClientes.Controls.Add(this.txtemail);
+            this.gpbAbmClientes.Controls.Add(this.lblTelefono);
+            this.gpbAbmClientes.Controls.Add(this.txtnumerodocumento);
+            this.gpbAbmClientes.Controls.Add(this.lblNroDoc);
+            this.gpbAbmClientes.Controls.Add(this.txtnombre);
+            this.gpbAbmClientes.Controls.Add(this.lblTipoDoc);
+            this.gpbAbmClientes.Controls.Add(this.txtcalle);
+            this.gpbAbmClientes.Controls.Add(this.txttelefono);
+            this.gpbAbmClientes.Controls.Add(this.txtapellido);
+            this.gpbAbmClientes.Controls.Add(this.lblNombres);
+            this.gpbAbmClientes.Controls.Add(this.lblApellidos);
+            this.gpbAbmClientes.ForeColor = System.Drawing.Color.White;
+            this.gpbAbmClientes.Location = new System.Drawing.Point(15, 15);
+            this.gpbAbmClientes.Name = "gpbAbmClientes";
+            this.gpbAbmClientes.Size = new System.Drawing.Size(870, 175);
+            this.gpbAbmClientes.TabIndex = 4;
+            this.gpbAbmClientes.TabStop = false;
+            this.gpbAbmClientes.Text = "Registro y Modificación de clientes";
             // 
-            // lblLocalidad
+            // lblLocalidadcli
             // 
-            this.lblLocalidad.Location = new System.Drawing.Point(355, 142);
-            this.lblLocalidad.Name = "lblLocalidad";
-            this.lblLocalidad.Size = new System.Drawing.Size(72, 25);
-            this.lblLocalidad.TabIndex = 47;
-            this.lblLocalidad.Text = "Localidad";
-            this.lblLocalidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblLocalidadcli.Location = new System.Drawing.Point(355, 142);
+            this.lblLocalidadcli.Name = "lblLocalidadcli";
+            this.lblLocalidadcli.Size = new System.Drawing.Size(72, 25);
+            this.lblLocalidadcli.TabIndex = 47;
+            this.lblLocalidadcli.Text = "Localidad";
+            this.lblLocalidadcli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnEliminar
+            // btnEliminarcliente
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(700, 129);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(153, 35);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar cliente";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // cmbTipoDoc
-            // 
-            this.cmbTipoDoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbTipoDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbTipoDoc.FormattingEnabled = true;
-            this.cmbTipoDoc.Location = new System.Drawing.Point(93, 54);
-            this.cmbTipoDoc.Name = "cmbTipoDoc";
-            this.cmbTipoDoc.Size = new System.Drawing.Size(250, 26);
-            this.cmbTipoDoc.TabIndex = 3;
-            // 
-            // lblPartido
-            // 
-            this.lblPartido.Location = new System.Drawing.Point(15, 139);
-            this.lblPartido.Name = "lblPartido";
-            this.lblPartido.Size = new System.Drawing.Size(72, 25);
-            this.lblPartido.TabIndex = 46;
-            this.lblPartido.Text = "Partido";
-            this.lblPartido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.White;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(700, 78);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(153, 35);
-            this.btnModificar.TabIndex = 14;
-            this.btnModificar.Text = "Guardar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnEliminarcliente.BackColor = System.Drawing.Color.White;
+            this.btnEliminarcliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEliminarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarcliente.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarcliente.Location = new System.Drawing.Point(700, 129);
+            this.btnEliminarcliente.Name = "btnEliminarcliente";
+            this.btnEliminarcliente.Size = new System.Drawing.Size(153, 35);
+            this.btnEliminarcliente.TabIndex = 15;
+            this.btnEliminarcliente.Text = "Eliminar cliente";
+            this.btnEliminarcliente.UseVisualStyleBackColor = false;
+            this.btnEliminarcliente.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // cmbLocalidad
             // 
@@ -170,19 +137,52 @@
             this.cmbLocalidad.Size = new System.Drawing.Size(250, 26);
             this.cmbLocalidad.TabIndex = 12;
             // 
-            // btnAgregar
+            // cmbTipoDoc
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.White;
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(700, 26);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(153, 35);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Nuevo cliente";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.cmbTipoDoc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTipoDoc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbTipoDoc.FormattingEnabled = true;
+            this.cmbTipoDoc.Location = new System.Drawing.Point(93, 54);
+            this.cmbTipoDoc.Name = "cmbTipoDoc";
+            this.cmbTipoDoc.Size = new System.Drawing.Size(250, 26);
+            this.cmbTipoDoc.TabIndex = 3;
+            // 
+            // lblPartidocli
+            // 
+            this.lblPartidocli.Location = new System.Drawing.Point(15, 139);
+            this.lblPartidocli.Name = "lblPartidocli";
+            this.lblPartidocli.Size = new System.Drawing.Size(72, 25);
+            this.lblPartidocli.TabIndex = 46;
+            this.lblPartidocli.Text = "Partido";
+            this.lblPartidocli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnModificarcliente
+            // 
+            this.btnModificarcliente.BackColor = System.Drawing.Color.White;
+            this.btnModificarcliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnModificarcliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarcliente.ForeColor = System.Drawing.Color.Black;
+            this.btnModificarcliente.Location = new System.Drawing.Point(700, 78);
+            this.btnModificarcliente.Name = "btnModificarcliente";
+            this.btnModificarcliente.Size = new System.Drawing.Size(153, 35);
+            this.btnModificarcliente.TabIndex = 14;
+            this.btnModificarcliente.Text = "Guardar";
+            this.btnModificarcliente.UseVisualStyleBackColor = false;
+            this.btnModificarcliente.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnAgregarnuevocliente
+            // 
+            this.btnAgregarnuevocliente.BackColor = System.Drawing.Color.White;
+            this.btnAgregarnuevocliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAgregarnuevocliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarnuevocliente.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarnuevocliente.Location = new System.Drawing.Point(700, 26);
+            this.btnAgregarnuevocliente.Name = "btnAgregarnuevocliente";
+            this.btnAgregarnuevocliente.Size = new System.Drawing.Size(153, 35);
+            this.btnAgregarnuevocliente.TabIndex = 13;
+            this.btnAgregarnuevocliente.Text = "Nuevo cliente";
+            this.btnAgregarnuevocliente.UseVisualStyleBackColor = false;
+            this.btnAgregarnuevocliente.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblDepart
             // 
@@ -404,17 +404,18 @@
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.pnlBuscar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpbAbmClientes);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistroClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmRegistroClientes_Load);
             this.Shown += new System.EventHandler(this.frmRegistroClientes_Shown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gpbAbmClientes.ResumeLayout(false);
+            this.gpbAbmClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
@@ -423,7 +424,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpbAbmClientes;
         private System.Windows.Forms.TextBox txtderpatamento;
         private System.Windows.Forms.TextBox txtpiso;
         private System.Windows.Forms.TextBox txtnumerocalle;
@@ -433,17 +434,18 @@
         private System.Windows.Forms.TextBox txtcalle;
         private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.TextBox txtapellido;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificarcliente;
+        private System.Windows.Forms.Button btnAgregarnuevocliente;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminarcliente;
         private System.Windows.Forms.ComboBox cmbPartido;
         private System.Windows.Forms.ComboBox cmbLocalidad;
         private System.Windows.Forms.ComboBox cmbTipoDoc;
-        private System.Windows.Forms.Label lblLocalidad;
-        private System.Windows.Forms.Label lblPartido;
+        private System.Windows.Forms.Label lblLocalidadcli;
+        private System.Windows.Forms.Label lblPartidocli;
         private System.Windows.Forms.Label lblDepart;
         private System.Windows.Forms.Label lblPiso;
+
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblCalle;
         private System.Windows.Forms.Label lblEmail;

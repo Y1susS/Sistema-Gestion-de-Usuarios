@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Entidades;
+using Entidades.DTOs;
+using Logica;
+using Servicios; // Agregar using para Servicios
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logica;
-using Entidades.DTOs;
-using Entidades;
-using Servicios; // Agregar using para Servicios
+using Sistema_Gestion_de_Usuarios.Vista;
+using Vista.Lenguajes;
+
 
 namespace Vista
 {
@@ -33,13 +36,15 @@ namespace Vista
         public frmCotizador()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
 
             // CONFIGURAR FORMATO ESPAÑOL PARA DECIMALES
             ClsSoloNumeros.ConfigurarCulturaEspañola();
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
-            moverFormulario.HabilitarMovimiento(lblTitulo);
+            moverFormulario.HabilitarMovimiento(lblTitulocotizador);
 
         }
 
@@ -782,6 +787,9 @@ namespace Vista
 
                 ViewState.CotizacionActual = cotizacion;
 
+                // ALERTA DE STOCK: Bisagras, Manijas y Correderas
+                AlertarStockHerrajesSiCorresponde();
+
                 MessageBox.Show("Cotización calculada exitosamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -1123,12 +1131,14 @@ namespace Vista
                 if (ViewState.CotizacionActual == null)
                 {
                     MessageBox.Show("Debe calcular el presupuesto antes de guardar.", "Advertencia",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                var esActualizacion = ViewState.CotizacionActual.Id_Cotizacion > 0;
+                int idInicial = ViewState.CotizacionActual.Id_Cotizacion;
+                var esActualizacion = idInicial > 0;
 
+                //Confirmación de guardado
                 var mensaje = esActualizacion
                     ? "¿Desea actualizar esta cotización?"
                     : "¿Desea guardar esta cotización?";
@@ -1138,48 +1148,75 @@ namespace Vista
 
                 if (result != DialogResult.Yes) return;
 
-                // Recalcular SIEMPRE antes de guardar para asegurar consistencia
                 btnCalcularCotizacion_Click(null, EventArgs.Empty);
 
-                bool exito;
+                // Ejecución del Guardado
+                bool exito = false;
+                int idGenerado = idInicial; 
+
                 if (esActualizacion)
                 {
                     exito = logicaCotizacion.ActualizarCotizacion(ViewState.CotizacionActual);
-                    if (exito)
-                        MessageBox.Show("Cotización actualizada exitosamente.", "Éxito",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                else // Incluye el flujo normal de Alta y el Modo Presupuestador
                 {
-                    int idCotizacion = logicaCotizacion.AltaCotizacion(ViewState.CotizacionActual);
-                    exito = idCotizacion > 0;
+                    idGenerado = logicaCotizacion.AltaCotizacion(ViewState.CotizacionActual);
+                    exito = idGenerado > 0;
                     if (exito)
                     {
-                        ViewState.CotizacionActual.Id_Cotizacion = idCotizacion;
-                        MessageBox.Show($"Cotización guardada exitosamente con ID: {idCotizacion}", "Éxito",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Asignar el nuevo ID
+                        ViewState.CotizacionActual.Id_Cotizacion = idGenerado;
                     }
                 }
 
                 if (exito)
                 {
-                    var btnGuardar = sender as Button;
-                    if (btnGuardar != null) btnGuardar.Text = "Actualizar Cotización";
+                    
+                    if (_esModoPresupuestador)
+                    {
+                        this.IdCotizacionGuardada = idGenerado; 
+                        this.DialogResult = DialogResult.OK;    
+                        this.Close();
+                    }
+                    else
+                    {
+                        // FLUJO NORMAL Guardar/Actualizar en el Cotizador
+                        var btnGuardar = sender as Button;
+                        if (btnGuardar != null) btnGuardar.Text = "Actualizar Cotización";
+
+                        var mensajeFinal = esActualizacion
+                            ? "Cotización actualizada exitosamente."
+                            : $"Cotización guardada exitosamente con ID: {idGenerado}";
+
+                        MessageBox.Show(mensajeFinal, "Éxito",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
                     var accion = esActualizacion ? "actualizar" : "guardar";
                     MessageBox.Show($"Error al {accion} la cotización.", "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Si falló en modo presupuestador, asegurar que el resultado no sea OK
+                    if (_esModoPresupuestador)
+                    {
+                        this.DialogResult = DialogResult.None;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al procesar cotización: {ex.Message}", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Si hay una excepción en modo presupuestador, asegurar que el resultado no sea OK
+                if (_esModoPresupuestador)
+                {
+                    this.DialogResult = DialogResult.None;
+                }
             }
         }
-
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -1277,6 +1314,118 @@ namespace Vista
         private void pnlDescripcionMueble_Paint(object sender, PaintEventArgs e)
         {
             ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+        }
+
+        // === Alerta de stock para Bisagras, Manijas y Correderas ===
+        private void AlertarStockHerrajesSiCorresponde()
+        {
+            try
+            {
+                // 1) Obtener de BD los tipos objetivo (Bisagras, Manijas y Correderas)
+                var tipos = logicaMateriales.ListarTiposMateriales() ?? new List<DtoTipoMaterial>();
+                var idsTiposObjetivo = new HashSet<int>(
+                    tipos.Where(t =>
+                        !string.IsNullOrWhiteSpace(t.NombreTipoMaterial) &&
+                        new[] { "bisagra", "bisagras", "manija", "manijas", "corredera", "correderas" }
+                            .Any(k => t.NombreTipoMaterial.Trim().ToLower().Contains(k)))
+                         .Select(t => t.IdTipoMaterial)
+                );
+
+                if (idsTiposObjetivo.Count == 0)
+                {
+                    // No hay tipos detectados en BD; no hacer nada
+                    return;
+                }
+
+                var advertencias = new List<string>();
+
+                for (int i = 1; i <= 6; i++)
+                {
+                    // Verificar si la línea está habilitada
+                    var posiblesNombresCheckbox = new[] { $"chkmaterial{i}", $"chkMaterial{i}", $"checkBoxMaterial{i}", $"chkmat{i}" };
+                    CheckBox chkMaterial = null;
+                    foreach (var nombre in posiblesNombresCheckbox)
+                    {
+                        chkMaterial = this.Controls.Find(nombre, true).FirstOrDefault() as CheckBox;
+                        if (chkMaterial != null) break;
+                    }
+                    if (chkMaterial == null || !chkMaterial.Checked) continue;
+
+                    // Material seleccionado
+                    var cmbMaterial = this.Controls.Find($"cmbMaterial{i}", true).FirstOrDefault() as ComboBox;
+                    if (!(cmbMaterial?.SelectedItem is DtoMaterial materialSel)) continue;
+
+                    // Asegurar material completo (incluye TipoMaterial, StockActual, StockMinimo)
+                    if (materialSel.IdMaterial > 0)
+                    {
+                        var completo = logicaMateriales.ObtenerMaterial(materialSel.IdMaterial);
+                        if (completo != null) materialSel = completo;
+                    }
+
+                    // ¿Pertenece a los tipos objetivo?
+                    var idTipo = materialSel?.TipoMaterial?.IdTipoMaterial ?? 0;
+                    if (!idsTiposObjetivo.Contains(idTipo)) continue;
+
+                    // Cantidad solicitada
+                    var posiblesNombresCantidad = new[] {
+                        $"txtMaterialCantidad{i}", $"txtcantidadmaterial{i}",
+                        $"txtCantidadMaterial{i}", $"txtCantidad{i}", $"textBoxCantidad{i}"
+                    };
+                    TextBox txtCantidad = null;
+                    foreach (var nombreCantidad in posiblesNombresCantidad)
+                    {
+                        txtCantidad = this.Controls.Find(nombreCantidad, true).FirstOrDefault() as TextBox;
+                        if (txtCantidad != null) break;
+                    }
+                    if (txtCantidad == null || !int.TryParse(txtCantidad.Text, out int cantSolicitada) || cantSolicitada <= 0)
+                        continue;
+
+                    // Evaluar stock contra DB: Actual y Mínimo
+                    decimal stockActual = materialSel.StockActual ?? 0m;
+                    decimal stockMinimo = materialSel.StockMinimo ?? 0m;
+                    decimal restante = stockActual - cantSolicitada;
+
+                    if (stockActual <= 0 || restante < 0)
+                    {
+                        advertencias.Add($"Sin stock suficiente: {materialSel.NombreMaterial} (Disp: {stockActual}, Requerido: {cantSolicitada})");
+                    }
+                    else if (stockActual <= stockMinimo || restante < stockMinimo)
+                    {
+                        advertencias.Add($"Stock bajo: {materialSel.NombreMaterial} (Actual: {stockActual}, Mínimo: {stockMinimo})");
+                    }
+                }
+
+                if (advertencias.Count > 0)
+                {
+                    var mensaje = string.Join(Environment.NewLine, advertencias.Take(10));
+                    MessageBox.Show(
+                        $"Atención: Revisión de stock:{Environment.NewLine}{mensaje}",
+                        "Stock de herrajes",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+            }
+            catch
+            {
+                // Silencioso para no interrumpir el cálculo
+            }
+        }
+
+        //presupuestador
+
+        private bool _esModoPresupuestador = false;
+        public int IdCotizacionGuardada { get; private set; } = 0;
+
+        public void InicializarModoPresupuestador(DtoCotizacion cotizacionOriginal)
+        {
+            _esModoPresupuestador= true;
+            DtoCotizacion cotizacionPlantilla = cotizacionOriginal;
+            cotizacionPlantilla.Id_Cotizacion = 0; 
+
+            CargarCotizacionParaEdicion(cotizacionPlantilla);
+
+            this.Text = $"Cotizador - Editando Plantilla de: {cotizacionOriginal.NumeroCotizacion}";
         }
     }
 }

@@ -9,42 +9,31 @@ namespace Entidades
 {
     public class DtoPresupuestoDetalle
     {
-        // Propiedades requeridas de la Cotización
+        // Propiedades requeridas para la Cotización
         public int IdPresupuesto {  get; set; }
         public int IdCotizacion { get; set; }
         public string NumeroCotizacion { get; set; }
         public string Observaciones { get; set; } // Nombre del mueble
-        public decimal PrecioUnitario { get; set; }   // Usaremos DtoCotizacion.MontoFinal aquí
+        public decimal PrecioUnitario { get; set; }   
 
-        // Propiedad específica del Presupuesto
-        private int _cantidad;
+        private int _cantidad; // Propiedad específica del Presupuesto
+
         public int Cantidad
         {
             get { return _cantidad; }
-            set { _cantidad = Math.Max(1, value); } // Aseguramos que la cantidad sea al menos 1
+            set { _cantidad = Math.Max(1, value); } // PAra que cantidad sea al menos 1
         }
 
-        // Propiedad calculada para el DataGrid (Subtotal de la línea)
+        // Propiedad calculada para DataGrids (Subtotal de la línea)
         public decimal Subtotal
         {
+            set { }
             get { return Cantidad * PrecioUnitario; }
         }
 
         public DtoPresupuestoDetalle()
         {
 
-        }
-
-
-        public DtoPresupuestoDetalle(DtoCotizacion cotizacion)
-        {
-            if (cotizacion == null) throw new ArgumentNullException(nameof(cotizacion));
-
-            this.IdCotizacion = cotizacion.Id_Cotizacion;
-            this.NumeroCotizacion = cotizacion.NumeroCotizacion;
-            this.Observaciones = cotizacion.DescripcionMueble;
-            this.PrecioUnitario = cotizacion.MontoFinal; // El precio unitario es el MontoFinal de la cotización
-            this.Cantidad = 1; // Se inicializa por defecto en 1
         }
     }
 }

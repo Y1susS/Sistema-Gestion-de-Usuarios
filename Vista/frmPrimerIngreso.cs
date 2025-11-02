@@ -1,6 +1,7 @@
-﻿using Logica;
-using Entidades;
+﻿using Entidades;
 using Entidades.DTOs;
+using Logica;
+using Sistema_Gestion_de_Usuarios.Vista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Lenguajes;
 
 namespace Vista
 {
@@ -25,20 +27,22 @@ namespace Vista
         public frmPrimerIngreso()
         {
             InitializeComponent();
+            Idioma.CargarIdiomaGuardado();
+            Idioma.AplicarTraduccion(this);
 
-            this.AcceptButton = btnCambiar;
+            this.AcceptButton = btnCambiarcont;
 
             ClsFondoTransparente.Aplicar(
             pctFondo,
             pctLogo,
             lblMensaje,
-            lblUsuario,
+            lblUsuariocambiarcont,
             pctMostrar,
             pctOcultar,
             pctMostrar2,
             pctOcultar2,
             pctValidaciones,
-            btnCambiar);
+            btnCambiarcont);
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
@@ -60,7 +64,7 @@ namespace Vista
             txtConfirmaPass.UseSystemPasswordChar = false;
             ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
             ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
-            lblUsuario.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
+            lblUsuariocambiarcont.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblMensaje.Text = "Debido a su primer ingreso, escriba una nueva contraseña y repítala para confirmar el cambio";
             MostrarRestriccionesContrasena();
 
@@ -268,7 +272,7 @@ namespace Vista
 
         private void frmPrimerIngreso_Shown(object sender, EventArgs e)
         {
-            this.AcceptButton = btnCambiar;
+            this.AcceptButton = btnCambiarcont;
             txtNuevaPass.Focus();
         }
     }
