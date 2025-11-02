@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPermisos));
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
             this.dgvPermisos = new System.Windows.Forms.DataGridView();
             this.colIdPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFuncionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHabilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-
             this.btnguardarpermiso = new System.Windows.Forms.Button();
             this.lblUsuariospermiso = new System.Windows.Forms.Label();
             this.pnlEscogerUsuario = new System.Windows.Forms.Panel();
@@ -105,9 +105,8 @@
             // 
             // btnguardarpermiso
             // 
-
             this.btnguardarpermiso.Location = new System.Drawing.Point(350, 555);
-            this.btnguardarpermiso.Name = "btnguardar";
+            this.btnguardarpermiso.Name = "btnguardarpermiso";
             this.btnguardarpermiso.Size = new System.Drawing.Size(200, 30);
             this.btnguardarpermiso.TabIndex = 6;
             this.btnguardarpermiso.Text = "Guardar";
@@ -116,11 +115,10 @@
             // 
             // lblUsuariospermiso
             // 
-
             this.lblUsuariospermiso.BackColor = System.Drawing.Color.Transparent;
             this.lblUsuariospermiso.ForeColor = System.Drawing.Color.White;
             this.lblUsuariospermiso.Location = new System.Drawing.Point(1, 12);
-            this.lblUsuariospermiso.Name = "lblUsuarios";
+            this.lblUsuariospermiso.Name = "lblUsuariospermiso";
             this.lblUsuariospermiso.Size = new System.Drawing.Size(868, 20);
             this.lblUsuariospermiso.TabIndex = 24;
             this.lblUsuariospermiso.Text = "Usuarios";
@@ -144,10 +142,10 @@
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.pnlEscogerUsuario);
             this.Controls.Add(this.dgvPermisos);
-
             this.Controls.Add(this.btnguardarpermiso);
             this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPermisos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

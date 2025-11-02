@@ -469,14 +469,7 @@ namespace Vista
                     frm.CargarCotizacionParaEdicion(cotizacionCompleta);
                 };
                 frm.Load += onLoad;
-
-                this.Hide();
-                frm.FormClosed += (s, args) =>
-                {
-                    try { this.Close(); } catch { }
-                };
-
-                frm.Show();
+                frm.ShowDialog();
             }
             catch (Exception ex)
             {
