@@ -37,7 +37,6 @@
             this.btnCambiarcont = new System.Windows.Forms.Button();
             this.lblUsuariocambiarcont = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.pctFondo = new System.Windows.Forms.PictureBox();
             this.lblPrimerIngreso = new System.Windows.Forms.Label();
             this.pctMostrar = new System.Windows.Forms.PictureBox();
             this.pctOcultar = new System.Windows.Forms.PictureBox();
@@ -46,16 +45,17 @@
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
             this.pctValidaciones = new System.Windows.Forms.PictureBox();
+            this.pctFondo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMostrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMostrar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctOcultar2)).BeginInit();
             this.pnlBorde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctValidaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).BeginInit();
             this.SuspendLayout();
             // 
             // txtConfirmaPass
@@ -157,15 +157,6 @@
             this.lblMensaje.Text = "Mensaje";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pctFondo
-            // 
-            this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
-            this.pctFondo.Location = new System.Drawing.Point(0, 0);
-            this.pctFondo.Name = "pctFondo";
-            this.pctFondo.Size = new System.Drawing.Size(400, 400);
-            this.pctFondo.TabIndex = 27;
-            this.pctFondo.TabStop = false;
-            // 
             // lblPrimerIngreso
             // 
             this.lblPrimerIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -265,6 +256,16 @@
             this.pctValidaciones.TabIndex = 40;
             this.pctValidaciones.TabStop = false;
             // 
+            // pctFondo
+            // 
+            this.pctFondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctFondo.BackgroundImage")));
+            this.pctFondo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pctFondo.Location = new System.Drawing.Point(0, 0);
+            this.pctFondo.Name = "pctFondo";
+            this.pctFondo.Size = new System.Drawing.Size(400, 400);
+            this.pctFondo.TabIndex = 27;
+            this.pctFondo.TabStop = false;
+            // 
             // frmPrimerIngreso
             // 
             this.AcceptButton = this.btnCambiarcont;
@@ -302,7 +303,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMostrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMostrar2)).EndInit();
@@ -310,6 +310,7 @@
             this.pnlBorde.ResumeLayout(false);
             this.pnlBorde.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctValidaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctFondo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,7 +325,6 @@
         private System.Windows.Forms.Button btnCambiarcont;
         private System.Windows.Forms.Label lblUsuariocambiarcont;
         private System.Windows.Forms.Label lblMensaje;
-        private System.Windows.Forms.PictureBox pctFondo;
         private System.Windows.Forms.Label lblPrimerIngreso;
         private System.Windows.Forms.PictureBox pctMostrar;
         private System.Windows.Forms.PictureBox pctOcultar;
@@ -333,5 +333,6 @@
         private System.Windows.Forms.Panel pnlBorde;
         private System.Windows.Forms.Panel pnlBordeInferior;
         private System.Windows.Forms.PictureBox pctValidaciones;
+        private System.Windows.Forms.PictureBox pctFondo;
     }
 }

@@ -227,7 +227,10 @@ namespace Vista
 
         private void frmPanelUsuarios_Load(object sender, EventArgs e)
         {
+            DesactivarFocoEnBotones(this);
+
             OcultarTodosLosSubMenus();
+
             this.BeginInvoke(new Action(() => this.ActiveControl = null));
 
             int diasRestantes = logicaUsuario.ObtenerDiasRestantesCambioContrasena(ClsSesionActual.Usuario.Id_user);
@@ -251,6 +254,24 @@ namespace Vista
             AjustarInterfazPorPermisos();
         }
 
+        private void DesactivarFocoEnBotones(Control contenedor)
+        {
+            foreach (Control ctrl in contenedor.Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    btn.TabStop = false; // evita que se seleccione con TAB
+                    btn.FlatAppearance.BorderSize = 0; // sin borde
+                    btn.FlatStyle = FlatStyle.Flat;
+
+                    // truco: desactivar el rectángulo de foco visual
+                    btn.GotFocus += (s, e) => { btn.Parent.Focus(); };
+                }
+
+                if (ctrl.HasChildren)
+                    DesactivarFocoEnBotones(ctrl);
+            }
+        }
         private void btnGestionUsuarios_Click(object sender, EventArgs e)
         {
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Usuarios"))
