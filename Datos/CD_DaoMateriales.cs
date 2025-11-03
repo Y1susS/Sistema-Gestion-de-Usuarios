@@ -333,6 +333,32 @@ namespace Datos
         }
 
 
+        public bool ActualizarStockMaterial(int idMaterial, int cantidadVendida)
+        {
+            bool resultado = false;
+
+            using (SqlConnection conn = AbrirConexion())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_DescontarStockMaterial", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@IdMaterial", idMaterial);
+                    cmd.Parameters.AddWithValue("@CantidadVendida", cantidadVendida);
+
+                    int filas = cmd.ExecuteNonQuery();
+                    resultado = filas > 0;
+                }
+                finally
+                {
+                    CerrarConexion();
+                }
+            }
+
+            return resultado;
+        }
+
         #region MAPEO SEGURO
 
         private DtoMaterial MapearLectorAMaterialSeguro(SqlDataReader dr)

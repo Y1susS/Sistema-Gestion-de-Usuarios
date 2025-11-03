@@ -47,6 +47,7 @@ namespace Vista
         private List<DtoPresupuestoDetalle> detallesCotizacion = new List<DtoPresupuestoDetalle>();
         private CL_Ventas clVenta = new CL_Ventas();
         private CL_Cotizacion clCotizacion = new CL_Cotizacion();
+        private CL_Materiales clMaterial = new CL_Materiales();
 
         private int idPresupuestoGuardado = 0;
 
@@ -765,6 +766,19 @@ namespace Vista
                 txtDescripcion.Focus();
                 return;
             }
+            if (this.presupuestoExportado == false)
+            {
+                DialogResult result = MessageBox.Show(
+                    "El presupuesto no ha sido exportado. ¿Desea registrar la venta sin exportar el documento?",
+                    "Confirmar Venta",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
 
             try
             {
@@ -787,19 +801,44 @@ namespace Vista
 
                 int idVentaCreada = clVenta.RegistrarNuevaVenta(nuevaVenta);
 
-                if (this.presupuestoExportado == false)
+                foreach (var detallePresupuesto in this.detallesCotizacion)
                 {
-                    DialogResult result = MessageBox.Show(
-                        "El presupuesto no ha sido exportado. ¿Desea registrar la venta sin exportar el documento?",
-                        "Confirmar Venta",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
-
-                    if (result == DialogResult.No)
+                    if (detallePresupuesto.IdCotizacion > 0)
                     {
-                        return;
+                        DtoCotizacion cotizacionCompleta = clCotizacion.ObtenerCotizacion(detallePresupuesto.IdCotizacion);
+
+                        if (cotizacionCompleta != null && cotizacionCompleta.MaterialesVarios != null)
+                        {
+                            foreach (var materialVario in cotizacionCompleta.MaterialesVarios)
+                            {
+                                DtoMaterial materialCompleto = clMaterial.ObtenerMaterial(materialVario.IdMaterial);
+
+                                if (materialCompleto != null &&
+                                    materialCompleto.TipoMaterial != null &&
+                                    materialCompleto.TipoMaterial.IdTipoMaterial > 0)
+                                {
+                                    int idTipo = materialCompleto.TipoMaterial.IdTipoMaterial;
+
+                                    if (idTipo == 3 || idTipo == 4 || idTipo == 5)
+                                    {
+                                        clMaterial.ActualizarStockMaterial(materialVario.IdMaterial, materialVario.Cantidad);
+                                    }
+                                }
+                                else if (materialCompleto != null && materialCompleto.Id_TipoMaterial.HasValue)
+                                {
+                                    int idTipo = materialCompleto.Id_TipoMaterial.Value;
+
+                                    if (idTipo == 3 || idTipo == 4 || idTipo == 5)
+                                    {
+                                        clMaterial.ActualizarStockMaterial(materialVario.IdMaterial, materialVario.Cantidad);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
+
+
 
                 MessageBox.Show($"Venta N° {idVentaCreada} registrada exitosamente. Presupuesto N° {this.idPresupuestoGuardado} asociado.", "Éxito de Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarFormulario();
