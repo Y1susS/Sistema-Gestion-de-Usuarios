@@ -15,6 +15,7 @@ namespace Vista
 {
     public partial class frmListarCotizaciones : Form
     {
+        private ClsArrastrarFormularios moverFormulario;
         private readonly CL_Cotizacion logicaCotizacion = new CL_Cotizacion();
         private List<DtoCotizacion> cotizaciones = new List<DtoCotizacion>();
         private List<DtoCotizacion> vistaFiltrada = new List<DtoCotizacion>(); // lista mostrada
@@ -25,6 +26,10 @@ namespace Vista
         public frmListarCotizaciones()
         {
             InitializeComponent();
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblFiltrarCotizaciones);
+
             Idioma.CargarIdiomaGuardado();
             Idioma.AplicarTraduccion(this);
             this.Load -= frmListarCotizaciones_Load;
@@ -39,6 +44,9 @@ namespace Vista
             Idioma.AplicarTraduccion(this);
             this.Load -= frmListarCotizaciones_Load;
             this.Load += frmListarCotizaciones_Load;
+            moverFormulario = new ClsArrastrarFormularios(this);
+            moverFormulario.HabilitarMovimiento(pnlBorde);
+            moverFormulario.HabilitarMovimiento(lblFiltrarCotizaciones);
         }
 
         private void frmListarCotizaciones_Load(object sender, EventArgs e)
@@ -533,11 +541,6 @@ namespace Vista
             if (dtpFecha != null) dtpFecha.Enabled = habilitar && !usarRango;
         }
 
-        private void frmListarCotizaciones_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void pnlOpciones_Paint(object sender, PaintEventArgs e)
         {
             ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
@@ -610,6 +613,16 @@ namespace Vista
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void pctClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pctMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

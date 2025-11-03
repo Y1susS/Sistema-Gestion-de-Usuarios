@@ -296,7 +296,7 @@ namespace Vista
             {
                 SeleccionarBoton((Button)sender);
                 frmSegContraseña frmSegContraseña = new frmSegContraseña();
-                frmSegContraseña.ShowDialog();
+                frmSegContraseña.Show();
             }
         }
 
@@ -315,7 +315,7 @@ namespace Vista
             {
                 SeleccionarBoton((Button)sender);
                 frmPreguntas frmPreguntas = new frmPreguntas();
-                frmPreguntas.ShowDialog();
+                frmPreguntas.Show();
             }
         }
 
@@ -325,7 +325,7 @@ namespace Vista
             {
                 SeleccionarBoton((Button)sender);
                 frmCambioPass frmCambioPass = new frmCambioPass();
-                frmCambioPass.ShowDialog();
+                frmCambioPass.Show();
             }
         }
 
@@ -428,7 +428,7 @@ namespace Vista
         {
             SeleccionarBoton((Button)sender);
             frmCotizador frmCotizador = new frmCotizador();
-            frmCotizador.ShowDialog();
+            frmCotizador.Show();
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
@@ -441,7 +441,7 @@ namespace Vista
         {
             SeleccionarBoton((Button)sender);
             frmReportes frmReportes = new frmReportes();
-            frmReportes.ShowDialog();
+            frmReportes.Show();
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
@@ -474,7 +474,7 @@ namespace Vista
             {
                 SeleccionarBoton((Button)sender);
                 frmPresupuestador frmPresupuestador = new frmPresupuestador();
-                frmPresupuestador.ShowDialog();
+                frmPresupuestador.Show();
             }
         }
 
@@ -588,8 +588,10 @@ namespace Vista
 
         private void btnCotizaciones_Click(object sender, EventArgs e)
         {
-            SeleccionarBoton((Button)sender);
-            AbrirFormHijo(new frmListarCotizaciones());
+            frmListarCotizaciones frmListarCotizaciones = new frmListarCotizaciones();
+            frmListarCotizaciones.Show();
+            //SeleccionarBoton((Button)sender);
+            //AbrirFormHijo(new frmListarCotizaciones());
         }
     }
 }
