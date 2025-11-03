@@ -22,8 +22,6 @@ namespace Vista.Lenguajes // Asegúrate de que el namespace sea correcto
         // Esta propiedad estática es necesaria para que FrmLoguin.cs compile
         public static CultureInfo CulturaActual { get; set; }
 
-        // ... (Aquí van tus otros métodos: CargarIdiomaGuardado, CambiarIdioma, AplicarTraduccion, ObtenerIdiomasDisponibles) ...
-
         // Ejemplo de ObtenerIdiomasDisponibles (ajusta según tu implementación)
         public static Dictionary<string, string> ObtenerIdiomasDisponibles()
         {
@@ -85,39 +83,56 @@ namespace Vista.Lenguajes // Asegúrate de que el namespace sea correcto
         // Ejemplo de AplicarTraduccion (ajusta según tu implementación)
         public static void AplicarTraduccion(Form formulario)
         {
-            foreach (Control control in formulario.Controls)
+            if (formulario == null) return;
+
+            // Minimiza recalculo de layout y repintados innecesarios
+            formulario.SuspendLayout();
+            try
             {
-                AplicarTraduccionControl(control);
+                foreach (Control control in formulario.Controls)
+                {
+                    AplicarTraduccionControl(control);
+                }
+
+                // Traducir el texto del formulario mismo
+                string nuevoTextoFormulario = resManager.GetString(formulario.Name + ".Text", CulturaActual);
+                if (!string.IsNullOrEmpty(nuevoTextoFormulario))
+                {
+                    if (!string.Equals(formulario.Text, nuevoTextoFormulario, StringComparison.Ordinal))
+                    {
+                        formulario.Text = nuevoTextoFormulario;
+                    }
+                }
+                else if (string.IsNullOrEmpty(formulario.Text))
+                {
+                    formulario.Text = formulario.Name; // Valor por defecto
+                }
             }
-            // También traduce el texto del formulario mismo
-            formulario.Text = resManager.GetString(formulario.Name + ".Text", CulturaActual);
-            if (string.IsNullOrEmpty(formulario.Text))
+            finally
             {
-                // Si no hay traducción específica para el formulario, usa el texto original
-                formulario.Text = formulario.Name; // O el valor que desees
+                formulario.ResumeLayout(performLayout: true);
             }
         }
 
         private static void AplicarTraduccionControl(Control control)
         {
-            // La clave de recurso es simplemente el Name del control (SIN ".Text").
+            if (control == null) return;
+
             string claveRecurso = control.Name;
 
-            // Solo intentamos traducir el texto si:
-            // 1. El control tiene un nombre asignado (no es string.IsNullOrEmpty).
-            // 2. NO es el ComboBox de idioma ("cmbIdioma").
+            // Solo si el control tiene nombre y no es el ComboBox de idioma
             if (!string.IsNullOrEmpty(claveRecurso) && claveRecurso != "cmbIdioma")
             {
-                // La clave ahora será, por ejemplo, "btnLogin"
                 string textoTraducido = resManager.GetString(claveRecurso, CulturaActual);
 
-                if (!string.IsNullOrEmpty(textoTraducido))
+                // Evitar trabajo innecesario: solo asignar si realmente cambia
+                if (!string.IsNullOrEmpty(textoTraducido) && !string.Equals(control.Text, textoTraducido, StringComparison.Ordinal))
                 {
                     control.Text = textoTraducido;
                 }
             }
 
-            // La recursión se ejecuta SIEMPRE si hay hijos para traducir los subcontroles.
+            // Traducir hijos
             if (control.HasChildren)
             {
                 foreach (Control subControl in control.Controls)
