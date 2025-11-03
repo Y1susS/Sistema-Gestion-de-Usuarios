@@ -260,5 +260,27 @@ namespace Logica
             if (material.StockMinimo.HasValue && material.StockMinimo < 0)
                 throw new ApplicationException("El stock mínimo no puede ser negativo.");
         }
+
+        public bool ActualizarStockMaterial(int idMaterial, int cantidadVendida)
+        {
+            if (idMaterial <= 0)
+            {
+                throw new ArgumentException("El ID del material es inválido.");
+            }
+            if (cantidadVendida <= 0)
+            {
+
+                throw new ArgumentException("La cantidad a dar de baja debe ser positiva.");
+            }
+
+            try
+            {
+                return daoMaterial.ActualizarStockMaterial(idMaterial, cantidadVendida);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error en la lógica de negocio al actualizar el stock del material ID {idMaterial}. " + ex.Message, ex);
+            }
+        }
     }
 }
