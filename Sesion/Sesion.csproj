@@ -44,6 +44,7 @@
     <Compile Include="ClsArmarMail.cs" />
     <Compile Include="ClsEnviarMail.cs" />
     <Compile Include="ClsSeguridad.cs" />
+    <Compile Include="ClsSesionActual.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

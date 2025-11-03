@@ -1,5 +1,5 @@
 ﻿using Datos;
-using Entidades;
+using Sesion;
 using Entidades.DTOs;
 using Logica;
 using Sistema_Gestion_de_Usuarios.Vista;

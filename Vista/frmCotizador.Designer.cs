@@ -2087,9 +2087,9 @@
             // txtDescMateriale2
             // 
             this.txtDescMateriale2.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescMateriale2.Location = new System.Drawing.Point(126, 60);
+            this.txtDescMateriale2.Location = new System.Drawing.Point(129, 60);
             this.txtDescMateriale2.Name = "txtDescMateriale2";
-            this.txtDescMateriale2.Size = new System.Drawing.Size(160, 24);
+            this.txtDescMateriale2.Size = new System.Drawing.Size(157, 24);
             this.txtDescMateriale2.TabIndex = 8029;
             // 
             // chkotrosmateriales2
@@ -2117,9 +2117,9 @@
             // txtDescMateriale3
             // 
             this.txtDescMateriale3.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescMateriale3.Location = new System.Drawing.Point(126, 85);
+            this.txtDescMateriale3.Location = new System.Drawing.Point(129, 85);
             this.txtDescMateriale3.Name = "txtDescMateriale3";
-            this.txtDescMateriale3.Size = new System.Drawing.Size(160, 24);
+            this.txtDescMateriale3.Size = new System.Drawing.Size(157, 24);
             this.txtDescMateriale3.TabIndex = 8032;
             // 
             // chkotrosmateriales3
@@ -2135,9 +2135,9 @@
             // txtDescMateriale1
             // 
             this.txtDescMateriale1.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescMateriale1.Location = new System.Drawing.Point(126, 35);
+            this.txtDescMateriale1.Location = new System.Drawing.Point(129, 35);
             this.txtDescMateriale1.Name = "txtDescMateriale1";
-            this.txtDescMateriale1.Size = new System.Drawing.Size(160, 24);
+            this.txtDescMateriale1.Size = new System.Drawing.Size(157, 24);
             this.txtDescMateriale1.TabIndex = 8026;
             // 
             // chkotrosmateriales1
@@ -2371,7 +2371,6 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCotizador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalculoPiesMuebles";
