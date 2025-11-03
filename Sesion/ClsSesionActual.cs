@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades.DTOs;
 
-namespace Entidades
+namespace Sesion
 {
     public static class ClsSesionActual
     {
@@ -37,11 +37,7 @@ namespace Entidades
 
         public static void SetConfiguracionContrasena(DtoConfiguracionSeguridad dto)
         {
-            if (dto == null)
-            {
-                throw new ArgumentNullException(nameof(dto), "El DTO de configuración no puede ser nulo.");
-            }
-            ConfiguracionContraseña = dto;
+            ConfiguracionContraseña = dto ?? throw new ArgumentNullException(nameof(dto), "El DTO de configuración no puede ser nulo.");
         }
     }
 }

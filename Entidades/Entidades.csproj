@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsSesionActual.cs" />
     <Compile Include="DTOs\DtoPresupuestoDetalle.cs" />
     <Compile Include="DTOs\DtoCliente.cs" />
     <Compile Include="DTOs\DtoClienteDetalle.cs" />

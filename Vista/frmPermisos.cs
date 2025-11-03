@@ -1,5 +1,5 @@
 ﻿using Datos;       // Necesito esta referencia a mis clases de datos como CD_UsuarioGestion, CD_PermisoUsuarioViewModel
-using Entidades; // Necesito esto para ClsSesionActual
+using Sesion;
 using Entidades.DTOs; // Necesito esto para DtoRol (si se usa, si no, puedes quitarlo)
 using Logica;     // Necesito esta referencia a mi capa de lógica
 using System;
