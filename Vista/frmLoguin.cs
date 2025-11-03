@@ -77,8 +77,6 @@ namespace Vista
 
         private void lnkRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            this.ShowInTaskbar = false;
             frmRecupero frmRecupero = new frmRecupero();
             frmRecupero.ShowDialog();
         }
@@ -171,7 +169,6 @@ namespace Vista
             else
             {
                 MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtContrasenia.Clear();
             }
         }
 

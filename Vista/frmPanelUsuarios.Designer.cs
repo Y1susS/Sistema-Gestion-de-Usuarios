@@ -394,12 +394,17 @@
             this.pnlContenedor.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
             resources.ApplyResources(this.pnlContenedor, "pnlContenedor");
             this.pnlContenedor.Name = "pnlContenedor";
+
+            this.pnlContenedor.Size = new System.Drawing.Size(1000, 815);
+
+            this.pnlContenedor.TabIndex = 36;
             // 
             // frmPanelUsuarios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this, "$this");
+
+            this.ClientSize = new System.Drawing.Size(1250, 875);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlBordeInferior);

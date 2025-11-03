@@ -81,6 +81,8 @@ namespace Vista
 
         private void frmCambioPass_Load(object sender, EventArgs e)
         {
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
+
             if (requiereContraseñaActual)
                 ClsPlaceHolder.Leave(PASS_ACTUAL_PLACEHOLDER, txtPassActual, true);
 
