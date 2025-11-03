@@ -98,7 +98,8 @@ namespace Vista
                 Name = "DescripcionMueble",
                 HeaderText = "Descripción",
                 DataPropertyName = "DescripcionMueble",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+
             });
 
             dvgCotizaciones.Columns.Add(new DataGridViewTextBoxColumn
@@ -172,7 +173,7 @@ namespace Vista
         {
             try
             {
-                var descripcion = ObtenerTexto("txtDescripcion")?.ToLowerInvariant();
+                var descripcion = ObtenerTexto("txt;\r\n")?.ToLowerInvariant();
                 var vendedor = ObtenerTexto("txtVendedor")?.ToLowerInvariant();
 
                 IEnumerable<DtoCotizacion> lista = cotizaciones;

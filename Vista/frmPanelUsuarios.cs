@@ -50,7 +50,7 @@ namespace Vista
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
 
-            moverFormulario.HabilitarMovimiento(lblmenuadmin);
+            moverFormulario.HabilitarMovimiento(lblmenuadmin1);
 
             this.Size = new Size(1150, 660);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -407,13 +407,13 @@ namespace Vista
                 switch (idRol)
                 {
                     case 1:
-                        lblmenuadmin.Text = "Menu Administrador";
+                        lblmenuadmin1.Text = "Menu Administrador";
                         break;
                     case 2:
-                        lblmenuadmin.Text = "Menu Vendedor";
+                        lblmenuadmin1.Text = "Menu Vendedor";
                         break;
                     default:
-                        lblmenuadmin.Text = "Menú Principal";
+                        lblmenuadmin1.Text = "Menú Principal";
                         break;
                 }
             }

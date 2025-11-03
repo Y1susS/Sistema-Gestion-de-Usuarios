@@ -86,6 +86,7 @@ namespace Vista
             btnEliminarUsuario.Text = "Eliminar usuario";
             btnEliminarUsuario.Enabled = false;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            Idioma.AplicarTraduccion(this);
         }
 
         private void MostrarUsuarios()

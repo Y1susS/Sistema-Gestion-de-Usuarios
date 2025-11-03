@@ -24,7 +24,6 @@ namespace Vista
         {
             InitializeComponent();
             InicializarControles();
-
             this.FormClosing += FrmPreguntas_FormClosing;
         }
 
@@ -40,20 +39,15 @@ namespace Vista
 
         private void frmPreguntas_Load(object sender, EventArgs e)
         {
-
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(lbltitpregsegu);
             moverFormulario.HabilitarMovimiento(pctLogo);
 
             this.AcceptButton = btnsigpregseg;
             lblUsuariopregserg.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
-            lblInstrucciones.Text = "Por favor, seleccione 3 preguntas de seguridad y proporcione sus respuestas." +
-                                  Environment.NewLine +
-                                  "Estas preguntas serán utilizadas para verificar su identidad si necesita recuperar su contraseña.";
 
             CargarPreguntas();
 
-            // Permitir cerrar el formulario solo si ya tiene preguntas configuradas
             try
             {
                 var usuariosSvc = new CL_Usuarios();
@@ -64,12 +58,21 @@ namespace Vista
                     _configuracionCompletada = true;
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar configuracion de preguntas: {ex.Message}", "Error",
-                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            string textoInstruccionesTraducido = Idioma.resManager.GetString("lblInstrucciones", Idioma.CulturaActual);
+            if (!string.IsNullOrEmpty(textoInstruccionesTraducido))
+            {
+                
+                lblInstrucciones.Text = textoInstruccionesTraducido.Replace("\\n", Environment.NewLine);
+            }
+
+            Idioma.AplicarTraduccion(this);
         }
+
 
         private void InicializarControles()
         {
@@ -246,6 +249,16 @@ namespace Vista
         {
             this.AcceptButton = btnsigpregseg;
             cmbPregunta1.Focus();
+
+        }
+
+        private void pnlBotones_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblInstrucciones_Click(object sender, EventArgs e)
+        {
 
         }
     }

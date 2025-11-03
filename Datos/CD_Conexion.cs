@@ -16,7 +16,8 @@ namespace Datos
         {
             get
             {
-                return "Data Source=.;Initial Catalog=master;Integrated Security=True;";
+                return "Data Source=DESKTOP-JAKJ9H5\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;";
+                //return "Data Source=.;Initial Catalog=master;Integrated Security=True;";
             }
         }
 
