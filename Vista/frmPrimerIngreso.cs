@@ -62,11 +62,21 @@ namespace Vista
         {
             txtNuevaPass.UseSystemPasswordChar = false;
             txtConfirmaPass.UseSystemPasswordChar = false;
-            ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
-            ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
+            //ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
+            //ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
             lblUsuariocambiarcont.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblMensaje.Text = "Debido a su primer ingreso, escriba una nueva contraseña y repítala para confirmar el cambio";
             MostrarRestriccionesContrasena();
+
+            this.BeginInvoke(new Action(() =>
+            {
+                // Fuerza que ningún TextBox tenga foco al inicio
+                this.ActiveControl = null;
+
+                // Reaplicamos el placeholder (ya se asegura que el foco inicial no lo borre)
+                ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
+                ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
+            }));
 
         }
 
@@ -179,7 +189,7 @@ namespace Vista
                     // Redirigir obligatoriamente a configurar preguntas
                     frmPreguntas frmPreguntas = new frmPreguntas(this);
                     frmPreguntas.Show();
-                    this.Hide();
+                    this.Close();
                 }
                 else
                 {
@@ -273,7 +283,6 @@ namespace Vista
         private void frmPrimerIngreso_Shown(object sender, EventArgs e)
         {
             this.AcceptButton = btnCambiarcont;
-            txtNuevaPass.Focus();
         }
     }
 }

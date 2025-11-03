@@ -500,14 +500,11 @@ namespace Vista
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmLoguin FrmLoguin = new FrmLoguin();
-            FrmLoguin.Show();
         }
 
         private void frmRecupero_Shown(object sender, EventArgs e)
         {
             this.AcceptButton = btnSiguienterecupero;
-            txtdni.Focus();
         }
     }
 }
