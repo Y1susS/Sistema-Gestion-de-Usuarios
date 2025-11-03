@@ -59,220 +59,150 @@
             // 
             // lblInstrucciones
             // 
+            resources.ApplyResources(this.lblInstrucciones, "lblInstrucciones");
             this.lblInstrucciones.BackColor = System.Drawing.Color.Transparent;
-            this.lblInstrucciones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInstrucciones.ForeColor = System.Drawing.Color.White;
-            this.lblInstrucciones.Location = new System.Drawing.Point(0, 167);
             this.lblInstrucciones.Name = "lblInstrucciones";
-            this.lblInstrucciones.Size = new System.Drawing.Size(600, 25);
-            this.lblInstrucciones.TabIndex = 1;
-            this.lblInstrucciones.Text = "Instrucciones";
-            this.lblInstrucciones.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblInstrucciones.Click += new System.EventHandler(this.lblInstrucciones_Click);
             // 
             // lblUsuariopregserg
             // 
+            resources.ApplyResources(this.lblUsuariopregserg, "lblUsuariopregserg");
             this.lblUsuariopregserg.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsuariopregserg.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblUsuariopregserg.ForeColor = System.Drawing.Color.White;
-            this.lblUsuariopregserg.Location = new System.Drawing.Point(0, 385);
             this.lblUsuariopregserg.Name = "lblUsuariopregserg";
-            this.lblUsuariopregserg.Size = new System.Drawing.Size(600, 20);
-            this.lblUsuariopregserg.TabIndex = 2;
-            this.lblUsuariopregserg.Text = "Usuario";
-            this.lblUsuariopregserg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtRespuesta1
             // 
-            this.txtRespuesta1.Location = new System.Drawing.Point(360, 33);
+            resources.ApplyResources(this.txtRespuesta1, "txtRespuesta1");
             this.txtRespuesta1.Name = "txtRespuesta1";
-            this.txtRespuesta1.Size = new System.Drawing.Size(225, 25);
-            this.txtRespuesta1.TabIndex = 2;
             // 
             // txtRespuesta2
             // 
-            this.txtRespuesta2.Location = new System.Drawing.Point(360, 73);
+            resources.ApplyResources(this.txtRespuesta2, "txtRespuesta2");
             this.txtRespuesta2.Name = "txtRespuesta2";
-            this.txtRespuesta2.Size = new System.Drawing.Size(225, 25);
-            this.txtRespuesta2.TabIndex = 4;
             // 
             // txtRespuesta3
             // 
-            this.txtRespuesta3.Location = new System.Drawing.Point(360, 114);
+            resources.ApplyResources(this.txtRespuesta3, "txtRespuesta3");
             this.txtRespuesta3.Name = "txtRespuesta3";
-            this.txtRespuesta3.Size = new System.Drawing.Size(225, 25);
-            this.txtRespuesta3.TabIndex = 6;
             // 
             // btnsigpregseg
             // 
-            this.btnsigpregseg.Location = new System.Drawing.Point(152, 5);
+            resources.ApplyResources(this.btnsigpregseg, "btnsigpregseg");
             this.btnsigpregseg.Name = "btnsigpregseg";
-            this.btnsigpregseg.Size = new System.Drawing.Size(275, 30);
-            this.btnsigpregseg.TabIndex = 7;
-            this.btnsigpregseg.Text = "Siguiente";
             this.btnsigpregseg.UseVisualStyleBackColor = true;
             this.btnsigpregseg.Click += new System.EventHandler(this.btnsiguiente_Click);
             // 
             // lblRespuestasseg
             // 
+            resources.ApplyResources(this.lblRespuestasseg, "lblRespuestasseg");
             this.lblRespuestasseg.ForeColor = System.Drawing.Color.White;
-            this.lblRespuestasseg.Location = new System.Drawing.Point(360, 0);
             this.lblRespuestasseg.Name = "lblRespuestasseg";
-            this.lblRespuestasseg.Size = new System.Drawing.Size(225, 30);
-            this.lblRespuestasseg.TabIndex = 8;
-            this.lblRespuestasseg.Text = "Respuestas";
-            this.lblRespuestasseg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbPregunta1
             // 
+            resources.ApplyResources(this.cmbPregunta1, "cmbPregunta1");
             this.cmbPregunta1.FormattingEnabled = true;
-            this.cmbPregunta1.Location = new System.Drawing.Point(15, 33);
             this.cmbPregunta1.Name = "cmbPregunta1";
-            this.cmbPregunta1.Size = new System.Drawing.Size(330, 26);
-            this.cmbPregunta1.TabIndex = 1;
             // 
             // cmbPregunta2
             // 
+            resources.ApplyResources(this.cmbPregunta2, "cmbPregunta2");
             this.cmbPregunta2.FormattingEnabled = true;
-            this.cmbPregunta2.Location = new System.Drawing.Point(15, 73);
             this.cmbPregunta2.Name = "cmbPregunta2";
-            this.cmbPregunta2.Size = new System.Drawing.Size(330, 26);
-            this.cmbPregunta2.TabIndex = 3;
             // 
             // cmbPregunta3
             // 
+            resources.ApplyResources(this.cmbPregunta3, "cmbPregunta3");
             this.cmbPregunta3.FormattingEnabled = true;
-            this.cmbPregunta3.Location = new System.Drawing.Point(15, 113);
             this.cmbPregunta3.Name = "cmbPregunta3";
-            this.cmbPregunta3.Size = new System.Drawing.Size(330, 26);
-            this.cmbPregunta3.TabIndex = 5;
             // 
             // lblPreguntasseg
             // 
+            resources.ApplyResources(this.lblPreguntasseg, "lblPreguntasseg");
             this.lblPreguntasseg.ForeColor = System.Drawing.Color.White;
-            this.lblPreguntasseg.Location = new System.Drawing.Point(15, 0);
             this.lblPreguntasseg.Name = "lblPreguntasseg";
-            this.lblPreguntasseg.Size = new System.Drawing.Size(330, 30);
-            this.lblPreguntasseg.TabIndex = 12;
-            this.lblPreguntasseg.Text = "Preguntas";
-            this.lblPreguntasseg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlBorde
             // 
+            resources.ApplyResources(this.pnlBorde, "pnlBorde");
             this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlBorde.Controls.Add(this.lbltitpregsegu);
             this.pnlBorde.Controls.Add(this.pctMinimize);
             this.pnlBorde.Controls.Add(this.pctClose);
-            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
             this.pnlBorde.Name = "pnlBorde";
-            this.pnlBorde.Size = new System.Drawing.Size(600, 40);
-            this.pnlBorde.TabIndex = 24;
             // 
             // lbltitpregsegu
             // 
-            this.lbltitpregsegu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbltitpregsegu.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lbltitpregsegu, "lbltitpregsegu");
             this.lbltitpregsegu.ForeColor = System.Drawing.Color.White;
-            this.lbltitpregsegu.Location = new System.Drawing.Point(40, 0);
             this.lbltitpregsegu.Name = "lbltitpregsegu";
-            this.lbltitpregsegu.Size = new System.Drawing.Size(520, 40);
-            this.lbltitpregsegu.TabIndex = 8028;
-            this.lbltitpregsegu.Text = "Preguntas de seguridad";
-            this.lbltitpregsegu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pctMinimize
             // 
+            resources.ApplyResources(this.pctMinimize, "pctMinimize");
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
-            this.pctMinimize.Location = new System.Drawing.Point(0, 0);
             this.pctMinimize.Name = "pctMinimize";
-            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
-            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctMinimize.TabIndex = 22;
             this.pctMinimize.TabStop = false;
             this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
             // 
             // pctClose
             // 
+            resources.ApplyResources(this.pctClose, "pctClose");
             this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
-            this.pctClose.Location = new System.Drawing.Point(560, 0);
             this.pctClose.Name = "pctClose";
-            this.pctClose.Size = new System.Drawing.Size(40, 40);
-            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctClose.TabIndex = 20;
             this.pctClose.TabStop = false;
             this.pctClose.Click += new System.EventHandler(this.pctClose_Click_1);
             // 
             // lblAdorno
             // 
+            resources.ApplyResources(this.lblAdorno, "lblAdorno");
             this.lblAdorno.BackColor = System.Drawing.Color.Transparent;
-            this.lblAdorno.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblAdorno.Location = new System.Drawing.Point(0, 40);
             this.lblAdorno.Name = "lblAdorno";
-            this.lblAdorno.Size = new System.Drawing.Size(600, 10);
-            this.lblAdorno.TabIndex = 26;
-            this.lblAdorno.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBotones
             // 
+            resources.ApplyResources(this.pnlBotones, "pnlBotones");
             this.pnlBotones.BackColor = System.Drawing.Color.Transparent;
             this.pnlBotones.Controls.Add(this.btnsigpregseg);
-            this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotones.Location = new System.Drawing.Point(0, 340);
             this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(600, 45);
-            this.pnlBotones.TabIndex = 28;
+            this.pnlBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBotones_Paint);
             // 
             // panel3
             // 
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.lblRespuestasseg);
-            this.panel3.Controls.Add(this.lblPreguntasseg);
             this.panel3.Controls.Add(this.txtRespuesta1);
+            this.panel3.Controls.Add(this.lblPreguntasseg);
             this.panel3.Controls.Add(this.txtRespuesta2);
             this.panel3.Controls.Add(this.cmbPregunta1);
             this.panel3.Controls.Add(this.txtRespuesta3);
             this.panel3.Controls.Add(this.cmbPregunta2);
             this.panel3.Controls.Add(this.cmbPregunta3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 192);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(600, 148);
-            this.panel3.TabIndex = 30;
             // 
             // pctLogo
             // 
-            this.pctLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            resources.ApplyResources(this.pctLogo, "pctLogo");
             this.pctLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(225, 55);
             this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(150, 95);
-            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctLogo.TabIndex = 31;
             this.pctLogo.TabStop = false;
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 405);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 20);
-            this.panel2.TabIndex = 25;
             // 
             // frmPreguntas
             // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(600, 425);
             this.Controls.Add(this.lblInstrucciones);
             this.Controls.Add(this.pctLogo);
             this.Controls.Add(this.panel3);
@@ -281,12 +211,8 @@
             this.Controls.Add(this.pnlBotones);
             this.Controls.Add(this.lblUsuariopregserg);
             this.Controls.Add(this.panel2);
-            this.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPreguntas";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Preguntas de seguridad";
             this.Load += new System.EventHandler(this.frmPreguntas_Load);
             this.Shown += new System.EventHandler(this.frmPreguntas_Shown);
             this.pnlBorde.ResumeLayout(false);

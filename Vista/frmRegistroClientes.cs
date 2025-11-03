@@ -33,6 +33,7 @@ namespace Vista
             InitializeComponent();
             Idioma.CargarIdiomaGuardado();
             Idioma.AplicarTraduccion(this);
+
             moverFormulario = new ClsArrastrarFormularios(this);
         }
 
@@ -430,6 +431,8 @@ namespace Vista
             btnModificarcliente.Enabled = false;
             btnEliminarcliente.Enabled = false;
             btnnuevocliente.Text = "Nuevo cliente";
+            Idioma.AplicarTraduccion(this);
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -209,6 +209,9 @@
     <EmbeddedResource Include="frmAdminUserABM.resx">
       <DependentUpon>frmAdminUserABM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmpreguntas.es-AR.resx">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPreguntas.resx">
       <DependentUpon>frmPreguntas.cs</DependentUpon>
     </EmbeddedResource>

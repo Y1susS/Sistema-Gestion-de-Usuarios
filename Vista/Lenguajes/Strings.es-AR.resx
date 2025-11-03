@@ -450,7 +450,7 @@
   <data name="lblDecripcionmueble" xml:space="preserve">
     <value>Descripción del mueble</value>
   </data>
-  <data name="lblmenuadmin" xml:space="preserve">
+  <data name="lblmenuadmin1" xml:space="preserve">
     <value>Menú de Administrador</value>
   </data>
   <data name="btnGestionComercial" xml:space="preserve">
@@ -517,7 +517,7 @@
     <value>Guardar</value>
   </data>
   <data name="lblInstrucciones" xml:space="preserve">
-    <value>Instrucciones</value>
+    <value>Seleccione 3 preguntas de seguridad y escriba sus correspondientes respuestas</value>
   </data>
   <data name="lblUsuariopregserg" xml:space="preserve">
     <value>Usuario</value>
@@ -908,5 +908,8 @@
   </data>
   <data name="lblRespuestasseg" xml:space="preserve">
     <value>Respuestas</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>

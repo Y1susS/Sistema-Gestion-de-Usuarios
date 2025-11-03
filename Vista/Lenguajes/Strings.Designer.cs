@@ -1326,7 +1326,7 @@ namespace Vista.Lenguajes {
         /// <summary>
         ///   Busca una cadena traducida similar a Menú de Administrador.
         /// </summary>
-        internal static string lblmenuadmin {
+        internal static string lblmenuadmin1 {
             get {
                 return ResourceManager.GetString("lblmenuadmin", resourceCulture);
             }
