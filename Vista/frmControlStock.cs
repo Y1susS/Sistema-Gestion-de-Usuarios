@@ -522,13 +522,29 @@ namespace Vista
             {
                 if (fila.IsNewRow) continue;
 
-                if (decimal.TryParse(fila.Cells["StockActual"].Value?.ToString(), out decimal stockActual) &&
-                    decimal.TryParse(fila.Cells["StockMinimo"].Value?.ToString(), out decimal stockMinimo))
+               
+                DtoMaterial material = fila.DataBoundItem as DtoMaterial;
+
+                if (material != null &&
+                    material.TipoMaterial != null &&
+                    material.TipoMaterial.NombreTipoMaterial != null &&
+                    material.TipoMaterial.NombreTipoMaterial.Equals("Maderas", StringComparison.OrdinalIgnoreCase))
+                {
+                    fila.DefaultCellStyle.BackColor = Color.White; 
+                    continue; 
+                }
+
+                if (decimal.TryParse(material?.StockActual?.ToString(), out decimal stockActual) &&
+                    decimal.TryParse(material?.StockMinimo?.ToString(), out decimal stockMinimo))
                 {
                     if (stockActual <= stockMinimo)
-                        fila.DefaultCellStyle.BackColor = Color.LightCoral;
+                        fila.DefaultCellStyle.BackColor = Color.LightCoral; 
                     else
-                        fila.DefaultCellStyle.BackColor = Color.White;
+                        fila.DefaultCellStyle.BackColor = Color.White; 
+                }
+                else
+                {
+                    fila.DefaultCellStyle.BackColor = Color.White;
                 }
             }
         }
@@ -548,7 +564,10 @@ namespace Vista
             {
 
                 materialesParaMostrar = materialesCompletosPorTipo
-                    .Where(m => m.StockActual.GetValueOrDefault() <= m.StockMinimo.GetValueOrDefault())
+                    .Where(m => m.TipoMaterial != null &&
+                                m.TipoMaterial.NombreTipoMaterial != null &&
+                                !m.TipoMaterial.NombreTipoMaterial.Equals("Maderas", StringComparison.OrdinalIgnoreCase) && 
+                                m.StockActual.GetValueOrDefault() <= m.StockMinimo.GetValueOrDefault())
                     .ToList();
             }
             else
