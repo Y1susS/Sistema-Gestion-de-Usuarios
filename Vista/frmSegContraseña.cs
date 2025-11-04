@@ -52,8 +52,6 @@ namespace Vista
                 chkReutContra.Checked = false;
                 chkDatosPerson.Checked = false;
 
-                // btnVolveradmin.Enabled = false; // Habilitar boton volver solo después de guardar. VER
-
             }
             else
             {

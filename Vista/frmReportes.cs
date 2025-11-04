@@ -127,12 +127,6 @@ namespace Vista
 
         }
 
-        
-
-        private void dtpHasta_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {

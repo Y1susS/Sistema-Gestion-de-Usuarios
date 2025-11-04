@@ -106,7 +106,6 @@
       <DependentUpon>frmCotizador.cs</DependentUpon>
     </Compile>
     <Compile Include="ClsArrastrarFormularios.cs" />
-    <Compile Include="ClsCerrarFormularios.cs" />
     <Compile Include="ClsFondoTransparente.cs" />
     <Compile Include="ClsMostrarOcultarClave.cs" />
     <Compile Include="frmCambioPass.cs">

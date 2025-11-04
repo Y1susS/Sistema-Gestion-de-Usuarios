@@ -98,7 +98,6 @@
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(175, 24);
             this.dtpHasta.TabIndex = 2;
-            this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
             // 
             // cboUsuarios
             // 

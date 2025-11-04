@@ -449,15 +449,13 @@ namespace Vista
                 if (!ValidarCampos())
                     return;
 
-                // Crear el DTO del cliente con los datos del formulario
                 DtoPersona cliente = CrearDtoPersonaDesdeFormulario();
 
-                // Llamar a la lógica de negocio para registrar
                 if (_logicaClientes.RegistrarCliente(cliente, out string mensaje))
                 {
                     MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
-                    MostrarClientes(); // Refrescar la lista
+                    MostrarClientes(); 
                 }
                 else
                 {
@@ -483,10 +481,8 @@ namespace Vista
                 if (!ValidarCampos())
                     return;
 
-                // Crear el DTO del cliente con los datos del formulario
                 DtoPersona persona = CrearDtoPersonaDesdeFormulario();
 
-                // Llamar a la lógica de negocio para actualizar
                 if (_logicaClientes.ActualizarCliente(idClienteSeleccionado, persona, out string mensaje))
                 {
                     MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

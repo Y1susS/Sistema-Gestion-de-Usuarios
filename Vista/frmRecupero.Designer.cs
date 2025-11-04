@@ -102,7 +102,6 @@ namespace Vista
             this.cmbpreguntasseg.Name = "cmbpreguntasseg";
             this.cmbpreguntasseg.Size = new System.Drawing.Size(315, 26);
             this.cmbpreguntasseg.TabIndex = 31;
-            this.cmbpreguntasseg.SelectedIndexChanged += new System.EventHandler(this.cmbpreguntasseg_SelectedIndexChanged);
             // 
             // fileSystemWatcher1
             // 

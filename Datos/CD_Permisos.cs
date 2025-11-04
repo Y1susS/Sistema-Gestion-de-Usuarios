@@ -61,7 +61,6 @@ namespace Datos
 
         public List<DtoPermisoUsuario> ObtenerTodasLasFuncionalidades()
         {
-            // 1. Cambiamos el tipo de lista a DtoPermisoUsuario
             List<DtoPermisoUsuario> lista = new List<DtoPermisoUsuario>();
 
 
@@ -76,7 +75,6 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            // 2. Instanciamos el DtoPermisoUsuario de la capa de Entidades
                             lista.Add(new DtoPermisoUsuario()
                             {
                                 // AQUI: Mapeamos al DTO final. 

@@ -18,7 +18,6 @@ namespace Vista
     public partial class FrmLoguin : Form
     {
         private ClsArrastrarFormularios moverFormulario;
-        // Lazy: evitar inicializar lógica pesada en el constructor
         private CL_Loguin objCL; 
         private bool _inicializando = true;
         public FrmLoguin()
@@ -48,13 +47,8 @@ namespace Vista
 
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
-            // CARGAR Y ESTABLECER el idioma (Aquí se maneja la cultura, se guarda el valor, y se limpia el corrupto)
-            //Idioma.CargarIdiomaGuardado();
-
-            // APLICAR la traducción a todos los controles (Usa la cultura establecida en el paso 1)
             Idioma.AplicarTraduccion(this);
 
-            // SELECCIONAR el idioma cargado en el ComboBox (para que coincida con la UI)
             string idiomaActual = Properties.Settings.Default.Idioma;
 
             if (!string.IsNullOrEmpty(idiomaActual) && cmbIdioma.Items.Count > 0)
@@ -107,11 +101,8 @@ namespace Vista
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Lazy init para evitar costo en el constructor del formulario
             if (objCL == null)
                 objCL = new CL_Loguin();
-
-            // ... (Tu código de validación de campos) ...
 
             string user = txtUsuario.Text.Trim();
             string pass = txtContrasenia.Text;
@@ -150,7 +141,6 @@ namespace Vista
                 }
                 else
                 {
-                    // Asegurar que las preguntas de seguridad estén configuradas antes de permitir el acceso
                     CL_Usuarios objUsuarios = new CL_Usuarios();
                     if (!objUsuarios.UsuarioTienePreguntasDeSeguridad(user))
                     {
