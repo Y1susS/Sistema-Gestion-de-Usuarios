@@ -327,7 +327,7 @@
             this.MinimizeBox = false;
             this.Name = "frmCambioPass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRecupero";
+            this.Text = "Cambiar Contraseña";
             this.Load += new System.EventHandler(this.frmCambioPass_Load);
             this.Shown += new System.EventHandler(this.frmCambioPass_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();

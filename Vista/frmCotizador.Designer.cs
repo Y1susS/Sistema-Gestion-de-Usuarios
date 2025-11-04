@@ -2371,9 +2371,10 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCotizador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CalculoPiesMuebles";
+            this.Text = "Cotizador";
             this.Load += new System.EventHandler(this.frmCotizador_Load);
             this.gpbmaderascot.ResumeLayout(false);
             this.gpbmaderascot.PerformLayout();

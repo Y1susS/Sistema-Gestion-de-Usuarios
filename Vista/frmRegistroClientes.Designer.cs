@@ -411,7 +411,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistroClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "ABM Clientes";
             this.Load += new System.EventHandler(this.frmRegistroClientes_Load);
             this.Shown += new System.EventHandler(this.frmRegistroClientes_Shown);
             this.gpbAbmClientes.ResumeLayout(false);

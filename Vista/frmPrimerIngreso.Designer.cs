@@ -297,7 +297,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPrimerIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRegistro";
+            this.Text = "Primer Ingreso";
             this.Load += new System.EventHandler(this.frmPrimerIngreso_Load);
             this.Shown += new System.EventHandler(this.frmPrimerIngreso_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();

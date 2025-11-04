@@ -407,12 +407,15 @@ namespace Vista
                 switch (idRol)
                 {
                     case 1:
-                        lblmenuadmin1.Text = "Menu Administrador";
+                        this.Text = "Menú Administrador";
+                        lblmenuadmin1.Text = "Menú Administrador";
                         break;
                     case 2:
-                        lblmenuadmin1.Text = "Menu Vendedor";
+                        this.Text = "Menú Vendedor";
+                        lblmenuadmin1.Text = "Menú Vendedor";
                         break;
                     default:
+                        this.Text = "Menú Principal";
                         lblmenuadmin1.Text = "Menú Principal";
                         break;
                 }

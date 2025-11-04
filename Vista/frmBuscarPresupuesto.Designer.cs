@@ -264,7 +264,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscarPresupuesto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmBuscarPresupuesto";
+            this.Text = "Buscar Presupuesto";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPresupuestos)).EndInit();
             this.pnlBorde.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();

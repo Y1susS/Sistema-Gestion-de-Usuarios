@@ -148,7 +148,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPermisos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Permisos";
             this.Load += new System.EventHandler(this.frmPermisos_Load);
             this.Shown += new System.EventHandler(this.frmPermisos_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).EndInit();

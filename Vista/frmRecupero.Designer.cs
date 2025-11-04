@@ -230,7 +230,7 @@ namespace Vista
             this.MinimizeBox = false;
             this.Name = "frmRecupero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRecupero";
+            this.Text = "Recuperación";
             this.Load += new System.EventHandler(this.frmRecupero_Load);
             this.Shown += new System.EventHandler(this.frmRecupero_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
