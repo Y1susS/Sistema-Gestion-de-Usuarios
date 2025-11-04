@@ -13,12 +13,9 @@ namespace Sistema_Gestion_de_Usuarios.Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            // --- PASO CLAVE ---
-            // 1. Cargar el idioma guardado antes de abrir cualquier formulario.
+            
             Idioma.CargarIdiomaGuardado();
 
-            // 2. Ejecutar tu formulario de Login.
             Application.Run(new FrmLoguin());
         }
     }
