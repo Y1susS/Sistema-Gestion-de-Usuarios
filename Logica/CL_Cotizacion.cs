@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Datos;
 using Entidades.DTOs;
-using Entidades;
+using Sesion;
 
 namespace Logica
 {
@@ -52,14 +52,15 @@ namespace Logica
                     AnchoCm = anchoCm,
                     LargoMts = largoCm,
                     Cantidad = cantidad,
-                    Descripcion = descripcion
+                    Descripcion = descripcion,
+                    EspesorPulgadas = (decimal)ConvertirEspesorAPulgadas((double)espesorCm),
+                    AnchoPulgadas = (decimal)AproximarPulgadas((double)anchoCm / 2.54),
+                    Pies = (decimal)CalcularPies(
+                        (double)ConvertirEspesorAPulgadas((double)espesorCm),
+                        (double)AproximarPulgadas((double)anchoCm / 2.54),
+                        (double)largoCm,
+                        cantidad)
                 };
-
-                detalle.EspesorPulgadas = (decimal)ConvertirEspesorAPulgadas((double)espesorCm);
-                double anchoPulgadasDouble = (double)anchoCm / 2.54;
-                detalle.AnchoPulgadas = (decimal)AproximarPulgadas(anchoPulgadasDouble);
-
-                detalle.Pies = (decimal)CalcularPies((double)detalle.EspesorPulgadas, (double)detalle.AnchoPulgadas, (double)largoCm, cantidad);
                 return detalle;
             }
         }

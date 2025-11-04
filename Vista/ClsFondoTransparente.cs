@@ -12,10 +12,27 @@ namespace Vista
     {
         public static void Aplicar(PictureBox fondo, params Control[] controles)
         {
-            foreach (var control in controles)
+            if (fondo == null || controles == null || controles.Length == 0)
+                return;
+
+            // Reducir relayout en masa
+            fondo.SuspendLayout();
+            try
             {
-                fondo.Controls.Add(control);
-                control.BackColor = Color.Transparent;
+                foreach (var control in controles)
+                {
+                    if (control == null) continue;
+                    control.BackColor = Color.Transparent;
+                    // Evitar reprocesar si ya es hijo
+                    if (!ReferenceEquals(control.Parent, fondo))
+                    {
+                        fondo.Controls.Add(control);
+                    }
+                }
+            }
+            finally
+            {
+                fondo.ResumeLayout(performLayout: true);
             }
         }
     }

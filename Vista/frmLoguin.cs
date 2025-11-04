@@ -1,4 +1,4 @@
-﻿using Entidades;
+﻿using Sesion;
 using Entidades.DTOs;
 using Logica;
 using System;
@@ -18,7 +18,8 @@ namespace Vista
     public partial class FrmLoguin : Form
     {
         private ClsArrastrarFormularios moverFormulario;
-        private readonly CL_Loguin objCL = new CL_Loguin();
+        // Lazy: evitar inicializar lógica pesada en el constructor
+        private CL_Loguin objCL; 
         private bool _inicializando = true;
         public FrmLoguin()
         {
@@ -48,7 +49,7 @@ namespace Vista
         private void FrmLoguin_Load(object sender, EventArgs e)
         {
             // CARGAR Y ESTABLECER el idioma (Aquí se maneja la cultura, se guarda el valor, y se limpia el corrupto)
-            Idioma.CargarIdiomaGuardado();
+            //Idioma.CargarIdiomaGuardado();
 
             // APLICAR la traducción a todos los controles (Usa la cultura establecida en el paso 1)
             Idioma.AplicarTraduccion(this);
@@ -106,6 +107,10 @@ namespace Vista
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // Lazy init para evitar costo en el constructor del formulario
+            if (objCL == null)
+                objCL = new CL_Loguin();
+
             // ... (Tu código de validación de campos) ...
 
             string user = txtUsuario.Text.Trim();
@@ -116,13 +121,9 @@ namespace Vista
                 // Verificar si es primera contraseña o contraseña temporal
                 if (ClsSesionActual.Usuario.PrimeraPass)
                 {
-                    // *** INICIO DE LA LÓGICA DE DISTINCIÓN ***
-                    // La instancia de CL_Usuarios debe ser utilizada aquí.
-                    // Si no la tienes, debes crearla:
+
                     CL_Usuarios objUsuarios = new CL_Usuarios();
 
-                    // Llama al método para verificar si el usuario ya tiene preguntas de seguridad.
-                    // Asegúrate de que el método UsuarioTienePreguntasDeSeguridad esté en la clase CL_Usuarios
                     if (objUsuarios.UsuarioTienePreguntasDeSeguridad(user))
                     {
                         // Si el usuario ya configuró preguntas, es una recuperación de contraseña.

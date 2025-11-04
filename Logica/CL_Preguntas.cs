@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Datos;
-using Entidades;
+using Sesion;
 using Entidades.DTOs;
 
 namespace Logica

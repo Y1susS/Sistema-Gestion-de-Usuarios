@@ -11,13 +11,13 @@ namespace Datos
 {
     public class CD_Conexion
     {
-        private readonly string cadena = "Data Source=DESKTOP-JAKJ9H5\\SQLEXPRESS;Initial Catalog=Sistema Integral Remuebla;Integrated Security=True;";
+        private readonly string cadena = "Data Source=.;Initial Catalog=Sistema Remuebla;Integrated Security=True;";
         public string CadenaConexionMaestra //la utilizamos solo para el restore del backup
         {
             get
             {
-                return "Data Source=DESKTOP-JAKJ9H5\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;";
-                //return "Data Source=.;Initial Catalog=master;Integrated Security=True;";
+                //return "Data Source=DESKTOP-JAKJ9H5\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;";
+                return "Data Source=.;Initial Catalog=master;Integrated Security=True;";
             }
         }
 
