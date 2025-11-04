@@ -16,7 +16,7 @@ using Sistema_Gestion_de_Usuarios.Vista;
 using Vista.Lenguajes;
 
 
-namespace Sistema_Gestion_De_Usuarios
+namespace Vista
 {
     public partial class frmPermisos : Form
     {
