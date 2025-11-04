@@ -54,11 +54,11 @@ namespace Vista
 
         private void frmPresupuestador_Load(object sender, EventArgs e)
         {
+            dgvPresupuesto.ForeColor = Color.Black;
         }
         private void pctClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
         }
 
         #region Configuraciones y Utilidades
@@ -156,6 +156,7 @@ namespace Vista
         {
             dgvPresupuesto.DataSource = null;
             dgvPresupuesto.DataSource = this.detallesCotizacion;
+            dgvPresupuesto.ForeColor = Color.Black;
         }
 
         private decimal ObtenerDecimalDesdeLabel(Label lbl)
@@ -494,6 +495,7 @@ namespace Vista
 
         private void btnEditarCotizacion_Click(object sender, EventArgs e)
         {
+            dgvPresupuesto.ForeColor = Color.Black;
             try
             {
                 var dgvPresupuesto = this.Controls.Find("dgvPresupuesto", true).FirstOrDefault() as DataGridView;
