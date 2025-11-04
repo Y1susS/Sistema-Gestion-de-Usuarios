@@ -181,7 +181,7 @@ namespace Vista
         {
             try
             {
-                var descripcion = ObtenerTexto("txt;\r\n")?.ToLowerInvariant();
+                var descripcion = ObtenerTexto("txtDescripcion")?.ToLowerInvariant();
                 var vendedor = ObtenerTexto("txtVendedor")?.ToLowerInvariant();
 
                 IEnumerable<DtoCotizacion> lista = cotizaciones;
