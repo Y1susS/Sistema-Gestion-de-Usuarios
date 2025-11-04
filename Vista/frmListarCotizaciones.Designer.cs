@@ -43,16 +43,24 @@
             this.pnlOpciones = new System.Windows.Forms.Panel();
             this.btnSeleccionarCotizacion = new System.Windows.Forms.Button();
             this.pnlFiltrarCotizaciones = new System.Windows.Forms.Panel();
+            this.pnlBorde = new System.Windows.Forms.Panel();
+            this.pctMinimize = new System.Windows.Forms.PictureBox();
+            this.pctClose = new System.Windows.Forms.PictureBox();
+            this.pnlBordeInferior = new System.Windows.Forms.Panel();
+            this.lblFiltrarCotizaciones = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).BeginInit();
             this.pnlOpciones.SuspendLayout();
             this.pnlFiltrarCotizaciones.SuspendLayout();
+            this.pnlBorde.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
             this.SuspendLayout();
             // 
             // dvgCotizaciones
             // 
             this.dvgCotizaciones.BackgroundColor = System.Drawing.Color.White;
             this.dvgCotizaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgCotizaciones.Location = new System.Drawing.Point(10, 220);
+            this.dvgCotizaciones.Location = new System.Drawing.Point(10, 260);
             this.dvgCotizaciones.Margin = new System.Windows.Forms.Padding(4);
             this.dvgCotizaciones.Name = "dvgCotizaciones";
             this.dvgCotizaciones.RowHeadersWidth = 51;
@@ -201,7 +209,7 @@
             this.pnlOpciones.Controls.Add(this.lblVendedor);
             this.pnlOpciones.Controls.Add(this.txtVendedor);
             this.pnlOpciones.Controls.Add(this.lblDescripcion);
-            this.pnlOpciones.Location = new System.Drawing.Point(82, 60);
+            this.pnlOpciones.Location = new System.Drawing.Point(82, 100);
             this.pnlOpciones.Name = "pnlOpciones";
             this.pnlOpciones.Size = new System.Drawing.Size(735, 150);
             this.pnlOpciones.TabIndex = 8055;
@@ -227,18 +235,83 @@
             // 
             this.pnlFiltrarCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlFiltrarCotizaciones.Controls.Add(this.lblFiltrarcot);
-            this.pnlFiltrarCotizaciones.Location = new System.Drawing.Point(82, 10);
+            this.pnlFiltrarCotizaciones.Location = new System.Drawing.Point(82, 50);
             this.pnlFiltrarCotizaciones.Name = "pnlFiltrarCotizaciones";
             this.pnlFiltrarCotizaciones.Size = new System.Drawing.Size(735, 40);
             this.pnlFiltrarCotizaciones.TabIndex = 8056;
             this.pnlFiltrarCotizaciones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFiltrarCotizaciones_Paint);
+            // 
+            // pnlBorde
+            // 
+            this.pnlBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBorde.Controls.Add(this.lblFiltrarCotizaciones);
+            this.pnlBorde.Controls.Add(this.pctMinimize);
+            this.pnlBorde.Controls.Add(this.pctClose);
+            this.pnlBorde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBorde.Location = new System.Drawing.Point(0, 0);
+            this.pnlBorde.Name = "pnlBorde";
+            this.pnlBorde.Size = new System.Drawing.Size(900, 40);
+            this.pnlBorde.TabIndex = 8057;
+            // 
+            // pctMinimize
+            // 
+            this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctMinimize.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pctMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pctMinimize.Image")));
+            this.pctMinimize.Location = new System.Drawing.Point(0, 0);
+            this.pctMinimize.Name = "pctMinimize";
+            this.pctMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pctMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctMinimize.TabIndex = 22;
+            this.pctMinimize.TabStop = false;
+            this.pctMinimize.Click += new System.EventHandler(this.pctMinimize_Click);
+            // 
+            // pctClose
+            // 
+            this.pctClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pctClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pctClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctClose.Image = ((System.Drawing.Image)(resources.GetObject("pctClose.Image")));
+            this.pctClose.Location = new System.Drawing.Point(860, 0);
+            this.pctClose.Name = "pctClose";
+            this.pctClose.Size = new System.Drawing.Size(40, 40);
+            this.pctClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctClose.TabIndex = 20;
+            this.pctClose.TabStop = false;
+            this.pctClose.Click += new System.EventHandler(this.pctClose_Click);
+            // 
+            // pnlBordeInferior
+            // 
+            this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 640);
+            this.pnlBordeInferior.Name = "pnlBordeInferior";
+            this.pnlBordeInferior.Size = new System.Drawing.Size(900, 20);
+            this.pnlBordeInferior.TabIndex = 8058;
+            // 
+            // lblFiltrarCotizaciones
+            // 
+            this.lblFiltrarCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblFiltrarCotizaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFiltrarCotizaciones.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.lblFiltrarCotizaciones.ForeColor = System.Drawing.Color.White;
+            this.lblFiltrarCotizaciones.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFiltrarCotizaciones.Location = new System.Drawing.Point(40, 0);
+            this.lblFiltrarCotizaciones.Name = "lblFiltrarCotizaciones";
+            this.lblFiltrarCotizaciones.Size = new System.Drawing.Size(820, 40);
+            this.lblFiltrarCotizaciones.TabIndex = 23;
+            this.lblFiltrarCotizaciones.Text = "Cotizaciones";
+            this.lblFiltrarCotizaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmListarCotizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(900, 660);
+            this.Controls.Add(this.pnlBordeInferior);
+            this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.pnlFiltrarCotizaciones);
             this.Controls.Add(this.pnlOpciones);
             this.Controls.Add(this.dvgCotizaciones);
@@ -249,11 +322,13 @@
             this.Name = "frmListarCotizaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListarCotizaciones";
-            this.Load += new System.EventHandler(this.frmListarCotizaciones_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).EndInit();
             this.pnlOpciones.ResumeLayout(false);
             this.pnlOpciones.PerformLayout();
             this.pnlFiltrarCotizaciones.ResumeLayout(false);
+            this.pnlBorde.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,5 +350,10 @@
         private System.Windows.Forms.Panel pnlOpciones;
         private System.Windows.Forms.Panel pnlFiltrarCotizaciones;
         private System.Windows.Forms.Button btnSeleccionarCotizacion;
+        private System.Windows.Forms.Panel pnlBorde;
+        private System.Windows.Forms.PictureBox pctMinimize;
+        private System.Windows.Forms.PictureBox pctClose;
+        private System.Windows.Forms.Panel pnlBordeInferior;
+        private System.Windows.Forms.Label lblFiltrarCotizaciones;
     }
 }

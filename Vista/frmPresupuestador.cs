@@ -40,6 +40,7 @@ namespace Vista
             numeroPresupuestoActual = string.Empty;
         }
 
+
         private CL_Clientes clCliente = new CL_Clientes();
         private DtoCliente clienteActual;
         private CL_TipoDoc _logicaTipoDoc = new CL_TipoDoc();
@@ -456,6 +457,7 @@ namespace Vista
         {
             using (frmListarCotizaciones frmBuscar = new frmListarCotizaciones(true))
             {
+
                 if (frmBuscar.ShowDialog() == DialogResult.OK)
                 {
                     if (frmBuscar.CotizacionesSeleccionadas != null && frmBuscar.CotizacionesSeleccionadas.Count > 0)
