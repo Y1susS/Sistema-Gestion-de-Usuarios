@@ -292,7 +292,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSegContraseña";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Administrador";
+            this.Text = "Validaciones";
             this.Load += new System.EventHandler(this.frmadmin_Load);
             this.Shown += new System.EventHandler(this.frmSegContraseña_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.nudCaractMin)).EndInit();

@@ -44,10 +44,10 @@
             this.btnSeleccionarCotizacion = new System.Windows.Forms.Button();
             this.pnlFiltrarCotizaciones = new System.Windows.Forms.Panel();
             this.pnlBorde = new System.Windows.Forms.Panel();
+            this.lblFiltrarCotizaciones = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
             this.pctClose = new System.Windows.Forms.PictureBox();
             this.pnlBordeInferior = new System.Windows.Forms.Panel();
-            this.lblFiltrarCotizaciones = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).BeginInit();
             this.pnlOpciones.SuspendLayout();
             this.pnlFiltrarCotizaciones.SuspendLayout();
@@ -253,6 +253,20 @@
             this.pnlBorde.Size = new System.Drawing.Size(900, 40);
             this.pnlBorde.TabIndex = 8057;
             // 
+            // lblFiltrarCotizaciones
+            // 
+            this.lblFiltrarCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.lblFiltrarCotizaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFiltrarCotizaciones.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
+            this.lblFiltrarCotizaciones.ForeColor = System.Drawing.Color.White;
+            this.lblFiltrarCotizaciones.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFiltrarCotizaciones.Location = new System.Drawing.Point(40, 0);
+            this.lblFiltrarCotizaciones.Name = "lblFiltrarCotizaciones";
+            this.lblFiltrarCotizaciones.Size = new System.Drawing.Size(820, 40);
+            this.lblFiltrarCotizaciones.TabIndex = 23;
+            this.lblFiltrarCotizaciones.Text = "Cotizaciones";
+            this.lblFiltrarCotizaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pctMinimize
             // 
             this.pctMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
@@ -290,20 +304,6 @@
             this.pnlBordeInferior.Size = new System.Drawing.Size(900, 20);
             this.pnlBordeInferior.TabIndex = 8058;
             // 
-            // lblFiltrarCotizaciones
-            // 
-            this.lblFiltrarCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
-            this.lblFiltrarCotizaciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblFiltrarCotizaciones.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold);
-            this.lblFiltrarCotizaciones.ForeColor = System.Drawing.Color.White;
-            this.lblFiltrarCotizaciones.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFiltrarCotizaciones.Location = new System.Drawing.Point(40, 0);
-            this.lblFiltrarCotizaciones.Name = "lblFiltrarCotizaciones";
-            this.lblFiltrarCotizaciones.Size = new System.Drawing.Size(820, 40);
-            this.lblFiltrarCotizaciones.TabIndex = 23;
-            this.lblFiltrarCotizaciones.Text = "Cotizaciones";
-            this.lblFiltrarCotizaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frmListarCotizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -321,7 +321,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListarCotizaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListarCotizaciones";
+            this.Text = "Cotizaciones";
             ((System.ComponentModel.ISupportInitialize)(this.dvgCotizaciones)).EndInit();
             this.pnlOpciones.ResumeLayout(false);
             this.pnlOpciones.PerformLayout();

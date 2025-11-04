@@ -459,7 +459,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdminUserABM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAdministrador";
+            this.Text = "ABM Usuarios";
             this.Load += new System.EventHandler(this.frmAdministrador_Load);
             this.Shown += new System.EventHandler(this.frmAdminUserABM_Shown);
             this.gpbAbmUsuarios.ResumeLayout(false);

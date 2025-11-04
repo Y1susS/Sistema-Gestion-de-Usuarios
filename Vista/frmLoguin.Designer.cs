@@ -254,7 +254,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmLoguin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menú";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.FrmLoguin_Load);
             this.Shown += new System.EventHandler(this.FrmLoguin_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();

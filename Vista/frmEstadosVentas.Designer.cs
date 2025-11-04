@@ -116,7 +116,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEstadosVentas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmEstadosVentas";
+            this.Text = "Estado de Venta";
             this.Load += new System.EventHandler(this.frmEstadosVentas_Load);
             this.Shown += new System.EventHandler(this.frmEstadosVentas_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();

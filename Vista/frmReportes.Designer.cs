@@ -427,7 +427,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmReportes";
+            this.Text = "Reportes";
             this.Load += new System.EventHandler(this.frmReportes_Load);
             this.Shown += new System.EventHandler(this.frmReportes_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();

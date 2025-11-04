@@ -249,7 +249,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmBackUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmbackup";
+            this.Text = "Back Up";
             this.Shown += new System.EventHandler(this.frmBackUp_Shown);
             this.gpbubicacionpre.ResumeLayout(false);
             this.gpbupersonalizada.ResumeLayout(false);
