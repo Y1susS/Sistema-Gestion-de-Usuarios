@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class CD_PermisoUsuarioViewModel
+    public class CD_PermisoUsuario
     {
         public int IdPermiso { get; set; }
         public string NombreFuncionalidad { get; set; }

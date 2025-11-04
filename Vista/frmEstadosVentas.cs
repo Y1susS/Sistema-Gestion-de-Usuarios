@@ -42,42 +42,37 @@ namespace Vista
                 HeaderText = "ID Venta",
                 DataPropertyName = "IdVenta",
                 Visible = false,
-                ReadOnly = true // <--- ¡Importante!
+                ReadOnly = true 
             });
 
-            // 2. Columna Fecha (solo lectura)
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Fecha",
                 DataPropertyName = "FechaVenta",
-                ReadOnly = true // <--- ¡Importante!
+                ReadOnly = true 
             });
 
-            // 3. Columna Cliente (solo lectura)
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Cliente",
                 DataPropertyName = "ClienteNombre",
-                ReadOnly = true // <--- ¡Importante!
+                ReadOnly = true 
             });
 
-            // 4. Columna Vendedor (solo lectura)
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Vendedor",
                 DataPropertyName = "VendedorUserName",
-                ReadOnly = true // <--- ¡Importante!
+                ReadOnly = true 
             });
 
-            // 5. Columna Monto Final (solo lectura)
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Monto Final",
                 DataPropertyName = "MontoFinal",
-                ReadOnly = true // <--- ¡Importante!
+                ReadOnly = true 
             });
 
-            // Columna de Observaciones (solo lectura, si la quieres mostrar)
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Observaciones",
@@ -86,7 +81,6 @@ namespace Vista
             });
 
 
-            // 6. Columna ComboBox para el Estado (Editable - ReadOnly por defecto es false)
             DataGridViewComboBoxColumn estadoColumna = new DataGridViewComboBoxColumn
             {
                 HeaderText = "Estado",
@@ -95,16 +89,14 @@ namespace Vista
                 ValueMember = "IdEstadoVenta",
                 DisplayMember = "Estado",
                 DataSource = _estadosVenta,
-                // ReadOnly = false (valor por defecto)
             };
             dgvVentas.Columns.Add(estadoColumna);
 
-            // 7. Columna para el nombre del estado (solo lectura)
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Estado Actual",
                 DataPropertyName = "EstadoVenta",
-                ReadOnly = true // <--- ¡Importante!
+                ReadOnly = true 
             });
 
 
@@ -112,22 +104,12 @@ namespace Vista
             _todaslasventas = _ventas.ObtenerTodasLasVentas();
             dgvVentas.DataSource = _todaslasventas;
 
-
-            //List<DtoVenta> listaCompleta = _ventas.ObtenerTodasLasVentas();
-            //dgvVentas.DataSource = listaCompleta;
-
-
-
-            
-
         }
 
         private void btnActualizarEstado_Click(object sender, EventArgs e)
         {
-            // Asegurarse de que cualquier edición pendiente se comite
             dgvVentas.EndEdit();
 
-            // Obtenemos la lista de ventas enlazada
             List<DtoVenta> listaVentas = dgvVentas.DataSource as List<DtoVenta>;
 
             if (listaVentas == null || listaVentas.Count == 0)
@@ -138,29 +120,19 @@ namespace Vista
 
             try
             {
-                // 1. Iterar sobre todos los DTOs enlazados
                 foreach (DtoVenta venta in listaVentas)
                 {
-                    // Usamos el IdVenta y el IdEstadoVenta del DTO, que fue modificado por el ComboBox
                     int idVenta = venta.IdVenta;
                     int? nuevoIdEstado = venta.IdEstadoVenta;
 
-                    // 2. Llamar al SP para guardar si hay un ID de estado válido.
-                    // La base de datos se encargará de actualizar solo si hay un cambio.
                     if (nuevoIdEstado.HasValue)
                     {
                         _ventas.GuardarEstadoVenta(idVenta, nuevoIdEstado.Value);
-
-                        // NOTA: Si quieres volver al modelo de 'detección de cambios'
-                        // para evitar llamadas innecesarias al SP, usa la lógica de 
-                        // IdEstadoVentaOriginal. Pero para simplicidad, llamamos al SP aquí.
                     }
                 }
 
-                // 3. Mostrar el mensaje de éxito genérico (ya que se procesaron las filas)
                 MessageBox.Show("El estado de las ventas se guardó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // 4. Recargar la grilla para refrescar los nombres de estado
                 RecargarVentas();
 
             }

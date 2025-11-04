@@ -222,21 +222,6 @@ namespace Vista
                 LlenarCmbMaterialConFiltro(materialesCompletosPorTipo);
                 dataGridView1.Enabled = true;
 
-                //if (modoGestion && cbxStockCritico.Checked)
-                //{
-                //    var materialesCriticos = materialesCompletosPorTipo
-                //        .Where(m => m.StockActual.GetValueOrDefault() <= m.StockMinimo.GetValueOrDefault())
-                //        .ToList();
-                //    dataGridView1.DataSource = materialesCriticos;
-                //}         
-                //else 
-                //{
-                //    dataGridView1.DataSource = materialesCompletosPorTipo;
-                //}
-                //CargarGrillaDeMateriales();
-                //LlenarCmbMaterialConFiltro(materialesCompletosPorTipo);
-                //ColorearFilasCriticas();
-                //dataGridView1.Enabled = true;
             }
             catch (Exception ex)
             {
