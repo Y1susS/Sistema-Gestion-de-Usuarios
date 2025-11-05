@@ -52,6 +52,9 @@ namespace Vista
                 chkReutContra.Checked = false;
                 chkDatosPerson.Checked = false;
 
+                // Intentos/minutos quedan sin valor por defecto: el usuario debe establecerlos y guardar
+                nudCantidadIntentos.Value = nudCantidadIntentos.Minimum;
+                nudMinutosBloqueo.Value = nudMinutosBloqueo.Minimum;
             }
             else
             {
@@ -64,6 +67,16 @@ namespace Vista
                 chkReutContra.Checked = config.EvitarRepetidas;
                 chkDatosPerson.Checked = config.EvitarDatosPersonales;
                 nudDiasCambio.Value = config.DiasCambioPassword;
+                // nuevos: intentos y minutos de bloqueo
+                if (config.MaxIntentosLogin >= (int)nudCantidadIntentos.Minimum && config.MaxIntentosLogin <= (int)nudCantidadIntentos.Maximum)
+                    nudCantidadIntentos.Value = config.MaxIntentosLogin;
+                else
+                    nudCantidadIntentos.Value = Math.Min(Math.Max(config.MaxIntentosLogin, (int)nudCantidadIntentos.Minimum), (int)nudCantidadIntentos.Maximum);
+
+                if (config.MinutosBloqueoLogin >= (int)nudMinutosBloqueo.Minimum && config.MinutosBloqueoLogin <= (int)nudMinutosBloqueo.Maximum)
+                    nudMinutosBloqueo.Value = config.MinutosBloqueoLogin;
+                else
+                    nudMinutosBloqueo.Value = Math.Min(Math.Max(config.MinutosBloqueoLogin, (int)nudMinutosBloqueo.Minimum), (int)nudMinutosBloqueo.Maximum);
             }
         }
         //si esta habilitado el checkbox, habilita el num updown
@@ -83,7 +96,10 @@ namespace Vista
                 RequiereEspecial = chkCaractEsp.Checked,
                 EvitarRepetidas = chkReutContra.Checked,
                 EvitarDatosPersonales = chkDatosPerson.Checked,
-                DiasCambioPassword = (int)nudDiasCambio.Value
+                DiasCambioPassword = (int)nudDiasCambio.Value,
+                // nuevos campos tomados 100% desde la UI (que refleja BD si existía)
+                MaxIntentosLogin = (int)nudCantidadIntentos.Value,
+                MinutosBloqueoLogin = (int)nudMinutosBloqueo.Value
             };
 
             CL_ConfiguracionContraseña logicaConfig = new CL_ConfiguracionContraseña();

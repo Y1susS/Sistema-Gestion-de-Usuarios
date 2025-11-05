@@ -43,6 +43,12 @@
             this.lblseguridad = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblIntentosPass = new System.Windows.Forms.Label();
+            this.nudMinutosBloqueo = new System.Windows.Forms.NumericUpDown();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nudCantidadIntentos = new System.Windows.Forms.NumericUpDown();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.lblTitulovalidaciones = new System.Windows.Forms.Label();
             this.pctMinimize = new System.Windows.Forms.PictureBox();
@@ -53,6 +59,10 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinutosBloqueo)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadIntentos)).BeginInit();
             this.pnlBorde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).BeginInit();
@@ -120,7 +130,7 @@
             // 
             // btnGuardarCambioscont
             // 
-            this.btnGuardarCambioscont.Location = new System.Drawing.Point(150, 405);
+            this.btnGuardarCambioscont.Location = new System.Drawing.Point(145, 488);
             this.btnGuardarCambioscont.Name = "btnGuardarCambioscont";
             this.btnGuardarCambioscont.Size = new System.Drawing.Size(175, 30);
             this.btnGuardarCambioscont.TabIndex = 8;
@@ -145,7 +155,7 @@
             this.lblDiasCambio.Name = "lblDiasCambio";
             this.lblDiasCambio.Size = new System.Drawing.Size(245, 41);
             this.lblDiasCambio.TabIndex = 17;
-            this.lblDiasCambio.Text = "    Días para cambio de contraseña";
+            this.lblDiasCambio.Text = "Días para cambio de contraseña";
             this.lblDiasCambio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // nudDiasCambio
@@ -161,11 +171,6 @@
             this.nudDiasCambio.Size = new System.Drawing.Size(65, 25);
             this.nudDiasCambio.TabIndex = 18;
             this.nudDiasCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudDiasCambio.Value = new decimal(new int[] {
-            90,
-            0,
-            0,
-            0});
             // 
             // panel1
             // 
@@ -202,6 +207,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.chkMayusyMin);
             this.panel3.Controls.Add(this.chkNumyLet);
@@ -212,8 +219,80 @@
             this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(75, 110);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(325, 285);
+            this.panel3.Size = new System.Drawing.Size(325, 372);
             this.panel3.TabIndex = 30;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lblIntentosPass);
+            this.panel5.Controls.Add(this.nudMinutosBloqueo);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 322);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(325, 41);
+            this.panel5.TabIndex = 31;
+            // 
+            // lblIntentosPass
+            // 
+            this.lblIntentosPass.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblIntentosPass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblIntentosPass.Location = new System.Drawing.Point(0, 0);
+            this.lblIntentosPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIntentosPass.Name = "lblIntentosPass";
+            this.lblIntentosPass.Size = new System.Drawing.Size(245, 41);
+            this.lblIntentosPass.TabIndex = 17;
+            this.lblIntentosPass.Text = "Minutos de bloqueo tras intentos";
+            this.lblIntentosPass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // nudMinutosBloqueo
+            // 
+            this.nudMinutosBloqueo.Location = new System.Drawing.Point(260, 8);
+            this.nudMinutosBloqueo.Margin = new System.Windows.Forms.Padding(2);
+            this.nudMinutosBloqueo.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.nudMinutosBloqueo.Name = "nudMinutosBloqueo";
+            this.nudMinutosBloqueo.Size = new System.Drawing.Size(65, 25);
+            this.nudMinutosBloqueo.TabIndex = 18;
+            this.nudMinutosBloqueo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.nudCantidadIntentos);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 281);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(325, 41);
+            this.panel4.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 41);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Cantidad de intentos permitidos";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // nudCantidadIntentos
+            // 
+            this.nudCantidadIntentos.Location = new System.Drawing.Point(260, 8);
+            this.nudCantidadIntentos.Margin = new System.Windows.Forms.Padding(2);
+            this.nudCantidadIntentos.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.nudCantidadIntentos.Name = "nudCantidadIntentos";
+            this.nudCantidadIntentos.Size = new System.Drawing.Size(65, 25);
+            this.nudCantidadIntentos.TabIndex = 18;
+            this.nudCantidadIntentos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlBorde
             // 
@@ -272,7 +351,7 @@
             // 
             this.pnlBordeInferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
             this.pnlBordeInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 445);
+            this.pnlBordeInferior.Location = new System.Drawing.Point(0, 535);
             this.pnlBordeInferior.Name = "pnlBordeInferior";
             this.pnlBordeInferior.Size = new System.Drawing.Size(475, 20);
             this.pnlBordeInferior.TabIndex = 32;
@@ -281,7 +360,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::Vista.Properties.Resources.WoodenPlankCyan;
-            this.ClientSize = new System.Drawing.Size(475, 465);
+            this.ClientSize = new System.Drawing.Size(475, 555);
             this.Controls.Add(this.pnlBordeInferior);
             this.Controls.Add(this.pnlBorde);
             this.Controls.Add(this.panel3);
@@ -300,6 +379,10 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinutosBloqueo)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadIntentos)).EndInit();
             this.pnlBorde.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctClose)).EndInit();
@@ -328,5 +411,11 @@
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label lblIntentosPass;
+        private System.Windows.Forms.NumericUpDown nudMinutosBloqueo;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown nudCantidadIntentos;
     }
 }
