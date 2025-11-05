@@ -53,6 +53,38 @@ namespace Vista
 
             this.Size = new Size(1150, 660);
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Al cerrar este formulario, cerrar todos y volver al login (sin cerrar FrmLoguin)
+            this.FormClosed += FrmPanelUsuarios_FormClosed;
+        }
+
+        private void FrmPanelUsuarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Buscar instancia existente de login (puede estar oculta). No cerrarla para no finalizar Application.Run
+            var login = Application.OpenForms.OfType<FrmLoguin>().FirstOrDefault();
+
+            // Cerrar todos los formularios excepto este y el login
+            foreach (var f in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (f != this && !(f is FrmLoguin) && !f.IsDisposed)
+                {
+                    try { f.Close(); } catch { }
+                }
+            }
+
+            // Mostrar login limpio
+            if (login == null)
+            {
+                // Fallback: si no existe por alguna razón, crear uno nuevo
+                login = new FrmLoguin();
+                login.Show();
+            }
+            else
+            {
+                try { login.ReiniciarEstado(); } catch { }
+                if (!login.Visible) login.Show();
+                login.Activate();
+            }
         }
 
         private void SeleccionarBoton(Button boton)
@@ -460,9 +492,8 @@ namespace Vista
 
         private void pctClose_Click(object sender, EventArgs e)
         {
+            // Solo cerramos este formulario; el manejador FormClosed se encargará de cerrar los demás y volver al login
             this.Close();
-            FrmLoguin FrmLoguin = new FrmLoguin();
-            FrmLoguin.Show();
         }
 
         private void pctMinimize_Click(object sender, EventArgs e)
