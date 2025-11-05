@@ -51,10 +51,10 @@ namespace Vista
                 chkCaractEsp.Checked = false;
                 chkReutContra.Checked = false;
                 chkDatosPerson.Checked = false;
+
                 // Intentos/minutos quedan sin valor por defecto: el usuario debe establecerlos y guardar
                 nudCantidadIntentos.Value = nudCantidadIntentos.Minimum;
                 nudMinutosBloqueo.Value = nudMinutosBloqueo.Minimum;
-
             }
             else
             {

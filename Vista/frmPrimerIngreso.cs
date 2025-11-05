@@ -62,8 +62,6 @@ namespace Vista
         {
             txtNuevaPass.UseSystemPasswordChar = false;
             txtConfirmaPass.UseSystemPasswordChar = false;
-            //ClsPlaceHolder.Leave(NUEVA_PASS_PLACEHOLDER, txtNuevaPass, true);
-            //ClsPlaceHolder.Leave(CONFIRMA_PASS_PLACEHOLDER, txtConfirmaPass, true);
             lblUsuariocambiarcont.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
             lblMensaje.Text = "Debido a su primer ingreso, escriba una nueva contraseña y repítala para confirmar el cambio";
             MostrarRestriccionesContrasena();

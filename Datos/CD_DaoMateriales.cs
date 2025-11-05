@@ -359,7 +359,7 @@ namespace Datos
             return resultado;
         }
 
-        #region MAPEO SEGURO
+        #region MAPEO
 
         private DtoMaterial MapearLectorAMaterialSeguro(SqlDataReader dr)
         {

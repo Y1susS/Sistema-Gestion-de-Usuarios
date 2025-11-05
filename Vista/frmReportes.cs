@@ -6,13 +6,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using static System.Collections.Specialized.BitVector32;
 using Vista.Lenguajes;
+using static System.Collections.Specialized.BitVector32;
+using System.Drawing.Printing;
+using System.Drawing.Imaging;
+using System.Diagnostics;
+
 
 namespace Vista
 {
@@ -48,7 +53,7 @@ namespace Vista
             cboClientes.SelectedIndex = -1;
             cboClientes.Enabled = false;
 
-            // ---- CheckBoxes ----
+            //CheckBoxes
             chkFiltrarxvendedor.Checked = false;
             chkFiltrarxCliente.Checked = false;
 
@@ -57,39 +62,39 @@ namespace Vista
             {
                 cboUsuarios.Enabled = chkFiltrarxvendedor.Checked;
                 if (!chkFiltrarxvendedor.Checked)
-                    cboUsuarios.SelectedIndex = -1; // resetea selección
+                    cboUsuarios.SelectedIndex = -1;
             };
 
             chkFiltrarxCliente.CheckedChanged += (s, ev) =>
             {
                 cboClientes.Enabled = chkFiltrarxCliente.Checked;
                 if (!chkFiltrarxCliente.Checked)
-                    cboClientes.SelectedIndex = -1; // resetea selección
+                    cboClientes.SelectedIndex = -1; 
             };
 
 
-            //  Cargar ComboBox de Estados de Venta
+
             cboEstados.DataSource = _ventas.ObtenerEstadosVenta();
             cboEstados.DisplayMember = "Estado";
             cboEstados.ValueMember = "IdEstadoVenta";
             cboEstados.SelectedIndex = -1;
-            cboEstados.Enabled = false; // Deshabilitado inicialmente
+            cboEstados.Enabled = false;
 
-            // CheckBox para filtrar por Estado
+  
             chkFiltrarEstado.Checked = false;
             chkFiltrarEstado.CheckedChanged += (s, ev) =>
             {
                 cboEstados.Enabled = chkFiltrarEstado.Checked;
                 if (!chkFiltrarEstado.Checked)
-                    cboEstados.SelectedIndex = -1; // resetea selección
+                    cboEstados.SelectedIndex = -1; 
             };
 
-            // Arrancar con los DateTimePicker deshabilitados
+           
             chkUsarFechas.Checked = false;
             dtpDesde.Enabled = false;
             dtpHasta.Enabled = false;
 
-            // Configurar DataGridView
+          
             dgvVentas.AutoGenerateColumns = false;
             dgvVentas.Columns.Clear();
 
@@ -100,25 +105,16 @@ namespace Vista
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Cliente", DataPropertyName = "ClienteNombre" });
             dgvVentas.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Vendedor", DataPropertyName = "VendedorUserName" });
 
-            //// Obtener lista completa de ventas
-            //List<DtoVenta> listaCompleta = _ventas.ObtenerTodasLasVentas();
-            //dgvVentas.DataSource = listaCompleta;
-
-            //lblTotalVentas.Text = $"Total de Ventas: {listaCompleta.Count}";
-            //decimal totalFinal = listaCompleta.Sum(v => v.MontoFinal ?? 0);
-            //lblTotal.Text = $"Total Final: {totalFinal:C}";
-
-
             cboTipoGrafico.Items.Add("Ventas por Vendedor");
             cboTipoGrafico.Items.Add("Ventas por Día de Semana");
             cboTipoGrafico.Items.Add("Ventas por Estado");
-            cboTipoGrafico.SelectedIndex = 0; // Arranca en "Ventas por Vendedor"
+            cboTipoGrafico.SelectedIndex = 0; 
 
 
             // engancho el evento
             dtpDesde.ValueChanged += dtpDesde_ValueChanged;
 
-            //////// inicializo MinDate del "hasta"
+ 
             dtpHasta.MinDate = dtpDesde.Value.Date;
 
             List<DtoVenta> listaCompleta = _ventas.ObtenerTodasLasVentas();
@@ -127,12 +123,6 @@ namespace Vista
 
         }
 
-        
-
-        private void dtpHasta_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -159,16 +149,6 @@ namespace Vista
                 ? (int?)Convert.ToInt32(cboEstados.SelectedValue)
                 : null;
 
-            //List<DtoVenta> ventas = _ventas.FiltrarVentas(desde, hasta, idUser, idCliente);
-
-            //dgvVentas.DataSource = ventas;
-
-            //lblTotalVentas.Text = $"Total de Ventas: {ventas.Count}";
-
-
-            //decimal totalFinal = ventas.Sum(v => v.MontoFinal ?? 0);
-            //lblTotal.Text = $"Total Final: {totalFinal:C}";
-
             List<DtoVenta> ventas = _ventas.FiltrarVentas(desde, hasta, idUser, idCliente, idEstadoVenta);
             dgvVentas.DataSource = ventas;
             ActualizarMetricas(ventas);
@@ -178,29 +158,15 @@ namespace Vista
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            // Limpiar combos
+
             chkFiltrarxvendedor.Checked = false;
             chkFiltrarxCliente.Checked = false;
             chkFiltrarEstado.Checked = false;
 
-            // Limpiar check y fechas
             chkUsarFechas.Checked = false;
             dtpDesde.Value = DateTime.Now;
             dtpHasta.Value = DateTime.Now;
-            
 
-            //// Obtener la lista completa de ventas
-            //List<DtoVenta> ventasCompletas = _ventas.ObtenerTodasLasVentas();
-
-            //// Asignar la lista al DataGridView
-            //dgvVentas.DataSource = ventasCompletas;
-
-            //// ¡Actualizar la etiqueta con el conteo de la lista completa!
-            //lblTotalVentas.Text = $"Total de Ventas: {ventasCompletas.Count}";
-
-            //decimal totalFinal = ventasCompletas.Sum(v => v.MontoFinal ?? 0);
-            //lblTotal.Text = $"Total Final: {totalFinal:C}";
-                
             List<DtoVenta> ventasCompletas = _ventas.ObtenerTodasLasVentas();
             dgvVentas.DataSource = ventasCompletas;
             ActualizarMetricas(ventasCompletas);
@@ -219,10 +185,10 @@ namespace Vista
 
         private void dtpDesde_ValueChanged(object sender, EventArgs e)
         {
-            // Ajusto el mínimo del Hasta al valor del Desde
+
             dtpHasta.MinDate = dtpDesde.Value.Date;
 
-            // si el Hasta quedó más atrás, lo muevo automáticamente
+
             if (dtpHasta.Value < dtpDesde.Value)
             {
                 dtpHasta.Value = dtpDesde.Value;
@@ -244,13 +210,13 @@ namespace Vista
                 : 0;
             lblPromedio.Text = $"Ticket Promedio: {ticketPromedio:C}";
 
-            // --- Configurar gráfico ---
+            //Configurar gráfico
             chartVentas.Series.Clear();
             chartVentas.Titles.Clear();
 
             if (cboTipoGrafico.SelectedItem.ToString() == "Ventas por Vendedor")
             {
-                // Agrupamos ventas por vendedor
+                
                 var ventasPorVendedor = ventas
                     .GroupBy(v => v.VendedorUserName)
                     .Select(g => new { Vendedor = g.Key, Cantidad = g.Count() })
@@ -261,7 +227,7 @@ namespace Vista
                 serie.ChartType = SeriesChartType.Pie;
                 serie.IsValueShownAsLabel = true;
 
-                // Mostrar porcentajes en vez de cantidades
+                
                 serie.Label = "#PERCENT{P0}";
                 serie.LegendText = "#VALX";
 
@@ -276,10 +242,10 @@ namespace Vista
 
             else if (cboTipoGrafico.SelectedItem.ToString() == "Ventas por Estado")
             {
-                // Agrupamos ventas por Estado
+                
                 var ventasPorEstado = ventas
                     .GroupBy(v => v.EstadoVenta)
-                    .Where(g => g.Key != null) // Ignora ventas sin estado (si es que existe)
+                    .Where(g => g.Key != null) 
                     .Select(g => new { Estado = g.Key, Cantidad = g.Count() })
                     .OrderByDescending(x => x.Cantidad)
                     .ToList();
@@ -288,7 +254,7 @@ namespace Vista
                 serie.ChartType = SeriesChartType.Pie;
                 serie.IsValueShownAsLabel = true;
 
-                // Mostrar cantidades
+            
                 serie.Label = "#VALY";
                 serie.LegendText = "#VALX";
 
@@ -316,7 +282,7 @@ namespace Vista
                 };
 
 
-                // Siempre mostrar los 7 días
+         
                 var diasSemana = Enum.GetValues(typeof(DayOfWeek))
                                      .Cast<DayOfWeek>()
                                      .ToList();
@@ -344,6 +310,150 @@ namespace Vista
                 chartVentas.Titles.Add("Ventas según Día de la Semana");
             }
         }
+
+
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            if (dgvVentas.DataSource == null || dgvVentas.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Archivo PDF (*.pdf)|*.pdf",
+                FileName = "Reporte_Ventas.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string rutaPDF = saveFileDialog.FileName;
+
+                try
+                {
+                  
+                    string totalVentas = lblTotal.Text;
+                    string cantidadVentas = lblTotalVentas.Text;
+                    string ticketPromedio = lblPromedio.Text;
+
+
+                    string rutaGrafico = Path.Combine(Path.GetTempPath(), "graficoTemp.png");
+                    chartVentas.SaveImage(rutaGrafico, ChartImageFormat.Png);
+
+ 
+                    int filaInicio = 0; 
+                    int filasPorPagina = 35; 
+
+                    using (PrintDocument pd = new PrintDocument())
+                    {
+                        pd.PrinterSettings.PrintToFile = true;
+                        pd.PrinterSettings.PrintFileName = rutaPDF;
+
+                        pd.PrintPage += (s, ev) =>
+                        {
+                            Graphics g = ev.Graphics;
+                            g.Clear(Color.White);
+
+                            Font fuenteTitulo = new Font("Arial", 16, FontStyle.Bold);
+                            Font fuenteTexto = new Font("Arial", 11);
+                            Font fuenteNegrita = new Font("Arial", 12, FontStyle.Bold);
+                            Brush brush = Brushes.Black;
+
+                            int y = 40;
+                            g.DrawString("Reporte de Ventas", fuenteTitulo, brush, 320, y);
+                            y += 40;
+                            g.DrawString($"Fecha de exportación: {DateTime.Now:dd/MM/yyyy HH:mm}", fuenteTexto, brush, 20, y);
+                            y += 30;
+                            g.DrawString($"{totalVentas:N2}", fuenteTexto, brush, 20, y);
+                            y += 25;
+                            g.DrawString($"{cantidadVentas:N2}", fuenteTexto, brush, 20, y);
+                            y += 25;
+                            g.DrawString($"{ticketPromedio:N2}", fuenteTexto, brush, 20, y);
+                            y += 40;
+
+                            g.DrawString("Detalle de ventas:", fuenteNegrita, brush, 20, y);
+                            y += 30;
+
+                            // Encabezados
+                            int x = 20;
+                            foreach (DataGridViewColumn col in dgvVentas.Columns)
+                            {
+                                g.DrawString(col.HeaderText, fuenteTexto, brush, x, y);
+                                x += 140;
+                            }
+                            y += 20;
+                            g.DrawLine(Pens.Black, 20, y, 880, y);
+                            y += 10;
+
+
+                            int filasDibujadas = 0;
+                            for (int i = filaInicio; i < dgvVentas.Rows.Count; i++)
+                            {
+                                DataGridViewRow row = dgvVentas.Rows[i];
+                                if (row.IsNewRow) continue;
+
+                                x = 20;
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    string texto = cell.Value?.ToString();
+                                    if (texto?.Length > 18) texto = texto.Substring(0, 18) + "...";
+                                    g.DrawString(texto, fuenteTexto, brush, x, y);
+                                    x += 140;
+                                }
+
+                                y += 20;
+                                filasDibujadas++;
+
+                                if (filasDibujadas >= filasPorPagina)
+                                {
+                                    
+                                    filaInicio = i + 1;
+                                    ev.HasMorePages = true;
+                                    return;
+                                }
+                            }
+
+
+                            y += 30;
+                            g.DrawString("Gráfico de Ventas:", fuenteNegrita, brush, 20, y);
+                            y += 20;
+
+                            if (File.Exists(rutaGrafico))
+                            {
+                                using (Image grafico = Image.FromFile(rutaGrafico))
+                                {
+                                    int maxAncho = 760;
+                                    int maxAlto = 400;
+                                    double ratio = Math.Min((double)maxAncho / grafico.Width, (double)maxAlto / grafico.Height);
+                                    int anchoFinal = (int)(grafico.Width * ratio);
+                                    int altoFinal = (int)(grafico.Height * ratio);
+                                    int xCentrado = (900 - anchoFinal) / 2;
+                                    g.DrawImage(grafico, xCentrado, y, anchoFinal, altoFinal);
+                                }
+                            }
+
+                            ev.HasMorePages = false;
+                        };
+
+                        pd.PrintController = new StandardPrintController();
+                        pd.Print();
+                    }
+
+                    MessageBox.Show("PDF exportado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (File.Exists(rutaPDF))
+                        Process.Start(rutaPDF);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al exportar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
 
 
         private void cboTipoGrafico_SelectedIndexChanged(object sender, EventArgs e)

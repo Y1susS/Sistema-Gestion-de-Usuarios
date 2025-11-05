@@ -80,7 +80,7 @@ namespace Logica
         }
 
 
-        public List<CD_PermisoUsuarioViewModel> ObtenerFuncionalidadesYPermisosDeRol(int idRol)
+        public List<CD_PermisoUsuario> ObtenerFuncionalidadesYPermisosDeRol(int idRol)
         {
             // 1. Llama al método corregido, que ahora devuelve List<DtoPermisoUsuario>
             List<DtoPermisoUsuario> todasFuncionalidades = _datosPermisos.ObtenerTodasLasFuncionalidades();
@@ -88,11 +88,11 @@ namespace Logica
             List<int> permisosDelRol = _datosPermisos.ObtenerPermisosPorRol(idRol);
 
             // 2. Mantenemos el ViewModel (CD_PermisoUsuarioViewModel) para la lógica de Rol, pero la fuente de datos ahora usa 'Nombre'.
-            List<CD_PermisoUsuarioViewModel> permisosViewModel = new List<CD_PermisoUsuarioViewModel>();
+            List<CD_PermisoUsuario> permisosViewModel = new List<CD_PermisoUsuario>();
 
             foreach (var funcionalidad in todasFuncionalidades)
             {
-                permisosViewModel.Add(new CD_PermisoUsuarioViewModel
+                permisosViewModel.Add(new CD_PermisoUsuario
                 {
                     IdPermiso = funcionalidad.IdFuncionalidad,
 
@@ -107,7 +107,7 @@ namespace Logica
             return permisosViewModel;
         }
 
-        public bool ActualizarPermisosDeRol(int idRol, List<CD_PermisoUsuarioViewModel> permisosActualizados)
+        public bool ActualizarPermisosDeRol(int idRol, List<CD_PermisoUsuario> permisosActualizados)
         {
             bool exitoGeneral = true;
             try

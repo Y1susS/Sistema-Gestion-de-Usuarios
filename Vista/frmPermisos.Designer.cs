@@ -1,4 +1,4 @@
-﻿namespace Sistema_Gestion_De_Usuarios
+﻿namespace Vista
 {
     partial class frmPermisos
     {

@@ -266,7 +266,6 @@ namespace Vista
                 ActualizarHabilitacionFechas(chkFechaActivo.Checked);
             }
 
-            // Botones Editar/Eliminar
             var btnEditar = Controls.Find("btnEditarCotizacion", true).FirstOrDefault() as Button;
             if (btnEditar != null)
             {
@@ -283,7 +282,6 @@ namespace Vista
         }
 
 
-        // NO filtra: solo ajusta mínimos y UI
         private void Dtp_ValueChanged(object sender, EventArgs e)
         {
             var dtpDesde = Controls.Find("dtpDesde", true).FirstOrDefault() as DateTimePicker;
@@ -300,14 +298,12 @@ namespace Vista
         {
             var chkFechaActivo = Controls.Find("chkFechaActivo", true).FirstOrDefault() as CheckBox;
             ActualizarHabilitacionFechas(chkFechaActivo != null && chkFechaActivo.Checked);
-            // No aplicar filtro aquí
         }
 
         private void ChkFechaActivo_CheckedChanged(object sender, EventArgs e)
         {
             var chk = sender as CheckBox;
             ActualizarHabilitacionFechas(chk != null && chk.Checked);
-            // No aplicar filtro aquí
         }
 
         private string ObtenerTexto(string nombreTextBox)
@@ -348,16 +344,13 @@ namespace Vista
             //presupuestador
             if (this.esModoSeleccion)
             {
-                // Selecciona solo esta fila (MultiSelect puede estar activo, pero solo actuamos sobre esta)
                 dvgCotizaciones.ClearSelection();
                 dvgCotizaciones.Rows[e.RowIndex].Selected = true;
 
-                // Llamar a la lógica de selección
                 btnSeleccionarCotizacion_Click(sender, e);
             }
             else
             {
-                // Si no, doble clic = editar
                 EditarCotizacion(fila);
             }
         }

@@ -55,6 +55,7 @@
             this.pnlFunciones = new System.Windows.Forms.Panel();
             this.lblEstado = new System.Windows.Forms.Label();
             this.pnlGrafico = new System.Windows.Forms.Panel();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlBorde = new System.Windows.Forms.Panel();
             this.lblreportes = new System.Windows.Forms.Label();
@@ -98,7 +99,6 @@
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(175, 24);
             this.dtpHasta.TabIndex = 2;
-            this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
             // 
             // cboUsuarios
             // 
@@ -322,12 +322,23 @@
             // pnlGrafico
             // 
             this.pnlGrafico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(40)))));
+            this.pnlGrafico.Controls.Add(this.btnExportar);
             this.pnlGrafico.Controls.Add(this.chartVentas);
             this.pnlGrafico.Location = new System.Drawing.Point(650, 85);
             this.pnlGrafico.Name = "pnlGrafico";
             this.pnlGrafico.Size = new System.Drawing.Size(430, 470);
             this.pnlGrafico.TabIndex = 31;
             this.pnlGrafico.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGrafico_Paint);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(343, 433);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.TabIndex = 16;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // chartVentas
             // 
@@ -472,5 +483,6 @@
         private System.Windows.Forms.PictureBox pctMinimize;
         private System.Windows.Forms.PictureBox pctClose;
         private System.Windows.Forms.Panel pnlBordeInferior;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

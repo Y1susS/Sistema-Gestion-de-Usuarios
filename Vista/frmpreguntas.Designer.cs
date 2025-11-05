@@ -63,7 +63,6 @@
             this.lblInstrucciones.BackColor = System.Drawing.Color.Transparent;
             this.lblInstrucciones.ForeColor = System.Drawing.Color.White;
             this.lblInstrucciones.Name = "lblInstrucciones";
-            this.lblInstrucciones.Click += new System.EventHandler(this.lblInstrucciones_Click);
             // 
             // lblUsuariopregserg
             // 
@@ -169,7 +168,6 @@
             this.pnlBotones.BackColor = System.Drawing.Color.Transparent;
             this.pnlBotones.Controls.Add(this.btnsigpregseg);
             this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBotones_Paint);
             // 
             // panel3
             // 

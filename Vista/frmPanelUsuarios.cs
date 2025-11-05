@@ -1,9 +1,8 @@
-﻿using Datos;
-using Sesion;
+﻿using Sesion;
 using Entidades.DTOs;
 using Logica;
 using Sistema_Gestion_de_Usuarios.Vista;
-using Sistema_Gestion_De_Usuarios;
+using Vista;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

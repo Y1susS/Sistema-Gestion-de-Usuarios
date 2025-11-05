@@ -15,7 +15,6 @@ namespace Logica
     {
         private readonly CD_BackUp oCD_Backup = new CD_BackUp();
 
-        // 1. Declaración del Evento ProgressChanged que usa el formulario
         public event ProgressChangedEventHandler ProgressChanged;
 
         public CL_BackUp()

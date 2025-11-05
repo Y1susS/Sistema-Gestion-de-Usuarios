@@ -252,15 +252,6 @@ namespace Vista
 
         }
 
-        private void pnlBotones_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblInstrucciones_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
