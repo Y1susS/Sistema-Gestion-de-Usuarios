@@ -256,6 +256,24 @@ namespace Vista
             this.pctClose.Refresh();
         }
 
+        // Helper: Mostrar una única instancia de un formulario (si existe, activarla)
+        private void MostrarUnicaInstancia<TForm>(Func<TForm> crear) where TForm : Form
+        {
+            var existente = Application.OpenForms.OfType<TForm>().FirstOrDefault();
+            if (existente != null)
+            {
+                if (existente.WindowState == FormWindowState.Minimized)
+                    existente.WindowState = FormWindowState.Normal;
+                existente.BringToFront();
+                existente.Activate();
+                return;
+            }
+
+            var nuevo = crear();
+            // Establecer este formulario como propietario para mejor gestión de z-order (opcional)
+            nuevo.Show(this);
+        }
+
         private void frmPanelUsuarios_Load(object sender, EventArgs e)
         {
             DesactivarFocoEnBotones(this);
@@ -326,8 +344,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Gestión de Validaciones")) 
             {
                 SeleccionarBoton((Button)sender);
-                frmSegContraseña frmSegContraseña = new frmSegContraseña();
-                frmSegContraseña.Show();
+                // Unica instancia de frmSegContraseña
+                MostrarUnicaInstancia(() => new frmSegContraseña());
             }
         }
 
@@ -345,8 +363,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("PreguntasSeguridad"))
             {
                 SeleccionarBoton((Button)sender);
-                frmPreguntas frmPreguntas = new frmPreguntas();
-                frmPreguntas.Show();
+                // Unica instancia de frmPreguntas
+                MostrarUnicaInstancia(() => new frmPreguntas());
             }
         }
 
@@ -355,8 +373,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Cambiar contraseña"))
             {
                 SeleccionarBoton((Button)sender);
-                frmCambioPass frmCambioPass = new frmCambioPass();
-                frmCambioPass.Show();
+                // Unica instancia de frmCambioPass
+                MostrarUnicaInstancia(() => new frmCambioPass());
             }
         }
 
@@ -461,8 +479,8 @@ namespace Vista
         private void btncotizador_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
-            frmCotizador frmCotizador = new frmCotizador();
-            frmCotizador.Show();
+            // Unica instancia de frmCotizador
+            MostrarUnicaInstancia(() => new frmCotizador());
         }
 
         private void btngestionstock_Click(object sender, EventArgs e)
@@ -474,8 +492,8 @@ namespace Vista
         private void btnmetricas_Click(object sender, EventArgs e)
         {
             SeleccionarBoton((Button)sender);
-            frmReportes frmReportes = new frmReportes();
-            frmReportes.Show();
+            // Unica instancia de frmReportes
+            MostrarUnicaInstancia(() => new frmReportes());
         }
 
         private void btnbackup_Click(object sender, EventArgs e)
@@ -506,8 +524,8 @@ namespace Vista
             if (ClsSesionActual.Usuario.Permisos.Contains("Presupuestador")) 
             {
                 SeleccionarBoton((Button)sender);
-                frmPresupuestador frmPresupuestador = new frmPresupuestador();
-                frmPresupuestador.Show();
+                // Unica instancia de frmPresupuestador
+                MostrarUnicaInstancia(() => new frmPresupuestador());
             }
         }
 
@@ -621,8 +639,8 @@ namespace Vista
 
         private void btnCotizaciones_Click(object sender, EventArgs e)
         {
-            frmListarCotizaciones frmListarCotizaciones = new frmListarCotizaciones();
-            frmListarCotizaciones.Show();
+            // Mostrar única instancia de frmListarCotizaciones
+            MostrarUnicaInstancia(() => new frmListarCotizaciones());
             //SeleccionarBoton((Button)sender);
             //AbrirFormHijo(new frmListarCotizaciones());
         }
