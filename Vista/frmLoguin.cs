@@ -202,6 +202,20 @@ namespace Vista
             Idioma.CambiarIdioma(nuevoIdioma);
             Idioma.AplicarTraduccion(this);
         }
+
+        // Permite reiniciar el formulario para un nuevo inicio de sesión limpio
+        public void ReiniciarEstado()
+        {
+            txtUsuario.Text = string.Empty;
+            txtContrasenia.Text = string.Empty;
+            txtContrasenia.UseSystemPasswordChar = false;
+
+            ClsPlaceHolder.Leave(USER_PLACEHOLDER, txtUsuario);
+            ClsPlaceHolder.Leave(PLACEHOLDER_PASS, txtContrasenia, true);
+
+            this.BeginInvoke(new Action(() => this.ActiveControl = null));
+            this.AcceptButton = btnLogin;
+        }
     }
 }
 
