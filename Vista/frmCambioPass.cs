@@ -81,7 +81,8 @@ namespace Vista
 
         private void frmCambioPass_Load(object sender, EventArgs e)
         {
-            this.BeginInvoke(new Action(() => this.ActiveControl = null));
+            // Establecer el foco inicial en un control enfocable que no sea un TextBox para preservar los placeholders
+            this.BeginInvoke(new Action(() => this.ActiveControl = btnCambiar));
 
             if (requiereContraseñaActual)
                 ClsPlaceHolder.Leave(PASS_ACTUAL_PLACEHOLDER, txtPassActual, true);
@@ -91,7 +92,6 @@ namespace Vista
 
             MostrarRestriccionesContrasena();
             lblUsuariocont.Text = $"Usuario: {ClsSesionActual.Usuario.User}";
-            this.ActiveControl = lblUsuariocont;
 
             moverFormulario = new ClsArrastrarFormularios(this);
             moverFormulario.HabilitarMovimiento(pnlBorde);
@@ -288,11 +288,28 @@ namespace Vista
         private void frmCambioPass_Shown(object sender, EventArgs e)
         {
             this.AcceptButton = btnCambiar;
-            this.BeginInvoke(new Action(() => this.ActiveControl = null));
+            // Asegurar que el foco no vaya a los TextBox al mostrarse el formulario
+            this.BeginInvoke(new Action(() => this.ActiveControl = btnCambiar));
         }
 
         private void pctClose_Click(object sender, EventArgs e)
         {
+            // Volver al formulario anterior; si es el login, mostrarlo limpio
+            if (_formularioAnterior != null && !_formularioAnterior.IsDisposed)
+            {
+                var login = _formularioAnterior as FrmLoguin;
+                if (login != null)
+                {
+                    try { login.ReiniciarEstado(); } catch { }
+                    login.Show();
+                    login.Activate();
+                }
+                else
+                {
+                    _formularioAnterior.Show();
+                    _formularioAnterior.Activate();
+                }
+            }
             this.Close();
         }
 

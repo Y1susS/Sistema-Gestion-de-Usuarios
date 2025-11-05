@@ -114,7 +114,6 @@ namespace Vista
                         // Después de actualizar la contraseña, se marca al usuario para que deba cambiarla en el próximo inicio de sesión.
                         bool actualizacionPrimeraClaveExitosa = objUsuarios.ActualizarPrimeraClave(usuarioRecuperado.User, true);
 
-                        // Agregamos una validación para saber si el estado se actualizó correctamente
                         if (!actualizacionPrimeraClaveExitosa)
                         {
                             MessageBox.Show("La contraseña se actualizó, pero no se pudo marcar el estado para cambio forzado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -129,9 +128,13 @@ namespace Vista
                             MessageBox.Show($"¡Contraseña restablecida y enviada!\n\nSe ha enviado un correo a '{usuarioRecuperado.Email}' con su nueva contraseña.",
                                             "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Redirige al login.
-                            FrmLoguin frmloguin = new FrmLoguin();
-                            frmloguin.Show();
+                            // Volver a un login limpio (sin crear una segunda instancia si ya existe)
+                            var login = Application.OpenForms.OfType<FrmLoguin>().FirstOrDefault();
+                            if (login == null) login = new FrmLoguin();
+                            try { login.ReiniciarEstado(); } catch { }
+                            if (!login.Visible) login.Show();
+                            login.Activate();
+
                             this.Close();
                         }
                         catch (Exception exMail)
@@ -139,10 +142,14 @@ namespace Vista
                             MessageBox.Show($"La contraseña se actualizó en el sistema, pero hubo un error al enviar el correo electrónico: {exMail.Message}\nPor favor, contacte al soporte técnico.",
                                             "Error de Envío de Correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                            // Si falla el envío de mail, volvemos al login.
-                            FrmLoguin frmloguin = new FrmLoguin();
-                            frmloguin.Show();
-                            this.Hide();
+                            // Si falla el envío de mail, volvemos al login limpio igual.
+                            var login = Application.OpenForms.OfType<FrmLoguin>().FirstOrDefault();
+                            if (login == null) login = new FrmLoguin();
+                            try { login.ReiniciarEstado(); } catch { }
+                            if (!login.Visible) login.Show();
+                            login.Activate();
+
+                            this.Close();
                         }
                     }
                     else
@@ -236,6 +243,14 @@ namespace Vista
 
         private void pctClose_Click(object sender, EventArgs e)
         {
+            // Si el usuario cierra este formulario, volver a un login limpio si existe
+            var login = Application.OpenForms.OfType<FrmLoguin>().FirstOrDefault();
+            if (login != null)
+            {
+                try { login.ReiniciarEstado(); } catch { }
+                if (!login.Visible) login.Show();
+                login.Activate();
+            }
             this.Close();
         }
 
