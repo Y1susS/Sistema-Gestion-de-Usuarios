@@ -124,6 +124,10 @@
   <data name="lblRespuestasseg.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 30</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblRespuestasseg.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="&gt;&gt;pctLogo.Name" xml:space="preserve">
     <value>pctLogo</value>
   </data>
@@ -139,7 +143,6 @@
   <data name="pnlBorde.Size" type="System.Drawing.Size, System.Drawing">
     <value>600, 40</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="pctClose.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
+  </data>
+  <data name="cmbPregunta1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>330, 26</value>
   </data>
   <data name="&gt;&gt;cmbPregunta1.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -294,6 +300,9 @@
   <data name="lblInstrucciones.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;txtRespuesta3.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
   <data name="&gt;&gt;pnlBotones.Name" xml:space="preserve">
     <value>pnlBotones</value>
   </data>
@@ -358,9 +367,6 @@
   <data name="&gt;&gt;pctClose.Name" xml:space="preserve">
     <value>pctClose</value>
   </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 20</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Preguntas de seguridad</value>
   </data>
@@ -385,14 +391,8 @@
   <data name="&gt;&gt;lbltitpregsegu.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pnlBorde.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;pctClose.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;pnlBotones.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="pctMinimize.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 40</value>
@@ -553,6 +553,9 @@
         jCAgAAAAD/+MFBQAAAAP/4w8PAAAAA//jAAAAAAAAAAMAAAAAAAAABwAAAAAAAAAPAAAAAAA
 </value>
   </data>
+  <data name="lblRespuestasseg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>363, 0</value>
+  </data>
   <data name="&gt;&gt;pctMinimize.Name" xml:space="preserve">
     <value>pctMinimize</value>
   </data>
@@ -595,14 +598,17 @@
   <data name="lblUsuariopregserg.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="cmbPregunta1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 26</value>
+  <data name="&gt;&gt;pnlBorde.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="lblRespuestasseg.Text" xml:space="preserve">
-    <value>Respuestas</value>
+  <data name="&gt;&gt;cmbPregunta3.Parent" xml:space="preserve">
+    <value>panel3</value>
   </data>
   <data name="cmbPregunta3.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="cmbPregunta1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;pctLogo.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -637,8 +643,8 @@
   <data name="&gt;&gt;btnsigpregseg.Parent" xml:space="preserve">
     <value>pnlBotones</value>
   </data>
-  <data name="lblRespuestasseg.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="lblRespuestasseg.Text" xml:space="preserve">
+    <value>Respuestas</value>
   </data>
   <data name="&gt;&gt;cmbPregunta3.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -651,12 +657,6 @@
   </data>
   <data name="&gt;&gt;lblInstrucciones.Name" xml:space="preserve">
     <value>lblInstrucciones</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;cmbPregunta3.Parent" xml:space="preserve">
-    <value>panel3</value>
   </data>
   <data name="&gt;&gt;lblUsuariopregserg.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -679,8 +679,8 @@
   <data name="lblAdorno.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="cmbPregunta1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;lblUsuariopregserg.Parent" xml:space="preserve">
     <value>$this</value>
@@ -702,9 +702,6 @@
   </data>
   <data name="&gt;&gt;cmbPregunta3.Name" xml:space="preserve">
     <value>cmbPregunta3</value>
-  </data>
-  <data name="lblInstrucciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 25</value>
   </data>
   <data name="pctMinimize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -762,11 +759,14 @@
   <data name="&gt;&gt;lblInstrucciones.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;lblAdorno.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="txtRespuesta3.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="lblRespuestasseg.Location" type="System.Drawing.Point, System.Drawing">
-    <value>363, 0</value>
+  <data name="lblInstrucciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 25</value>
   </data>
   <data name="&gt;&gt;pnlBorde.Name" xml:space="preserve">
     <value>pnlBorde</value>
@@ -774,8 +774,8 @@
   <data name="btnsigpregseg.Location" type="System.Drawing.Point, System.Drawing">
     <value>163, 12</value>
   </data>
-  <data name="&gt;&gt;txtRespuesta3.Parent" xml:space="preserve">
-    <value>panel3</value>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 20</value>
   </data>
   <data name="&gt;&gt;lblAdorno.Parent" xml:space="preserve">
     <value>$this</value>
@@ -786,8 +786,8 @@
   <data name="lblPreguntasseg.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;lblAdorno.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;pnlBotones.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lbltitpregsegu.Size" type="System.Drawing.Size, System.Drawing">
     <value>520, 40</value>
