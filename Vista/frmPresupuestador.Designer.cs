@@ -126,7 +126,7 @@
             // lblemailclientepresupuesto
             // 
             this.lblemailclientepresupuesto.Font = new System.Drawing.Font("Bahnschrift", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblemailclientepresupuesto.Location = new System.Drawing.Point(301, 81);
+            this.lblemailclientepresupuesto.Location = new System.Drawing.Point(316, 80);
             this.lblemailclientepresupuesto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblemailclientepresupuesto.Name = "lblemailclientepresupuesto";
             this.lblemailclientepresupuesto.Size = new System.Drawing.Size(93, 41);
