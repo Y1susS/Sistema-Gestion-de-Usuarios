@@ -73,6 +73,32 @@ namespace Vista
                 return;
             }
 
+            // Nueva validación: DNI registrado pero sin preguntas configuradas → bloquear recuperación
+            string documento = txtdni.Text.Trim();
+            try
+            {
+                var datosUsuario = objUsuarios.ObtenerUsuarioDetallePorDni(documento);
+                if (datosUsuario == null)
+                {
+                    MessageBox.Show("El documento ingresado no corresponde a un usuario registrado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                bool tienePreguntas = objUsuarios.UsuarioTienePreguntasDeSeguridad(datosUsuario.User);
+                if (!tienePreguntas)
+                {
+                    MessageBox.Show("El usuario no posee preguntas de seguridad configuradas. Comuníquese con el administrador.",
+                                    "Recuperación no disponible", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al validar el estado de seguridad del usuario: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (cmbpreguntasseg.SelectedIndex == -1)
             {
                 MessageBox.Show("Seleccione una pregunta de seguridad.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -85,7 +111,6 @@ namespace Vista
                 return;
             }
 
-            string documento = txtdni.Text.Trim();
             int idPregunta = Convert.ToInt32(cmbpreguntasseg.SelectedValue);
             string respuesta = txtrespuesta.Text.Trim().ToLower();
 
