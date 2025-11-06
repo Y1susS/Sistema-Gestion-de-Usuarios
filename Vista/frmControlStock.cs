@@ -513,7 +513,8 @@ namespace Vista
                 if (material != null &&
                     material.TipoMaterial != null &&
                     material.TipoMaterial.NombreTipoMaterial != null &&
-                    material.TipoMaterial.NombreTipoMaterial.Equals("Maderas", StringComparison.OrdinalIgnoreCase))
+                    material.TipoMaterial.NombreTipoMaterial.Equals("Maderas", StringComparison.OrdinalIgnoreCase) ||
+                    material.TipoMaterial.NombreTipoMaterial.Equals("Vidrios", StringComparison.OrdinalIgnoreCase))
                 {
                     fila.DefaultCellStyle.BackColor = Color.White; 
                     continue; 
@@ -551,7 +552,8 @@ namespace Vista
                 materialesParaMostrar = materialesCompletosPorTipo
                     .Where(m => m.TipoMaterial != null &&
                                 m.TipoMaterial.NombreTipoMaterial != null &&
-                                !m.TipoMaterial.NombreTipoMaterial.Equals("Maderas", StringComparison.OrdinalIgnoreCase) && 
+                                !m.TipoMaterial.NombreTipoMaterial.Equals("Maderas", StringComparison.OrdinalIgnoreCase) &&
+                                !m.TipoMaterial.NombreTipoMaterial.Equals("Vidrios", StringComparison.OrdinalIgnoreCase) &&
                                 m.StockActual.GetValueOrDefault() <= m.StockMinimo.GetValueOrDefault())
                     .ToList();
             }

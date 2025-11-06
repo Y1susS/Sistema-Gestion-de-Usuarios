@@ -383,6 +383,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(250, 28);
             this.txtBuscar.TabIndex = 29;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // btnBuscar
             // 
