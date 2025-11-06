@@ -735,7 +735,7 @@ namespace Vista
                     return;
                 }
 
-                if (!ValidarParametrosPresupuesto()) return;
+                if (!ValidarParametrosCotizacion()) return;
 
                 decimal porcentajeDesperdicio = ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desp) ? desp :0;
                 if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal porcentajeGanancia))
@@ -826,7 +826,7 @@ namespace Vista
             }
         }
 
-        private bool ValidarParametrosPresupuesto()
+        private bool ValidarParametrosCotizacion()
         {
             if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal ganancia) || ganancia <=0)
             {
@@ -839,7 +839,7 @@ namespace Vista
             var cmbMaderas = this.Controls.Find("cmbMaderas", true).FirstOrDefault() as ComboBox;
             if (cmbMaderas != null && cmbMaderas.SelectedItem == null)
             {
-                MessageBox.Show("Debe seleccionar una madera para calcular el presupuesto.",
+                MessageBox.Show("Debe seleccionar una madera para calcular la Cotización.",
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbMaderas.Focus();
                 return false;

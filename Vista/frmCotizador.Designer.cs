@@ -318,7 +318,7 @@
             this.txtespesorm4.Location = new System.Drawing.Point(238, 162);
             this.txtespesorm4.Name = "txtespesorm4";
             this.txtespesorm4.Size = new System.Drawing.Size(55, 24);
-            this.txtespesorm4.TabIndex = 7984;
+            this.txtespesorm4.TabIndex = 7903;
             this.txtespesorm4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTotalPrecioXPie
