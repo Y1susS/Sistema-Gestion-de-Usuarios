@@ -784,6 +784,9 @@ namespace Vista
                 }
             }
 
+            // Alertar sobre stock de herrajes para venta
+            AlertarStockHerrajesParaVenta();
+
             try
             {
                 decimal.TryParse(txtDescuento.Text.Trim(), out decimal porcentajeDescuento);
@@ -1084,6 +1087,115 @@ namespace Vista
             {
                 MessageBox.Show("Error al exportar el presupuesto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.presupuestoExportado = false;
+            }
+        }
+
+        private void AlertarStockHerrajesParaVenta()
+        {
+            try
+            {
+                // 1️⃣ Obtener los tipos de materiales disponibles
+                var tipos = clMaterial.ListarTiposMateriales() ?? new List<DtoTipoMaterial>();
+
+                // 2️⃣ Filtrar los tipos de materiales relevantes (herrajes)
+                var idsTiposObjetivo = new HashSet<int>(
+                    tipos
+                        .Where(t =>
+                            !string.IsNullOrWhiteSpace(t.NombreTipoMaterial) &&
+                            new[] { "bisagra", "bisagras", "manija", "manijas", "corredera", "correderas" }
+                                .Any(k => t.NombreTipoMaterial.Trim().ToLower().Contains(k))
+                        )
+                        .Select(t => t.IdTipoMaterial)
+                );
+
+                if (idsTiposObjetivo.Count == 0)
+                    return;
+
+                // 3️⃣ Calcular la cantidad requerida por material
+                var requeridosPorMaterial = new Dictionary<int, decimal>();
+
+                foreach (var detalle in this.detallesCotizacion)
+                {
+                    if (detalle == null || detalle.IdCotizacion <= 0)
+                        continue;
+
+                    var cot = clCotizacion.ObtenerCotizacion(detalle.IdCotizacion);
+                    if (cot == null || cot.MaterialesVarios == null)
+                        continue;
+
+                    foreach (var mv in cot.MaterialesVarios)
+                    {
+                        if (mv == null)
+                            continue;
+
+                        var mat = clMaterial.ObtenerMaterial(mv.IdMaterial);
+                        int idTipo = 0;
+
+                        if (mat != null && mat.TipoMaterial != null && mat.TipoMaterial.IdTipoMaterial > 0)
+                        {
+                            idTipo = mat.TipoMaterial.IdTipoMaterial;
+                        }
+                        else if (mat != null && mat.Id_TipoMaterial.HasValue)
+                        {
+                            idTipo = mat.Id_TipoMaterial.Value;
+                        }
+
+                        if (!idsTiposObjetivo.Contains(idTipo))
+                            continue;
+
+                        // Cantidad total requerida considerando cantidad del presupuesto
+                        decimal cantidadRequerida = mv.Cantidad * (detalle.Cantidad > 0 ? detalle.Cantidad : 1);
+
+                        if (requeridosPorMaterial.ContainsKey(mv.IdMaterial))
+                            requeridosPorMaterial[mv.IdMaterial] += cantidadRequerida;
+                        else
+                            requeridosPorMaterial[mv.IdMaterial] = cantidadRequerida;
+                    }
+                }
+
+                if (requeridosPorMaterial.Count == 0)
+                    return;
+
+                // 4️⃣ Generar advertencias de stock
+                var advertencias = new List<string>();
+
+                foreach (var kv in requeridosPorMaterial)
+                {
+                    var mat = clMaterial.ObtenerMaterial(kv.Key);
+                    var nombre = (mat != null && !string.IsNullOrWhiteSpace(mat.NombreMaterial))
+                        ? mat.NombreMaterial
+                        : $"Material ID {kv.Key}";
+
+                    decimal stockActual = mat?.StockActual ?? 0m;
+                    decimal stockMinimo = mat?.StockMinimo ?? 0m;
+                    decimal requerido = kv.Value;
+                    decimal restante = stockActual - requerido;
+
+                    if (stockActual <= 0 || restante < 0)
+                    {
+                        advertencias.Add($"Sin stock suficiente: {nombre} (Disp: {stockActual}, Requerido: {requerido})");
+                    }
+                    else if (stockActual <= stockMinimo || restante < stockMinimo)
+                    {
+                        advertencias.Add($"Stock bajo: {nombre} (Actual: {stockActual}, Mínimo: {stockMinimo})");
+                    }
+                }
+
+                // 5️⃣ Mostrar advertencias si las hay
+                if (advertencias.Count > 0)
+                {
+                    var mensaje = string.Join(Environment.NewLine, advertencias.Take(10));
+                    MessageBox.Show(
+                        $"Atención: Revisión de stock:{Environment.NewLine}{mensaje}",
+                        "Stock de herrajes",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+            }
+            catch
+            {
+                // Silenciar errores de alerta para no bloquear la venta
             }
         }
 
