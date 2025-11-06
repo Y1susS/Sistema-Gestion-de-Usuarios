@@ -39,7 +39,24 @@ namespace Vista
         public frmCotizador()
         {
             InitializeComponent();
-            Idioma.CargarIdiomaGuardado();
+
+            // Activar doble buffer para reducir parpadeos
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
+            this.DoubleBuffered = true;
+            this.UpdateStyles();
+
+            // Doble buffer por reflexión en paneles que pintan en Paint
+            try
+            {
+                var prop = typeof(Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                if (prop != null)
+                {
+                    if (pnlPresupuesto != null) prop.SetValue(pnlPresupuesto, true, null);
+                    if (pnlDescripcionMueble != null) prop.SetValue(pnlDescripcionMueble, true, null);
+                }
+            }
+            catch { /* ignorar */ }
+
             Idioma.AplicarTraduccion(this);
 
             // CONFIGURAR FORMATO ESPAÑOL PARA DECIMALES
@@ -54,6 +71,9 @@ namespace Vista
         {
             this.Size = new Size(1190, 585);
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Suspender layout durante la carga para reducir parpadeos
+            this.SuspendLayout();
             try
             {
                 CargarTodosLosCombos();
@@ -65,6 +85,12 @@ namespace Vista
             {
                 MessageBox.Show("Error al cargar el formulario.", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Rehabilitar layout y forzar un layout final
+                this.ResumeLayout(false);
+                this.PerformLayout();
             }
         }
         #endregion
@@ -173,7 +199,7 @@ namespace Vista
                     combo.DataSource = new List<DtoMaterial>(materiales);
                     combo.DropDownStyle = ComboBoxStyle.DropDownList;
                     combo.SelectedIndex = -1;
-                    combo.Enabled = materiales.Count > 0;
+                    combo.Enabled = materiales.Count >0;
                 }
             }
             catch
@@ -207,13 +233,13 @@ namespace Vista
                     cmbMaderas.SelectedIndexChanged += CmbMaderas_SelectedIndexChanged;
                 }
 
-                for (int i = 1; i <= 6; i++)
+                for (int i =1; i <=6; i++)
                 {
                     ConfigurarEventoComboTipo(i);
                     ConfigurarEventoComboMaterial(i);
                 }
 
-                for (int i = 1; i <= 3; i++)
+                for (int i =1; i <=3; i++)
                 {
                     ConfigurarEventoVidrio(i);
                 }
@@ -294,16 +320,16 @@ namespace Vista
             var cmb = sender as ComboBox;
             if (cmb == null) return;
 
-            int idTipoMaterial = 0;
+            int idTipoMaterial =0;
 
-            if (cmb.SelectedValue != null && int.TryParse(cmb.SelectedValue.ToString(), out idTipoMaterial) && idTipoMaterial > 0)
+            if (cmb.SelectedValue != null && int.TryParse(cmb.SelectedValue.ToString(), out idTipoMaterial) && idTipoMaterial >0)
             {
                 CargarMaterialesPorTipo(idTipoMaterial, numeroCombo);
                 return;
             }
 
             var item = cmb.SelectedItem as DtoTipoMaterial;
-            if (item != null && item.IdTipoMaterial > 0)
+            if (item != null && item.IdTipoMaterial >0)
             {
                 idTipoMaterial = item.IdTipoMaterial;
                 CargarMaterialesPorTipo(idTipoMaterial, numeroCombo);
@@ -679,9 +705,9 @@ namespace Vista
 
                 decimal totalPies = detallesCotizacion.Sum(d => d.Pies);
 
-                if (ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desperdicio) && desperdicio > 0)
+                if (ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desperdicio) && desperdicio >0)
                 {
-                    decimal factor = 1 + (desperdicio / 100m);
+                    decimal factor =1 + (desperdicio /100m);
                     totalPies *= factor;
                 }
 
@@ -702,7 +728,7 @@ namespace Vista
         {
             try
             {
-                if (detallesCotizacion.Count == 0)
+                if (detallesCotizacion.Count ==0)
                 {
                     MessageBox.Show("Primero debe calcular los pies.", "Advertencia",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -711,7 +737,7 @@ namespace Vista
 
                 if (!ValidarParametrosPresupuesto()) return;
 
-                decimal porcentajeDesperdicio = ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desp) ? desp : 0;
+                decimal porcentajeDesperdicio = ClsSoloNumeros.TryParseDecimal(txtdesperdicio.Text, out decimal desp) ? desp :0;
                 if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal porcentajeGanancia))
                 {
                     MessageBox.Show("El porcentaje de ganancia no es válido.", "Error",
@@ -738,7 +764,7 @@ namespace Vista
                 cotizacion.SubTotalMateriales += costoVidrios + costoMaterialesVarios;
 
                 decimal totalSinGanancia = cotizacion.SubTotalMateriales;
-                decimal factorGanancia = 1 + (porcentajeGanancia / 100m);
+                decimal factorGanancia =1 + (porcentajeGanancia /100m);
                 cotizacion.MontoTotal = totalSinGanancia * factorGanancia;
                 cotizacion.MontoFinal = cotizacion.MontoTotal;
 
@@ -746,8 +772,6 @@ namespace Vista
                 lblpresupuesto.Visible = true;
 
                 ViewState.CotizacionActual = cotizacion;
-
-                AlertarStockHerrajesSiCorresponde();
 
                 MessageBox.Show("Cotización calculada exitosamente.", "Éxito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -804,7 +828,7 @@ namespace Vista
 
         private bool ValidarParametrosPresupuesto()
         {
-            if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal ganancia) || ganancia <= 0)
+            if (!ClsSoloNumeros.TryParseDecimal(txtganancia.Text, out decimal ganancia) || ganancia <=0)
             {
                 MessageBox.Show("Debe ingresar un porcentaje de ganancia válido mayor a cero.",
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -828,7 +852,7 @@ namespace Vista
         {
             var cmbMaderas = this.Controls.Find("cmbMaderas", true).FirstOrDefault() as ComboBox;
             if (cmbMaderas?.SelectedItem is DtoMaterial m)
-                return m.PrecioUnitario ?? 0m;
+                return m.PrecioUnitario ??0m;
             return 0m;
         }
 
@@ -843,9 +867,9 @@ namespace Vista
         private decimal CalcularCostoVidrios()
         {
             detallesVidrio.Clear();
-            decimal totalVidrios = 0;
+            decimal totalVidrios =0;
 
-            for (int i = 1; i <= 3; i++)
+            for (int i =1; i <=3; i++)
             {
                 var lblM2 = this.Controls.Find($"lblvalorxmetro2{i}", true).FirstOrDefault() as Label;
                 var lblUnidad = this.Controls.Find($"lblvidriounidad{i}", true).FirstOrDefault() as Label;
@@ -872,10 +896,10 @@ namespace Vista
                     if (cmbVidrio?.SelectedItem is DtoMaterial vidrio &&
                         ClsSoloNumeros.TryParseDecimal(txtLargo?.Text, out decimal largo) &&
                         ClsSoloNumeros.TryParseDecimal(txtAncho?.Text, out decimal ancho) &&
-                        int.TryParse(txtCantidad?.Text, out int cantidad) && cantidad > 0)
+                        int.TryParse(txtCantidad?.Text, out int cantidad) && cantidad >0)
                     {
-                        decimal m2PorPieza = (largo / 100m) * (ancho / 100m);
-                        decimal precioPorM2 = vidrio.PrecioUnitario ?? 0m;
+                        decimal m2PorPieza = (largo /100m) * (ancho /100m);
+                        decimal precioPorM2 = vidrio.PrecioUnitario ??0m;
                         decimal precioPorUnidad = m2PorPieza * precioPorM2;
                         decimal subtotal = precioPorUnidad * cantidad;
 
@@ -894,7 +918,7 @@ namespace Vista
                             AnchoCm = ancho,
                             Piezas = cantidad,
                             PrecioPorM2 = precioPorM2,
-                            PrecioPorUnidad = Math.Round(precioPorUnidad, 2)
+                            PrecioPorUnidad = Math.Round(precioPorUnidad,2)
                         });
                     }
                 }
@@ -913,9 +937,9 @@ namespace Vista
         private decimal CalcularCostoMaterialesVarios()
         {
             materialesVarios.Clear();
-            decimal totalMateriales = 0;
+            decimal totalMateriales =0;
 
-            for (int i = 1; i <= 6; i++)
+            for (int i =1; i <=6; i++)
             {
                 var posiblesNombresCheckbox = new[] { $"chkmaterial{i}", $"chkMaterial{i}", $"checkBoxMaterial{i}", $"chkmat{i}" };
                 CheckBox chkMaterial = null;
@@ -943,9 +967,9 @@ namespace Vista
 
                     if (cmbMaterial?.SelectedItem is DtoMaterial material &&
                         txtCantidad != null &&
-                        int.TryParse(txtCantidad.Text, out int cantidad) && cantidad > 0)
+                        int.TryParse(txtCantidad.Text, out int cantidad) && cantidad >0)
                     {
-                        decimal precioUnitario = material.PrecioUnitario ?? 0m;
+                        decimal precioUnitario = material.PrecioUnitario ??0m;
                         decimal costoTotal = precioUnitario * cantidad;
                         totalMateriales += costoTotal;
 
@@ -969,7 +993,7 @@ namespace Vista
 
         private decimal CalcularOtrosCostos()
         {
-            decimal otrosCostos = 0;
+            decimal otrosCostos =0;
 
             try
             {
@@ -986,15 +1010,15 @@ namespace Vista
                 var txtDescGastosVarios = this.Controls.Find("txtDescMateriale3", true).FirstOrDefault() as TextBox;
 
                 bool incluyeOtrosMateriales1 = chkOtrosMateriales1?.Checked == true;
-                decimal montoOtrosMateriales1 = 0; ClsSoloNumeros.TryParseDecimal(txtOtrosMateriales1?.Text, out montoOtrosMateriales1);
+                decimal montoOtrosMateriales1 =0; ClsSoloNumeros.TryParseDecimal(txtOtrosMateriales1?.Text, out montoOtrosMateriales1);
                 string descripcionOtrosMateriales1 = txtDescOtrosMateriales1?.Text;
 
                 bool incluyeOtrosMateriales2 = chkOtrosMateriales2?.Checked == true;
-                decimal montoOtrosMateriales2 = 0; ClsSoloNumeros.TryParseDecimal(txtOtrosMateriales2?.Text, out montoOtrosMateriales2);
+                decimal montoOtrosMateriales2 =0; ClsSoloNumeros.TryParseDecimal(txtOtrosMateriales2?.Text, out montoOtrosMateriales2);
                 string descripcionOtrosMateriales2 = txtDescOtrosMateriales2?.Text;
 
                 bool incluyeGastosVarios = chkGastosVarios?.Checked == true;
-                decimal montoGastosVarios = 0; ClsSoloNumeros.TryParseDecimal(txtGastosVarios?.Text, out montoGastosVarios);
+                decimal montoGastosVarios =0; ClsSoloNumeros.TryParseDecimal(txtGastosVarios?.Text, out montoGastosVarios);
                 string descripcionGastosVarios = txtDescGastosVarios?.Text;
 
                 var gastosVarios = logicaCotizacion.ProcesarMultiplesGastosVariosDesdeFormulario(
@@ -1012,7 +1036,7 @@ namespace Vista
                 if (lblTotalGastos != null)
                 {
                     lblTotalGastos.Text = $"${ClsSoloNumeros.FormatearDecimal(otrosCostos)}";
-                    lblTotalGastos.Visible = otrosCostos > 0;
+                    lblTotalGastos.Visible = otrosCostos >0;
                 }
 
                 return otrosCostos;
@@ -1073,6 +1097,7 @@ namespace Vista
         {
             try
             {
+                AlertarStockHerrajesSiCorresponde();
                 if (ViewState.CotizacionActual == null)
                 {
                     MessageBox.Show("Debe calcular el presupuesto antes de guardar.", "Advertencia",
@@ -1081,7 +1106,7 @@ namespace Vista
                 }
 
                 int idInicial = ViewState.CotizacionActual.Id_Cotizacion;
-                var esActualizacion = idInicial > 0;
+                var esActualizacion = idInicial >0;
 
                 var mensaje = esActualizacion ? "¿Desea actualizar esta cotización?" : "¿Desea guardar esta cotización?";
                 var result = MessageBox.Show(mensaje, "Confirmar Guardado",
@@ -1100,7 +1125,7 @@ namespace Vista
                 else
                 {
                     idGenerado = logicaCotizacion.AltaCotizacion(ViewState.CotizacionActual);
-                    exito = idGenerado > 0;
+                    exito = idGenerado >0;
                     if (exito)
                     {
                         ViewState.CotizacionActual.Id_Cotizacion = idGenerado;
@@ -1161,7 +1186,7 @@ namespace Vista
                 if (cotizacion == null) return;
 
                 var gastos = cotizacion.GastosVarios ?? new List<DtoGastoVario>();
-                if (gastos.Count == 0 && cotizacion.Id_Cotizacion > 0)
+                if (gastos.Count ==0 && cotizacion.Id_Cotizacion >0)
                 {
                     try
                     {
@@ -1169,7 +1194,7 @@ namespace Vista
                     }
                     catch { gastos = new List<DtoGastoVario>(); }
                 }
-                if (gastos.Count == 0) return;
+                if (gastos.Count ==0) return;
 
                 var sinAsignar = new List<DtoGastoVario>(gastos);
 
@@ -1182,13 +1207,13 @@ namespace Vista
                     return g;
                 };
 
-                var g1 = pickByDesc("Otros materiales 1") ?? (sinAsignar.Count > 0 ? sinAsignar[0] : null);
+                var g1 = pickByDesc("Otros materiales 1") ?? (sinAsignar.Count >0 ? sinAsignar[0] : null);
                 if (g1 != null && sinAsignar.Contains(g1)) sinAsignar.Remove(g1);
 
-                var g2 = pickByDesc("Otros materiales 2") ?? (sinAsignar.Count > 0 ? sinAsignar[0] : null);
+                var g2 = pickByDesc("Otros materiales 2") ?? (sinAsignar.Count >0 ? sinAsignar[0] : null);
                 if (g2 != null && sinAsignar.Contains(g2)) sinAsignar.Remove(g2);
 
-                var g3 = pickByDesc("Gastos varios") ?? (sinAsignar.Count > 0 ? sinAsignar[0] : null);
+                var g3 = pickByDesc("Gastos varios") ?? (sinAsignar.Count >0 ? sinAsignar[0] : null);
                 if (g3 != null && sinAsignar.Contains(g3)) sinAsignar.Remove(g3);
 
                 decimal total = 0m;
@@ -1216,7 +1241,7 @@ namespace Vista
                 if (lblTotal != null)
                 {
                     lblTotal.Text = $"${total:N2}";
-                    lblTotal.Visible = total > 0;
+                    lblTotal.Visible = total >0;
                 }
 
                 if (ViewState.CotizacionActual == null)
@@ -1246,12 +1271,12 @@ namespace Vista
         #region UI
         private void pnlPresupuesto_Paint(object sender, PaintEventArgs e)
         {
-            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White,1f);
         }
 
         private void pnlDescripcionMueble_Paint(object sender, PaintEventArgs e)
         {
-            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White, 1f);
+            ClsDibujarBordes.DibujarRectangulo(sender as Control, e, Color.White,1f);
         }
         #endregion
 
