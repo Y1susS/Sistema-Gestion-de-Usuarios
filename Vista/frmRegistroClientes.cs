@@ -538,6 +538,53 @@ namespace Vista
             }
         }
 
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim().ToLower();
+
+            // Si no hay texto, mostrar todos
+            if (string.IsNullOrEmpty(filtro))
+            {
+                MostrarClientes();
+                return;
+            }
+
+            try
+            {
+                // Tomamos todos los clientes
+                var clientes = _logicaClientes.ListarClientes();
+
+                // Filtramos por nombre, apellido, documento, email o teléfono
+                var filtrados = clientes.Where(c =>
+                    (c.Nombre?.ToLower().Contains(filtro) ?? false) ||
+                    (c.Apellido?.ToLower().Contains(filtro) ?? false) ||
+                    (c.NroDocumento?.ToLower().Contains(filtro) ?? false) ||
+                    (c.Email?.ToLower().Contains(filtro) ?? false) ||
+                    (c.Telefono?.ToLower().Contains(filtro) ?? false)
+                ).ToList();
+
+                // Limpiamos y cargamos solo los resultados filtrados
+                dataGridView1.Rows.Clear();
+
+                foreach (var cliente in filtrados)
+                {
+                    int rowIdx = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[rowIdx].Cells["Id_Cliente"].Value = cliente.Id_Cliente;
+                    dataGridView1.Rows[rowIdx].Cells["Nombre"].Value = cliente.Nombre;
+                    dataGridView1.Rows[rowIdx].Cells["Apellido"].Value = cliente.Apellido;
+                    dataGridView1.Rows[rowIdx].Cells["NroDocumento"].Value = cliente.NroDocumento;
+                    dataGridView1.Rows[rowIdx].Cells["Email"].Value = cliente.Email;
+                    dataGridView1.Rows[rowIdx].Cells["Telefono"].Value = cliente.Telefono;
+                    dataGridView1.Rows[rowIdx].Cells["FechaRegistro"].Value = cliente.FechaRegistro.ToString("dd/MM/yyyy");
+                    dataGridView1.Rows[rowIdx].Cells["Activo"].Value = cliente.Activo ? "Sí" : "No";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al filtrar clientes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void pnlBuscar_Paint(object sender, PaintEventArgs e)
         {
             using (Pen p = new Pen(Color.White, 1))
