@@ -784,6 +784,14 @@ namespace Vista
                 }
             }
 
+            // Bloqueo de venta si no hay stock suficiente o queda en cero en herrajes
+            string mensajeSinStock;
+            if (ValidarSinStockHerrajesParaVenta(out mensajeSinStock))
+            {
+                MessageBox.Show(mensajeSinStock, "Sin stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Alertar sobre stock de herrajes para venta
             AlertarStockHerrajesParaVenta();
 
@@ -1094,10 +1102,10 @@ namespace Vista
         {
             try
             {
-                // 1️⃣ Obtener los tipos de materiales disponibles
+                // Obtener los tipos de materiales disponibles
                 var tipos = clMaterial.ListarTiposMateriales() ?? new List<DtoTipoMaterial>();
 
-                // 2️⃣ Filtrar los tipos de materiales relevantes (herrajes)
+                // Filtrar los tipos de materiales relevantes (herrajes)
                 var idsTiposObjetivo = new HashSet<int>(
                     tipos
                         .Where(t =>
@@ -1111,7 +1119,7 @@ namespace Vista
                 if (idsTiposObjetivo.Count == 0)
                     return;
 
-                // 3️⃣ Calcular la cantidad requerida por material
+                // Calcular la cantidad requerida por material
                 var requeridosPorMaterial = new Dictionary<int, decimal>();
 
                 foreach (var detalle in this.detallesCotizacion)
@@ -1156,7 +1164,7 @@ namespace Vista
                 if (requeridosPorMaterial.Count == 0)
                     return;
 
-                // 4️⃣ Generar advertencias de stock
+                // Generar advertencias de stock
                 var advertencias = new List<string>();
 
                 foreach (var kv in requeridosPorMaterial)
@@ -1181,7 +1189,7 @@ namespace Vista
                     }
                 }
 
-                // 5️⃣ Mostrar advertencias si las hay
+                // Mostrar advertencias si las hay
                 if (advertencias.Count > 0)
                 {
                     var mensaje = string.Join(Environment.NewLine, advertencias.Take(10));
@@ -1199,5 +1207,106 @@ namespace Vista
             }
         }
 
+        private bool ValidarSinStockHerrajesParaVenta(out string mensaje)
+        {
+            mensaje = null;
+
+            try
+            {
+                // Obtener los tipos de materiales disponibles
+                var tipos = clMaterial.ListarTiposMateriales() ?? new List<DtoTipoMaterial>();
+
+                // Filtrar los tipos de materiales relevantes (herrajes)
+                var idsTiposObjetivo = new HashSet<int>(
+                    tipos
+                        .Where(t =>
+                            !string.IsNullOrWhiteSpace(t.NombreTipoMaterial) &&
+                            new[] { "bisagra", "bisagras", "manija", "manijas", "corredera", "correderas" }
+                                .Any(k => t.NombreTipoMaterial.Trim().ToLower().Contains(k))
+                        )
+                        .Select(t => t.IdTipoMaterial)
+                );
+
+                if (idsTiposObjetivo.Count == 0)
+                    return false;
+
+                // Calcular la cantidad requerida total por material
+                var requeridosPorMaterial = new Dictionary<int, decimal>();
+
+                foreach (var detalle in this.detallesCotizacion)
+                {
+                    if (detalle == null || detalle.IdCotizacion <= 0)
+                        continue;
+
+                    var cot = clCotizacion.ObtenerCotizacion(detalle.IdCotizacion);
+                    if (cot == null || cot.MaterialesVarios == null)
+                        continue;
+
+                    foreach (var mv in cot.MaterialesVarios)
+                    {
+                        if (mv == null)
+                            continue;
+
+                        var mat = clMaterial.ObtenerMaterial(mv.IdMaterial);
+                        int idTipo = 0;
+
+                        if (mat != null && mat.TipoMaterial != null && mat.TipoMaterial.IdTipoMaterial > 0)
+                        {
+                            idTipo = mat.TipoMaterial.IdTipoMaterial;
+                        }
+                        else if (mat != null && mat.Id_TipoMaterial.HasValue)
+                        {
+                            idTipo = mat.Id_TipoMaterial.Value;
+                        }
+
+                        if (!idsTiposObjetivo.Contains(idTipo))
+                            continue;
+
+                        // Calcular cantidad requerida total considerando cantidad del detalle
+                        decimal cantidadRequerida = mv.Cantidad * (detalle.Cantidad > 0 ? detalle.Cantidad : 1);
+
+                        if (requeridosPorMaterial.ContainsKey(mv.IdMaterial))
+                            requeridosPorMaterial[mv.IdMaterial] += cantidadRequerida;
+                        else
+                            requeridosPorMaterial[mv.IdMaterial] = cantidadRequerida;
+                    }
+                }
+
+                // Validar materiales sin stock suficiente
+                var sinStock = new List<string>();
+
+                foreach (var kv in requeridosPorMaterial)
+                {
+                    var mat = clMaterial.ObtenerMaterial(kv.Key);
+                    decimal stockActual = mat?.StockActual ?? 0m;
+                    decimal requerido = kv.Value;
+                    decimal restante = stockActual - requerido;
+
+                    // Bloquea si no hay stock o si la operación lo deja en cero o negativo
+                    if (stockActual <= 0 || restante <= 0)
+                    {
+                        var nombre = (mat != null && !string.IsNullOrWhiteSpace(mat.NombreMaterial))
+                            ? mat.NombreMaterial
+                            : $"Material ID {kv.Key}";
+
+                        sinStock.Add($"{nombre} (Disp: {stockActual}, Requerido: {requerido})");
+                    }
+                }
+
+                // Si hay materiales sin stock, generar mensaje y bloquear la venta
+                if (sinStock.Count > 0)
+                {
+                    var listado = string.Join(Environment.NewLine, sinStock.Take(20));
+                    mensaje = $"No se puede registrar la venta por falta de stock en los siguientes materiales:{Environment.NewLine}{listado}";
+                    return true;
+                }
+            }
+            catch
+            {
+                // Ante error en validación, no bloquear la venta
+            }
+
+            return false;
+        }
     }
 }
